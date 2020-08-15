@@ -1,5 +1,5 @@
 {
-  "name": "devter",
+  "name": "marcomadera",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,9 @@
   "dependencies": {
     "next": "9.5.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-markdown": "^4.3.1",
+    "react-syntax-highlighter": "^13.4.0",
+    "gray-matter": "^4.0.2"
   }
 }

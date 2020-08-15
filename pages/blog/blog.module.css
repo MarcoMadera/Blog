@@ -1,0 +1,62 @@
+.GenericBlog a:hover {
+  text-decoration: underline;
+  color: #007bffcb;
+}
+
+.GenericBlog span {
+  font-family: var(--general-font-family);
+}
+.GenericBlog code span {
+  font-family: monospace;
+}
+
+.GenericBlog ul li {
+  list-style-position: outside;
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+.GenericBlog ol li {
+  list-style-position: outside;
+  list-style-type: decimal;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+
+.GenericBlog img {
+  display: block;
+  margin: auto;
+  max-width: 99%;
+}
+.GenericBlog img[alt$="100px"] {
+  display: block;
+  height: 100px;
+}
+.GenericBlog img[alt$="ajustar izquierda 50px"] {
+  display: block;
+  height: 50px;
+  float: left;
+  margin: 10px;
+}
+
+.GenericBlog img[alt$="ajustar derecha"] {
+  display: block;
+  float: right;
+}
+.GenericBlog img[alt$="ajustar derecha 200px"] {
+  display: block;
+  float: right;
+  height: 300px;
+  margin: 10px;
+}
+
+.GenericBlog img[alt$="100px"] {
+  display: block;
+  height: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .GenericBlog {
+    align-items: flex-start;
+  }
+}
