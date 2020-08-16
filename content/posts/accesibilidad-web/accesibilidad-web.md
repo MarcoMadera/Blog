@@ -4,12 +4,10 @@ description: Las pautas de accesibilidad para el contenido para la web son recom
 date: 2020-07-20
 cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
 ---
-
-Segun el <a href="https://www.who.int/disabilities/world_report/2011/accessible_es.pdf" target="_blank" rel="noopener  noreferrer">Informe mundial sobre la discapacidad</a> publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.
+Segun el [Informe mundial sobre la discapacidad](https://www.who.int/disabilities/world_report/2011/accessible_es.pdf) publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.
 
 La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.
-
-<a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines</a> creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.
+[Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/) creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.
 
 &nbsp;
 
@@ -26,13 +24,13 @@ Una declaración de accesibilidad demuestra compromiso y proporciona detalles a 
 
 ## Principios WCAG
 
-1. <a href="https://www.w3.org/TR/WCAG21/#perceivable" target="_blank" rel="noopener  noreferrer">Perceptible</a>: Crear alternativas textuales para todo contenido no textual, facilitar a los usuarios ver y oír el contenido, poder presentar el contenido de diferentes formas sin perder información o estructura.
+1. [Perceptible](https://www.w3.org/TR/WCAG21/#perceivable): Crear alternativas textuales para todo contenido no textual, facilitar a los usuarios ver y oír el contenido, poder presentar el contenido de diferentes formas sin perder información o estructura.
 
-2. <a href="https://www.w3.org/TR/WCAG21/#operable" target="_blank" rel="noopener  noreferrer">Operable</a>: Que toda la funcionalidad esté disponible desde el teclado, que sea navegable, dar el tiempo suficiente para leer en elementos dinamicos y dar opciones de tiempo.
+2. [Operable](https://www.w3.org/TR/WCAG21/#operable): Que toda la funcionalidad esté disponible desde el teclado, que sea navegable, dar el tiempo suficiente para leer en elementos dinamicos y dar opciones de tiempo.
 
-3. <a href="https://www.w3.org/TR/WCAG21/#understandable" target="_blank" rel="noopener  noreferrer">Comprensible</a>: Ser legible, tamaños contrastes de textos, hacer la página predecible, tener instrucciones claras.
+3. [Comprensible](https://www.w3.org/TR/WCAG21/#understandable): Ser legible, tamaños contrastes de textos, hacer la página predecible, tener instrucciones claras.
 
-4. <a href="https://www.w3.org/TR/WCAG21/#robust" target="_blank" rel="noopener  noreferrer">Robusto</a>: Mantener compatibilidad con las aplicaciones de usuario actuales y futuras, navegadores y dispositivos, incluyendo las tecnologías asistivas y tener un buen performance.
+4. [Robusto](https://www.w3.org/TR/WCAG21/#robust): Mantener compatibilidad con las aplicaciones de usuario actuales y futuras, navegadores y dispositivos, incluyendo las tecnologías asistivas y tener un buen performance.
 
 Los criterios de WCAG comprenden 3 niveles de conformidad:
 * A el nivel más bajo.
@@ -58,7 +56,7 @@ Un buen HTML resuelve mucho de la accesibilidad con el uso correcto de tags y at
 
 ![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png "Chrome Accesibility") 
 
-##### No recomendado:
+### No recomendado:
 ```HTML
 <body>
   <div></div>
@@ -69,7 +67,7 @@ Un buen HTML resuelve mucho de la accesibilidad con el uso correcto de tags y at
 ```
 &nbsp;
 
-##### Recomendado:
+### Recomendado:
 ```HTML
 <body>
   <header></header>
@@ -80,7 +78,7 @@ Un buen HTML resuelve mucho de la accesibilidad con el uso correcto de tags y at
 ```
 &nbsp;&nbsp;
 
-#### Uso de texto alternativo en imagenes
+### Uso de texto alternativo en imagenes
 Esto le ayuda a los lectores de pantalla al momento de toparse con imagenes a leer la descripción.
 ```HTML
 <img src ="img src" alt="description">
@@ -88,7 +86,7 @@ Esto le ayuda a los lectores de pantalla al momento de toparse con imagenes a le
 
 &nbsp;
 
-#### Uso de scope en tablas
+### Uso de scope en tablas
 El uso del scope ayuda a los lectores de pantalla a seguir el orden correcto.
 ```HTML
  <table border="1">
@@ -306,7 +304,7 @@ Estos atributos se pueden añadir a cualquier etiqueta HTML para comunicar cambi
 
 - Estado: Comunican estados y cambios de estados en elementos que se suelen comunicar visualmente aria-hidden=“true” para que el lector de pantalla solo lea los elementos visibles en el estado actual de la página.
 
-## Estilos
+### Estilos
 Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las devtools de Google Chrome a través de las siguientes opciones: 
 
 Customize and control DevTools > More tools > Rendering > Emulate vision deficiencies
@@ -314,12 +312,12 @@ Customize and control DevTools > More tools > Rendering > Emulate vision deficie
 ![Emulate Vision](https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png "Emulate Vision")
 
 
-#### Color y contraste
+### Color y contraste
 Podemos utilizar las herramietas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
 
 ![Contrast tool](https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png "Contrast tool")
 
-#### Focus
+### Focus
 El enfoque da una guia visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
 <style>
 
@@ -334,7 +332,7 @@ El enfoque da una guia visual al usuario sobre los elementos interactivos. Si un
 
 &nbsp;&nbsp;
 
-#### Skip Links
+### Skip Links
 Es una <a href="https://www.w3.org/TR/WCAG20-TECHS/G1.html" target="_blank" rel="noopener  noreferrer">técnica</a> que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.
 
 ```HTML
@@ -401,13 +399,11 @@ document.body.addEventListener("keyup", e=> listenKeys(e));
 ## Test de accesibilidad
 Los test de accesibilidad ayudan a resolver problemas comunes, se pueden hacer a través de devtools con lighthouse o a través de otras plataformas.
 
-- <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">Axe core</a>
+- [Axe core](https://github.com/dequelabs/axe-core)
 
-- <a href="https://github.com/GoogleChrome/lighthouse" target="_blank" rel="noopener noreferrer">Lighthouse</a>
+- [Lighthouse](https://github.com/GoogleChrome/lighthouse)
 
-- <a href="https://github.com/avanslaars/cypress-axe" target="_blank" rel="noopener noreferrer">Cypress axe</a>
-
-
+- [Cypress axe](https://github.com/avanslaars/cypress-axe)
 
 
 ----

@@ -38,10 +38,10 @@ En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada let
 En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado, como por ejemplo '>=', mi mente por un instante tiene que procesar ambos caracteres por separado "mayor o igual" y si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.
 
 Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
-* <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="noopener noreferrer">Fira Code</a>
-* <a href="https://github.com/larsenwork/monoid" target="_blank" rel="noopener noreferrer">MonoId</a>
-* <a href="https://github.com/i-tu/Hasklig" target="_blank" rel="noopener noreferrer">Hasklig</a>
-* <a href="https://github.com/be5invis/Iosevka" target="_blank" rel="noopener noreferrer">Iosevka</a> 
+* [Fira Code](https://github.com/tonsky/FiraCode)
+* [MonoId](https://github.com/larsenwork/monoid)
+* [Hasklig](https://github.com/i-tu/Hasklig)
+* [Iosevka](https://github.com/be5invis/Iosevka)
 &nbsp;
 
 

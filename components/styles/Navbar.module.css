@@ -1,12 +1,13 @@
 .container {
-  position: relative;
   margin: 0 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
 }
-
+.title {
+  font-weight: 400;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -17,11 +18,54 @@
 .logo img {
   width: 40px;
   height: 40px;
+  margin-right: 10px;
 }
-.logo:hover {
-  transform: scale(1.2);
+.logo:hover img {
+  animation: jello-vertical 0.9s both;
 }
 
 .container nav a {
+  display: inline-block;
   margin: 5px;
+}
+.container nav a:hover {
+  margin: 5px;
+  color: #e74c3c;
+  animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes text-pop-up-top {
+  0% {
+    transform: translateY(0);
+    transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    transform: translateY(-2px);
+    transform-origin: 50% 50%;
+  }
+}
+
+@keyframes jello-vertical {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }

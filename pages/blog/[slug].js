@@ -1,11 +1,11 @@
 import Link from "next/link";
-import ReactMarkdown from "react-markdown/with-html";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Bio from "../../components/Bio";
 import styles from "./blog.module.css";
 import Seo from "../../components/Seo";
+import MarkDown from "../../components/MarkDown";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -27,27 +27,33 @@ export default function Post({ post, frontmatter, nextPost, previousPost }) {
           <h1>{frontmatter.title}</h1>
           <p>{frontmatter.date}</p>
         </header>
-        <ReactMarkdown
-          escapeHtml={false}
+        <MarkDown
           source={post.content}
-          renderers={{ code: CodeBlock }}
+          renderers={{
+            code: CodeBlock,
+          }}
         />
         <hr />
         <footer>
           <Bio />
         </footer>
       </article>
-      <nav>
+      <nav className={styles.nav}>
         {previousPost ? (
           <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
-            <a>← {previousPost.frontmatter.title}</a>
+            <a className={styles.navBtn}>
+              ← {previousPost.frontmatter.title}
+              <p>Blog anterior</p>
+            </a>
           </Link>
         ) : (
           <div />
         )}
         {nextPost ? (
           <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
-            <a>{nextPost.frontmatter.title} →</a>
+            <a className={styles.navBtn}>
+              {nextPost.frontmatter.title} →<p>Siguiente blog</p>
+            </a>
           </Link>
         ) : (
           <div />

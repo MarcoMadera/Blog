@@ -4,11 +4,11 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   return (
-    <div className={styles.container}>
+    <header className={styles.container}>
       <Link href="/">
         <a className={styles.logo}>
           <img src="/favicon-48x48.png" alt="logo" />
-          <h3>Marco Madera</h3>
+          <h3 className={styles.title}>Marco Madera</h3>
         </a>
       </Link>
       <nav>
@@ -29,7 +29,7 @@ const Navbar = () => {
           </a>
         </Link>
       </nav>
-    </div>
+    </header>
   );
 };
 

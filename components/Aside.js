@@ -8,9 +8,31 @@ const Aside = () => {
       <div className="">
         <img src="/profile.jpg" alt="" />
       </div>
-      <Github fill="#efda4c" />
-      <LinkedIn fill="#efda4c" />
-      <Twitter fill="#efda4c" />
+      <p>
+        ¡Hola! 👋 Soy Marco, autor del blog. Gracias por pasarte, cualquier cosa
+        me puedes contactar a través de las siguientes redes:
+      </p>
+      <a
+        href="https://github.com/MarcoMadera"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Github fill="rgb(185,122,87)" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/marcomadera/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LinkedIn fill="rgb(185,122,87)" />
+      </a>
+      <a
+        href="https://twitter.com/madera_marco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Twitter fill="rgb(185,122,87)" />
+      </a>
     </aside>
   );
 };
