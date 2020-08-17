@@ -17,7 +17,9 @@
     "react-markdown": "^4.3.1",
     "react-mathjax": "^1.0.1",
     "react-syntax-highlighter": "^13.4.0",
-    "remark-math": "^2.0.1",
+    "remark-math": "^2.0.1"
+  },
+  "devDependencies": {
     "rss": "^1.2.2"
   }
 }

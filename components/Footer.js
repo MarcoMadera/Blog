@@ -11,18 +11,18 @@ const Footer = () => {
           Sitio alternativo
         </a>
         <a
-          href="https://marcomadera.com/"
+          href="https://marcomadera.com/about"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sobre mi
+          Sobre mí
         </a>
         <a
-          href="https://marcomadera.com/#"
+          href="https://marcomadera.com/rss.xml"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Contacto
+          RSS
         </a>
         <span>Marco Madera &copy; 2020</span>
       </div>
