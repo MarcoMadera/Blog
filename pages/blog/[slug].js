@@ -15,12 +15,20 @@ const CodeBlock = ({ language, value }) => {
   );
 };
 
-export default function Post({ post, frontmatter, nextPost, previousPost }) {
+export default function Post({
+  post,
+  frontmatter,
+  currentPost,
+  nextPost,
+  previousPost,
+}) {
   return (
     <main className={styles.GenericBlog}>
       <Seo
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
+        cover={frontmatter.cover760}
+        url={`https://marcomadera.com/blog/${currentPost.slug}`}
       />
       <article>
         <header>
@@ -74,7 +82,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const postData = getPostBySlug(slug);
-
   if (!postData.previousPost) {
     postData.previousPost = null;
   }

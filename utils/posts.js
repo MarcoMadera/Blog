@@ -5,8 +5,8 @@ export const getPostsFolders = () => {
   // Get all posts folders located in `content/posts`
   const postsFolders = fs
     .readdirSync(`${process.cwd()}/content/posts`)
-    .map((folderName) => ({
-      filename: `${folderName}.md`,
+    .map((file) => ({
+      filename: `${file}`,
     }));
 
   return postsFolders;
@@ -25,10 +25,9 @@ export const getSortedPosts = () => {
 
   const posts = postFolders
     .map(({ filename }) => {
-      const slug = filename.replace(".md", "");
       // Get raw content from file
       const markdownWithMetadata = fs
-        .readFileSync(`content/posts/${slug}`)
+        .readFileSync(`content/posts/${filename}`)
         .toString();
 
       // Parse markdown, get frontmatter data, excerpt and content.
@@ -38,9 +37,7 @@ export const getSortedPosts = () => {
         ...data,
         date: getFormattedDate(data.date),
       };
-
-      // Remove .md file extension from post name
-
+      const slug = filename.replace(".md", "");
       return {
         slug,
         frontmatter,
@@ -75,7 +72,14 @@ export const getPostBySlug = (slug) => {
   const { frontmatter, content, excerpt } = posts[postIndex];
 
   const previousPost = posts[postIndex + 1];
+  const currentPost = posts[postIndex];
   const nextPost = posts[postIndex - 1];
 
-  return { frontmatter, post: { content, excerpt }, previousPost, nextPost };
+  return {
+    frontmatter,
+    post: { content, excerpt },
+    previousPost,
+    currentPost,
+    nextPost,
+  };
 };

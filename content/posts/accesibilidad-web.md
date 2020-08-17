@@ -3,6 +3,7 @@ title: Accesibilidad Web
 description: Las pautas de accesibilidad para el contenido para la web son recomendaciones para crear contenido web más accesible.
 date: 2020-07-20
 cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
+cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
 author: Marco Madera
 ---
 Segun el [Informe mundial sobre la discapacidad](https://www.who.int/disabilities/world_report/2011/accessible_es.pdf) publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.

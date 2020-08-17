@@ -1,9 +1,10 @@
-export default {
+module.exports = {
   siteMetadata: {
     title: "Marco Madera",
     author: {
       name: "Marco Madera",
       summary: "Desarrollador Frontend por afición",
+      email: "me@marcomadera.com",
     },
     description:
       "Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web",
@@ -11,6 +12,8 @@ export default {
     language: "es-MX",
     social: {
       twitter: "madera_marco",
+      gitHub: "MarcoMadera",
+      linkedIn: "marcomadera",
     },
   },
 };
