@@ -1,3 +1,38 @@
 .container p {
   text-align: justify;
 }
+
+@media screen and (min-width: 768px) {
+  .container {
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    margin: 15px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 620px) {
+  .container {
+    margin: 1rem 30px;
+    max-width: 510px;
+  }
+}
+@media screen and (min-width: 620px) and (max-width: 768px) {
+  .container {
+    max-width: 510px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    margin: 1rem auto;
+    max-width: 640px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 760px;
+  }
+}

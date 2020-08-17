@@ -1,16 +1,5 @@
-.footer {
-  position: relative;
-  background: #f2f2f2;
-  height: 80px;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-}
-
 @media screen and (min-width: 768px) {
-  .GenericBlog {
+  .container {
     align-items: flex-start;
   }
 }
