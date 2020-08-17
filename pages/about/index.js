@@ -3,7 +3,7 @@ import styles from "./About.module.css";
 const About = () => {
   return (
     <main className={styles.container}>
-      <Seo title="Sobre mí" />
+      <Seo title="Sobre mí" url="https://marcomadera.com/about" />
       <h1>Sobre mí</h1>
       <p>
         ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy auxiliar

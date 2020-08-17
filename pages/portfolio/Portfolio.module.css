@@ -1,21 +1,97 @@
-@media screen and (min-width: 768px) {
-  .container {
-    align-items: flex-start;
+.main {
+  padding: 0 50px;
+}
+
+.title {
+  text-align: center;
+}
+
+.article {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  transition: ease 0.4s;
+}
+.article:hover .button {
+  animation: heartbeat 1.5s ease-in-out 1s 2 both;
+}
+
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
   }
 }
 
-@media screen and (max-width: 425px) {
+.rightarticle {
+  flex-direction: row-reverse;
+}
+
+.img {
+  width: 400px;
+  height: 222px;
+  border-radius: 10px;
+}
+
+.section {
+  padding: 30px;
+}
+
+.link {
+  color: #e74c3c;
+}
+.link:hover {
+  text-decoration: underline;
+  color: #e74c3ccb;
+}
+
+.image {
+  width: 100%;
+}
+
+@media screen and (min-width: 0) and (max-width: 425px) {
+  .article {
+    flex-direction: column;
+  }
   .container {
     margin: 15px;
   }
+  .img {
+    width: auto;
+    min-width: 0;
+    max-width: 400px;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 620px) {
+  .article {
+    flex-direction: column;
+  }
   .container {
     margin: 1rem 30px;
     max-width: 510px;
   }
 }
 @media screen and (min-width: 620px) and (max-width: 768px) {
+  .article {
+    flex-direction: column;
+  }
   .container {
     max-width: 510px;
   }

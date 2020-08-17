@@ -17,21 +17,21 @@ const Aside = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Github fill="rgb(185,122,87)" />
+        <Github fill="#e74c3c" />
       </a>
       <a
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <LinkedIn fill="rgb(185,122,87)" />
+        <LinkedIn fill="#e74c3c" />
       </a>
       <a
         href={`https://twitter.com/${social.twitter}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Twitter fill="rgb(185,122,87)" />
+        <Twitter fill="#e74c3c" />
       </a>
     </aside>
   );

@@ -1,14 +1,15 @@
 import Head from "next/head";
 import { getSiteMetaData } from "../utils/helpers";
 
-export default function SEO({
+const Seo = ({
   title,
   description = "",
   cover = "https://marcomadera.com/logo512.png",
-  url = "https://marcomadera.com",
-}) {
+  url = "https://marcomadera.com/",
+}) => {
   const siteMetadata = getSiteMetaData();
   const metaDescription = description || siteMetadata.description;
+  const metaTitle = title || siteMetadata.title;
 
   return (
     <Head>
@@ -16,11 +17,7 @@ export default function SEO({
         {title} | {siteMetadata.title}
       </title>
       <meta name="description" content={metaDescription} />
-      <meta
-        name="og:title"
-        property="og:title"
-        content={title | siteMetadata.title}
-      />
+      <meta name="og:title" property="og:title" content={metaTitle} />
 
       <meta
         name="og:description"
@@ -28,27 +25,27 @@ export default function SEO({
         content={metaDescription}
       />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:creator" content={siteMetadata.social.twitter} />
 
-      <meta property="og:type" content="website" />
-      {url !== "https://marcomadera.com" ? (
+      {url !== siteMetadata.siteUrl ? (
         <>
+          <meta property="og:type" content="article" />
           <meta
             property="article:author"
-            content="https://www.facebook.com/marco.mad.lop"
+            content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
           />
           <meta
             property="article:publisher"
-            content="https://www.facebook.com/marco.mad.lop/"
+            content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
           />{" "}
         </>
       ) : (
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
       )}
 
-      <meta property="og:site_name" content="https://marcomadera.com" />
+      <meta property="og:site_name" content={siteMetadata.siteUrl} />
       <meta property="og:image" content={cover} />
       <meta property="og:url" content={url} />
       <meta property="twitter:image" content={cover} />
@@ -57,4 +54,6 @@ export default function SEO({
       <link rel="apple-touch-icon" href="/favicon-32x32.png" />
     </Head>
   );
-}
+};
+
+export default Seo;

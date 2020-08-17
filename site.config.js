@@ -14,6 +14,7 @@ module.exports = {
       twitter: "madera_marco",
       gitHub: "MarcoMadera",
       linkedIn: "marcomadera",
+      facebook: "marco.mad.lop",
     },
   },
 };

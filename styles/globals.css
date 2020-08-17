@@ -73,8 +73,8 @@ td {
 
 .btn.btn-primary:not(:disabled):not(.disabled):hover {
   color: #fff;
-  background-color: #e74c3c;
-  border-color: #e74c3c;
+  background-color: #e74d3ce3;
+  border-color: #e74d3ce3;
   text-decoration: none;
 }
 
