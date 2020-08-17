@@ -103,3 +103,32 @@
     align-items: flex-start;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .GenericBlog {
+    margin: 15px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 620px) {
+  .GenericBlog {
+    margin: 1rem 30px;
+    max-width: 510px;
+  }
+}
+@media screen and (min-width: 620px) and (max-width: 768px) {
+  .GenericBlog {
+    max-width: 510px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .GenericBlog {
+    margin: 1rem auto;
+    max-width: 640px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .GenericBlog {
+    max-width: 760px;
+  }
+}

@@ -1,5 +1,5 @@
 .container {
-  margin: 0 100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,5 +67,26 @@
   }
   100% {
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@media screen and (min-width: 0px) {
+  .container {
+    max-width: 510px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .container {
+    max-width: 510px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 760px;
   }
 }

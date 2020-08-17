@@ -1,6 +1,5 @@
 import Seo from "../../components/Seo";
 import styles from "./About.module.css";
-import Aside from "../../components/Aside";
 const About = () => {
   return (
     <>
@@ -19,7 +18,6 @@ const About = () => {
           con temas relacionados a la programación.
         </p>
       </main>
-      <Aside />
     </>
   );
 };

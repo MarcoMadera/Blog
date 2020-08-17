@@ -1,0 +1,19 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /search
+Crawl-delay: 2
+
+User-agent: OtherBot
+Allow: /allow-for-all-bots
+Allow: /allow-only-for-other-bot
+Disallow: /admin
+Disallow: /login
+Crawl-delay: 2
+
+User-agent: *
+Allow: /
+Disallow: /search
+Crawl-delay: 10
+Clean-param: ref /articles/
+Sitemap: https://marcomadera.com/sitemap.xml
+Host: https://vercel.com

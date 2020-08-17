@@ -1,7 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import RemarkMathPlugin from "remark-math";
 import MathJax from "react-mathjax";
-// import { BlockMath, InlineMath } from "react-katex";
 
 const _mapProps = (props) => ({
   ...props,
@@ -14,8 +13,6 @@ const _mapProps = (props) => ({
         {props.children}
       </a>
     ),
-    // math: ({ value }) => <BlockMath>{value}</BlockMath>,
-    // inlineMath: ({ value }) => <InlineMath>{value}</InlineMath>,
     math: ({ value }) => <MathJax.Node formula={value} />,
     inlineMath: ({ value }) => <MathJax.Node inline formula={value} />,
   },

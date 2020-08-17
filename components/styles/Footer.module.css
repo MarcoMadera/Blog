@@ -1,0 +1,9 @@
+.footer {
+  position: relative;
+  background: #f2f2f2;
+  height: 80px;
+}
+
+.container {
+  margin: 0 100px;
+}

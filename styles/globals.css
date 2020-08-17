@@ -4,14 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  /* background-image: radial-gradient(
-      rgba(145, 173, 192, 0.1) 1px,
-      transparent 1px
-    ),
-    radial-gradient(rgba(111, 163, 197, 0.1) 1px, transparent 1px);
-  background-position: 0 0, 25px 25px;
-  background-size: 50px 50px; */
-  background: #f8f8f8;
+  background: #fff;
 }
 
 a {
@@ -23,13 +16,6 @@ a {
   box-sizing: border-box;
 }
 
-/* main,
-footer {
-  float: left;
-  width: 800px;
-  margin-left: 100px;
-} */
-
 :root {
   --navbar-color: #aaaaaa;
   --general-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -37,9 +23,7 @@ footer {
 }
 
 main {
-  margin: 1rem auto;
-  padding: 0 0 50px 0;
-  text-align: justify;
+  min-height: calc(100vh - 160px - 2rem);
 }
 
 table {
@@ -101,33 +85,4 @@ td {
 .btn.btn-primary:not(:disabled):not(.disabled):focus {
   box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.2);
   outline: none;
-}
-
-@media screen and (max-width: 425px) {
-  main {
-    margin: 15px;
-  }
-}
-@media screen and (min-width: 425px) and (max-width: 620px) {
-  main {
-    margin: 1rem 30px;
-    max-width: 510px;
-  }
-}
-@media screen and (min-width: 620px) and (max-width: 768px) {
-  main {
-    max-width: 510px;
-  }
-}
-@media screen and (min-width: 768px) {
-  main {
-    margin: 1rem auto;
-    max-width: 640px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  main {
-    max-width: 760px;
-  }
 }
