@@ -20,3 +20,6 @@
 .aside svg {
   margin: 0 10px;
 }
+.aside svg:hover {
+  fill: #e74c3ccb;
+}

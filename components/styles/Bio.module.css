@@ -6,4 +6,5 @@
 
 .Bio {
   display: flex;
+  align-items: center;
 }

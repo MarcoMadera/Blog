@@ -113,13 +113,21 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .navBtn {
-  background-color: rgba(154, 217, 234, 0.438);
-  padding: 10px 30px;
+  border: 3px solid #e74c3ccb;
+  background: white;
+  padding: 7px 10px;
+  font-size: 14px;
+  text-align: center;
+  align-self: stretch;
 }
-
+.navBtn p {
+  font-size: 16px;
+  margin: 0;
+}
 @media screen and (min-width: 0px) {
   .GenericBlog {
     grid-template-columns: 100%;
@@ -134,6 +142,14 @@
   }
   .article {
     max-width: 100%;
+  }
+  .navBtn {
+    width: 150px;
+  }
+}
+@media screen and (min-width: 400px) {
+  .navBtn {
+    width: 170px;
   }
 }
 @media screen and (min-width: 500px) {
@@ -150,6 +166,9 @@
   .article {
     width: auto;
     order: 2;
+  }
+  .navBtn {
+    width: 230px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -170,6 +189,9 @@
   }
   .article {
     max-width: 510px;
+  }
+  .navBtn {
+    width: 220px;
   }
 }
 @media screen and (min-width: 1024px) {

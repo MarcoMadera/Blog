@@ -75,8 +75,8 @@ export default function Post({
           {previousPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
               <a className={styles.navBtn}>
-                ← {previousPost.frontmatter.title}
-                <p>Blog anterior</p>
+                <p>← Blog anterior</p>
+                {previousPost.frontmatter.title}
               </a>
             </Link>
           ) : (
@@ -85,18 +85,15 @@ export default function Post({
           {nextPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
               <a className={styles.navBtn}>
-                {nextPost.frontmatter.title} →<p>Siguiente blog</p>
+                <p>Siguiente blog →</p>
+                {nextPost.frontmatter.title}
               </a>
             </Link>
           ) : (
             <div />
           )}
         </nav>
-        {loaded && (
-          <>
-            <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />
-          </>
-        )}
+        {loaded && <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />}
       </div>
       <Newsletter />
     </main>
