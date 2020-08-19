@@ -3,7 +3,7 @@ import slugify from "react-slugify";
 import styles from "./styles/Contents.module.css";
 const Contents = ({ content, post }) => {
   return (
-    <section className={styles.aside}>
+    <aside className={styles.aside}>
       <div className={styles.container}>
         <h3>Tabla de contenido</h3>
         {content.map((element, i) => (
@@ -12,7 +12,7 @@ const Contents = ({ content, post }) => {
           </Link>
         ))}
       </div>
-    </section>
+    </aside>
   );
 };
 

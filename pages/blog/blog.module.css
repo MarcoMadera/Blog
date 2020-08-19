@@ -121,17 +121,18 @@
 
 @media screen and (min-width: 0px) {
   .GenericBlog {
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
   }
   .GenericBlog > aside {
-    width: auto;
+    width: 100%;
     order: 1;
   }
   .article {
+    width: 100%;
     order: 2;
   }
   .article {
-    max-width: auto;
+    max-width: 100%;
   }
 }
 @media screen and (min-width: 500px) {
