@@ -152,7 +152,7 @@
     order: 2;
   }
 }
-@media screen and (min-width: 876px) {
+@media screen and (min-width: 1024px) {
   .article {
     max-width: 640px;
   }
