@@ -6,6 +6,9 @@ import Bio from "../../components/Bio";
 import styles from "./blog.module.css";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
+import toc from "markdown-toc-unlazy";
+import Contents from "../../components/Contents";
+import Newsletter from "../../components/Newsletter";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -13,6 +16,13 @@ const CodeBlock = ({ language, value }) => {
       {value}
     </SyntaxHighlighter>
   );
+};
+
+const contentAside = (content, post) => {
+  const result = toc(content)
+    .json.filter(({ lvl }) => lvl === 2)
+    .map(({ content }) => content);
+  return <Contents content={result} post={post} />;
 };
 
 export default function Post({
@@ -30,43 +40,47 @@ export default function Post({
         cover={frontmatter.cover760}
         url={`https://marcomadera.com/blog/${currentPost.slug}`}
       />
-      <article>
-        <header>
-          <h1>{frontmatter.title}</h1>
-          <p>{frontmatter.date}</p>
-        </header>
-        <MarkDown
-          source={post.content}
-          renderers={{
-            code: CodeBlock,
-          }}
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
-      <nav className={styles.nav}>
-        {previousPost ? (
-          <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
-            <a className={styles.navBtn}>
-              ← {previousPost.frontmatter.title}
-              <p>Blog anterior</p>
-            </a>
-          </Link>
-        ) : (
-          <div />
-        )}
-        {nextPost ? (
-          <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
-            <a className={styles.navBtn}>
-              {nextPost.frontmatter.title} →<p>Siguiente blog</p>
-            </a>
-          </Link>
-        ) : (
-          <div />
-        )}
-      </nav>
+      {contentAside(post.content, currentPost.slug)}
+      <div className={styles.article}>
+        <article>
+          <header>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.date}</p>
+          </header>
+          <MarkDown
+            source={post.content}
+            renderers={{
+              code: CodeBlock,
+            }}
+          />
+          <hr />
+          <footer>
+            <Bio />
+          </footer>
+        </article>
+        <nav className={styles.nav}>
+          {previousPost ? (
+            <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
+              <a className={styles.navBtn}>
+                ← {previousPost.frontmatter.title}
+                <p>Blog anterior</p>
+              </a>
+            </Link>
+          ) : (
+            <div />
+          )}
+          {nextPost ? (
+            <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
+              <a className={styles.navBtn}>
+                {nextPost.frontmatter.title} →<p>Siguiente blog</p>
+              </a>
+            </Link>
+          ) : (
+            <div />
+          )}
+        </nav>
+      </div>
+      <Newsletter />
     </main>
   );
 }

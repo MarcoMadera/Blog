@@ -1,3 +1,24 @@
+.GenericBlog {
+  display: grid;
+  grid-template-columns: 240px auto 240px;
+  grid-gap: 2em;
+  justify-content: center;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+
+.GenericBlog h1 {
+  font-size: 1.8em;
+}
+.GenericBlog > aside {
+  order: 1;
+}
+.article {
+  order: 2;
+}
+.GenericBlog > form {
+  order: 3;
+}
 .GenericBlog a {
   /* text-decoration: underline; */
   color: #e74c3c;
@@ -98,37 +119,59 @@
   padding: 10px 30px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 0px) {
   .GenericBlog {
-    align-items: flex-start;
+    grid-template-columns: auto;
+  }
+  .GenericBlog > aside {
+    width: auto;
+    order: 1;
+  }
+  .article {
+    order: 2;
+  }
+  .article {
+    max-width: auto;
   }
 }
-
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 500px) {
+  .article {
+    max-width: auto;
+  }
   .GenericBlog {
-    margin: 15px;
+    grid-template-columns: auto;
+  }
+  .GenericBlog > aside {
+    width: auto;
+    order: 1;
+  }
+  .article {
+    width: auto;
+    order: 2;
   }
 }
-@media screen and (min-width: 425px) and (max-width: 620px) {
-  .GenericBlog {
-    margin: 1rem 30px;
-    max-width: 510px;
-  }
-}
-@media screen and (min-width: 620px) and (max-width: 768px) {
-  .GenericBlog {
-    max-width: 510px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .GenericBlog {
-    margin: 1rem auto;
+@media screen and (min-width: 876px) {
+  .article {
     max-width: 640px;
   }
-}
-
-@media screen and (min-width: 1024px) {
   .GenericBlog {
+    grid-template-columns: 240px auto 240px;
+  }
+  .GenericBlog > aside {
+    order: 1;
+  }
+  .article {
+    order: 2;
+  }
+  .GenericBlog > form {
+    order: 3;
+  }
+  .article {
+    max-width: 510px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .article {
     max-width: 760px;
   }
 }

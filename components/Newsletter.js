@@ -43,7 +43,7 @@ const Newsletter = () => {
           ¡Subscribete al Newsletter!
         </label>
         <p className={styles.paragraph}>
-          Recibiras actualizaciones del blog con temas de programación
+          Recibirás actualizaciones del blog con temas de programación
         </p>
         <input
           type="email"

@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import RemarkMathPlugin from "remark-math";
 import MathJax from "react-mathjax";
+import slugify from "react-slugify";
 
 const _mapProps = (props) => ({
   ...props,
@@ -13,6 +14,11 @@ const _mapProps = (props) => ({
         {props.children}
       </a>
     ),
+    heading: (props) => {
+      return (
+        <h2 id={slugify(props.children[0].props.value)}>{props.children}</h2>
+      );
+    },
     math: ({ value }) => <MathJax.Node formula={value} />,
     inlineMath: ({ value }) => <MathJax.Node inline formula={value} />,
   },

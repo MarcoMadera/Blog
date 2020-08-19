@@ -49,7 +49,7 @@ Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
 
 Descarga e instala la fuente que desees como cualquier otra fuente.
 
-#### Habilita las ligaduras en tu editor
+## Habilita las ligaduras en tu editor
 La gran mayoría de editores permiten el uso de ligaduras.  
 Para activar las ligaduras en Visual Studio Code dirígete a (File > Preferences > User Settings) en la sección del editor de texto, fuentes y editar settings.json
 	

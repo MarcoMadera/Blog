@@ -14,7 +14,7 @@ const Home = ({ posts }) => {
         {posts.map(
           ({ frontmatter: { title, description, date, cover }, slug }) => (
             <article key={slug} className={styles.article}>
-              <Link href={"/blog/[slug]"} as={`/blog/${slug}`}>
+              <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
                 <a>
                   <header className={styles.header}>
                     <section className={styles.content}>
