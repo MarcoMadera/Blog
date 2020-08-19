@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles/Footer.module.css";
 const Footer = () => {
   return (
@@ -10,13 +11,9 @@ const Footer = () => {
         >
           Sitio alternativo
         </a>
-        <a
-          href="https://marcomadera.com/about"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Sobre mí
-        </a>
+        <Link href="https://marcomadera.com/about">
+          <a>Sobre mí</a>
+        </Link>
         <a
           href="https://marcomadera.com/rss.xml"
           target="_blank"

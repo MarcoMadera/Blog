@@ -48,6 +48,7 @@
   width: 400px;
   height: 222px;
   border-radius: 10px;
+  transition: ease 0.3s;
 }
 
 .section {
@@ -64,6 +65,13 @@
 
 .image {
   width: 100%;
+  transition: ease 0.3s;
+}
+
+.img:hover,
+.image:hover {
+  position: static;
+  transform: scale(1.1);
 }
 
 @media screen and (min-width: 0) and (max-width: 425px) {
