@@ -3,7 +3,6 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Bio from "../../components/Bio";
-import styles from "./blog.module.css";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
 import toc from "markdown-toc-unlazy";
@@ -11,6 +10,7 @@ import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
 import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
+import styles from "./blog.module.css";
 
 const CodeBlock = ({ language, value }) => {
   return (

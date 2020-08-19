@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { getSiteMetaData } from "../utils/helpers";
+import styles from "./styles/Aside.module.css";
 
 const Seo = ({
   title,

@@ -1,7 +1,7 @@
-import "../styles/globals.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import Layout from "../components/Layout";
+import "../styles/globals.css";
 
 const App = ({ Component, pageProps }) => {
   Router.events.on("routeChangeStart", () => NProgress.start());

@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Head from "next/head";
+import styles from "./styles/Aside.module.css";
 const Layout = ({ children }) => {
   return (
     <>

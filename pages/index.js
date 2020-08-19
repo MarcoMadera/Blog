@@ -2,8 +2,8 @@ import Link from "next/link";
 import Aside from "../components/Aside";
 import Seo from "../components/Seo";
 import { getSortedPosts } from "../utils/posts";
-import styles from "./Home.module.css";
 import Newsletter from "../components/Newsletter";
+import styles from "./Home.module.css";
 const Home = ({ posts }) => {
   return (
     <main className={styles.container}>
