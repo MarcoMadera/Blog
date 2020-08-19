@@ -9,6 +9,8 @@ import MarkDown from "../../components/MarkDown";
 import toc from "markdown-toc-unlazy";
 import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
+import { useState, useEffect } from "react";
+import { FastCommentsCommentWidget } from "fastcomments-react";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -32,6 +34,17 @@ export default function Post({
   nextPost,
   previousPost,
 }) {
+  const [loaded, setloaded] = useState(false);
+  const [frame, setframe] = useState(undefined);
+
+  useEffect(() => {
+    setloaded(true);
+    setframe(document.getElementById("the-iframe") || undefined);
+    const style = document.createElement("style");
+    style.textContent =
+      "body {" + "  background-color: red;" + "  background-image: gray;" + "}";
+    frame && frame.contentDocument.head.appendChild(style);
+  }, [frame]);
   return (
     <main className={styles.GenericBlog}>
       <Seo
@@ -79,6 +92,11 @@ export default function Post({
             <div />
           )}
         </nav>
+        {loaded && (
+          <>
+            <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />
+          </>
+        )}
       </div>
       <Newsletter />
     </main>

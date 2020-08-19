@@ -6,6 +6,8 @@
   padding: 20px;
   text-align: center;
   margin-bottom: 50px;
+  background: white;
+  position: relative;
 }
 
 .label {
@@ -32,8 +34,9 @@
   box-shadow: 1px 0 6px 2px #e74d3c57;
 }
 
-@media screen and (min-width: 0px) and (max-width: 876px) {
+@media screen and (min-width: 0px) and (max-width: 1024px) {
   .form {
+    margin-top: -220px;
     width: 100%;
   }
 }

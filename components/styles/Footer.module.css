@@ -1,7 +1,6 @@
 .footer {
   position: relative;
   background: #f2f2f2;
-  height: 80px;
 }
 
 .footer {
@@ -40,9 +39,12 @@
     max-width: 640px;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .container {
     max-width: 760px;
+  }
+  .footer {
+    height: 300px;
+    margin-top: -230px;
   }
 }
