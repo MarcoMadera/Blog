@@ -5,6 +5,9 @@ date: 2020-06-08
 cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
 cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
 author: Marco Madera
+tag:
+- VSCode
+- Personalización
 ---
 
 Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.

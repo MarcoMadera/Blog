@@ -5,6 +5,9 @@ date: 2020-05-20
 cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg
 cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg
 author: Marco Madera
+tag:
+- JavaScript
+- Estadística
 ---
 
 Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript, que surge tras programar el paquete de node [random-messages-names](https://github.com/MarcoMadera/random-messages-names) el cual como su nombre lo dice retorna mensajes y nombres aleatorios. Tiene 1000 apellidos y 2788 nombres diferentes. Al estar probando me di cuenta que había veces que ocurrían rachas seguidas de nombres repetidos, 3 o 4 veces el mismo nombre, lo que me dio por comprobar si la aleatoriedad de Math.Random() es legítima a través de unas pruebas estadísticas.

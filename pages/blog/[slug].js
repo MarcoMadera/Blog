@@ -35,16 +35,10 @@ export default function Post({
   previousPost,
 }) {
   const [loaded, setloaded] = useState(false);
-  const [frame, setframe] = useState(undefined);
 
   useEffect(() => {
     setloaded(true);
-    setframe(document.getElementById("the-iframe") || undefined);
-    const style = document.createElement("style");
-    style.textContent =
-      "body {" + "  background-color: red;" + "  background-image: gray;" + "}";
-    frame && frame.contentDocument.head.appendChild(style);
-  }, [frame]);
+  }, []);
   return (
     <main className={styles.GenericBlog}>
       <Seo
@@ -102,7 +96,6 @@ export default function Post({
 
 export async function getStaticPaths() {
   const paths = getPostsSlugs();
-
   return {
     paths,
     fallback: false,

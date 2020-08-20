@@ -4,6 +4,7 @@ import Seo from "../components/Seo";
 import { getSortedPosts } from "../utils/posts";
 import Newsletter from "../components/Newsletter";
 import styles from "./Home.module.css";
+import slugify from "react-slugify";
 const Home = ({ posts }) => {
   return (
     <main className={styles.container}>
@@ -12,7 +13,10 @@ const Home = ({ posts }) => {
       <section className={styles.section}>
         <h4>Últimos artículos</h4>
         {posts.map(
-          ({ frontmatter: { title, description, date, cover }, slug }) => (
+          ({
+            frontmatter: { title, description, date, cover, tag, author },
+            slug,
+          }) => (
             <article key={slug} className={styles.article}>
               <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
                 <a>
@@ -20,7 +24,7 @@ const Home = ({ posts }) => {
                     <section className={styles.content}>
                       <h3>{title}</h3>
                       <p>
-                        {description}..
+                        {description}..{" "}
                         <span className={styles.readMore}>Leer más</span>
                       </p>
                     </section>
@@ -33,7 +37,21 @@ const Home = ({ posts }) => {
                 </a>
               </Link>
               <footer className={styles.footer}>
-                <span>{date}</span>
+                <div>
+                  {tag.length &&
+                    tag.map((tag) => (
+                      <Link
+                        href={"/blog/tag/[slug]/"}
+                        as={`/blog/tag/${slugify(tag)}/`}
+                        key={tag}
+                      >
+                        <a className={styles.tag}>#{tag}</a>
+                      </Link>
+                    ))}
+                </div>
+                <span>
+                  {author} | {date}
+                </span>
               </footer>
             </article>
           )

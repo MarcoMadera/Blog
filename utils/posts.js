@@ -1,5 +1,6 @@
 import matter from "gray-matter";
 import fs from "fs";
+import slugify from "react-slugify";
 
 export const getPostsFolders = () => {
   // Get all posts folders located in `content/posts`
@@ -36,6 +37,7 @@ export const getSortedPosts = () => {
       const frontmatter = {
         ...data,
         date: getFormattedDate(data.date),
+        tag: data.tag,
       };
       const slug = filename.replace(".md", "");
       return {
@@ -60,7 +62,20 @@ export const getPostsSlugs = () => {
       slug: filename.replace(".md", ""),
     },
   }));
-
+  return paths;
+};
+export const getPostsTags = () => {
+  const posts = getSortedPosts();
+  let paths = [];
+  posts.map(({ frontmatter }) =>
+    frontmatter.tag.forEach((tag) =>
+      paths.push({
+        params: {
+          slug: slugify(tag),
+        },
+      })
+    )
+  );
   return paths;
 };
 
@@ -70,7 +85,6 @@ export const getPostBySlug = (slug) => {
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
 
   const { frontmatter, content, excerpt } = posts[postIndex];
-
   const previousPost = posts[postIndex + 1];
   const currentPost = posts[postIndex];
   const nextPost = posts[postIndex - 1];
@@ -81,5 +95,16 @@ export const getPostBySlug = (slug) => {
     previousPost,
     currentPost,
     nextPost,
+  };
+};
+export const getPostsByTag = (slug) => {
+  const posts = getSortedPosts();
+  const postsByTag = posts.filter(({ frontmatter }) =>
+    slugify(frontmatter.tag).includes(slug)
+  );
+
+  return {
+    postsByTag,
+    slug,
   };
 };
