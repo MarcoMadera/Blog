@@ -5,13 +5,40 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #fff;
-  /* width: 100vw;
-  overflow-x: hidden; */
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+a::selection {
+  background: #e74d3c85;
+  color: #705509;
+}
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+label::selection,
+span::selection,
+p::selection,
+li::selection,
+iframe::selection,
+b::selection,
+ul::selection,
+input::selection,
+textarea::selection,
+img::selection,
+h1::selection {
+  background: #e74d3c85;
+}
+strong::selection {
+  background: #e74d3cc2;
 }
 
 * {

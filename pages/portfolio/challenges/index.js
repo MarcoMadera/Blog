@@ -1,8 +1,13 @@
 import styles from "../Portfolio.module.css";
 import Challenge from "../../../components/Challenge";
+import Seo from "../../../components/Seo";
 const challenges = () => {
   return (
     <main className={styles.container} id="main">
+      <Seo
+        title="Portafolio - Challenges"
+        url="https://marcomadera.com/challenges"
+      />
       <h1>Desafios frontend</h1>
       <p>
         La mejor forma de mejorar en la creación de sitios web es seguir

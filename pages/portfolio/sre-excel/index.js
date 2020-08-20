@@ -1,8 +1,13 @@
 import styles from "../Portfolio.module.css";
+import Seo from "../../../components/Seo";
 
 const sre = () => {
   return (
     <main className={styles.container} id="main">
+      <Seo
+        title="Portafolio - SRE Excel"
+        url="https://marcomadera.com/sre-excel"
+      />
       <h1>Registro de trámites en Excel</h1>
       <p>
         Dashboard funcional en excel programado con visual basic for

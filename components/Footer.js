@@ -11,8 +11,8 @@ const Footer = () => {
         >
           Sitio alternativo
         </a>
-        <Link href="https://marcomadera.com/about">
-          <a>Sobre mí</a>
+        <Link href="/newsletter">
+          <a>Newsletter</a>
         </Link>
         <a
           href="https://marcomadera.com/rss.xml"
@@ -20,6 +20,13 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           RSS
+        </a>
+        <a
+          href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.es"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Licencia
         </a>
         <span>Marco Madera &copy; 2020</span>
       </div>

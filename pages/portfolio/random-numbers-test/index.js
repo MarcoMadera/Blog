@@ -1,8 +1,13 @@
 import styles from "../Portfolio.module.css";
 import Link from "next/link";
+import Seo from "../../../components/Seo";
 const Random = () => {
   return (
     <main className={styles.container} id="main">
+      <Seo
+        title="Portafolio - Números Pseudo Aleatorios"
+        url="https://marcomadera.com/random-numbers-test"
+      />
       <h1>Pruebas para números aleatorios</h1>
       <p>
         Herramienta para verificar números aleatorios, se puede encontrar

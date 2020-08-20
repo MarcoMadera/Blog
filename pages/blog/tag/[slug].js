@@ -4,10 +4,15 @@ import styles from "../../Home.module.css";
 import slugify from "react-slugify";
 import Aside from "../../../components/Aside";
 import Newsletter from "../../../components/Newsletter";
+import Seo from "../../../components/Seo";
 
 const tag = ({ postsByTag, slug }) => {
   return (
     <main className={styles.container}>
+      <Seo
+        title={`Blog tag ${slug.charAt(0).toUpperCase() + slug.slice(1)}`}
+        url={`https://marcomadera.com/${slug}`}
+      />
       <Aside />
       <section className={styles.section}>
         <h4>Tag {slug.charAt(0).toUpperCase() + slug.slice(1)}</h4>
