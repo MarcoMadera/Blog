@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 20 Aug 2020 19:44:32 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[Accesibilidad Web]]></title><description><![CDATA[<p>Segun el <a href="https://www.who.int/disabilities/world_report/2011/accessible_es.pdf">Informe mundial sobre la discapacidad</a> publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 20 Aug 2020 21:19:58 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[RSS]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_120/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha">
+Algo que siempre veía en los sitios era el icono típico de RSS, nunca le presté importancia hasta ahora que lo estoy implementando en el sitio. Cuando miraba una página con él, me daba la sensación de que no estaba actualizada o que usaba tecnologías del pasado, porque realmente el icono luce antiguo y nunca me di la tarea de entender que significada ni para qué servía; y aquí estoy ahora implementandolo.</p>
+<h2>¿Qué es RSS?</h2>
+<p>RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica, de esta forma los usuarios se pueden suscribir al feed y dar seguimiento al sitio sin la necesidad de tener que visitarlo para ver si ocurrió una actualización.</p>
+<p>Pero que maravilla! ya no tendré mi buzón lleno de newsletter a los que me he suscrito durante mucho tiempo y he omitido desuscribirme.</p>
+<h2>¿Cómo subscribirse?</h2>
+<p>Primero lo que se necesita es que la página deseada tenga implementada la funcionalidad de que se actualice, lo cual no es el caso de muchos sitios, se puede buscar en la propia página algún <strong>enlace</strong> con el nombre de RSS, Feed, o el distinguible icono. Una vez localizado el enlace puede que te subscriba directamente si tienes un lector, si no es el caso, copias el enlace y lo pegas en el <strong>lector de RSS</strong>. Existe una gran cantidad de lectores, de los lectores online que más me llamaron la atención fueron estos:</p>
+<ul>
+<li><a href="https://feedreader.com/">Feed Reader</a></li>
+<li><a href="https://feedly.com/">Feedly</a></li>
+<li><a href="https://www.inoreader.com/">Inoreader</a></li>
+</ul>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597948860/Blog/4/subscription-feedly_cen18m.png" alt="Subscription Feedly">
+   👆 En este caso solo necesité de la dirección del sitio para que lo detectará automáticamente.</p>
+<p> </p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597947959/Blog/4/ejemplo-rss-feedly_lyldsf.png" alt="Feedly presentación">
+Vista de revista, puedes marcar los que ya has leído para que te aparezcan los últimos, guardarlos para leerlos después y muchas otras funcionalidades que te proporciona esta herramienta.</p>
+<p> </p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_780/v1597947960/Blog/4/ejemplo-rss-feedreader-lectura_wpqjz2.png" alt="Modo lectura Feedreader">
+Ahora con Feedreader en modo lectura</p>
+<hr>
+<h2>Ventajas</h2>
+<ul>
+<li>Te ahorra el tiempo de visitar las páginas</li>
+<li>Tu decides a que sitios subscribirte</li>
+<li>No necesitas registrarte a ningún sitio</li>
+<li>Te puedes desuscribir fácilmente</li>
+</ul>
+<h2>Desventajas</h2>
+<ul>
+<li>No es muy común su uso, los usuarios pueden preferir recibir emails a tener que ir a un lector</li>
+<li>No hay un feedback del usuario</li>
+<li>Algunos elementos pueden que no se muestren correctamente a lo esperado</li>
+</ul>
+<h2>Extracto</h2>
+<p>El sitio ya tiene RSS! si te subscribes a él puede que no veas algunos elementos correctamente, ya que puede depender del lector si soporta estilos dentro o no, pero de igual forma puedes dar click al enlace para que te direccione a la página del blog y verlo de la forma esperada. Te recuerdo que también existe la opción de recibir emails a través del Newsletter si no te agrada esta forma de recibir actualizaciones.</p>
+<h2>Conclusión</h2>
+<p>RSS es una gran herramienta para el blog como alternativa al newsletter, para quienes lo prefieran usar, aún así yo no me veo usando la funcionalidad, se me hace mucho más cómodo que me llegue un email aún teniendo una cantidad considerable de subscripciones a tener que entrar a un lector a revisar las actualizaciones.</p>
+]]></description><link>https://marcomadera.com/blog/rss</link><guid isPermaLink="true">https://marcomadera.com/blog/rss</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Thu, 20 Aug 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Accesibilidad Web]]></title><description><![CDATA[<p>Segun el <a href="https://www.who.int/disabilities/world_report/2011/accessible_es.pdf">Informe mundial sobre la discapacidad</a> publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.</p>
 <p>La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.
 <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/">Web Content Accessibility Guidelines</a> creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.</p>
 <p> </p>
@@ -544,42 +582,4 @@ p=0.7521 (valor de la tabla de chi cuadrada)</p>
 <h2>¿Tus números son aleatorios?</h2>
 <p>Puedes probar <a href="https://test-for-random-numbers.marcomadera.vercel.app/">esta herramienta</a> de abajo para evaluar tus números aleatorios. Ya que sabes los procedimientos de las pruebas de números aleatorios, te invito a contribuir en <a href="https://github.com/MarcoMadera/Test-for-random-numbers">este repositorio</a> donde encontrarás el código que he estado escribiendo al mismo tiempo de escribir este post.</p>
 <p>Introduce números que sean entre 0 y 1 separados por espacios, intenta cuantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.</p>
-]]></description><link>https://marcomadera.com/blog/numeros-pseudo-aleatorios</link><guid isPermaLink="true">https://marcomadera.com/blog/numeros-pseudo-aleatorios</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[RSS]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_120/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha">
-Algo que siempre veía en los sitios era el icono típico de RSS, nunca le presté importancia hasta ahora que lo estoy implementando en el sitio. Cuando miraba una página con él, me daba la sensación de que no estaba actualizada o que usaba tecnologías del pasado, porque realmente el icono luce antiguo y nunca me di la tarea de entender que significada ni para qué servía; y aquí estoy ahora implementandolo.</p>
-<h2>¿Qué es RSS?</h2>
-<p>RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica, de esta forma los usuarios se pueden suscribir al feed y dar seguimiento al sitio sin la necesidad de tener que visitarlo para ver si ocurrió una actualización.</p>
-<p>Pero que maravilla! ya no tendré mi buzón lleno de newsletter a los que me he suscrito durante mucho tiempo y he omitido desuscribirme.</p>
-<h2>¿Cómo subscribirse?</h2>
-<p>Primero lo que se necesita es que la página deseada tenga implementada la funcionalidad de que se actualice, lo cual no es el caso de muchos sitios, se puede buscar en la propia página algún <strong>enlace</strong> con el nombre de RSS, Feed, o el distinguible icono. Una vez localizado el enlace puede que te subscriba directamente si tienes un lector, si no es el caso, copias el enlace y lo pegas en el <strong>lector de RSS</strong>. Existe una gran cantidad de lectores, de los lectores online que más me llamaron la atención fueron estos:</p>
-<ul>
-<li><a href="https://feedreader.com/">Feed Reader</a></li>
-<li><a href="https://feedly.com/">Feedly</a></li>
-<li><a href="https://www.inoreader.com/">Inoreader</a></li>
-</ul>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597948860/Blog/4/subscription-feedly_cen18m.png" alt="Subscription Feedly">
-   👆 En este caso solo necesité de la dirección del sitio para que lo detectará automáticamente.</p>
-<p> </p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597947959/Blog/4/ejemplo-rss-feedly_lyldsf.png" alt="Feedly presentación">
-Vista de revista, puedes marcar los que ya has leído para que te aparezcan los últimos, guardarlos para leerlos después y muchas otras funcionalidades que te proporciona esta herramienta.</p>
-<p> </p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_780/v1597947960/Blog/4/ejemplo-rss-feedreader-lectura_wpqjz2.png" alt="Modo lectura Feedreader">
-Ahora con Feedreader en modo lectura</p>
-<hr>
-<h2>Ventajas</h2>
-<ul>
-<li>Te ahorra el tiempo de visitar las páginas</li>
-<li>Tu decides a que sitios subscribirte</li>
-<li>No necesitas registrarte a ningún sitio</li>
-<li>Te puedes desuscribir fácilmente</li>
-</ul>
-<h2>Desventajas</h2>
-<ul>
-<li>No es muy común su uso, los usuarios pueden preferir recibir emails a tener que ir a un lector</li>
-<li>No hay un feedback del usuario</li>
-<li>Algunos elementos pueden que no se muestren correctamente a lo esperado</li>
-</ul>
-<h2>Extracto</h2>
-<p>El sitio ya tiene RSS! si te subscribes a él puede que no veas algunos elementos correctamente, ya que puede depender del lector si soporta estilos dentro o no, pero de igual forma puedes dar click al enlace para que te direccione a la página del blog y verlo de la forma esperada. Te recuerdo que también existe la opción de recibir emails a través del Newsletter si no te agrada esta forma de recibir actualizaciones.</p>
-<h2>Conclusión</h2>
-<p>RSS es una gran herramienta para el blog como alternativa al newsletter, para quienes lo prefieran usar, aún así yo no me veo usando la funcionalidad, se me hace mucho más cómodo que me llegue un email aún teniendo una cantidad considerable de subscripciones a tener que entrar a un lector a revisar las actualizaciones.</p>
-]]></description><link>https://marcomadera.com/blog/rss</link><guid isPermaLink="true">https://marcomadera.com/blog/rss</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Thu, 20 Aug 2020 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>https://marcomadera.com/blog/numeros-pseudo-aleatorios</link><guid isPermaLink="true">https://marcomadera.com/blog/numeros-pseudo-aleatorios</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate></item></channel></rss>
