@@ -23,6 +23,7 @@
     "remark-math": "^2.0.1"
   },
   "devDependencies": {
+    "markdown-it": "^11.0.0",
     "rss": "^1.2.2"
   }
 }
