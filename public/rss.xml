@@ -1,1 +1,677 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 17 Aug 2020 18:59:36 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><language><![CDATA[[object Object]]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[Accesibilidad Web]]></title><description><![CDATA[Las pautas de accesibilidad para el contenido para la web son recomendaciones para crear contenido web más accesible.]]></description><link>https://marcomadera.com/blog/accesibilidad-web</link><guid isPermaLink="true">https://marcomadera.com/blog/accesibilidad-web</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 20 Jul 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Ligaduras tipográficas]]></title><description><![CDATA[Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.]]></description><link>https://marcomadera.com/blog/ligaduras-tipograficas</link><guid isPermaLink="true">https://marcomadera.com/blog/ligaduras-tipograficas</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 08 Jun 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Números Pseudo Aleatorios]]></title><description><![CDATA[Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios.]]></description><link>https://marcomadera.com/blog/numeros-pseudo-aleatorios</link><guid isPermaLink="true">https://marcomadera.com/blog/numeros-pseudo-aleatorios</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 20 Aug 2020 10:29:30 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[Accesibilidad Web]]></title><description><![CDATA[Segun el [Informe mundial sobre la discapacidad](https://www.who.int/disabilities/world_report/2011/accessible_es.pdf) publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.
+
+La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.
+[Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/) creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.
+
+&nbsp;
+
+## ¿Por qué implementar accesibilidad?
+Una declaración de accesibilidad demuestra compromiso y proporciona detalles a los usuarios con discapacidades sobre las implementaciones que pueden usar y mejorar su experiencia en el sitio web.
+
+* Puede aumentar el SEO de nuestro sitio web
+* Para incluir a personas en situaciones de discapacidad.
+* Para mejorar la usabilidad de nuestros proyectos.
+* Porque en algunos paises es la ley.
+
+&nbsp;
+
+
+## Principios WCAG
+
+1. [Perceptible](https://www.w3.org/TR/WCAG21/#perceivable): Crear alternativas textuales para todo contenido no textual, facilitar a los usuarios ver y oír el contenido, poder presentar el contenido de diferentes formas sin perder información o estructura.
+
+2. [Operable](https://www.w3.org/TR/WCAG21/#operable): Que toda la funcionalidad esté disponible desde el teclado, que sea navegable, dar el tiempo suficiente para leer en elementos dinamicos y dar opciones de tiempo.
+
+3. [Comprensible](https://www.w3.org/TR/WCAG21/#understandable): Ser legible, tamaños contrastes de textos, hacer la página predecible, tener instrucciones claras.
+
+4. [Robusto](https://www.w3.org/TR/WCAG21/#robust): Mantener compatibilidad con las aplicaciones de usuario actuales y futuras, navegadores y dispositivos, incluyendo las tecnologías asistivas y tener un buen performance.
+
+Los criterios de WCAG comprenden 3 niveles de conformidad:
+* A el nivel más bajo.
+* AA requiere cumplir los criterios del nivel A y AA
+* AAA el nivel más alto requiere cumplir los criterios del nivel AA y AAA.
+
+&nbsp;
+
+## Tecnologías asistivas
+Las tecnologías asistivas sirven de ayuda para las personas con dificultades para realizar tareas regulares con el objetivo de mejorar su calidad de vida y su integración. Algunas de estas son:
+
+- Lectores de pantalla
+- Extensiones que manipulan el css
+- Lupa de pantalla
+- Control de voz
+- Varilla bucal
+
+&nbsp;&nbsp;
+
+## HTML Semántico
+
+Un buen HTML resuelve mucho de la accesibilidad con el uso correcto de tags y atributos. Usar HTML semántico ayudará al navegador a incluir significado en el árbol de accesibilidad para que los lectores de pantalla puedan entender el rol, propiedades y estado que tiene esa parte de nuestro código.
+
+![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png "Chrome Accesibility") 
+
+### No recomendado:
+```HTML
+<body>
+  <div></div>
+  <div>
+  </div>
+  <div></div>
+</body>
+```
+&nbsp;
+
+### Recomendado:
+```HTML
+<body>
+  <header></header>
+  <main>
+  </main>
+  <footer></footer>
+</body>
+```
+&nbsp;&nbsp;
+
+### Uso de texto alternativo en imagenes
+Esto le ayuda a los lectores de pantalla al momento de toparse con imagenes a leer la descripción.
+```HTML
+<img src ="img src" alt="description">
+```
+
+&nbsp;
+
+### Uso de scope en tablas
+El uso del scope ayuda a los lectores de pantalla a seguir el orden correcto.
+```HTML
+ <table border="1">
+  <caption>Contact Information</caption>
+  <tr>
+    <td></td>
+    <th scope="col">Name</th>
+    <th scope="col">City</th>
+  </tr>
+  <tr>
+    <td>1.</td>
+    <th scope="row">Joel Garner</th>
+    <td>Pittsburgh</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <th scope="row">Clive Lloyd</th>
+    <td>Baltimore</td>
+  </tr>
+</table>
+```
+
+&nbsp;
+
+
+### Roles apropiados
+
+Los siguientes elementos tienen la apariencia de botón pero con roles direfentes:
+
+<style>
+  .blog3__container{
+    position: relative;
+  }
+  .share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){
+    display: block;
+    width: 1px;
+    height: 3px;
+    background: green;
+    transform: rotate(-45deg) translate(-2px, 7px);
+  }
+  .share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){
+    display: block;
+    width: 1px;
+    height: 8px;
+    border-radius: 0;
+    background: green;
+    transform: rotate(35deg) translate(5px, -4px);
+  }
+  
+  .share-box{
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  background-color: #fff;
+  border-radius: 6px;
+  top: -135px;
+  visibility: hidden;
+  padding: 10px;
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.30);
+  }
+
+  .share-box div{
+    font-size: 13px;
+    align-items:center;
+  }
+
+  .share-box div:nth-of-type(1){
+    display:grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: 15px;
+  }
+  .share-box div:nth-of-type(2){
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 8px;
+  }
+  .share-box div:nth-of-type(3){
+    display:grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: 6px;
+  }
+  .share-box div:nth-of-type(4){
+    display:grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: 6px;
+  }
+  .share-box div:nth-of-type(5){
+    display:grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .share-box div span{
+    line-height:1;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    font-family: consolas;
+    color: rgb(179,179,179);
+  }
+
+  .share-box div:nth-of-type(1) span:nth-of-type(1){
+    color: rgb(136,18,128);
+    font-size: 13px;
+  }
+  .share-box div:nth-of-type(1) span:nth-of-type(2){
+    font-size: 13px;
+  }
+  .share-box div:nth-of-type(2) span:nth-of-type(1){
+    color: rgb(108,114,120);
+    font-size: 11px;
+  }
+  .share-box div:nth-of-type(2) span:nth-of-type(2){
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgb(221,221,221);
+  }
+  .share-box div:nth-of-type(3) span:nth-of-type(2){
+    color: rgb(108,114,120);
+  }
+  .share-box div:nth-of-type(4) span:nth-of-type(2){
+    color: rgb(108,114,120);
+  }
+
+  .share-box div:nth-of-type(5)>span:nth-of-type(2){
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid green;
+  }
+
+  .triangle-down{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+    position: absolute;
+    bottom: -11px;
+    left: 20%;
+  }
+
+  #butons:hover + .share-box{
+    visibility: visible;
+    left: 106.5px;
+  }
+  #anchor:hover + .share-box{
+    visibility: visible;
+  }
+</style>
+
+
+<div class="blog3__container">
+<a href="#anchor" class="btn btn-primary" id="anchor" >ancla</a><div class="share-box">
+  <div>
+  <span>anchor</span>
+  <span>104.25 x 38</span>
+  </div>
+  <div>
+  <span>ACCESIBILITY</span>
+  <span></span>
+  </div>
+  <div>
+  <span>Name</span>
+  <span>ancla</span>
+  </div>
+  <div>
+  <span>Role</span>
+  <span>link</span>
+  </div>
+  <div>
+  <span>Keyboard-focusable</span>
+  <span><span></span><span></span></span>
+  </div>
+  <div class="triangle-down"></div>
+</div>
+<button type="button" class="btn btn-primary" id="butons">botón</button><div class="share-box">
+  <div>
+  <span>button</span>
+  <span>106.5 x 38</span>
+  </div>
+  <div>
+  <span>ACCESIBILITY</span>
+  <span></span>
+  </div>
+  <div>
+  <span>Name</span>
+  <span>botón</span>
+  </div>
+  <div>
+  <span>Role</span>
+  <span>button</span>
+  </div>
+  <div>
+  <span>Keyboard-focusable</span>
+  <span><span></span><span></span></span>
+  </div>
+  <div class="triangle-down"></div>
+</div>
+</div>
+
+
+
+Hay que definir los roles de acuerdo a la función que realizarán. En este caso el primer "botón" tiene la funcionalidad de link a otra página por lo que debería ser implementado como hipervínculo para que tome el rol de link.
+
+
+
+### Atributos Aria
+Estos atributos se pueden añadir a cualquier etiqueta HTML para comunicar cambios especiales al DOM de nuestra aplicación. Roles propiedades y estados. Siempre es preferible usar un elemento HTML semántico correcto si es que existe en lugar de usar ARIA.
+
+- Roles: Define el tipo general del objeto .Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy especificas, es mejor depender del HTML semántico para comunicar los roles. Atributo: "role"
+&nbsp;
+
+- Propiedades: Comunican atributos que son esenciales para el comportamiento o significado de un elemento pero que suelen comunicar visualmente. Atributo: “aria-label”
+
+- Estado: Comunican estados y cambios de estados en elementos que se suelen comunicar visualmente aria-hidden=“true” para que el lector de pantalla solo lea los elementos visibles en el estado actual de la página.
+
+### Estilos
+Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las devtools de Google Chrome a través de las siguientes opciones: 
+
+Customize and control DevTools > More tools > Rendering > Emulate vision deficiencies
+
+![Emulate Vision](https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png "Emulate Vision")
+
+
+### Color y contraste
+Podemos utilizar las herramietas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
+
+![Contrast tool](https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png "Contrast tool")
+
+### Focus
+El enfoque da una guia visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
+<style>
+
+  #inputToFocus:focus{
+  box-shadow: 0 0 5px rgba(0, 123, 255, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  outline: 1px solid rgba(0, 123, 255, 1);
+  }
+</style>
+<input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/>
+
+&nbsp;&nbsp;
+
+### Skip Links
+Es una <a href="https://www.w3.org/TR/WCAG20-TECHS/G1.html" target="_blank" rel="noopener  noreferrer">técnica</a> que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.
+
+```HTML
+<style>
+  .skip-link {
+  display: block;
+  line-height: 0;
+  height: 0;
+  width: 0;
+}
+
+.skip-link:focus,
+.skip-link:active {
+  height: auto;
+  width: auto;
+}
+</style>
+<a href="#main" className="skip-link">Saltar al contenido</a>
+<nav>
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+</nav>
+<main id="main"></main>
+```
+
+
+---
+
+### Tabindex
+Es un atributo que indica si un elemento puede ser enfocado, y si participa en la navegación secuencial del teclado, acepta tres valores:
+
+Valor negativo(-1): El elemento debe ser enfocado, pero no debe de ser accesible a través de la navegación, puede ser usado en carousels donde elementos no son visibles.
+
+Valor positivo (>0): Debe poder ser enfocado y su orden relativo es definido por el valor del atributo.
+
+Valor de 0: Debe ser enfocado y ser accesible a través de la navegación secuencial del teclado, sigue el orden de la estructura del HTML.
+
+----
+
+## Añadir acciones con el teclado
+Podemos añadir acciones con el teclado escuchando las teclas. <a href="http://keycode.info/" target="_blank" rel="noopener noreferrer">Guia de códigos</a>
+
+Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla ESC, lo que añade una característica más a nuestro sitio.
+
+```javascript
+const listenKeys= (e) => {
+  switch (e.keyCode) {
+    case 32: 
+      togglePlay();
+      break;
+    case 77: 
+      mute();
+      break;
+    default:
+      break;
+  }
+}
+
+document.body.addEventListener("keyup", e=> listenKeys(e));
+```
+
+&nbsp;
+
+## Test de accesibilidad
+Los test de accesibilidad ayudan a resolver problemas comunes, se pueden hacer a través de devtools con lighthouse o a través de otras plataformas.
+
+- [Axe core](https://github.com/dequelabs/axe-core)
+
+- [Lighthouse](https://github.com/GoogleChrome/lighthouse)
+
+- [Cypress axe](https://github.com/avanslaars/cypress-axe)
+
+
+----
+
+## Conclusiones
+La accesibilidad mejora la calidad de nuestro sitio web y la experiencia de los usuarios, es importante tener en mente la accesibilidad a la hora de estar desarrollando un sitio  web para asegurarnos que todos puedan tener acceso al contenido.
+
+
+]]></description><link>https://marcomadera.com/blog/accesibilidad-web</link><guid isPermaLink="true">https://marcomadera.com/blog/accesibilidad-web</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 20 Jul 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Ligaduras tipográficas]]></title><description><![CDATA[
+Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.
+
+En la música se aplica este concepto, las ligaduras son los símbolos que conectan las notas y hacen que se ejecuten como una sola nota prolongada, también ayudan en la legibilidad en el pentagrama.  
+
+![Ligadura musical 100px](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_167/v1595269483/Blog/2/2ed8a62bb1bd2f4eaeaaaa1be3be8e1e_bbofoo.jpg "Ligadura Musical") 
+&nbsp;
+
+## Ligaduras estándar
+Estas son ligaduras para mejorar la legibilidad del texto, entre las más comunes están las combinaciones 'ff' y 'fi', un ejemplo de esto está presente en el logotipo de microsoft office donde ligan ambas 'f' para evitar el espacio que quedaría de no hacerlo.
+
+![Ligadura estandar](https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/VkW3Q2D_nenmzd.jpg "Ligadura estándar")  
+
+&nbsp;
+## Ligaduras Discrecionales
+Estás ligaduras son más estéticas, tienen el propósito de lucir bien, entrelazan los caracteres para que tengan un mejor diseño.
+
+![Ligadura](https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/a9c32vc23bb56fdb4_apqjua.gif "Ligadura discrecional") &nbsp;
+
+## Ligaduras históricas
+![Notacion tironiana ajustar derecha 200px](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_210/v1595269484/Blog/2/2af6de62vb43bnnc4_ou6z52.jpg "Notas tironianas")
+Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente creadas para reducir el tiempo de escritura, cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada, para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas, que fueron muy populares y por lo que después se le atribuyó la invención de la taquigrafía. 
+
+![Ampersand ajustar izquierda 50px](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png "Ampersand")
+Una de las ligaduras más famosas y utilizados actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.
+
+En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo natabea. ![Ligaduras arabes 50px](https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif "Ligaduras Arabes")   &nbsp;
+	
+------------
+
+## Ligaduras en la programación
+En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado, como por ejemplo '>=', mi mente por un instante tiene que procesar ambos caracteres por separado "mayor o igual" y si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.
+
+Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
+* [Fira Code](https://github.com/tonsky/FiraCode)
+* [MonoId](https://github.com/larsenwork/monoid)
+* [Hasklig](https://github.com/i-tu/Hasklig)
+* [Iosevka](https://github.com/be5invis/Iosevka)
+&nbsp;
+
+
+Descarga e instala la fuente que desees como cualquier otra fuente.
+
+## Habilita las ligaduras en tu editor
+La gran mayoría de editores permiten el uso de ligaduras.  
+Para activar las ligaduras en Visual Studio Code dirígete a (File > Preferences > User Settings) en la sección del editor de texto, fuentes y editar settings.json
+	
+![Vs Code Settings](https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg "Vs Code Settings")
+
+En settings.json agrega lo siguiente en el caso de Fira Code.
+
+```json
+{
+  "editor.fontFamily": "'Fira Code'",
+  "editor.fontLigatures": true,
+}
+  ```
+
+Guardas los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada, si no es el caso probablemente sea necesario reiniciar el editor.
+
+![Ligaduras Vs Code](https://res.cloudinary.com/marcomadera/image/upload/v1595269490/Blog/2/iz550n2_m69hok.gif "Ligaduras Vs Code")
+
+------------
+
+## Opinión
+Las ligaduras no son un estándar en la programación, por lo que no todos las usarán, acostumbrarse a verlas puede que llegue a jugar en contra el ver el código de otras personas, a la inversa puede generar confusión ya que los lenguajes de programación son diferentes, si bien (<=) menor o igual puede escribirse en ese orden en un lenguaje, en otro puede escribirse de otra forma (=<), lo que no generaría una ligadura. Las ligaduras no son algo esencial como lo son en la música, ni te permiten escribir más rápido, en programación al final solo es visual, terminas escribiendo lo mismo, lo suyo está en probar y elegir si es para tí, anteriormente las use muy poco tiempo como para acostumbrarme y ahora les daré otra oportunidad.]]></description><link>https://marcomadera.com/blog/ligaduras-tipograficas</link><guid isPermaLink="true">https://marcomadera.com/blog/ligaduras-tipograficas</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 08 Jun 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Números Pseudo Aleatorios]]></title><description><![CDATA[
+Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript, que surge tras programar el paquete de node [random-messages-names](https://github.com/MarcoMadera/random-messages-names) el cual como su nombre lo dice retorna mensajes y nombres aleatorios. Tiene 1000 apellidos y 2788 nombres diferentes. Al estar probando me di cuenta que había veces que ocurrían rachas seguidas de nombres repetidos, 3 o 4 veces el mismo nombre, lo que me dio por comprobar si la aleatoriedad de Math.Random() es legítima a través de unas pruebas estadísticas.
+
+Primero hay que saber qué es Math.Random(), la definición de la especificación estándar del lenguaje, ECMAScript 2015 dice:
+
+> Devuelve un número con signo positivo, mayor o igual que 0 pero menor que 1, elegido aleatoriamente o seudoaleatoriamente con una distribución aproximadamente uniforme en ese rango, utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas.
+
+Dato importante que sacamos de está definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo, depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome para desarrollar, el cual ambos utilizan el motor V8 para correr JavaScript, por otro lado Firefox utliza SpiderMonkey y Safari usa Nitro, y aunque los tres usen el algoritmo xorshift128 +, los resultados valdrán solo para V8 pues la implementación puede ser diferente, ya que éste se encarga de escoger la semilla que genera los números.
+
+## ¿Qué son los números pseudo-aleatorios?
+
+Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios, por eso el pseudo, algunos algoritmos hacen muy bien el trabajo de simular las propiedades de los números aleatorios y otros caen en el bucle de repetirse infinitamente.
+
+Para que una secuencia de números sea catalogada como aleatoria, es necesario que tengan una distribución uniforme y que no tenga correlación, es decir, que tengan la misma probabilidad de ser elegido y que la elección de uno no dependa del otro.
+
+![Gráfica uniforme](https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png "Gráfica uniforme") 
+
+Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2):
+
+
+$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$
+
+Donde:
+$$\omicron {\scriptscriptstyle i}$$ : datos obtenidos
+
+$$\epsilon {\scriptscriptstyle i}$$ : datos esperados
+
+Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
+
+<table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
+
+Sea n el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
+Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y=a donde a=[0,1] como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
+Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.
+Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
+Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:
+
+
+![Gráfica](https://res.cloudinary.com/marcomadera/image/upload/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png "Gráfica") 
+
+
+Muestra generada a partir de Math.Random() en la consola de Google Chrome
+
+Visualmente entre más recta es la línea, más uniforme es, por lo que a simple vista ya podemos intuir un resultado.
+
+Para corroborar lo que vemos, necesitamos, el valor de chi-cuadrada(x2), los grados de libertad (K) y un nivel de confianza (α).
+
+Al aplicar la formula: x2=28.92
+Para calcular K = Número de intervalos - 1, en este caso K=17.
+El nivel de confianza (α) que usaré es de 0.05, pero puede ser diferente ya que este es decidido por la persona encargada de la investigación, es el riesgo que se toma.
+Esto lo podemos hacer de dos formas, en una tabla de probabilidades de chi-cuadrada con el área a la derecha, buscamos los grados de libertad de 17 y el valor que más se acerque a nuestro resultado, en esa fila en este caso está entre la columna 0.05 y 0.025, la cual esa va a ser nuestra probabilidad, que exactamente es: 0.03527, multiplicado por 100 es 3.527% de que nuestra hipótesis nula esté correcta, de que nuestros datos sigan una distribución uniforme, como 5% < 3.527% no se cumple, rechazamos nuestra hipótesis nula y aceptamos la hipótesis alternativa de que no son números uniformes como se mira a simple vista en la gráfica.
+
+La otra forma de hacer esto es buscando directamente nuestro valor α en la columna correspondiente, vamos a la intersección k=17,α=0.05=27.587.
+Si el resultado de nuestra x2 es menor que el resultado de la intersección se acepta la hipótesis nula de lo contrario se rechaza. Como 28.32666 < 27.587 no se cumple, se rechaza la hipótesis nula y se acepta la hipótesis alternativa.
+
+## Prueba de independencia
+
+Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la prueba de rachas ascendentes y descendientes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria, dependiendo de la longitud de los números evaluados.
+
+Para aplicar esta prueba necesitamos de los siguientes estadísticos:
+
+$$\mu R = {2n - 1 \over 3}$$
+
+$$\sigma ^2 R = {16n - 29 \over 90}$$
+
+$$Z = {R - \mu R \over \sigma R}$$
+
+Donde:
+R: El número esperado de rachas
+n: El número de datos a evaluar.
+μR: La media de rachas que esperamos tener.
+σ2R: La varianza del número esperado de rachas.
+Z: Valor estándar de la distribución normal para la prueba.
+
+Igual que antes establecemos primero nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
+
+<table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son independientes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son independientes</td></tr></tbody></table>
+
+Clasificamos los números como bien el nombre lo indica, como racha ascendente o descendente. Ejemplo:
+Dada la siguiente lista: 0.1, 0.2, 0.3, 0.4, 0.2, 0.3, 0.1, 0.2, 0.3.
+Vemos que los primeros cuatro números tienen una racha ascendiente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑
+Tenemos lo siguiente:
+
+| Racha | Longitud |
+| ----------- | ----------- |
+| 1 | 4 |
+| 2 | 1 |
+| 3 | 1 |
+| 4 | 1 |
+| 5 | 2 |
+
+Transponemos nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:
+
+<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>3</td><td>1</td><td>0</td><td>1</td><td>5</td></tr></tbody></table>
+
+Si aplicamos lo que sabemos hasta ahora a la lista de nuestros 300 números iniciales, quedaría de la siguiente manera:
+
+<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
+
+Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los tres estadísticos:
+
+μR = 199.666 El número esperado de rachas
+σ2R = 52.01 La varianza
+Z = -0.108 El valor de la distribución normal
+
+Para determinar la independencia, igualmente buscaríamos ahora en una tabla de distribución normal el valor α/2 seguiré usando 0.05, por lo que buscaré el valor de 0.025, si vamos a los valores de los laterales encontramos que la desviación normal es de 1.96, si nuestro valor α fuera 0.1 para tener una confianza del 90% la desviación normal sería de 1.65.
+
+Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto de nuestra Z es menor a la desviación normal de la tabla, de lo contrario se rechaza
+|-0.108|<1.96 como esto es verdadero, se acepta nuestra hipótesis nula de que las rachas son independientes.
+
+## Distribución de la longitud de las rachas
+
+De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la formula de chi-cuadrada utilizada anteriormente.
+
+$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$
+
+Donde:
+oi: datos obtenidos
+ei: datos esperados
+
+Lo que cambia es que ahora nuestros números esperados los calcularíamos de con la siguiente ecuación.
+
+$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$  
+
+Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:
+
+<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
+
+$$\epsilon {\scriptscriptstyle 1} = {2 \over (1+3)!}[300(1^2 + {3\scriptstyle 1} + 1) - (1^3 + 3{\scriptstyle 1^2} - 1 - 4)] = 125.083$$  
+
+$$\epsilon {\scriptscriptstyle 2} = {2 \over (2+3)!}[300(2^2 + {3\scriptstyle 2} + 1) - (2^3 + 3{\scriptstyle 2^2} - 2 - 4)]= 59.766$$  
+
+$$\epsilon {\scriptscriptstyle 3} = {2 \over (3+3)!}[300(3^2 + {3\scriptstyle 3} + 1) - (3^3 + 3{\scriptstyle 3^2} - 3 - 4)]= 17.369$$  
+
+$$\epsilon {\scriptscriptstyle 4i} = {2 \over (4+3)!}[300(4^2 + {3\scriptstyle 4} + 1) - (4^3 + 3{\scriptstyle 4^2} - 4 - 4)]= 3.768$$  
+
+Lo cual son números similares a los obtenidos.
+
+Existe la restricción de que los números observados y esperados no pueden ser menor que 5, por lo que e4 se le sumaría a e3 quedando de la siguiente manera:
+
+<table><thead><tr><th>Observados</th><td>116</td><td>55</td><td>23</td></tr></thead><tbody><tr><th>Esperados</th><td>125.083</td><td>59.766</td><td>21.137</td></tr></tbody></table>
+
+Con estos datos calculamos chi-cuadrada (X2) = 1.2038
+k = 4-1 = 3
+p=0.7521 (valor de la tabla de chi cuadrada)
+
+De igual forma determinamos nuestra hipótesis de la misma forma donde si α< p(1.2038,3) aceptamo nuestra hipótesis nula de lo contrario aceptamos la hipótesis alternativa
+
+Como 0.05 < 0.7521 se acepta la hipótesis nula de que existe independencia en las rachas
+
+
+Esta muestra nos dio que los números no son uniformes pero sí independientes
+
+-----
+
+## Resultados
+
+### Test 1
+
+En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados:
+
+<table><thead><tr><th>Numero de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>11</td><td>21</td><td>68</td><td>100</td></tr></tbody></table>
+
+De las 100 pruebas:
+68 pruebas cumplieron con la uniformidad, independencia y longitud.
+1 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
+6 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
+2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
+18 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
+1 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+4 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
+
+### Test 2
+
+En 100 pruebas de 3000 números cada una, se obtuvieron los siguientes resultados:
+
+<table><thead><tr><th>Número de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>3</td><td>48</td><td>49</td><td>100</td></tr></tbody></table>
+
+De las 100 pruebas:
+49 pruebas cumplieron con la uniformidad, independencia y longitud.
+0 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
+2 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
+2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
+42 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
+4 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+1 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
+
+### Conclusión
+
+Si recordamos, para que una secuencia de números sea catalogada como aleatoria, es necesario que tenga distribución uniforme y que sea independiente, por lo que podríamos decir que que los 18 números y 42 números, que no cumplieron la prueba de longitud de rachas, pero sí las de uniformidad e independencia, del test 1 y 2 respectivamente, también se comportan como números aleatorios.
+
+Podríamos decir que para el test 1 de 100 pruebas de 100 números cada una, 86 son aleatorias y de esas 86, 18 no cumplen la longitud de rachas.
+
+Para test 2 de 100 pruebas de 3000 números cada una, 91 son aleatorias y de esas 91, 42 no cumplen la longitud de rachas.
+
+En cuanto al problema inicial puedo decir que sí, los números en la mayoría de los casos son legítimamente aleatorios, y que es normal que siga viendo nombres que aparezcan ocasionalmente en racha seguidas.
+
+----
+
+## ¿Tus números son aleatorios?
+
+Puedes probar [esta herramienta](https://test-for-random-numbers.marcomadera.vercel.app/) de abajo para evaluar tus números aleatorios. Ya que sabes los procedimientos de las pruebas de números aleatorios, te invito a contribuir en [este repositorio](https://github.com/MarcoMadera/Test-for-random-numbers) donde encontrarás el código que he estado escribiendo al mismo tiempo de escribir este post.
+
+Introduce números que sean entre 0 y 1 separados por espacios, intenta cuantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.]]></description><link>https://marcomadera.com/blog/numeros-pseudo-aleatorios</link><guid isPermaLink="true">https://marcomadera.com/blog/numeros-pseudo-aleatorios</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate></item></channel></rss>
