@@ -6,6 +6,9 @@
   padding: 0 20px;
   margin-bottom: 50px;
 }
+.GenericBlog p {
+  text-align: justify;
+}
 
 .GenericBlog h1 {
   font-size: 1.8em;
@@ -90,6 +93,7 @@
 .GenericBlog img[alt$="ajustar derecha"] {
   display: block;
   float: right;
+  margin: 10px;
 }
 .GenericBlog img[alt$="ajustar derecha 200px"] {
   display: block;
@@ -190,6 +194,7 @@
 .navBtn p {
   font-size: 16px;
   margin: 0;
+  text-align: center;
 }
 @media screen and (min-width: 0px) {
   .GenericBlog {

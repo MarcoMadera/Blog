@@ -19,7 +19,13 @@ const Seo = ({
       </title>
       <meta name="description" content={metaDescription} />
       <meta name="og:title" property="og:title" content={metaTitle} />
-
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        href="https://marcomadera.com/rss.xml"
+        title="Marco Madera"
+      ></link>
+      <link rel="canonical" href="https://marcomadera.com/"></link>
       <meta
         name="og:description"
         property="og:description"
