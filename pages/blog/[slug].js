@@ -62,6 +62,49 @@ export default function Post({
           />
           <hr />
           <footer>
+            {loaded && (
+              <>
+                <button
+                  className={styles.tweet}
+                  onClick={() => {
+                    window.open(
+                      `https://twitter.com/share?url=https://marcomadera.com/blog/${currentPost.slug}&text=${frontmatter.title}`,
+                      "popup",
+                      "width=600,height=500,scrollbars=no,resizable=no"
+                    );
+                    return false;
+                  }}
+                >
+                  Tweet
+                </button>
+                <button
+                  onClick={() => {
+                    window.open(
+                      `https://facebook.com/sharer/sharer.php?u=${`https://marcomadera.com/blog/${currentPost.slug}&quote=${frontmatter.title}`}`,
+                      "popup",
+                      "width=600,height=500,scrollbars=no,resizable=no"
+                    );
+                    return false;
+                  }}
+                  className={styles.share}
+                >
+                  fb share
+                </button>
+                <button
+                  onClick={() => {
+                    window.open(
+                      `http://www.linkedin.com/shareArticle?mini=true&url=${`https://marcomadera.com/blog/${currentPost.slug}&title=${frontmatter.title}`}&source=marcomadera.com`,
+                      "popup",
+                      "width=600,height=500,scrollbars=no,resizable=no"
+                    );
+                    return false;
+                  }}
+                  className={styles.shareLinkedIn}
+                >
+                  in share
+                </button>
+              </>
+            )}
             <Bio />
           </footer>
         </article>

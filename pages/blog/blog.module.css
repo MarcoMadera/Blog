@@ -110,6 +110,69 @@
   font-size: 14px;
 }
 
+.share {
+  background-color: #385898 !important;
+  cursor: pointer;
+  color: white !important;
+  text-decoration: none;
+  height: 20px;
+  display: inline-block;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-weight: 500;
+  padding: 1px 8px 1px 6px;
+  font-weight: 500;
+  font: normal normal normal 11px/18px "Helvetica Neue", Arial, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+  border: none;
+}
+
+.tweet {
+  border: none;
+  margin-right: 10px;
+  position: relative;
+  height: 20px;
+  box-sizing: border-box;
+  padding: 1px 8px 1px 6px;
+  background-color: #1b95e0;
+  color: #fff !important;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+  font: normal normal normal 11px/18px "Helvetica Neue", Arial, sans-serif;
+}
+.shareLinkedIn {
+  border: none;
+  position: relative;
+  height: 20px;
+  box-sizing: border-box;
+  padding: 1px 8px 1px 6px;
+  background-color: #0077b5;
+  color: #fff !important;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+  font: normal normal normal 11px/18px "Helvetica Neue", Arial, sans-serif;
+}
+
+.tweet:hover,
+.share:hover,
+.shareLinkedIn:hover {
+  text-decoration: none !important;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
