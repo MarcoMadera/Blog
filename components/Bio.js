@@ -8,8 +8,15 @@ const Bio = () => {
       <img src="/profile.jpg" alt="Profile" />
       <p>
         Escrito por <b>{author.name}</b> {author.summary}{" "}
-        <a href={`https://twitter.com/${social.twitter}`}>Sigueme en twitter</a>
       </p>
+      <a
+        className={styles.tweet}
+        href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${social.twitter}&tw_p=followbutton`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Seguir
+      </a>
     </section>
   );
 };
