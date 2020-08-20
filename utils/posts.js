@@ -1,8 +1,8 @@
-const matter = require("gray-matter");
-const fs = require("fs");
-const slugify = require("react-slugify");
+import matter from "gray-matter";
+import fs from "fs";
+import slugify from "react-slugify";
 
-function getPostsFolders() {
+export const getPostsFolders = () => {
   // Get all posts folders located in `content/posts`
   const postsFolders = fs
     .readdirSync(`${process.cwd()}/content/posts`)
@@ -11,17 +11,17 @@ function getPostsFolders() {
     }));
 
   return postsFolders;
-}
+};
 
 // Get day in format: Month day, Year. e.g. April 19, 2020
-function getFormattedDate(date) {
+export const getFormattedDate = (date) => {
   const options = { year: "numeric", month: "short", day: "numeric" };
   const formattedDate = date.toLocaleDateString("en-US", options);
 
   return formattedDate;
-}
+};
 
-function getSortedPosts() {
+export const getSortedPosts = () => {
   const postFolders = getPostsFolders();
 
   const posts = postFolders
@@ -52,9 +52,9 @@ function getSortedPosts() {
     );
 
   return posts;
-}
+};
 
-function getPostsSlugs() {
+export const getPostsSlugs = () => {
   const postFolders = getPostsFolders();
 
   const paths = postFolders.map(({ filename }) => ({
@@ -63,8 +63,8 @@ function getPostsSlugs() {
     },
   }));
   return paths;
-}
-function getPostsTags() {
+};
+export const getPostsTags = () => {
   const posts = getSortedPosts();
   let paths = [];
   posts.map(({ frontmatter }) =>
@@ -77,9 +77,9 @@ function getPostsTags() {
     )
   );
   return paths;
-}
+};
 
-function getPostBySlug(slug) {
+export const getPostBySlug = (slug) => {
   const posts = getSortedPosts();
 
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
@@ -96,8 +96,8 @@ function getPostBySlug(slug) {
     currentPost,
     nextPost,
   };
-}
-function getPostsByTag(slug) {
+};
+export const getPostsByTag = (slug) => {
   const posts = getSortedPosts();
   const postsByTag = posts.filter(({ frontmatter }) =>
     slugify(frontmatter.tag).includes(slug)
@@ -107,12 +107,4 @@ function getPostsByTag(slug) {
     postsByTag,
     slug,
   };
-}
-module.exports = {
-  getPostsFolders,
-  getPostsSlugs,
-  getPostsTags,
-  getPostBySlug,
-  getPostsByTag,
-  getSortedPosts,
 };
