@@ -21,7 +21,7 @@ const _mapProps = (props) => ({
     // eslint-disable-next-line react/prop-types
     heading: function Heading({ children }) {
       // eslint-disable-next-line react/prop-types
-      return <h2 id={slugify(children[0].value)}>{children}</h2>;
+      return <h2 id={slugify(children)}>{children}</h2>;
     },
     // eslint-disable-next-line react/prop-types
     math: function Math({ value }) {
