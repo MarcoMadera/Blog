@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Aside from "../components/Aside";
 import Seo from "../components/Seo";
-import { getSortedPosts } from "../utils/posts";
+import { getSortedPosts, getPostsTags } from "../utils/posts";
 import Newsletter from "../components/Newsletter";
 import styles from "./Home.module.css";
 import slugify from "react-slugify";
-const Home = ({ posts }) => {
+import PropTypes from "prop-types";
+const Home = ({ posts, tags }) => {
   return (
     <main className={styles.container}>
       <Seo title="Página principal" />
@@ -57,19 +58,42 @@ const Home = ({ posts }) => {
           )
         )}
       </section>
-      <Newsletter />
+      <div className={styles.rightAside}>
+        {tags.length && (
+          <>
+            <h4>Todas la tags</h4>
+            {tags.map((tag) => (
+              <Link
+                href={"/blog/tag/[slug]/"}
+                as={`/blog/tag/${tag}/`}
+                key={tag}
+              >
+                <a className={styles.tags}>#{tag}</a>
+              </Link>
+            ))}
+          </>
+        )}
+        <Newsletter />
+      </div>
     </main>
   );
 };
 
 export async function getStaticProps() {
   const posts = getSortedPosts();
+  const tags = [...new Set(getPostsTags().map(({ params }) => params.slug))];
 
   return {
     props: {
       posts,
+      tags,
     },
   };
 }
 
 export default Home;
+
+Home.propTypes = {
+  posts: PropTypes.array,
+  tags: PropTypes.array,
+};

@@ -19,7 +19,7 @@
 .article {
   order: 2;
 }
-.GenericBlog > form {
+.rightAside {
   order: 3;
 }
 .GenericBlog a {
@@ -196,6 +196,9 @@
   margin: 0;
   text-align: center;
 }
+.tags {
+  display: block;
+}
 @media screen and (min-width: 0px) {
   .GenericBlog {
     grid-template-columns: 100%;
@@ -252,7 +255,7 @@
   .article {
     order: 2;
   }
-  .GenericBlog > form {
+  .rightAside {
     order: 3;
   }
   .article {

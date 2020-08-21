@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
+import { getPostBySlug, getPostsSlugs, getPostsTags } from "../../utils/posts";
 import Bio from "../../components/Bio";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
@@ -11,6 +11,7 @@ import Newsletter from "../../components/Newsletter";
 import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
 import styles from "./blog.module.css";
+import PropTypes from "prop-types";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -27,13 +28,8 @@ const contentAside = (content, post) => {
   return <Contents content={result} post={post} />;
 };
 
-export default function Post({
-  post,
-  frontmatter,
-  currentPost,
-  nextPost,
-  previousPost,
-}) {
+export default function Post({ postData, tags }) {
+  const { post, frontmatter, currentPost, nextPost, previousPost } = postData;
   const [loaded, setloaded] = useState(false);
 
   useEffect(() => {
@@ -132,7 +128,23 @@ export default function Post({
         </nav>
         {loaded && <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />}
       </div>
-      <Newsletter />
+      <div className={styles.rightAside}>
+        {tags.length && (
+          <>
+            <h4>Todas la tags</h4>
+            {tags.map((tag) => (
+              <Link
+                href={"/blog/tag/[slug]/"}
+                as={`/blog/tag/${tag}/`}
+                key={tag}
+              >
+                <a className={styles.tags}>#{tag}</a>
+              </Link>
+            ))}
+          </>
+        )}
+        <Newsletter />
+      </div>
     </main>
   );
 }
@@ -146,6 +158,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
+  const tags = [...new Set(getPostsTags().map(({ params }) => params.slug))];
   const postData = getPostBySlug(slug);
   if (!postData.previousPost) {
     postData.previousPost = null;
@@ -155,5 +168,20 @@ export async function getStaticProps({ params: { slug } }) {
     postData.nextPost = null;
   }
 
-  return { props: postData };
+  return { props: { postData, tags } };
 }
+
+Post.propTypes = {
+  postData: PropTypes.object,
+  tags: PropTypes.array,
+  post: PropTypes.object,
+  frontmatter: PropTypes.object,
+  currentPost: PropTypes.object,
+  nextPost: PropTypes.object,
+  previousPost: PropTypes.object,
+};
+
+CodeBlock.propTypes = {
+  language: PropTypes.string,
+  value: PropTypes.string,
+};

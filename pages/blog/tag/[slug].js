@@ -6,7 +6,8 @@ import Aside from "../../../components/Aside";
 import Newsletter from "../../../components/Newsletter";
 import Seo from "../../../components/Seo";
 
-const tag = ({ postsByTag, slug }) => {
+const tag = ({ postData, tags }) => {
+  const { slug, postsByTag } = postData;
   return (
     <main className={styles.container}>
       <Seo
@@ -65,7 +66,23 @@ const tag = ({ postsByTag, slug }) => {
           <h1>No hay resultados</h1>
         )}
       </section>
-      <Newsletter />
+      <div className={styles.rightAside}>
+        {tags.length && (
+          <>
+            <h4>Todas la tags</h4>
+            {tags.map((tag) => (
+              <Link
+                href={"/blog/tag/[slug]/"}
+                as={`/blog/tag/${tag}/`}
+                key={tag}
+              >
+                <a className={styles.tags}>#{tag}</a>
+              </Link>
+            ))}
+          </>
+        )}
+        <Newsletter />
+      </div>
     </main>
   );
 };
@@ -80,6 +97,12 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params: { slug } }) {
+  const tags = [...new Set(getPostsTags().map(({ params }) => params.slug))];
   const postData = getPostsByTag(slug);
-  return { props: postData };
+  return {
+    props: {
+      postData,
+      tags,
+    },
+  };
 }

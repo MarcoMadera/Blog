@@ -9,8 +9,12 @@ const Aside = () => {
     <aside className={styles.aside}>
       <img src="/profile.jpg" alt="profile" />
       <p>
-        ¡Hola! 👋 Soy Marco, autor del blog. Gracias por pasarte, cualquier cosa
-        me puedes contactar a través de las siguientes redes:
+        ¡Hola!{" "}
+        <span role="img" aria-label="emoji waving hand">
+          👋
+        </span>{" "}
+        Soy Marco, autor del blog. Gracias por pasarte, cualquier cosa me puedes
+        contactar a través de las siguientes redes:
       </p>
       <a
         href={`https://github.com/${social.gitHub}`}

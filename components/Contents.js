@@ -1,6 +1,7 @@
 import Link from "next/link";
 import slugify from "react-slugify";
 import styles from "./styles/Contents.module.css";
+import PropTypes from "prop-types";
 const Contents = ({ content, post }) => {
   return (
     <aside className={styles.aside}>
@@ -14,6 +15,11 @@ const Contents = ({ content, post }) => {
       </div>
     </aside>
   );
+};
+
+Contents.propTypes = {
+  content: PropTypes.array,
+  post: PropTypes.string,
 };
 
 export default Contents;

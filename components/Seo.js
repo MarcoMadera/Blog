@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { getSiteMetaData } from "../utils/helpers";
 import styles from "./styles/Aside.module.css";
-
+import PropTypes from "prop-types";
 const Seo = ({
   title,
   description = "",
@@ -64,3 +64,10 @@ const Seo = ({
 };
 
 export default Seo;
+
+Seo.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  cover: PropTypes.string,
+  url: PropTypes.string,
+};

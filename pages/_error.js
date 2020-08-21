@@ -1,5 +1,5 @@
 import styles from "./Error.module.css";
-
+import PropTypes from "prop-types";
 function Error({ statusCode }) {
   return (
     <main className={styles.container}>
@@ -19,3 +19,7 @@ Error.getInitialProps = ({ res, err }) => {
 };
 
 export default Error;
+
+Error.propTypes = {
+  statusCode: PropTypes.string,
+};

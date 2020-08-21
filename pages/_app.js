@@ -2,6 +2,7 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
+import PropTypes from "prop-types";
 
 const App = ({ Component, pageProps }) => {
   Router.events.on("routeChangeStart", () => NProgress.start());
@@ -12,6 +13,11 @@ const App = ({ Component, pageProps }) => {
       <Component {...pageProps} />
     </Layout>
   );
+};
+
+App.propTypes = {
+  Component: PropTypes.any,
+  pageProps: PropTypes.any,
 };
 
 export default App;

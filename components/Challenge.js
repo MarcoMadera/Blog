@@ -1,5 +1,5 @@
 import styles from "./styles/Challenge.module.css";
-
+import PropTypes from "prop-types";
 const Challenge = ({
   title,
   liveDemo,
@@ -70,6 +70,16 @@ const Challenge = ({
       <hr />
     </article>
   );
+};
+
+Challenge.propTypes = {
+  title: PropTypes.string,
+  liveDemo: PropTypes.string,
+  challengePage: PropTypes.string,
+  repo: PropTypes.string,
+  challengeImg: PropTypes.string,
+  todoList: PropTypes.array,
+  level: PropTypes.string,
 };
 
 export default Challenge;
