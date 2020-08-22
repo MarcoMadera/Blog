@@ -1,9 +1,8 @@
-import styles from "../Portfolio.module.css";
 import Challenge from "../../../components/Challenge";
 import Seo from "../../../components/Seo";
 const challenges = () => {
   return (
-    <main className={styles.container} id="main">
+    <main id="main">
       <Seo
         title="Portafolio - Challenges"
         url="https://marcomadera.com/challenges"
@@ -128,6 +127,11 @@ const challenges = () => {
           "Cambiar el tema de color a preferencia",
         ]}
       />
+      <style jsx>{`
+        main {
+          padding: 0 50px;
+        }
+      `}</style>
     </main>
   );
 };

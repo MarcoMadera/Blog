@@ -20,7 +20,7 @@ const Footer = () => {
         RSS
       </a>
       <a
-        href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.es"
+        href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"
         target="_blank"
         rel="noopener noreferrer"
       >

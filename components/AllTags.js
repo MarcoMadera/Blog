@@ -4,11 +4,13 @@ const AllTags = ({ tags }) => {
   return (
     <div>
       <h4>Todas las etiquetas</h4>
-      {tags.map((tag) => (
-        <Link href={"/blog/tag/[slug]/"} as={`/blog/tag/${tag}/`} key={tag}>
-          <a>#{tag}</a>
-        </Link>
-      ))}
+      <section>
+        {tags.map((tag) => (
+          <Link href={"/blog/tag/[slug]/"} as={`/blog/tag/${tag}/`} key={tag}>
+            <a>#{tag}</a>
+          </Link>
+        ))}
+      </section>
       <style jsx>{`
         a {
           display: block;
@@ -17,6 +19,12 @@ const AllTags = ({ tags }) => {
         a:hover {
           color: #e74c3ccb;
           text-decoration: underline;
+        }
+        @media screen and (min-width: 0px) and (max-width: 1024px) {
+          section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          }
         }
       `}</style>
     </div>

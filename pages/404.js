@@ -1,9 +1,33 @@
-import styles from "./Error.module.css";
+import Seo from "../components/Seo";
 const Custom404 = () => {
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>404</h1>
-      <p className={styles.message}>Página no encontrada</p>
+    <main>
+      <Seo title="404 - No encontrado" />
+      <h1>404</h1>
+      <p>Página no encontrada</p>
+      <style jsx>{`
+        main {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-items: center;
+          align-items: center;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          height: calc(100vh - 120px);
+        }
+
+        h1 {
+          text-align: center;
+          font-size: 100px;
+        }
+
+        p {
+          text-align: center;
+          font-size: 30px;
+        }
+      `}</style>
     </main>
   );
 };

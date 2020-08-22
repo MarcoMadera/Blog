@@ -10,7 +10,6 @@ import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
 import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
-import styles from "./blog.module.css";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
 
@@ -37,7 +36,7 @@ export default function Post({ postData, tags }) {
     setloaded(true);
   }, []);
   return (
-    <main className={styles.GenericBlog}>
+    <main>
       <Seo
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
@@ -45,7 +44,7 @@ export default function Post({ postData, tags }) {
         url={`https://marcomadera.com/blog/${currentPost.slug}`}
       />
       {contentAside(post.content, currentPost.slug)}
-      <div className={styles.article}>
+      <div className="blog">
         <article>
           <header>
             <h1>{frontmatter.title}</h1>
@@ -62,10 +61,10 @@ export default function Post({ postData, tags }) {
             <BlogFooter slug={currentPost.slug} blogTitle={frontmatter.title} />
           )}
         </article>
-        <nav className={styles.nav}>
+        <nav>
           {previousPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
-              <a className={styles.navBtn}>
+              <a>
                 <p>← Blog anterior</p>
                 {previousPost.frontmatter.title}
               </a>
@@ -75,7 +74,7 @@ export default function Post({ postData, tags }) {
           )}
           {nextPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
-              <a className={styles.navBtn}>
+              <a>
                 <p>Siguiente blog →</p>
                 {nextPost.frontmatter.title}
               </a>
@@ -86,10 +85,174 @@ export default function Post({ postData, tags }) {
         </nav>
         {loaded && <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />}
       </div>
-      <div className={styles.rightAside}>
+      <div>
         <AllTags tags={tags} />
         <Newsletter />
       </div>
+      <style jsx>{`
+        main {
+          display: grid;
+          grid-template-columns: minmax(0px, 760px);
+          grid-gap: 2em;
+          justify-content: center;
+          padding: 0 20px;
+          margin-bottom: 50px;
+        }
+        nav {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 40px;
+          flex-wrap: wrap;
+        }
+        a {
+          border: 3px solid #e74c3ccb;
+          background: white;
+          padding: 7px 10px;
+          font-size: 14px;
+          text-align: center;
+          align-self: stretch;
+          width: 220px;
+        }
+        p {
+          font-size: 16px;
+          text-align: center !important;
+          margin: 0;
+        }
+        @media screen and (min-width: 0px) and (max-width: 370px) {
+          a {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+        }
+        @media screen and (min-width: 370px) and (max-width: 400px) {
+          a {
+            max-width: 165px;
+          }
+        }
+        @media screen and (min-width: 400px) and (max-width: 500px) {
+          a {
+            width: 170px;
+          }
+        }
+        @media screen and (min-width: 500px) and (max-width: 1024px) {
+          a {
+            width: 230px;
+          }
+        }
+        @media screen and (min-width: 1024px) {
+          main {
+            grid-template-columns: 240px minmax(0px, 710px) 240px;
+          }
+        }
+      `}</style>
+      <style global jsx>{`
+        .blog p {
+          text-align: justify;
+        }
+
+        .blog h1 {
+          font-size: 1.8em;
+        }
+        .blog > aside {
+          order: 1;
+        }
+        .article {
+          order: 2;
+        }
+        .rightAside {
+          order: 3;
+        }
+        .blog a {
+          color: #e74c3c;
+        }
+        .blog header {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .blog a:hover {
+          text-decoration: underline;
+          color: #e74c3ccb;
+        }
+
+        .blog span {
+          font-family: var(--general-font-family);
+        }
+        .blog code span {
+          font-family: monospace;
+        }
+
+        .blog ol,
+        .blog ul {
+          padding: 0;
+        }
+
+        .blog ul li {
+          list-style-type: disc;
+        }
+        .blog ol li {
+          list-style-type: decimal;
+        }
+        .blog ol li,
+        .blog ul li {
+          list-style-position: outside;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          padding-inline-start: 0;
+          margin-block-end: 0;
+          padding: 0 20px 0 0;
+          margin-left: 20px;
+        }
+
+        .blog img {
+          display: block;
+          margin: auto;
+          max-width: 99%;
+          border-radius: 10px;
+          transition: ease 0.3s;
+        }
+        .blog img:hover {
+          position: static;
+          transform: scale(1.1);
+        }
+
+        .blog img[alt$="100px"] {
+          display: block;
+          height: 100px;
+        }
+        .blog img[alt$="ajustar izquierda 50px"] {
+          display: block;
+          height: 50px;
+          float: left;
+          margin: 10px;
+        }
+
+        .blog img[alt$="ajustar derecha"] {
+          display: block;
+          float: right;
+          margin: 10px;
+        }
+        .blog img[alt$="ajustar derecha 200px"] {
+          display: block;
+          float: right;
+          height: 300px;
+          margin: 10px;
+        }
+
+        .blog img[alt$="100px"] {
+          display: block;
+          height: 100px;
+        }
+        .blog pre {
+          border-radius: 10px;
+        }
+        .blog pre code {
+          line-height: 20px;
+          font-size: 14px;
+        }
+      `}</style>
     </main>
   );
 }

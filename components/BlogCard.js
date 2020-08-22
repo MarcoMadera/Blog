@@ -45,7 +45,7 @@ const BlogCard = ({ slug, title, description, cover, tag, author, date }) => {
         header {
           display: grid;
           grid-template-columns: 100fr 1fr;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 1rem 0 1rem;
         }
         h3:hover {
           text-decoration: underline;
@@ -66,8 +66,8 @@ const BlogCard = ({ slug, title, description, cover, tag, author, date }) => {
           padding-right: 1rem;
         }
         img {
-          width: 120px;
-          height: 120px;
+          width: 100px;
+          height: 100px;
           border-radius: 10%;
         }
         footer {

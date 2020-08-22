@@ -1,14 +1,38 @@
-import styles from "./Error.module.css";
+import Seo from "../components/Seo";
 import PropTypes from "prop-types";
 function Error({ statusCode }) {
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>{statusCode ? statusCode : "Error"}</h1>
-      <p className={styles.message}>
+    <main>
+      <Seo title={`Error ${statusCode} :(`} />
+      <h1>{statusCode ? statusCode : "Error"}</h1>
+      <p>
         {statusCode
           ? `Ocurrió un error con el código ${statusCode} en el servidor`
           : "Ha ocurrido un error en el cliente"}
       </p>
+      <style jsx>{`
+        main {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-items: center;
+          align-items: center;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          height: calc(100vh - 120px);
+        }
+
+        h1 {
+          text-align: center;
+          font-size: 100px;
+        }
+
+        p {
+          text-align: center;
+          font-size: 30px;
+        }
+      `}</style>
     </main>
   );
 }

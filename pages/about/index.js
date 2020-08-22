@@ -34,7 +34,7 @@ const About = () => {
           main {
             padding: 0 30px;
             margin: 0 auto;
-            max-width: 710px;
+            max-width: 820px;
           }
         }
       `}</style>

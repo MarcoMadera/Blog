@@ -19,9 +19,14 @@ const Contents = ({ content, post }) => {
           top: 0px;
         }
         a {
+          color: #e74c3c;
           list-style: circle;
           display: block;
           margin: 10px 0;
+          width: fit-content;
+        }
+        a:hover {
+          color: #e74c3ccb;
         }
       `}</style>
     </aside>

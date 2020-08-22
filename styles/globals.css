@@ -17,12 +17,6 @@ a::selection {
   background: #e74d3c85;
   color: #705509;
 }
-h1::selection,
-h2::selection,
-h3::selection,
-h4::selection,
-h5::selection,
-h6::selection,
 p::selection,
 label::selection,
 span::selection,
@@ -33,10 +27,15 @@ b::selection,
 ul::selection,
 input::selection,
 textarea::selection,
-img::selection,
-h1::selection {
+img::selection {
   background: #e74d3c85;
 }
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
 strong::selection {
   background: #e74d3cc2;
 }
@@ -52,7 +51,7 @@ strong::selection {
 }
 
 main {
-  min-height: calc(100vh - 160px - 2rem);
+  min-height: calc(100vh - 150px - 2rem);
 }
 
 table {

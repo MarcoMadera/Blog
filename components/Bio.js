@@ -19,6 +19,7 @@ const Bio = () => {
         section {
           display: flex;
           align-items: center;
+          flex-wrap: wrap;
         }
         img {
           width: 40px;
