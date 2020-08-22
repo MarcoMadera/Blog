@@ -19,7 +19,7 @@ const Contents = ({ content, post }) => {
           top: 0px;
         }
         a {
-          color: #e74c3c;
+          color: #da0000;
           list-style: circle;
           display: block;
           margin: 10px 0;

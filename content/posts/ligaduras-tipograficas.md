@@ -2,7 +2,7 @@
 title: Ligaduras tipográficas
 description: Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.
 date: 2020-06-08
-cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_300,w_300/v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
 cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
 author: Marco Madera
 tag:

@@ -16,13 +16,13 @@ const Random = () => {
           <a>números pseudo aleatorios</a>
         </Link>
         , y una muestra al final del post, pero igual lo puedes probar en la
-        siguiente este{" "}
+        siguiente página de{" "}
         <a
           href="https://test-for-random-numbers.marcomadera.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          enlace.
+          test para numeros aleatorios.
         </a>
       </p>
       <img
@@ -31,13 +31,15 @@ const Random = () => {
       />
       <style jsx>{`
         main {
+          margin: 0px auto 40px auto;
           padding: 0 30px;
+          max-width: 820px;
         }
         img {
           width: 100%;
         }
         a {
-          color: #e74c3c;
+          color: #da0000;
         }
         a:hover {
           color: #e74c3ccb;

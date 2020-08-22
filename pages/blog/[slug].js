@@ -163,7 +163,7 @@ export default function Post({ postData, tags }) {
           order: 3;
         }
         .blog a {
-          color: #e74c3c;
+          color: #da0000;
         }
         .blog header {
           display: flex;
@@ -251,6 +251,10 @@ export default function Post({ postData, tags }) {
         .blog pre code {
           line-height: 20px;
           font-size: 14px;
+        }
+        .blog table {
+          margin: 0 auto;
+          display: table;
         }
       `}</style>
     </main>

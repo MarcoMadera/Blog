@@ -6,7 +6,7 @@ const Aside = () => {
   const { social } = siteMetadata;
   return (
     <aside>
-      <img src="/profile.jpg" alt="profile" />
+      <img src="/profile-222x222.jpg" alt="profile" width="80" height="80" />
       <p>
         ¡Hola!{" "}
         <span role="img" aria-label="emoji waving hand">
@@ -19,22 +19,25 @@ const Aside = () => {
         href={`https://github.com/${social.gitHub}`}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Github page"
       >
-        <Github fill="#e74c3c" />
+        <Github fill="#da0000" />
       </a>
       <a
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="LinkedIn page"
       >
-        <LinkedIn fill="#e74c3c" />
+        <LinkedIn fill="#da0000" />
       </a>
       <a
         href={`https://twitter.com/${social.twitter}`}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Twitter page"
       >
-        <Twitter fill="#e74c3c" />
+        <Twitter fill="#da0000" />
       </a>
       <style jsx>{`
         aside {

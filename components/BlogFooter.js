@@ -1,47 +1,55 @@
 import Bio from "./Bio";
 import PropTypes from "prop-types";
+import TwitterShare from "./icons/TwitterShare";
+import FacebookShare from "./icons/FacebookShare";
+import LinkedInShare from "./icons/LinkedInShare";
 const BlogFooter = ({ slug, blogTitle }) => {
   return (
     <footer>
-      <button
-        onClick={() => {
-          window.open(
-            `https://twitter.com/share?url=https://marcomadera.com/blog/${slug}&text=${blogTitle}`,
-            "popup",
-            "width=600,height=500,scrollbars=no,resizable=no"
-          );
-          return false;
-        }}
-        className="socialBtn tweet"
-      >
-        Tweet
-      </button>
-      <button
-        onClick={() => {
-          window.open(
-            `https://facebook.com/sharer/sharer.php?u=${`https://marcomadera.com/blog/${slug}&quote=${blogTitle}`}`,
-            "popup",
-            "width=600,height=500,scrollbars=no,resizable=no"
-          );
-          return false;
-        }}
-        className="socialBtn share"
-      >
-        fb share
-      </button>
-      <button
-        onClick={() => {
-          window.open(
-            `http://www.linkedin.com/shareArticle?mini=true&url=${`https://marcomadera.com/blog/${slug}&title=${blogTitle}`}&source=marcomadera.com`,
-            "popup",
-            "width=600,height=500,scrollbars=no,resizable=no"
-          );
-          return false;
-        }}
-        className="socialBtn shareLinkedIn"
-      >
-        in share
-      </button>
+      <div>
+        <strong>
+          <p>Comparte el artículo</p>
+        </strong>
+        <button
+          title="Compartir en Twitter"
+          onClick={() => {
+            window.open(
+              `https://twitter.com/share?url=https://marcomadera.com/blog/${slug}&text=${blogTitle}`,
+              "popup",
+              "width=600,height=500,scrollbars=no,resizable=no"
+            );
+            return false;
+          }}
+        >
+          <TwitterShare width={20} height={20} />
+        </button>
+        <button
+          title="Compartir en Facebook"
+          onClick={() => {
+            window.open(
+              `https://facebook.com/sharer/sharer.php?u=${`https://marcomadera.com/blog/${slug}&quote=${blogTitle}`}`,
+              "popup",
+              "width=600,height=500,scrollbars=no,resizable=no"
+            );
+            return false;
+          }}
+        >
+          <FacebookShare width={20} height={20} />
+        </button>
+        <button
+          title="Compartir en LinkedIn"
+          onClick={() => {
+            window.open(
+              `http://www.linkedin.com/shareArticle?mini=true&url=${`https://marcomadera.com/blog/${slug}&title=${blogTitle}`}&source=marcomadera.com`,
+              "popup",
+              "width=600,height=500,scrollbars=no,resizable=no"
+            );
+            return false;
+          }}
+        >
+          <LinkedInShare width={20} height={20} />
+        </button>
+      </div>
       <Bio />
       <style global jsx>{`
         .socialBtn {
@@ -62,14 +70,26 @@ const BlogFooter = ({ slug, blogTitle }) => {
           text-align: left;
           border: none;
         }
-        .share {
-          background-color: #385898 !important;
-        }
         .tweet {
           background-color: #1b95e0;
         }
-        .shareLinkedIn {
-          background-color: #0077b5;
+      `}</style>
+      <style jsx>{`
+        button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          box-sizing: content-box;
+          padding: 14px;
+          width: 20px;
+          height: 20px;
+        }
+        div {
+          display: flex;
+          align-items: center;
+        }
+        p {
+          margin: 0;
         }
       `}</style>
     </footer>

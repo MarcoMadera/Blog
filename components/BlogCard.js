@@ -5,7 +5,7 @@ const BlogCard = ({ slug, title, description, cover, tag, author, date }) => {
   return (
     <article key={slug}>
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
-        <a>
+        <a aria-label={`${title} blog`}>
           <header>
             <section>
               <h3>{title}</h3>
@@ -13,7 +13,7 @@ const BlogCard = ({ slug, title, description, cover, tag, author, date }) => {
                 {description}.. <span>Leer más</span>
               </p>
             </section>
-            <img src={cover} alt="Portada de blog" />
+            <img src={cover} alt="Portada de blog" width="100" height="100" />
           </header>
         </a>
       </Link>

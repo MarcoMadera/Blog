@@ -63,7 +63,9 @@ const sre = () => {
       />
       <style jsx>{`
         main {
+          margin: 0px auto 40px auto;
           padding: 0 30px;
+          max-width: 820px;
         }
         img {
           width: 100%;

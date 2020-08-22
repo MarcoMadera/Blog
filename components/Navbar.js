@@ -6,7 +6,12 @@ const Navbar = () => {
     <nav>
       <Link href="/">
         <a className="logo">
-          <img src="/favicon-48x48.png" alt="logo" />
+          <img
+            src="/apple-touch-icon-120x120.png"
+            alt="logo"
+            width="120"
+            height="120"
+          />
           <h3>Marco Madera</h3>
         </a>
       </Link>
@@ -85,10 +90,9 @@ const Navbar = () => {
 
         nav section a {
           display: inline-block;
-          margin: 5px;
+          margin: 13.5px 5px;
         }
         nav section a:hover {
-          margin: 5px;
           color: #e74c3c;
           animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;

@@ -2,7 +2,7 @@
 title: Accesibilidad Web
 description: Las pautas de accesibilidad para el contenido para la web son recomendaciones para crear contenido web más accesible.
 date: 2020-07-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_300,w_300/v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
 cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
 author: Marco Madera
 tag:
@@ -338,19 +338,17 @@ El enfoque da una guia visual al usuario sobre los elementos interactivos. Si un
 <style>
 
   #inputToFocus:focus{
-  box-shadow: 0 0 5px rgba(0, 123, 255, 1);
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  outline: 1px solid rgba(0, 123, 255, 1);
+  box-shadow: 0 0 5px #da0000;
+  outline: 1px solid #da0000;
+  border: 2px solid transparent;
   }
-</style>
-<input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/>
+</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
 
 &nbsp;&nbsp;
 
 ### Skip Links
 
-Es una <a href="https://www.w3.org/TR/WCAG20-TECHS/G1.html" target="_blank" rel="noopener  noreferrer">técnica</a> que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.
+Es una [técnica](https://www.w3.org/TR/WCAG20-TECHS/G1.html) que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.
 
 ```HTML
 <style>
@@ -391,7 +389,7 @@ Valor de 0: Debe ser enfocado y ser accesible a través de la navegación secuen
 
 ## Añadir acciones con el teclado
 
-Podemos añadir acciones con el teclado escuchando las teclas. <a href="http://keycode.info/" target="_blank" rel="noopener noreferrer">Guia de códigos</a>
+Podemos añadir acciones con el teclado escuchando las teclas. [Guia de códigos](http://keycode.info/)
 
 Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla ESC, lo que añade una característica más a nuestro sitio.
 

@@ -23,19 +23,9 @@ const About = () => {
           text-align: justify;
         }
         main {
-          margin: 0 30px;
-        }
-        @media screen and (min-width: 0px) and (max-width: 500px) {
-          main {
-            margin: 0 30px;
-          }
-        }
-        @media screen and (min-width: 500px) {
-          main {
-            padding: 0 30px;
-            margin: 0 auto;
-            max-width: 820px;
-          }
+          margin: 0 auto;
+          padding: 0 30px;
+          max-width: 820px;
         }
       `}</style>
     </main>

@@ -2,7 +2,7 @@
 title: Números Pseudo Aleatorios
 description: Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios.
 date: 2020-05-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_300,w_300/v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg
 cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg
 author: Marco Madera
 tag:

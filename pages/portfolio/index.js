@@ -7,8 +7,10 @@ const Portfolio = () => {
       <h1>Portafolio</h1>
       <article>
         <img
-          src="https://res.cloudinary.com/marcomadera/image/upload/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
+          src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_501,w_900/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
           alt="challenges cover"
+          width={400}
+          height={222}
         />
         <section>
           <h1>Retos frontend</h1>
@@ -34,8 +36,10 @@ const Portfolio = () => {
       </article>
       <article className={"right"}>
         <img
-          src="https://res.cloudinary.com/marcomadera/image/upload/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+          src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_501,w_900/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
           alt="test for random numbers cover"
+          width={400}
+          height={222}
         />
         <section>
           <h1>Tests para números aleatorios</h1>
@@ -46,13 +50,13 @@ const Portfolio = () => {
               <a>blog de números pseudo aleatorios</a>
             </Link>
             , y una muestra al final del post, pero igual lo puedes probar en la
-            siguiente este{" "}
+            siguiente página de{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://test-for-random-numbers.marcomadera.vercel.app/"
             >
-              enlace
+              test para numeros aleatorios
             </a>
             .
           </p>
@@ -63,8 +67,10 @@ const Portfolio = () => {
       </article>
       <article>
         <img
-          src="https://res.cloudinary.com/marcomadera/image/upload/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+          src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_501,w_900/v1595275323/Potfolio/sreExcel/Data_splifz.png"
           alt="sre-excel cover"
+          width={400}
+          height={222}
         />
         <section>
           <h1>Registro de trámites en excel</h1>
@@ -135,7 +141,7 @@ const Portfolio = () => {
         }
 
         a {
-          color: #e74c3c;
+          color: #da0000;
         }
         a:hover {
           text-decoration: underline;
@@ -151,8 +157,11 @@ const Portfolio = () => {
             display block;
           }
           img{
+            display: block;
+            margin: 0 auto;
+            max-width: 400px;
             width: 100%;
-            height: 250px;
+            height: auto;
           }
           section{
             padding: 0;

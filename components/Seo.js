@@ -24,7 +24,6 @@ const Seo = ({
         href="https://marcomadera.com/rss.xml"
         title="Marco Madera"
       ></link>
-      <link rel="canonical" href="https://marcomadera.com/"></link>
       <meta
         name="og:description"
         property="og:description"

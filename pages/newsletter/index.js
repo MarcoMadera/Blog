@@ -93,7 +93,7 @@ const NewsletterPage = () => {
           text-align: center;
         }
         a {
-          color: #e74c3c;
+          color: #da0000;
         }
         a:hover {
           text-decoration: underline;

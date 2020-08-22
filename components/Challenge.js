@@ -10,7 +10,7 @@ const Challenge = ({
 }) => {
   return (
     <article>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <table>
         <thead>
           <tr>
@@ -33,18 +33,20 @@ const Challenge = ({
           </tr>
         </thead>
       </table>
-      <section className="challenge__links"></section>
-      <img className="challenges__image" src={challengeImg} alt={title} />
+      <section></section>
+      <img src={challengeImg} alt={title} />
       <span>Reto:</span>
       <ul>
         {todoList.map((todo, i) => {
           if (Array.isArray(todo)) {
             return (
-              <ul className="challenge__subList" key={i}>
-                {todo.map((subtodo, i) => (
-                  <li key={i}>{subtodo}</li>
-                ))}
-              </ul>
+              <li className="none">
+                <ul key={i}>
+                  {todo.map((subtodo, i) => (
+                    <li key={i}>{subtodo}</li>
+                  ))}
+                </ul>
+              </li>
             );
           } else {
             return <li key={i}>{todo}</li>;
@@ -52,6 +54,11 @@ const Challenge = ({
         })}
       </ul>
       <hr />
+      <style global jsx>{`
+        .none {
+          list-style-type: none;
+        }
+      `}</style>
       <style jsx>{`
         img {
           width: 100%;
@@ -63,7 +70,7 @@ const Challenge = ({
         }
 
         a {
-          color: #e74c3c;
+          color: #da0000;
         }
         a:hover {
           text-decoration: underline;

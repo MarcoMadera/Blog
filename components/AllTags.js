@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 const AllTags = ({ tags }) => {
   return (
     <div>
-      <h4>Todas las etiquetas</h4>
+      <strong>
+        <p>Todas las etiquetas</p>
+      </strong>
       <section>
         {tags.map((tag) => (
           <Link href={"/blog/tag/[slug]/"} as={`/blog/tag/${tag}/`} key={tag}>
@@ -14,16 +16,20 @@ const AllTags = ({ tags }) => {
       <style jsx>{`
         a {
           display: block;
-          color: #e74c3c;
+          margin: 0;
+          color: #da0000;
         }
         a:hover {
           color: #e74c3ccb;
           text-decoration: underline;
         }
-        @media screen and (min-width: 0px) and (max-width: 1024px) {
-          section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        section {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        @media screen and (max-width: 876px) {
+          a {
+            margin: 13.5px 5px 13.5px 0;
           }
         }
       `}</style>
