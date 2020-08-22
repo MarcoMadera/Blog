@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
+    "prettier",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -17,8 +18,9 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: "module",
   },
-  plugins: ["react", "jsx-a11y", "react-hooks"],
+  plugins: ["react", "jsx-a11y", "react-hooks", "prettier"],
   rules: {
+    "prettier/prettier": ["error"],
     "jsx-a11y/anchor-is-valid": [
       0,
       {
@@ -28,7 +30,9 @@ module.exports = {
       },
     ],
     indent: ["error", 2, { flatTernaryExpressions: true }],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": 0,
+    "global-require": 0,
+    "eslint linebreak-style": [0, "error", "windows"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "no-unneeded-ternary": 1,

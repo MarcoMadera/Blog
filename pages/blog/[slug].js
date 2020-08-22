@@ -2,16 +2,17 @@ import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { getPostBySlug, getPostsSlugs, getPostsTags } from "../../utils/posts";
-import Bio from "../../components/Bio";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
 import toc from "markdown-toc-unlazy";
 import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
+import AllTags from "../../components/AllTags";
 import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
 import styles from "./blog.module.css";
 import PropTypes from "prop-types";
+import BlogFooter from "../../components/BlogFooter";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -57,52 +58,9 @@ export default function Post({ postData, tags }) {
             }}
           />
           <hr />
-          <footer>
-            {loaded && (
-              <>
-                <button
-                  className={styles.tweet}
-                  onClick={() => {
-                    window.open(
-                      `https://twitter.com/share?url=https://marcomadera.com/blog/${currentPost.slug}&text=${frontmatter.title}`,
-                      "popup",
-                      "width=600,height=500,scrollbars=no,resizable=no"
-                    );
-                    return false;
-                  }}
-                >
-                  Tweet
-                </button>
-                <button
-                  onClick={() => {
-                    window.open(
-                      `https://facebook.com/sharer/sharer.php?u=${`https://marcomadera.com/blog/${currentPost.slug}&quote=${frontmatter.title}`}`,
-                      "popup",
-                      "width=600,height=500,scrollbars=no,resizable=no"
-                    );
-                    return false;
-                  }}
-                  className={styles.share}
-                >
-                  fb share
-                </button>
-                <button
-                  onClick={() => {
-                    window.open(
-                      `http://www.linkedin.com/shareArticle?mini=true&url=${`https://marcomadera.com/blog/${currentPost.slug}&title=${frontmatter.title}`}&source=marcomadera.com`,
-                      "popup",
-                      "width=600,height=500,scrollbars=no,resizable=no"
-                    );
-                    return false;
-                  }}
-                  className={styles.shareLinkedIn}
-                >
-                  in share
-                </button>
-              </>
-            )}
-            <Bio />
-          </footer>
+          {loaded && (
+            <BlogFooter slug={currentPost.slug} blogTitle={frontmatter.title} />
+          )}
         </article>
         <nav className={styles.nav}>
           {previousPost ? (
@@ -129,20 +87,7 @@ export default function Post({ postData, tags }) {
         {loaded && <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />}
       </div>
       <div className={styles.rightAside}>
-        {tags.length && (
-          <>
-            <h4>Todas la tags</h4>
-            {tags.map((tag) => (
-              <Link
-                href={"/blog/tag/[slug]/"}
-                as={`/blog/tag/${tag}/`}
-                key={tag}
-              >
-                <a className={styles.tags}>#{tag}</a>
-              </Link>
-            ))}
-          </>
-        )}
+        <AllTags tags={tags} />
         <Newsletter />
       </div>
     </main>

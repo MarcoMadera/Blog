@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./styles/Newsletter.module.css";
 const Newsletter = () => {
   const [email, setEmail] = useState({
     value: "",
@@ -30,44 +29,75 @@ const Newsletter = () => {
   }
 
   return (
-    <>
-      <form
-        action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
-        method="post"
-        target="popupwindow"
-        onSubmit={handleSubmit}
-        className={styles.form}
-        noValidate
-      >
-        <label className={styles.label} htmlFor="bd-email">
-          ¡Subscribete al Newsletter!
-        </label>
-        <p className={styles.paragraph}>
-          Recibirás actualizaciones del blog con temas de programación
-        </p>
-        <input
-          type="email"
-          name="email"
-          id="bd-email"
-          placeholder="Correo electrónico*"
-          onChange={handleChange}
-          style={outline}
-          className={styles.input}
-        ></input>
-        <input type="hidden" value="1" name="embed"></input>
-        <input
-          type="submit"
-          className="btn btn-primary"
-          value="Subscribete"
-        ></input>
-        {email.error && email.submitted && (
-          <p>Por favor inserta un correo válido</p>
-        )}
-        {!email.error && email.submitted && (
-          <p>Recibirás un correo de confirmación</p>
-        )}
-      </form>
-    </>
+    <form
+      action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
+      method="post"
+      target="popupwindow"
+      onSubmit={handleSubmit}
+      noValidate
+    >
+      <label htmlFor="bd-email">¡Subscribete al Newsletter!</label>
+      <p>Recibirás actualizaciones del blog con temas de programación</p>
+      <input
+        type="email"
+        name="email"
+        id="bd-email"
+        placeholder="Correo electrónico*"
+        onChange={handleChange}
+        style={outline}
+      ></input>
+      <input type="hidden" value="1" name="embed"></input>
+      <input
+        type="submit"
+        className="btn btn-primary"
+        value="Subscribete"
+      ></input>
+      {email.error && email.submitted && (
+        <p>Por favor inserta un correo válido</p>
+      )}
+      {!email.error && email.submitted && (
+        <p>Recibirás un correo de confirmación</p>
+      )}
+      <style jsx>{`
+        form {
+          position: sticky;
+          top: 10px;
+          margin-top: 40px;
+          width: 100%;
+          height: fit-content;
+          border: 3px solid #e74c3c;
+          padding: 20px;
+          text-align: center;
+          margin-bottom: 50px;
+          background: white;
+        }
+
+        label {
+          font-size: 18px;
+          font-weight: 600;
+          margin: 30px 0;
+        }
+
+        p {
+          font-size: 15px;
+          text-align: center;
+        }
+
+        input {
+          border-radius: 28px;
+          outline: none;
+          border: 1px solid black;
+          padding: 5px 15px;
+          width: calc(100% - 15px);
+          margin-bottom: 30px;
+        }
+
+        input:focus {
+          border: 1px solid #e74c3c;
+          box-shadow: 1px 0 6px 2px #e74d3c57;
+        }
+      `}</style>
+    </form>
   );
 };
 export default Newsletter;

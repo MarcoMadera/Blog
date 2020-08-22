@@ -1,21 +1,20 @@
 import { getPostsByTag, getPostsTags } from "../../../utils/posts";
-import Link from "next/link";
-import styles from "../../Home.module.css";
-import slugify from "react-slugify";
 import Aside from "../../../components/Aside";
 import Newsletter from "../../../components/Newsletter";
+import BlogCard from "../../../components/BlogCard";
+import AllTags from "../../../components/AllTags";
 import Seo from "../../../components/Seo";
 
 const tag = ({ postData, tags }) => {
   const { slug, postsByTag } = postData;
   return (
-    <main className={styles.container}>
+    <main>
       <Seo
         title={`Blog tag ${slug.charAt(0).toUpperCase() + slug.slice(1)}`}
         url={`https://marcomadera.com/${slug}`}
       />
       <Aside />
-      <section className={styles.section}>
+      <section>
         <h4>Tag {slug.charAt(0).toUpperCase() + slug.slice(1)}</h4>
         {postsByTag.length ? (
           postsByTag.map(
@@ -23,66 +22,41 @@ const tag = ({ postData, tags }) => {
               frontmatter: { title, description, date, cover, tag, author },
               slug,
             }) => (
-              <article key={slug} className={styles.article}>
-                <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
-                  <a>
-                    <header className={styles.header}>
-                      <section className={styles.content}>
-                        <h3>{title}</h3>
-                        <p>
-                          {description}..{" "}
-                          <span className={styles.readMore}>Leer más</span>
-                        </p>
-                      </section>
-                      <img
-                        className={styles.cover}
-                        src={cover}
-                        alt="Portada de blog"
-                      />
-                    </header>
-                  </a>
-                </Link>
-                <footer className={styles.footer}>
-                  <div>
-                    {tag.length &&
-                      tag.map((tag) => (
-                        <Link
-                          href={"/blog/tag/[slug]/"}
-                          as={`/blog/tag/${slugify(tag)}/`}
-                          key={tag}
-                        >
-                          <a className={styles.tag}>#{tag}</a>
-                        </Link>
-                      ))}
-                  </div>
-                  <span>
-                    {author} | {date}
-                  </span>
-                </footer>
-              </article>
+              <BlogCard
+                key={title}
+                title={title}
+                description={description}
+                date={date}
+                cover={cover}
+                tag={tag}
+                author={author}
+                slug={slug}
+              />
             )
           )
         ) : (
           <h1>No hay resultados</h1>
         )}
       </section>
-      <div className={styles.rightAside}>
-        {tags.length && (
-          <>
-            <h4>Todas la tags</h4>
-            {tags.map((tag) => (
-              <Link
-                href={"/blog/tag/[slug]/"}
-                as={`/blog/tag/${tag}/`}
-                key={tag}
-              >
-                <a className={styles.tags}>#{tag}</a>
-              </Link>
-            ))}
-          </>
-        )}
+      <aside>
+        <AllTags tags={tags} />
         <Newsletter />
-      </div>
+      </aside>
+      <style jsx>{`
+        main {
+          display: grid;
+          grid-template-columns: 240px minmax(0px, 710px) 240px;
+          grid-gap: 2em;
+          justify-content: center;
+          padding: 0 20px;
+          margin-bottom: 50px;
+        }
+        @media screen and (min-width: 0px) and (max-width: 876px) {
+          main {
+            grid-template-columns: auto;
+          }
+        }
+      `}</style>
     </main>
   );
 };

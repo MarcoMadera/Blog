@@ -1,4 +1,3 @@
-import styles from "./styles/Challenge.module.css";
 import PropTypes from "prop-types";
 const Challenge = ({
   title,
@@ -10,38 +9,23 @@ const Challenge = ({
   level,
 }) => {
   return (
-    <article className={styles.container}>
+    <article>
       <h3>{title}</h3>
-      <table className={styles.table}>
+      <table>
         <thead>
           <tr>
             <th>
-              <a
-                href={liveDemo}
-                rel="noopener noreferrer"
-                target="_blank"
-                className={styles.link}
-              >
+              <a href={liveDemo} rel="noopener noreferrer" target="_blank">
                 Live Demo
               </a>
             </th>
             <th>
-              <a
-                href={challengePage}
-                rel="noopener noreferrer"
-                target="_blank"
-                className={styles.link}
-              >
+              <a href={challengePage} rel="noopener noreferrer" target="_blank">
                 Challenge
               </a>
             </th>
             <th>
-              <a
-                href={repo}
-                rel="noopener noreferrer"
-                target="_blank"
-                className={styles.link}
-              >
+              <a href={repo} rel="noopener noreferrer" target="_blank">
                 Code
               </a>
             </th>
@@ -68,6 +52,29 @@ const Challenge = ({
         })}
       </ul>
       <hr />
+      <style jsx>{`
+        img {
+          width: 100%;
+          transition: ease 0.3s;
+        }
+        img:hover {
+          position: static;
+          transform: scale(1.1);
+        }
+
+        a {
+          color: #e74c3c;
+        }
+        a:hover {
+          text-decoration: underline;
+          color: #e74c3ccb;
+        }
+
+        table {
+          display: table;
+          width: 100%;
+        }
+      `}</style>
     </article>
   );
 };

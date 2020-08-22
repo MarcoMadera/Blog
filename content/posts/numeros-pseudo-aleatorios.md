@@ -6,8 +6,8 @@ cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v
 cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg
 author: Marco Madera
 tag:
-- JavaScript
-- Estadística
+  - JavaScript
+  - Estadística
 ---
 
 Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript, que surge tras programar el paquete de node [random-messages-names](https://github.com/MarcoMadera/random-messages-names) el cual como su nombre lo dice retorna mensajes y nombres aleatorios. Tiene 1000 apellidos y 2788 nombres diferentes. Al estar probando me di cuenta que había veces que ocurrían rachas seguidas de nombres repetidos, 3 o 4 veces el mismo nombre, lo que me dio por comprobar si la aleatoriedad de Math.Random() es legítima a través de unas pruebas estadísticas.
@@ -24,10 +24,9 @@ Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, 
 
 Para que una secuencia de números sea catalogada como aleatoria, es necesario que tengan una distribución uniforme y que no tenga correlación, es decir, que tengan la misma probabilidad de ser elegido y que la elección de uno no dependa del otro.
 
-![Gráfica uniforme](https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png "Gráfica uniforme") 
+![Gráfica uniforme](https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png "Gráfica uniforme")
 
 Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2):
-
 
 $$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$
 
@@ -46,9 +45,7 @@ Para determinar el valor del rango de cada categoría en nuestro caso sería uno
 Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
 Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:
 
-
-![Gráfica](https://res.cloudinary.com/marcomadera/image/upload/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png "Gráfica") 
-
+![Gráfica](https://res.cloudinary.com/marcomadera/image/upload/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png "Gráfica")
 
 Muestra generada a partir de Math.Random() en la consola de Google Chrome
 
@@ -93,12 +90,12 @@ Vemos que los primeros cuatro números tienen una racha ascendiente, intercala 3
 Tenemos lo siguiente:
 
 | Racha | Longitud |
-| ----------- | ----------- |
-| 1 | 4 |
-| 2 | 1 |
-| 3 | 1 |
-| 4 | 1 |
-| 5 | 2 |
+| ----- | -------- |
+| 1     | 4        |
+| 2     | 1        |
+| 3     | 1        |
+| 4     | 1        |
+| 5     | 2        |
 
 Transponemos nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:
 
@@ -131,19 +128,19 @@ ei: datos esperados
 
 Lo que cambia es que ahora nuestros números esperados los calcularíamos de con la siguiente ecuación.
 
-$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$  
+$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$
 
 Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:
 
 <table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
 
-$$\epsilon {\scriptscriptstyle 1} = {2 \over (1+3)!}[300(1^2 + {3\scriptstyle 1} + 1) - (1^3 + 3{\scriptstyle 1^2} - 1 - 4)] = 125.083$$  
+$$\epsilon {\scriptscriptstyle 1} = {2 \over (1+3)!}[300(1^2 + {3\scriptstyle 1} + 1) - (1^3 + 3{\scriptstyle 1^2} - 1 - 4)] = 125.083$$
 
-$$\epsilon {\scriptscriptstyle 2} = {2 \over (2+3)!}[300(2^2 + {3\scriptstyle 2} + 1) - (2^3 + 3{\scriptstyle 2^2} - 2 - 4)]= 59.766$$  
+$$\epsilon {\scriptscriptstyle 2} = {2 \over (2+3)!}[300(2^2 + {3\scriptstyle 2} + 1) - (2^3 + 3{\scriptstyle 2^2} - 2 - 4)]= 59.766$$
 
-$$\epsilon {\scriptscriptstyle 3} = {2 \over (3+3)!}[300(3^2 + {3\scriptstyle 3} + 1) - (3^3 + 3{\scriptstyle 3^2} - 3 - 4)]= 17.369$$  
+$$\epsilon {\scriptscriptstyle 3} = {2 \over (3+3)!}[300(3^2 + {3\scriptstyle 3} + 1) - (3^3 + 3{\scriptstyle 3^2} - 3 - 4)]= 17.369$$
 
-$$\epsilon {\scriptscriptstyle 4i} = {2 \over (4+3)!}[300(4^2 + {3\scriptstyle 4} + 1) - (4^3 + 3{\scriptstyle 4^2} - 4 - 4)]= 3.768$$  
+$$\epsilon {\scriptscriptstyle 4i} = {2 \over (4+3)!}[300(4^2 + {3\scriptstyle 4} + 1) - (4^3 + 3{\scriptstyle 4^2} - 4 - 4)]= 3.768$$
 
 Lo cual son números similares a los obtenidos.
 
@@ -159,10 +156,9 @@ De igual forma determinamos nuestra hipótesis de la misma forma donde si α< p(
 
 Como 0.05 < 0.7521 se acepta la hipótesis nula de que existe independencia en las rachas
 
-
 Esta muestra nos dio que los números no son uniformes pero sí independientes
 
------
+---
 
 ## Resultados
 
@@ -206,7 +202,7 @@ Para test 2 de 100 pruebas de 3000 números cada una, 91 son aleatorias y de esa
 
 En cuanto al problema inicial puedo decir que sí, los números en la mayoría de los casos son legítimamente aleatorios, y que es normal que siga viendo nombres que aparezcan ocasionalmente en racha seguidas.
 
-----
+---
 
 ## ¿Tus números son aleatorios?
 

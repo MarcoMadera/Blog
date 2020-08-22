@@ -1,4 +1,3 @@
-import styles from "./styles/Aside.module.css";
 import Github from "./icons/Github";
 import LinkedIn from "./icons/LinkedIn";
 import Twitter from "./icons/Twitter";
@@ -6,7 +5,7 @@ import { siteMetadata } from "../site.config";
 const Aside = () => {
   const { social } = siteMetadata;
   return (
-    <aside className={styles.aside}>
+    <aside>
       <img src="/profile.jpg" alt="profile" />
       <p>
         ¡Hola!{" "}
@@ -37,6 +36,33 @@ const Aside = () => {
       >
         <Twitter fill="#e74c3c" />
       </a>
+      <style jsx>{`
+        aside {
+          height: 300px;
+          border-radius: 20px;
+          background-color: white;
+          box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.11);
+          text-align: center;
+          padding: 20px;
+          width: 100%;
+          margin-top: 40px;
+        }
+
+        img {
+          border: 3px solid black;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+      `}</style>
+      <style global jsx>{`
+        svg {
+          margin: 0 10px;
+        }
+        svg:hover {
+          fill: #e74c3ccb;
+        }
+      `}</style>
     </aside>
   );
 };

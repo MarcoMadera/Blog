@@ -1,18 +1,29 @@
 import Link from "next/link";
 import slugify from "react-slugify";
-import styles from "./styles/Contents.module.css";
 import PropTypes from "prop-types";
 const Contents = ({ content, post }) => {
   return (
-    <aside className={styles.aside}>
-      <div className={styles.container}>
+    <aside>
+      <section>
         <h3>Tabla de contenido</h3>
         {content.map((element, i) => (
           <Link key={i} href={`./${post}/#${slugify(element)}`}>
-            <a className={styles.link}>{element}</a>
+            <a>{element}</a>
           </Link>
         ))}
-      </div>
+      </section>
+      <style jsx>{`
+        section {
+          margin-top: 40px;
+          position: sticky;
+          top: 0px;
+        }
+        a {
+          list-style: circle;
+          display: block;
+          margin: 10px 0;
+        }
+      `}</style>
     </aside>
   );
 };

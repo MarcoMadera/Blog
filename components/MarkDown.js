@@ -2,7 +2,6 @@ import ReactMarkdown from "react-markdown";
 import RemarkMathPlugin from "remark-math";
 import MathJax from "react-mathjax";
 import slugify from "react-slugify";
-import styles from "./styles/Aside.module.css";
 const _mapProps = (props) => ({
   ...props,
   escapeHtml: false,

@@ -1,8 +1,7 @@
 import Seo from "../../components/Seo";
-import styles from "./About.module.css";
 const About = () => {
   return (
-    <main className={styles.container}>
+    <main>
       <Seo title="Sobre mí" url="https://marcomadera.com/about" />
       <h1>Sobre mí</h1>
       <p>
@@ -16,6 +15,29 @@ const About = () => {
         blog, misma que trataré como libreta personal para futuro con temas
         relacionados a la programación.
       </p>
+      <style jsx>{`
+        h1 {
+          text-align: center;
+        }
+        p {
+          text-align: justify;
+        }
+        main {
+          margin: 0 30px;
+        }
+        @media screen and (min-width: 0px) and (max-width: 500px) {
+          main {
+            margin: 0 30px;
+          }
+        }
+        @media screen and (min-width: 500px) {
+          main {
+            padding: 0 30px;
+            margin: 0 auto;
+            max-width: 710px;
+          }
+        }
+      `}</style>
     </main>
   );
 };
