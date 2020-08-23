@@ -6,7 +6,10 @@ const Aside = () => {
   const { social } = siteMetadata;
   return (
     <aside>
-      <img src="/profile-222x222.jpg" alt="profile" width="80" height="80" />
+      <picture>
+        <source srcSet="/profile-222x222.jpg" media="(max-width: 876px)" />
+        <img src="/profile-80x80.jpg" alt="Profile" width="80" height="80" />
+      </picture>
       <p>
         ¡Hola!{" "}
         <span role="img" aria-label="emoji waving hand">
@@ -52,7 +55,6 @@ const Aside = () => {
         }
 
         img {
-          border: 3px solid black;
           width: 80px;
           height: 80px;
           border-radius: 50%;

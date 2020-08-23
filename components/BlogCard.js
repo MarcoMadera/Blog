@@ -1,7 +1,16 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
-const BlogCard = ({ slug, title, description, cover, tag, author, date }) => {
+const BlogCard = ({
+  slug,
+  title,
+  description,
+  cover,
+  cover100,
+  tag,
+  author,
+  date,
+}) => {
   return (
     <article key={slug}>
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
@@ -13,7 +22,15 @@ const BlogCard = ({ slug, title, description, cover, tag, author, date }) => {
                 {description}.. <span>Leer más</span>
               </p>
             </section>
-            <img src={cover} alt="Portada de blog" width="100" height="100" />
+            <picture>
+              <source srcSet={cover} media="(max-width: 876px)" />
+              <img
+                src={cover100}
+                alt="Portada de blog"
+                width="100"
+                height="100"
+              />
+            </picture>
           </header>
         </a>
       </Link>
@@ -92,6 +109,7 @@ BlogCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   cover: PropTypes.string,
+  cover100: PropTypes.string,
   tag: PropTypes.array,
   author: PropTypes.string,
   date: PropTypes.string,

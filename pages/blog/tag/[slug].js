@@ -19,7 +19,15 @@ const tag = ({ postData, tags }) => {
         {postsByTag.length ? (
           postsByTag.map(
             ({
-              frontmatter: { title, description, date, cover, tag, author },
+              frontmatter: {
+                title,
+                description,
+                date,
+                cover,
+                cover100,
+                tag,
+                author,
+              },
               slug,
             }) => (
               <BlogCard
@@ -28,6 +36,7 @@ const tag = ({ postData, tags }) => {
                 description={description}
                 date={date}
                 cover={cover}
+                cover100={cover100}
                 tag={tag}
                 author={author}
                 slug={slug}
