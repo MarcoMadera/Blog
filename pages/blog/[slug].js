@@ -8,11 +8,10 @@ import toc from "markdown-toc-unlazy";
 import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
-import Router from "next/router";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -22,30 +21,27 @@ const CodeBlock = ({ language, value }) => {
   );
 };
 
+//collect every h2 in the post to place in table of contents
 const contentAside = (content, post) => {
-  const result = toc(content)
+  const h2s = toc(content)
     .json.filter(({ lvl }) => lvl === 2)
     .map(({ content }) => content);
-  return <Contents content={result} post={post} />;
+  return <Contents content={h2s} post={post} />;
 };
 
 export default function Post({ postData, tags }) {
   const { post, frontmatter, currentPost, nextPost, previousPost } = postData;
   const [loaded, setloaded] = useState(false);
-
-  const updateComments = useCallback(() => {
-    setloaded(false);
-    setTimeout(() => setloaded(true), 500);
-  }, []);
-  Router.events.on("routeChangeComplete", () => updateComments());
-  console.log(loaded);
+  const [data, setData] = useState();
 
   useEffect(() => {
-    setloaded(true);
-    return () => {
+    setData(frontmatter.title);
+    if (frontmatter.title !== data) {
       setloaded(false);
-    };
-  }, [post.content]);
+    } else {
+      setloaded(true);
+    }
+  }, [frontmatter.title, data]);
 
   return (
     <main>
