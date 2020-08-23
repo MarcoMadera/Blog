@@ -8,10 +8,11 @@ import toc from "markdown-toc-unlazy";
 import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
+import Router from "next/router";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -32,9 +33,20 @@ export default function Post({ postData, tags }) {
   const { post, frontmatter, currentPost, nextPost, previousPost } = postData;
   const [loaded, setloaded] = useState(false);
 
+  const updateComments = useCallback(() => {
+    setloaded(false);
+    setTimeout(() => setloaded(true), 500);
+  }, []);
+  Router.events.on("routeChangeComplete", () => updateComments());
+  console.log(loaded);
+
   useEffect(() => {
     setloaded(true);
-  }, []);
+    return () => {
+      setloaded(false);
+    };
+  }, [post.content]);
+
   return (
     <main>
       <Seo
