@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
+import slugify from "react-slugify";
 const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
   return (
     <div>
@@ -8,7 +9,11 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
       </strong>
       <section>
         {tags.map((tag) => (
-          <Link href={"/blog/tag/[slug]/"} as={`/blog/tag/${tag}/`} key={tag}>
+          <Link
+            href={"/blog/tag/[slug]/"}
+            as={`/blog/tag/${slugify(tag)}/`}
+            key={tag}
+          >
             <a>#{tag}</a>
           </Link>
         ))}
