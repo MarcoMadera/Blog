@@ -15,9 +15,9 @@ Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript
 
 Primero hay que saber qué es Math.Random(), la definición de la especificación estándar del lenguaje, ECMAScript 2015 dice:
 
-> Devuelve un número con signo positivo, mayor o igual que 0 pero menor que 1, elegido aleatoriamente o seudoaleatoriamente con una distribución aproximadamente uniforme en ese rango, utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas.
+> Devuelve un número con signo positivo, mayor o igual que 0 pero menor que 1, elegido aleatoriamente o pseudo aleatoriamente con una distribución aproximadamente uniforme en ese rango, utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas.
 
-Dato importante que sacamos de está definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo, depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome para desarrollar, el cual ambos utilizan el motor V8 para correr JavaScript, por otro lado Firefox utliza SpiderMonkey y Safari usa Nitro, y aunque los tres usen el algoritmo xorshift128 +, los resultados valdrán solo para V8 pues la implementación puede ser diferente, ya que éste se encarga de escoger la semilla que genera los números.
+Dato importante que sacamos de está definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo, depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome para desarrollar, el cual ambos utilizan el motor V8 para correr JavaScript, por otro lado Firefox utiliza SpiderMonkey y Safari usa Nitro, y aunque los tres usen el algoritmo xorshift128 +, los resultados valdrán solo para V8 pues la implementación puede ser diferente, ya que éste se encarga de escoger la semilla que genera los números.
 
 ## ¿Qué son los números pseudo-aleatorios?
 
@@ -40,8 +40,8 @@ Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
 <table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
 
-Sea n el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
-Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y=a donde a=[0,1] como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
+Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
+Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = [0 , 1] como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.
 Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
 Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:
@@ -64,7 +64,7 @@ Si el resultado de nuestra x2 es menor que el resultado de la intersección se a
 
 ## Prueba de independencia
 
-Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la prueba de rachas ascendentes y descendientes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria, dependiendo de la longitud de los números evaluados.
+Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la prueba de rachas ascendentes y descendentes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria, dependiendo de la longitud de los números evaluados.
 
 Para aplicar esta prueba necesitamos de los siguientes estadísticos:
 
@@ -87,7 +87,7 @@ Igual que antes establecemos primero nuestra hipótesis nula (h0) e hipótesis a
 
 Clasificamos los números como bien el nombre lo indica, como racha ascendente o descendente. Ejemplo:
 Dada la siguiente lista: 0.1, 0.2, 0.3, 0.4, 0.2, 0.3, 0.1, 0.2, 0.3.
-Vemos que los primeros cuatro números tienen una racha ascendiente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑
+Vemos que los primeros cuatro números tienen una racha ascendente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑
 Tenemos lo siguiente:
 
 | Racha | Longitud |
@@ -98,7 +98,7 @@ Tenemos lo siguiente:
 | 4     | 1        |
 | 5     | 2        |
 
-Transponemos nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:
+Transpuesta nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:
 
 <table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>3</td><td>1</td><td>0</td><td>1</td><td>5</td></tr></tbody></table>
 
@@ -119,15 +119,16 @@ Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto d
 
 ## Distribución de la longitud de las rachas
 
-De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la formula de chi-cuadrada utilizada anteriormente.
+De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la fórmula de chi-cuadrada utilizada anteriormente.
 
 $$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$
 
 Donde:
+
 oi: datos obtenidos
 ei: datos esperados
 
-Lo que cambia es que ahora nuestros números esperados los calcularíamos de con la siguiente ecuación.
+Lo que cambia es que ahora nuestros números esperados los calcularemos de con la siguiente ecuación.
 
 $$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$
 
@@ -153,7 +154,7 @@ Con estos datos calculamos chi-cuadrada (X2) = 1.2038
 k = 4-1 = 3
 p=0.7521 (valor de la tabla de chi cuadrada)
 
-De igual forma determinamos nuestra hipótesis de la misma forma donde si α< p(1.2038,3) aceptamo nuestra hipótesis nula de lo contrario aceptamos la hipótesis alternativa
+De igual forma determinamos nuestra hipótesis de la misma forma donde si α < p(1.2038,3), aceptamos nuestra hipótesis nula de lo contrario aceptamos la hipótesis alternativa
 
 Como 0.05 < 0.7521 se acepta la hipótesis nula de que existe independencia en las rachas
 
@@ -167,7 +168,7 @@ Esta muestra nos dio que los números no son uniformes pero sí independientes
 
 En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados:
 
-<table><thead><tr><th>Numero de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>11</td><td>21</td><td>68</td><td>100</td></tr></tbody></table>
+<table><thead><tr><th>Número de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>11</td><td>21</td><td>68</td><td>100</td></tr></tbody></table>
 
 De las 100 pruebas:
 68 pruebas cumplieron con la uniformidad, independencia y longitud.
@@ -199,9 +200,9 @@ Si recordamos, para que una secuencia de números sea catalogada como aleatoria,
 
 Podríamos decir que para el test 1 de 100 pruebas de 100 números cada una, 86 son aleatorias y de esas 86, 18 no cumplen la longitud de rachas.
 
-Para test 2 de 100 pruebas de 3000 números cada una, 91 son aleatorias y de esas 91, 42 no cumplen la longitud de rachas.
+Para el test 2 de 100 pruebas de 3000 números cada una, 91 son aleatorias y de esas 91, 42 no cumplen la longitud de rachas.
 
-En cuanto al problema inicial puedo decir que sí, los números en la mayoría de los casos son legítimamente aleatorios, y que es normal que siga viendo nombres que aparezcan ocasionalmente en racha seguidas.
+En cuanto al problema inicial puedo decir que los números en la mayoría de los casos son legítimamente aleatorios, y que es normal que siga viendo nombres que ocurran en rachas seguidas.
 
 ---
 
@@ -209,4 +210,4 @@ En cuanto al problema inicial puedo decir que sí, los números en la mayoría d
 
 Puedes probar [esta herramienta](https://test-for-random-numbers.marcomadera.vercel.app/) de abajo para evaluar tus números aleatorios. Ya que sabes los procedimientos de las pruebas de números aleatorios, te invito a contribuir en [este repositorio](https://github.com/MarcoMadera/Test-for-random-numbers) donde encontrarás el código que he estado escribiendo al mismo tiempo de escribir este post.
 
-Introduce números que sean entre 0 y 1 separados por espacios, intenta cuantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.
+Introduce números que sean entre 0 y 1 separados por espacios, intenta tantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.

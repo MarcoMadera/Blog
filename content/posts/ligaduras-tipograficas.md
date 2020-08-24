@@ -38,9 +38,9 @@ Estás ligaduras son más estéticas, tienen el propósito de lucir bien, entrel
 Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente creadas para reducir el tiempo de escritura, cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada, para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas, que fueron muy populares y por lo que después se le atribuyó la invención de la taquigrafía.
 
 ![Ampersand ajustar izquierda 50px](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png "Ampersand")
-Una de las ligaduras más famosas y utilizados actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.
+Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.
 
-En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo natabea. ![Ligaduras arabes 50px](https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif "Ligaduras Arabes") &nbsp;
+En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea. ![Ligaduras arabes 50px](https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif "Ligaduras Arabes") &nbsp;
 
 ---
 

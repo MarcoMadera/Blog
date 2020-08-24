@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 20 Aug 2020 23:13:58 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[RSS]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_120/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 24 Aug 2020 00:23:59 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[RSS]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha">
 Algo que siempre veía en los sitios era el icono típico de RSS, nunca le presté importancia hasta ahora que lo estoy implementando en el sitio. Cuando miraba una página con él, me daba la sensación de que no estaba actualizada o que usaba tecnologías del pasado, porque realmente el icono luce antiguo y nunca me di la tarea de entender que significada ni para qué servía; y aquí estoy ahora implementandolo.</p>
 <h2>¿Qué es RSS?</h2>
 <p>RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica, de esta forma los usuarios se pueden suscribir al feed y dar seguimiento al sitio sin la necesidad de tener que visitarlo para ver si ocurrió una actualización.</p>
 <p>Pero que maravilla! ya no tendré mi buzón lleno de newsletter a los que me he suscrito durante mucho tiempo y he omitido desuscribirme.</p>
-<h2>¿Cómo subscribirse?</h2>
-<p>Primero lo que se necesita es que la página deseada tenga implementada la funcionalidad de que se actualice, lo cual no es el caso de muchos sitios, se puede buscar en la propia página algún <strong>enlace</strong> con el nombre de RSS, Feed, o el distinguible icono. Una vez localizado el enlace puede que te subscriba directamente si tienes un lector, si no es el caso, copias el enlace y lo pegas en el <strong>lector de RSS</strong>. Existe una gran cantidad de lectores, de los lectores online que más me llamaron la atención fueron estos:</p>
+<h2>¿Cómo suscribirse?</h2>
+<p>Primero lo que se necesita es que la página deseada tenga implementada la funcionalidad de que se actualice, lo cual no es el caso de muchos sitios, se puede buscar en la propia página algún <strong>enlace</strong> con el nombre de RSS, Feed, o el distinguible icono. Una vez localizado el enlace puede que te suscriba directamente si tienes un lector, si no es el caso, copias el enlace y lo pegas en el <strong>lector de RSS</strong>. Existe una gran cantidad de lectores, de los lectores online que más me llamaron la atención fueron estos:</p>
 <ul>
 <li><a href="https://feedreader.com/">Feed Reader</a></li>
 <li><a href="https://feedly.com/">Feedly</a></li>
 <li><a href="https://www.inoreader.com/">Inoreader</a></li>
 </ul>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597948860/Blog/4/subscription-feedly_cen18m.png" alt="Subscription Feedly">
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597948860/Blog/4/subscription-feedly_cen18m.png" alt="Suscription Feedly">
    👆 En este caso solo necesité de la dirección del sitio para que lo detectará automáticamente.</p>
 <p> </p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597947959/Blog/4/ejemplo-rss-feedly_lyldsf.png" alt="Feedly presentación">
@@ -22,7 +22,7 @@ Ahora con Feedreader en modo lectura</p>
 <h2>Ventajas</h2>
 <ul>
 <li>Te ahorra el tiempo de visitar las páginas</li>
-<li>Tu decides a que sitios subscribirte</li>
+<li>Tu decides a qué sitios suscribirte</li>
 <li>No necesitas registrarte a ningún sitio</li>
 <li>Te puedes desuscribir fácilmente</li>
 </ul>
@@ -33,10 +33,10 @@ Ahora con Feedreader en modo lectura</p>
 <li>Algunos elementos pueden que no se muestren correctamente a lo esperado</li>
 </ul>
 <h2>Extracto</h2>
-<p>El sitio ya tiene RSS! si te subscribes a él puede que no veas algunos elementos correctamente, ya que puede depender del lector si soporta estilos dentro o no, pero de igual forma puedes dar click al enlace para que te direccione a la página del blog y verlo de la forma esperada. Te recuerdo que también existe la opción de recibir emails a través del Newsletter si no te agrada esta forma de recibir actualizaciones.</p>
+<p>El sitio ya tiene RSS! si te suscribes a él puede que no veas algunos elementos correctamente, ya que puede depender del lector si soporta estilos dentro o no, pero de igual forma puedes dar click al enlace para que te direccione a la página del blog y verlo de la forma esperada. Te recuerdo que también existe la opción de recibir emails a través del Newsletter si no te agrada esta forma de recibir actualizaciones.</p>
 <h2>Conclusión</h2>
-<p>RSS es una gran herramienta para el blog como alternativa al newsletter, para quienes lo prefieran usar, aún así yo no me veo usando la funcionalidad, se me hace mucho más cómodo que me llegue un email aún teniendo una cantidad considerable de subscripciones a tener que entrar a un lector a revisar las actualizaciones.</p>
-]]></description><link>https://marcomadera.com/blog/rss</link><guid isPermaLink="true">https://marcomadera.com/blog/rss</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Thu, 20 Aug 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Accesibilidad Web]]></title><description><![CDATA[<p>Segun el <a href="https://www.who.int/disabilities/world_report/2011/accessible_es.pdf">Informe mundial sobre la discapacidad</a> publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.</p>
+<p>RSS es una gran herramienta para el blog como alternativa al newsletter, para quienes lo prefieran usar, aún así yo no me veo usando la funcionalidad, se me hace mucho más cómodo que me llegue un email aún teniendo una cantidad considerable de suscripciones a tener que entrar a un lector a revisar las actualizaciones.</p>
+]]></description><link>https://marcomadera.com/blog/rss</link><guid isPermaLink="true">https://marcomadera.com/blog/rss</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Thu, 20 Aug 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Accesibilidad Web]]></title><description><![CDATA[<p>Según el <a href="https://www.who.int/disabilities/world_report/2011/accessible_es.pdf">Informe mundial sobre la discapacidad</a> publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.</p>
 <p>La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.
 <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/">Web Content Accessibility Guidelines</a> creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.</p>
 <p> </p>
@@ -46,7 +46,7 @@ Ahora con Feedreader en modo lectura</p>
 <li>Puede aumentar el SEO de nuestro sitio web</li>
 <li>Para incluir a personas en situaciones de discapacidad.</li>
 <li>Para mejorar la usabilidad de nuestros proyectos.</li>
-<li>Porque en algunos paises es la ley.</li>
+<li>Porque en algunos países es la ley.</li>
 </ul>
 <p> </p>
 <h2>Principios WCAG</h2>
@@ -55,7 +55,7 @@ Ahora con Feedreader en modo lectura</p>
 <p><a href="https://www.w3.org/TR/WCAG21/#perceivable">Perceptible</a>: Crear alternativas textuales para todo contenido no textual, facilitar a los usuarios ver y oír el contenido, poder presentar el contenido de diferentes formas sin perder información o estructura.</p>
 </li>
 <li>
-<p><a href="https://www.w3.org/TR/WCAG21/#operable">Operable</a>: Que toda la funcionalidad esté disponible desde el teclado, que sea navegable, dar el tiempo suficiente para leer en elementos dinamicos y dar opciones de tiempo.</p>
+<p><a href="https://www.w3.org/TR/WCAG21/#operable">Operable</a>: Que toda la funcionalidad esté disponible desde el teclado, que sea navegable, dar el tiempo suficiente para leer en elementos dinámicos y dar opciones de tiempo.</p>
 </li>
 <li>
 <p><a href="https://www.w3.org/TR/WCAG21/#understandable">Comprensible</a>: Ser legible, tamaños contrastes de textos, hacer la página predecible, tener instrucciones claras.</p>
@@ -64,7 +64,7 @@ Ahora con Feedreader en modo lectura</p>
 <p><a href="https://www.w3.org/TR/WCAG21/#robust">Robusto</a>: Mantener compatibilidad con las aplicaciones de usuario actuales y futuras, navegadores y dispositivos, incluyendo las tecnologías asistivas y tener un buen performance.</p>
 </li>
 </ol>
-<p>Los criterios de WCAG comprenden 3 niveles de conformidad:</p>
+<p>Los criterios de WCAG comprende 3 niveles de conformidad:</p>
 <ul>
 <li>A el nivel más bajo.</li>
 <li>AA requiere cumplir los criterios del nivel A y AA</li>
@@ -82,7 +82,7 @@ Ahora con Feedreader en modo lectura</p>
 </ul>
 <p>  </p>
 <h2>HTML Semántico</h2>
-<p>Un buen HTML resuelve mucho de la accesibilidad con el uso correcto de tags y atributos. Usar HTML semántico ayudará al navegador a incluir significado en el árbol de accesibilidad para que los lectores de pantalla puedan entender el rol, propiedades y estado que tiene esa parte de nuestro código.</p>
+<p>Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de tags y atributos. Usar HTML semántico ayudará al navegador a incluir significado en el árbol de accesibilidad para que los lectores de pantalla puedan entender el rol, propiedades y estado que tiene esa parte de nuestro código.</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png" alt="Chrome Accesibility" title="Chrome Accesibility"></p>
 <h3>No recomendado:</h3>
 <pre><code class="language-HTML">&lt;body&gt;
@@ -102,8 +102,8 @@ Ahora con Feedreader en modo lectura</p>
 &lt;/body&gt;
 </code></pre>
 <p>  </p>
-<h3>Uso de texto alternativo en imagenes</h3>
-<p>Esto le ayuda a los lectores de pantalla al momento de toparse con imagenes a leer la descripción.</p>
+<h3>Uso de texto alternativo en imágenes</h3>
+<p>Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la descripción.</p>
 <pre><code class="language-HTML">&lt;img src =&quot;img src&quot; alt=&quot;description&quot;&gt;
 </code></pre>
 <p> </p>
@@ -130,7 +130,7 @@ Ahora con Feedreader en modo lectura</p>
 </code></pre>
 <p> </p>
 <h3>Roles apropiados</h3>
-<p>Los siguientes elementos tienen la apariencia de botón pero con roles direfentes:</p>
+<p>Los siguientes elementos tienen la apariencia de botón pero con roles diferentes:</p>
 <p>&lt;style&gt;
 .blog3__container{
 position: relative;
@@ -297,7 +297,7 @@ visibility: visible;
 <p>Estos atributos se pueden añadir a cualquier etiqueta HTML para comunicar cambios especiales al DOM de nuestra aplicación. Roles propiedades y estados. Siempre es preferible usar un elemento HTML semántico correcto si es que existe en lugar de usar ARIA.</p>
 <ul>
 <li>
-<p>Roles: Define el tipo general del objeto .Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy especificas, es mejor depender del HTML semántico para comunicar los roles. Atributo: &quot;role&quot;
+<p>Roles: Define el tipo general del objeto .Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy específicas, es mejor depender del HTML semántico para comunicar los roles. Atributo: &quot;role&quot;
  </p>
 </li>
 <li>
@@ -308,26 +308,24 @@ visibility: visible;
 </li>
 </ul>
 <h3>Estilos</h3>
-<p>Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las devtools de Google Chrome a través de las siguientes opciones:</p>
+<p>Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las dev tools de Google Chrome a través de las siguientes opciones:</p>
 <p>Customize and control DevTools &gt; More tools &gt; Rendering &gt; Emulate vision deficiencies</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png" alt="Emulate Vision" title="Emulate Vision"></p>
 <h3>Color y contraste</h3>
-<p>Podemos utilizar las herramietas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.</p>
+<p>Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png" alt="Contrast tool" title="Contrast tool"></p>
 <h3>Focus</h3>
-<p>El enfoque da una guia visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
-&lt;style&gt;</p>
+<p>El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.</p>
+<p>&lt;style&gt;</p>
 <p>#inputToFocus:focus{
-box-shadow: 0 0 5px rgba(0, 123, 255, 1);
-padding: 3px 0px 3px 3px;
-margin: 5px 1px 3px 0px;
-outline: 1px solid rgba(0, 123, 255, 1);
+box-shadow: 0 0 5px #da0000;
+outline: 1px solid #da0000;
+border: 2px solid transparent;
 }
-&lt;/style&gt;
-&lt;input type=&quot;text&quot; id=&quot;inputToFocus&quot; size=&quot;25&quot; placeholder=&quot;Seleccioname para enforcarme&quot;/&gt;</p>
+&lt;/style&gt;&lt;label&gt;Selecciona -&gt;&lt;input type=&quot;text&quot; id=&quot;inputToFocus&quot; size=&quot;25&quot; placeholder=&quot;Seleccioname para enforcarme&quot;/&gt;&lt;/label&gt;</p>
 <p>  </p>
 <h3>Skip Links</h3>
-<p>Es una &lt;a href=&quot;https://www.w3.org/TR/WCAG20-TECHS/G1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener  noreferrer&quot;&gt;técnica&lt;/a&gt; que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.</p>
+<p>Es una <a href="https://www.w3.org/TR/WCAG20-TECHS/G1.html">técnica</a> que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.</p>
 <pre><code class="language-HTML">&lt;style&gt;
   .skip-link {
   display: block;
@@ -352,27 +350,27 @@ outline: 1px solid rgba(0, 123, 255, 1);
 <hr>
 <h3>Tabindex</h3>
 <p>Es un atributo que indica si un elemento puede ser enfocado, y si participa en la navegación secuencial del teclado, acepta tres valores:</p>
-<p>Valor negativo(-1): El elemento debe ser enfocado, pero no debe de ser accesible a través de la navegación, puede ser usado en carousels donde elementos no son visibles.</p>
+<p>Valor negativo(-1): El elemento debe ser enfocado, pero no debe de ser accesible a través de la navegación, puede ser usado en carruseles donde elementos no son visibles.</p>
 <p>Valor positivo (&gt;0): Debe poder ser enfocado y su orden relativo es definido por el valor del atributo.</p>
 <p>Valor de 0: Debe ser enfocado y ser accesible a través de la navegación secuencial del teclado, sigue el orden de la estructura del HTML.</p>
 <hr>
 <h2>Añadir acciones con el teclado</h2>
-<p>Podemos añadir acciones con el teclado escuchando las teclas. &lt;a href=&quot;http://keycode.info/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Guia de códigos&lt;/a&gt;</p>
+<p>Podemos añadir acciones con el teclado escuchando las teclas. <a href="http://keycode.info/">Guía de códigos</a></p>
 <p>Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla ESC, lo que añade una característica más a nuestro sitio.</p>
-<pre><code class="language-javascript">const listenKeys= (e) =&gt; {
+<pre><code class="language-javascript">const listenKeys = (e) =&gt; {
   switch (e.keyCode) {
-    case 32: 
+    case 32:
       togglePlay();
       break;
-    case 77: 
+    case 77:
       mute();
       break;
     default:
       break;
   }
-}
+};
 
-document.body.addEventListener(&quot;keyup&quot;, e=&gt; listenKeys(e));
+document.body.addEventListener(&quot;keyup&quot;, (e) =&gt; listenKeys(e));
 </code></pre>
 <p> </p>
 <h2>Test de accesibilidad</h2>
@@ -390,7 +388,7 @@ document.body.addEventListener(&quot;keyup&quot;, e=&gt; listenKeys(e));
 </ul>
 <hr>
 <h2>Conclusiones</h2>
-<p>La accesibilidad mejora la calidad de nuestro sitio web y la experiencia de los usuarios, es importante tener en mente la accesibilidad a la hora de estar desarrollando un sitio  web para asegurarnos que todos puedan tener acceso al contenido.</p>
+<p>La accesibilidad mejora la calidad de nuestro sitio web y la experiencia de los usuarios, es importante tener en mente la accesibilidad a la hora de estar desarrollando un sitio web para asegurarnos que todos puedan tener acceso al contenido.</p>
 ]]></description><link>https://marcomadera.com/blog/accesibilidad-web</link><guid isPermaLink="true">https://marcomadera.com/blog/accesibilidad-web</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 20 Jul 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Ligaduras tipográficas]]></title><description><![CDATA[<p>Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.</p>
 <p>En la música se aplica este concepto, las ligaduras son los símbolos que conectan las notas y hacen que se ejecuten como una sola nota prolongada, también ayudan en la legibilidad en el pentagrama.</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_167/v1595269483/Blog/2/2ed8a62bb1bd2f4eaeaaaa1be3be8e1e_bbofoo.jpg" alt="Ligadura musical 100px" title="Ligadura Musical">
@@ -406,8 +404,8 @@ document.body.addEventListener(&quot;keyup&quot;, e=&gt; listenKeys(e));
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_210/v1595269484/Blog/2/2af6de62vb43bnnc4_ou6z52.jpg" alt="Notacion tironiana ajustar derecha 200px" title="Notas tironianas">
 Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente creadas para reducir el tiempo de escritura, cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada, para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas, que fueron muy populares y por lo que después se le atribuyó la invención de la taquigrafía.</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png" alt="Ampersand ajustar izquierda 50px" title="Ampersand">
-Una de las ligaduras más famosas y utilizados actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.</p>
-<p>En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo natabea. <img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif" alt="Ligaduras arabes 50px" title="Ligaduras Arabes">    </p>
+Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.</p>
+<p>En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea. <img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif" alt="Ligaduras arabes 50px" title="Ligaduras Arabes">  </p>
 <hr>
 <h2>Ligaduras en la programación</h2>
 <p>En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado, como por ejemplo '&gt;=', mi mente por un instante tiene que procesar ambos caracteres por separado &quot;mayor o igual&quot; y si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.</p>
@@ -422,12 +420,12 @@ Una de las ligaduras más famosas y utilizados actualmente de este sistema es el
 <p>Descarga e instala la fuente que desees como cualquier otra fuente.</p>
 <h2>Habilita las ligaduras en tu editor</h2>
 <p>La gran mayoría de editores permiten el uso de ligaduras.<br>
-Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferences &gt; User Settings) en la sección del editor de texto, fuentes y editar settings.json</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg" alt="Vs Code Settings" title="Vs Code Settings"></p>
+Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferences &gt; User Settings) en la sección del editor de texto, fuentes y editar settings.json
+<img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg" alt="Vs Code Settings" title="Vs Code Settings"></p>
 <p>En settings.json agrega lo siguiente en el caso de Fira Code.</p>
 <pre><code class="language-json">{
   &quot;editor.fontFamily&quot;: &quot;'Fira Code'&quot;,
-  &quot;editor.fontLigatures&quot;: true,
+  &quot;editor.fontLigatures&quot;: true
 }
 </code></pre>
 <p>Guardas los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada, si no es el caso probablemente sea necesario reiniciar el editor.</p>
@@ -438,9 +436,9 @@ Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferen
 ]]></description><link>https://marcomadera.com/blog/ligaduras-tipograficas</link><guid isPermaLink="true">https://marcomadera.com/blog/ligaduras-tipograficas</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 08 Jun 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Números Pseudo Aleatorios]]></title><description><![CDATA[<p>Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript, que surge tras programar el paquete de node <a href="https://github.com/MarcoMadera/random-messages-names">random-messages-names</a> el cual como su nombre lo dice retorna mensajes y nombres aleatorios. Tiene 1000 apellidos y 2788 nombres diferentes. Al estar probando me di cuenta que había veces que ocurrían rachas seguidas de nombres repetidos, 3 o 4 veces el mismo nombre, lo que me dio por comprobar si la aleatoriedad de Math.Random() es legítima a través de unas pruebas estadísticas.</p>
 <p>Primero hay que saber qué es Math.Random(), la definición de la especificación estándar del lenguaje, ECMAScript 2015 dice:</p>
 <blockquote>
-<p>Devuelve un número con signo positivo, mayor o igual que 0 pero menor que 1, elegido aleatoriamente o seudoaleatoriamente con una distribución aproximadamente uniforme en ese rango, utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas.</p>
+<p>Devuelve un número con signo positivo, mayor o igual que 0 pero menor que 1, elegido aleatoriamente o pseudo aleatoriamente con una distribución aproximadamente uniforme en ese rango, utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas.</p>
 </blockquote>
-<p>Dato importante que sacamos de está definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo, depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome para desarrollar, el cual ambos utilizan el motor V8 para correr JavaScript, por otro lado Firefox utliza SpiderMonkey y Safari usa Nitro, y aunque los tres usen el algoritmo xorshift128 +, los resultados valdrán solo para V8 pues la implementación puede ser diferente, ya que éste se encarga de escoger la semilla que genera los números.</p>
+<p>Dato importante que sacamos de está definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo, depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome para desarrollar, el cual ambos utilizan el motor V8 para correr JavaScript, por otro lado Firefox utiliza SpiderMonkey y Safari usa Nitro, y aunque los tres usen el algoritmo xorshift128 +, los resultados valdrán solo para V8 pues la implementación puede ser diferente, ya que éste se encarga de escoger la semilla que genera los números.</p>
 <h2>¿Qué son los números pseudo-aleatorios?</h2>
 <p>Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios, por eso el pseudo, algunos algoritmos hacen muy bien el trabajo de simular las propiedades de los números aleatorios y otros caen en el bucle de repetirse infinitamente.</p>
 <p>Para que una secuencia de números sea catalogada como aleatoria, es necesario que tengan una distribución uniforme y que no tenga correlación, es decir, que tengan la misma probabilidad de ser elegido y que la elección de uno no dependa del otro.</p>
@@ -452,8 +450,8 @@ $$\omicron {\scriptscriptstyle i}$$ : datos obtenidos</p>
 <p>$$\epsilon {\scriptscriptstyle i}$$ : datos esperados</p>
 <p>Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).</p>
 <p>&lt;table&gt;&lt;colgroup span=&quot;2&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Hipótesis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;0&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos son uniformes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos no son uniformes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
-<p>Sea n el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
-Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y=a donde a=[0,1] como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
+<p>Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
+Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = [0 , 1] como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.
 Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
 Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:</p>
@@ -468,7 +466,7 @@ Esto lo podemos hacer de dos formas, en una tabla de probabilidades de chi-cuadr
 <p>La otra forma de hacer esto es buscando directamente nuestro valor α en la columna correspondiente, vamos a la intersección k=17,α=0.05=27.587.
 Si el resultado de nuestra x2 es menor que el resultado de la intersección se acepta la hipótesis nula de lo contrario se rechaza. Como 28.32666 &lt; 27.587 no se cumple, se rechaza la hipótesis nula y se acepta la hipótesis alternativa.</p>
 <h2>Prueba de independencia</h2>
-<p>Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la prueba de rachas ascendentes y descendientes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria, dependiendo de la longitud de los números evaluados.</p>
+<p>Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la prueba de rachas ascendentes y descendentes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria, dependiendo de la longitud de los números evaluados.</p>
 <p>Para aplicar esta prueba necesitamos de los siguientes estadísticos:</p>
 <p>$$\mu R = {2n - 1 \over 3}$$</p>
 <p>$$\sigma ^2 R = {16n - 29 \over 90}$$</p>
@@ -483,7 +481,7 @@ Z: Valor estándar de la distribución normal para la prueba.</p>
 <p>&lt;table&gt;&lt;colgroup span=&quot;2&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Hipótesis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;0&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos son independientes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos no son independientes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
 <p>Clasificamos los números como bien el nombre lo indica, como racha ascendente o descendente. Ejemplo:
 Dada la siguiente lista: 0.1, 0.2, 0.3, 0.4, 0.2, 0.3, 0.1, 0.2, 0.3.
-Vemos que los primeros cuatro números tienen una racha ascendiente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑
+Vemos que los primeros cuatro números tienen una racha ascendente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑
 Tenemos lo siguiente:</p>
 <table>
 <thead>
@@ -515,7 +513,7 @@ Tenemos lo siguiente:</p>
 </tr>
 </tbody>
 </table>
-<p>Transponemos nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:</p>
+<p>Transpuesta nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:</p>
 <p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Longitud de Rachas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Número de Rachas&lt;/th&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
 <p>Si aplicamos lo que sabemos hasta ahora a la lista de nuestros 300 números iniciales, quedaría de la siguiente manera:</p>
 <p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Longitud de Rachas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Número de Rachas&lt;/th&gt;&lt;td&gt;116&lt;/td&gt;&lt;td&gt;55&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;194&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
@@ -527,12 +525,12 @@ Z = -0.108 El valor de la distribución normal</p>
 <p>Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto de nuestra Z es menor a la desviación normal de la tabla, de lo contrario se rechaza
 |-0.108|&lt;1.96 como esto es verdadero, se acepta nuestra hipótesis nula de que las rachas son independientes.</p>
 <h2>Distribución de la longitud de las rachas</h2>
-<p>De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la formula de chi-cuadrada utilizada anteriormente.</p>
+<p>De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la fórmula de chi-cuadrada utilizada anteriormente.</p>
 <p>$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$</p>
-<p>Donde:
-oi: datos obtenidos
+<p>Donde:</p>
+<p>oi: datos obtenidos
 ei: datos esperados</p>
-<p>Lo que cambia es que ahora nuestros números esperados los calcularíamos de con la siguiente ecuación.</p>
+<p>Lo que cambia es que ahora nuestros números esperados los calcularemos de con la siguiente ecuación.</p>
 <p>$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$</p>
 <p>Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:</p>
 <p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Longitud de Rachas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Número de Rachas&lt;/th&gt;&lt;td&gt;116&lt;/td&gt;&lt;td&gt;55&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;194&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
@@ -546,14 +544,14 @@ ei: datos esperados</p>
 <p>Con estos datos calculamos chi-cuadrada (X2) = 1.2038
 k = 4-1 = 3
 p=0.7521 (valor de la tabla de chi cuadrada)</p>
-<p>De igual forma determinamos nuestra hipótesis de la misma forma donde si α&lt; p(1.2038,3) aceptamo nuestra hipótesis nula de lo contrario aceptamos la hipótesis alternativa</p>
+<p>De igual forma determinamos nuestra hipótesis de la misma forma donde si α &lt; p(1.2038,3), aceptamos nuestra hipótesis nula de lo contrario aceptamos la hipótesis alternativa</p>
 <p>Como 0.05 &lt; 0.7521 se acepta la hipótesis nula de que existe independencia en las rachas</p>
 <p>Esta muestra nos dio que los números no son uniformes pero sí independientes</p>
 <hr>
 <h2>Resultados</h2>
 <h3>Test 1</h3>
 <p>En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados:</p>
-<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Numero de pruebas correctas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Valores&lt;/th&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
+<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Número de pruebas correctas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Valores&lt;/th&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
 <p>De las 100 pruebas:
 68 pruebas cumplieron con la uniformidad, independencia y longitud.
 1 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
@@ -576,10 +574,10 @@ p=0.7521 (valor de la tabla de chi cuadrada)</p>
 <h3>Conclusión</h3>
 <p>Si recordamos, para que una secuencia de números sea catalogada como aleatoria, es necesario que tenga distribución uniforme y que sea independiente, por lo que podríamos decir que que los 18 números y 42 números, que no cumplieron la prueba de longitud de rachas, pero sí las de uniformidad e independencia, del test 1 y 2 respectivamente, también se comportan como números aleatorios.</p>
 <p>Podríamos decir que para el test 1 de 100 pruebas de 100 números cada una, 86 son aleatorias y de esas 86, 18 no cumplen la longitud de rachas.</p>
-<p>Para test 2 de 100 pruebas de 3000 números cada una, 91 son aleatorias y de esas 91, 42 no cumplen la longitud de rachas.</p>
-<p>En cuanto al problema inicial puedo decir que sí, los números en la mayoría de los casos son legítimamente aleatorios, y que es normal que siga viendo nombres que aparezcan ocasionalmente en racha seguidas.</p>
+<p>Para el test 2 de 100 pruebas de 3000 números cada una, 91 son aleatorias y de esas 91, 42 no cumplen la longitud de rachas.</p>
+<p>En cuanto al problema inicial puedo decir que los números en la mayoría de los casos son legítimamente aleatorios, y que es normal que siga viendo nombres que ocurran en rachas seguidas.</p>
 <hr>
 <h2>¿Tus números son aleatorios?</h2>
 <p>Puedes probar <a href="https://test-for-random-numbers.marcomadera.vercel.app/">esta herramienta</a> de abajo para evaluar tus números aleatorios. Ya que sabes los procedimientos de las pruebas de números aleatorios, te invito a contribuir en <a href="https://github.com/MarcoMadera/Test-for-random-numbers">este repositorio</a> donde encontrarás el código que he estado escribiendo al mismo tiempo de escribir este post.</p>
-<p>Introduce números que sean entre 0 y 1 separados por espacios, intenta cuantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.</p>
+<p>Introduce números que sean entre 0 y 1 separados por espacios, intenta tantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.</p>
 ]]></description><link>https://marcomadera.com/blog/numeros-pseudo-aleatorios</link><guid isPermaLink="true">https://marcomadera.com/blog/numeros-pseudo-aleatorios</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate></item></channel></rss>

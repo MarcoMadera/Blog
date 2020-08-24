@@ -70,7 +70,7 @@ const NewsletterPage = () => {
           <input
             type="submit"
             className="btn btn-primary"
-            value="Subscribete"
+            value="Suscribete"
           ></input>
           {email.error && email.submitted && (
             <p>Por favor inserta un correo válido</p>

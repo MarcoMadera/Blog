@@ -13,7 +13,7 @@ tag:
   - JavaScript
 ---
 
-Segun el [Informe mundial sobre la discapacidad](https://www.who.int/disabilities/world_report/2011/accessible_es.pdf) publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.
+Según el [Informe mundial sobre la discapacidad](https://www.who.int/disabilities/world_report/2011/accessible_es.pdf) publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.
 
 La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.
 [Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/) creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.
@@ -27,7 +27,7 @@ Una declaración de accesibilidad demuestra compromiso y proporciona detalles a 
 - Puede aumentar el SEO de nuestro sitio web
 - Para incluir a personas en situaciones de discapacidad.
 - Para mejorar la usabilidad de nuestros proyectos.
-- Porque en algunos paises es la ley.
+- Porque en algunos países es la ley.
 
 &nbsp;
 
@@ -35,13 +35,13 @@ Una declaración de accesibilidad demuestra compromiso y proporciona detalles a 
 
 1. [Perceptible](https://www.w3.org/TR/WCAG21/#perceivable): Crear alternativas textuales para todo contenido no textual, facilitar a los usuarios ver y oír el contenido, poder presentar el contenido de diferentes formas sin perder información o estructura.
 
-2. [Operable](https://www.w3.org/TR/WCAG21/#operable): Que toda la funcionalidad esté disponible desde el teclado, que sea navegable, dar el tiempo suficiente para leer en elementos dinamicos y dar opciones de tiempo.
+2. [Operable](https://www.w3.org/TR/WCAG21/#operable): Que toda la funcionalidad esté disponible desde el teclado, que sea navegable, dar el tiempo suficiente para leer en elementos dinámicos y dar opciones de tiempo.
 
 3. [Comprensible](https://www.w3.org/TR/WCAG21/#understandable): Ser legible, tamaños contrastes de textos, hacer la página predecible, tener instrucciones claras.
 
 4. [Robusto](https://www.w3.org/TR/WCAG21/#robust): Mantener compatibilidad con las aplicaciones de usuario actuales y futuras, navegadores y dispositivos, incluyendo las tecnologías asistivas y tener un buen performance.
 
-Los criterios de WCAG comprenden 3 niveles de conformidad:
+Los criterios de WCAG comprende 3 niveles de conformidad:
 
 - A el nivel más bajo.
 - AA requiere cumplir los criterios del nivel A y AA
@@ -63,7 +63,7 @@ Las tecnologías asistivas sirven de ayuda para las personas con dificultades pa
 
 ## HTML Semántico
 
-Un buen HTML resuelve mucho de la accesibilidad con el uso correcto de tags y atributos. Usar HTML semántico ayudará al navegador a incluir significado en el árbol de accesibilidad para que los lectores de pantalla puedan entender el rol, propiedades y estado que tiene esa parte de nuestro código.
+Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de tags y atributos. Usar HTML semántico ayudará al navegador a incluir significado en el árbol de accesibilidad para que los lectores de pantalla puedan entender el rol, propiedades y estado que tiene esa parte de nuestro código.
 
 ![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png "Chrome Accesibility")
 
@@ -93,9 +93,9 @@ Un buen HTML resuelve mucho de la accesibilidad con el uso correcto de tags y at
 
 &nbsp;&nbsp;
 
-### Uso de texto alternativo en imagenes
+### Uso de texto alternativo en imágenes
 
-Esto le ayuda a los lectores de pantalla al momento de toparse con imagenes a leer la descripción.
+Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la descripción.
 
 ```HTML
 <img src ="img src" alt="description">
@@ -132,7 +132,7 @@ El uso del scope ayuda a los lectores de pantalla a seguir el orden correcto.
 
 ### Roles apropiados
 
-Los siguientes elementos tienen la apariencia de botón pero con roles direfentes:
+Los siguientes elementos tienen la apariencia de botón pero con roles diferentes:
 
 <style>
   .blog3__container{
@@ -311,7 +311,7 @@ Hay que definir los roles de acuerdo a la función que realizarán. En este caso
 
 Estos atributos se pueden añadir a cualquier etiqueta HTML para comunicar cambios especiales al DOM de nuestra aplicación. Roles propiedades y estados. Siempre es preferible usar un elemento HTML semántico correcto si es que existe en lugar de usar ARIA.
 
-- Roles: Define el tipo general del objeto .Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy especificas, es mejor depender del HTML semántico para comunicar los roles. Atributo: "role"
+- Roles: Define el tipo general del objeto .Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy específicas, es mejor depender del HTML semántico para comunicar los roles. Atributo: "role"
   &nbsp;
 
 - Propiedades: Comunican atributos que son esenciales para el comportamiento o significado de un elemento pero que suelen comunicar visualmente. Atributo: “aria-label”
@@ -320,7 +320,7 @@ Estos atributos se pueden añadir a cualquier etiqueta HTML para comunicar cambi
 
 ### Estilos
 
-Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las devtools de Google Chrome a través de las siguientes opciones:
+Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las dev tools de Google Chrome a través de las siguientes opciones:
 
 Customize and control DevTools > More tools > Rendering > Emulate vision deficiencies
 
@@ -328,13 +328,13 @@ Customize and control DevTools > More tools > Rendering > Emulate vision deficie
 
 ### Color y contraste
 
-Podemos utilizar las herramietas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
+Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
 
 ![Contrast tool](https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png "Contrast tool")
 
 ### Focus
 
-El enfoque da una guia visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
+El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
 
 <style>
 
@@ -380,7 +380,7 @@ Es una [técnica](https://www.w3.org/TR/WCAG20-TECHS/G1.html) que permite navega
 
 Es un atributo que indica si un elemento puede ser enfocado, y si participa en la navegación secuencial del teclado, acepta tres valores:
 
-Valor negativo(-1): El elemento debe ser enfocado, pero no debe de ser accesible a través de la navegación, puede ser usado en carousels donde elementos no son visibles.
+Valor negativo(-1): El elemento debe ser enfocado, pero no debe de ser accesible a través de la navegación, puede ser usado en carruseles donde elementos no son visibles.
 
 Valor positivo (>0): Debe poder ser enfocado y su orden relativo es definido por el valor del atributo.
 
@@ -390,7 +390,7 @@ Valor de 0: Debe ser enfocado y ser accesible a través de la navegación secuen
 
 ## Añadir acciones con el teclado
 
-Podemos añadir acciones con el teclado escuchando las teclas. [Guia de códigos](http://keycode.info/)
+Podemos añadir acciones con el teclado escuchando las teclas. [Guía de códigos](http://keycode.info/)
 
 Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla ESC, lo que añade una característica más a nuestro sitio.
 

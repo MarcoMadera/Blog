@@ -36,7 +36,7 @@ const Newsletter = () => {
       onSubmit={handleSubmit}
       noValidate
     >
-      <label htmlFor="bd-email">¡Subscribete al Newsletter!</label>
+      <label htmlFor="bd-email">¡Suscribete al Newsletter!</label>
       <p>Recibirás actualizaciones del blog con temas de programación</p>
       <input
         type="email"
@@ -50,7 +50,7 @@ const Newsletter = () => {
       <input
         type="submit"
         className="btn btn-primary"
-        value="Subscribete"
+        value="Suscribete"
       ></input>
       {email.error && email.submitted && (
         <p>Por favor inserta un correo válido</p>
