@@ -71,7 +71,7 @@ export const getPostsTags = () => {
     frontmatter.tag.forEach((tag) =>
       paths.push({
         params: {
-          slug: tag,
+          slug: slugify(tag),
         },
       })
     )
