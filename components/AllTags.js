@@ -1,10 +1,10 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
-const AllTags = ({ tags }) => {
+const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
   return (
     <div>
       <strong>
-        <p>Todas las etiquetas</p>
+        <p>{title}</p>
       </strong>
       <section>
         {tags.map((tag) => (
@@ -39,6 +39,7 @@ const AllTags = ({ tags }) => {
 
 AllTags.propTypes = {
   tags: PropTypes.array,
+  title: PropTypes.string,
 };
 
 export default AllTags;

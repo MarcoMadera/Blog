@@ -108,3 +108,12 @@ export const getPostsByTag = (slug) => {
     slug,
   };
 };
+export const getPostsByTags = (data) =>
+  [
+    ...new Set(
+      data
+        .map((tag) => getPostsByTag(slugify(tag)).postsByTag)
+        .flat()
+        .map(JSON.stringify)
+    ),
+  ].map(JSON.parse);

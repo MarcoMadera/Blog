@@ -1,13 +1,18 @@
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { getPostBySlug, getPostsSlugs, getPostsTags } from "../../utils/posts";
+import {
+  getPostBySlug,
+  getPostsSlugs,
+  getPostsByTags,
+} from "../../utils/posts";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
 import toc from "markdown-toc-unlazy";
 import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
+import RecommendedPosts from "../../components/RecommendedPosts";
 import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
 import PropTypes from "prop-types";
@@ -29,11 +34,10 @@ const contentAside = (content, post) => {
   return <Contents content={h2s} post={post} />;
 };
 
-export default function Post({ postData, tags }) {
+export default function Post({ postData, recommendedPosts }) {
   const { post, frontmatter, currentPost, nextPost, previousPost } = postData;
   const [loaded, setloaded] = useState(false);
   const [data, setData] = useState();
-
   useEffect(() => {
     setData(frontmatter.title);
     if (frontmatter.title !== data) {
@@ -94,7 +98,11 @@ export default function Post({ postData, tags }) {
         {loaded && <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />}
       </div>
       <div>
-        <AllTags tags={tags} />
+        <AllTags tags={frontmatter.tag} title="Etiquetas del blog" />
+        <RecommendedPosts
+          recommendedPosts={recommendedPosts}
+          currentPost={currentPost.slug}
+        />
         <Newsletter />
       </div>
       <style jsx>{`
@@ -278,8 +286,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const tags = [...new Set(getPostsTags().map(({ params }) => params.slug))];
   const postData = getPostBySlug(slug);
+  const recommendedPosts = getPostsByTags(postData.frontmatter.tag);
   if (!postData.previousPost) {
     postData.previousPost = null;
   }
@@ -288,12 +296,13 @@ export async function getStaticProps({ params: { slug } }) {
     postData.nextPost = null;
   }
 
-  return { props: { postData, tags } };
+  return { props: { postData, recommendedPosts } };
 }
 
 Post.propTypes = {
   postData: PropTypes.object,
   tags: PropTypes.array,
+  recommendedPosts: PropTypes.array,
   post: PropTypes.object,
   frontmatter: PropTypes.object,
   currentPost: PropTypes.object,

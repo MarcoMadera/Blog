@@ -21,7 +21,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
             return false;
           }}
         >
-          <TwitterShare width={20} height={20} />
+          <TwitterShare width={30} height={30} />
         </button>
         <button
           title="Compartir en Facebook"
@@ -34,7 +34,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
             return false;
           }}
         >
-          <FacebookShare width={20} height={20} />
+          <FacebookShare width={30} height={30} />
         </button>
         <button
           title="Compartir en LinkedIn"
@@ -47,7 +47,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
             return false;
           }}
         >
-          <LinkedInShare width={20} height={20} />
+          <LinkedInShare width={30} height={30} />
         </button>
       </div>
       <Bio />
@@ -80,9 +80,9 @@ const BlogFooter = ({ slug, blogTitle }) => {
           border: none;
           cursor: pointer;
           box-sizing: content-box;
-          padding: 14px;
-          width: 20px;
-          height: 20px;
+          padding: 9px;
+          width: 30px;
+          height: 30px;
         }
         div {
           display: flex;
