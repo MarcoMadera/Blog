@@ -9,8 +9,8 @@ const Navbar = () => {
           <img
             src="/apple-touch-icon-120x120.png"
             alt="logo"
-            width="120"
-            height="120"
+            width="40"
+            height="40"
           />
           <h3>Marco Madera</h3>
         </a>

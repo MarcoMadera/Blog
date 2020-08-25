@@ -5,30 +5,59 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
     <section>
       {recommendedPosts && (
         <>
-          <strong>
-            <p>Blogs recomendados</p>
-          </strong>
+          {recommendedPosts.lenght !== 0 && (
+            <strong>
+              <p>Blogs recomendados</p>
+            </strong>
+          )}
           {recommendedPosts.map(({ slug, frontmatter }, i) => {
             if (slug === currentPost) return;
             return (
               i <= 6 && (
-                <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`} key={slug}>
-                  <a>{frontmatter.title}</a>
-                </Link>
+                <section key={slug}>
+                  <div>
+                    <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
+                      <a>
+                        <img
+                          src={frontmatter.cover100}
+                          alt={`${frontmatter.title} cover`}
+                          width="40"
+                          height="40"
+                        />
+                        {frontmatter.title}
+                      </a>
+                    </Link>
+                  </div>
+                </section>
               )
             );
           })}
         </>
       )}
       <style jsx>{`
+        section {
+        }
+        div {
+          margin-bottom: 10px;
+        }
+        img {
+          border-radius: 10px;
+          width: 40px;
+          height: 40px;
+          margin-right: 5px;
+        }
         a {
-          display: block;
+          display: flex;
+          align-items: center;
           margin: 0;
+          padding: 3px;
           color: #da0000;
         }
         a:hover {
           color: #e74c3ccb;
           text-decoration: underline;
+          background: rgb(250, 250, 250);
+          border-radius: 3px;
         }
         section {
           display: grid;

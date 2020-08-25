@@ -64,7 +64,7 @@ const Home = ({ posts, tags }) => {
 
 export async function getStaticProps() {
   const posts = getSortedPosts();
-  const tags = [...new Set(getPostsTags().map(({ params }) => params.slug))];
+  const tags = [...new Set(getPostsTags())];
 
   return {
     props: {
