@@ -165,6 +165,21 @@ export default function Post({ postData, recommendedPosts }) {
         .blog p {
           text-align: justify;
         }
+        .blog blockquote {
+          border-left: 5px solid #e74d3c;
+          padding-left: 10px;
+          margin-block-start: 0.5em;
+          margin-block-end: 0.5em;
+        }
+
+        .blog .mjx-chtml {
+          display: flex;
+          flex-wrap: wrap;
+          box-sizing: border-box;
+          white-space: unset;
+          justify-content: center;
+          font-size: 14px !important;
+        }
 
         .blog h1 {
           font-size: 1.8em;

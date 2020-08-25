@@ -27,6 +27,11 @@ b::selection,
 ul::selection,
 input::selection,
 textarea::selection,
+code::selection,
+sub::selection,
+sup::selection,
+th::selection,
+td::selection,
 img::selection {
   background: #e74d3c85;
 }

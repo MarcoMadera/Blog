@@ -4,18 +4,18 @@ const Bio = () => {
 
   return (
     <section>
-      <div>
-        <img src="/profile.jpg" alt="Profile" width="40" height="40" />
-        <a
-          href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${social.twitter}&tw_p=followbutton`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Seguir
-        </a>
-      </div>
       <p>
-        Escrito por <b>{author.name}</b> {author.summary}{" "}
+        <span className="Bio__follow">
+          <img src="/profile.jpg" alt="Profile" width="40" height="40" />
+          <a
+            href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${social.twitter}&tw_p=followbutton`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Seguir
+          </a>
+        </span>
+        Escrito por <strong>{author.name}</strong> {author.summary}{" "}
       </p>
       <style jsx>{`
         @keyframes scale-in-center {
@@ -28,7 +28,10 @@ const Bio = () => {
             opacity: 1;
           }
         }
-
+        span {
+          display: inline-flex;
+          vertical-align: middle;
+        }
         section {
           display: flex;
           align-items: center;
@@ -40,7 +43,7 @@ const Bio = () => {
           height: 40px;
           margin: 0 10px 0 0 !important;
         }
-        div:hover a {
+        span:hover a {
           display: inline-block;
           animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
@@ -48,10 +51,10 @@ const Bio = () => {
         img:hover + a {
           padding: 1px 7px 1px 6px;
           margin-left: -2px;
-          margin-top: -18px;
+          margin-top: 22px;
         }
         a {
-          margin-top: -20px;
+          margin-top: 20px;
           position: absolute;
           border: none;
           height: 20px;

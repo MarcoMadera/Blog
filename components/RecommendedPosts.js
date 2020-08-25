@@ -2,42 +2,39 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
   return (
-    <section>
+    <div>
       {recommendedPosts && (
         <>
-          {recommendedPosts.lenght !== 0 && (
+          {recommendedPosts.length > 1 && (
             <strong>
               <p>Blogs recomendados</p>
             </strong>
           )}
-          {recommendedPosts.map(({ slug, frontmatter }, i) => {
-            if (slug === currentPost) return;
-            return (
-              i <= 6 && (
-                <section key={slug}>
-                  <div>
-                    <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
-                      <a>
-                        <img
-                          src={frontmatter.cover100}
-                          alt={`${frontmatter.title} cover`}
-                          width="40"
-                          height="40"
-                        />
-                        {frontmatter.title}
-                      </a>
-                    </Link>
-                  </div>
-                </section>
-              )
-            );
-          })}
+          <section>
+            {recommendedPosts.map(({ slug, frontmatter }, i) => {
+              if (slug === currentPost) return;
+              return (
+                i <= 6 && (
+                  <Link key={slug} href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
+                    <a>
+                      <img
+                        src={frontmatter.cover100}
+                        alt={`${frontmatter.title} cover`}
+                        width="40"
+                        height="40"
+                      />
+                      {frontmatter.title}
+                    </a>
+                  </Link>
+                )
+              );
+            })}
+          </section>
         </>
       )}
       <style jsx>{`
-        section {
-        }
         div {
+          display: block;
           margin-bottom: 10px;
         }
         img {
@@ -69,7 +66,7 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
           }
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 

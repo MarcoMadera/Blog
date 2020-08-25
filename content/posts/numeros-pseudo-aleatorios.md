@@ -32,16 +32,17 @@ Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2
 $$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$
 
 Donde:
-$$\omicron {\scriptscriptstyle i}$$ : datos obtenidos
 
-$$\epsilon {\scriptscriptstyle i}$$ : datos esperados
+oi: datos obtenidos
+
+ei: datos esperados
 
 Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
 <table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
 
 Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
-Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = [0 , 1] como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
+Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = `[0 , 1]`como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.
 Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
 Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:
@@ -75,11 +76,17 @@ $$\sigma ^2 R = {16n - 29 \over 90}$$
 $$Z = {R - \mu R \over \sigma R}$$
 
 Donde:
+
 R: El número esperado de rachas
-n: El número de datos a evaluar.
-μR: La media de rachas que esperamos tener.
-σ2R: La varianza del número esperado de rachas.
+
+n: El número de datos a evaluar
+
+μR: La media de rachas que esperamos tener
+
+σ2R: La varianza del número esperado de rachas
+
 Z: Valor estándar de la distribución normal para la prueba.
+
 
 Igual que antes establecemos primero nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
@@ -109,8 +116,11 @@ Si aplicamos lo que sabemos hasta ahora a la lista de nuestros 300 números inic
 Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los tres estadísticos:
 
 μR = 199.666 El número esperado de rachas
+
 σ2R = 52.01 La varianza
+
 Z = -0.108 El valor de la distribución normal
+
 
 Para determinar la independencia, igualmente buscaríamos ahora en una tabla de distribución normal el valor α/2 seguiré usando 0.05, por lo que buscaré el valor de 0.025, si vamos a los valores de los laterales encontramos que la desviación normal es de 1.96, si nuestro valor α fuera 0.1 para tener una confianza del 90% la desviación normal sería de 1.65.
 
@@ -126,6 +136,7 @@ $$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\
 Donde:
 
 oi: datos obtenidos
+
 ei: datos esperados
 
 Lo que cambia es que ahora nuestros números esperados los calcularemos de con la siguiente ecuación.

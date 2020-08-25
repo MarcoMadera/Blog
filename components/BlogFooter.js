@@ -86,10 +86,16 @@ const BlogFooter = ({ slug, blogTitle }) => {
         }
         div {
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
         }
         p {
           margin: 0;
+        }
+        @media screen and (max-width: 528px) {
+          div {
+            display: block;
+          }
         }
       `}</style>
     </footer>
