@@ -91,6 +91,10 @@ const BlogCard = ({
           padding: 0 1rem 0.4rem;
         }
         a {
+          display: inline-flex;
+          box-sizing: border-box;
+        }
+        div > a {
           margin-right: 5px;
         }
         section p:hover span,

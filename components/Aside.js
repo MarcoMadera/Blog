@@ -53,7 +53,11 @@ const Aside = () => {
           width: 100%;
           margin-top: 40px;
         }
-
+        a {
+          display: inline-flex;
+          box-sizing: border-box;
+          margin: 0 10px;
+        }
         img {
           width: 80px;
           height: 80px;
@@ -61,9 +65,6 @@ const Aside = () => {
         }
       `}</style>
       <style global jsx>{`
-        svg {
-          margin: 0 10px;
-        }
         svg:hover {
           fill: #e74c3ccb;
         }

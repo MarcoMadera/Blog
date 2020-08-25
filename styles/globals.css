@@ -6,6 +6,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #fff;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 a {
   color: inherit;
@@ -41,6 +44,10 @@ h5::selection,
 h6::selection,
 strong::selection {
   background: #e74d3cc2;
+}
+*:focus {
+  outline: 2px solid #e74d3c;
+  outline-style: dashed;
 }
 
 * {

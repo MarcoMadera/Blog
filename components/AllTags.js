@@ -21,7 +21,7 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
       <style jsx>{`
         a {
           display: block;
-          margin: 0;
+          margin: 0 0 3px 0;
           color: #da0000;
         }
         a:hover {
