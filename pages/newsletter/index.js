@@ -80,11 +80,6 @@ const NewsletterPage = () => {
           )}
         </form>
       </div>
-      <style global jsx>{`
-        .btn.btn-primary {
-          max-width: 200px;
-        }
-      `}</style>
       <style jsx>{`
         p {
           text-align: center;

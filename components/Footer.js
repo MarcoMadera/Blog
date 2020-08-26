@@ -2,6 +2,9 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer>
+      <Link href="/newsletter">
+        <a>Newsletter</a>
+      </Link>
       <a
         href="https://marcomadera.github.io/"
         target="_blank"
@@ -9,9 +12,6 @@ const Footer = () => {
       >
         Sitio alternativo
       </a>
-      <Link href="/newsletter">
-        <a>Newsletter</a>
-      </Link>
       <a
         href="https://marcomadera.com/rss.xml"
         target="_blank"
