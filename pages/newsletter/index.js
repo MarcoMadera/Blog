@@ -70,7 +70,7 @@ const NewsletterPage = () => {
           <input
             type="submit"
             className="btn btn-primary"
-            value="Suscribete"
+            value="Suscríbete"
           ></input>
           {email.error && email.submitted && (
             <p>Por favor inserta un correo válido</p>
@@ -80,6 +80,11 @@ const NewsletterPage = () => {
           )}
         </form>
       </div>
+      <style global jsx>{`
+        .btn.btn-primary {
+          max-width: 200px;
+        }
+      `}</style>
       <style jsx>{`
         p {
           text-align: center;

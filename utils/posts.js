@@ -14,10 +14,9 @@ export const getPostsFolders = () => {
 };
 
 // Get day in format: Month day, Year. e.g. April 19, 2020
-export const getFormattedDate = (date) => {
+export const getFormattedDate = (date, local) => {
   const options = { year: "numeric", month: "short", day: "numeric" };
-  const formattedDate = date.toLocaleDateString("en-US", options);
-
+  const formattedDate = date.toLocaleDateString(local, options);
   return formattedDate;
 };
 
@@ -36,7 +35,7 @@ export const getSortedPosts = () => {
 
       const frontmatter = {
         ...data,
-        date: getFormattedDate(data.date),
+        date: data.date,
         tag: data.tag,
       };
       const slug = filename.replace(".md", "");
@@ -51,6 +50,10 @@ export const getSortedPosts = () => {
       (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
     );
 
+  posts.forEach(
+    (post) =>
+      (post.frontmatter.date = getFormattedDate(post.frontmatter.date, "es-MX"))
+  );
   return posts;
 };
 
