@@ -6,70 +6,68 @@
     }
 
     .main {
+      margin-top: 40px;
       display: flex;
+      width: 480px;
+      height: 133px;
+    }
+
+    .currentStatus {
+      position: static;
+      float: left;
+      font-size: 24px;
+      margin-top: -5px;
+      margin-left: 10px;
+    }
+
+    .container {
+      border-radius: 5px;
+      padding: 10px 10px 10px 0px;
     }
 
     .art {
       float: left;
-      width: 33.33%;
+      width: 27%;
+      margin-left: -5px;
     }
 
-    .container {
-      background-color: #121212;
-      border-radius: 10px;
-      padding: 10px 10px;
-    }
-
-    .playing {
-      font-weight: bold;
-      color: #53b14f;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .not-play {
-      color: #ff1616;
-    }
-
-    .artist {
-      font-weight: bold;
-      font-size: 24px;
-      color: #fff;
-      text-align: left;
-      margin-top: 5px;
+    .text {
+      width: 71%;
     }
 
     .song {
-      font-size: 20px;
-      color: #b3b3b3;
-      text-align: left;
-      margin-top: 15px;
-      margin-bottom: 15px;
+      font-size: 24px;
+      color: #666;
+      text-align: center;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .logo {
-      margin-left: 5px;
-      margin-top: 5px;
+    .artist {
+      font-size: 20px;
+      color: #b3b3b3;
+      text-align: center;
+      margin-bottom: 5px;
     }
 
     .cover {
       border-radius: 5px;
-      margin-top: 9px;
-      width: 100px;
       height: 100px;
+      width: 100px;
     }
 
     #bars {
       height: 30px;
+      bottom: 23px;
       margin: -20px 0 0 0px;
       position: absolute;
       width: 40px;
     }
 
     .bar {
-      background: #53b14f;
+      background: #1db954cc;
       bottom: 1px;
       height: 3px;
       position: absolute;
@@ -85,26 +83,24 @@
 
       100% {
         opacity: 1;
-        height: 28px;
+        height: 15px;
       }
     }
   </style>
+
+  <div class="currentStatus">Currently playing</div>
+
   <div class="main">
     <a class="art" href="{}" target="_BLANK">
       <center>
-        <img
-          src="data:image/png;base64, {{img}}"
-          width="100"
-          height="100"
-          class="cover"
-        />
+        <img src="https://source.unsplash.com/random/500x500" class="cover" />
       </center>
     </a>
 
     <div class="text">
-      <div class="artist">Artist</div>
       <div class="song">Song</div>
-      <div id="bars"></div>
+      <div class="artist">Arist</div>
+      <div id="bars">Bars</div>
     </div>
   </div>
 </div>
