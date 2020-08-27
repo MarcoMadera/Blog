@@ -16,7 +16,7 @@ const Playing = ({ response }) => {
 };
 
 Playing.getInitialProps = async () => {
-  return await fetch("http://localhost:3000/api/now-playing").then((res) =>
+  return await fetch("http://marcomadera.com/api/now-playing").then((res) =>
     res.json()
   );
 };
