@@ -173,7 +173,7 @@ export default function Post({ postData, recommendedPosts }) {
         }
 
         .blog .mjx-chtml {
-          display: flex;
+          display: grid;
           flex-wrap: wrap;
           box-sizing: border-box;
           white-space: unset;
