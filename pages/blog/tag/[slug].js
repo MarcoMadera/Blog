@@ -86,6 +86,15 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const tags = [...new Set(getPostsTags())];
   const postData = getPostsByTag(slug);
+  const getFormattedDate = (date, local) => {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    const formattedDate = date.toLocaleDateString(local, options);
+    return formattedDate;
+  };
+  postData.postsByTag.forEach(
+    (post) =>
+      (post.frontmatter.date = getFormattedDate(post.frontmatter.date, "es-MX"))
+  );
   return {
     props: {
       postData,

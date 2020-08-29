@@ -50,10 +50,10 @@ export const getSortedPosts = () => {
       (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
     );
 
-  posts.forEach(
-    (post) =>
-      (post.frontmatter.date = getFormattedDate(post.frontmatter.date, "es-MX"))
-  );
+  // posts.forEach(
+  //   (post) =>
+  //     (post.frontmatter.date = getFormattedDate(post.frontmatter.date, "es-MX"))
+  // );
   return posts;
 };
 

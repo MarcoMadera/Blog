@@ -48,7 +48,7 @@ const BlogCard = ({
             ))}
         </div>
         <span>
-          {author} | {date}
+          {author} | <time>{date}</time>
         </span>
       </footer>
       <style jsx>{`

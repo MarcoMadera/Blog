@@ -63,9 +63,17 @@ const Home = ({ posts, tags }) => {
 };
 
 export async function getStaticProps() {
+  const getFormattedDate = (date, local) => {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    const formattedDate = date.toLocaleDateString(local, options);
+    return formattedDate;
+  };
   const posts = getSortedPosts();
   const tags = [...new Set(getPostsTags())];
-
+  posts.forEach(
+    (post) =>
+      (post.frontmatter.date = getFormattedDate(post.frontmatter.date, "es-MX"))
+  );
   return {
     props: {
       posts,

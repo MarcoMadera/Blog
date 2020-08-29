@@ -60,7 +60,9 @@ export default function Post({ postData, recommendedPosts }) {
         <article>
           <header>
             <h1>{frontmatter.title}</h1>
-            <p>{frontmatter.date}</p>
+            <p>
+              <time>{frontmatter.date}</time>
+            </p>
           </header>
           <MarkDown
             source={post.content}
@@ -301,14 +303,28 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
+  const getFormattedDate = (date, local) => {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    const formattedDate = date.toLocaleDateString(local, options);
+    return formattedDate;
+  };
   const postData = getPostBySlug(slug);
+  postData.frontmatter.date = getFormattedDate(
+    postData.frontmatter.date,
+    "es-MX"
+  );
+
   const recommendedPosts = getPostsByTags(postData.frontmatter.tag);
   if (!postData.previousPost) {
     postData.previousPost = null;
+  } else {
+    postData.previousPost.frontmatter.date = null;
   }
 
   if (!postData.nextPost) {
     postData.nextPost = null;
+  } else {
+    postData.nextPost.frontmatter.date = null;
   }
 
   return { props: { postData, recommendedPosts } };
