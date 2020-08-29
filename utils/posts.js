@@ -14,11 +14,11 @@ export const getPostsFolders = () => {
 };
 
 // Get day in format: Month day, Year. e.g. April 19, 2020
-export const getFormattedDate = (date, local) => {
-  const options = { year: "numeric", month: "short", day: "numeric" };
-  const formattedDate = date.toLocaleDateString(local, options);
-  return formattedDate;
-};
+// export const getFormattedDate = (date, local) => {
+//   const options = { year: "numeric", month: "short", day: "numeric" };
+//   const formattedDate = date.toLocaleDateString(local, options);
+//   return formattedDate;
+// };
 
 export const getSortedPosts = () => {
   const postFolders = getPostsFolders();

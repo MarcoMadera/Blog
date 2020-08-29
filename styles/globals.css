@@ -33,6 +33,7 @@ sub::selection,
 sup::selection,
 th::selection,
 td::selection,
+time::selection,
 img::selection {
   background: #e74d3c85;
 }
