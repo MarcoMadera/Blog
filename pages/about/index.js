@@ -2,20 +2,40 @@ import Seo from "../../components/Seo";
 import PropTypes from "prop-types";
 import Spotify from "../../components/icons/Spotify";
 import Link from "next/link";
+import Email from "../../components/icons/Email";
+import Code from "../../components/icons/Code";
+import AugmentedReallity from "../../components/icons/AugmentedReallity";
+import Chess from "../../components/icons/Chess";
+import Music from "../../components/icons/Music";
+import Book from "../../components/icons/Book";
+import Film from "../../components/icons/Film";
+import Java from "../../components/icons/Java";
+import CSharp from "../../components/icons/CSharp";
+import JavaScript from "../../components/icons/JavaScript";
 const About = ({ response = {}, tracks = {}, played = {} }) => {
   return (
     <main>
       <Seo title="Sobre mí" url="https://marcomadera.com/about" />
-      <div></div>
+      <div>
+        <Code width="50" height="50" />
+        <Java width="50" height="50" />
+        <CSharp width="50" height="50" />
+        <JavaScript width="50" height="50" />
+        <AugmentedReallity width="50" height="50" />
+        <Music width="50" height="50" />
+        <Chess width="50" height="50" />
+        <Book width="50" height="50" />
+        <Film width="50" height="50" />
+      </div>
       <section>
         <section>
           <h1>Sobre mí</h1>
           <p>
             ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
-            auxiliar administrativo en la secretaria de relaciones exteriores,
+            auxiliar administrativo en la secretaría de relaciones exteriores,
             programador web frontend por afición y entusiasta de las tecnología
-            web que cada día me apasionan más: JavaScript, Node.js, React,
-            etc... Estoy en constante proceso de aprendizaje sobre las nuevas
+            web que cada día me gustan más: JavaScript, Node.js, React, etc...
+            Estoy en constante proceso de aprendizaje sobre las nuevas
             tecnologías y me gusta estar informado de lo que pasa en la web, ver
             cursos, leer artículos y tutoriales. Trataré de compartir mis
             conocimientos en la sección de blog, misma que trataré como libreta
@@ -110,7 +130,19 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
             >
               Twitter
             </a>
-            , o mándame un correo a: me @ marcomadera.com
+            , o mándame un correo dando clic al icono{" "}
+            <button
+              title="Enviar correo electrónico"
+              onClick={() => {
+                window.open(
+                  "mailto:me@marcomadera.com",
+                  "width=600,height=500,scrollbars=no,resizable=no"
+                );
+                return false;
+              }}
+            >
+              <Email width="20" height="20" />
+            </button>
           </p>
           <img
             src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_200/v1598594392/about/tIeCLkB8geYtW_tpgywi.gif"
@@ -154,7 +186,9 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
                   height="64"
                 />
                 <div>
-                  <h4>{response.item.name}</h4>
+                  <strong>
+                    <p>{response.item.name}</p>
+                  </strong>
                   <p>{response.item.album.artists[0].name}</p>
                 </div>
               </article>
@@ -191,7 +225,9 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
                     height="64"
                   />
                   <div>
-                    <h4>{played.response.items[0].track.name}</h4>
+                    <strong>
+                      <p>{played.response.items[0].track.name}</p>
+                    </strong>
                     <p>
                       {played.response.items[0].track.album.artists[0].name}
                     </p>
@@ -224,7 +260,9 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
                     loading="lazy"
                   />
                   <div>
-                    <h4>{title}</h4>
+                    <strong>
+                      <p>{title}</p>
+                    </strong>
                     <p>{artist}</p>
                   </div>
                 </article>
@@ -233,7 +271,94 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
           </>
         )}
       </aside>
+      <style global jsx>{`
+        main > div > svg {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 50px;
+        }
+        main > div > svg:hover {
+          animation: rotate-center 250ms ease-in-out 2 alternate both;
+        }
+        @keyframes rotate-center {
+          0% {
+            transform: rotate(0);
+          }
+          50% {
+            transform: rotate(-15deg);
+          }
+          100% {
+            transform: rotate(15deg);
+          }
+        }
+        main > div > svg:nth-of-type(5) {
+          margin-bottom: 90px;
+        }
+        @media screen and (min-width: 1024px) and (max-width: 1050px) {
+          main > div > svg {
+            margin-bottom: 70px;
+          }
+          main > div > svg:nth-of-type(5) {
+            margin-bottom: 230px;
+          }
+        }
+        @media screen and (min-width: 1050px) and (max-width: 1120px) {
+          main > div > svg {
+            margin-bottom: 70px;
+          }
+          main > div > svg:nth-of-type(5) {
+            margin-bottom: 140px;
+          }
+        }
+        @media screen and (min-width: 1120px) and (max-width: 1220px) {
+          main > div > svg {
+            margin-bottom: 60px;
+          }
+          main > div > svg:nth-of-type(5) {
+            margin-bottom: 110px;
+          }
+        }
+        @media screen and (min-width: 1220px) and (max-width: 1280px) {
+          main > div > svg {
+            margin-bottom: 60px;
+          }
+          main > div > svg:nth-of-type(5) {
+            margin-bottom: 90px;
+          }
+        }
+        @media screen and (min-width: 0px) and (max-width: 1024px) {
+          main > div > svg {
+            display: inline-flex !important;
+            margin-bottom: 0 !important;
+            margin-left: 5px !important;
+            flex-wrap: wrap !important;
+          }
+          main > div {
+            order: 3;
+            margin: 0 auto;
+            text-align: center;
+          }
+          main > section {
+            order: 1;
+          }
+          main > aside {
+            order: 2;
+          }
+        }
+      `}</style>
       <style jsx>{`
+        main > div {
+          padding-top: 75px;
+        }
+        button {
+          border: none;
+          background: unset;
+          cursor: pointer;
+          padding: 0;
+          display: inline-flex;
+          vertical-align: bottom;
+        }
         div > img {
           display: block;
           margin: 30px auto 0 auto;
@@ -299,7 +424,7 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
           text-align: center;
           margin-top: 0;
         }
-        p {
+        section p {
           text-align: justify;
         }
         div > p {
@@ -316,6 +441,11 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
         @media screen and (min-width: 0px) and (max-width: 876px) {
           main {
             grid-template-columns: auto;
+          }
+        }
+        @media screen and (min-width: 876px) and (max-width: 1024px) {
+          main {
+            grid-template-columns: auto 240px;
           }
         }
       `}</style>

@@ -24,7 +24,7 @@ const Aside = () => {
         rel="noopener noreferrer"
         aria-label="Github page"
       >
-        <Github fill="#da0000" />
+        <Github fill="#e74d3c" />
       </a>
       <a
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
@@ -32,7 +32,7 @@ const Aside = () => {
         rel="noopener noreferrer"
         aria-label="LinkedIn page"
       >
-        <LinkedIn fill="#da0000" />
+        <LinkedIn fill="#e74d3c" />
       </a>
       <a
         href={`https://twitter.com/${social.twitter}`}
@@ -40,7 +40,7 @@ const Aside = () => {
         rel="noopener noreferrer"
         aria-label="Twitter page"
       >
-        <Twitter fill="#da0000" />
+        <Twitter fill="#e74d3c" />
       </a>
       <style jsx>{`
         aside {

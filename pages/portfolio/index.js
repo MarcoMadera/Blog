@@ -13,7 +13,7 @@ const Portfolio = () => {
           height={222}
         />
         <section>
-          <h1>Retos frontend</h1>
+          <h2>Retos frontend</h2>
           <p>
             Esta es una serie de retos que he ido realizando para pasar el rato
             de la página de{" "}
@@ -42,7 +42,7 @@ const Portfolio = () => {
           height={222}
         />
         <section>
-          <h1>Tests para números aleatorios</h1>
+          <h2>Tests para números aleatorios</h2>
           <p>
             Herramienta para verificar números aleatorios, se puede encontrar
             información detallada sobre la realización de este programa en el{" "}
@@ -73,7 +73,7 @@ const Portfolio = () => {
           height={222}
         />
         <section>
-          <h1>Registro de trámites en excel</h1>
+          <h2>Registro de trámites en excel</h2>
           <p>
             Dashboard funcional en excel programado con visual basic for
             applications para dar seguimiento a los trámites realizados, con la
@@ -93,8 +93,13 @@ const Portfolio = () => {
         }
       `}</style>
       <style jsx>{`
+        h1{
+          text-align: center;
+        }
         main {
-          padding: 0 30px;
+          padding: 0 20px;
+          margin: 0 auto;
+          max-width: 1300px;
         }
         article {
           display: flex;
