@@ -73,7 +73,7 @@ const Navbar = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          height: 80px;
+          min-height: 80px;
           padding: 0 20px;
           max-width: 1300px;
           flex-wrap: wrap;

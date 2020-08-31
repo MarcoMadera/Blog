@@ -11,7 +11,9 @@ const Home = ({ posts, tags }) => {
       <Seo title="Página principal" />
       <Aside />
       <section>
-        <h4>Últimos artículos</h4>
+        <strong>
+          <p>Últimos artículos</p>
+        </strong>
         {posts.map(
           ({
             frontmatter: {

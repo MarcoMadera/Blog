@@ -35,6 +35,7 @@ const contentAside = (content, post) => {
 };
 
 export default function Post({ postData, recommendedPosts }) {
+  const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
   const { post, frontmatter, currentPost, nextPost, previousPost } = postData;
   const [loaded, setloaded] = useState(false);
   const [data, setData] = useState();
@@ -97,7 +98,7 @@ export default function Post({ postData, recommendedPosts }) {
             <div />
           )}
         </nav>
-        {loaded && <FastCommentsCommentWidget tenantId="29_5iZ6VPE" />}
+        {loaded && <FastCommentsCommentWidget tenantId={tenantId} />}
       </div>
       <div>
         <AllTags tags={frontmatter.tag} title="Etiquetas del blog" />

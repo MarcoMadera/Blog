@@ -19,7 +19,9 @@ const tag = ({ postData, tags }) => {
       />
       <Aside />
       <section>
-        <h4>Tag {slug.charAt(0).toUpperCase() + slug.slice(1)}</h4>
+        <strong>
+          <p>Etiqueta {slug.charAt(0).toUpperCase() + slug.slice(1)}</p>
+        </strong>
         {postsByTag.length ? (
           postsByTag.map(
             ({
