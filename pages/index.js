@@ -8,9 +8,13 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import Custom404 from "./404";
 
-const Home = ({ posts, tags, pages, page }) => {
+const Home = ({ posts, tags }) => {
   const router = useRouter();
-
+  const page = parseInt(router.query.page) || 1;
+  const indexOfLastPost = page * 3;
+  const indexOfFirstPost = indexOfLastPost - 3;
+  const lastPage = Math.ceil(posts.length / 3);
+  const pages = Array.from(Array(lastPage), (_, i) => i + 1);
   return (
     <main>
       <Seo title="Página principal" />
@@ -19,32 +23,34 @@ const Home = ({ posts, tags, pages, page }) => {
         <strong>
           <p>Últimos artículos</p>
         </strong>
-        {posts.map(
-          ({
-            frontmatter: {
-              title,
-              description,
-              date,
-              cover,
-              cover100,
-              tag,
-              author,
-            },
-            slug,
-          }) => (
-            <BlogCard
-              key={title}
-              title={title}
-              description={description}
-              date={date}
-              cover={cover}
-              cover100={cover100}
-              tag={tag}
-              author={author}
-              slug={slug}
-            />
-          )
-        )}
+        {posts
+          .slice(indexOfFirstPost, indexOfLastPost)
+          .map(
+            ({
+              frontmatter: {
+                title,
+                description,
+                date,
+                cover,
+                cover100,
+                tag,
+                author,
+              },
+              slug,
+            }) => (
+              <BlogCard
+                key={title}
+                title={title}
+                description={description}
+                date={date}
+                cover={cover}
+                cover100={cover100}
+                tag={tag}
+                author={author}
+                slug={slug}
+              />
+            )
+          )}
         {posts.length <= 0 && <Custom404 />}
         <nav>
           {pages.map((pageNumber, i) => {
@@ -120,19 +126,13 @@ const Home = ({ posts, tags, pages, page }) => {
   );
 };
 
-export async function getServerSideProps({ query: { page = 1 } }) {
+export async function getStaticProps() {
   const getFormattedDate = (date, local) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     const formattedDate = date.toLocaleDateString(local, options);
     return formattedDate;
   };
-  page = parseInt(page);
-  const Allposts = getSortedPosts();
-  const indexOfLastPost = page * 3;
-  const indexOfFirstPost = indexOfLastPost - 3;
-  const lastPage = Math.ceil(Allposts.length / 3);
-  const pages = Array.from(Array(lastPage), (_, i) => i + 1);
-  const posts = Allposts.slice(indexOfFirstPost, indexOfLastPost);
+  const posts = getSortedPosts();
   const tags = [...new Set(getPostsTags())];
   posts.forEach(
     (post) =>
@@ -142,8 +142,6 @@ export async function getServerSideProps({ query: { page = 1 } }) {
     props: {
       posts,
       tags,
-      pages,
-      page,
     },
   };
 }
