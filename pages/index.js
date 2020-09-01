@@ -5,7 +5,12 @@ import Newsletter from "../components/Newsletter";
 import AllTags from "../components/AllTags";
 import BlogCard from "../components/BlogCard";
 import PropTypes from "prop-types";
-const Home = ({ posts, tags }) => {
+import { useRouter } from "next/router";
+import Custom404 from "./404";
+
+const Home = ({ posts, tags, pages, page }) => {
+  const router = useRouter();
+
   return (
     <main>
       <Seo title="Página principal" />
@@ -40,12 +45,55 @@ const Home = ({ posts, tags }) => {
             />
           )
         )}
+        {posts.length <= 0 && <Custom404 />}
+        <nav>
+          {pages.map((pageNumber, i) => {
+            if (i === 0) {
+              return (
+                <button
+                  className={page == pageNumber ? "currentPage" : undefined}
+                  key={pageNumber}
+                  onClick={() => router.push("/")}
+                >
+                  {pageNumber}
+                </button>
+              );
+            } else {
+              return (
+                <button
+                  className={page == pageNumber ? "currentPage" : undefined}
+                  key={pageNumber}
+                  onClick={() => router.push(`/?page=${pageNumber}`)}
+                >
+                  {pageNumber}
+                </button>
+              );
+            }
+          })}
+        </nav>
       </section>
       <aside>
         <AllTags tags={tags} />
         <Newsletter />
       </aside>
+
       <style jsx>{`
+        nav {
+          display: flex;
+          justify-content: center;
+        }
+        button {
+          border: unset;
+          margin: 0 5px;
+          background: unset;
+          color: #e74d3c;
+          cursor: pointer;
+          font-weight: 600;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          align-items: center;
+        }
         main {
           display: grid;
           grid-template-columns: 240px minmax(0px, 710px) 240px;
@@ -60,17 +108,31 @@ const Home = ({ posts, tags }) => {
           }
         }
       `}</style>
+      <style global jsx>{`
+        .currentPage {
+          border-radius: 50% !important;
+          background-color: #e74d3c !important;
+          border: 1px solid #e74d3c !important;
+          color: white !important;
+        }
+      `}</style>
     </main>
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps({ query: { page = 1 } }) {
   const getFormattedDate = (date, local) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     const formattedDate = date.toLocaleDateString(local, options);
     return formattedDate;
   };
-  const posts = getSortedPosts();
+  page = parseInt(page);
+  const Allposts = getSortedPosts();
+  const indexOfLastPost = page * 3;
+  const indexOfFirstPost = indexOfLastPost - 3;
+  const lastPage = Math.ceil(Allposts.length / 3);
+  const pages = Array.from(Array(lastPage), (_, i) => i + 1);
+  const posts = Allposts.slice(indexOfFirstPost, indexOfLastPost);
   const tags = [...new Set(getPostsTags())];
   posts.forEach(
     (post) =>
@@ -80,6 +142,8 @@ export async function getStaticProps() {
     props: {
       posts,
       tags,
+      pages,
+      page,
     },
   };
 }
@@ -89,4 +153,6 @@ export default Home;
 Home.propTypes = {
   posts: PropTypes.array,
   tags: PropTypes.array,
+  pages: PropTypes.array,
+  page: PropTypes.number,
 };
