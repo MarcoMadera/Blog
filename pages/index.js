@@ -51,7 +51,9 @@ const Home = ({ posts, tags }) => {
               />
             )
           )}
-        {posts.length <= 0 && <Custom404 />}
+        {posts.slice(indexOfFirstPost, indexOfLastPost).length <= 0 && (
+          <Custom404 />
+        )}
         <nav>
           {pages.map((pageNumber, i) => {
             if (i === 0) {
