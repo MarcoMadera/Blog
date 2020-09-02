@@ -15,6 +15,7 @@ const Home = ({ posts, tags }) => {
   const indexOfFirstPost = indexOfLastPost - 3;
   const lastPage = Math.ceil(posts.length / 3);
   const pages = Array.from(Array(lastPage), (_, i) => i + 1);
+  posts = posts.slice(indexOfFirstPost, indexOfLastPost);
   return (
     <main>
       <Seo title="Página principal" />
@@ -23,37 +24,33 @@ const Home = ({ posts, tags }) => {
         <strong>
           <p>Últimos artículos</p>
         </strong>
-        {posts
-          .slice(indexOfFirstPost, indexOfLastPost)
-          .map(
-            ({
-              frontmatter: {
-                title,
-                description,
-                date,
-                cover,
-                cover100,
-                tag,
-                author,
-              },
-              slug,
-            }) => (
-              <BlogCard
-                key={title}
-                title={title}
-                description={description}
-                date={date}
-                cover={cover}
-                cover100={cover100}
-                tag={tag}
-                author={author}
-                slug={slug}
-              />
-            )
-          )}
-        {posts.slice(indexOfFirstPost, indexOfLastPost).length <= 0 && (
-          <Custom404 />
+        {posts.map(
+          ({
+            frontmatter: {
+              title,
+              description,
+              date,
+              cover,
+              cover100,
+              tag,
+              author,
+            },
+            slug,
+          }) => (
+            <BlogCard
+              key={title}
+              title={title}
+              description={description}
+              date={date}
+              cover={cover}
+              cover100={cover100}
+              tag={tag}
+              author={author}
+              slug={slug}
+            />
+          )
         )}
+        {posts.length <= 0 && <Custom404 />}
         <nav>
           {pages.map((pageNumber, i) => {
             if (i === 0) {
