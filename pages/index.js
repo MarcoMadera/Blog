@@ -11,9 +11,9 @@ import Custom404 from "./404";
 const Home = ({ posts, tags }) => {
   const router = useRouter();
   const page = parseInt(router.query.page) || 1;
-  const indexOfLastPost = page * 3;
-  const indexOfFirstPost = indexOfLastPost - 3;
-  const lastPage = Math.ceil(posts.length / 3);
+  const indexOfLastPost = page * 4;
+  const indexOfFirstPost = indexOfLastPost - 4;
+  const lastPage = Math.ceil(posts.length / 4);
   const pages = Array.from(Array(lastPage), (_, i) => i + 1);
   posts = posts.slice(indexOfFirstPost, indexOfLastPost);
   return (

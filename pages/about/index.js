@@ -19,9 +19,9 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
       <div>
         <Code width="50" height="50" />
         <Java width="50" height="50" />
+        <AugmentedReallity width="50" height="50" />
         <CSharp width="50" height="50" />
         <JavaScript width="50" height="50" />
-        <AugmentedReallity width="50" height="50" />
         <Music width="50" height="50" />
         <Chess width="50" height="50" />
         <Book width="50" height="50" />

@@ -1,11 +1,20 @@
+/* eslint-disable react/prop-types */
 import ReactMarkdown from "react-markdown";
 import RemarkMathPlugin from "remark-math";
 import MathJax from "react-mathjax";
 import slugify from "react-slugify";
+import htmlParser from "react-markdown/plugins/html-parser";
+
+const parseHtml = htmlParser({
+  isValidNode: (node) => node.type !== "script",
+});
+
 const _mapProps = (props) => ({
   ...props,
   escapeHtml: false,
+  astPlugins: [parseHtml],
   plugins: [RemarkMathPlugin],
+  unwrapDisallowed: false,
   renderers: {
     ...props.renderers,
     // eslint-disable-next-line react/prop-types
@@ -18,9 +27,13 @@ const _mapProps = (props) => ({
     },
 
     // eslint-disable-next-line react/prop-types
-    heading: function Heading({ children }) {
-      // eslint-disable-next-line react/prop-types
-      return <h2 id={slugify(children)}>{children}</h2>;
+    heading: function HeadingRenderer(props) {
+      if (props.level === 2) {
+        return <h2 id={slugify(props.children)}>{props.children}</h2>;
+      }
+
+      const Heading = ReactMarkdown.renderers.heading;
+      return <Heading {...props} />;
     },
     // eslint-disable-next-line react/prop-types
     math: function Math({ value }) {
