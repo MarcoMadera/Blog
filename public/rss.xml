@@ -1,4 +1,425 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Tue, 25 Aug 2020 00:32:53 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[RSS Feed]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Tue, 08 Sep 2020 04:51:48 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[HTML Semántico]]></title><description><![CDATA[<p>Esta semana estuvo rondando por mi cabeza un comentario que lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. Considerando los siguientes bloques de código esto aplica?</p>
+<p>&lt;div style=&quot;display: block;
+font-size: 1.5em;
+margin-block-start: 0.83em;
+margin-block-end: 0.83em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+font-weight: bold;&quot;&gt;¿Esto es un titulo?&lt;/div&gt;</p>
+<p>&lt;h2&gt;¿Esto es un titulo?&lt;/h2&gt;</p>
+<p>Esto luce exactamente igual, pero cómo sabemos si un robot lo lee igual?
+Algo sencillo de hacer es abrir el lector de pantalla con &lt;kbd&gt;Cmd&lt;/kbd&gt; + &lt;kbd&gt;F5&lt;/kbd&gt; en Mac o con &lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;win&lt;/kbd&gt; + &lt;kbd&gt;enter&lt;/kbd&gt; en Windows y escuchar como lo lee.</p>
+<h2>¿Qué es HTML Semántico?</h2>
+<p>&lt;p&gt;&lt;dfn id=&quot;-que-es-html-semantico-&quot;&gt;HTML Semántico&lt;/dfn&gt; es el uso de &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt;, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.&lt;/p&gt;</p>
+<p>El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro contenido en otros contextos, por ejemplo, si una persona quiere cambiar el color de todos los parrafos a rojo, o un motor de busqueda que quiera recolectar solo el titulo de nuestra página para mostrarlo.</p>
+<hr>
+<h2>Ventajas</h2>
+<ul>
+<li>Es importante para el SEO, los motores de busqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.</li>
+<li>Es usado para <a href="https://marcomadera.com/blog/accesibilidad-web/#html-semantico">accesibilidad web</a></li>
+<li>Es fácil de entender sin esfuerzo desde la estructura al contenido, por motivos de trabajo tengo que usar una web desactualizada en internet explorer 8 casi a diario y es horrible tener que encontrar elementos entre divs y tablas.</li>
+</ul>
+<hr>
+<h2>Estructura</h2>
+<p>&lt;style&gt;.section {
+display: grid;
+grid-template: 50px 70px 300px 70px / 1fr 2fr;
+gap: 15px 15px;
+height: fit-content;
+border-radius: 10px;
+}
+.header {
+background: #eddfa9;
+grid-area: 2 / 1 / 3 / 3;
+border-radius: 10px;</p>
+<p>}
+.nav {
+background: #edcfa9;
+grid-area: 1 / 1 / 2 / 3;
+border-radius: 10px;
+}
+.aside {
+grid-area: 3 / 1 / 4 / 2;
+background: #e89f71;
+border-radius: 10px;
+}
+.main {
+grid-area: 3 / 2 / 4 / 3;
+background: #d57149;
+min-height: auto;
+position: relative;
+border-radius: 10px;
+}
+.footer {
+grid-area: 4 / 1 / 5 / 3;
+background: #aa4a30;
+border-radius: 10px;
+}
+.article{
+padding: 10px;
+margin: 10px;
+background: #d5d149;
+border-radius: 10px;
+}
+.article_header{
+display: block !important;
+background: #eddfa9;
+margin-bottom: 10px;
+padding: 10px;
+border-radius: 10px;
+}
+.article_p{
+margin: 0;
+}
+.article_section{
+background: #daa149;
+margin-bottom: 10px;
+padding: 10px;
+border-radius: 10px;
+}
+.article_title{
+margin: 0;
+}
+.article_footer{
+background: #aa4a30;
+padding: 10px;
+border-radius: 10px;
+}
+.main_section{
+background: #dfa149;
+position: absolute;
+bottom: 0;
+width: calc(100% - 20px);
+margin: 10px;
+padding: 10px;
+border-radius: 10px;
+}&lt;/style&gt;</p>
+<p>&lt;section class=&quot;section&quot;&gt;
+&lt;nav class=&quot;nav&quot;&gt;
+&lt;p&gt;&lt; Nav &gt;&lt;/p&gt;
+&lt;/nav&gt;
+&lt;header class=&quot;header&quot;&gt;
+&lt;p&gt;&lt; Header &gt;&lt;/p&gt;
+&lt;/header&gt;
+&lt;aside class=&quot;aside&quot;&gt;&lt;p&gt;&lt; Aside &gt;&lt;/p&gt;&lt;/aside&gt;
+&lt;main class=&quot;main&quot;&gt;
+&lt;article class=&quot;article&quot;&gt;
+&lt;header class=&quot;article_header&quot;&gt;
+&lt;p class=&quot;article_p&quot;&gt;&lt; Header &gt;&lt;/p&gt;
+&lt;/header&gt;
+&lt;section class=&quot;article_section&quot;&gt;
+&lt;h3 class=&quot;article_title&quot;&gt;&lt; Section &gt;&lt;/h3&gt;
+&lt;p class=&quot;article_p&quot;&gt;Texto&lt;/p&gt;
+&lt;/section&gt;
+&lt;footer class=&quot;article_footer&quot;&gt;© &lt; Footer &gt;&lt;/footer&gt;
+&lt;/article&gt;
+&lt;section class=&quot;main_section&quot;&gt;
+&lt;h3 class=&quot;article_title&quot;&gt;&lt; Section &gt;&lt;/h3&gt;
+&lt;p class=&quot;article_p&quot;&gt;Texto&lt;/p&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer class=&quot;footer&quot;&gt;&lt; Footer &gt;&lt;/footer&gt;
+&lt;/section&gt;</p>
+<pre><code class="language-HTML">&lt;body&gt;
+  &lt;nav&gt;&lt;nav&gt;
+  &lt;header&gt;&lt;/header&gt;
+  &lt;aside&gt;&lt;/aside&gt;
+  &lt;main&gt;
+    &lt;article&gt;
+      &lt;header&gt;&lt;/header&gt;
+      &lt;section&gt;
+        &lt;h1&gt;&lt;/h1&gt;
+        &lt;p&gt;&lt;/p&gt;
+      &lt;/section&gt;
+      &lt;footer&gt;&lt;/footer&gt;
+    &lt;/article&gt;
+    &lt;section&gt;
+        &lt;h1&gt;&lt;/h1&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;&lt;/footer&gt;
+&lt;/body&gt;
+
+&lt;!-- No necesariamente tiene que seguir esta estructura --&gt;
+</code></pre>
+<h3>main</h3>
+<p>Esta etiqueta señala al contenido principal de la página, solo puede existir una etiqueta de este tipo visible por página</p>
+<h3>section</h3>
+<p>Representa a un contenido generico en un documento donde no es similar a otro elemento</p>
+<h3>nav</h3>
+<p>Es la etiqueta diseñada para identificar los enlaces de navegación, puede haber varías secciones de navegación en una página, no todos los enlaces necesitan de ir dentro de una etiqueta nav</p>
+<h3>article</h3>
+<p>Se usa esta etiqueta cuando hay contenido repetitivo e independiente, puede tener también header footer y section.</p>
+<h3>aside</h3>
+<p>Esta es una etiqueta que designa un área en la cual hay información suplementaría al contenido principal</p>
+<h3>header</h3>
+<p>Agrupa la introducción de la página.</p>
+<h3>footer</h3>
+<p>El pie de página suele ser usado para añadir información extra sobre la página, el autor, copyright, avisos legales navegación, etc.</p>
+<hr>
+<h3>Titulos de cabecera</h3>
+<p>Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendiente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.</p>
+<p>Se espera tener contenido después de un titulo, poner varios titulos seguidos existe la etiqueta <code>&lt;hgroup&gt;</code> que indica un grupo de titulos.</p>
+<p>&lt;hgroup&gt;&lt;h1&gt;h1&lt;/h1&gt;&lt;h6&gt;h6&lt;/h6&gt;&lt;/hgroup&gt;</p>
+<pre><code class="language-HTML">&lt;/hgroup&gt;
+  &lt;h1&gt;h1&lt;/h1&gt;
+  &lt;h6&gt;h6&lt;/h6&gt;
+&lt;/hgroup&gt;
+</code></pre>
+<h3>address</h3>
+<p>Como su nombre lo dice, se usa para información de contacto.</p>
+<p>&lt;address&gt;
+Escrito por &lt;a href=&quot;mailto:ejemplo@ejemplo.com&quot;&gt;Nombre&lt;/a&gt;.&lt;br&gt;
+Visitanos en:&lt;br&gt;
+Ejemplo.com&lt;br&gt;
+Dirección&lt;br&gt;
+&lt;/address&gt;</p>
+<pre><code class="language-HTML">&lt;address&gt;
+Escrito por &lt;a href=&quot;mailto:ejemplo@ejemplo.com&quot;&gt;Nombre&lt;/a&gt;.&lt;br&gt;
+Visitanos en:&lt;br&gt;
+Ejemplo.com&lt;br&gt;
+Dirección&lt;br&gt;
+&lt;/address&gt;
+</code></pre>
+<h2>Modificadores de texto</h2>
+<h3>Enfasís</h3>
+<p>&lt;em&gt;Esto es enfasis&lt;/em&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;
+  &lt;em&gt;Esto es enfasis&lt;/em&gt;
+&lt;/p&gt;
+</code></pre>
+<h3>Marcado</h3>
+<p>&lt;mark&gt;Esto es una parte marcada porque es relevante&lt;/mark&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;
+  &lt;mark&gt;Esto es una parte marcada porque es relevante&lt;/mark&gt;
+&lt;/p&gt;
+</code></pre>
+<h3>Strong</h3>
+<p>&lt;strong&gt;Esto es negro porque es importante&lt;/strong&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;
+  &lt;strong&gt;Esto es negro porque es importante&lt;/strong&gt;
+&lt;/p&gt;
+</code></pre>
+<hr>
+<h2>Saltos</h2>
+<h3>wbr</h3>
+<p>Esta etiqueta sirve para indicar dónde está bien que suceda un salto de línea, permite separar de manera correcta palabras largas o enlaces sin que el contenido se</p>
+<p>&lt;p&gt;¿que-&lt;wbr&gt;pasaría-&lt;wbr&gt;si-&lt;wbr&gt;no-&lt;wbr&gt;quisieramos-&lt;wbr&gt;usar-&lt;wbr&gt;espacios-&lt;wbr&gt;entre-&lt;wbr&gt;palabras-&lt;wbr&gt;y-&lt;wbr&gt;no-&lt;wbr&gt;queremos-&lt;wbr&gt;que-&lt;wbr&gt;nuestra-&lt;wbr&gt;aplicación-&lt;wbr&gt;tenga-&lt;wbr&gt;overflow-&lt;wbr&gt;al-&lt;wbr&gt;verla-&lt;wbr&gt;en-&lt;wbr&gt;un-&lt;wbr&gt;celular-&lt;wbr&gt;o-&lt;wbr&gt;si-&lt;wbr&gt;tenemos-&lt;wbr&gt;una-&lt;wbr&gt;url-&lt;wbr&gt;como-&lt;wbr&gt;esta:&lt;wbr&gt;http://marco&lt;wbr&gt;madera&lt;wbr&gt;.com&lt;/p&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;¿que-&lt;wbr&gt;pasaría-&lt;wbr&gt;si-&lt;wbr&gt;no-&lt;wbr&gt;quisieramos-&lt;wbr&gt;usar-&lt;wbr&gt;espacios-&lt;wbr&gt;entre-&lt;wbr&gt;palabras-&lt;wbr&gt;y-&lt;wbr&gt;no-&lt;wbr&gt;queremos-&lt;wbr&gt;que-&lt;wbr&gt;nuestra-&lt;wbr&gt;aplicación-&lt;wbr&gt;tenga-&lt;wbr&gt;overflow-&lt;wbr&gt;al-&lt;wbr&gt;verla-&lt;wbr&gt;en-&lt;wbr&gt;un-&lt;wbr&gt;celular-&lt;wbr&gt;o-&lt;wbr&gt;si-&lt;wbr&gt;tenemos-&lt;wbr&gt;una-&lt;wbr&gt;url-&lt;wbr&gt;como-&lt;wbr&gt;esta:&lt;wbr&gt;http://marco&lt;wbr&gt;madera&lt;wbr&gt;.com&lt;/p&gt;
+</code></pre>
+<h3>hr</h3>
+<p>Representa una regla horizontal, un salto de tema en una sección.</p>
+<p>&lt;p&gt;Texto&lt;/p&gt; &lt;hr /&gt; &lt;p&gt;Texto&lt;/p&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;Texto&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Texto&lt;/p&gt;
+</code></pre>
+<hr>
+<h2>Acotaciones</h2>
+<h3>blockquote</h3>
+<p>&lt;blockquote&gt;Bloque acotado&lt;/blockquote&gt;</p>
+<pre><code class="language-HTML">&lt;blockquote&gt;Bloque acotado&lt;/blockquote&gt;
+</code></pre>
+<h3>q</h3>
+<p>&lt;q cite=&quot;https://example.com&quot;&gt;Cuota&lt;/q&gt;</p>
+<pre><code class="language-HTML">&lt;q cite=&quot;https://example.com&quot;&gt;Cuota.&lt;/q&gt;
+</code></pre>
+<h3>cite</h3>
+<p>&lt;q&gt;Cita de texto&lt;/q&gt; &lt;cite&gt;— Nombre del autor&lt;/cite&gt;</p>
+<pre><code class="language-HTML">&lt;q&gt;Cita de texto&lt;/q&gt; &lt;cite&gt;— Nombre del autor&lt;/cite&gt;
+</code></pre>
+<hr>
+<h2>Abreviaciones y Definiciones</h2>
+<h3>Abreviación</h3>
+<p>Esto es una &lt;abbr title=&quot;abreviación&quot;&gt;abbr&lt;/abbr&gt;.</p>
+<pre><code class="language-HTML">&lt;p&gt;Esto es una &lt;abbr title=&quot;abreviación&quot;&gt;abbr&lt;/abbr&gt;.&lt;/p&gt;
+</code></pre>
+<h3>Definición</h3>
+<p>&lt;p&gt;&lt;dfn&gt;HTML Semántico&lt;/dfn&gt; es el uso de &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt;, pero con etiquetas.&lt;/p&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;
+  &lt;dfn&gt;HTML Semántico&lt;/dfn&gt; es el uso de 
+  &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt;, pero con etiquetas.
+&lt;/p&gt;
+</code></pre>
+<h3>Diálogos</h3>
+<p>Recibe un atributo open, si no está indicado, no es mostrado.</p>
+<p>&lt;dialog open&gt;&lt;p&gt;Esto es un cuadro de diálogo&lt;/p&gt;&lt;/dialog&gt;</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<pre><code class="language-HTML">&lt;dialog open&gt;&lt;p&gt;Esto es un cuadro de diálogo&lt;/p&gt;&lt;/dialog&gt;
+</code></pre>
+<h3>Detalles</h3>
+<p>Al igual que los diálogos recibe un atributo open para que pueda estar por defecto abierto.</p>
+<p>&lt;details&gt;
+&lt;summary&gt;Elemento&lt;/summary&gt;
+&lt;p&gt;Contenido del elemento&lt;/p&gt;
+&lt;/details&gt;</p>
+<pre><code class="language-HTML">&lt;details&gt;
+  &lt;summary&gt;Elemento&lt;/summary&gt;
+  &lt;p&gt;Contenido del elemento&lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
+<hr>
+<h2>Imágenes</h2>
+<h3>Img</h3>
+<p>&lt;img
+src=&quot;https://picsum.photos/100&quot;
+alt=&quot;Imagen&quot;
+/&gt;</p>
+<pre><code class="language-HTML">&lt;img
+  src=&quot;https://picsum.photos/100&quot;
+  alt=&quot;Imagen&quot;
+/&gt;
+</code></pre>
+<h3>Figure</h3>
+<p>Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama, código, una cita, etc, puede estar acompañado por la etiqueta figcaption que es la leyenda del contenido.</p>
+<p>&lt;figure&gt;
+&lt;img src=&quot;https://picsum.photos/200&quot; alt=&quot;Figura&quot;&gt;
+&lt;figcaption&gt;Imagen Aleatoria&lt;/figcaption&gt;
+&lt;/figure&gt;</p>
+<pre><code class="language-HTML">&lt;figure&gt;
+  &lt;img src=&quot;https://picsum.photos/200&quot; alt=&quot;Figura&quot;&gt;
+  &lt;figcaption&gt;Imagen Aleatoria&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+<h3>Picture</h3>
+<p>La etiqueta source puede tener el atributo de cualquier media query, por lo tanto se puede customizar imagenes especiales para modo oscuro, puedes probar reescalando la imagen</p>
+<p>&lt;picture&gt;
+&lt;source srcSet=&quot;https://picsum.photos/100&quot; media=&quot;(max-width: 500px)&quot; /&gt;
+&lt;source srcSet=&quot;https://picsum.photos/200&quot; media=&quot;(max-width: 876px)&quot; /&gt;
+&lt;img
+src=&quot;https://picsum.photos/300&quot;
+alt=&quot;Imagen Adaptable&quot;
+/&gt;
+&lt;/picture&gt;</p>
+<pre><code class="language-HTML">&lt;picture&gt;
+  &lt;source srcSet=&quot;https://picsum.photos/100&quot; media=&quot;(max-width: 500px)&quot; /&gt;
+  &lt;source srcSet=&quot;https://picsum.photos/200&quot; media=&quot;(max-width: 876px)&quot; /&gt;
+  &lt;img
+    src=&quot;https://picsum.photos/300&quot;
+    alt=&quot;Imagen Adaptable&quot;
+  /&gt;
+&lt;/picture&gt;
+</code></pre>
+<hr>
+<h2>Formularios</h2>
+<h4>Color</h4>
+<p>&lt;input type=&quot;color&quot;&gt;</p>
+<pre><code class="language-HTML">&lt;input type=&quot;color&quot;&gt;
+</code></pre>
+<h4>Números</h4>
+<p>&lt;input type=&quot;number&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;</p>
+<pre><code class="language-HTML">&lt;input type=&quot;number&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;
+</code></pre>
+<h4>meter</h4>
+<p>La etiqueta meter es utilizada como indicador de una escala conocida, asi que cuando el indicador está en un punto específico, puede variar los colores.</p>
+<p>&lt;meter min=&quot;10&quot; max=&quot;20&quot; value=&quot;18&quot;&gt;18 puntos&lt;/meter&gt;</p>
+<pre><code class="language-HTML">&lt;meter min=&quot;10&quot; max=&quot;20&quot; value=&quot;18&quot;&gt;18 puntos&lt;/meter&gt;
+</code></pre>
+<h3>progress</h3>
+<p>La barra de progreso es utilizada para mostrar el avance de una tarea. Existen dos valores indeterminada y determinada
+&lt;p&gt;Determinada:&lt;/p&gt;</p>
+<p>&lt;progress value=&quot;66&quot; max=&quot;100&quot;&gt;Determinate&lt;/progress&gt;</p>
+<p>&lt;p&gt;Indeterminada:&lt;/p&gt;</p>
+<p>&lt;progress&gt;Indeterminada&lt;/progress&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;Determinada:&lt;/p&gt;
+
+&lt;progress value=&quot;66&quot; max=&quot;100&quot;&gt;Determinada&lt;/progress&gt;
+
+&lt;p&gt;Indeterminada:&lt;/p&gt;
+
+&lt;progress&gt;Indeterminada&lt;/progress&gt;
+</code></pre>
+<h3>Select</h3>
+<p>&lt;select name=&quot;items&quot; id=&quot;items&quot;&gt;&lt;optgroup label=&quot;Grupo 1&quot;&gt;&lt;option&gt;Elemento1&lt;/option&gt;&lt;option&gt;Elemento2&lt;/option&gt;&lt;/optgroup&gt;&lt;optgroup label=&quot;Grupo 2&quot;&gt;&lt;option&gt;Elemento1&lt;/option&gt;&lt;option&gt;Elemento2&lt;/option&gt;&lt;/optgroup&gt;&lt;/select&gt;</p>
+<pre><code class="language-HTML">&lt;select &gt;
+  &lt;optgroup label=&quot;Grupo 1&quot;&gt;
+    &lt;option&gt;Elemento1&lt;/option&gt;
+    &lt;option&gt;Elemento2&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label=&quot;Grupo 2&quot;&gt;
+    &lt;option&gt;Elemento1&lt;/option&gt;
+    &lt;option&gt;Elemento2&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre>
+<hr>
+<h2>Listas</h2>
+<p>En las listas el orden puede importar representado por <code>&lt;ol&gt;</code> o no representado por <code>&lt;ul&gt;</code>, debe de tener como hijo al menos un elemento de lista <code>&lt;li&gt;</code></p>
+<p>&lt;p&gt;Lista ordernada&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;objeto1
+&lt;li&gt;objeto2
+&lt;li&gt;objeto3
+&lt;li&gt;objeto4
+&lt;/ol&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;Lista ordernada&lt;/p&gt;
+&lt;ol&gt;
+ &lt;li&gt;objeto1
+ &lt;li&gt;objeto2
+ &lt;li&gt;objeto3
+ &lt;li&gt;objeto4
+&lt;/ol&gt;
+</code></pre>
+<p>&lt;p&gt;Lista sin orden&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;objeto1
+&lt;li&gt;objeto2
+&lt;li&gt;objeto3
+&lt;li&gt;objeto4
+&lt;/ul&gt;</p>
+<pre><code class="language-HTML">&lt;p&gt;Lista sin orden&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;objeto1
+ &lt;li&gt;objeto2
+ &lt;li&gt;objeto3
+ &lt;li&gt;objeto4
+&lt;/ul&gt;
+</code></pre>
+<hr>
+<h2>Tablas</h2>
+<p>&lt;table&gt;&lt;caption&gt;Precio de cosas&lt;/caption&gt;&lt;colgroup&gt;&lt;col span=&quot;0&quot; style=&quot;background-color:#e0ece4&quot;&gt;&lt;col span=&quot;1&quot; style=&quot;background-color:#ebecf1&quot;&gt;&lt;col span=&quot;2&quot; style=&quot;background-color:#f1f3de&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;th&gt;IVA&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Elemento 1&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elemento 2&lt;/td&gt;&lt;td&gt;200&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;td colspan=&quot;2&quot; style=&quot;background-color:#e0ece4&quot;&gt;$336&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;</p>
+<pre><code class="language-HTML">&lt;table&gt;
+  &lt;caption&gt;Precio de cosas&lt;/caption&gt;
+  &lt;colgroup&gt;
+    &lt;col span=&quot;0&quot; style=&quot;background-color:#e0ece4&quot;&gt;
+    &lt;col span=&quot;1&quot; style=&quot;background-color:#ebecf1&quot;&gt;
+    &lt;col span=&quot;2&quot; style=&quot;background-color:#f1f3de&quot;&gt;
+  &lt;/colgroup&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nombre&lt;/th&gt;
+      &lt;th&gt;Precio&lt;/th&gt;
+      &lt;th&gt;IVA&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Elemento 1&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Elemento 2&lt;/td&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Total&lt;/td&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;background-color:#e0ece4&quot;&gt;$336&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</code></pre>
+<hr>
+<h2>Conclusiones</h2>
+<p>Hemos cubierto varias etiquetas de HTML semántico y escribir con él es mucho más legible y limpio que escribir con solo divs, siempre y cuando sea apropiado. Los elementos mostrados son pocos de todos los que existen, es importante conocerlos y usarlos de manera correcta, para que los procesadores de HTML hagan sus tareas bien.</p>
+<p>Respecto al comentario sobre que debemos hacer web para humanos y no robots, pienso que no es muy asertado, que la computadora entienda lo que estamos haciendo es también importante, porque puede comunicar este significado a las <a href="https://marcomadera.com/blog/accesibilidad-web#tecnologias-asistivas">tecnologías asistivas</a> que de igual forma son utilizadas para que humanos lean la web de una mejor manera, o hacer llegar a más personas a través de Seo de nuestra página o mejorar el sitio sin reconociendo los elementos que usamos fácilmente.</p>
+]]></description><link>https://marcomadera.com/blog/html-semantico</link><guid isPermaLink="true">https://marcomadera.com/blog/html-semantico</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Tue, 08 Sep 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[RSS Feed]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha">
 Algo que siempre veía en los sitios era el icono típico de RSS, nunca le presté importancia hasta ahora que lo estoy implementando en el sitio. Cuando miraba una página con él, me daba la sensación de que no estaba actualizada o que usaba tecnologías del pasado, porque realmente el icono luce antiguo y nunca me di la tarea de entender que significada ni para qué servía; y aquí estoy ahora implementandolo.</p>
 <h2>¿Qué es RSS?</h2>
 <p>RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica, de esta forma los usuarios se pueden suscribir al feed y dar seguimiento al sitio sin la necesidad de tener que visitarlo para ver si ocurrió una actualización.</p>
@@ -445,13 +866,13 @@ Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferen
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme" title="Gráfica uniforme"></p>
 <p>Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2):</p>
 <p>$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$</p>
-<p>Donde:
-$$\omicron {\scriptscriptstyle i}$$ : datos obtenidos</p>
-<p>$$\epsilon {\scriptscriptstyle i}$$ : datos esperados</p>
+<p>Donde:</p>
+<p>oi: datos obtenidos</p>
+<p>ei: datos esperados</p>
 <p>Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).</p>
 <p>&lt;table&gt;&lt;colgroup span=&quot;2&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Hipótesis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;0&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos son uniformes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos no son uniformes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
 <p>Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
-Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = [0 , 1] como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
+Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = <code>[0 , 1]</code>como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.
 Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
 Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:</p>
@@ -471,12 +892,12 @@ Si el resultado de nuestra x2 es menor que el resultado de la intersección se a
 <p>$$\mu R = {2n - 1 \over 3}$$</p>
 <p>$$\sigma ^2 R = {16n - 29 \over 90}$$</p>
 <p>$$Z = {R - \mu R \over \sigma R}$$</p>
-<p>Donde:
-R: El número esperado de rachas
-n: El número de datos a evaluar.
-μR: La media de rachas que esperamos tener.
-σ2R: La varianza del número esperado de rachas.
-Z: Valor estándar de la distribución normal para la prueba.</p>
+<p>Donde:</p>
+<p>R: El número esperado de rachas</p>
+<p>n: El número de datos a evaluar</p>
+<p>μR: La media de rachas que esperamos tener</p>
+<p>σ2R: La varianza del número esperado de rachas</p>
+<p>Z: Valor estándar de la distribución normal para la prueba.</p>
 <p>Igual que antes establecemos primero nuestra hipótesis nula (h0) e hipótesis alternativa (h1).</p>
 <p>&lt;table&gt;&lt;colgroup span=&quot;2&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Hipótesis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;0&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos son independientes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos no son independientes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
 <p>Clasificamos los números como bien el nombre lo indica, como racha ascendente o descendente. Ejemplo:
@@ -518,9 +939,9 @@ Tenemos lo siguiente:</p>
 <p>Si aplicamos lo que sabemos hasta ahora a la lista de nuestros 300 números iniciales, quedaría de la siguiente manera:</p>
 <p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Longitud de Rachas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Número de Rachas&lt;/th&gt;&lt;td&gt;116&lt;/td&gt;&lt;td&gt;55&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;194&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
 <p>Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los tres estadísticos:</p>
-<p>μR = 199.666 El número esperado de rachas
-σ2R = 52.01 La varianza
-Z = -0.108 El valor de la distribución normal</p>
+<p>μR = 199.666 El número esperado de rachas</p>
+<p>σ2R = 52.01 La varianza</p>
+<p>Z = -0.108 El valor de la distribución normal</p>
 <p>Para determinar la independencia, igualmente buscaríamos ahora en una tabla de distribución normal el valor α/2 seguiré usando 0.05, por lo que buscaré el valor de 0.025, si vamos a los valores de los laterales encontramos que la desviación normal es de 1.96, si nuestro valor α fuera 0.1 para tener una confianza del 90% la desviación normal sería de 1.65.</p>
 <p>Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto de nuestra Z es menor a la desviación normal de la tabla, de lo contrario se rechaza
 |-0.108|&lt;1.96 como esto es verdadero, se acepta nuestra hipótesis nula de que las rachas son independientes.</p>
@@ -528,8 +949,8 @@ Z = -0.108 El valor de la distribución normal</p>
 <p>De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la fórmula de chi-cuadrada utilizada anteriormente.</p>
 <p>$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$</p>
 <p>Donde:</p>
-<p>oi: datos obtenidos
-ei: datos esperados</p>
+<p>oi: datos obtenidos</p>
+<p>ei: datos esperados</p>
 <p>Lo que cambia es que ahora nuestros números esperados los calcularemos de con la siguiente ecuación.</p>
 <p>$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$</p>
 <p>Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:</p>
