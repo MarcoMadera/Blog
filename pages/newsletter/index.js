@@ -9,15 +9,21 @@ const NewsletterPage = () => {
 
   const handleChange = (event) => {
     const res = event.target.value;
-    setEmail({ value: res, error: false, submitted: false });
+    setEmail({
+      value: res,
+      error: !emailRegex.test(res),
+      submitted: false,
+    });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     setEmail({
       ...email,
-      error: !emailRegex.test(email.value),
       submitted: true,
     });
+    if (email.error === true) {
+      event.preventDefault();
+    }
   };
 
   const emailRegex = RegExp(
@@ -54,7 +60,7 @@ const NewsletterPage = () => {
         <form
           action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
           method="post"
-          target="popupwindow"
+          target="_blank"
           onSubmit={handleSubmit}
           noValidate
         >

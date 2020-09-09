@@ -12,7 +12,7 @@ tag:
   - Web
 ---
 
-Esta semana estuvo rondando por mi cabeza un comentario que lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. Considerando los siguientes bloques de código esto aplica?
+Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. Considerando los siguientes bloques de código esto aplica?
 
 
 <div style="display: block;
@@ -21,10 +21,10 @@ Esta semana estuvo rondando por mi cabeza un comentario que lei en twitter sobre
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-weight: bold;">¿Esto es un titulo?</div>
+    font-weight: bold;">¿Esto es un título?</div>
 
 
-<h2>¿Esto es un titulo?</h2>
+<h2>¿Esto es un título?</h2>
 
 Esto luce exactamente igual, pero cómo sabemos si un robot lo lee igual?
 Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>F5</kbd> en Mac o con <kbd>ctrl</kbd> + <kbd>win</kbd> + <kbd>enter</kbd> en Windows y escuchar como lo lee. 
@@ -32,12 +32,12 @@ Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>
 ## ¿Qué es HTML Semántico?
 <p><dfn id="-que-es-html-semantico-">HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.</p>
 
-El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro contenido en otros contextos, por ejemplo, si una persona quiere cambiar el color de todos los parrafos a rojo, o un motor de busqueda que quiera recolectar solo el titulo de nuestra página para mostrarlo.
+El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro contenido en otros contextos, por ejemplo, si una persona quiere cambiar el color de todos los parrafos a rojo, o un motor de búsqueda que quiera recolectar solo el título de nuestra página para mostrarlo.
 
 -------
 
 ## Ventajas
-- Es importante para el SEO, los motores de busqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.
+- Es importante para el SEO, los motores de búsqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.
 - Es usado para [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico)
 - Es fácil de entender sin esfuerzo desde la estructura al contenido, por motivos de trabajo tengo que usar una web desactualizada en internet explorer 8 casi a diario y es horrible tener que encontrar elementos entre divs y tablas.
 
@@ -175,13 +175,13 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
 ### main
 Esta etiqueta señala al contenido principal de la página, solo puede existir una etiqueta de este tipo visible por página 
 ### section
-Representa a un contenido generico en un documento donde no es similar a otro elemento
+Representa a un contenido genérico en un documento donde no es similar a otro elemento
 ### nav
 Es la etiqueta diseñada para identificar los enlaces de navegación, puede haber varías secciones de navegación en una página, no todos los enlaces necesitan de ir dentro de una etiqueta nav
 ### article
 Se usa esta etiqueta cuando hay contenido repetitivo e independiente, puede tener también header footer y section.
 ### aside
-Esta es una etiqueta que designa un área en la cual hay información suplementaría al contenido principal
+Esta es una etiqueta que designa un área en la cual hay información suplementaria al contenido principal
 ### header
 Agrupa la introducción de la página.
 ### footer
@@ -190,10 +190,10 @@ El pie de página suele ser usado para añadir información extra sobre la pági
 
 -----
 
-### Titulos de cabecera
-Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendiente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.
+### Títulos de cabecera
+Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.
 
-Se espera tener contenido después de un titulo, poner varios titulos seguidos existe la etiqueta `<hgroup>` que indica un grupo de titulos.
+Se espera tener contenido después de un título, poner varios títulos seguidos existe la etiqueta `<hgroup>` que indica un grupo de títulos.
 
 <hgroup><h1>h1</h1><h6>h6</h6></hgroup>
 
@@ -225,13 +225,13 @@ Dirección<br>
 
 ## Modificadores de texto
 
-### Enfasís
+### Énfasís
 
-<em>Esto es enfasis</em>
+<em>Esto es énfasis</em>
 
 ```HTML
 <p>
-  <em>Esto es enfasis</em>
+  <em>Esto es énfasis</em>
 </p>
 ```
 
@@ -260,7 +260,7 @@ Dirección<br>
 ## Saltos
 
 ### wbr
-Esta etiqueta sirve para indicar dónde está bien que suceda un salto de línea, permite separar de manera correcta palabras largas o enlaces sin que el contenido se 
+Esta etiqueta sirve para indicar dónde está bien que suceda un salto de línea, permite separar de manera correcta palabras largas o enlaces sin que el contenido se desajuste.
 
 <p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://marco<wbr>madera<wbr>.com</p>
 
@@ -399,7 +399,7 @@ Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama,
 ```
 
 ### Picture
-La etiqueta source puede tener el atributo de cualquier media query, por lo tanto se puede customizar imagenes especiales para modo oscuro, puedes probar reescalando la imagen
+La etiqueta source puede tener el atributo de cualquier media query, por lo tanto se puede customizar imagenes especiales para modo oscuro, puedes probar reescalar la imagen
 
 <picture>
   <source srcSet="https://picsum.photos/100" media="(max-width: 500px)" />
@@ -423,8 +423,8 @@ La etiqueta source puede tener el atributo de cualquier media query, por lo tant
 
 --------
 
-## Formularios
-
+## Formularios de entrada
+Hay diversos tipos de entrada, button, checkbox, date, email, password, range, text, entre otros, la mayoría se pueden tan fácil como lo siguiente.
 #### Color
 
 <input type="color">
@@ -441,8 +441,12 @@ La etiqueta source puede tener el atributo de cualquier media query, por lo tant
 <input type="number" min="1" max="5" />
 ```
 
+------
+
+## Barras
+
 #### meter
-La etiqueta meter es utilizada como indicador de una escala conocida, asi que cuando el indicador está en un punto específico, puede variar los colores.
+La etiqueta meter es utilizada como indicador de una escala conocida, así que cuando el indicador está en un punto específico, puede variar los colores.
 
 <meter min="10" max="20" value="18">18 puntos</meter>
 
@@ -471,18 +475,28 @@ La barra de progreso es utilizada para mostrar el avance de una tarea. Existen d
 ```
 
 ### Select
+La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pueden contener la etiqueta `<optgroup>` para agrupar entre opciones.
 
-<select name="items" id="items"><optgroup label="Grupo 1"><option>Elemento1</option><option>Elemento2</option></optgroup><optgroup label="Grupo 2"><option>Elemento1</option><option>Elemento2</option></optgroup></select>
-
-```HTML
-<select >
-  <optgroup label="Grupo 1">
-    <option>Elemento1</option>
-    <option>Elemento2</option>
+<select name="elementos">
+<optgroup label="Grupo 1">
+  <option value="elemento1">Elemento1</option>
+  <option value="elemento2">Elemento2</option>
   </optgroup>
   <optgroup label="Grupo 2">
-    <option>Elemento1</option>
-    <option>Elemento2</option>
+  <option value="elemento3">Elemento3</option>
+  <option value="elemento4">Elemento4</option>
+  </optgroup>
+</select>
+
+```HTML
+<select name="elementos">
+  <optgroup label="Grupo 1">
+    <option value="elemento1">Elemento1</option>
+    <option value="elemento2">Elemento2</option>
+  </optgroup>
+  <optgroup label="Grupo 2">
+    <option value="elemento3">Elemento3</option>
+    <option value="elemento4">Elemento4</option>
   </optgroup>
 </select>
 ```
@@ -492,7 +506,7 @@ La barra de progreso es utilizada para mostrar el avance de una tarea. Existen d
 ## Listas
 En las listas el orden puede importar representado por `<ol>` o no representado por `<ul>`, debe de tener como hijo al menos un elemento de lista `<li>`
 
-<p>Lista ordernada</p>
+<p>Lista ordenada</p>
 <ol>
  <li>objeto1
  <li>objeto2
@@ -501,7 +515,7 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
 </ol>
 
 ```HTML
-<p>Lista ordernada</p>
+<p>Lista ordenada</p>
 <ol>
  <li>objeto1
  <li>objeto2
@@ -575,4 +589,4 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
 ## Conclusiones
 Hemos cubierto varias etiquetas de HTML semántico y escribir con él es mucho más legible y limpio que escribir con solo divs, siempre y cuando sea apropiado. Los elementos mostrados son pocos de todos los que existen, es importante conocerlos y usarlos de manera correcta, para que los procesadores de HTML hagan sus tareas bien.
 
-Respecto al comentario sobre que debemos hacer web para humanos y no robots, pienso que no es muy asertado, que la computadora entienda lo que estamos haciendo es también importante, porque puede comunicar este significado a las [tecnologías asistivas](https://marcomadera.com/blog/accesibilidad-web#tecnologias-asistivas) que de igual forma son utilizadas para que humanos lean la web de una mejor manera, o hacer llegar a más personas a través de Seo de nuestra página o mejorar el sitio sin reconociendo los elementos que usamos fácilmente.
+Respecto al comentario sobre que debemos hacer web para humanos y no robots, pienso que no es muy acertado, que la computadora entienda lo que estamos haciendo es también importante, porque puede comunicar este significado a las [tecnologías asistivas](https://marcomadera.com/blog/accesibilidad-web#tecnologias-asistivas) que de igual forma son utilizadas para que humanos lean la web de una mejor manera, o hacer llegar a más personas a través del SEO de nuestra página o mejorar el sitio reconociendo los elementos que usamos fácilmente.
