@@ -12,9 +12,9 @@ const NewsletterPage = () => {
     setEmail({ value: res, error: false, submitted: false });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     setEmail({
+      ...email,
       error: !emailRegex.test(email.value),
       submitted: true,
     });
