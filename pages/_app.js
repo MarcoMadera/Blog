@@ -1,10 +1,24 @@
+import { useRouter } from "next/router";
 import Router from "next/router";
 import NProgress from "nprogress";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
+import * as gtag from "../lib/gtag";
 
 const App = ({ Component, pageProps }) => {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   Router.events.on("routeChangeStart", () => NProgress.start());
   Router.events.on("routeChangeComplete", () => NProgress.done());
   Router.events.on("routeChangeError", () => NProgress.done());
