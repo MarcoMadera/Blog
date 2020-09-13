@@ -13,7 +13,7 @@ import Java from "../../components/icons/Java";
 import CSharp from "../../components/icons/CSharp";
 import JavaScript from "../../components/icons/JavaScript";
 import MusicCard from "../../components/MusicCard";
-const About = ({ nowPlaying = {}, tracks = [], recentlyPlayed = {} }) => {
+const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
   return (
     <main>
       <Seo title="Sobre mí" url="https://marcomadera.com/about" />
@@ -207,12 +207,12 @@ const About = ({ nowPlaying = {}, tracks = [], recentlyPlayed = {} }) => {
             </div>
           )
         )}
-        {Object.keys(tracks).length > 0 && (
+        {topTracks.length > 0 && (
           <>
             <strong>
               <p>Mi top 10 de canciones</p>
             </strong>
-            {tracks.map(({ title, artist, songUrl, cover }) => (
+            {topTracks.map(({ title, artist, songUrl, cover }) => (
               <MusicCard
                 key={songUrl}
                 title={title}
@@ -382,7 +382,7 @@ const About = ({ nowPlaying = {}, tracks = [], recentlyPlayed = {} }) => {
 
 export async function getServerSideProps() {
   let nowPlaying;
-  let tracks;
+  let topTracks;
   let recentlyPlayed;
   Promise.all([
     (nowPlaying = await fetch("https://marcomadera.com/api/now-playing").then(
@@ -391,7 +391,7 @@ export async function getServerSideProps() {
         return res.json();
       }
     )),
-    (tracks = await fetch("https://marcomadera.com/api/top-tracks").then(
+    (topTracks = await fetch("https://marcomadera.com/api/top-tracks").then(
       (res) => {
         if (res.status !== 200) return;
         return res.json();
@@ -405,13 +405,13 @@ export async function getServerSideProps() {
     })),
   ]);
   return {
-    props: { nowPlaying, tracks, recentlyPlayed },
+    props: { nowPlaying, topTracks, recentlyPlayed },
   };
 }
 
 About.propTypes = {
   nowPlaying: PropTypes.object,
-  tracks: PropTypes.array,
+  topTracks: PropTypes.array,
   recentlyPlayed: PropTypes.object,
 };
 

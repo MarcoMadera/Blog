@@ -31,7 +31,7 @@ export const getSortedPosts = () => {
         .toString();
 
       // Parse markdown, get frontmatter data, excerpt and content.
-      const { data, excerpt, content } = matter(markdownWithMetadata);
+      const { data, content } = matter(markdownWithMetadata);
 
       const frontmatter = {
         ...data,
@@ -42,7 +42,6 @@ export const getSortedPosts = () => {
       return {
         slug,
         frontmatter,
-        excerpt,
         content,
       };
     })
@@ -95,14 +94,14 @@ export const getPostBySlug = (slug) => {
 
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
 
-  const { frontmatter, content, excerpt } = posts[postIndex];
+  const { frontmatter, content } = posts[postIndex];
   const previousPost = posts[postIndex + 1];
   const currentPost = posts[postIndex];
   const nextPost = posts[postIndex - 1];
 
   return {
     frontmatter,
-    post: { content, excerpt },
+    post: { content },
     previousPost,
     currentPost,
     nextPost,
