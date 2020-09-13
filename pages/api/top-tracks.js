@@ -10,5 +10,5 @@ export default async (_, res) => {
   }));
 
   res.statusCode = 200;
-  res.json({ tracks });
+  res.json(tracks);
 };

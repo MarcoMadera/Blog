@@ -12,7 +12,8 @@ import Film from "../../components/icons/Film";
 import Java from "../../components/icons/Java";
 import CSharp from "../../components/icons/CSharp";
 import JavaScript from "../../components/icons/JavaScript";
-const About = ({ response = {}, tracks = {}, played = {} }) => {
+import MusicCard from "../../components/MusicCard";
+const About = ({ nowPlaying = {}, tracks = [], recentlyPlayed = {} }) => {
   return (
     <main>
       <Seo title="Sobre mí" url="https://marcomadera.com/about" />
@@ -153,12 +154,12 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
         </div>
       </section>
       <aside>
-        {Object.keys(response).length > 0 ? (
+        {Object.keys(nowPlaying).length > 0 ? (
           <div>
             <header>
               <strong>
                 <p>
-                  {response.is_playing
+                  {nowPlaying.listening
                     ? "Escuchando ahora"
                     : "Último escuchado"}
                 </p>
@@ -172,31 +173,16 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
                 <Spotify width="26" height="26" fill="#1DB954" />
               </a>
             </header>
-            <a
-              href={response.item.external_urls.spotify}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ir a spotify"
-            >
-              <article>
-                <img
-                  src={response.item.album.images[1].url}
-                  alt="album cover"
-                  width="64"
-                  height="64"
-                />
-                <div>
-                  <strong>
-                    <p>{response.item.name}</p>
-                  </strong>
-                  <p>{response.item.album.artists[0].name}</p>
-                </div>
-              </article>
-            </a>
+            <MusicCard
+              title={nowPlaying.title}
+              cover={nowPlaying.cover}
+              artist={nowPlaying.artist}
+              songUrl={nowPlaying.songUrl}
+            />
             <hr />
           </div>
         ) : (
-          Object.keys(played).length > 0 && (
+          Object.keys(recentlyPlayed).length > 0 && (
             <div>
               <header>
                 <strong>
@@ -211,29 +197,12 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
                   <Spotify width="26" height="26" fill="#1DB954" />
                 </a>
               </header>
-              <a
-                href={played.response.items[0].track.external_urls.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ir a spotify"
-              >
-                <article>
-                  <img
-                    src={played.response.items[0].track.album.images[1].url}
-                    alt="album cover"
-                    width="64"
-                    height="64"
-                  />
-                  <div>
-                    <strong>
-                      <p>{played.response.items[0].track.name}</p>
-                    </strong>
-                    <p>
-                      {played.response.items[0].track.album.artists[0].name}
-                    </p>
-                  </div>
-                </article>
-              </a>
+              <MusicCard
+                title={recentlyPlayed.title}
+                cover={recentlyPlayed.cover}
+                artist={recentlyPlayed.artist}
+                songUrl={recentlyPlayed.songUrl}
+              />
               <hr />
             </div>
           )
@@ -243,30 +212,14 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
             <strong>
               <p>Mi top 10 de canciones</p>
             </strong>
-            {tracks.tracks.map(({ title, artist, songUrl, cover }) => (
-              <a
+            {tracks.map(({ title, artist, songUrl, cover }) => (
+              <MusicCard
                 key={songUrl}
-                href={songUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ir a spotify"
-              >
-                <article>
-                  <img
-                    src={cover}
-                    alt="album cover"
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                  />
-                  <div>
-                    <strong>
-                      <p>{title}</p>
-                    </strong>
-                    <p>{artist}</p>
-                  </div>
-                </article>
-              </a>
+                title={title}
+                cover={cover}
+                artist={artist}
+                songUrl={songUrl}
+              />
             ))}
           </>
         )}
@@ -377,9 +330,7 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
         h3 {
           margin: 0px;
         }
-        a {
-          display: table;
-        }
+
         header {
           display: flex;
           margin-top: 69px;
@@ -387,36 +338,15 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
           justify-content: space-between;
           align-items: center;
         }
-        aside div header a {
-          display: inline-flex;
-          box-sizing: border-box;
-        }
         div p {
           margin: 0;
         }
-        aside a {
-          display: block;
-        }
-        article {
-          display: flex;
-          border-radius: 3px;
-          border: 1px solid #ccc;
-          margin-bottom: 10px;
-          padding: 5px;
-          align-items: center;
-        }
-        article div h4,
-        article div p {
-          margin: 0;
-        }
-        article img {
-          margin-right: 5px;
-        }
-        article:hover {
-          box-shadow: 0px 0px 4px 0px rgba(84, 84, 84, 0.15);
-        }
         aside {
           padding: 0 5px;
+          box-sizing: border-box;
+        }
+        aside div header a {
+          display: inline-flex;
           box-sizing: border-box;
         }
         h1 {
@@ -426,9 +356,6 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
         }
         section p {
           text-align: justify;
-        }
-        div > p {
-          line-break: anywhere;
         }
         main {
           display: grid;
@@ -454,33 +381,38 @@ const About = ({ response = {}, tracks = {}, played = {} }) => {
 };
 
 export async function getServerSideProps() {
-  const playing = await fetch("https://marcomadera.com/api/now-playing").then(
-    (res) => {
+  let nowPlaying;
+  let tracks;
+  let recentlyPlayed;
+  Promise.all([
+    (nowPlaying = await fetch("https://marcomadera.com/api/now-playing").then(
+      (res) => {
+        if (res.status !== 200) return;
+        return res.json();
+      }
+    )),
+    (tracks = await fetch("https://marcomadera.com/api/top-tracks").then(
+      (res) => {
+        if (res.status !== 200) return;
+        return res.json();
+      }
+    )),
+    (recentlyPlayed = await fetch(
+      "https://marcomadera.com/api/recently-played"
+    ).then((res) => {
       if (res.status !== 200) return;
       return res.json();
-    }
-  );
-  const tracks = await fetch("https://marcomadera.com/api/top-tracks").then(
-    (res) => {
-      if (res.status !== 200) return;
-      return res.json();
-    }
-  );
-  const played = await fetch(
-    "https://marcomadera.com/api/recently-played"
-  ).then((res) => {
-    if (res.status !== 200) return;
-    return res.json();
-  });
+    })),
+  ]);
   return {
-    props: { ...playing, tracks, played },
+    props: { nowPlaying, tracks, recentlyPlayed },
   };
 }
 
 About.propTypes = {
-  response: PropTypes.object,
-  tracks: PropTypes.object,
-  played: PropTypes.object,
+  nowPlaying: PropTypes.object,
+  tracks: PropTypes.array,
+  recentlyPlayed: PropTypes.object,
 };
 
 export default About;
