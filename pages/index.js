@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import Custom404 from "./404";
 
-const Home = ({ posts, tags }) => {
+const Home = ({ posts = [], tags = [] }) => {
   const router = useRouter();
   const page = parseInt(router.query.page) || 1;
   const indexOfLastPost = page * 4;

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "build:rss": "node ./lib/feed.js",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --watch",
+    "test:ci": "jest --ci"
   },
   "dependencies": {
     "fastcomments-react": "^1.0.3",
@@ -23,6 +25,9 @@
     "remark-math": "^2.0.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.3",
+    "babel-jest": "^26.3.0",
     "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
@@ -30,10 +35,13 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.4.2",
     "lint-staged": "^10.2.11",
     "markdown-it": "^11.0.0",
     "prettier": "^2.0.5",
     "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.13.1",
     "rss": "^1.2.2"
   }
 }
