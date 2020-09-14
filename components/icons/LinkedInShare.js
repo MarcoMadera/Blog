@@ -5,6 +5,7 @@ function LinkedInShare(props) {
       viewBox="0 0 112.196 112.196"
       {...props}
     >
+      <title>Compartir en LinkedIn</title>
       <circle cx="56.098" cy="56.097" r="56.098" fill="#007ab9"></circle>
       <path
         fill="#f1f2f2"

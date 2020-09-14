@@ -73,11 +73,7 @@ const NewsletterPage = () => {
             style={outline}
           ></input>
           <input type="hidden" value="1" name="embed"></input>
-          <input
-            type="submit"
-            className="btn btn-primary"
-            value="Suscríbete"
-          ></input>
+          <button className="btn btn-primary">Suscríbete</button>
           {email.error && email.submitted && (
             <p>Por favor inserta un correo válido</p>
           )}
@@ -110,9 +106,12 @@ const NewsletterPage = () => {
           margin: 0 auto 40px auto;
           width: 100%;
           display: block;
-          border-radius: 20px;
-          border: 1px solid rgba(0, 0, 0, 0.514);
-          padding: 10px 20px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          padding: 10px 15px;
+        }
+        button {
+          width: 100%;
         }
         main {
           margin: 0 30px;

@@ -102,7 +102,8 @@ const sre = () => {
             La gráfica se puede generar en una hoja nueva, libro nuevo, archivo
             PDF y/o imagen PNG, si se genera en hoja nueva se puede modificar
             los estilos a preferencia y después exportarla a PDF o imagen PNG
-            con atajos ctrl+p o ctrl+g respectivamente.
+            con atajos <kbd>ctrl</kbd> + <kbd>p</kbd> o <kbd>ctrl</kbd> +{" "}
+            <kbd>g</kbd> respectivamente.
           </p>
         </section>
         <div>

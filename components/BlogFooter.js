@@ -52,24 +52,6 @@ const BlogFooter = ({ slug, blogTitle }) => {
       </div>
       <Bio />
       <style global jsx>{`
-        .socialBtn {
-          cursor: pointer;
-          color: white !important;
-          display: inline-block;
-          text-decoration: none;
-          height: 20px;
-          border-radius: 3px;
-          margin-right: 10px;
-          font-weight: 500;
-          padding: 1px 8px 1px 6px;
-          font-weight: 500;
-          font: normal normal normal 11px/18px "Helvetica Neue", Arial,
-            sans-serif;
-          white-space: nowrap;
-          overflow: hidden;
-          text-align: left;
-          border: none;
-        }
         .tweet {
           background-color: #1b95e0;
         }
@@ -80,7 +62,8 @@ const BlogFooter = ({ slug, blogTitle }) => {
           border: none;
           cursor: pointer;
           box-sizing: content-box;
-          padding: 9px;
+          margin: 9px;
+          padding: 0;
           width: 30px;
           height: 30px;
         }
@@ -95,6 +78,12 @@ const BlogFooter = ({ slug, blogTitle }) => {
         @media screen and (max-width: 528px) {
           div {
             display: block;
+          }
+        }
+        @media screen and (max-width: 876px) {
+          button {
+            padding: 9px;
+            margin: 0px;
           }
         }
       `}</style>

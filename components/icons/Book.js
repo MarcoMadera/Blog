@@ -1,6 +1,7 @@
 function Book(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
+      <title>Libro</title>
       <path fill="#e74d3cc2" d="M7.778 107.865h496.447v320.29H7.778z"></path>
       <path fill="#e74d3cc2" d="M7.778 428.154V107.868h496.444"></path>
       <path fill="#fff" d="M39.803 83.847H472.19v312.284H39.803z"></path>

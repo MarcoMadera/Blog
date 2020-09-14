@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav>
       <Link href="/">
-        <a className="logo">
+        <a className="logo" aria-label="Ir a la página principal">
           <img
             src="/apple-touch-icon-120x120.png"
             alt="logo"
@@ -37,10 +37,10 @@ const Navbar = () => {
         .logo {
           display: flex;
           align-items: center;
-          transition: ease 300ms;
           user-select: none;
         }
-        .logo:hover img {
+        .logo:hover img,
+        .logo:focus img {
           animation: jello-vertical 0.9s both;
         }
         @keyframes jello-vertical {
@@ -80,6 +80,7 @@ const Navbar = () => {
         }
         h3 {
           font-weight: 400;
+          margin: 0;
         }
 
         img {

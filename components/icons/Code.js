@@ -1,6 +1,7 @@
 function Code(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
+      <title>Código</title>
       <path
         fill="#e74d3c"
         d="M0 260.908l174.648-81.136v38.568l-132.08 57.848v.728l132.08 57.848v38.568L0 292.212v-31.304z"

@@ -3,6 +3,7 @@ import React from "react";
 function Logo(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" {...props}>
+      <title>Logo</title>
       <g fillRule="evenodd">
         <path
           fill="#e4e5e7"

@@ -14,7 +14,7 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
             as={`/blog/tag/${slugify(tag)}/`}
             key={tag}
           >
-            <a>#{tag}</a>
+            <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
           </Link>
         ))}
       </section>
@@ -23,6 +23,7 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
           display: block;
           margin: 0 0 3px 0;
           color: #da0000;
+          width: fit-content;
         }
         a:hover {
           color: #e74c3ccb;
@@ -34,7 +35,9 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
         }
         @media screen and (max-width: 876px) {
           a {
-            margin: 13.5px 5px 13.5px 0;
+            padding: 13.5px 5px 13.5px 0;
+            min-width: 48px;
+            margin: 0;
           }
         }
       `}</style>

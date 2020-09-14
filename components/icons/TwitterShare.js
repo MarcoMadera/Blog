@@ -5,6 +5,7 @@ function TwitterShare(props) {
       viewBox="0 0 112.197 112.197"
       {...props}
     >
+      <title>Compartir en Twitter</title>
       <circle cx="56.099" cy="56.098" r="56.098" fill="#55acee"></circle>
       <path
         fill="#f1f2f2"

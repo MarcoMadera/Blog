@@ -5,6 +5,7 @@ function FacebookShare(props) {
       viewBox="0 0 112.196 112.196"
       {...props}
     >
+      <title>Compartir en Facebook</title>
       <circle cx="56.098" cy="56.098" r="56.098" fill="#3b5998"></circle>
       <path
         fill="#fff"

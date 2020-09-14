@@ -59,6 +59,7 @@ const Home = ({ posts = [], tags = [] }) => {
                   className={page == pageNumber ? "currentPage" : undefined}
                   key={pageNumber}
                   onClick={() => router.push("/")}
+                  aria-label={`Ir a página ${pageNumber}`}
                 >
                   {pageNumber}
                 </button>
@@ -69,6 +70,7 @@ const Home = ({ posts = [], tags = [] }) => {
                   className={page == pageNumber ? "currentPage" : undefined}
                   key={pageNumber}
                   onClick={() => router.push(`/?page=${pageNumber}`)}
+                  aria-label={`Ir a página ${pageNumber}`}
                 >
                   {pageNumber}
                 </button>

@@ -26,8 +26,8 @@ const Portfolio = () => {
             </a>{" "}
             donde el objetivo es mejorar las habilidades de código con proyectos
             reales. Los retos son de la sección gratis, no incluyen el archivo
-            de diseño solo la imagen, por lo que son realizados principalmente a
-            ojo.
+            de diseño, solo la imagen, por lo que son realizados principalmente
+            a ojo.
           </p>
           <Link href="/portfolio/challenges">
             <a className={"btn btn-primary"}>Detalles</a>
@@ -45,12 +45,11 @@ const Portfolio = () => {
           <h2>Tests para números aleatorios</h2>
           <p>
             Herramienta para verificar números aleatorios, se puede encontrar
-            información detallada sobre la realización de este programa en el{" "}
+            información detallada sobre la realización de esta aplicacion en el{" "}
             <Link href="/blog/numeros-pseudo-aleatorios">
               <a>blog de números pseudo aleatorios</a>
             </Link>
-            , y una muestra al final del post, pero igual lo puedes probar en la
-            siguiente página de{" "}
+            , y/o probarlo en la siguiente página de{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -76,11 +75,12 @@ const Portfolio = () => {
           <h2>Registro de trámites en excel</h2>
           <p>
             Dashboard funcional en excel programado con visual basic for
-            applications para dar seguimiento a los trámites realizados, con la
-            obtención automática a través de un bookmarklet en el navegador, se
-            descarga la información y se lleva al registro de excel, evitando la
-            tarea de transcribir y evitando los posibles errores llevandolo
-            directamente a el almacenamiento de la información.
+            applications para dar seguimiento a trámites realizados, se obtiene
+            la información automáticamente a través de un bookmarklet en el
+            navegador, se descarga la información y se lleva al registro de
+            excel. Con esto se evita la tarea de transcribir, asi se evitan
+            posibles errores llevando la información directamente a el
+            almacenamiento.
           </p>
           <Link href="/portfolio/sre-excel">
             <a className="btn btn-primary">Detalles</a>

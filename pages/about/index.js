@@ -45,15 +45,15 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           <h2>¿Cómo empecé a escribir código?</h2>
           <p>
             Es algo que vengo haciendo desde preparatoria, cuando descubrí que
-            se podían hacer aplicaciones para android me eché un clavado en el
-            mundo de Java, sin saber ni siquiera de control de versiones ni de
+            se podían hacer aplicaciones para android, me eché un clavado en el
+            mundo de Java sin saber ni siquiera de control de versiones ni de
             git. Logré hacer algunas aplicaciones básicas y aún sin estar
             satisfecho con los resultados decidí dar el siguiente paso. En ese
             entonces por el 2013 empezaba a resonar sobre la realidad aumentada,
             lo que veía lo quería intentar así que me pasé a C#, con el cúal
             obviamente también quería hacer una cantidad de videojuegos, pero
-            nunca tuve el conocimiento para hacer algo realidad por todo el
-            trabajo que conlleva y porque no sé nada de videojuegos, no los
+            nunca tuve el conocimiento para hacer algo estable por todo el
+            trabajo que conlleva y porque no sé nada de videojuegos; no los
             juego. Después de estas étapas me empecé a interesar en Python con
             el próposito de hacer proyectos sobre ciencia de datos y web
             scraping, pero también me interesaba JavaScript, Python fue algo que
@@ -74,7 +74,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             La música es mi mejor acompañante para cualquier situación,
             especialmente a la hora de escribir, simplemente hace la vida más
             agradable. Me gusta de todo tipo y aunque no me considero de buen
-            gusto me gusta compartir.
+            gusto me gusta compartirla.
           </p>
           <a
             href="https://lichess.org/@/MarcoMadera000"
@@ -329,6 +329,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         }
         h3 {
           margin: 0px;
+          display: inline;
         }
 
         header {

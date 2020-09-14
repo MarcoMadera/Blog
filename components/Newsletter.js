@@ -53,11 +53,7 @@ const Newsletter = () => {
         style={outline}
       ></input>
       <input type="hidden" value="1" name="embed"></input>
-      <input
-        type="submit"
-        className="btn btn-primary"
-        value="Suscríbete"
-      ></input>
+      <button className="btn btn-primary">Suscríbete</button>
       {email.error && email.submitted && (
         <p>Por favor inserta un correo válido</p>
       )}
@@ -72,6 +68,7 @@ const Newsletter = () => {
           width: 100%;
           height: fit-content;
           border: 3px solid #e74c3c;
+          border-radius: 4px;
           padding: 20px;
           text-align: center;
           margin-bottom: 50px;
@@ -90,14 +87,16 @@ const Newsletter = () => {
         }
 
         input {
-          border-radius: 28px;
+          border-radius: 4px;
           outline: none;
-          border: 1px solid black;
-          padding: 5px 15px;
-          width: calc(100% - 15px);
+          border: 1px solid #ccc;
+          padding: 6px 8px;
+          width: 100%;
           margin-bottom: 30px;
         }
-
+        button {
+          width: 100%;
+        }
         input:focus {
           border: 1px solid #e74c3c;
           box-shadow: 1px 0 6px 2px #e74d3c57;

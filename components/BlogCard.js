@@ -14,7 +14,7 @@ const BlogCard = ({
   return (
     <article key={slug}>
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
-        <a aria-label={`${title} blog`}>
+        <a aria-label={`post ${title}`}>
           <header>
             <section>
               <h3>{title}</h3>
@@ -43,7 +43,7 @@ const BlogCard = ({
                 as={`/blog/tag/${slugify(tag)}/`}
                 key={tag}
               >
-                <a>#{tag}</a>
+                <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
               </Link>
             ))}
         </div>
@@ -53,11 +53,14 @@ const BlogCard = ({
       </footer>
       <style jsx>{`
         article {
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 0px;
           border-radius: 5px;
           background-color: var(--blog-card-background, white);
           transition: background-color var(--switch-transition);
           margin-bottom: 1rem;
+        }
+        article:hover {
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px 0px;
         }
         header {
           display: grid;
