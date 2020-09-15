@@ -17,7 +17,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
   return (
     <main>
       <Seo title="Sobre mí" url="https://marcomadera.com/about" />
-      <div>
+      <aside>
         <Code width="50" height="50" />
         <Java width="50" height="50" />
         <AugmentedReallity width="50" height="50" />
@@ -27,7 +27,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         <Chess width="50" height="50" />
         <Book width="50" height="50" />
         <Film width="50" height="50" />
-      </div>
+      </aside>
       <section>
         <section>
           <h1>Sobre mí</h1>
@@ -42,7 +42,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             conocimientos en la sección de blog, misma que trataré como libreta
             personal para futuro con temas relacionados a la programación.
           </p>
-          <h2>¿Cómo empecé a escribir código?</h2>
+          <h2>¿Cómo empecé a programar?</h2>
           <p>
             Es algo que vengo haciendo desde preparatoria, cuando descubrí que
             se podían hacer aplicaciones para android, me eché un clavado en el
@@ -147,7 +147,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           </p>
           <img
             src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_200/v1598594392/about/tIeCLkB8geYtW_tpgywi.gif"
-            alt="Ok gif"
+            alt="Gif oveja timmy, muy bien"
             width="200"
             height="158"
           />
@@ -157,13 +157,13 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         {Object.keys(nowPlaying).length > 0 ? (
           <div>
             <header>
-              <strong>
-                <p>
+              <p>
+                <b>
                   {nowPlaying.listening
                     ? "Escuchando ahora"
                     : "Último escuchado"}
-                </p>
-              </strong>
+                </b>
+              </p>
               <a
                 href="https://open.spotify.com/user/12133024755"
                 target="_blank"
@@ -185,9 +185,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           Object.keys(recentlyPlayed).length > 0 && (
             <div>
               <header>
-                <strong>
-                  <p>Recién escuchado</p>
-                </strong>
+                <p>
+                  <b>Recién escuchado</b>
+                </p>
                 <a
                   href="https://open.spotify.com/user/12133024755"
                   target="_blank"
@@ -209,9 +209,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         )}
         {topTracks.length > 0 && (
           <>
-            <strong>
-              <p>Mi top 10 de canciones</p>
-            </strong>
+            <p>
+              <b>Mi top 10 de canciones</b>
+            </p>
             {topTracks.map(({ title, artist, songUrl, cover }) => (
               <MusicCard
                 key={songUrl}
@@ -225,13 +225,13 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         )}
       </aside>
       <style global jsx>{`
-        main > div > svg {
+        main > aside:nth-of-type(1) > svg {
           display: block;
           margin-left: auto;
           margin-right: auto;
           margin-bottom: 50px;
         }
-        main > div > svg:hover {
+        main > aside:nth-of-type(1) > svg:hover {
           animation: rotate-center 250ms ease-in-out 2 alternate both;
         }
         @keyframes rotate-center {
@@ -245,49 +245,49 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             transform: rotate(15deg);
           }
         }
-        main > div > svg:nth-of-type(5) {
+        main > aside:nth-of-type(1) > svg:nth-of-type(5) {
           margin-bottom: 90px;
         }
         @media screen and (min-width: 1024px) and (max-width: 1050px) {
-          main > div > svg {
+          main > aside:nth-of-type(1) > svg {
             margin-bottom: 70px;
           }
-          main > div > svg:nth-of-type(5) {
+          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
             margin-bottom: 230px;
           }
         }
         @media screen and (min-width: 1050px) and (max-width: 1120px) {
-          main > div > svg {
+          main > aside:nth-of-type(1) > svg {
             margin-bottom: 70px;
           }
-          main > div > svg:nth-of-type(5) {
+          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
             margin-bottom: 140px;
           }
         }
         @media screen and (min-width: 1120px) and (max-width: 1220px) {
-          main > div > svg {
+          main > aside:nth-of-type(1) > svg {
             margin-bottom: 60px;
           }
-          main > div > svg:nth-of-type(5) {
+          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
             margin-bottom: 110px;
           }
         }
         @media screen and (min-width: 1220px) and (max-width: 1280px) {
-          main > div > svg {
+          main > aside:nth-of-type(1) > svg {
             margin-bottom: 60px;
           }
-          main > div > svg:nth-of-type(5) {
+          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
             margin-bottom: 90px;
           }
         }
         @media screen and (min-width: 0px) and (max-width: 1024px) {
-          main > div > svg {
+          main > aside:nth-of-type(1) > svg {
             display: inline-flex !important;
             margin-bottom: 0 !important;
             margin-left: 5px !important;
             flex-wrap: wrap !important;
           }
-          main > div {
+          main > aside:nth-of-type(1) {
             order: 3;
             margin: 0 auto;
             text-align: center;
@@ -295,13 +295,13 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           main > section {
             order: 1;
           }
-          main > aside {
+          main > aside:nth-of-type(2) {
             order: 2;
           }
         }
       `}</style>
       <style jsx>{`
-        main > div {
+        main > aside:nth-of-type(1) {
           padding-top: 75px;
         }
         button {
@@ -342,11 +342,11 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         div p {
           margin: 0;
         }
-        aside {
+        aside:nth-of-type(2) {
           padding: 0 5px;
           box-sizing: border-box;
         }
-        aside div header a {
+        aside:nth-of-type(2) div header a {
           display: inline-flex;
           box-sizing: border-box;
         }

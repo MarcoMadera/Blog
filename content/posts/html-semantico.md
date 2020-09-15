@@ -8,7 +8,7 @@ cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v159
 author: Marco Madera
 tag:
   - HTML
-  - Accesibilidad
+  - A11Y
   - Web
 ---
 
@@ -198,7 +198,7 @@ Se espera tener contenido después de un título, poner varios títulos seguidos
 <hgroup><h1>h1</h1><h6>h6</h6></hgroup>
 
 ```HTML
-</hgroup>
+<hgroup>
   <h1>h1</h1>
   <h6>h6</h6>
 </hgroup>
@@ -225,7 +225,8 @@ Dirección<br>
 
 ## Modificadores de texto
 
-### Énfasís
+### Énfasis
+`<em>` es la etiqueta semántica para mostrar énfasis, muestra su contenido en cursiva `<i>`
 
 <em>Esto es énfasis</em>
 
@@ -234,6 +235,15 @@ Dirección<br>
   <em>Esto es énfasis</em>
 </p>
 ```
+
+<i>Esto es cursivo</i>
+
+```HTML
+<p>
+  <i>Esto es cursivo</i>
+</p>
+```
+
 
 ### Marcado
 
@@ -245,13 +255,22 @@ Dirección<br>
 </p>
 ```
 
-### Strong
+### Negrita
+`<strong>` es la etiqueta semántica para mostrar importancia en el texto, los navegadores lo muestran en negrita.
 
-<strong>Esto es negro porque es importante</strong>
+<strong>Esto está en negritra porque es importante</strong>
 
 ```HTML
 <p>
-  <strong>Esto es negro porque es importante</strong>
+  <strong>Esto está en negritra porque es importante</strong>
+</p>
+```
+
+<b>Esto está en negritra pero no es importante</b>
+
+```HTML
+<p>
+  <b>Esto está en negritra pero no es importante</b>
 </p>
 ```
 

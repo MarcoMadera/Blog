@@ -54,7 +54,7 @@ const Random = () => {
       </article>
       <style jsx>{`
         main {
-          margin: 0px auto 40px auto;
+          margin: 0 auto;
           padding: 0 20px;
           max-width: 1300px;
         }

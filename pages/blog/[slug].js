@@ -57,8 +57,8 @@ export default function Post({ postData, recommendedPosts }) {
         url={`https://marcomadera.com/blog/${currentPost.slug}`}
       />
       {contentAside(post.content, currentPost.slug)}
-      <div className="blog">
-        <article>
+      <article className="blog">
+        <section>
           <header>
             <h1>{frontmatter.title}</h1>
             <p>
@@ -75,7 +75,7 @@ export default function Post({ postData, recommendedPosts }) {
           {loaded && (
             <BlogFooter slug={currentPost.slug} blogTitle={frontmatter.title} />
           )}
-        </article>
+        </section>
         <nav>
           {previousPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
@@ -99,15 +99,15 @@ export default function Post({ postData, recommendedPosts }) {
           )}
         </nav>
         {loaded && <FastCommentsCommentWidget tenantId={tenantId} />}
-      </div>
-      <div>
+      </article>
+      <aside>
         <AllTags tags={frontmatter.tag} title="Etiquetas del blog" />
         <RecommendedPosts
           recommendedPosts={recommendedPosts}
           currentPost={currentPost.slug}
         />
         <Newsletter />
-      </div>
+      </aside>
       <style jsx>{`
         main {
           display: grid;
@@ -187,7 +187,7 @@ export default function Post({ postData, recommendedPosts }) {
         .blog h1 {
           font-size: 1.8em;
         }
-        .blog > aside {
+        .blog > aside:nth-of-type(1) {
           order: 1;
         }
         .article {

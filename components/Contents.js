@@ -5,7 +5,9 @@ const Contents = ({ content, post }) => {
   return (
     <aside>
       <section>
-        <h3>Tabla de contenido</h3>
+        <p>
+          <b>Tabla de contenido</b>
+        </p>
         {content.map((element, i) => (
           <Link key={i} href={`./${post}/#${slugify(element)}`}>
             <a>{element}</a>
@@ -27,6 +29,9 @@ const Contents = ({ content, post }) => {
         }
         a:hover {
           color: #e74c3ccb;
+        }
+        p {
+          font-size: 18px;
         }
       `}</style>
     </aside>

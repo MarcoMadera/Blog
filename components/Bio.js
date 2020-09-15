@@ -28,6 +28,9 @@ const Bio = () => {
             opacity: 1;
           }
         }
+        p {
+          margin-top: 0;
+        }
         span {
           display: inline-flex;
           vertical-align: middle;

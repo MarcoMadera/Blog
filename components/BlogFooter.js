@@ -6,7 +6,7 @@ import LinkedInShare from "./icons/LinkedInShare";
 const BlogFooter = ({ slug, blogTitle }) => {
   return (
     <footer>
-      <div>
+      <section>
         <strong>
           <p>Comparte el artículo</p>
         </strong>
@@ -49,13 +49,8 @@ const BlogFooter = ({ slug, blogTitle }) => {
         >
           <LinkedInShare width={30} height={30} />
         </button>
-      </div>
+      </section>
       <Bio />
-      <style global jsx>{`
-        .tweet {
-          background-color: #1b95e0;
-        }
-      `}</style>
       <style jsx>{`
         button {
           background: none;
@@ -67,7 +62,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
           width: 30px;
           height: 30px;
         }
-        div {
+        section {
           display: flex;
           flex-wrap: wrap;
           align-items: center;
@@ -76,7 +71,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
           margin: 0;
         }
         @media screen and (max-width: 528px) {
-          div {
+          section {
             display: block;
           }
         }

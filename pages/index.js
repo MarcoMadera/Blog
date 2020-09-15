@@ -106,8 +106,7 @@ const Home = ({ posts = [], tags = [] }) => {
           grid-template-columns: 240px minmax(0px, 710px) 240px;
           grid-gap: 2em;
           justify-content: center;
-          padding: 0 20px;
-          margin-bottom: 50px;
+          padding: 0 20px 50px 20px;
         }
         @media screen and (min-width: 0px) and (max-width: 876px) {
           main {

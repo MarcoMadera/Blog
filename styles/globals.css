@@ -80,7 +80,7 @@ strong::selection {
 }
 
 main {
-  min-height: calc(100vh - 150px - 2rem);
+  min-height: calc(100vh - 149px - 2rem);
 }
 
 table {

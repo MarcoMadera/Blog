@@ -1,7 +1,7 @@
 function Chess(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
-      <title>Libro</title>
+      <title>Ajedrez</title>
       <path
         fill="#fff"
         d="M87.348 304c-2.004 40-6.84 83-17.586 112h100.477c-10.746-29-15.582-72-17.586-112H87.348zM176 256H64c-4.41 0-8 3.59-8 8s3.59 8 8 8h112c4.41 0 8-3.59 8-8s-3.59-8-8-8z"

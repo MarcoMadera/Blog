@@ -5,14 +5,14 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
       href={songUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Ir a spotify"
+      aria-label="Escuchar en Spotify"
     >
       <article>
         <img src={cover} alt="album cover" width="64" height="64" />
         <div>
-          <strong>
-            <p>{title}</p>
-          </strong>
+          <p>
+            <b>{title}</b>
+          </p>
           <p>{artist}</p>
         </div>
       </article>
