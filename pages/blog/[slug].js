@@ -350,8 +350,8 @@ export default function Post({ postData, recommendedPosts }) {
         .blog meter:-moz-meter-optimum::-moz-meter-bar {
           background: linear-gradient(
             90deg,
-            ${colors.secondary},
-            ${colors.primary}
+            ${colors.primary},
+            ${colors.secondary}
           );
         }
 
@@ -359,8 +359,8 @@ export default function Post({ postData, recommendedPosts }) {
         .blog meter::-webkit-meter-optimum-value {
           background: linear-gradient(
             90deg,
-            ${colors.secondary},
-            ${colors.primary}
+            ${colors.primary},
+            ${colors.secondary}
           );
         }
 

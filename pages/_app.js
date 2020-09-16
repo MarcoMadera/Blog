@@ -10,10 +10,20 @@ import * as gtag from "../lib/gtag";
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
   useEffect(() => {
+    // update page url google tag manager
     const handleRouteChange = (url) => {
       gtag.pageview(url);
     };
     router.events.on("routeChangeComplete", handleRouteChange);
+
+    // Reset focus on page change
+    Router.events.on("routeChangeStart", () => {
+      document.body.setAttribute("tabIndex", "-1");
+    });
+
+    document.body.addEventListener("blur", () => {
+      document.body.removeAttribute("tabIndex");
+    });
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };

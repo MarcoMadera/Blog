@@ -1,3 +1,4 @@
+import { colors } from "../../styles/theme";
 function CSharp(props) {
   return (
     <svg
@@ -15,8 +16,8 @@ function CSharp(props) {
           y2="235.867"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#e74d3c"></stop>
-          <stop offset="1" stopColor="#e75d3c"></stop>
+          <stop offset="0" stopColor={colors.primary}></stop>
+          <stop offset="1" stopColor={colors.secondary}></stop>
         </linearGradient>
         <linearGradient
           id="b"
@@ -26,8 +27,8 @@ function CSharp(props) {
           y2="372.773"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#e74f3c"></stop>
-          <stop offset="1" stopColor="#e74e3c"></stop>
+          <stop offset="0" stopColor={colors.primary}></stop>
+          <stop offset="1" stopColor={colors.secondary}></stop>
         </linearGradient>
         <linearGradient
           id="c"
@@ -37,8 +38,8 @@ function CSharp(props) {
           y2="502.094"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#e70d3c"></stop>
-          <stop offset="1" stopColor="#e64d3c"></stop>
+          <stop offset="0" stopColor={colors.primary}></stop>
+          <stop offset="1" stopColor={colors.tertiary}></stop>
         </linearGradient>
         <clipPath id="a">
           <path d="M435.279 113.284L247.191 4.692c-10.835-6.257-28.567-6.257-39.402 0L19.701 113.284C8.865 119.539 0 134.896 0 147.408v217.185c.843 14.571 8.286 26.639 19.701 34.123l188.088 108.592c10.835 6.257 28.567 6.257 39.402 0l188.088-108.592c12.248-8.146 19.219-20.408 19.701-34.123V147.408c-.44-13.165-8.323-26.443-19.701-34.124z"></path>
@@ -59,10 +60,10 @@ function CSharp(props) {
         ></path>
       </g>
       <path
-        fill="#fff"
+        fill={colors.white}
         d="M75.83 256.001c-.891-148.089 197.459-213.479 282.996-75.878l-65.635 37.98C253.569 152.569 155.19 176.002 151.659 256c1.06 73.729 97.754 107.978 141.536 37.893l65.635 37.979c-75.382 130.863-279.198 83.781-283-75.871z"
       ></path>
-      <g fill="#fff" aria-label="♯" data-name="♯">
+      <g fill={colors.white} aria-label="♯" data-name="♯">
         <path d="M326 213h12.5l-8.541 82.5h-12.735zm26.776 0h12.5l-8.541 82.5H344z"></path>
         <path d="M312 232.592h62.5v12.072H312zM308.5 262H371v12.072h-62.5z"></path>
       </g>
