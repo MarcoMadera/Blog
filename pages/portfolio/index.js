@@ -94,6 +94,9 @@ const Portfolio = () => {
         }
       `}</style>
       <style jsx>{`
+        p {
+          line-height: 1.6;
+        }
         h1{
           text-align: center;
         }

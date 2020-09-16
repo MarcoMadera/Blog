@@ -229,7 +229,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           display: block;
           margin-left: auto;
           margin-right: auto;
-          margin-bottom: 50px;
+          margin-bottom: 60px;
         }
         main > aside:nth-of-type(1) > svg:hover {
           animation: rotate-center 250ms ease-in-out 2 alternate both;
@@ -246,30 +246,46 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           }
         }
         main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-          margin-bottom: 90px;
+          margin-bottom: 120px;
         }
         @media screen and (min-width: 1024px) and (max-width: 1050px) {
           main > aside:nth-of-type(1) > svg {
-            margin-bottom: 70px;
+            margin-bottom: 90px;
           }
           main > aside:nth-of-type(1) > svg:nth-of-type(5) {
             margin-bottom: 230px;
           }
         }
-        @media screen and (min-width: 1050px) and (max-width: 1120px) {
+        @media screen and (min-width: 1050px) and (max-width: 1070px) {
+          main > aside:nth-of-type(1) > svg {
+            margin-bottom: 95px;
+          }
+          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
+            margin-bottom: 170px;
+          }
+        }
+        @media screen and (min-width: 1070px) and (max-width: 1120px) {
           main > aside:nth-of-type(1) > svg {
             margin-bottom: 70px;
           }
           main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 140px;
+            margin-bottom: 240px;
           }
         }
-        @media screen and (min-width: 1120px) and (max-width: 1220px) {
+        @media screen and (min-width: 1120px) and (max-width: 1165px) {
           main > aside:nth-of-type(1) > svg {
             margin-bottom: 60px;
           }
           main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 110px;
+            margin-bottom: 220px;
+          }
+        }
+        @media screen and (min-width: 1165px) and (max-width: 1220px) {
+          main > aside:nth-of-type(1) > svg {
+            margin-bottom: 60px;
+          }
+          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
+            margin-bottom: 190px;
           }
         }
         @media screen and (min-width: 1220px) and (max-width: 1280px) {
@@ -277,7 +293,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             margin-bottom: 60px;
           }
           main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 90px;
+            margin-bottom: 150px;
           }
         }
         @media screen and (min-width: 0px) and (max-width: 1024px) {
@@ -315,6 +331,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         div > img {
           display: block;
           margin: 30px auto 0 auto;
+        }
+        section p {
+          line-height: 1.6;
         }
         section p a {
           display: inline;

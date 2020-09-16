@@ -45,9 +45,9 @@ const NewsletterPage = () => {
 
         <p>
           <strong>Quiero saber tu opinión,</strong> cuando recibas los artículos
-          puedes responder directamente al email o dejar un comentario en el
-          enlace del artículo, quiero saber si te ha gustado, lo has odiado o si
-          te ha sido indiferente.
+          puedes responder directamente al correo electrónico o dejar un
+          comentario en el enlace del artículo, quiero saber si te ha gustado,
+          lo has odiado o si te ha sido indiferente.
         </p>
         <p>
           Uso el servicio de{" "}
@@ -58,8 +58,8 @@ const NewsletterPage = () => {
           >
             ButtonDown
           </a>{" "}
-          para enviarte los artículos más recientes, no usaré tu email para otro
-          objetivo, no te enviaré nada de spam.
+          para enviarte los artículos más recientes, no usaré tu correo
+          electrónico para otro objetivo, no te enviaré nada de spam.
         </p>
         <form
           action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
@@ -89,6 +89,7 @@ const NewsletterPage = () => {
       <style jsx>{`
         p {
           text-align: center;
+          line-height: 1.6;
         }
 
         div {

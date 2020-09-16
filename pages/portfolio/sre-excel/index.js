@@ -183,6 +183,9 @@ const sre = () => {
         h1 {
           text-align: center;
         }
+        p {
+          line-height: 1.6;
+        }
         section a {
           margin-right: 20px;
         }

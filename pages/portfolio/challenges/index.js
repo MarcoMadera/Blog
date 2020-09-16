@@ -135,6 +135,9 @@ const challenges = () => {
         h1 {
           text-align: center;
         }
+        p {
+          line-height: 1.6;
+        }
       `}</style>
     </main>
   );

@@ -167,6 +167,7 @@ export default function Post({ postData, recommendedPosts }) {
       <style global jsx>{`
         .blog p {
           text-align: justify;
+          line-height: 1.6;
         }
         .blog blockquote {
           border-left: 5px solid ${colors.primary};
@@ -238,7 +239,7 @@ export default function Post({ postData, recommendedPosts }) {
           list-style-position: outside;
           font-size: 1rem;
           font-weight: 400;
-          line-height: 1.5;
+          line-height: 1.6;
           padding-inline-start: 0;
           margin-block-end: 0;
           padding: 0 20px 0 0;
