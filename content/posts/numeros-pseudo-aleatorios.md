@@ -25,7 +25,14 @@ Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, 
 
 Para que una secuencia de números sea catalogada como aleatoria, es necesario que tengan una distribución uniforme y que no tenga correlación, es decir, que tengan la misma probabilidad de ser elegido y que la elección de uno no dependa del otro.
 
-![Gráfica uniforme](https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png "Gráfica uniforme")
+## Distribución uniforme
+
+La uniformidad en el caso de los números aleatorios, significa que en un rango `[a,b]` cada intervalo tenga la misma probabilidad de ocurrir, una distribución 100% uniforme luce de la siguiente forma:
+
+<figure>
+  <img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
+  <figcaption>Gráfica completamente uniforme</figcaption>
+</figure>
 
 Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2):
 
@@ -45,7 +52,7 @@ Sea 'n' el número de datos que vamos a evaluar, determinamos el número de inte
 Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = `[0 , 1]`como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.
 Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
-Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:
+Por ahora si tomamos como muestra [esta lista](https://marcomadera.github.io/assets/blog/numerosAleatorios.txt) de 300 números nuestro progreso sería el siguiente:
 
 ![Gráfica](https://res.cloudinary.com/marcomadera/image/upload/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png "Gráfica")
 

@@ -175,13 +175,18 @@ export default function Post({ postData, recommendedPosts }) {
           margin-block-end: 0.5em;
         }
 
-        .blog .mjx-chtml {
-          display: grid;
+        .blog .mjx-chtml,
+        .blog .mjx-chtml:focus {
+          display: block !important;
           flex-wrap: wrap;
-          box-sizing: border-box;
           white-space: unset;
-          justify-content: center;
-          font-size: 14px !important;
+          width: fit-content;
+          margin: 0 auto;
+          font-size: 100%;
+          line-break: anywhere;
+        }
+        .blog .MathJax_Preview {
+          display: none;
         }
 
         .blog h1 {

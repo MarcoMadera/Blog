@@ -26,7 +26,7 @@ Estas son ligaduras para mejorar la legibilidad del texto, entre las más comune
 
 &nbsp;
 
-## Ligaduras Discrecionales
+## Ligaduras discrecionales
 
 Estás ligaduras son más estéticas, tienen el propósito de lucir bien, entrelazan los caracteres para que tengan un mejor diseño.
 

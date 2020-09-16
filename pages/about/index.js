@@ -60,7 +60,6 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             pasó muy rápido, no me gustó del todo la sintáxis quedando como
             ganador JavaScript.
           </p>
-          <p></p>
           <h2>Cosas que me gustan</h2>
           <a
             href="https://www.last.fm/user/MarcoMadera"
