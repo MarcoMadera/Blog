@@ -77,7 +77,7 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
   }
   .footer {
     grid-area: 4 / 1 / 5 / 3;
-    background: #aa4a30;
+    background: #D18F5C;
     border-radius: 10px;
   }
   .article{
@@ -106,7 +106,7 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
     margin: 0;
   }
   .article_footer{
-    background: #aa4a30;
+    background: #D18F5C;
     padding: 10px;
     border-radius: 10px;
   }
@@ -199,8 +199,12 @@ Se espera tener contenido después de un título, poner varios títulos seguidos
 
 ```HTML
 <hgroup>
-  <h1>h1</h1>
-  <h6>h6</h6>
+  <h1>
+    h1
+  </h1>
+  <h6>
+    h6
+  </h6>
 </hgroup>
 ```
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import codeTheme from "react-syntax-highlighter/dist/cjs/styles/hljs/a11y-dark";
+import codeTheme from "react-syntax-highlighter/dist/cjs/styles/hljs/a11y-light";
 import {
   getPostBySlug,
   getPostsSlugs,
