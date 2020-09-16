@@ -99,7 +99,7 @@ const Newsletter = () => {
           width: 100%;
         }
         input:focus {
-          border: 1px solid ${colors.primary};
+          border: 1px solid transparent;
           box-shadow: 1px 0 6px 2px ${colors.secondary};
         }
       `}</style>

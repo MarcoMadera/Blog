@@ -39,7 +39,10 @@ const NewsletterPage = () => {
     <main>
       <Seo title="Newsletter" url="https://marcomadera.com/newsletter" />
       <div>
-        <h1>Newsletter</h1>
+        <label htmlFor="bd-email">
+          <h1>Newsletter</h1>
+        </label>
+
         <p>
           <strong>Quiero saber tu opinión,</strong> cuando recibas los artículos
           puedes responder directamente al email o dejar un comentario en el
@@ -110,6 +113,10 @@ const NewsletterPage = () => {
           border-radius: 4px;
           border: 1px solid ${colors.gray};
           padding: 10px 15px;
+        }
+        input:focus {
+          border: 1px solid transparent;
+          box-shadow: 1px 0 6px 2px ${colors.secondary};
         }
         button {
           width: 100%;

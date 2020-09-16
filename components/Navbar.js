@@ -13,7 +13,7 @@ const Navbar = () => {
             width="40"
             height="40"
           />
-          <h3>Marco Madera</h3>
+          <span>Marco Madera</span>
         </a>
       </Link>
       <section>
@@ -69,6 +69,11 @@ const Navbar = () => {
         }
       `}</style>
       <style jsx>{`
+        span {
+          font-size: 1.17em;
+          font-weight: 400;
+          margin: 0;
+        }
         nav {
           margin: 0 auto;
           display: flex;
@@ -79,17 +84,11 @@ const Navbar = () => {
           max-width: 1300px;
           flex-wrap: wrap;
         }
-        h3 {
-          font-weight: 400;
-          margin: 0;
-        }
-
         img {
           width: 40px;
           height: 40px;
           margin-right: 10px;
         }
-
         nav section a {
           display: inline-block;
           margin: 13.5px 5px;

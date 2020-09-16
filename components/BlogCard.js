@@ -17,7 +17,7 @@ const BlogCard = ({
         <a aria-label={`post ${title}`}>
           <header>
             <section>
-              <h3>{title}</h3>
+              <h2>{title}</h2>
               <p>
                 {description}.. <span>Leer más</span>
               </p>
@@ -67,11 +67,12 @@ const BlogCard = ({
           grid-template-columns: 100fr 1fr;
           padding: 0.5rem 1rem 0 1rem;
         }
-        h3:hover {
+        h2:hover {
           text-decoration: underline;
         }
-        h3 {
+        h2 {
           margin: 0;
+          font-size: 1.17em;
           color: var(--title);
           font-family: var(--cardTitle-font-family);
         }

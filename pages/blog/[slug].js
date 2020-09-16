@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import codeTheme from "react-syntax-highlighter/dist/cjs/styles/hljs/a11y-dark";
 import {
   getPostBySlug,
   getPostsSlugs,
@@ -20,7 +20,7 @@ import BlogFooter from "../../components/BlogFooter";
 import { colors } from "../../styles/theme";
 const CodeBlock = ({ language, value }) => {
   return (
-    <SyntaxHighlighter language={language} style={atomOneDark}>
+    <SyntaxHighlighter language={language} style={codeTheme}>
       {value}
     </SyntaxHighlighter>
   );
@@ -80,7 +80,7 @@ export default function Post({ postData, recommendedPosts }) {
           {previousPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
               <a>
-                <p>← Blog anterior</p>
+                <p>← Artículo anterior</p>
                 {previousPost.frontmatter.title}
               </a>
             </Link>
@@ -90,7 +90,7 @@ export default function Post({ postData, recommendedPosts }) {
           {nextPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
               <a>
-                <p>Siguiente blog →</p>
+                <p>Siguiente artículo →</p>
                 {nextPost.frontmatter.title}
               </a>
             </Link>
@@ -101,7 +101,7 @@ export default function Post({ postData, recommendedPosts }) {
         {loaded && <FastCommentsCommentWidget tenantId={tenantId} />}
       </article>
       <aside>
-        <AllTags tags={frontmatter.tag} title="Etiquetas del blog" />
+        <AllTags tags={frontmatter.tag} title="Etiquetas del artículo" />
         <RecommendedPosts
           recommendedPosts={recommendedPosts}
           currentPost={currentPost.slug}

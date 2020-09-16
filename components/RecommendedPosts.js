@@ -8,7 +8,7 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
         <>
           {recommendedPosts.length > 1 && (
             <strong>
-              <p>Blogs recomendados</p>
+              <p>Artículos recomendados</p>
             </strong>
           )}
           <section>

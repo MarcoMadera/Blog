@@ -66,7 +66,7 @@ strong::selection {
   background: #e74d3cc2;
 }
 *:focus {
-  outline: 2px solid #e74d3c;
+  outline: 2px solid #b50000;
   outline-style: dashed;
 }
 
@@ -155,7 +155,7 @@ kbd {
 }
 
 .btn.btn-primary:not(:disabled):not(.disabled):focus {
-  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(181, 0, 0, 0.3);
   outline: none;
 }
 
