@@ -12,7 +12,7 @@ import Seo from "../../../components/Seo";
 const tag = ({ postData, tags }) => {
   const { slug, postsByTag } = postData;
   return (
-    <main>
+    <main id="main">
       <Seo
         title={`Blog tag ${slug.charAt(0).toUpperCase() + slug.slice(1)}`}
         url={`https://marcomadera.com/${slug}`}

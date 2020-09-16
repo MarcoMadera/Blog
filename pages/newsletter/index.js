@@ -36,7 +36,7 @@ const NewsletterPage = () => {
     outline = { border: "1px solid red" };
   }
   return (
-    <main>
+    <main id="main">
       <Seo title="Newsletter" url="https://marcomadera.com/newsletter" />
       <div>
         <label htmlFor="bd-email">

@@ -29,7 +29,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         <Book width="50" height="50" />
         <Film width="50" height="50" />
       </aside>
-      <section>
+      <section id="main">
         <section>
           <h1>Sobre mí</h1>
           <p>

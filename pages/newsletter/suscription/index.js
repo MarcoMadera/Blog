@@ -3,7 +3,7 @@ import Seo from "../../../components/Seo";
 const suscription = () => {
   return (
     <>
-      <main>
+      <main id="main">
         <Seo
           title="Suscripción exitosa!"
           url="https://marcomadera.com/newsletter/suscription"

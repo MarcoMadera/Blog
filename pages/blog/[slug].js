@@ -27,11 +27,11 @@ const CodeBlock = ({ language, value }) => {
 };
 
 //collect every h2 in the post to place in table of contents
-const contentAside = (content, post) => {
+const contentAside = (content) => {
   const h2s = toc(content)
     .json.filter(({ lvl }) => lvl === 2)
     .map(({ content }) => content);
-  return <Contents content={h2s} post={post} />;
+  return <Contents content={h2s} />;
 };
 
 export default function Post({ postData, recommendedPosts }) {
@@ -56,8 +56,8 @@ export default function Post({ postData, recommendedPosts }) {
         cover={frontmatter.cover760}
         url={`https://marcomadera.com/blog/${currentPost.slug}`}
       />
-      {contentAside(post.content, currentPost.slug)}
-      <article className="blog">
+      {contentAside(post.content)}
+      <article className="blog" id="main">
         <section>
           <header>
             <h1>{frontmatter.title}</h1>

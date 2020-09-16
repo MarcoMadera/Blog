@@ -1,7 +1,7 @@
 import Seo from "../components/Seo";
 const Custom404 = () => {
   return (
-    <main>
+    <main id="main">
       <Seo title="404 - No encontrado" />
       <h1>404</h1>
       <p>Página no encontrada</p>

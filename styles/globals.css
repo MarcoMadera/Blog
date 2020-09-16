@@ -159,6 +159,26 @@ kbd {
   outline: none;
 }
 
+.skip-link {
+  background-color: rgb(253, 253, 253);
+  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
+  display: block;
+  padding: 1rem 5rem;
+  position: fixed;
+  transform: translateY(-200px);
+  font-size: 18px;
+  transition: transform 0.3s ease 0s;
+  top: 2rem;
+  left: 0px;
+  right: 0;
+  width: fit-content;
+  margin: 0 auto;
+  z-index: 200;
+}
+.skip-link:focus {
+  transform: translateY(0px);
+}
+
 #nprogress .bar {
   background: #b50000;
 

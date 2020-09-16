@@ -3,7 +3,7 @@ import Seo from "../../components/Seo";
 import { colors } from "../../styles/theme";
 const Portfolio = () => {
   return (
-    <main>
+    <main id="main">
       <Seo title="Portafolio" url="https://marcomadera.com/portfolio" />
       <h1>Portafolio</h1>
       <article>

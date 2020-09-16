@@ -1,8 +1,7 @@
-import Link from "next/link";
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
 import { colors } from "../styles/theme";
-const Contents = ({ content, post }) => {
+const Contents = ({ content }) => {
   return (
     <aside>
       <section>
@@ -10,9 +9,9 @@ const Contents = ({ content, post }) => {
           <b>Tabla de contenido</b>
         </p>
         {content.map((element, i) => (
-          <Link key={i} href={`./${post}/#${slugify(element)}`}>
-            <a>{element}</a>
-          </Link>
+          <a key={i} href={`#${slugify(element)}`}>
+            {element}
+          </a>
         ))}
       </section>
       <style jsx>{`

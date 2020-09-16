@@ -3,7 +3,7 @@ import Seo from "../../../components/Seo";
 const unsuscription = () => {
   return (
     <>
-      <main>
+      <main id="main">
         <Seo
           title="Te has desuscrito :("
           url="https://marcomadera.com/newsletter/unsuscription"

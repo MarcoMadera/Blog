@@ -18,7 +18,7 @@ const Home = ({ posts = [], tags = [] }) => {
   const pages = Array.from(Array(lastPage), (_, i) => i + 1);
   posts = posts.slice(indexOfFirstPost, indexOfLastPost);
   return (
-    <main>
+    <main id="main">
       <Seo title="Página principal" />
       <Aside />
       <section>

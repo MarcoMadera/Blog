@@ -2,7 +2,7 @@ import Seo from "../components/Seo";
 import PropTypes from "prop-types";
 function Error({ statusCode }) {
   return (
-    <main>
+    <main id="main">
       <Seo title={`Error ${statusCode} :(`} />
       <h1>{statusCode ? statusCode : "Error"}</h1>
       <p>
