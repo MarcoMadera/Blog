@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
-
+import { colors } from "../../styles/theme";
 const CodeBlock = ({ language, value }) => {
   return (
     <SyntaxHighlighter language={language} style={atomOneDark}>
@@ -124,7 +124,7 @@ export default function Post({ postData, recommendedPosts }) {
           flex-wrap: wrap;
         }
         a {
-          border: 3px solid #e74c3ccb;
+          border: 3px solid ${colors.secondary};
           background: white;
           padding: 7px 10px;
           font-size: 14px;
@@ -169,7 +169,7 @@ export default function Post({ postData, recommendedPosts }) {
           text-align: justify;
         }
         .blog blockquote {
-          border-left: 5px solid #e74d3c;
+          border-left: 5px solid ${colors.primary};
           padding-left: 10px;
           margin-block-start: 0.5em;
           margin-block-end: 0.5em;
@@ -202,7 +202,7 @@ export default function Post({ postData, recommendedPosts }) {
           order: 3;
         }
         .blog a {
-          color: #da0000;
+          color: ${colors.primary};
         }
         .blog header {
           display: flex;
@@ -212,7 +212,7 @@ export default function Post({ postData, recommendedPosts }) {
         }
         .blog a:hover {
           text-decoration: underline;
-          color: #e74c3ccb;
+          color: ${colors.secondary};
         }
 
         .blog span {
@@ -296,14 +296,14 @@ export default function Post({ postData, recommendedPosts }) {
           display: table;
         }
         .blog details {
-          border: 1px solid #aaa;
+          border: 1px solid ${colors.gray};
           border-radius: 4px;
           padding: 0.5em 0.5em 0;
         }
 
         .blog input[type="number"],
         .blog select {
-          border: 1px solid #aaa;
+          border: 1px solid ${colors.gray};
           border-radius: 4px;
           padding: 0.5em;
         }
@@ -317,7 +317,7 @@ export default function Post({ postData, recommendedPosts }) {
           -webkit-appearance: none;
         }
         .blog dialog {
-          border-color: #e74d3c;
+          border-color: ${colors.secondary};
         }
 
         .blog input[type="color"]::-webkit-color-swatch-wrapper {
@@ -328,10 +328,10 @@ export default function Post({ postData, recommendedPosts }) {
           border-radius: 100%;
         }
         .blog meter {
-          --background: #fff;
-          --optimum: #e74d3c;
-          --sub-optimum: #e74d3cc2;
-          --sub-sub-optimum: #e74d3c;
+          --background: ${colors.white};
+          --optimum: ${colors.primary};
+          --sub-optimum: ${colors.secondary};
+          --sub-sub-optimum: ${colors.primary};
 
           /* The gray background in Firefox */
           background: var(--background);
@@ -348,12 +348,20 @@ export default function Post({ postData, recommendedPosts }) {
 
         /* The green (optimum) bar in Firefox */
         .blog meter:-moz-meter-optimum::-moz-meter-bar {
-          background: linear-gradient(90deg, #e74d3c5e, #e74d3c);
+          background: linear-gradient(
+            90deg,
+            ${colors.secondary},
+            ${colors.primary}
+          );
         }
 
         /* The green (optimum) bar in Chrome etc. */
         .blog meter::-webkit-meter-optimum-value {
-          background: linear-gradient(90deg, #e74d3c5e, #e74d3c);
+          background: linear-gradient(
+            90deg,
+            ${colors.secondary},
+            ${colors.primary}
+          );
         }
 
         /* The yellow (sub-optimum) bar in Firefox */
@@ -390,7 +398,7 @@ export default function Post({ postData, recommendedPosts }) {
 
           /* Dimensions */
           width: 100%;
-          border: 1px solid #aaa;
+          border: 1px solid ${colors.gray};
           border-radius: 20px;
         }
 
@@ -415,13 +423,13 @@ export default function Post({ postData, recommendedPosts }) {
         }
         /* IE10 */
         .blog progress {
-          color: #e74d3c;
+          color: ${colors.primary};
           border-radius: 20px;
         }
 
         /* Firefox */
         .blog progress::-moz-progress-bar {
-          background: #e74d3c;
+          background: ${colors.primary};
           border-radius: 20px;
         }
 
@@ -432,13 +440,13 @@ export default function Post({ postData, recommendedPosts }) {
 
         /* Chrome */
         .blog progress::-webkit-progress-value {
-          background: #e74d3c;
+          background: ${colors.primary};
           border-radius: 20px;
         }
 
         /* Polyfill */
         .blog progress[aria-valuenow]:before {
-          background: #e74d3c;
+          background: ${colors.primary};
           border-radius: 20px;
         }
 
@@ -448,10 +456,10 @@ export default function Post({ postData, recommendedPosts }) {
           padding: 0.5em;
         }
         .blog details > summary::marker {
-          color: #e74d3c;
+          color: ${colors.primary};
         }
         .blog details > summary::-webkit-details-marker {
-          color: #e74d3c;
+          color: ${colors.primary};
         }
 
         .blog details[open] {
@@ -459,7 +467,7 @@ export default function Post({ postData, recommendedPosts }) {
         }
 
         .blog details[open] summary {
-          border-bottom: 1px solid #aaa;
+          border-bottom: 1px solid ${colors.gray};
           margin-bottom: 0.5em;
         }
         .blog figure {

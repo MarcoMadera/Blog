@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { colors } from "../styles/theme";
 const MusicCard = ({ songUrl, cover, title, artist }) => {
   return (
     <a
@@ -8,7 +9,12 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
       aria-label="Escuchar en Spotify"
     >
       <article>
-        <img src={cover} alt="album cover" width="64" height="64" />
+        <img
+          src={cover}
+          alt={`${title} portada del album`}
+          width="64"
+          height="64"
+        />
         <div>
           <p>
             <b>{title}</b>
@@ -23,7 +29,7 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
         article {
           display: flex;
           border-radius: 3px;
-          border: 1px solid #ccc;
+          border: 1px solid ${colors.gray};
           margin-bottom: 10px;
           padding: 5px;
           align-items: center;

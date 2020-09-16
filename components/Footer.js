@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { colors } from "../styles/theme";
 const Footer = () => {
   return (
     <footer>
@@ -32,7 +33,7 @@ const Footer = () => {
           display: flex;
           flex-wrap: wrap;
           position: relative;
-          background: #f2f2f2;
+          background: ${colors.lightGray};
           min-height: 80px;
           justify-content: center;
           align-items: center;

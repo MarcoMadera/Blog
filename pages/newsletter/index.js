@@ -1,5 +1,6 @@
 import Seo from "../../components/Seo";
 import { useState } from "react";
+import { colors } from "../../styles/theme";
 const NewsletterPage = () => {
   const [email, setEmail] = useState({
     value: "",
@@ -95,11 +96,11 @@ const NewsletterPage = () => {
           text-align: center;
         }
         a {
-          color: #da0000;
+          color: ${colors.primary};
         }
         a:hover {
           text-decoration: underline;
-          color: #e74c3ccb;
+          color: ${colors.secondary};
         }
 
         input {
@@ -107,7 +108,7 @@ const NewsletterPage = () => {
           width: 100%;
           display: block;
           border-radius: 4px;
-          border: 1px solid #ccc;
+          border: 1px solid ${colors.gray};
           padding: 10px 15px;
         }
         button {

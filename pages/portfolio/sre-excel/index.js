@@ -1,5 +1,5 @@
 import Seo from "../../../components/Seo";
-
+import { colors } from "../../../styles/theme";
 const sre = () => {
   return (
     <main id="main">
@@ -213,11 +213,11 @@ const sre = () => {
         }
 
         a {
-          color: #da0000;
+          color: ${colors.primary};
         }
         a:hover {
           text-decoration: underline;
-          color: #e74c3ccb;
+          color: ${colors.secondary};
         }
         @media screen and (max-width: 876px) {
           article {

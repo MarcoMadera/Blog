@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
+import { colors } from "../styles/theme";
 const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
   return (
     <div>
@@ -22,11 +23,11 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
         a {
           display: block;
           margin: 0 0 3px 0;
-          color: #da0000;
+          color: ${colors.primary};
           width: fit-content;
         }
         a:hover {
-          color: #e74c3ccb;
+          color: ${colors.secondary};
           text-decoration: underline;
         }
         section {

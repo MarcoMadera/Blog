@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { colors } from "../styles/theme";
 const Newsletter = () => {
   const [email, setEmail] = useState({
     value: "",
@@ -67,7 +68,7 @@ const Newsletter = () => {
           margin-top: 40px;
           width: 100%;
           height: fit-content;
-          border: 3px solid #e74c3c;
+          border: 3px solid ${colors.primary};
           border-radius: 4px;
           padding: 20px;
           text-align: center;
@@ -89,7 +90,7 @@ const Newsletter = () => {
         input {
           border-radius: 4px;
           outline: none;
-          border: 1px solid #ccc;
+          border: 1px solid ${colors.gray};
           padding: 6px 8px;
           width: 100%;
           margin-bottom: 30px;
@@ -98,8 +99,8 @@ const Newsletter = () => {
           width: 100%;
         }
         input:focus {
-          border: 1px solid #e74c3c;
-          box-shadow: 1px 0 6px 2px #e74d3c57;
+          border: 1px solid ${colors.primary};
+          box-shadow: 1px 0 6px 2px ${colors.secondary};
         }
       `}</style>
     </form>

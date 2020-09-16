@@ -1,4 +1,5 @@
 import { getSiteMetaData } from "../utils/helpers";
+import { colors } from "../styles/theme";
 const Bio = () => {
   const { author, social } = getSiteMetaData();
 
@@ -63,8 +64,8 @@ const Bio = () => {
           height: 20px;
           box-sizing: border-box;
           padding: 1px 5px 1px 4px;
-          background-color: #1b95e0;
-          color: #fff !important;
+          background-color: ${colors.twitter};
+          color: ${colors.white} !important;
           border-radius: 3px 3px 10px 10px;
           font-weight: 500;
           cursor: pointer;

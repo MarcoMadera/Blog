@@ -2,6 +2,7 @@ import Github from "./icons/Github";
 import LinkedIn from "./icons/LinkedIn";
 import Twitter from "./icons/Twitter";
 import { siteMetadata } from "../site.config";
+import { colors } from "../styles/theme";
 const Aside = () => {
   const { social } = siteMetadata;
   return (
@@ -29,7 +30,7 @@ const Aside = () => {
         rel="noopener noreferrer"
         aria-label="Página de Github"
       >
-        <Github fill="#e74d3c" />
+        <Github fill={colors.primary} />
       </a>
       <a
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
@@ -37,7 +38,7 @@ const Aside = () => {
         rel="noopener noreferrer"
         aria-label="Página de LinkedIn"
       >
-        <LinkedIn fill="#e74d3c" />
+        <LinkedIn fill={colors.primary} />
       </a>
       <a
         href={`https://twitter.com/${social.twitter}`}
@@ -45,13 +46,13 @@ const Aside = () => {
         rel="noopener noreferrer"
         aria-label="Página de Twitter"
       >
-        <Twitter fill="#e74d3c" />
+        <Twitter fill={colors.primary} />
       </a>
       <style jsx>{`
         aside {
           height: 300px;
           border-radius: 12px;
-          background-color: #fff;
+          background-color: ${colors.white};
           box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 0px;
           text-align: center;
           padding: 20px;
@@ -71,7 +72,7 @@ const Aside = () => {
       `}</style>
       <style global jsx>{`
         svg:hover {
-          fill: #e74c3ccb;
+          fill: ${colors.secondary};
         }
       `}</style>
     </aside>

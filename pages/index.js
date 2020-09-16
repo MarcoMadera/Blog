@@ -7,6 +7,7 @@ import BlogCard from "../components/BlogCard";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import Custom404 from "./404";
+import { colors } from "../styles/theme";
 
 const Home = ({ posts = [], tags = [] }) => {
   const router = useRouter();
@@ -21,9 +22,7 @@ const Home = ({ posts = [], tags = [] }) => {
       <Seo title="Página principal" />
       <Aside />
       <section>
-        <strong>
-          <p>Últimos artículos</p>
-        </strong>
+        <h1>Últimos artículos</h1>
         {posts.map(
           ({
             frontmatter: {
@@ -83,8 +82,10 @@ const Home = ({ posts = [], tags = [] }) => {
         <AllTags tags={tags} />
         <Newsletter />
       </aside>
-
       <style jsx>{`
+        h1 {
+          font-size: 1rem;
+        }
         nav {
           display: flex;
           justify-content: center;
@@ -93,7 +94,7 @@ const Home = ({ posts = [], tags = [] }) => {
           border: unset;
           margin: 0 5px;
           background: unset;
-          color: #e74d3c;
+          color: ${colors.primary};
           cursor: pointer;
           font-weight: 600;
           width: 30px;
@@ -117,8 +118,8 @@ const Home = ({ posts = [], tags = [] }) => {
       <style global jsx>{`
         .currentPage {
           border-radius: 50% !important;
-          background-color: #e74d3c !important;
-          border: 1px solid #e74d3c !important;
+          background-color: ${colors.primary} !important;
+          border: 1px solid ${colors.primary} !important;
           color: white !important;
         }
       `}</style>

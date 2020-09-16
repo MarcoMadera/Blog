@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { colors } from "../styles/theme";
 const Navbar = () => {
   const router = useRouter();
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
         <a className="logo" aria-label="Ir a la página principal">
           <img
             src="/apple-touch-icon-120x120.png"
-            alt="logo"
+            alt="Logo patrón de desbloqueo de en forma de M"
             width="40"
             height="40"
           />
@@ -94,7 +95,7 @@ const Navbar = () => {
           margin: 13.5px 5px;
         }
         nav section a:hover {
-          color: #e74c3c;
+          color: ${colors.secondary};
           animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
         }

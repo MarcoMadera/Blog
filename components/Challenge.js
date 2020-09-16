@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { colors } from "../styles/theme";
 const Challenge = ({
   title,
   liveDemo,
@@ -13,7 +14,6 @@ const Challenge = ({
     <article>
       <section className={change ? "changeOrder" : ""}>
         <h2>{title}</h2>
-
         <a
           href={liveDemo}
           rel="noopener noreferrer"
@@ -108,11 +108,11 @@ const Challenge = ({
         }
 
         a {
-          color: #da0000;
+          color: ${colors.primary};
         }
         a:hover {
           text-decoration: underline;
-          color: #e74c3ccb;
+          color: ${colors.secondary};
         }
         @media screen and (max-width: 876px) {
           article {

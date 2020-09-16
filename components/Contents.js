@@ -1,6 +1,7 @@
 import Link from "next/link";
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
+import { colors } from "../styles/theme";
 const Contents = ({ content, post }) => {
   return (
     <aside>
@@ -21,14 +22,14 @@ const Contents = ({ content, post }) => {
           top: 0px;
         }
         a {
-          color: #da0000;
+          color: ${colors.primary};
           list-style: circle;
           display: block;
           margin: 10px 0;
           width: fit-content;
         }
         a:hover {
-          color: #e74c3ccb;
+          color: ${colors.secondary};
         }
         p {
           font-size: 18px;

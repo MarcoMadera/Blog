@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
+import { colors } from "../styles/theme";
 const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
   return (
     <div>
@@ -48,10 +49,10 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
           align-items: center;
           margin: 0;
           padding: 3px;
-          color: #da0000;
+          color: ${colors.primary};
         }
         a:hover {
-          color: #e74c3ccb;
+          color: ${colors.secondary};
           text-decoration: underline;
           background: rgb(250, 250, 250);
           border-radius: 3px;

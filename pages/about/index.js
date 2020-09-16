@@ -13,6 +13,7 @@ import Java from "../../components/icons/Java";
 import CSharp from "../../components/icons/CSharp";
 import JavaScript from "../../components/icons/JavaScript";
 import MusicCard from "../../components/MusicCard";
+import { colors } from "../../styles/theme";
 const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
   return (
     <main>
@@ -169,7 +170,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
                 rel="noopener noreferrer"
                 aria-label="Perfil de spotify"
               >
-                <Spotify width="26" height="26" fill="#1DB954" />
+                <Spotify width="26" height="26" fill={colors.spotify} />
               </a>
             </header>
             <MusicCard
@@ -193,7 +194,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
                   rel="noopener noreferrer"
                   aria-label="Perfil de spotify"
                 >
-                  <Spotify width="26" height="26" fill="#1DB954" />
+                  <Spotify width="26" height="26" fill={colors.spotify} />
                 </a>
               </header>
               <MusicCard
@@ -317,11 +318,11 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         }
         section p a {
           display: inline;
-          color: #da0000;
+          color: ${colors.primary};
         }
         section p a:hover {
           text-decoration: underline;
-          color: #e74d3ce3;
+          color: ${colors.secondary};
         }
         section a:hover {
           text-decoration: underline;

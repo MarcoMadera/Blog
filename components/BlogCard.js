@@ -26,7 +26,7 @@ const BlogCard = ({
               <source srcSet={cover} media="(max-width: 876px)" />
               <img
                 src={cover100}
-                alt="Portada de blog"
+                alt={`Portada del blog ${title}`}
                 width="100"
                 height="100"
               />
