@@ -1,147 +1,148 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 09 Sep 2020 04:37:19 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[HTML Semántico]]></title><description><![CDATA[<p>Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. Considerando los siguientes bloques de código esto aplica?</p>
-<p>&lt;div style=&quot;display: block;
-font-size: 1.5em;
-margin-block-start: 0.83em;
-margin-block-end: 0.83em;
-margin-inline-start: 0px;
-margin-inline-end: 0px;
-font-weight: bold;&quot;&gt;¿Esto es un título?&lt;/div&gt;</p>
-<p>&lt;h2&gt;¿Esto es un título?&lt;/h2&gt;</p>
-<p>Esto luce exactamente igual, pero cómo sabemos si un robot lo lee igual?
-Algo sencillo de hacer es abrir el lector de pantalla con &lt;kbd&gt;Cmd&lt;/kbd&gt; + &lt;kbd&gt;F5&lt;/kbd&gt; en Mac o con &lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;win&lt;/kbd&gt; + &lt;kbd&gt;enter&lt;/kbd&gt; en Windows y escuchar como lo lee.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 16 Sep 2020 19:57:07 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[HTML Semántico]]></title><description><![CDATA[<p>Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. Considerando los siguientes bloques de código esto aplica?</p>
+<div style="display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;">¿Esto es un título?</div>
+<h2>¿Esto es un título?</h2>
+<p>Esto luce exactamente igual, pero cómo sabemos si un robot lo lee igual?<br />
+Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>F5</kbd> en Mac o con <kbd>ctrl</kbd> + <kbd>win</kbd> + <kbd>enter</kbd> en Windows y escuchar como lo lee.</p>
 <h2>¿Qué es HTML Semántico?</h2>
-<p>&lt;p&gt;&lt;dfn id=&quot;-que-es-html-semantico-&quot;&gt;HTML Semántico&lt;/dfn&gt; es el uso de &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt;, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.&lt;/p&gt;</p>
+<p><dfn id="-que-es-html-semantico-">HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.</p>
 <p>El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro contenido en otros contextos, por ejemplo, si una persona quiere cambiar el color de todos los parrafos a rojo, o un motor de búsqueda que quiera recolectar solo el título de nuestra página para mostrarlo.</p>
-<hr>
+<hr />
 <h2>Ventajas</h2>
 <ul>
 <li>Es importante para el SEO, los motores de búsqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.</li>
 <li>Es usado para <a href="https://marcomadera.com/blog/accesibilidad-web/#html-semantico">accesibilidad web</a></li>
 <li>Es fácil de entender sin esfuerzo desde la estructura al contenido, por motivos de trabajo tengo que usar una web desactualizada en internet explorer 8 casi a diario y es horrible tener que encontrar elementos entre divs y tablas.</li>
 </ul>
-<hr>
+<hr />
 <h2>Estructura</h2>
-<p>&lt;style&gt;.section {
-display: grid;
-grid-template: 50px 70px 300px 70px / 1fr 2fr;
-gap: 15px 15px;
-height: fit-content;
-border-radius: 10px;
-}
-.header {
-background: #eddfa9;
-grid-area: 2 / 1 / 3 / 3;
-border-radius: 10px;</p>
-<p>}
-.nav {
-background: #edcfa9;
-grid-area: 1 / 1 / 2 / 3;
-border-radius: 10px;
-}
-.aside {
-grid-area: 3 / 1 / 4 / 2;
-background: #e89f71;
-border-radius: 10px;
-}
-.main {
-grid-area: 3 / 2 / 4 / 3;
-background: #d57149;
-min-height: auto;
-position: relative;
-border-radius: 10px;
-}
-.footer {
-grid-area: 4 / 1 / 5 / 3;
-background: #aa4a30;
-border-radius: 10px;
-}
-.article{
-padding: 10px;
-margin: 10px;
-background: #d5d149;
-border-radius: 10px;
-}
-.article_header{
-display: block !important;
-background: #eddfa9;
-margin-bottom: 10px;
-padding: 10px;
-border-radius: 10px;
-}
-.article_p{
-margin: 0;
-}
-.article_section{
-background: #daa149;
-margin-bottom: 10px;
-padding: 10px;
-border-radius: 10px;
-}
-.article_title{
-margin: 0;
-}
-.article_footer{
-background: #aa4a30;
-padding: 10px;
-border-radius: 10px;
-}
-.main_section{
-background: #dfa149;
-position: absolute;
-bottom: 0;
-width: calc(100% - 20px);
-margin: 10px;
-padding: 10px;
-border-radius: 10px;
-}&lt;/style&gt;</p>
-<p>&lt;section class=&quot;section&quot;&gt;
-&lt;nav class=&quot;nav&quot;&gt;
-&lt;p&gt;&lt; Nav &gt;&lt;/p&gt;
-&lt;/nav&gt;
-&lt;header class=&quot;header&quot;&gt;
-&lt;p&gt;&lt; Header &gt;&lt;/p&gt;
-&lt;/header&gt;
-&lt;aside class=&quot;aside&quot;&gt;&lt;p&gt;&lt; Aside &gt;&lt;/p&gt;&lt;/aside&gt;
-&lt;main class=&quot;main&quot;&gt;
-&lt;article class=&quot;article&quot;&gt;
-&lt;header class=&quot;article_header&quot;&gt;
-&lt;p class=&quot;article_p&quot;&gt;&lt; Header &gt;&lt;/p&gt;
-&lt;/header&gt;
-&lt;section class=&quot;article_section&quot;&gt;
-&lt;h3 class=&quot;article_title&quot;&gt;&lt; Section &gt;&lt;/h3&gt;
-&lt;p class=&quot;article_p&quot;&gt;Texto&lt;/p&gt;
-&lt;/section&gt;
-&lt;footer class=&quot;article_footer&quot;&gt;© &lt; Footer &gt;&lt;/footer&gt;
-&lt;/article&gt;
-&lt;section class=&quot;main_section&quot;&gt;
-&lt;h3 class=&quot;article_title&quot;&gt;&lt; Section &gt;&lt;/h3&gt;
-&lt;p class=&quot;article_p&quot;&gt;Texto&lt;/p&gt;
-&lt;/section&gt;
-&lt;/main&gt;
-&lt;footer class=&quot;footer&quot;&gt;&lt; Footer &gt;&lt;/footer&gt;
-&lt;/section&gt;</p>
-<pre><code class="language-HTML">&lt;body&gt;
-  &lt;nav&gt;&lt;nav&gt;
-  &lt;header&gt;&lt;/header&gt;
-  &lt;aside&gt;&lt;/aside&gt;
-  &lt;main&gt;
-    &lt;article&gt;
-      &lt;header&gt;&lt;/header&gt;
-      &lt;section&gt;
-        &lt;h1&gt;&lt;/h1&gt;
-        &lt;p&gt;&lt;/p&gt;
-      &lt;/section&gt;
-      &lt;footer&gt;&lt;/footer&gt;
-    &lt;/article&gt;
-    &lt;section&gt;
-        &lt;h1&gt;&lt;/h1&gt;
-        &lt;p&gt;&lt;/p&gt;
-    &lt;/section&gt;
-  &lt;/main&gt;
-  &lt;footer&gt;&lt;/footer&gt;
-&lt;/body&gt;
+<style>.section {
+    display: grid;
+    grid-template: 50px 70px 300px 70px / 1fr 2fr;
+    gap: 15px 15px;
+    height: fit-content;
+    border-radius: 10px;
+  }
+  .header {
+    background: #eddfa9;
+    grid-area: 2 / 1 / 3 / 3;
+    border-radius: 10px;
+    
+  }
+  .nav {
+    background: #edcfa9;
+    grid-area: 1 / 1 / 2 / 3;
+    border-radius: 10px;
+  }
+  .aside {
+    grid-area: 3 / 1 / 4 / 2;
+    background: #e89f71;
+    border-radius: 10px;
+  }
+  .main {
+    grid-area: 3 / 2 / 4 / 3;
+    background: #d57149;
+    min-height: auto;
+    position: relative;
+    border-radius: 10px;
+  }
+  .footer {
+    grid-area: 4 / 1 / 5 / 3;
+    background: #D18F5C;
+    border-radius: 10px;
+  }
+  .article{
+    padding: 10px;
+    margin: 10px;
+    background: #d5d149;
+    border-radius: 10px;
+  }
+  .article_header{
+    display: block !important;
+    background: #eddfa9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .article_p{
+    margin: 0;
+  }
+  .article_section{
+    background: #daa149;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .article_title{
+    margin: 0;
+  }
+  .article_footer{
+    background: #D18F5C;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .main_section{
+    background: #dfa149;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }</style>
+<section class="section">
+  <nav class="nav">
+    <p>< Nav ></p>
+  </nav>
+  <header class="header">
+    <p>< Header ></p>
+  </header>
+  <aside class="aside"><p>< Aside ></p></aside>
+  <main class="main">
+    <article class="article">
+      <header class="article_header">
+        <p class="article_p">< Header ></p>
+      </header>
+      <section class="article_section">
+        <h3 class="article_title">< Section ></h3>
+        <p class="article_p">Texto</p>
+      </section>
+      <footer class="article_footer">&copy; < Footer ></footer>
+    </article>
+    <section class="main_section">
+      <h3 class="article_title">< Section ></h3>
+      <p class="article_p">Texto</p>
+    </section>
+  </main>
+  <footer class="footer">< Footer ></footer>
+</section>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
-&lt;!-- No necesariamente tiene que seguir esta estructura --&gt;
+<span class="hljs-comment">&lt;!-- No necesariamente tiene que seguir esta estructura --&gt;</span>
 </code></pre>
 <h3>main</h3>
 <p>Esta etiqueta señala al contenido principal de la página, solo puede existir una etiqueta de este tipo visible por página</p>
@@ -157,282 +158,298 @@ border-radius: 10px;
 <p>Agrupa la introducción de la página.</p>
 <h3>footer</h3>
 <p>El pie de página suele ser usado para añadir información extra sobre la página, el autor, copyright, avisos legales navegación, etc.</p>
-<hr>
+<hr />
 <h3>Títulos de cabecera</h3>
 <p>Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.</p>
-<p>Se espera tener contenido después de un título, poner varios títulos seguidos existe la etiqueta <code>&lt;hgroup&gt;</code> que indica un grupo de títulos.</p>
-<p>&lt;hgroup&gt;&lt;h1&gt;h1&lt;/h1&gt;&lt;h6&gt;h6&lt;/h6&gt;&lt;/hgroup&gt;</p>
-<pre><code class="language-HTML">&lt;/hgroup&gt;
-  &lt;h1&gt;h1&lt;/h1&gt;
-  &lt;h6&gt;h6&lt;/h6&gt;
-&lt;/hgroup&gt;
+<p>Se espera tener contenido después de un título, poner varios títulos seguidos existe la etiqueta <code><span class="hljs-section">&lt;hgroup&gt;</span></code> que indica un grupo de títulos.</p>
+<p><hgroup><h1>h1</h1><h6>h6</h6></hgroup></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">hgroup</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>
+    h1
+  <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>
+    h6
+  <span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">hgroup</span>&gt;</span>
 </code></pre>
 <h3>address</h3>
 <p>Como su nombre lo dice, se usa para información de contacto.</p>
-<p>&lt;address&gt;
-Escrito por &lt;a href=&quot;mailto:ejemplo@ejemplo.com&quot;&gt;Nombre&lt;/a&gt;.&lt;br&gt;
-Visitanos en:&lt;br&gt;
-Ejemplo.com&lt;br&gt;
-Dirección&lt;br&gt;
-&lt;/address&gt;</p>
-<pre><code class="language-HTML">&lt;address&gt;
-Escrito por &lt;a href=&quot;mailto:ejemplo@ejemplo.com&quot;&gt;Nombre&lt;/a&gt;.&lt;br&gt;
-Visitanos en:&lt;br&gt;
-Ejemplo.com&lt;br&gt;
-Dirección&lt;br&gt;
-&lt;/address&gt;
+<address>
+Escrito por <a href="mailto:ejemplo@ejemplo.com">Nombre</a>.<br>
+Visitanos en:<br>
+Ejemplo.com<br>
+Dirección<br>
+</address>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">address</span>&gt;</span>
+Escrito por <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:ejemplo@ejemplo.com"</span>&gt;</span>Nombre<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+Visitanos en:<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+Ejemplo.com<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+Dirección<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">address</span>&gt;</span>
 </code></pre>
 <h2>Modificadores de texto</h2>
-<h3>Énfasís</h3>
-<p>&lt;em&gt;Esto es énfasis&lt;/em&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;
-  &lt;em&gt;Esto es énfasis&lt;/em&gt;
-&lt;/p&gt;
+<h3>Énfasis</h3>
+<p><code><span class="hljs-section">&lt;em&gt;</span></code> es la etiqueta semántica para mostrar énfasis, muestra su contenido en cursiva <code><span class="hljs-section">&lt;i&gt;</span></code></p>
+<p><em>Esto es énfasis</em></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>Esto es énfasis<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p><i>Esto es cursivo</i></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>Esto es cursivo<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 <h3>Marcado</h3>
-<p>&lt;mark&gt;Esto es una parte marcada porque es relevante&lt;/mark&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;
-  &lt;mark&gt;Esto es una parte marcada porque es relevante&lt;/mark&gt;
-&lt;/p&gt;
+<p><mark>Esto es una parte marcada porque es relevante</mark></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>Esto es una parte marcada porque es relevante<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
-<h3>Strong</h3>
-<p>&lt;strong&gt;Esto es negro porque es importante&lt;/strong&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;
-  &lt;strong&gt;Esto es negro porque es importante&lt;/strong&gt;
-&lt;/p&gt;
+<h3>Negrita</h3>
+<p><code><span class="hljs-section">&lt;strong&gt;</span></code> es la etiqueta semántica para mostrar importancia en el texto, los navegadores lo muestran en negrita.</p>
+<p><strong>Esto está en negritra porque es importante</strong></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Esto está en negritra porque es importante<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
-<hr>
+<p><b>Esto está en negritra pero no es importante</b></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Esto está en negritra pero no es importante<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<hr />
 <h2>Saltos</h2>
 <h3>wbr</h3>
 <p>Esta etiqueta sirve para indicar dónde está bien que suceda un salto de línea, permite separar de manera correcta palabras largas o enlaces sin que el contenido se desajuste.</p>
-<p>&lt;p&gt;¿que-&lt;wbr&gt;pasaría-&lt;wbr&gt;si-&lt;wbr&gt;no-&lt;wbr&gt;quisieramos-&lt;wbr&gt;usar-&lt;wbr&gt;espacios-&lt;wbr&gt;entre-&lt;wbr&gt;palabras-&lt;wbr&gt;y-&lt;wbr&gt;no-&lt;wbr&gt;queremos-&lt;wbr&gt;que-&lt;wbr&gt;nuestra-&lt;wbr&gt;aplicación-&lt;wbr&gt;tenga-&lt;wbr&gt;overflow-&lt;wbr&gt;al-&lt;wbr&gt;verla-&lt;wbr&gt;en-&lt;wbr&gt;un-&lt;wbr&gt;celular-&lt;wbr&gt;o-&lt;wbr&gt;si-&lt;wbr&gt;tenemos-&lt;wbr&gt;una-&lt;wbr&gt;url-&lt;wbr&gt;como-&lt;wbr&gt;esta:&lt;wbr&gt;http://marco&lt;wbr&gt;madera&lt;wbr&gt;.com&lt;/p&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;¿que-&lt;wbr&gt;pasaría-&lt;wbr&gt;si-&lt;wbr&gt;no-&lt;wbr&gt;quisieramos-&lt;wbr&gt;usar-&lt;wbr&gt;espacios-&lt;wbr&gt;entre-&lt;wbr&gt;palabras-&lt;wbr&gt;y-&lt;wbr&gt;no-&lt;wbr&gt;queremos-&lt;wbr&gt;que-&lt;wbr&gt;nuestra-&lt;wbr&gt;aplicación-&lt;wbr&gt;tenga-&lt;wbr&gt;overflow-&lt;wbr&gt;al-&lt;wbr&gt;verla-&lt;wbr&gt;en-&lt;wbr&gt;un-&lt;wbr&gt;celular-&lt;wbr&gt;o-&lt;wbr&gt;si-&lt;wbr&gt;tenemos-&lt;wbr&gt;una-&lt;wbr&gt;url-&lt;wbr&gt;como-&lt;wbr&gt;esta:&lt;wbr&gt;http://marco&lt;wbr&gt;madera&lt;wbr&gt;.com&lt;/p&gt;
+<p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://marco<wbr>madera<wbr>.com</p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>¿que-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>pasaría-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>si-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>no-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>quisieramos-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>usar-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>espacios-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>entre-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>palabras-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>y-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>no-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>queremos-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>que-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>nuestra-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>aplicación-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>tenga-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>overflow-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>al-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>verla-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>en-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>un-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>celular-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>o-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>si-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>tenemos-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>una-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>url-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>como-<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>esta:<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>http://marco<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>madera<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.com<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 <h3>hr</h3>
 <p>Representa una regla horizontal, un salto de tema en una sección.</p>
-<p>&lt;p&gt;Texto&lt;/p&gt; &lt;hr /&gt; &lt;p&gt;Texto&lt;/p&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;Texto&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Texto&lt;/p&gt;
+<p>Texto</p> <hr /> <p>Texto</p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Texto<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Texto<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Acotaciones</h2>
 <h3>blockquote</h3>
-<p>&lt;blockquote&gt;Bloque acotado&lt;/blockquote&gt;</p>
-<pre><code class="language-HTML">&lt;blockquote&gt;Bloque acotado&lt;/blockquote&gt;
+<blockquote>Bloque acotado</blockquote>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span>Bloque acotado<span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
 </code></pre>
 <h3>q</h3>
-<p>&lt;q cite=&quot;https://example.com&quot;&gt;Cuota&lt;/q&gt;</p>
-<pre><code class="language-HTML">&lt;q cite=&quot;https://example.com&quot;&gt;Cuota.&lt;/q&gt;
+<p><q cite="https://example.com">Cuota</q></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">q</span> <span class="hljs-attr">cite</span>=<span class="hljs-string">"https://example.com"</span>&gt;</span>Cuota.<span class="hljs-tag">&lt;/<span class="hljs-name">q</span>&gt;</span>
 </code></pre>
 <h3>cite</h3>
-<p>&lt;q&gt;Cita de texto&lt;/q&gt; &lt;cite&gt;— Nombre del autor&lt;/cite&gt;</p>
-<pre><code class="language-HTML">&lt;q&gt;Cita de texto&lt;/q&gt; &lt;cite&gt;— Nombre del autor&lt;/cite&gt;
+<p><q>Cita de texto</q> <cite>— Nombre del autor</cite></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">q</span>&gt;</span>Cita de texto<span class="hljs-tag">&lt;/<span class="hljs-name">q</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">cite</span>&gt;</span>— Nombre del autor<span class="hljs-tag">&lt;/<span class="hljs-name">cite</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Abreviaciones y Definiciones</h2>
 <h3>Abreviación</h3>
-<p>Esto es una &lt;abbr title=&quot;abreviación&quot;&gt;abbr&lt;/abbr&gt;.</p>
-<pre><code class="language-HTML">&lt;p&gt;Esto es una &lt;abbr title=&quot;abreviación&quot;&gt;abbr&lt;/abbr&gt;.&lt;/p&gt;
+<p>Esto es una <abbr title="abreviación">abbr</abbr>.</p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Esto es una <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"abreviación"</span>&gt;</span>abbr<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 <h3>Definición</h3>
-<p>&lt;p&gt;&lt;dfn&gt;HTML Semántico&lt;/dfn&gt; es el uso de &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt;, pero con etiquetas.&lt;/p&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;
-  &lt;dfn&gt;HTML Semántico&lt;/dfn&gt; es el uso de 
-  &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt;, pero con etiquetas.
-&lt;/p&gt;
+<p><dfn>HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.</p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dfn</span>&gt;</span>HTML Semántico<span class="hljs-tag">&lt;/<span class="hljs-name">dfn</span>&gt;</span> es el uso de 
+  <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Hyper Text Markup Language"</span>&gt;</span>HTML<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>, pero con etiquetas.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 <h3>Diálogos</h3>
 <p>Recibe un atributo open, si no está indicado, no es mostrado.</p>
-<p>&lt;dialog open&gt;&lt;p&gt;Esto es un cuadro de diálogo&lt;/p&gt;&lt;/dialog&gt;</p>
+<dialog open><p>Esto es un cuadro de diálogo</p></dialog>
 <p> </p>
 <p> </p>
 <p> </p>
-<pre><code class="language-HTML">&lt;dialog open&gt;&lt;p&gt;Esto es un cuadro de diálogo&lt;/p&gt;&lt;/dialog&gt;
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">open</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Esto es un cuadro de diálogo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span>
 </code></pre>
 <h3>Detalles</h3>
 <p>Al igual que los diálogos recibe un atributo open para que pueda estar por defecto abierto.</p>
-<p>&lt;details&gt;
-&lt;summary&gt;Elemento&lt;/summary&gt;
-&lt;p&gt;Contenido del elemento&lt;/p&gt;
-&lt;/details&gt;</p>
-<pre><code class="language-HTML">&lt;details&gt;
-  &lt;summary&gt;Elemento&lt;/summary&gt;
-  &lt;p&gt;Contenido del elemento&lt;/p&gt;
-&lt;/details&gt;
+<details>
+  <summary>Elemento</summary>
+  <p>Contenido del elemento</p>
+</details>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>Elemento<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Contenido del elemento<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Imágenes</h2>
 <h3>Img</h3>
-<p>&lt;img
-src=&quot;https://picsum.photos/100&quot;
-alt=&quot;Imagen&quot;
-/&gt;</p>
-<pre><code class="language-HTML">&lt;img
-  src=&quot;https://picsum.photos/100&quot;
-  alt=&quot;Imagen&quot;
-/&gt;
+<p><img
+  src="https://picsum.photos/100"
+  alt="Imagen"
+/></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">img</span>
+  <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/100"</span>
+  <span class="hljs-attr">alt</span>=<span class="hljs-string">"Imagen"</span>
+/&gt;</span>
 </code></pre>
 <h3>Figure</h3>
 <p>Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama, código, una cita, etc, puede estar acompañado por la etiqueta figcaption que es la leyenda del contenido.</p>
-<p>&lt;figure&gt;
-&lt;img src=&quot;https://picsum.photos/200&quot; alt=&quot;Figura&quot;&gt;
-&lt;figcaption&gt;Imagen Aleatoria&lt;/figcaption&gt;
-&lt;/figure&gt;</p>
-<pre><code class="language-HTML">&lt;figure&gt;
-  &lt;img src=&quot;https://picsum.photos/200&quot; alt=&quot;Figura&quot;&gt;
-  &lt;figcaption&gt;Imagen Aleatoria&lt;/figcaption&gt;
-&lt;/figure&gt;
+<figure>
+  <img src="https://picsum.photos/200" alt="Figura">
+  <figcaption>Imagen Aleatoria</figcaption>
+</figure>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">figure</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/200"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Figura"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">figcaption</span>&gt;</span>Imagen Aleatoria<span class="hljs-tag">&lt;/<span class="hljs-name">figcaption</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
 </code></pre>
 <h3>Picture</h3>
 <p>La etiqueta source puede tener el atributo de cualquier media query, por lo tanto se puede customizar imagenes especiales para modo oscuro, puedes probar reescalar la imagen</p>
-<p>&lt;picture&gt;
-&lt;source srcSet=&quot;https://picsum.photos/100&quot; media=&quot;(max-width: 500px)&quot; /&gt;
-&lt;source srcSet=&quot;https://picsum.photos/200&quot; media=&quot;(max-width: 876px)&quot; /&gt;
-&lt;img
-src=&quot;https://picsum.photos/300&quot;
-alt=&quot;Imagen Adaptable&quot;
-/&gt;
-&lt;/picture&gt;</p>
-<pre><code class="language-HTML">&lt;picture&gt;
-  &lt;source srcSet=&quot;https://picsum.photos/100&quot; media=&quot;(max-width: 500px)&quot; /&gt;
-  &lt;source srcSet=&quot;https://picsum.photos/200&quot; media=&quot;(max-width: 876px)&quot; /&gt;
-  &lt;img
-    src=&quot;https://picsum.photos/300&quot;
-    alt=&quot;Imagen Adaptable&quot;
-  /&gt;
-&lt;/picture&gt;
+<picture>
+  <source srcSet="https://picsum.photos/100" media="(max-width: 500px)" />
+  <source srcSet="https://picsum.photos/200" media="(max-width: 876px)" />
+  <img
+    src="https://picsum.photos/300"
+    alt="Imagen Adaptable"
+  />
+</picture>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">srcSet</span>=<span class="hljs-string">"https://picsum.photos/100"</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(max-width: 500px)"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">srcSet</span>=<span class="hljs-string">"https://picsum.photos/200"</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(max-width: 876px)"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span>
+    <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/300"</span>
+    <span class="hljs-attr">alt</span>=<span class="hljs-string">"Imagen Adaptable"</span>
+  /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Formularios de entrada</h2>
 <p>Hay diversos tipos de entrada, button, checkbox, date, email, password, range, text, entre otros, la mayoría se pueden tan fácil como lo siguiente.</p>
 <h4>Color</h4>
-<p>&lt;input type=&quot;color&quot;&gt;</p>
-<pre><code class="language-HTML">&lt;input type=&quot;color&quot;&gt;
+<input type="color">
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span>&gt;</span>
 </code></pre>
 <h4>Números</h4>
-<p>&lt;input type=&quot;number&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;</p>
-<pre><code class="language-HTML">&lt;input type=&quot;number&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;
+<input type="number" min="1" max="5" />
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"5"</span> /&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Barras</h2>
 <h4>meter</h4>
 <p>La etiqueta meter es utilizada como indicador de una escala conocida, así que cuando el indicador está en un punto específico, puede variar los colores.</p>
-<p>&lt;meter min=&quot;10&quot; max=&quot;20&quot; value=&quot;18&quot;&gt;18 puntos&lt;/meter&gt;</p>
-<pre><code class="language-HTML">&lt;meter min=&quot;10&quot; max=&quot;20&quot; value=&quot;18&quot;&gt;18 puntos&lt;/meter&gt;
+<p><meter min="10" max="20" value="18">18 puntos</meter></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">meter</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"18"</span>&gt;</span>18 puntos<span class="hljs-tag">&lt;/<span class="hljs-name">meter</span>&gt;</span>
 </code></pre>
 <h3>progress</h3>
-<p>La barra de progreso es utilizada para mostrar el avance de una tarea. Existen dos valores indeterminada y determinada
-&lt;p&gt;Determinada:&lt;/p&gt;</p>
-<p>&lt;progress value=&quot;66&quot; max=&quot;100&quot;&gt;Determinate&lt;/progress&gt;</p>
-<p>&lt;p&gt;Indeterminada:&lt;/p&gt;</p>
-<p>&lt;progress&gt;Indeterminada&lt;/progress&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;Determinada:&lt;/p&gt;
+<p>La barra de progreso es utilizada para mostrar el avance de una tarea. Existen dos valores indeterminada y determinada</p>
+<p>Determinada:</p>
+<p><progress value="66" max="100">Determinate</progress></p>
+<p>Indeterminada:</p>
+<p><progress>Indeterminada</progress></p>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Determinada:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-&lt;progress value=&quot;66&quot; max=&quot;100&quot;&gt;Determinada&lt;/progress&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">progress</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"66"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"100"</span>&gt;</span>Determinada<span class="hljs-tag">&lt;/<span class="hljs-name">progress</span>&gt;</span>
 
-&lt;p&gt;Indeterminada:&lt;/p&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Indeterminada:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-&lt;progress&gt;Indeterminada&lt;/progress&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">progress</span>&gt;</span>Indeterminada<span class="hljs-tag">&lt;/<span class="hljs-name">progress</span>&gt;</span>
 </code></pre>
 <h3>Select</h3>
-<p>La etiqueta <code>&lt;select&gt;</code> nos da la oportunidad de hacer listas despegables que pueden contener la etiqueta <code>&lt;optgroup&gt;</code> para agrupar entre opciones.</p>
-<p>&lt;select name=&quot;elementos&quot;&gt;
-&lt;optgroup label=&quot;Grupo 1&quot;&gt;
-&lt;option value=&quot;elemento1&quot;&gt;Elemento1&lt;/option&gt;
-&lt;option value=&quot;elemento2&quot;&gt;Elemento2&lt;/option&gt;
-&lt;/optgroup&gt;
-&lt;optgroup label=&quot;Grupo 2&quot;&gt;
-&lt;option value=&quot;elemento3&quot;&gt;Elemento3&lt;/option&gt;
-&lt;option value=&quot;elemento4&quot;&gt;Elemento4&lt;/option&gt;
-&lt;/optgroup&gt;
-&lt;/select&gt;</p>
-<pre><code class="language-HTML">&lt;select name=&quot;elementos&quot;&gt;
-  &lt;optgroup label=&quot;Grupo 1&quot;&gt;
-    &lt;option value=&quot;elemento1&quot;&gt;Elemento1&lt;/option&gt;
-    &lt;option value=&quot;elemento2&quot;&gt;Elemento2&lt;/option&gt;
-  &lt;/optgroup&gt;
-  &lt;optgroup label=&quot;Grupo 2&quot;&gt;
-    &lt;option value=&quot;elemento3&quot;&gt;Elemento3&lt;/option&gt;
-    &lt;option value=&quot;elemento4&quot;&gt;Elemento4&lt;/option&gt;
-  &lt;/optgroup&gt;
-&lt;/select&gt;
+<p>La etiqueta <code>&lt;<span class="hljs-keyword">select</span>&gt;</code> nos da la oportunidad de hacer listas despegables que pueden contener la etiqueta <code><span class="hljs-section">&lt;optgroup&gt;</span></code> para agrupar entre opciones.</p>
+<select name="elementos">
+<optgroup label="Grupo 1">
+  <option value="elemento1">Elemento1</option>
+  <option value="elemento2">Elemento2</option>
+  </optgroup>
+  <optgroup label="Grupo 2">
+  <option value="elemento3">Elemento3</option>
+  <option value="elemento4">Elemento4</option>
+  </optgroup>
+</select>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"elementos"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">optgroup</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Grupo 1"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"elemento1"</span>&gt;</span>Elemento1<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"elemento2"</span>&gt;</span>Elemento2<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">optgroup</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">optgroup</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Grupo 2"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"elemento3"</span>&gt;</span>Elemento3<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"elemento4"</span>&gt;</span>Elemento4<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">optgroup</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Listas</h2>
-<p>En las listas el orden puede importar representado por <code>&lt;ol&gt;</code> o no representado por <code>&lt;ul&gt;</code>, debe de tener como hijo al menos un elemento de lista <code>&lt;li&gt;</code></p>
-<p>&lt;p&gt;Lista ordenada&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;objeto1
-&lt;li&gt;objeto2
-&lt;li&gt;objeto3
-&lt;li&gt;objeto4
-&lt;/ol&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;Lista ordenada&lt;/p&gt;
-&lt;ol&gt;
- &lt;li&gt;objeto1
- &lt;li&gt;objeto2
- &lt;li&gt;objeto3
- &lt;li&gt;objeto4
-&lt;/ol&gt;
+<p>En las listas el orden puede importar representado por <code><span class="hljs-section">&lt;ol&gt;</span></code> o no representado por <code><span class="hljs-section">&lt;ul&gt;</span></code>, debe de tener como hijo al menos un elemento de lista <code><span class="hljs-section">&lt;li&gt;</span></code></p>
+<p>Lista ordenada</p>
+<ol>
+ <li>objeto1
+ <li>objeto2
+ <li>objeto3
+ <li>objeto4
+</ol>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lista ordenada<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto1
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto2
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto3
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto4
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
 </code></pre>
-<p>&lt;p&gt;Lista sin orden&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;objeto1
-&lt;li&gt;objeto2
-&lt;li&gt;objeto3
-&lt;li&gt;objeto4
-&lt;/ul&gt;</p>
-<pre><code class="language-HTML">&lt;p&gt;Lista sin orden&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;objeto1
- &lt;li&gt;objeto2
- &lt;li&gt;objeto3
- &lt;li&gt;objeto4
-&lt;/ul&gt;
+<p>Lista sin orden</p>
+<ul>
+ <li>objeto1
+ <li>objeto2
+ <li>objeto3
+ <li>objeto4
+</ul>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lista sin orden<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto1
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto2
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto3
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>objeto4
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Tablas</h2>
-<p>&lt;table&gt;&lt;caption&gt;Precio de cosas&lt;/caption&gt;&lt;colgroup&gt;&lt;col span=&quot;0&quot; style=&quot;background-color:#e0ece4&quot;&gt;&lt;col span=&quot;1&quot; style=&quot;background-color:#ebecf1&quot;&gt;&lt;col span=&quot;2&quot; style=&quot;background-color:#f1f3de&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;th&gt;IVA&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Elemento 1&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elemento 2&lt;/td&gt;&lt;td&gt;200&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;td colspan=&quot;2&quot; style=&quot;background-color:#e0ece4&quot;&gt;$336&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;</p>
-<pre><code class="language-HTML">&lt;table&gt;
-  &lt;caption&gt;Precio de cosas&lt;/caption&gt;
-  &lt;colgroup&gt;
-    &lt;col span=&quot;0&quot; style=&quot;background-color:#e0ece4&quot;&gt;
-    &lt;col span=&quot;1&quot; style=&quot;background-color:#ebecf1&quot;&gt;
-    &lt;col span=&quot;2&quot; style=&quot;background-color:#f1f3de&quot;&gt;
-  &lt;/colgroup&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Nombre&lt;/th&gt;
-      &lt;th&gt;Precio&lt;/th&gt;
-      &lt;th&gt;IVA&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Elemento 1&lt;/td&gt;
-      &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;12&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Elemento 2&lt;/td&gt;
-      &lt;td&gt;200&lt;/td&gt;
-      &lt;td&gt;24&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tfoot&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Total&lt;/td&gt;
-      &lt;td colspan=&quot;2&quot; style=&quot;background-color:#e0ece4&quot;&gt;$336&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tfoot&gt;
-&lt;/table&gt;
+<table><caption>Precio de cosas</caption><colgroup><col span="0" style="background-color:#e0ece4"><col span="1" style="background-color:#ebecf1"><col span="2" style="background-color:#f1f3de"></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" style="background-color:#e0ece4">$336</td></tr></tfoot></table>
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>Precio de cosas<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">colgroup</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">col</span> <span class="hljs-attr">span</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color:#e0ece4"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">col</span> <span class="hljs-attr">span</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color:#ebecf1"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">col</span> <span class="hljs-attr">span</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color:#f1f3de"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">colgroup</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Nombre<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Precio<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>IVA<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Elemento 1<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>100<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Elemento 2<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>200<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>24<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tfoot</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Total<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color:#e0ece4"</span>&gt;</span>$336<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tfoot</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h2>Conclusiones</h2>
 <p>Hemos cubierto varias etiquetas de HTML semántico y escribir con él es mucho más legible y limpio que escribir con solo divs, siempre y cuando sea apropiado. Los elementos mostrados son pocos de todos los que existen, es importante conocerlos y usarlos de manera correcta, para que los procesadores de HTML hagan sus tareas bien.</p>
 <p>Respecto al comentario sobre que debemos hacer web para humanos y no robots, pienso que no es muy acertado, que la computadora entienda lo que estamos haciendo es también importante, porque puede comunicar este significado a las <a href="https://marcomadera.com/blog/accesibilidad-web#tecnologias-asistivas">tecnologías asistivas</a> que de igual forma son utilizadas para que humanos lean la web de una mejor manera, o hacer llegar a más personas a través del SEO de nuestra página o mejorar el sitio reconociendo los elementos que usamos fácilmente.</p>
-]]></description><link>https://marcomadera.com/blog/html-semantico</link><guid isPermaLink="true">https://marcomadera.com/blog/html-semantico</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Tue, 08 Sep 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[RSS Feed]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha">
+]]></description><link>https://marcomadera.com/blog/html-semantico</link><guid isPermaLink="true">https://marcomadera.com/blog/html-semantico</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Tue, 08 Sep 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[RSS Feed]]></title><description><![CDATA[<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1597944129/Blog/4/RSS_znjs6w.png" alt="RSS ajustar derecha" /><br />
 Algo que siempre veía en los sitios era el icono típico de RSS, nunca le presté importancia hasta ahora que lo estoy implementando en el sitio. Cuando miraba una página con él, me daba la sensación de que no estaba actualizada o que usaba tecnologías del pasado, porque realmente el icono luce antiguo y nunca me di la tarea de entender que significada ni para qué servía; y aquí estoy ahora implementandolo.</p>
 <h2>¿Qué es RSS?</h2>
 <p>RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica, de esta forma los usuarios se pueden suscribir al feed y dar seguimiento al sitio sin la necesidad de tener que visitarlo para ver si ocurrió una actualización.</p>
@@ -444,15 +461,15 @@ Algo que siempre veía en los sitios era el icono típico de RSS, nunca le prest
 <li><a href="https://feedly.com/">Feedly</a></li>
 <li><a href="https://www.inoreader.com/">Inoreader</a></li>
 </ul>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597948860/Blog/4/subscription-feedly_cen18m.png" alt="Suscription Feedly">
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597948860/Blog/4/subscription-feedly_cen18m.png" alt="Suscription Feedly" /><br />
    👆 En este caso solo necesité de la dirección del sitio para que lo detectará automáticamente.</p>
 <p> </p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597947959/Blog/4/ejemplo-rss-feedly_lyldsf.png" alt="Feedly presentación">
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597947959/Blog/4/ejemplo-rss-feedly_lyldsf.png" alt="Feedly presentación" /><br />
 Vista de revista, puedes marcar los que ya has leído para que te aparezcan los últimos, guardarlos para leerlos después y muchas otras funcionalidades que te proporciona esta herramienta.</p>
 <p> </p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_780/v1597947960/Blog/4/ejemplo-rss-feedreader-lectura_wpqjz2.png" alt="Modo lectura Feedreader">
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_780/v1597947960/Blog/4/ejemplo-rss-feedreader-lectura_wpqjz2.png" alt="Modo lectura Feedreader" /><br />
 Ahora con Feedreader en modo lectura</p>
-<hr>
+<hr />
 <h2>Ventajas</h2>
 <ul>
 <li>Te ahorra el tiempo de visitar las páginas</li>
@@ -471,7 +488,7 @@ Ahora con Feedreader en modo lectura</p>
 <h2>Conclusión</h2>
 <p>RSS es una gran herramienta para el blog como alternativa al newsletter, para quienes lo prefieran usar, aún así yo no me veo usando la funcionalidad, se me hace mucho más cómodo que me llegue un email aún teniendo una cantidad considerable de suscripciones a tener que entrar a un lector a revisar las actualizaciones.</p>
 ]]></description><link>https://marcomadera.com/blog/rss-feed</link><guid isPermaLink="true">https://marcomadera.com/blog/rss-feed</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Thu, 20 Aug 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Accesibilidad Web]]></title><description><![CDATA[<p>Según el <a href="https://www.who.int/disabilities/world_report/2011/accessible_es.pdf">Informe mundial sobre la discapacidad</a> publicado en el año 2011 estima que más de mil millones de personas viven con algún tipo de discapacidad; alrededor del 15% de la población mundial.</p>
-<p>La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.
+<p>La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.<br />
 <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/">Web Content Accessibility Guidelines</a> creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.</p>
 <p> </p>
 <h2>¿Por qué implementar accesibilidad?</h2>
@@ -517,221 +534,109 @@ Ahora con Feedreader en modo lectura</p>
 <p>  </p>
 <h2>HTML Semántico</h2>
 <p>Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de tags y atributos. Usar HTML semántico ayudará al navegador a incluir significado en el árbol de accesibilidad para que los lectores de pantalla puedan entender el rol, propiedades y estado que tiene esa parte de nuestro código.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png" alt="Chrome Accesibility" title="Chrome Accesibility"></p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png" alt="Chrome Accesibility" title="Chrome Accesibility" /></p>
 <h3>No recomendado:</h3>
-<pre><code class="language-HTML">&lt;body&gt;
-  &lt;div&gt;&lt;/div&gt;
-  &lt;div&gt;
-  &lt;/div&gt;
-  &lt;div&gt;&lt;/div&gt;
-&lt;/body&gt;
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 </code></pre>
 <p> </p>
 <h3>Recomendado:</h3>
-<pre><code class="language-HTML">&lt;body&gt;
-  &lt;header&gt;&lt;/header&gt;
-  &lt;main&gt;
-  &lt;/main&gt;
-  &lt;footer&gt;&lt;/footer&gt;
-&lt;/body&gt;
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 </code></pre>
 <p>  </p>
 <h3>Uso de texto alternativo en imágenes</h3>
 <p>Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la descripción.</p>
-<pre><code class="language-HTML">&lt;img src =&quot;img src&quot; alt=&quot;description&quot;&gt;
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span> =<span class="hljs-string">"img src"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"description"</span>&gt;</span>
 </code></pre>
 <p> </p>
 <h3>Uso de scope en tablas</h3>
 <p>El uso del scope ayuda a los lectores de pantalla a seguir el orden correcto.</p>
-<pre><code class="language-HTML"> &lt;table border=&quot;1&quot;&gt;
-  &lt;caption&gt;Contact Information&lt;/caption&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;th scope=&quot;col&quot;&gt;Name&lt;/th&gt;
-    &lt;th scope=&quot;col&quot;&gt;City&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;1.&lt;/td&gt;
-    &lt;th scope=&quot;row&quot;&gt;Joel Garner&lt;/th&gt;
-    &lt;td&gt;Pittsburgh&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;2.&lt;/td&gt;
-    &lt;th scope=&quot;row&quot;&gt;Clive Lloyd&lt;/th&gt;
-    &lt;td&gt;Baltimore&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
+<pre><code class="hljs language-HTML"> <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">"1"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>Contact Information<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>City<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>1.<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span>&gt;</span>Joel Garner<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Pittsburgh<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>2.<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span>&gt;</span>Clive Lloyd<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Baltimore<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
 </code></pre>
 <p> </p>
 <h3>Roles apropiados</h3>
 <p>Los siguientes elementos tienen la apariencia de botón pero con roles diferentes:</p>
-<p>&lt;style&gt;
-.blog3__container{
-position: relative;
-}
-.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){
-display: block;
-width: 1px;
-height: 3px;
-background: green;
-transform: rotate(-45deg) translate(-2px, 7px);
-}
-.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){
-display: block;
-width: 1px;
-height: 8px;
-border-radius: 0;
-background: green;
-transform: rotate(35deg) translate(5px, -4px);
-}</p>
-<p>.share-box{
-position: absolute;
-width: fit-content;
-height: fit-content;
-background-color: #fff;
-border-radius: 6px;
-top: -135px;
-visibility: hidden;
-padding: 10px;
-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.30);
-}</p>
-<p>.share-box div{
-font-size: 13px;
-align-items:center;
-}</p>
-<p>.share-box div:nth-of-type(1){
-display:grid;
-grid-template-columns: 1fr auto;
-margin-bottom: 15px;
-}
-.share-box div:nth-of-type(2){
-display:grid;
-grid-template-columns: 1fr 1fr;
-margin-bottom: 8px;
-}
-.share-box div:nth-of-type(3){
-display:grid;
-grid-template-columns: 1fr auto;
-margin-bottom: 6px;
-}
-.share-box div:nth-of-type(4){
-display:grid;
-grid-template-columns: 1fr auto;
-margin-bottom: 6px;
-}
-.share-box div:nth-of-type(5){
-display:grid;
-grid-template-columns: 1fr auto;
-}</p>
-<p>.share-box div span{
-line-height:1;
-margin: 0;
-padding: 0;
-width: fit-content;
-font-family: consolas;
-color: rgb(179,179,179);
-}</p>
-<p>.share-box div:nth-of-type(1) span:nth-of-type(1){
-color: rgb(136,18,128);
-font-size: 13px;
-}
-.share-box div:nth-of-type(1) span:nth-of-type(2){
-font-size: 13px;
-}
-.share-box div:nth-of-type(2) span:nth-of-type(1){
-color: rgb(108,114,120);
-font-size: 11px;
-}
-.share-box div:nth-of-type(2) span:nth-of-type(2){
-display: block;
-width: 100%;
-height: 1px;
-background: rgb(221,221,221);
-}
-.share-box div:nth-of-type(3) span:nth-of-type(2){
-color: rgb(108,114,120);
-}
-.share-box div:nth-of-type(4) span:nth-of-type(2){
-color: rgb(108,114,120);
-}</p>
-<p>.share-box div:nth-of-type(5)&gt;span:nth-of-type(2){
-width: 14px;
-height: 14px;
-border-radius: 50%;
-border: 1px solid green;
-}</p>
-<p>.triangle-down{
-width: 0;
-height: 0;
-border-left: 10px solid transparent;
-border-right: 10px solid transparent;
-border-top: 10px solid #fff;
-position: absolute;
-bottom: -11px;
-left: 20%;
-}</p>
-<p>#butons:hover + .share-box{
-visibility: visible;
-left: 106.5px;
-}
-#anchor:hover + .share-box{
-visibility: visible;
-}
-&lt;/style&gt;</p>
-<p>&lt;div class=&quot;blog3__container&quot;&gt;
-&lt;a href=&quot;#anchor&quot; class=&quot;btn btn-primary&quot; id=&quot;anchor&quot; &gt;ancla&lt;/a&gt;&lt;div class=&quot;share-box&quot;&gt;
-&lt;div&gt;
-&lt;span&gt;anchor&lt;/span&gt;
-&lt;span&gt;104.25 x 38&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;ACCESIBILITY&lt;/span&gt;
-&lt;span&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;Name&lt;/span&gt;
-&lt;span&gt;ancla&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;Role&lt;/span&gt;
-&lt;span&gt;link&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;Keyboard-focusable&lt;/span&gt;
-&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class=&quot;triangle-down&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; id=&quot;butons&quot;&gt;botón&lt;/button&gt;&lt;div class=&quot;share-box&quot;&gt;
-&lt;div&gt;
-&lt;span&gt;button&lt;/span&gt;
-&lt;span&gt;106.5 x 38&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;ACCESIBILITY&lt;/span&gt;
-&lt;span&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;Name&lt;/span&gt;
-&lt;span&gt;botón&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;Role&lt;/span&gt;
-&lt;span&gt;button&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;span&gt;Keyboard-focusable&lt;/span&gt;
-&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class=&quot;triangle-down&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</p>
+<style>.blog3__container{position:relative}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){display:block;width:1px;height:3px;background:#3ace3a;transform:rotate(-45deg) translate(-2px,7px)}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){display:block;width:1px;height:8px;border-radius:0;background:#3ace3a;transform:rotate(35deg) translate(5px,-4px)}.share-box{position:absolute;width:fit-content;height:fit-content;background-color:#fff;border-radius:6px;top:-135px;visibility:hidden;padding:10px;box-shadow:0 0 8px 0 rgba(0,0,0,.3)}.share-box div{font-size:13px;align-items:center}.share-box div:nth-of-type(1){display:grid;grid-template-columns:1fr auto;margin-bottom:15px}.share-box div:nth-of-type(2){display:grid;grid-template-columns:1fr 1fr;margin-bottom:8px}.share-box div:nth-of-type(3){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(4){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(5){display:grid;grid-template-columns:1fr auto}.share-box div span{line-height:1;margin:0;padding:0;width:fit-content;font-family:consolas;color:#b3b3b3}.share-box div:nth-of-type(1) span:nth-of-type(1){color:#881280;font-size:13px}.share-box div:nth-of-type(1) span:nth-of-type(2){font-size:13px}.share-box div:nth-of-type(2) span:nth-of-type(1){color:#6c7278;font-size:11px}.share-box div:nth-of-type(2) span:nth-of-type(2){display:block;width:100%;height:1px;background:#ddd}.share-box div:nth-of-type(3) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(4) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(5) span:nth-of-type(2){width:14px;height:14px;border-radius:50%;border:1px solid #3ace3a}.triangle-down{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #fff;position:absolute;bottom:-11px;left:20%}#butons:hover+.share-box{visibility:visible;left:106.5px}#anchor:hover+.share-box{visibility:visible}</style>
+<div class="blog3__container">
+<a href="#anchor" class="btn btn-primary" id="anchor" >ancla</a><div class="share-box">
+  <div>
+  <span>anchor</span>
+  <span>104.25 x 38</span>
+  </div>
+  <div>
+  <span>ACCESIBILITY</span>
+  <span></span>
+  </div>
+  <div>
+  <span>Name</span>
+  <span>ancla</span>
+  </div>
+  <div>
+  <span>Role</span>
+  <span>link</span>
+  </div>
+  <div>
+  <span>Keyboard-focusable</span>
+  <span><span></span><span></span></span>
+  </div>
+  <div class="triangle-down"></div>
+</div>
+<button type="button" class="btn btn-primary" id="butons">botón</button><div class="share-box">
+  <div>
+  <span>button</span>
+  <span>106.5 x 38</span>
+  </div>
+  <div>
+  <span>ACCESIBILITY</span>
+  <span></span>
+  </div>
+  <div>
+  <span>Name</span>
+  <span>botón</span>
+  </div>
+  <div>
+  <span>Role</span>
+  <span>button</span>
+  </div>
+  <div>
+  <span>Keyboard-focusable</span>
+  <span><span></span><span></span></span>
+  </div>
+  <div class="triangle-down"></div>
+</div>
+</div>
 <p>Hay que definir los roles de acuerdo a la función que realizarán. En este caso el primer &quot;botón&quot; tiene la funcionalidad de link a otra página por lo que debería ser implementado como hipervínculo para que tome el rol de link.</p>
 <h3>Atributos Aria</h3>
 <p>Estos atributos se pueden añadir a cualquier etiqueta HTML para comunicar cambios especiales al DOM de nuestra aplicación. Roles propiedades y estados. Siempre es preferible usar un elemento HTML semántico correcto si es que existe en lugar de usar ARIA.</p>
 <ul>
 <li>
-<p>Roles: Define el tipo general del objeto .Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy específicas, es mejor depender del HTML semántico para comunicar los roles. Atributo: &quot;role&quot;
+<p>Roles: Define el tipo general del objeto .Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy específicas, es mejor depender del HTML semántico para comunicar los roles. Atributo: &quot;role&quot;<br />
  </p>
 </li>
 <li>
@@ -744,67 +649,68 @@ visibility: visible;
 <h3>Estilos</h3>
 <p>Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las dev tools de Google Chrome a través de las siguientes opciones:</p>
 <p>Customize and control DevTools &gt; More tools &gt; Rendering &gt; Emulate vision deficiencies</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png" alt="Emulate Vision" title="Emulate Vision"></p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png" alt="Emulate Vision" title="Emulate Vision" /></p>
 <h3>Color y contraste</h3>
 <p>Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png" alt="Contrast tool" title="Contrast tool"></p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png" alt="Contrast tool" title="Contrast tool" /></p>
 <h3>Focus</h3>
 <p>El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.</p>
-<p>&lt;style&gt;</p>
-<p>#inputToFocus:focus{
-box-shadow: 0 0 5px #da0000;
-outline: 1px solid #da0000;
-border: 2px solid transparent;
-}
-&lt;/style&gt;&lt;label&gt;Selecciona -&gt;&lt;input type=&quot;text&quot; id=&quot;inputToFocus&quot; size=&quot;25&quot; placeholder=&quot;Seleccioname para enforcarme&quot;/&gt;&lt;/label&gt;</p>
+<style>
+
+  #inputToFocus:focus{
+  box-shadow: 0 0 5px #da0000;
+  outline: 1px solid #da0000;
+  border: 2px solid transparent;
+  }
+</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
 <p>  </p>
 <h3>Skip Links</h3>
 <p>Es una <a href="https://www.w3.org/TR/WCAG20-TECHS/G1.html">técnica</a> que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.</p>
-<pre><code class="language-HTML">&lt;style&gt;
-  .skip-link {
-  display: block;
-  line-height: 0;
-  height: 0;
-  width: 0;
+<pre><code class="hljs language-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-class">.skip-link</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
 }
 
-.skip-link:focus,
-.skip-link:active {
-  height: auto;
-  width: auto;
+<span class="hljs-selector-class">.skip-link</span><span class="hljs-selector-pseudo">:focus</span>,
+<span class="hljs-selector-class">.skip-link</span><span class="hljs-selector-pseudo">:active</span> {
+  <span class="hljs-attribute">height</span>: auto;
+  <span class="hljs-attribute">width</span>: auto;
 }
-&lt;/style&gt;
-&lt;a href=&quot;#main&quot; className=&quot;skip-link&quot;&gt;Saltar al contenido&lt;/a&gt;
-&lt;nav&gt;
-  &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
-  &lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;
-&lt;/nav&gt;
-&lt;main id=&quot;main&quot;&gt;&lt;/main&gt;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#main"</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"skip-link"</span>&gt;</span>Saltar al contenido<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/about"</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">main</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 </code></pre>
-<hr>
+<hr />
 <h3>Tabindex</h3>
 <p>Es un atributo que indica si un elemento puede ser enfocado, y si participa en la navegación secuencial del teclado, acepta tres valores:</p>
 <p>Valor negativo(-1): El elemento debe ser enfocado, pero no debe de ser accesible a través de la navegación, puede ser usado en carruseles donde elementos no son visibles.</p>
 <p>Valor positivo (&gt;0): Debe poder ser enfocado y su orden relativo es definido por el valor del atributo.</p>
 <p>Valor de 0: Debe ser enfocado y ser accesible a través de la navegación secuencial del teclado, sigue el orden de la estructura del HTML.</p>
-<hr>
+<hr />
 <h2>Añadir acciones con el teclado</h2>
 <p>Podemos añadir acciones con el teclado escuchando las teclas. <a href="http://keycode.info/">Guía de códigos</a></p>
 <p>Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla ESC, lo que añade una característica más a nuestro sitio.</p>
-<pre><code class="language-javascript">const listenKeys = (e) =&gt; {
-  switch (e.keyCode) {
-    case 32:
+<pre><code class="hljs language-javascript"><span class="hljs-keyword">const</span> listenKeys = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+  <span class="hljs-keyword">switch</span> (e.keyCode) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">32</span>:
       togglePlay();
-      break;
-    case 77:
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">77</span>:
       mute();
-      break;
-    default:
-      break;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">break</span>;
   }
 };
 
-document.body.addEventListener(&quot;keyup&quot;, (e) =&gt; listenKeys(e));
+<span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">"keyup"</span>, (e) =&gt; listenKeys(e));
 </code></pre>
 <p> </p>
 <h2>Test de accesibilidad</h2>
@@ -820,27 +726,27 @@ document.body.addEventListener(&quot;keyup&quot;, (e) =&gt; listenKeys(e));
 <p><a href="https://github.com/avanslaars/cypress-axe">Cypress axe</a></p>
 </li>
 </ul>
-<hr>
+<hr />
 <h2>Conclusiones</h2>
 <p>La accesibilidad mejora la calidad de nuestro sitio web y la experiencia de los usuarios, es importante tener en mente la accesibilidad a la hora de estar desarrollando un sitio web para asegurarnos que todos puedan tener acceso al contenido.</p>
 ]]></description><link>https://marcomadera.com/blog/accesibilidad-web</link><guid isPermaLink="true">https://marcomadera.com/blog/accesibilidad-web</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 20 Jul 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Ligaduras tipográficas]]></title><description><![CDATA[<p>Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.</p>
 <p>En la música se aplica este concepto, las ligaduras son los símbolos que conectan las notas y hacen que se ejecuten como una sola nota prolongada, también ayudan en la legibilidad en el pentagrama.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_167/v1595269483/Blog/2/2ed8a62bb1bd2f4eaeaaaa1be3be8e1e_bbofoo.jpg" alt="Ligadura musical 100px" title="Ligadura Musical">
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_167/v1595269483/Blog/2/2ed8a62bb1bd2f4eaeaaaa1be3be8e1e_bbofoo.jpg" alt="Ligadura musical 100px" title="Ligadura Musical" /><br />
  </p>
 <h2>Ligaduras estándar</h2>
 <p>Estas son ligaduras para mejorar la legibilidad del texto, entre las más comunes están las combinaciones 'ff' y 'fi', un ejemplo de esto está presente en el logotipo de microsoft office donde ligan ambas 'f' para evitar el espacio que quedaría de no hacerlo.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/VkW3Q2D_nenmzd.jpg" alt="Ligadura estandar" title="Ligadura estándar"></p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/VkW3Q2D_nenmzd.jpg" alt="Ligadura estandar" title="Ligadura estándar" /></p>
 <p> </p>
-<h2>Ligaduras Discrecionales</h2>
+<h2>Ligaduras discrecionales</h2>
 <p>Estás ligaduras son más estéticas, tienen el propósito de lucir bien, entrelazan los caracteres para que tengan un mejor diseño.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/a9c32vc23bb56fdb4_apqjua.gif" alt="Ligadura" title="Ligadura discrecional">  </p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/a9c32vc23bb56fdb4_apqjua.gif" alt="Ligadura" title="Ligadura discrecional" />  </p>
 <h2>Ligaduras históricas</h2>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_210/v1595269484/Blog/2/2af6de62vb43bnnc4_ou6z52.jpg" alt="Notacion tironiana ajustar derecha 200px" title="Notas tironianas">
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_210/v1595269484/Blog/2/2af6de62vb43bnnc4_ou6z52.jpg" alt="Notacion tironiana ajustar derecha 200px" title="Notas tironianas" /><br />
 Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente creadas para reducir el tiempo de escritura, cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada, para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas, que fueron muy populares y por lo que después se le atribuyó la invención de la taquigrafía.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png" alt="Ampersand ajustar izquierda 50px" title="Ampersand">
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png" alt="Ampersand ajustar izquierda 50px" title="Ampersand" /><br />
 Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.</p>
-<p>En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea. <img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif" alt="Ligaduras arabes 50px" title="Ligaduras Arabes">  </p>
-<hr>
+<p>En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea. <img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif" alt="Ligaduras arabes 50px" title="Ligaduras Arabes" />  </p>
+<hr />
 <h2>Ligaduras en la programación</h2>
 <p>En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado, como por ejemplo '&gt;=', mi mente por un instante tiene que procesar ambos caracteres por separado &quot;mayor o igual&quot; y si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.</p>
 <p>Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:</p>
@@ -848,23 +754,23 @@ Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el
 <li><a href="https://github.com/tonsky/FiraCode">Fira Code</a></li>
 <li><a href="https://github.com/larsenwork/monoid">MonoId</a></li>
 <li><a href="https://github.com/i-tu/Hasklig">Hasklig</a></li>
-<li><a href="https://github.com/be5invis/Iosevka">Iosevka</a>
+<li><a href="https://github.com/be5invis/Iosevka">Iosevka</a><br />
  </li>
 </ul>
 <p>Descarga e instala la fuente que desees como cualquier otra fuente.</p>
 <h2>Habilita las ligaduras en tu editor</h2>
-<p>La gran mayoría de editores permiten el uso de ligaduras.<br>
-Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferences &gt; User Settings) en la sección del editor de texto, fuentes y editar settings.json
-<img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg" alt="Vs Code Settings" title="Vs Code Settings"></p>
+<p>La gran mayoría de editores permiten el uso de ligaduras.<br />
+Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferences &gt; User Settings) en la sección del editor de texto, fuentes y editar settings.json<br />
+<img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg" alt="Vs Code Settings" title="Vs Code Settings" /></p>
 <p>En settings.json agrega lo siguiente en el caso de Fira Code.</p>
-<pre><code class="language-json">{
-  &quot;editor.fontFamily&quot;: &quot;'Fira Code'&quot;,
-  &quot;editor.fontLigatures&quot;: true
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"editor.fontFamily"</span>: <span class="hljs-string">"'Fira Code'"</span>,
+  <span class="hljs-attr">"editor.fontLigatures"</span>: <span class="hljs-literal">true</span>
 }
 </code></pre>
 <p>Guardas los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada, si no es el caso probablemente sea necesario reiniciar el editor.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269490/Blog/2/iz550n2_m69hok.gif" alt="Ligaduras Vs Code" title="Ligaduras Vs Code"></p>
-<hr>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1595269490/Blog/2/iz550n2_m69hok.gif" alt="Ligaduras Vs Code" title="Ligaduras Vs Code" /></p>
+<hr />
 <h2>Opinión</h2>
 <p>Las ligaduras no son un estándar en la programación, por lo que no todos las usarán, acostumbrarse a verlas puede que llegue a jugar en contra el ver el código de otras personas, a la inversa puede generar confusión ya que los lenguajes de programación son diferentes, si bien (&lt;=) menor o igual puede escribirse en ese orden en un lenguaje, en otro puede escribirse de otra forma (=&lt;), lo que no generaría una ligadura. Las ligaduras no son algo esencial como lo son en la música, ni te permiten escribir más rápido, en programación al final solo es visual, terminas escribiendo lo mismo, lo suyo está en probar y elegir si es para tí, anteriormente las use muy poco tiempo como para acostumbrarme y ahora les daré otra oportunidad.</p>
 ]]></description><link>https://marcomadera.com/blog/ligaduras-tipograficas</link><guid isPermaLink="true">https://marcomadera.com/blog/ligaduras-tipograficas</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 08 Jun 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[Números Pseudo Aleatorios]]></title><description><![CDATA[<p>Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript, que surge tras programar el paquete de node <a href="https://github.com/MarcoMadera/random-messages-names">random-messages-names</a> el cual como su nombre lo dice retorna mensajes y nombres aleatorios. Tiene 1000 apellidos y 2788 nombres diferentes. Al estar probando me di cuenta que había veces que ocurrían rachas seguidas de nombres repetidos, 3 o 4 veces el mismo nombre, lo que me dio por comprobar si la aleatoriedad de Math.Random() es legítima a través de unas pruebas estadísticas.</p>
@@ -876,28 +782,33 @@ Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferen
 <h2>¿Qué son los números pseudo-aleatorios?</h2>
 <p>Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios, por eso el pseudo, algunos algoritmos hacen muy bien el trabajo de simular las propiedades de los números aleatorios y otros caen en el bucle de repetirse infinitamente.</p>
 <p>Para que una secuencia de números sea catalogada como aleatoria, es necesario que tengan una distribución uniforme y que no tenga correlación, es decir, que tengan la misma probabilidad de ser elegido y que la elección de uno no dependa del otro.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme" title="Gráfica uniforme"></p>
+<h2>Distribución uniforme</h2>
+<p>La uniformidad en el caso de los números aleatorios, significa que en un rango <code>[a,b]</code> cada intervalo tenga la misma probabilidad de ocurrir, una distribución 100% uniforme luce de la siguiente forma:</p>
+<figure>
+  <img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
+  <figcaption>Gráfica completamente uniforme</figcaption>
+</figure>
 <p>Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2):</p>
 <p>$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$</p>
 <p>Donde:</p>
 <p>oi: datos obtenidos</p>
 <p>ei: datos esperados</p>
 <p>Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).</p>
-<p>&lt;table&gt;&lt;colgroup span=&quot;2&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Hipótesis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;0&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos son uniformes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos no son uniformes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
-<p>Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
-Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = <code>[0 , 1]</code>como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
-Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.
-Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen
-Por ahora si tomamos como muestra esta lista de 300 números nuestro progreso sería el siguiente:</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png" alt="Gráfica" title="Gráfica"></p>
+<table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
+<p>Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.<br />
+Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = <code>[<span class="hljs-number">0</span> , <span class="hljs-number">1</span>]</code>como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.<br />
+Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos.<br />
+Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen<br />
+Por ahora si tomamos como muestra <a href="https://marcomadera.github.io/assets/blog/numerosAleatorios.txt">esta lista</a> de 300 números nuestro progreso sería el siguiente:</p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png" alt="Gráfica" title="Gráfica" /></p>
 <p>Muestra generada a partir de Math.Random() en la consola de Google Chrome</p>
 <p>Visualmente entre más recta es la línea, más uniforme es, por lo que a simple vista ya podemos intuir un resultado.</p>
 <p>Para corroborar lo que vemos, necesitamos, el valor de chi-cuadrada(x2), los grados de libertad (K) y un nivel de confianza (α).</p>
-<p>Al aplicar la formula: x2=28.92
-Para calcular K = Número de intervalos - 1, en este caso K=17.
-El nivel de confianza (α) que usaré es de 0.05, pero puede ser diferente ya que este es decidido por la persona encargada de la investigación, es el riesgo que se toma.
+<p>Al aplicar la formula: x2=28.92<br />
+Para calcular K = Número de intervalos - 1, en este caso K=17.<br />
+El nivel de confianza (α) que usaré es de 0.05, pero puede ser diferente ya que este es decidido por la persona encargada de la investigación, es el riesgo que se toma.<br />
 Esto lo podemos hacer de dos formas, en una tabla de probabilidades de chi-cuadrada con el área a la derecha, buscamos los grados de libertad de 17 y el valor que más se acerque a nuestro resultado, en esa fila en este caso está entre la columna 0.05 y 0.025, la cual esa va a ser nuestra probabilidad, que exactamente es: 0.03527, multiplicado por 100 es 3.527% de que nuestra hipótesis nula esté correcta, de que nuestros datos sigan una distribución uniforme, como 5% &lt; 3.527% no se cumple, rechazamos nuestra hipótesis nula y aceptamos la hipótesis alternativa de que no son números uniformes como se mira a simple vista en la gráfica.</p>
-<p>La otra forma de hacer esto es buscando directamente nuestro valor α en la columna correspondiente, vamos a la intersección k=17,α=0.05=27.587.
+<p>La otra forma de hacer esto es buscando directamente nuestro valor α en la columna correspondiente, vamos a la intersección k=17,α=0.05=27.587.<br />
 Si el resultado de nuestra x2 es menor que el resultado de la intersección se acepta la hipótesis nula de lo contrario se rechaza. Como 28.32666 &lt; 27.587 no se cumple, se rechaza la hipótesis nula y se acepta la hipótesis alternativa.</p>
 <h2>Prueba de independencia</h2>
 <p>Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la prueba de rachas ascendentes y descendentes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria, dependiendo de la longitud de los números evaluados.</p>
@@ -912,10 +823,10 @@ Si el resultado de nuestra x2 es menor que el resultado de la intersección se a
 <p>σ2R: La varianza del número esperado de rachas</p>
 <p>Z: Valor estándar de la distribución normal para la prueba.</p>
 <p>Igual que antes establecemos primero nuestra hipótesis nula (h0) e hipótesis alternativa (h1).</p>
-<p>&lt;table&gt;&lt;colgroup span=&quot;2&quot;&gt;&lt;/colgroup&gt;&lt;thead&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Hipótesis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;0&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos son independientes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;H&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;&lt;td&gt;Los datos no son independientes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
-<p>Clasificamos los números como bien el nombre lo indica, como racha ascendente o descendente. Ejemplo:
-Dada la siguiente lista: 0.1, 0.2, 0.3, 0.4, 0.2, 0.3, 0.1, 0.2, 0.3.
-Vemos que los primeros cuatro números tienen una racha ascendente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑
+<table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son independientes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son independientes</td></tr></tbody></table>
+<p>Clasificamos los números como bien el nombre lo indica, como racha ascendente o descendente. Ejemplo:<br />
+Dada la siguiente lista: 0.1, 0.2, 0.3, 0.4, 0.2, 0.3, 0.1, 0.2, 0.3.<br />
+Vemos que los primeros cuatro números tienen una racha ascendente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑<br />
 Tenemos lo siguiente:</p>
 <table>
 <thead>
@@ -948,15 +859,15 @@ Tenemos lo siguiente:</p>
 </tbody>
 </table>
 <p>Transpuesta nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:</p>
-<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Longitud de Rachas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Número de Rachas&lt;/th&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
+<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>3</td><td>1</td><td>0</td><td>1</td><td>5</td></tr></tbody></table>
 <p>Si aplicamos lo que sabemos hasta ahora a la lista de nuestros 300 números iniciales, quedaría de la siguiente manera:</p>
-<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Longitud de Rachas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Número de Rachas&lt;/th&gt;&lt;td&gt;116&lt;/td&gt;&lt;td&gt;55&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;194&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
+<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
 <p>Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los tres estadísticos:</p>
 <p>μR = 199.666 El número esperado de rachas</p>
 <p>σ2R = 52.01 La varianza</p>
 <p>Z = -0.108 El valor de la distribución normal</p>
 <p>Para determinar la independencia, igualmente buscaríamos ahora en una tabla de distribución normal el valor α/2 seguiré usando 0.05, por lo que buscaré el valor de 0.025, si vamos a los valores de los laterales encontramos que la desviación normal es de 1.96, si nuestro valor α fuera 0.1 para tener una confianza del 90% la desviación normal sería de 1.65.</p>
-<p>Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto de nuestra Z es menor a la desviación normal de la tabla, de lo contrario se rechaza
+<p>Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto de nuestra Z es menor a la desviación normal de la tabla, de lo contrario se rechaza<br />
 |-0.108|&lt;1.96 como esto es verdadero, se acepta nuestra hipótesis nula de que las rachas son independientes.</p>
 <h2>Distribución de la longitud de las rachas</h2>
 <p>De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la fórmula de chi-cuadrada utilizada anteriormente.</p>
@@ -967,50 +878,50 @@ Tenemos lo siguiente:</p>
 <p>Lo que cambia es que ahora nuestros números esperados los calcularemos de con la siguiente ecuación.</p>
 <p>$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$</p>
 <p>Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:</p>
-<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Longitud de Rachas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Número de Rachas&lt;/th&gt;&lt;td&gt;116&lt;/td&gt;&lt;td&gt;55&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;194&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
+<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
 <p>$$\epsilon {\scriptscriptstyle 1} = {2 \over (1+3)!}[300(1^2 + {3\scriptstyle 1} + 1) - (1^3 + 3{\scriptstyle 1^2} - 1 - 4)] = 125.083$$</p>
 <p>$$\epsilon {\scriptscriptstyle 2} = {2 \over (2+3)!}[300(2^2 + {3\scriptstyle 2} + 1) - (2^3 + 3{\scriptstyle 2^2} - 2 - 4)]= 59.766$$</p>
 <p>$$\epsilon {\scriptscriptstyle 3} = {2 \over (3+3)!}[300(3^2 + {3\scriptstyle 3} + 1) - (3^3 + 3{\scriptstyle 3^2} - 3 - 4)]= 17.369$$</p>
 <p>$$\epsilon {\scriptscriptstyle 4i} = {2 \over (4+3)!}[300(4^2 + {3\scriptstyle 4} + 1) - (4^3 + 3{\scriptstyle 4^2} - 4 - 4)]= 3.768$$</p>
 <p>Lo cual son números similares a los obtenidos.</p>
 <p>Existe la restricción de que los números observados y esperados no pueden ser menor que 5, por lo que e4 se le sumaría a e3 quedando de la siguiente manera:</p>
-<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Observados&lt;/th&gt;&lt;td&gt;116&lt;/td&gt;&lt;td&gt;55&lt;/td&gt;&lt;td&gt;23&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Esperados&lt;/th&gt;&lt;td&gt;125.083&lt;/td&gt;&lt;td&gt;59.766&lt;/td&gt;&lt;td&gt;21.137&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
-<p>Con estos datos calculamos chi-cuadrada (X2) = 1.2038
-k = 4-1 = 3
+<table><thead><tr><th>Observados</th><td>116</td><td>55</td><td>23</td></tr></thead><tbody><tr><th>Esperados</th><td>125.083</td><td>59.766</td><td>21.137</td></tr></tbody></table>
+<p>Con estos datos calculamos chi-cuadrada (X2) = 1.2038<br />
+k = 4-1 = 3<br />
 p=0.7521 (valor de la tabla de chi cuadrada)</p>
 <p>De igual forma determinamos nuestra hipótesis de la misma forma donde si α &lt; p(1.2038,3), aceptamos nuestra hipótesis nula de lo contrario aceptamos la hipótesis alternativa</p>
 <p>Como 0.05 &lt; 0.7521 se acepta la hipótesis nula de que existe independencia en las rachas</p>
 <p>Esta muestra nos dio que los números no son uniformes pero sí independientes</p>
-<hr>
+<hr />
 <h2>Resultados</h2>
 <h3>Test 1</h3>
 <p>En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados:</p>
-<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Número de pruebas correctas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Valores&lt;/th&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
-<p>De las 100 pruebas:
-68 pruebas cumplieron con la uniformidad, independencia y longitud.
-1 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
-6 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
-2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
-18 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
-1 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+<table><thead><tr><th>Número de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>11</td><td>21</td><td>68</td><td>100</td></tr></tbody></table>
+<p>De las 100 pruebas:<br />
+68 pruebas cumplieron con la uniformidad, independencia y longitud.<br />
+1 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.<br />
+6 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.<br />
+2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.<br />
+18 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.<br />
+1 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.<br />
 4 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.</p>
 <h3>Test 2</h3>
 <p>En 100 pruebas de 3000 números cada una, se obtuvieron los siguientes resultados:</p>
-<p>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Número de pruebas correctas&lt;/th&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Valores&lt;/th&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;48&lt;/td&gt;&lt;td&gt;49&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</p>
-<p>De las 100 pruebas:
-49 pruebas cumplieron con la uniformidad, independencia y longitud.
-0 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
-2 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
-2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
-42 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
-4 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+<table><thead><tr><th>Número de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>3</td><td>48</td><td>49</td><td>100</td></tr></tbody></table>
+<p>De las 100 pruebas:<br />
+49 pruebas cumplieron con la uniformidad, independencia y longitud.<br />
+0 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.<br />
+2 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.<br />
+2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.<br />
+42 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.<br />
+4 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.<br />
 1 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.</p>
 <h3>Conclusión</h3>
 <p>Si recordamos, para que una secuencia de números sea catalogada como aleatoria, es necesario que tenga distribución uniforme y que sea independiente, por lo que podríamos decir que que los 18 números y 42 números, que no cumplieron la prueba de longitud de rachas, pero sí las de uniformidad e independencia, del test 1 y 2 respectivamente, también se comportan como números aleatorios.</p>
 <p>Podríamos decir que para el test 1 de 100 pruebas de 100 números cada una, 86 son aleatorias y de esas 86, 18 no cumplen la longitud de rachas.</p>
 <p>Para el test 2 de 100 pruebas de 3000 números cada una, 91 son aleatorias y de esas 91, 42 no cumplen la longitud de rachas.</p>
 <p>En cuanto al problema inicial puedo decir que los números en la mayoría de los casos son legítimamente aleatorios, y que es normal que siga viendo nombres que ocurran en rachas seguidas.</p>
-<hr>
+<hr />
 <h2>¿Tus números son aleatorios?</h2>
 <p>Puedes probar <a href="https://test-for-random-numbers.marcomadera.vercel.app/">esta herramienta</a> de abajo para evaluar tus números aleatorios. Ya que sabes los procedimientos de las pruebas de números aleatorios, te invito a contribuir en <a href="https://github.com/MarcoMadera/Test-for-random-numbers">este repositorio</a> donde encontrarás el código que he estado escribiendo al mismo tiempo de escribir este post.</p>
 <p>Introduce números que sean entre 0 y 1 separados por espacios, intenta tantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.</p>
