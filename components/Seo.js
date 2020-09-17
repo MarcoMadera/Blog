@@ -18,6 +18,8 @@ const Seo = ({
       </title>
       <meta name="description" content={metaDescription} />
       <meta name="og:title" property="og:title" content={metaTitle} />
+      <meta name="og:locale" content="es-MX" />
+      <meta name="robots" content="index,follow" />
       <link
         rel="alternate"
         type="application/rss+xml"
@@ -29,10 +31,14 @@ const Seo = ({
         property="og:description"
         content={metaDescription}
       />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:creator" content={siteMetadata.social.twitter} />
+      <meta
+        name="twitter:creator"
+        content={`@${siteMetadata.social.twitter}`}
+      />
+      <meta name="twitter:site" content={`@${siteMetadata.social.twitter}`} />
 
       {url !== siteMetadata.siteUrl ? (
         <>
@@ -50,8 +56,12 @@ const Seo = ({
         <meta property="og:type" content="website" />
       )}
 
-      <meta property="og:site_name" content={siteMetadata.siteUrl} />
+      <meta
+        property="og:site_name"
+        content={`${siteMetadata.title}: ${siteMetadata.description}`}
+      />
       <meta property="og:image" content={cover} />
+      <meta property="og:image:alt" content={metaDescription} />
       <meta property="og:url" content={url} />
       <meta property="twitter:image" content={cover} />
 
