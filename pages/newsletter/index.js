@@ -22,7 +22,7 @@ const NewsletterPage = () => {
       ...email,
       submitted: true,
     });
-    if (email.error === true) {
+    if (email.error === true || email.value === "") {
       event.preventDefault();
     }
   };
@@ -78,11 +78,11 @@ const NewsletterPage = () => {
           ></input>
           <input type="hidden" value="1" name="embed"></input>
           <button className="btn btn-primary">Suscríbete</button>
-          {email.error && email.submitted && (
+          {(email.error || email.value === "") && email.submitted ? (
             <p>Por favor inserta un correo válido</p>
-          )}
-          {!email.error && email.submitted && (
-            <p>Recibirás un correo de confirmación</p>
+          ) : (
+            !email.error &&
+            email.submitted && <p>Recibirás un correo de confirmación</p>
           )}
         </form>
       </div>
@@ -116,8 +116,7 @@ const NewsletterPage = () => {
           padding: 10px 15px;
         }
         input:focus {
-          border: 1px solid transparent;
-          box-shadow: 1px 0 6px 2px ${colors.secondary};
+          border: 1px solid ${colors.secondary};
         }
         button {
           width: 100%;

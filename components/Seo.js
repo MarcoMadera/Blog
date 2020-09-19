@@ -17,7 +17,7 @@ const Seo = ({
         {title} | {siteMetadata.title}
       </title>
       <meta name="description" content={metaDescription} />
-      <meta name="og:title" property="og:title" content={metaTitle} />
+      <meta property="og:title" content={metaTitle} />
       <meta name="og:locale" content="es-MX" />
       <meta name="robots" content="index,follow" />
       <link
@@ -26,11 +26,7 @@ const Seo = ({
         href="https://marcomadera.com/rss.xml"
         title="Marco Madera"
       ></link>
-      <meta
-        name="og:description"
-        property="og:description"
-        content={metaDescription}
-      />
+      <meta property="og:description" content={metaDescription} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
@@ -39,7 +35,7 @@ const Seo = ({
         content={`@${siteMetadata.social.twitter}`}
       />
       <meta name="twitter:site" content={`@${siteMetadata.social.twitter}`} />
-
+      <meta property="fb:app_id" content="373017180730319" />
       {url !== siteMetadata.siteUrl ? (
         <>
           <meta property="og:type" content="article" />

@@ -7,6 +7,7 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escuchar en Spotify"
+      title={`${title} ${String.fromCharCode(183)} ${artist}`}
     >
       <article>
         <img
@@ -42,9 +43,16 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
         }
         p {
           margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 150px;
         }
-        div > p {
-          line-break: anywhere;
+        p:nth-of-type(1) {
+          display: -webkit-box;
+          white-space: unset;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
         }
       `}</style>
     </a>
