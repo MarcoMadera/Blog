@@ -84,7 +84,7 @@ const Random = () => {
         img {
           width: 100%;
           transition: ease 0.3s;
-          border-radius: 10px;
+          clip-path: inset(0% 0% 0% 0% round 10px);
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
             0 10px 10px -5px rgba(0, 0, 0, 0.03);
         }

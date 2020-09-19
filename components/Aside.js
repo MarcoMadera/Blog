@@ -64,10 +64,13 @@ const Aside = () => {
           box-sizing: border-box;
           margin: 0 10px;
         }
+        picture {
+          display: inline-flex;
+        }
         img {
           width: 80px;
           height: 80px;
-          border-radius: 50%;
+          clip-path: circle(50% at 50% 50%);
         }
       `}</style>
       <style global jsx>{`

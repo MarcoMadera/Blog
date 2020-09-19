@@ -250,7 +250,7 @@ export default function Post({ postData, recommendedPosts }) {
           display: block;
           margin: auto;
           max-width: 99%;
-          border-radius: 10px;
+          clip-path: inset(0% 0% 0% 0% round 10px);
           transition: ease 0.3s;
         }
         .blog img:hover {

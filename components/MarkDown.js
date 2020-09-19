@@ -25,6 +25,9 @@ const _mapProps = (props) => ({
         </a>
       );
     },
+    image: function Image({ src, alt, title }) {
+      return <img loading="lazy" src={src} alt={alt} title={title} />;
+    },
 
     // eslint-disable-next-line react/prop-types
     heading: function HeadingRenderer(props) {

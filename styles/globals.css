@@ -14,10 +14,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
+abbr::selection,
 a::selection {
-  background: #e74d3c85;
-  color: #705509;
+  background: #ca2424e1;
+  color: rgb(252, 252, 252);
 }
+br::selection,
+i::selection,
 p::selection,
 label::selection,
 span::selection,
@@ -37,7 +40,6 @@ td::selection,
 div::selection,
 kbd::selection,
 dfn::selection,
-abbr::selection,
 footer::selection,
 address::selection,
 em::selection,
@@ -52,9 +54,13 @@ optgroup::selection,
 caption::selection,
 cite::selection,
 details::selection,
-time::selection,
+time::selection {
+  background: #d32f2fe1;
+  color: #fff;
+}
 img::selection {
-  background: #e74d3c85;
+  background: #d32f2f56;
+  color: #fff;
 }
 h1::selection,
 h2::selection,
@@ -63,7 +69,8 @@ h4::selection,
 h5::selection,
 h6::selection,
 strong::selection {
-  background: #e74d3cc2;
+  background: #be2828e1;
+  color: #fff;
 }
 *:focus {
   outline: 2px solid #b50000;
@@ -114,6 +121,9 @@ kbd {
   white-space: nowrap;
 }
 
+abbr {
+  text-decoration: underline dotted #b50000;
+}
 .btn {
   cursor: pointer;
   display: inline-block;

@@ -86,10 +86,13 @@ const BlogCard = ({
           width: auto;
           padding-right: 1rem;
         }
+        picture {
+          display: inline-flex;
+        }
         img {
           width: 100px;
           height: 100px;
-          border-radius: 10%;
+          clip-path: inset(0% 0% 0% 0% round 10px);
         }
         footer {
           padding: 0 1rem 0.4rem;

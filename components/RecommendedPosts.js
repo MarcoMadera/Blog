@@ -39,7 +39,7 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
           margin-bottom: 10px;
         }
         img {
-          border-radius: 10px;
+          clip-path: inset(0% 0% 0% 0% round 10px);
           width: 40px;
           height: 40px;
           margin-right: 5px;

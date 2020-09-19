@@ -18,7 +18,7 @@ const Seo = ({
       </title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={metaTitle} />
-      <meta name="og:locale" content="es-MX" />
+      <meta property="og:locale" content="es-MX" />
       <meta name="robots" content="index,follow" />
       <link
         rel="alternate"

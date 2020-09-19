@@ -6,7 +6,7 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
       href={songUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Escuchar en Spotify"
+      aria-label={`Reproducir ${title} de ${artist} en Spotify`}
       title={`${title} ${String.fromCharCode(183)} ${artist}`}
     >
       <article>
