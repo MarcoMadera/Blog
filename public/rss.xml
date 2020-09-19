@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 16 Sep 2020 22:16:05 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[HTML Semántico]]></title><description><![CDATA[<p>Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Sat, 19 Sep 2020 21:39:51 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[Github CLI]]></title><description><![CDATA[<p>Sin importar el lenguaje que usemos para programar, la linea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 <a href="https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3">se empezó a trabajar con Github CLI</a>, para reducir el cambio de contexto entre github web y la máquina local.</p>
+<h2>¿Qué es github CLI?</h2>
+<p>Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para ejecutar todo el flujo de trabajo en github desde la linea de comandos.</p>
+<p>Esta herramienta nos permite interactuar con repositorios, issues, pull request y más.</p>
+<h2>Uso</h2>
+<p>La estructura de los comandos siguen el mismo patrón:</p>
+<pre><code class="hljs language-console">gh &lt;comando&gt; &lt;subcomando&gt; [flags]
+</code></pre>
+<p>Por comandos se pueden tomar los siguientes:</p>
+<ul>
+<li>gist : Crea gists</li>
+<li>issue : Controla issues</li>
+<li>pr : Controla pull requests</li>
+<li>release : Control GitHub releases</li>
+<li>repo : Crear, clonar, fork, y ver repositorios</li>
+<li>alias: Crea atajos de comandos</li>
+<li>api: Hace llamadas HTTP a Rest o GraphQL API.</li>
+<li>auth: Login, logout, y refresh de la autenticación</li>
+<li>completion: Generate shell completion scripts</li>
+<li>config: Maneja la configuración para gh</li>
+<li>help: El comando de ayuda</li>
+</ul>
+<h2>Instalación</h2>
+<p>Para instalar Github <abbr title="Command Line Interface">CLI</abbr> en tu computadora, se descarga desde la <a href="https://cli.github.com/">página oficial</a></p>
+<p>Una vez instalado nos podemos logear con el siguiente comando:</p>
+<pre><code class="hljs language-console">gh auth login
+</code></pre>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600485625/Blog/6/Login_Github_Cli_vjd3it.png" alt="Login en github cli" title="Login en github cli" /></p>
+<p>Otros subcomandos que también se pueden usar:</p>
+<ul>
+<li><code>gh auth <span class="hljs-built_in">logout</span></code>: Salir de la sesión.</li>
+<li><code>gh auth <span class="hljs-built_in">ref</span>resh</code>: Actualizar las credenciales</li>
+<li><code><span class="hljs-attribute">gh auth status</span></code>: Verificar el estado de la autenticación.</li>
+</ul>
+<h2>Repositorios</h2>
+<p>Subcomandos:</p>
+<ul>
+<li>clone</li>
+<li>create</li>
+<li>fork</li>
+<li>view</li>
+</ul>
+<h3>Crear repositorios</h3>
+<pre><code class="hljs language-console">gh repo create [&lt;name&gt;] [flags]
+</code></pre>
+<p>Adios <a href="https://repo.new">repo.new</a>, hola <code><span class="hljs-attribute">gh repo create</span></code></p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600490072/Blog/6/repocreate_z7ri8f.png" alt="Creación de repositorio" title="Creación de repositorio" /></p>
+<h3>Ver los repositorios</h3>
+<pre><code class="hljs language-console">gh repo view [&lt;repository&gt;] [flags]
+</code></pre>
+<p>Con este comando se puede observar la descripción del repositorio y el contenido del archivo <a href="http://README.md">README.md</a>.<br />
+Recibe dos argumentos, el repositorio y -w --web para ver el repositorio en el navegador.<br />
+Si el repositorio en el directorio actual.</p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600493607/Blog/6/repoview_yvcrdm.png" alt="Ver repositorio" title="Ver repositorio" /></p>
+<h3>Clonar repositorio</h3>
+<p>Existen varias formas de clonar un repositorio</p>
+<pre><code class="hljs language-console">gh repo clone &lt;repositorio&gt; [&lt;directorio&gt;] [-- &lt;gitflags&gt;...]
+</code></pre>
+<p>Esto clona un repositorio que el propietario es la persona que está autenticada.</p>
+<pre><code class="hljs language-console">gh repo clone proyecto
+</code></pre>
+<p>Con solo el usuario y el nombre del proyecto</p>
+<pre><code class="hljs language-console">gh repo clone usuario/proyecto
+</code></pre>
+<p>También se puede usar de la forma tradicional a traves de un enlace.</p>
+<pre><code class="hljs language-console">gh repo clone https://github.com/usuario/proyecto
+</code></pre>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600494350/Blog/6/repoclone_gdqyis.png" alt="Clonar repositorio" title="Clonar repositorio" /></p>
+<h3>Hacer fork del repositorio</h3>
+<pre><code class="hljs language-console">gh repo fork [&lt;repository&gt;] [flags]
+</code></pre>
+<p>Si no se provee de ningún argumento, hace un fork del proyecto actual, lo que es bueno se quiere empezar a arreglar bugs o realizar una nueva mejora rápidamente.</p>
+<h2>Pull Request</h2>
+<p>Subcomandos:</p>
+<ul>
+<li>checkout</li>
+<li>checks</li>
+<li>close</li>
+<li>create</li>
+<li>diff</li>
+<li>list</li>
+<li>merge</li>
+<li>ready</li>
+<li>reopen</li>
+<li>review</li>
+<li>status</li>
+<li>view</li>
+</ul>
+<h3>Crea pull request</h3>
+<pre><code class="hljs language-console">gh pr create --title "Título" --body "Contenido"
+</code></pre>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600497956/Blog/6/rp_f3gmh5.png" alt="Crear Pull Request" title="Crear Pull Request" /></p>
+<h3>Enlistar las pull request</h3>
+<pre><code class="hljs language-console">gh pr list [flags]
+</code></pre>
+<p>Se puede usar flags como filtros.</p>
+<p>Flags</p>
+<ul>
+<li>-a, --assignee string   Filter by assignee</li>
+<li>-B, --base string       Filter by base branch</li>
+<li>-l, --label strings     Filter by labels</li>
+<li>-L, --limit int         Maximum number of items to fetch (default 30)</li>
+<li>-s, --state string      Filter by state: {open|closed|merged|all} (default &quot;open&quot;)</li>
+<li>-w, --web               Open the browser to list the pull requests</li>
+</ul>
+<h3>Ver pull request</h3>
+<pre><code class="hljs language-console">gh pr view [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]
+</code></pre>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600498372/Blog/6/prview_hrrjvo.png" alt="Ver pull request" title="Ver pull request" /></p>
+<h3>Revisar el estado de las pr</h3>
+<p>Esto mostrará el estado de las pr en las que participas</p>
+<pre><code class="hljs"><span class="hljs-attribute">gh pr status</span>
+</code></pre>
+<h2>Issues</h2>
+<p>Subcomandos:</p>
+<ul>
+<li>close</li>
+<li>create</li>
+<li>list</li>
+<li>reopen</li>
+<li>status</li>
+<li>view</li>
+</ul>
+<h3>Crear issue</h3>
+<pre><code class="hljs language-console">gh issue create --title "Issue title" --body "Issue body"
+</code></pre>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600532173/Blog/6/createissue_ckxu8l.png" alt="Crear issue" title="Crear issue" /></p>
+<h3>Ver issue</h3>
+<pre><code class="hljs language-console">gh issue view {&lt;number&gt; | &lt;url&gt;} [flags]
+</code></pre>
+<h3>Enlistar issues</h3>
+<pre><code class="hljs language-console">gh issue list
+</code></pre>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600535838/Blog/6/viewIssue_fl9jji.png" alt="Enlistar Issue" title="Enlistar Issue" /></p>
+<h3>Revisar el estado del issue</h3>
+<pre><code class="hljs language-console">gh issue list -s "all"
+</code></pre>
+<h2>Gist</h2>
+<p>Subcomandos:</p>
+<ul>
+<li>create</li>
+<li>edit</li>
+<li>list</li>
+<li>view</li>
+</ul>
+<pre><code class="hljs language-console">gh gist create [&lt;filename&gt;... | -] [flags]
+</code></pre>
+<p>Para crear crear un gist nuevo se hace a traves de uno o varios archivos separados por &quot;-&quot;, por defecto los gist son privados, se pueden hacer públicos con el flag -public</p>
+<h2>Alias</h2>
+<p>Subcomandos:</p>
+<ul>
+<li>delete</li>
+<li>list</li>
+<li>set</li>
+</ul>
+<h3>Set Alias</h3>
+<p>Crea un shortcut para los comandos gh</p>
+<pre><code class="hljs language-console">gh alias set &lt;alias&gt; &lt;expansion&gt; [flags]
+</code></pre>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600539890/Blog/6/aliases_u0mnwn.png" alt="Alias" title="Alias" /></p>
+<p>Ejemplo de lista de bugs</p>
+<pre><code class="hljs language-console">alias misbugs='gh issue list -a "&lt;MarcoMadera&gt;" -l "bug"'
+</code></pre>
+<h3>Enlistar Aliases</h3>
+<pre><code class="hljs language-console">gh alias list [flags]
+</code></pre>
+<h2>API</h2>
+<pre><code class="hljs language-console">gh api &lt;endpoint&gt; [flags]
+</code></pre>
+<p>Github API es poderoso, con <code><span class="hljs-attribute">gh api</span></code> se pueden hacer llamadas HTTP a Rest o GraphQL API. El método que usa por defecto es GET, se puede cambiar con el flag --method.</p>
+<p>Para llamadas a la API de github se puede usar de la siguiente manera-</p>
+<pre><code class="hljs language-console">gh api repos/user/repo/releases
+</code></pre>
+<p>También soporta urls absolutas.</p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600495544/Blog/6/api_c3nf1n.png" alt="Llamada API" title="Llamada API" /></p>
+<h2>Conclusión</h2>
+<p>Github CLI reduce la necesidad de abrir <a href="https://github.com/">Github.com</a> después de hacer commits y push de código, por lo que es de gran ayuda para ahorrar tiempo, a día de hoy es la versión 1.0.0 y trae la mayoría de caracteristicas de github.</p>
+]]></description><link>https://marcomadera.com/blog/github-cli</link><guid isPermaLink="true">https://marcomadera.com/blog/github-cli</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Sun, 20 Sep 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[HTML Semántico]]></title><description><![CDATA[<p>Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?</p>
 <div style="display: block;
     font-size: 1.5em;
     margin-block-start: 0.83em;
