@@ -10,10 +10,10 @@ tag:
   - Terminal
 ---
 
-Sin importar el lenguaje que usemos para programar, la linea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 [se empezó a trabajar con Github CLI](https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3), para reducir el cambio de contexto entre github web y la máquina local.
+Sin importar el lenguaje que usamos para programar, la línea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 [se empezó a trabajar con Github CLI](https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3), para reducir el cambio de contexto entre github web y la máquina local.
 
 ## ¿Qué es github CLI?
-Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para ejecutar todo el flujo de trabajo en github desde la linea de comandos.
+Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para ejecutar todo el flujo de trabajo en github desde la línea de comandos.
 
 Esta herramienta nos permite interactuar con repositorios, issues, pull request y más.
 
@@ -34,14 +34,13 @@ Por comandos se pueden tomar los siguientes:
 - alias: Crea atajos de comandos
 - api: Hace llamadas HTTP a Rest o GraphQL API.
 - auth: Login, logout, y refresh de la autenticación
-- completion: Generate shell completion scripts
 - config: Maneja la configuración para gh
 - help: El comando de ayuda
 
 ## Instalación
 Para instalar Github <abbr title="Command Line Interface">CLI</abbr> en tu computadora, se descarga desde la [página oficial](https://cli.github.com/)
 
-Una vez instalado nos podemos logear con el siguiente comando:
+Una vez instalado nos podemos loguear con el siguiente comando:
 ```console
 gh auth login
 ```
@@ -76,8 +75,8 @@ Adios [repo.new](https://repo.new), hola `gh repo create`
 gh repo view [<repository>] [flags]
 ```
 Con este comando se puede observar la descripción del repositorio y el contenido del archivo README.md.
-Recibe dos argumentos, el repositorio y -w --web para ver el repositorio en el navegador.
-Si el repositorio en el directorio actual.
+Recibe dos argumentos, el nombre del repositorio y flags que puede ser por ejemplo -w --web para ver el repositorio en la web.
+Si no se incluyen flags se verá el repositorio que está en el directorio actual.
 
 ![Ver repositorio](https://res.cloudinary.com/marcomadera/image/upload/v1600493607/Blog/6/repoview_yvcrdm.png "Ver repositorio")
 
@@ -94,7 +93,7 @@ Con solo el usuario y el nombre del proyecto
 ```console
 gh repo clone usuario/proyecto
 ```
-También se puede usar de la forma tradicional a traves de un enlace.
+También se puede usar de la forma tradicional a través de un enlace.
 ```console
 gh repo clone https://github.com/usuario/proyecto
 ```
@@ -136,14 +135,6 @@ gh pr create --title "Título" --body "Contenido"
 gh pr list [flags]
 ```
 Se puede usar flags como filtros.
-
-Flags
-- -a, --assignee string   Filter by assignee
-- -B, --base string       Filter by base branch
-- -l, --label strings     Filter by labels
-- -L, --limit int         Maximum number of items to fetch (default 30)
-- -s, --state string      Filter by state: {open|closed|merged|all} (default "open")
-- -w, --web               Open the browser to list the pull requests
 
 ### Ver pull request
 ```console
@@ -202,7 +193,7 @@ Subcomandos:
 gh gist create [<filename>... | -] [flags]
 ```
 
-Para crear crear un gist nuevo se hace a traves de uno o varios archivos separados por "-", por defecto los gist son privados, se pueden hacer públicos con el flag -public
+Para crear crear un gist nuevo se hace a través de uno o varios archivos separados por "-", por defecto los gist son privados, se pueden hacer públicos con el flag -public
 
 ## Alias
 Subcomandos:
@@ -220,7 +211,7 @@ gh alias set <alias> <expansion> [flags]
 
 Ejemplo de lista de bugs
 ```console
-alias misbugs='gh issue list -a "<MarcoMadera>" -l "bug"'
+alias misbugs='gh issue list -a "MarcoMadera" -l "bug"'
 ```
 
 ### Enlistar Aliases
@@ -246,4 +237,4 @@ También soporta urls absolutas.
 ![Llamada API](https://res.cloudinary.com/marcomadera/image/upload/v1600495544/Blog/6/api_c3nf1n.png "Llamada API")
 
 ## Conclusión
-Github CLI reduce la necesidad de abrir [Github.com](https://github.com/) después de hacer commits y push de código, por lo que es de gran ayuda para ahorrar tiempo, a día de hoy es la versión 1.0.0 y trae la mayoría de caracteristicas de github.
+Github CLI reduce la necesidad de abrir [Github.com](https://github.com/) después de hacer commits y push de código, por lo que es de gran ayuda para ahorrar tiempo, a día de hoy es la versión 1.0.0 y trae la mayoría de características de github.

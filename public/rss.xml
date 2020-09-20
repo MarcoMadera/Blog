@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Sat, 19 Sep 2020 21:39:51 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[Github CLI]]></title><description><![CDATA[<p>Sin importar el lenguaje que usemos para programar, la linea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 <a href="https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3">se empezó a trabajar con Github CLI</a>, para reducir el cambio de contexto entre github web y la máquina local.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Sun, 20 Sep 2020 06:09:54 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><item><title><![CDATA[Github CLI]]></title><description><![CDATA[<p>Sin importar el lenguaje que usamos para programar, la línea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 <a href="https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3">se empezó a trabajar con Github CLI</a>, para reducir el cambio de contexto entre github web y la máquina local.</p>
 <h2>¿Qué es github CLI?</h2>
-<p>Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para ejecutar todo el flujo de trabajo en github desde la linea de comandos.</p>
+<p>Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para ejecutar todo el flujo de trabajo en github desde la línea de comandos.</p>
 <p>Esta herramienta nos permite interactuar con repositorios, issues, pull request y más.</p>
 <h2>Uso</h2>
 <p>La estructura de los comandos siguen el mismo patrón:</p>
@@ -16,13 +16,12 @@
 <li>alias: Crea atajos de comandos</li>
 <li>api: Hace llamadas HTTP a Rest o GraphQL API.</li>
 <li>auth: Login, logout, y refresh de la autenticación</li>
-<li>completion: Generate shell completion scripts</li>
 <li>config: Maneja la configuración para gh</li>
 <li>help: El comando de ayuda</li>
 </ul>
 <h2>Instalación</h2>
 <p>Para instalar Github <abbr title="Command Line Interface">CLI</abbr> en tu computadora, se descarga desde la <a href="https://cli.github.com/">página oficial</a></p>
-<p>Una vez instalado nos podemos logear con el siguiente comando:</p>
+<p>Una vez instalado nos podemos loguear con el siguiente comando:</p>
 <pre><code class="hljs language-console">gh auth login
 </code></pre>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600485625/Blog/6/Login_Github_Cli_vjd3it.png" alt="Login en github cli" title="Login en github cli" /></p>
@@ -49,8 +48,8 @@
 <pre><code class="hljs language-console">gh repo view [&lt;repository&gt;] [flags]
 </code></pre>
 <p>Con este comando se puede observar la descripción del repositorio y el contenido del archivo <a href="http://README.md">README.md</a>.<br />
-Recibe dos argumentos, el repositorio y -w --web para ver el repositorio en el navegador.<br />
-Si el repositorio en el directorio actual.</p>
+Recibe dos argumentos, el nombre del repositorio y flags que puede ser por ejemplo -w --web para ver el repositorio en la web.<br />
+Si no se incluyen flags se verá el repositorio que está en el directorio actual.</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600493607/Blog/6/repoview_yvcrdm.png" alt="Ver repositorio" title="Ver repositorio" /></p>
 <h3>Clonar repositorio</h3>
 <p>Existen varias formas de clonar un repositorio</p>
@@ -62,7 +61,7 @@ Si el repositorio en el directorio actual.</p>
 <p>Con solo el usuario y el nombre del proyecto</p>
 <pre><code class="hljs language-console">gh repo clone usuario/proyecto
 </code></pre>
-<p>También se puede usar de la forma tradicional a traves de un enlace.</p>
+<p>También se puede usar de la forma tradicional a través de un enlace.</p>
 <pre><code class="hljs language-console">gh repo clone https://github.com/usuario/proyecto
 </code></pre>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600494350/Blog/6/repoclone_gdqyis.png" alt="Clonar repositorio" title="Clonar repositorio" /></p>
@@ -94,15 +93,6 @@ Si el repositorio en el directorio actual.</p>
 <pre><code class="hljs language-console">gh pr list [flags]
 </code></pre>
 <p>Se puede usar flags como filtros.</p>
-<p>Flags</p>
-<ul>
-<li>-a, --assignee string   Filter by assignee</li>
-<li>-B, --base string       Filter by base branch</li>
-<li>-l, --label strings     Filter by labels</li>
-<li>-L, --limit int         Maximum number of items to fetch (default 30)</li>
-<li>-s, --state string      Filter by state: {open|closed|merged|all} (default &quot;open&quot;)</li>
-<li>-w, --web               Open the browser to list the pull requests</li>
-</ul>
 <h3>Ver pull request</h3>
 <pre><code class="hljs language-console">gh pr view [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]
 </code></pre>
@@ -145,7 +135,7 @@ Si el repositorio en el directorio actual.</p>
 </ul>
 <pre><code class="hljs language-console">gh gist create [&lt;filename&gt;... | -] [flags]
 </code></pre>
-<p>Para crear crear un gist nuevo se hace a traves de uno o varios archivos separados por &quot;-&quot;, por defecto los gist son privados, se pueden hacer públicos con el flag -public</p>
+<p>Para crear crear un gist nuevo se hace a través de uno o varios archivos separados por &quot;-&quot;, por defecto los gist son privados, se pueden hacer públicos con el flag -public</p>
 <h2>Alias</h2>
 <p>Subcomandos:</p>
 <ul>
@@ -159,7 +149,7 @@ Si el repositorio en el directorio actual.</p>
 </code></pre>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600539890/Blog/6/aliases_u0mnwn.png" alt="Alias" title="Alias" /></p>
 <p>Ejemplo de lista de bugs</p>
-<pre><code class="hljs language-console">alias misbugs='gh issue list -a "&lt;MarcoMadera&gt;" -l "bug"'
+<pre><code class="hljs language-console">alias misbugs='gh issue list -a "MarcoMadera" -l "bug"'
 </code></pre>
 <h3>Enlistar Aliases</h3>
 <pre><code class="hljs language-console">gh alias list [flags]
@@ -174,7 +164,7 @@ Si el repositorio en el directorio actual.</p>
 <p>También soporta urls absolutas.</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/v1600495544/Blog/6/api_c3nf1n.png" alt="Llamada API" title="Llamada API" /></p>
 <h2>Conclusión</h2>
-<p>Github CLI reduce la necesidad de abrir <a href="https://github.com/">Github.com</a> después de hacer commits y push de código, por lo que es de gran ayuda para ahorrar tiempo, a día de hoy es la versión 1.0.0 y trae la mayoría de caracteristicas de github.</p>
+<p>Github CLI reduce la necesidad de abrir <a href="https://github.com/">Github.com</a> después de hacer commits y push de código, por lo que es de gran ayuda para ahorrar tiempo, a día de hoy es la versión 1.0.0 y trae la mayoría de características de github.</p>
 ]]></description><link>https://marcomadera.com/blog/github-cli</link><guid isPermaLink="true">https://marcomadera.com/blog/github-cli</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Sun, 20 Sep 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[HTML Semántico]]></title><description><![CDATA[<p>Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?</p>
 <div style="display: block;
     font-size: 1.5em;
