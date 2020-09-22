@@ -59,7 +59,8 @@ const BlogCard = ({
           transition: background-color var(--switch-transition);
           margin-bottom: 1rem;
         }
-        article:hover {
+        article:hover,
+        article:focus-within {
           box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px 0px;
         }
         header {

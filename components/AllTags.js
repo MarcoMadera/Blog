@@ -30,6 +30,9 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
           color: ${colors.secondary};
           text-decoration: underline;
         }
+        a:focus {
+          color: ${colors.secondary};
+        }
         section {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

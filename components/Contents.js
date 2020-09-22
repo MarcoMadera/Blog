@@ -27,7 +27,8 @@ const Contents = ({ content }) => {
           margin: 10px 0;
           width: fit-content;
         }
-        a:hover {
+        a:hover,
+        a:focus {
           color: ${colors.secondary};
         }
         p {

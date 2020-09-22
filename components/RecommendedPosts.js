@@ -57,6 +57,11 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
           background: rgb(250, 250, 250);
           border-radius: 3px;
         }
+        a:focus {
+          color: ${colors.secondary};
+          background: rgb(250, 250, 250);
+          border-radius: 3px;
+        }
         section {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

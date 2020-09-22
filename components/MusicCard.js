@@ -2,32 +2,29 @@ import PropTypes from "prop-types";
 import { colors } from "../styles/theme";
 const MusicCard = ({ songUrl, cover, title, artist }) => {
   return (
-    <a
-      href={songUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Reproducir ${title} de ${artist} en Spotify`}
-      title={`${title} ${String.fromCharCode(183)} ${artist}`}
-    >
-      <article>
+    <article>
+      <a
+        href={songUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Reproducir ${title} de ${artist} en Spotify`}
+        title={`${title} ${String.fromCharCode(183)} ${artist}`}
+      >
         <img
           src={cover}
           alt={`${title} portada del album`}
           width="64"
           height="64"
         />
-        <div>
+        <section>
           <p>
             <b>{title}</b>
           </p>
           <p>{artist}</p>
-        </div>
-      </article>
+        </section>
+      </a>
       <style jsx>{`
         a {
-          display: block;
-        }
-        article {
           display: flex;
           border-radius: 3px;
           border: 1px solid ${colors.gray};
@@ -35,7 +32,8 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
           padding: 5px;
           align-items: center;
         }
-        article:hover {
+        a:hover,
+        a:focus-within {
           box-shadow: 0px 0px 4px 0px rgba(84, 84, 84, 0.15);
         }
         img {
@@ -55,7 +53,7 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
           -webkit-box-orient: vertical;
         }
       `}</style>
-    </a>
+    </article>
   );
 };
 

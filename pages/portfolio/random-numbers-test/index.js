@@ -35,8 +35,8 @@ const Random = () => {
             proyecto en el blog de{" "}
             <Link href="/blog/numeros-pseudo-aleatorios">
               <a>números pseudo aleatorios</a>
-            </Link>
-            donde explico cómo determinar el comportamiento y puedes ver los
+            </Link>{" "}
+            dónde explico cómo determinar el comportamiento y puedes ver los
             resultados que obtuve al aplicarlo con Math.Random() de JavaScript.
           </p>
         </section>
@@ -53,6 +53,11 @@ const Random = () => {
           </a>
         </div>
       </article>
+      <style global jsx>{`
+        .btn-primary {
+          margin-right: 20px;
+        }
+      `}</style>
       <style jsx>{`
         main {
           margin: 0 auto;
@@ -64,9 +69,7 @@ const Random = () => {
         }
         p {
           line-height: 1.6;
-        }
-        section a {
-          margin-right: 20px;
+          text-align: justify;
         }
         article {
           display: grid;
@@ -83,12 +86,16 @@ const Random = () => {
         }
         img {
           width: 100%;
-          transition: ease 0.3s;
           clip-path: inset(0% 0% 0% 0% round 10px);
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
             0 10px 10px -5px rgba(0, 0, 0, 0.03);
         }
-        img:hover {
+        div a {
+          transition: ease 0.3s;
+          display: flex;
+        }
+        div a:hover,
+        div a:focus {
           position: static;
           transform: scale(1.1);
         }

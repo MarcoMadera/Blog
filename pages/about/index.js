@@ -343,6 +343,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           text-decoration: underline;
           color: ${colors.secondary};
         }
+        section p a:focus {
+          color: ${colors.secondary};
+        }
         section a:hover {
           text-decoration: underline;
         }

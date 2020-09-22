@@ -74,7 +74,8 @@ const Aside = () => {
         }
       `}</style>
       <style global jsx>{`
-        svg:hover {
+        a:hover svg,
+        a:focus svg {
           fill: ${colors.secondary};
         }
       `}</style>

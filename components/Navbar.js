@@ -7,12 +7,18 @@ const Navbar = () => {
     <nav>
       <Link href="/">
         <a className="logo" aria-label="Ir a la página principal">
-          <img
-            src="/apple-touch-icon-120x120.png"
-            alt="Logo patrón de desbloqueo de en forma de M"
-            width="40"
-            height="40"
-          />
+          <picture>
+            <source
+              srcSet="/apple-touch-icon-120x120.png"
+              media="(max-width: 876px)"
+            />
+            <img
+              src="/favicon-48x48.png"
+              alt="Logo patrón de desbloqueo de en forma de M"
+              width="40"
+              height="40"
+            />
+          </picture>
           <span>Marco Madera</span>
         </a>
       </Link>
@@ -46,29 +52,32 @@ const Navbar = () => {
         }
         @keyframes jello-vertical {
           0% {
-            transform: scale3d(1, 1, 1);
+            transform: scale(1, 1);
           }
           30% {
-            transform: scale3d(0.75, 1.25, 1);
+            transform: scale(0.75, 1.25);
           }
           40% {
-            transform: scale3d(1.25, 0.75, 1);
+            transform: scale(1.25, 0.75);
           }
           50% {
-            transform: scale3d(0.85, 1.15, 1);
+            transform: scale(0.85, 1.15);
           }
           65% {
-            transform: scale3d(1.05, 0.95, 1);
+            transform: scale(1.05, 0.95);
           }
           75% {
-            transform: scale3d(0.95, 1.05, 1);
+            transform: scale(0.95, 1.05);
           }
           100% {
-            transform: scale3d(1, 1, 1);
+            transform: scale(1, 1);
           }
         }
       `}</style>
       <style jsx>{`
+        picture {
+          display: inline-flex;
+        }
         span {
           font-size: 1.17em;
           font-weight: 400;
@@ -93,9 +102,10 @@ const Navbar = () => {
           display: inline-block;
           margin: 13.5px 5px;
         }
-        nav section a:hover {
+        nav section a:hover,
+        nav section a:focus {
           color: ${colors.secondary};
-          animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
         }
 
