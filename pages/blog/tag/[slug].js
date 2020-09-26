@@ -8,19 +8,25 @@ import Newsletter from "../../../components/Newsletter";
 import BlogCard from "../../../components/BlogCard";
 import AllTags from "../../../components/AllTags";
 import Seo from "../../../components/Seo";
+import slugify from "react-slugify";
 
 const tag = ({ postData, tags }) => {
   const { slug, postsByTag } = postData;
   return (
     <main id="main">
       <Seo
-        title={`Blog tag ${slug.charAt(0).toUpperCase() + slug.slice(1)}`}
+        title={`Blog tag ${postsByTag[0].tag.find((item) =>
+          slugify(item).includes(slug)
+        )}`}
         url={`https://marcomadera.com/${slug}`}
       />
       <Aside />
       <section>
         <strong>
-          <p>Etiqueta {slug.charAt(0).toUpperCase() + slug.slice(1)}</p>
+          <p>
+            Etiqueta{" "}
+            {postsByTag[0].tag.find((item) => slugify(item).includes(slug))}
+          </p>
         </strong>
         {postsByTag.length ? (
           postsByTag.map((data) => <BlogCard {...data} key={data.slug} />)

@@ -5,6 +5,6 @@ export function getSiteMetaData() {
 }
 export function getFormattedDate(date) {
   const options = { year: "numeric", month: "short", day: "numeric" };
-  const formattedDate = date.toLocaleDateString(siteMetadata.language, options);
+  const formattedDate = date.toLocaleDateString("es", options);
   return formattedDate;
 }

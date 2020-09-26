@@ -49,7 +49,10 @@ const BlogCard = ({
             ))}
         </div>
         <span>
-          {author} | <time>{getFormattedDate(new Date(date))}</time>
+          {author} |{" "}
+          <time dateTime={new Date(date).toISOString()}>
+            {getFormattedDate(new Date(date))}
+          </time>
         </span>
       </footer>
       <style jsx>{`

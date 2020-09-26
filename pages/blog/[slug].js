@@ -63,7 +63,9 @@ export default function Post({ postData, recommendedPosts }) {
           <header>
             <h1>{frontmatter.title}</h1>
             <p>
-              <time>{getFormattedDate(new Date(frontmatter.date))}</time>
+              <time dateTime={new Date(frontmatter.date).toISOString()}>
+                {getFormattedDate(new Date(frontmatter.date))}
+              </time>
             </p>
           </header>
           <MarkDown
