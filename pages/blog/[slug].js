@@ -18,6 +18,7 @@ import { FastCommentsCommentWidget } from "fastcomments-react";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
 import { colors } from "../../styles/theme";
+import { getFormattedDate } from "../../utils/helpers";
 const CodeBlock = ({ language, value }) => {
   return (
     <SyntaxHighlighter language={language} style={codeTheme}>
@@ -62,7 +63,7 @@ export default function Post({ postData, recommendedPosts }) {
           <header>
             <h1>{frontmatter.title}</h1>
             <p>
-              <time>{frontmatter.date}</time>
+              <time>{getFormattedDate(new Date(frontmatter.date))}</time>
             </p>
           </header>
           <MarkDown
@@ -490,17 +491,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const getFormattedDate = (date, local) => {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    const formattedDate = date.toLocaleDateString(local, options);
-    return formattedDate;
-  };
   const postData = getPostBySlug(slug);
-  postData.frontmatter.date = getFormattedDate(
-    postData.frontmatter.date,
-    "es-MX"
-  );
-
   const recommendedPosts = getPostsByTags(postData.frontmatter.tag);
   if (!postData.previousPost) {
     postData.previousPost = null;
@@ -519,13 +510,7 @@ export async function getStaticProps({ params: { slug } }) {
 
 Post.propTypes = {
   postData: PropTypes.object,
-  tags: PropTypes.array,
   recommendedPosts: PropTypes.array,
-  post: PropTypes.object,
-  frontmatter: PropTypes.object,
-  currentPost: PropTypes.object,
-  nextPost: PropTypes.object,
-  previousPost: PropTypes.object,
 };
 
 CodeBlock.propTypes = {

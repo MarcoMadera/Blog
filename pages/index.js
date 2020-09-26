@@ -1,6 +1,6 @@
 import Aside from "../components/Aside";
 import Seo from "../components/Seo";
-import { getSortedPosts, getPostsTags } from "../utils/posts";
+import { getSortedPostsData, getPostsTags } from "../utils/posts";
 import Newsletter from "../components/Newsletter";
 import AllTags from "../components/AllTags";
 import BlogCard from "../components/BlogCard";
@@ -16,39 +16,15 @@ const Home = ({ posts = [], tags = [] }) => {
   const indexOfFirstPost = indexOfLastPost - 4;
   const lastPage = Math.ceil(posts.length / 4);
   const pages = Array.from(Array(lastPage), (_, i) => i + 1);
-  posts = posts.slice(indexOfFirstPost, indexOfLastPost);
   return (
     <main id="main">
       <Seo title="Página principal" />
       <Aside />
       <section>
         <h1>Últimos artículos</h1>
-        {posts.map(
-          ({
-            frontmatter: {
-              title,
-              description,
-              date,
-              cover,
-              cover100,
-              tag,
-              author,
-            },
-            slug,
-          }) => (
-            <BlogCard
-              key={title}
-              title={title}
-              description={description}
-              date={date}
-              cover={cover}
-              cover100={cover100}
-              tag={tag}
-              author={author}
-              slug={slug}
-            />
-          )
-        )}
+        {posts.slice(indexOfFirstPost, indexOfLastPost).map((data) => (
+          <BlogCard {...data} key={data.slug} />
+        ))}
         {posts.length <= 0 && <Custom404 />}
         <nav aria-label="Paginación">
           <ol>
@@ -139,17 +115,8 @@ const Home = ({ posts = [], tags = [] }) => {
 };
 
 export async function getStaticProps() {
-  const getFormattedDate = (date, local) => {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    const formattedDate = date.toLocaleDateString(local, options);
-    return formattedDate;
-  };
-  const posts = getSortedPosts();
+  const posts = getSortedPostsData();
   const tags = [...new Set(getPostsTags())];
-  posts.forEach(
-    (post) =>
-      (post.frontmatter.date = getFormattedDate(post.frontmatter.date, "es-MX"))
-  );
   return {
     props: {
       posts,

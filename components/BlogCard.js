@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
+import { getFormattedDate } from "../utils/helpers";
 const BlogCard = ({
   slug,
   title,
@@ -48,7 +49,7 @@ const BlogCard = ({
             ))}
         </div>
         <span>
-          {author} | <time>{date}</time>
+          {author} | <time>{getFormattedDate(new Date(date))}</time>
         </span>
       </footer>
       <style jsx>{`
