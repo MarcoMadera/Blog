@@ -12,19 +12,19 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
             </strong>
           )}
           <section>
-            {recommendedPosts.map(({ slug, frontmatter }, i) => {
+            {recommendedPosts.map(({ slug, cover100, title }, i) => {
               if (slug === currentPost) return;
               return (
                 i <= 6 && (
                   <Link key={slug} href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
                     <a>
                       <img
-                        src={frontmatter.cover100}
-                        alt={`${frontmatter.title} cover`}
+                        src={cover100}
+                        alt={`${title} cover`}
                         width="40"
                         height="40"
                       />
-                      {frontmatter.title}
+                      {title}
                     </a>
                   </Link>
                 )
