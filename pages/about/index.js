@@ -77,7 +77,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             gusto me gusta compartirla.
           </p>
           <a
-            href="https://lichess.org/@/MarcoMadera000"
+            href="https://lichess.org/@/MarcoMadera"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Página de Lichess.org"

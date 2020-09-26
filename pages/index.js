@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import Custom404 from "./404";
 import { colors } from "../styles/theme";
-
+import Link from "next/link";
 const Home = ({ posts = [], tags = [] }) => {
   const router = useRouter();
   const page = parseInt(router.query.page) || 1;
@@ -50,32 +50,30 @@ const Home = ({ posts = [], tags = [] }) => {
           )
         )}
         {posts.length <= 0 && <Custom404 />}
-        <nav>
-          {pages.map((pageNumber, i) => {
-            if (i === 0) {
+        <nav aria-label="Paginación">
+          <ol>
+            {pages.map((pageNumber, i) => {
               return (
-                <button
-                  className={page == pageNumber ? "currentPage" : undefined}
-                  key={pageNumber}
-                  onClick={() => router.push("/")}
-                  aria-label={`Ir a página ${pageNumber}`}
-                >
-                  {pageNumber}
-                </button>
+                <li key={pageNumber}>
+                  <Link href={i === 0 ? "/" : `/?page=${pageNumber}`}>
+                    <a
+                      className={
+                        page === pageNumber ? "currentPage" : "pagination"
+                      }
+                      aria-label={
+                        page === pageNumber
+                          ? "Página actual"
+                          : `Ir a página ${pageNumber}`
+                      }
+                      aria-current={page === pageNumber ? "true" : undefined}
+                    >
+                      {pageNumber}
+                    </a>
+                  </Link>
+                </li>
               );
-            } else {
-              return (
-                <button
-                  className={page == pageNumber ? "currentPage" : undefined}
-                  key={pageNumber}
-                  onClick={() => router.push(`/?page=${pageNumber}`)}
-                  aria-label={`Ir a página ${pageNumber}`}
-                >
-                  {pageNumber}
-                </button>
-              );
-            }
-          })}
+            })}
+          </ol>
         </nav>
       </section>
       <aside>
@@ -90,17 +88,27 @@ const Home = ({ posts = [], tags = [] }) => {
           display: flex;
           justify-content: center;
         }
-        button {
-          border: unset;
+        ol {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        li {
+          display: inline-block;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 1;
           margin: 0 5px;
-          background: unset;
           color: ${colors.primary};
-          cursor: pointer;
-          font-weight: 600;
+          font-weight: 500;
+          padding: 5px 12px;
           width: 30px;
           height: 30px;
-          text-align: center;
-          align-items: center;
+          border-radius: 50% !important;
         }
         main {
           display: grid;
@@ -121,6 +129,9 @@ const Home = ({ posts = [], tags = [] }) => {
           background-color: ${colors.primary} !important;
           border: 1px solid ${colors.primary} !important;
           color: white !important;
+        }
+        .pagination:hover {
+          color: ${colors.secondary} !important;
         }
       `}</style>
     </main>
