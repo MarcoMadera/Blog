@@ -23,32 +23,7 @@ const tag = ({ postData, tags }) => {
           <p>Etiqueta {slug.charAt(0).toUpperCase() + slug.slice(1)}</p>
         </strong>
         {postsByTag.length ? (
-          postsByTag.map(
-            ({
-              frontmatter: {
-                title,
-                description,
-                date,
-                cover,
-                cover100,
-                tag,
-                author,
-              },
-              slug,
-            }) => (
-              <BlogCard
-                key={title}
-                title={title}
-                description={description}
-                date={date}
-                cover={cover}
-                cover100={cover100}
-                tag={tag}
-                author={author}
-                slug={slug}
-              />
-            )
-          )
+          postsByTag.map((data) => <BlogCard {...data} key={data.slug} />)
         ) : (
           <h1>No hay resultados</h1>
         )}
@@ -88,15 +63,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const tags = [...new Set(getPostsTags())];
   const postData = getPostsByTag(slug);
-  const getFormattedDate = (date, local) => {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    const formattedDate = date.toLocaleDateString(local, options);
-    return formattedDate;
-  };
-  postData.postsByTag.forEach(
-    (post) =>
-      (post.frontmatter.date = getFormattedDate(post.frontmatter.date, "es-MX"))
-  );
   return {
     props: {
       postData,

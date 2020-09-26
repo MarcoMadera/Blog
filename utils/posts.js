@@ -106,10 +106,8 @@ export const getPostBySlug = (slug) => {
   };
 };
 export const getPostsByTag = (slug) => {
-  const posts = getSortedPosts();
-  const postsByTag = posts.filter(({ frontmatter }) =>
-    slugify(frontmatter.tag).includes(slug)
-  );
+  const posts = getSortedPostsData();
+  const postsByTag = posts.filter(({ tag }) => slugify(tag).includes(slug));
 
   return {
     postsByTag,
@@ -126,6 +124,7 @@ export const getPostsSlugs = () => {
   }));
   return paths;
 };
+
 export const getPostsByTags = (data) =>
   [
     ...new Set(
