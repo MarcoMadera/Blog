@@ -147,7 +147,7 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
   <footer class="footer">< Footer ></footer>
 </section>
 
-```HTML
+```html
 <body>
   <nav><nav>
   <header></header>
@@ -197,7 +197,7 @@ Se espera tener contenido después de un título, poner varios títulos seguidos
 
 <hgroup><h1>h1</h1><h6>h6</h6></hgroup>
 
-```HTML
+```html
 <hgroup>
   <h1>
     h1
@@ -218,7 +218,7 @@ Ejemplo.com<br>
 Dirección<br>
 </address>
 
-```HTML
+```html
 <address>
 Escrito por <a href="mailto:ejemplo@ejemplo.com">Nombre</a>.<br>
 Visitanos en:<br>
@@ -234,7 +234,7 @@ Dirección<br>
 
 <em>Esto es énfasis</em>
 
-```HTML
+```html
 <p>
   <em>Esto es énfasis</em>
 </p>
@@ -242,7 +242,7 @@ Dirección<br>
 
 <i>Esto es cursivo</i>
 
-```HTML
+```html
 <p>
   <i>Esto es cursivo</i>
 </p>
@@ -253,7 +253,7 @@ Dirección<br>
 
 <mark>Esto es una parte marcada porque es relevante</mark>
 
-```HTML
+```html
 <p>
   <mark>Esto es una parte marcada porque es relevante</mark>
 </p>
@@ -264,7 +264,7 @@ Dirección<br>
 
 <strong>Esto está en negritra porque es importante</strong>
 
-```HTML
+```html
 <p>
   <strong>Esto está en negritra porque es importante</strong>
 </p>
@@ -272,7 +272,7 @@ Dirección<br>
 
 <b>Esto está en negritra pero no es importante</b>
 
-```HTML
+```html
 <p>
   <b>Esto está en negritra pero no es importante</b>
 </p>
@@ -287,7 +287,7 @@ Esta etiqueta sirve para indicar dónde está bien que suceda un salto de línea
 
 <p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://marco<wbr>madera<wbr>.com</p>
 
-```HTML
+```html
 <p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://marco<wbr>madera<wbr>.com</p>
 ```
 
@@ -296,7 +296,7 @@ Representa una regla horizontal, un salto de tema en una sección.
 
 <p>Texto</p> <hr /> <p>Texto</p>
 
-```HTML
+```html
 <p>Texto</p>
 <hr />
 <p>Texto</p>
@@ -310,7 +310,7 @@ Representa una regla horizontal, un salto de tema en una sección.
 
 <blockquote>Bloque acotado</blockquote>
 
-```HTML
+```html
 <blockquote>Bloque acotado</blockquote>
 ```
 
@@ -318,7 +318,7 @@ Representa una regla horizontal, un salto de tema en una sección.
 
 <q cite="https://example.com">Cuota</q>
 
-```HTML
+```html
 <q cite="https://example.com">Cuota.</q>
 ```
 
@@ -326,7 +326,7 @@ Representa una regla horizontal, un salto de tema en una sección.
 
 <q>Cita de texto</q> <cite>— Nombre del autor</cite>
 
-```HTML
+```html
 <q>Cita de texto</q> <cite>— Nombre del autor</cite>
 ```
 
@@ -338,7 +338,7 @@ Representa una regla horizontal, un salto de tema en una sección.
 
 Esto es una <abbr title="abreviación">abbr</abbr>.
 
-```HTML
+```html
 <p>Esto es una <abbr title="abreviación">abbr</abbr>.</p>
 ```
 
@@ -347,7 +347,7 @@ Esto es una <abbr title="abreviación">abbr</abbr>.
 
 <p><dfn>HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.</p>
 
-```HTML
+```html
 <p>
   <dfn>HTML Semántico</dfn> es el uso de 
   <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.
@@ -366,7 +366,7 @@ Recibe un atributo open, si no está indicado, no es mostrado.
 
 &nbsp;
 
-```HTML
+```html
 <dialog open><p>Esto es un cuadro de diálogo</p></dialog>
 ```
 
@@ -381,7 +381,7 @@ Al igual que los diálogos recibe un atributo open para que pueda estar por defe
   <p>Contenido del elemento</p>
 </details>
 
-```HTML
+```html
 <details>
   <summary>Elemento</summary>
   <p>Contenido del elemento</p>
@@ -399,7 +399,7 @@ Al igual que los diálogos recibe un atributo open para que pueda estar por defe
   alt="Imagen"
 />
 
-```HTML 
+```html
 <img
   src="https://picsum.photos/100"
   alt="Imagen"
@@ -414,7 +414,7 @@ Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama,
   <figcaption>Imagen Aleatoria</figcaption>
 </figure>
 
-```HTML
+```html
 <figure>
   <img src="https://picsum.photos/200" alt="Figura">
   <figcaption>Imagen Aleatoria</figcaption>
@@ -433,7 +433,7 @@ La etiqueta source puede tener el atributo de cualquier media query, por lo tant
   />
 </picture>
 
-```HTML 
+```html
 <picture>
   <source srcSet="https://picsum.photos/100" media="(max-width: 500px)" />
   <source srcSet="https://picsum.photos/200" media="(max-width: 876px)" />
@@ -452,7 +452,7 @@ Hay diversos tipos de entrada, button, checkbox, date, email, password, range, t
 
 <input type="color">
 
-```HTML
+```html
 <input type="color">
 ```
 
@@ -460,7 +460,7 @@ Hay diversos tipos de entrada, button, checkbox, date, email, password, range, t
 
 <input type="number" min="1" max="5" />
 
-```HTML
+```html
 <input type="number" min="1" max="5" />
 ```
 
@@ -473,7 +473,7 @@ La etiqueta meter es utilizada como indicador de una escala conocida, así que c
 
 <meter min="10" max="20" value="18">18 puntos</meter>
 
-```HTML
+```html
 <meter min="10" max="20" value="18">18 puntos</meter>
 ```
 
@@ -487,7 +487,7 @@ La barra de progreso es utilizada para mostrar el avance de una tarea. Existen d
 
 <progress>Indeterminada</progress>
 
-```HTML
+```html
 <p>Determinada:</p>
 
 <progress value="66" max="100">Determinada</progress>
@@ -511,7 +511,7 @@ La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pue
   </optgroup>
 </select>
 
-```HTML
+```html
 <select name="elementos">
   <optgroup label="Grupo 1">
     <option value="elemento1">Elemento1</option>
@@ -537,7 +537,7 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
  <li>objeto4
 </ol>
 
-```HTML
+```html
 <p>Lista ordenada</p>
 <ol>
  <li>objeto1
@@ -555,7 +555,7 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
  <li>objeto4
 </ul>
 
-```HTML
+```html
 <p>Lista sin orden</p>
 <ul>
  <li>objeto1
@@ -571,7 +571,7 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
 
 <table><caption>Precio de cosas</caption><colgroup><col span="0" style="background-color:#e0ece4"><col span="1" style="background-color:#ebecf1"><col span="2" style="background-color:#f1f3de"></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" style="background-color:#e0ece4">$336</td></tr></tfoot></table>
 
-```HTML
+```html
 <table>
   <caption>Precio de cosas</caption>
   <colgroup>

@@ -70,7 +70,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 
 ### No recomendado:
 
-```HTML
+```html
 <body>
   <div></div>
   <div>
@@ -83,7 +83,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 
 ### Recomendado:
 
-```HTML
+```html
 <body>
   <header></header>
   <main>
@@ -98,7 +98,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 
 Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la descripción.
 
-```HTML
+```html
 <img src ="img src" alt="description">
 ```
 
@@ -108,7 +108,7 @@ Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a l
 
 El uso del scope ayuda a los lectores de pantalla a seguir el orden correcto.
 
-```HTML
+```html
  <table border="1">
   <caption>Contact Information</caption>
   <tr>
@@ -230,7 +230,7 @@ El enfoque da una guía visual al usuario sobre los elementos interactivos. Si u
 
 Es una [técnica](https://www.w3.org/TR/WCAG20-TECHS/G1.html) que permite navegar directamente al contenido principal, donde el primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.
 
-```HTML
+```html
 <style>
   .skip-link {
   display: block;

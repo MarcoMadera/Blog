@@ -1,6 +1,5 @@
 import Link from "next/link";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import codeTheme from "react-syntax-highlighter/dist/cjs/styles/hljs/a11y-light";
+import codeTheme from "react-syntax-highlighter/dist/cjs/styles/prism/ghcolors";
 import {
   getPostBySlug,
   getPostsSlugs,
@@ -19,9 +18,18 @@ import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
 import { colors } from "../../styles/theme";
 import { getFormattedDate } from "../../utils/helpers";
+
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+
 const CodeBlock = ({ language, value }) => {
   return (
-    <SyntaxHighlighter language={language} style={codeTheme}>
+    <SyntaxHighlighter
+      showLineNumbers={true}
+      showInlineLineNumbers={true}
+      wrapLines={false}
+      language={language}
+      style={codeTheme}
+    >
       {value}
     </SyntaxHighlighter>
   );
@@ -293,7 +301,7 @@ export default function Post({ postData, recommendedPosts }) {
         }
         .blog pre code {
           line-height: 20px;
-          font-size: 14px;
+          font-size: 14px !important;
         }
         .blog table {
           margin: 0 auto;

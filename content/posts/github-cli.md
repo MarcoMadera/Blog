@@ -20,7 +20,7 @@ Esta herramienta nos permite interactuar con repositorios, issues, pull request 
 ## Uso
 La estructura de los comandos siguen el mismo patrón:
 
-```console
+```powershell
 gh <comando> <subcomando> [flags]
 ```
 
@@ -41,7 +41,7 @@ Por comandos se pueden tomar los siguientes:
 Para instalar Github <abbr title="Command Line Interface">CLI</abbr> en tu computadora, se descarga desde la [página oficial](https://cli.github.com/)
 
 Una vez instalado nos podemos loguear con el siguiente comando:
-```console
+```powershell
 gh auth login
 ```
 
@@ -61,7 +61,7 @@ Subcomandos:
 - view
 
 ### Crear repositorios
-```console
+```powershell
 gh repo create [<name>] [flags]
 ```
 
@@ -71,7 +71,7 @@ Adios [repo.new](https://repo.new), hola `gh repo create`
 
 ### Ver los repositorios
 
-```console
+```powershell
 gh repo view [<repository>] [flags]
 ```
 Con este comando se puede observar la descripción del repositorio y el contenido del archivo README.md.
@@ -82,26 +82,26 @@ Si no se incluyen flags se verá el repositorio que está en el directorio actua
 
 ### Clonar repositorio
 Existen varias formas de clonar un repositorio
-```console
+```powershell
 gh repo clone <repositorio> [<directorio>] [-- <gitflags>...]
 ```
 Esto clona un repositorio que el propietario es la persona que está autenticada.
-```console
+```powershell
 gh repo clone proyecto
 ```
 Con solo el usuario y el nombre del proyecto
-```console
+```powershell
 gh repo clone usuario/proyecto
 ```
 También se puede usar de la forma tradicional a través de un enlace.
-```console
+```powershell
 gh repo clone https://github.com/usuario/proyecto
 ```
 
 ![Clonar repositorio](https://res.cloudinary.com/marcomadera/image/upload/v1600494350/Blog/6/repoclone_gdqyis.png "Clonar repositorio")
 
 ### Hacer fork del repositorio
-```console
+```powershell
 gh repo fork [<repository>] [flags]
 ```
 Si no se provee de ningún argumento, hace un fork del proyecto actual, lo que es bueno se quiere empezar a arreglar bugs o realizar una nueva mejora rápidamente.
@@ -122,7 +122,7 @@ Subcomandos:
 - view
 
 ### Crea pull request
-```console
+```powershell
 gh pr create --title "Título" --body "Contenido"
 ```
 
@@ -131,13 +131,13 @@ gh pr create --title "Título" --body "Contenido"
 
 
 ### Enlistar las pull request
-```console
+```powershell
 gh pr list [flags]
 ```
 Se puede usar flags como filtros.
 
 ### Ver pull request
-```console
+```powershell
 gh pr view [<number> | <url> | <branch>] [flags]
 ```
 ![Ver pull request](https://res.cloudinary.com/marcomadera/image/upload/v1600498372/Blog/6/prview_hrrjvo.png "Ver pull request")
@@ -158,27 +158,27 @@ Subcomandos:
 - view
 
 ### Crear issue
-```console
+```powershell
 gh issue create --title "Issue title" --body "Issue body"
 ```
 
 ![Crear issue](https://res.cloudinary.com/marcomadera/image/upload/v1600532173/Blog/6/createissue_ckxu8l.png "Crear issue")
 
 ### Ver issue
-```console
+```powershell
 gh issue view {<number> | <url>} [flags]
 ```
 
 
 ### Enlistar issues
-```console
+```powershell
 gh issue list
 ```
 
 ![Enlistar Issue](https://res.cloudinary.com/marcomadera/image/upload/v1600535838/Blog/6/viewIssue_fl9jji.png "Enlistar Issue")
 
 ### Revisar el estado del issue
-```console
+```powershell
 gh issue list -s "all"
 ```
 
@@ -189,7 +189,7 @@ Subcomandos:
 - list
 - view
 
-```console
+```powershell
 gh gist create [<filename>... | -] [flags]
 ```
 
@@ -203,32 +203,32 @@ Subcomandos:
 
 ### Set Alias
 Crea un shortcut para los comandos gh
-```console
+```powershell
 gh alias set <alias> <expansion> [flags]
 ```
 
 ![Alias](https://res.cloudinary.com/marcomadera/image/upload/v1600539890/Blog/6/aliases_u0mnwn.png "Alias")
 
 Ejemplo de lista de bugs
-```console
+```powershell
 alias misbugs='gh issue list -a "MarcoMadera" -l "bug"'
 ```
 
 ### Enlistar Aliases
 
-```console
+```powershell
 gh alias list [flags]
 ```
 
 ## API
-```console
+```powershell
 gh api <endpoint> [flags]
 ```
 
 Github API es poderoso, con `gh api` se pueden hacer llamadas HTTP a Rest o GraphQL API. El método que usa por defecto es GET, se puede cambiar con el flag --method.
 
 Para llamadas a la API de github se puede usar de la siguiente manera-
-```console
+```powershell
 gh api repos/user/repo/releases
 ```
 

@@ -21,7 +21,7 @@
     "react-markdown": "^4.3.1",
     "react-mathjax": "^1.0.1",
     "react-slugify": "^2.0.1",
-    "react-syntax-highlighter": "^13.4.0",
+    "react-syntax-highlighter": "^13.5.3",
     "remark-math": "^2.0.1"
   },
   "devDependencies": {
