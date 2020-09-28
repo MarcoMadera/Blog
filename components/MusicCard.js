@@ -39,12 +39,14 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
         img {
           margin-right: 5px;
         }
+        section {
+          max-width: calc(100% - 69px);
+        }
         p {
           margin: 0;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          max-width: 150px;
         }
         p:nth-of-type(1) {
           display: -webkit-box;
