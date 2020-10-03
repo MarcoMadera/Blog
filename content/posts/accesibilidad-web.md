@@ -233,17 +233,17 @@ Es una [técnica](https://www.w3.org/TR/WCAG20-TECHS/G1.html) que permite navega
 ```html
 <style>
   .skip-link {
-  display: block;
-  line-height: 0;
-  height: 0;
-  width: 0;
-}
+    display: block;
+    line-height: 0;
+    height: 0;
+    width: 0;
+  }
 
-.skip-link:focus,
-.skip-link:active {
-  height: auto;
-  width: auto;
-}
+  .skip-link:focus,
+  .skip-link:active {
+    height: auto;
+    width: auto;
+  }
 </style>
 <a href="#main" className="skip-link">Saltar al contenido</a>
 <nav>

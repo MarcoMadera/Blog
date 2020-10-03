@@ -46,16 +46,16 @@ const contentAside = (content) => {
 export default function Post({ postData, recommendedPosts }) {
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
   const { post, frontmatter, nextPost, previousPost, slug } = postData;
-  const [loaded, setloaded] = useState(false);
-  const [data, setData] = useState();
+  const [showComments, setShowComments] = useState(false);
+  const [postTitle, setPostTitle] = useState();
   useEffect(() => {
-    setData(frontmatter.title);
-    if (frontmatter.title !== data) {
-      setloaded(false);
+    setPostTitle(frontmatter.title);
+    if (frontmatter.title !== postTitle) {
+      setShowComments(false);
     } else {
-      setloaded(true);
+      setShowComments(true);
     }
-  }, [frontmatter.title, data]);
+  }, [frontmatter.title, postTitle]);
 
   return (
     <main>
@@ -83,7 +83,7 @@ export default function Post({ postData, recommendedPosts }) {
             }}
           />
           <hr />
-          {loaded && <BlogFooter slug={slug} blogTitle={frontmatter.title} />}
+          <BlogFooter slug={slug} blogTitle={frontmatter.title} />
         </section>
         <nav>
           {previousPost ? (
@@ -107,7 +107,13 @@ export default function Post({ postData, recommendedPosts }) {
             <div />
           )}
         </nav>
-        {loaded && <FastCommentsCommentWidget tenantId={tenantId} />}
+        {showComments && (
+          <FastCommentsCommentWidget
+            tenantId={tenantId}
+            allowAnon={true}
+            hasDarkBackground={false}
+          />
+        )}
       </article>
       <aside>
         <AllTags tags={frontmatter.tag} title="Etiquetas del artículo" />
