@@ -45,7 +45,7 @@ const contentAside = (content) => {
 
 export default function Post({ postData, recommendedPosts }) {
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
-  const { post, frontmatter, currentPost, nextPost, previousPost } = postData;
+  const { post, frontmatter, nextPost, previousPost, slug } = postData;
   const [loaded, setloaded] = useState(false);
   const [data, setData] = useState();
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function Post({ postData, recommendedPosts }) {
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
         cover={frontmatter.cover760}
-        url={`https://marcomadera.com/blog/${currentPost.slug}`}
+        url={`https://marcomadera.com/blog/${slug}`}
       />
       {contentAside(post.content)}
       <article className="blog" id="main">
@@ -83,9 +83,7 @@ export default function Post({ postData, recommendedPosts }) {
             }}
           />
           <hr />
-          {loaded && (
-            <BlogFooter slug={currentPost.slug} blogTitle={frontmatter.title} />
-          )}
+          {loaded && <BlogFooter slug={slug} blogTitle={frontmatter.title} />}
         </section>
         <nav>
           {previousPost ? (
@@ -115,7 +113,7 @@ export default function Post({ postData, recommendedPosts }) {
         <AllTags tags={frontmatter.tag} title="Etiquetas del artículo" />
         <RecommendedPosts
           recommendedPosts={recommendedPosts}
-          currentPost={currentPost.slug}
+          currentPost={slug}
         />
         <Newsletter />
       </aside>
@@ -503,18 +501,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const postData = getPostBySlug(slug);
   const recommendedPosts = getPostsByTags(postData.frontmatter.tag);
-  if (!postData.previousPost) {
-    postData.previousPost = null;
-  } else {
-    postData.previousPost.frontmatter.date = null;
-  }
-
-  if (!postData.nextPost) {
-    postData.nextPost = null;
-  } else {
-    postData.nextPost.frontmatter.date = null;
-  }
-
   return { props: { postData, recommendedPosts } };
 }
 

@@ -1,7 +1,7 @@
 import matter from "gray-matter";
 import fs from "fs";
 import slugify from "react-slugify";
-
+import path from "path";
 export const getPostsFolders = () => {
   // Get all posts folders located in `content/posts`
   const postsFolders = fs
@@ -24,7 +24,7 @@ export const getSortedPosts = () => {
         .toString();
 
       // Parse markdown, get frontmatter data, excerpt and content.
-      const { data, content } = matter(markdownWithMetadata);
+      const { data } = matter(markdownWithMetadata);
 
       const frontmatter = {
         ...data,
@@ -34,7 +34,6 @@ export const getSortedPosts = () => {
       return {
         slug,
         frontmatter,
-        content,
       };
     })
     .sort(
@@ -42,9 +41,9 @@ export const getSortedPosts = () => {
     );
   return posts;
 };
+
 export const getSortedPostsData = () => {
   const postFolders = getPostsFolders();
-
   const posts = postFolders
     .map(({ filename }) => {
       // Get raw content from file
@@ -78,6 +77,7 @@ export const getTagsSlugs = () => {
   );
   return paths;
 };
+
 export const getPostsTags = () => {
   const posts = getSortedPosts();
   let tags = [];
@@ -89,22 +89,28 @@ export const getPostsTags = () => {
 
 export const getPostBySlug = (slug) => {
   const posts = getSortedPosts();
-
+  const markdownWithMetadata = fs
+    .readFileSync(path.join("content/posts", slug + ".md"))
+    .toString();
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
 
-  const { frontmatter, content } = posts[postIndex];
-  const previousPost = posts[postIndex + 1];
-  const currentPost = posts[postIndex];
-  const nextPost = posts[postIndex - 1];
+  const { data, content } = matter(markdownWithMetadata);
 
+  const frontmatter = {
+    ...data,
+    date: data.date.toString(),
+  };
+  const previousPost = posts[postIndex + 1] ? posts[postIndex + 1] : null;
+  const nextPost = posts[postIndex - 1] ? posts[postIndex - 1] : null;
   return {
     frontmatter,
     post: { content },
     previousPost,
-    currentPost,
     nextPost,
+    slug,
   };
 };
+
 export const getPostsByTag = (slug) => {
   const posts = getSortedPostsData();
   const postsByTag = posts.filter(({ tag }) => slugify(tag).includes(slug));
@@ -114,9 +120,9 @@ export const getPostsByTag = (slug) => {
     slug,
   };
 };
+
 export const getPostsSlugs = () => {
   const postFolders = getPostsFolders();
-
   const paths = postFolders.map(({ filename }) => ({
     params: {
       slug: filename.replace(".md", ""),
