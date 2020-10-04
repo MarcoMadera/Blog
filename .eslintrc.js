@@ -29,7 +29,6 @@ module.exports = {
         aspects: ["noHref", "invalidHref", "preferButton"],
       },
     ],
-    indent: ["error", 2, { flatTernaryExpressions: true }],
     "linebreak-style": 0,
     "global-require": 0,
     "eslint linebreak-style": [0, "error", "windows"],

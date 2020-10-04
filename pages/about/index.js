@@ -14,7 +14,30 @@ import CSharp from "../../components/icons/CSharp";
 import JavaScript from "../../components/icons/JavaScript";
 import MusicCard from "../../components/MusicCard";
 import { colors } from "../../styles/theme";
+import { useEffect, useState, useCallback } from "react";
 const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
+  const [newNowPlaying, setNewNowPlaying] = useState({});
+  function timebetween(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  const reqNowPlaying = useCallback(async () => {
+    const nowPlaying = await fetch(
+      "https://marcomadera.com/api/now-playing"
+    ).then((res) => {
+      if (res.status !== 200) return;
+      return res.json();
+    });
+    setNewNowPlaying(nowPlaying);
+  }, []);
+  useEffect(() => {
+    const updateNowPlaying = setInterval(
+      () => reqNowPlaying(),
+      timebetween(60000, 90000)
+    );
+    return () => clearInterval(updateNowPlaying);
+  }, [reqNowPlaying]);
   return (
     <main>
       <Seo title="Sobre mí" url="https://marcomadera.com/about" />
@@ -154,12 +177,13 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         </div>
       </section>
       <aside>
-        {Object.keys(nowPlaying).length > 0 ? (
+        {Object.keys(newNowPlaying).length > 0 ||
+        Object.keys(nowPlaying).length > 0 ? (
           <div>
             <header>
               <p>
                 <b>
-                  {nowPlaying.listening
+                  {newNowPlaying.listening || nowPlaying.listening
                     ? "Escuchando ahora"
                     : "Último escuchado"}
                 </b>
@@ -174,10 +198,10 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
               </a>
             </header>
             <MusicCard
-              title={nowPlaying.title}
-              cover={nowPlaying.cover}
-              artist={nowPlaying.artist}
-              songUrl={nowPlaying.songUrl}
+              title={newNowPlaying.title || nowPlaying.title}
+              cover={newNowPlaying.cover || nowPlaying.cover}
+              artist={newNowPlaying.artist || nowPlaying.artist}
+              songUrl={newNowPlaying.songUrl || nowPlaying.songUrl}
             />
             <hr />
           </div>
