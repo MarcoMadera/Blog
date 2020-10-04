@@ -16,7 +16,7 @@ import MusicCard from "../../components/MusicCard";
 import { colors } from "../../styles/theme";
 import { useEffect, useState, useCallback } from "react";
 const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
-  const [newNowPlaying, setNewNowPlaying] = useState({});
+  const [newNowPlaying, setNewNowPlaying] = useState(nowPlaying);
   function timebetween(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -177,13 +177,12 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         </div>
       </section>
       <aside>
-        {Object.keys(newNowPlaying).length > 0 ||
-        Object.keys(nowPlaying).length > 0 ? (
+        {Object.keys(newNowPlaying).length > 0 ? (
           <div>
             <header>
               <p>
                 <b>
-                  {newNowPlaying.listening || nowPlaying.listening
+                  {newNowPlaying.listening
                     ? "Escuchando ahora"
                     : "Último escuchado"}
                 </b>
@@ -198,10 +197,10 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
               </a>
             </header>
             <MusicCard
-              title={newNowPlaying.title || nowPlaying.title}
-              cover={newNowPlaying.cover || nowPlaying.cover}
-              artist={newNowPlaying.artist || nowPlaying.artist}
-              songUrl={newNowPlaying.songUrl || nowPlaying.songUrl}
+              title={newNowPlaying.title}
+              cover={newNowPlaying.cover}
+              artist={newNowPlaying.artist}
+              songUrl={newNowPlaying.songUrl}
             />
             <hr />
           </div>
