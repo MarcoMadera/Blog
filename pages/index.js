@@ -18,7 +18,7 @@ const Home = ({ posts = [], tags = [] }) => {
   const pages = Array.from(Array(lastPage), (_, i) => i + 1);
   return (
     <main id="main">
-      <Seo title="Página principal" />
+      <Seo title="Blog" />
       <Aside />
       <section>
         <h1>Últimos artículos</h1>

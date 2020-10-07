@@ -19,6 +19,7 @@ a::selection {
   background: #ca2424e1;
   color: rgb(252, 252, 252);
 }
+font::selection,
 br::selection,
 i::selection,
 p::selection,
