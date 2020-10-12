@@ -30,7 +30,7 @@ Estas son ligaduras para mejorar la legibilidad del texto, entre las más comune
 
 Estás ligaduras son más estéticas, tienen el propósito de lucir bien, entrelazan los caracteres para que tengan un mejor diseño.
 
-![Ligadura](https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/a9c32vc23bb56fdb4_apqjua.gif "Ligadura discrecional") &nbsp;
+<videogif title="Ligaduras Discrecionales" src="https://res.cloudinary.com/marcomadera/video/upload/v1602518475/Blog/2/349239-238283-3923943_lqpsmm.mp4"/>
 
 ## Ligaduras históricas
 
@@ -40,7 +40,8 @@ Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras
 ![Ampersand ajustar izquierda 50px](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png "Ampersand")
 Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.
 
-En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea. ![Ligaduras arabes 50px](https://res.cloudinary.com/marcomadera/image/upload/v1595269484/Blog/2/921mmn32n266n54n3b4_bheewg.gif "Ligaduras Arabes") &nbsp;
+En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea.
+<videogif title="Ligaduras Arabes" src="https://res.cloudinary.com/marcomadera/video/upload/v1602518470/Blog/2/239485-283184-288328_tvtslu.mp4"/>
 
 ---
 
@@ -67,13 +68,15 @@ Para activar las ligaduras en Visual Studio Code dirígete a (File > Preferences
 En settings.json agrega lo siguiente en el caso de Fira Code.
 
 ```json
-"editor.fontFamily": "Fira Code",
-"editor.fontLigatures": true
+  {
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true
+  }
 ```
 
 Guardas los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada, si no es el caso probablemente sea necesario reiniciar el editor.
 
-![Ligaduras Vs Code](https://res.cloudinary.com/marcomadera/image/upload/v1595269490/Blog/2/iz550n2_m69hok.gif "Ligaduras Vs Code")
+<videogif title="Ligaduras VSCode" src="https://res.cloudinary.com/marcomadera/video/upload/v1602518458/Blog/2/129384-438538-4342382_enackk.mp4"/>
 
 ---
 

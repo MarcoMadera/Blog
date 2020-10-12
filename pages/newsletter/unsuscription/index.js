@@ -16,9 +16,13 @@ const unsuscription = () => {
             </span>
           </h1>
           <p>Ya no recibirás más emails por mi parte, gracias por leer.</p>
-          <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/v1599620803/Newsletter/73a1d791659b16e2cbf55b9f0ed4242a_siz3dk.gif"
-            alt="Adios vaquero"
+          <video
+            loop
+            autoPlay
+            playsInline
+            muted
+            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532720/Newsletter/12912-323943-434566767_ashg4k.mp4"
+            title="Adios vaquero"
           />
         </section>
         <style jsx>{`

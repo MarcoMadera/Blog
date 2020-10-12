@@ -168,12 +168,12 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
               <Email width="20" height="20" />
             </button>
           </p>
-          <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_200/v1598594392/about/tIeCLkB8geYtW_tpgywi.gif"
-            alt="Gif oveja timmy, muy bien"
-            width="200"
-            height="158"
-          />
+          <video autoPlay loop muted playsinline>
+            <source
+              src="https://res.cloudinary.com/marcomadera/video/upload/v1602516508/about/18283-212312-32345_cptpwx.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
       </section>
       <aside>
@@ -351,7 +351,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           display: inline-flex;
           vertical-align: bottom;
         }
-        div > img {
+        div > video {
           display: block;
           margin: 30px auto 0 auto;
         }

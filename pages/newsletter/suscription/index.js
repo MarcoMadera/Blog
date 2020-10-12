@@ -19,9 +19,13 @@ const suscription = () => {
             Te envié un correo de confirmación, da clic en él y completarás el
             proceso.
           </p>
-          <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/v1599619814/Newsletter/bec38a05d56ac6ae2d9dec2f482ebff9_sregtv.gif"
-            alt="Aplausos"
+          <video
+            loop
+            autoPlay
+            playsInline
+            muted
+            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532672/Newsletter/312o32-3123192-434923432_pv6toa.mp4"
+            title="Aplausos"
           />
         </section>
         <style jsx>{`

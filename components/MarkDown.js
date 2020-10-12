@@ -4,9 +4,30 @@ import RemarkMathPlugin from "remark-math";
 import MathJax from "react-mathjax";
 import slugify from "react-slugify";
 import htmlParser from "react-markdown/plugins/html-parser";
-
+import React from "react";
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
+  processingInstructions: [
+    {
+      shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "videogif",
+      processNode: function VideoGifs(node, index) {
+        return React.createElement(
+          "video",
+          {
+            key: index,
+            src: node.attribs.src,
+            title: node.attribs.title,
+            muted: true,
+            loop: true,
+            autoPlay: true,
+            playsInline: true,
+          },
+          "Tu navegador no soporta vídeos"
+        );
+      },
+    },
+  ],
 });
 
 const _mapProps = (props) => ({
@@ -17,7 +38,6 @@ const _mapProps = (props) => ({
   unwrapDisallowed: false,
   renderers: {
     ...props.renderers,
-    // eslint-disable-next-line react/prop-types
     link: function Link({ href, children }) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer">
@@ -29,7 +49,6 @@ const _mapProps = (props) => ({
       return <img loading="lazy" src={src} alt={alt} title={title} />;
     },
 
-    // eslint-disable-next-line react/prop-types
     heading: function HeadingRenderer(props) {
       if (props.level === 2) {
         return <h2 id={slugify(props.children)}>{props.children}</h2>;
@@ -38,11 +57,9 @@ const _mapProps = (props) => ({
       const Heading = ReactMarkdown.renderers.heading;
       return <Heading {...props} />;
     },
-    // eslint-disable-next-line react/prop-types
     math: function Math({ value }) {
       return <MathJax.Node formula={value} />;
     },
-    // eslint-disable-next-line react/prop-types
     inlineMath: function InlineMath({ value }) {
       return <MathJax.Node inline formula={value} />;
     },

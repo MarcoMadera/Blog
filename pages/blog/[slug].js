@@ -184,6 +184,9 @@ export default function Post({ postData, recommendedPosts }) {
           text-align: justify;
           line-height: 1.6;
         }
+        .blog video {
+          filter: brightness(110%);
+        }
         .blog blockquote {
           border-left: 5px solid ${colors.primary};
           padding-left: 10px;
@@ -260,8 +263,8 @@ export default function Post({ postData, recommendedPosts }) {
           padding: 0 20px 0 0;
           margin-left: 20px;
         }
-
-        .blog img {
+        .blog img,
+        .blog video {
           display: block;
           margin: auto;
           max-width: 99%;
