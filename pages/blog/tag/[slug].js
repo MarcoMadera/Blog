@@ -22,12 +22,10 @@ const tag = ({ postData, tags }) => {
       />
       <Aside />
       <section>
-        <strong>
-          <p>
-            Etiqueta{" "}
-            {postsByTag[0].tag.find((item) => slugify(item).includes(slug))}
-          </p>
-        </strong>
+        <h1>
+          Etiqueta{" "}
+          {postsByTag[0].tag.find((item) => slugify(item).includes(slug))}
+        </h1>
         {postsByTag.length ? (
           postsByTag.map((data) => <BlogCard {...data} key={data.slug} />)
         ) : (
@@ -46,6 +44,9 @@ const tag = ({ postData, tags }) => {
           justify-content: center;
           padding: 0 20px;
           margin-bottom: 50px;
+        }
+        h1 {
+          font-size: 1rem;
         }
         @media screen and (min-width: 0px) and (max-width: 876px) {
           main {

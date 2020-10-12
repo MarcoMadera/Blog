@@ -176,17 +176,16 @@ abbr {
   display: block;
   padding: 1rem 5rem;
   position: fixed;
-  transform: translateY(-300px);
   font-size: 18px;
   transition: transform 0.3s ease 0s;
-  top: 2rem;
+  top: -280px;
   left: 0px;
   right: 0;
   margin: 0 auto;
   width: fit-content;
 }
 .skip-link:focus {
-  transform: translateY(0px);
+  transform: translateY(300px);
 }
 
 #nprogress .bar {

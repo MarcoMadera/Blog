@@ -26,7 +26,8 @@ const Navbar = () => {
         <Link href="/portfolio">
           <a
             style={{
-              textDecoration: router.route === "/portfolio" && "underline",
+              textDecoration:
+                router.route === "/portfolio" ? "underline" : undefined,
             }}
           >
             Portafolio
@@ -34,7 +35,10 @@ const Navbar = () => {
         </Link>
         <Link href="/about">
           <a
-            style={{ textDecoration: router.route === "/about" && "underline" }}
+            style={{
+              textDecoration:
+                router.route === "/about" ? "underline" : undefined,
+            }}
           >
             Sobre mí
           </a>
@@ -88,8 +92,7 @@ const Navbar = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          min-height: 80px;
-          padding: 0 20px;
+          padding: 20px;
           max-width: 1300px;
           flex-wrap: wrap;
         }
@@ -100,7 +103,7 @@ const Navbar = () => {
         }
         nav section a {
           display: inline-block;
-          margin: 13.5px 5px;
+          margin: 9px 5px;
         }
         nav section a:hover,
         nav section a:focus {

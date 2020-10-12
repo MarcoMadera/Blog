@@ -69,7 +69,7 @@ En settings.json agrega lo siguiente en el caso de Fira Code.
 ```json
 {
   "editor.fontFamily": "'Fira Code'",
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
 }
 ```
 

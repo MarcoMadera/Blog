@@ -40,7 +40,8 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
           margin-right: 5px;
         }
         section {
-          max-width: calc(100% - 69px);
+          width: calc(100% - 69px);
+          max-width: calc(100vw - 120px);
         }
         p {
           margin: 0;
