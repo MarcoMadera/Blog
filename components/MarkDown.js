@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import ReactMarkdown from "react-markdown/with-html";
+import ReactMarkdown from "react-markdown";
 import RemarkMathPlugin from "remark-math";
 import MathJax from "react-mathjax";
 import slugify from "react-slugify";
 import htmlParser from "react-markdown/plugins/html-parser";
 import React from "react";
+import HtmlToReact from "html-to-react";
+const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
   processingInstructions: [
@@ -26,6 +28,12 @@ const parseHtml = htmlParser({
           "Tu navegador no soporta vídeos"
         );
       },
+    },
+    {
+      shouldProcessNode: function () {
+        return true;
+      },
+      processNode: processNodeDefinitions.processDefaultNode,
     },
   ],
 });
