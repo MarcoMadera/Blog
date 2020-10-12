@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown/with-html";
 import RemarkMathPlugin from "remark-math";
 import MathJax from "react-mathjax";
 import slugify from "react-slugify";
