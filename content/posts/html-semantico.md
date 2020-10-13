@@ -531,37 +531,37 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
 
 <p>Lista ordenada</p>
 <ol>
- <li>objeto1
- <li>objeto2
- <li>objeto3
- <li>objeto4
+ <li>objeto1</li>
+ <li>objeto2</li>
+ <li>objeto3</li>
+ <li>objeto4</li>
 </ol>
 
 ```html
 <p>Lista ordenada</p>
 <ol>
- <li>objeto1
- <li>objeto2
- <li>objeto3
- <li>objeto4
+ <li>objeto1</li>
+ <li>objeto2</li>
+ <li>objeto3</li>
+ <li>objeto4</li>
 </ol>
 ```
 
 <p>Lista sin orden</p>
 <ul>
- <li>objeto1
- <li>objeto2
- <li>objeto3
- <li>objeto4
+ <li>objeto1</li>
+ <li>objeto2</li>
+ <li>objeto3</li>
+ <li>objeto4</li>
 </ul>
 
 ```html
 <p>Lista sin orden</p>
 <ul>
- <li>objeto1
- <li>objeto2
- <li>objeto3
- <li>objeto4
+ <li>objeto1</li>
+ <li>objeto2</li>
+ <li>objeto3</li>
+ <li>objeto4</li>
 </ul>
 ```
 

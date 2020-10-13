@@ -13,19 +13,18 @@ const parseHtml = htmlParser({
     {
       shouldProcessNode: (node) =>
         node.type === "tag" && node.name === "videogif",
-      processNode: function VideoGifs(node, index) {
-        return React.createElement(
-          "video",
-          {
-            key: index,
-            src: node.attribs.src,
-            title: node.attribs.title,
-            muted: true,
-            loop: true,
-            autoPlay: true,
-            playsInline: true,
-          },
-          "Tu navegador no soporta vídeos"
+      processNode: function VideoGifs(node) {
+        return (
+          <video
+            src={node.attribs.src}
+            title={node.attribs.title}
+            muted
+            loop
+            autoPlay
+            playsInline
+          >
+            Tu navegador no soporta vídeos
+          </video>
         );
       },
     },
