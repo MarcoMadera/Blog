@@ -11,7 +11,7 @@ import { colors } from "../styles/theme";
 import Link from "next/link";
 const Home = ({ posts = [], tags = [] }) => {
   const router = useRouter();
-  const page = parseInt(router.query.page) || 1;
+  const page = parseInt(router.asPath.replace(/[^0-9]/g, "")) || 1;
   const indexOfLastPost = page * 4;
   const indexOfFirstPost = indexOfLastPost - 4;
   const lastPage = Math.ceil(posts.length / 4);
