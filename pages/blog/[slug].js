@@ -1,5 +1,4 @@
 import Link from "next/link";
-import codeTheme from "react-syntax-highlighter/dist/cjs/styles/prism/ghcolors";
 import {
   getPostBySlug,
   getPostsSlugs,
@@ -28,8 +27,8 @@ const CodeBlock = ({ language, value }) => {
       showInlineLineNumbers={true}
       wrapLines={false}
       language={language}
-      style={codeTheme}
       useInlineStyles={false}
+      lineNumberStyle={{ color: "#aaa" }}
     >
       {value}
     </SyntaxHighlighter>
