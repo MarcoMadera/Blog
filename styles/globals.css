@@ -123,7 +123,18 @@ kbd {
 }
 
 abbr {
-  text-decoration: underline dotted #b50000;
+  text-decoration: none;
+  position: relative;
+}
+abbr:after { 
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  border-width: 0 0 2px;
+  border-style: dashed;
+  border-color: #b50000;
 }
 .btn {
   cursor: pointer;

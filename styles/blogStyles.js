@@ -179,7 +179,9 @@ export const blogStyles = css.global`
     color: #aabfc9;
   }
 
-  .token.property {
+  .token.property,
+  .token.selector.pseudo-class,
+  .token.variable {
     color: #005cc5;
   }
 
@@ -196,7 +198,6 @@ export const blogStyles = css.global`
     color: #24292e;
   }
   .token.selector.punctuation,
-  .token.selector.pseudo-class,
   .token.punctuation {
     color: #24292e;
   }
