@@ -46,7 +46,7 @@ body {
 
 ### Estilos en una hoja externa
 
-La manera que se aprovecha mejor sería hacer un link a una hoja de estilos con terminación .css en una etiqueta `<link>` dentro de la etiqueta `<head>` de nuestro documento HTML de la siguiente manera, donde href es la ubicación de la hoja de estilos.
+La manera que se aprovecha mejor sería hacer un link a una hoja de estilos con extensión .css en una etiqueta `<link>` dentro de la etiqueta `<head>` de nuestro documento HTML de la siguiente manera, donde href es la ubicación de la hoja de estilos.
 
 ```html
 <link
