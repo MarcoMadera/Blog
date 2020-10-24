@@ -5,14 +5,13 @@ import Layout from "../components/Layout";
 import "../styles/globals.css";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-import * as gtag from "../lib/gtag";
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
   useEffect(() => {
-    // update page url google tag manager
-    const handleRouteChange = (url) => {
-      gtag.pageview(url);
+    // update page url minimal google analytics
+    const handleRouteChange = () => {
+      window.ma.trackEvent("Category", "Action", "Label", "Value");
     };
     router.events.on("routeChangeComplete", handleRouteChange);
 
