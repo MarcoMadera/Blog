@@ -2,21 +2,21 @@ import matter from "gray-matter";
 import fs from "fs";
 import slugify from "react-slugify";
 import path from "path";
-export const getPostsFolders = () => {
-  // Get all posts folders located in `content/posts`
-  const postsFolders = fs
+export const getPostsFiles = () => {
+  // Get all posts Files located in `content/posts`
+  const postsFiles = fs
     .readdirSync(`${process.cwd()}/content/posts`)
     .map((file) => ({
       filename: `${file}`,
     }));
 
-  return postsFolders;
+  return postsFiles;
 };
 
 export const getSortedPosts = () => {
-  const postFolders = getPostsFolders();
+  const postsFiles = getPostsFiles();
 
-  const posts = postFolders
+  const posts = postsFiles
     .map(({ filename }) => {
       // Get raw content from file
       const markdownWithMetadata = fs
@@ -43,8 +43,8 @@ export const getSortedPosts = () => {
 };
 
 export const getSortedPostsData = () => {
-  const postFolders = getPostsFolders();
-  const posts = postFolders
+  const postsFiles = getPostsFiles();
+  const posts = postsFiles
     .map(({ filename }) => {
       // Get raw content from file
       const markdownWithMetadata = fs.readFileSync(`content/posts/${filename}`);
@@ -122,8 +122,8 @@ export const getPostsByTag = (slug) => {
 };
 
 export const getPostsSlugs = () => {
-  const postFolders = getPostsFolders();
-  const paths = postFolders.map(({ filename }) => ({
+  const postsFiles = getPostsFiles();
+  const paths = postsFiles.map(({ filename }) => ({
     params: {
       slug: filename.replace(".md", ""),
     },
@@ -140,3 +140,29 @@ export const getPostsByTags = (data) =>
         .map(JSON.stringify)
     ),
   ].map(JSON.parse);
+
+export const getPostsPages = () => {
+  const posts = getPostsFiles();
+  const pages = Array.from(
+    { length: Math.ceil(posts.length / 4) },
+    (_, i) => i + 1
+  );
+  return pages;
+};
+
+export const getPostsPagesPaths = () => {
+  const pages = getPostsPages();
+  const paths = pages.map((_, i) => ({
+    params: {
+      id: (i + 1).toString(),
+    },
+  }));
+  return paths;
+};
+
+export const getPostsByPage = (id) => {
+  const posts = getSortedPostsData();
+  const indexOfLastPost = id * 4;
+  const indexOfFirstPost = indexOfLastPost - 4;
+  return posts.slice(indexOfFirstPost, indexOfLastPost);
+};

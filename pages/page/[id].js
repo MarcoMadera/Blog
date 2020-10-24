@@ -1,15 +1,20 @@
-import Aside from "../components/Aside";
-import Seo from "../components/Seo";
-import { getPostsPages, getPostsByPage, getPostsTags } from "../utils/posts";
-import Newsletter from "../components/Newsletter";
-import AllTags from "../components/AllTags";
-import BlogCard from "../components/BlogCard";
+import {
+  getPostsPagesPaths,
+  getPostsByPage,
+  getPostsTags,
+  getPostsPages,
+} from "../../utils/posts";
 import PropTypes from "prop-types";
+import Aside from "../../components/Aside";
+import Seo from "../../components/Seo";
+import Newsletter from "../../components/Newsletter";
+import AllTags from "../../components/AllTags";
+import BlogCard from "../../components/BlogCard";
 import { useRouter } from "next/router";
-import Custom404 from "./404";
-import { colors } from "../styles/theme";
+import Custom404 from "../404";
+import { colors } from "../../styles/theme";
 import Link from "next/link";
-const Home = ({ posts = [], tags = [], pages = [] }) => {
+export default function Page({ posts = [], pages = [], tags = [] }) {
   const router = useRouter();
   const page = parseInt(router.asPath.replace(/[^0-9]/g, "")) || 1;
   return (
@@ -108,20 +113,25 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
       `}</style>
     </main>
   );
-};
+}
 
-export async function getStaticProps() {
-  const posts = getPostsByPage(1);
+export async function getStaticPaths() {
+  const paths = getPostsPagesPaths();
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { id } }) {
+  const posts = getPostsByPage(id);
   const pages = getPostsPages();
   const tags = [...new Set(getPostsTags())];
   return { props: { posts, tags, pages } };
 }
 
-export default Home;
-
-Home.propTypes = {
+Page.propTypes = {
   posts: PropTypes.array,
-  tags: PropTypes.array,
   pages: PropTypes.array,
-  page: PropTypes.number,
+  tags: PropTypes.array,
 };
