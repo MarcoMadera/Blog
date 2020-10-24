@@ -247,8 +247,8 @@ export const blogStyles = css.global`
   .blog blockquote {
     border-left: 5px solid ${colors.primary};
     padding-left: 10px;
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
+    margin-inline-start: 30px;
+    margin-inline-end: 30px;
   }
 
   .blog .mjx-chtml,
@@ -538,5 +538,11 @@ export const blogStyles = css.global`
     margin: 0 auto;
     display: block;
     width: fit-content;
+  }
+  @media screen and (min-width: 0px) and (max-width: 500px) {
+    .blog blockquote {
+      margin-inline-start: 15px;
+      margin-inline-end: 15px;
+    }
   }
 `;

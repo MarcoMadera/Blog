@@ -5,13 +5,10 @@ import Newsletter from "../components/Newsletter";
 import AllTags from "../components/AllTags";
 import BlogCard from "../components/BlogCard";
 import PropTypes from "prop-types";
-import { useRouter } from "next/router";
 import Custom404 from "./404";
 import { colors } from "../styles/theme";
 import Link from "next/link";
 const Home = ({ posts = [], tags = [], pages = [] }) => {
-  const router = useRouter();
-  const page = parseInt(router.asPath.replace(/[^0-9]/g, "")) || 1;
   return (
     <main id="main">
       <Seo title="Blog" />
@@ -27,17 +24,20 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
             {pages.map((pageNumber, i) => {
               return (
                 <li key={pageNumber}>
-                  <Link href={i === 0 ? "/" : `/page/${pageNumber}`}>
+                  <Link
+                    href={i === 0 ? "/" : "/page/[id]/"}
+                    as={i === 0 ? undefined : `/page/${pageNumber}`}
+                  >
                     <a
                       className={
-                        page === pageNumber ? "currentPage" : "pagination"
+                        pageNumber === 1 ? "currentPage" : "pagination"
                       }
                       aria-label={
-                        page === pageNumber
+                        pageNumber === 1
                           ? "Página actual"
                           : `Ir a página ${pageNumber}`
                       }
-                      aria-current={page === pageNumber ? "true" : undefined}
+                      aria-current={pageNumber === 1 ? "true" : undefined}
                     >
                       {pageNumber}
                     </a>

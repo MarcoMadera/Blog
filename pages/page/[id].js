@@ -10,13 +10,10 @@ import Seo from "../../components/Seo";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
 import BlogCard from "../../components/BlogCard";
-import { useRouter } from "next/router";
 import Custom404 from "../404";
 import { colors } from "../../styles/theme";
 import Link from "next/link";
-export default function Page({ posts = [], pages = [], tags = [] }) {
-  const router = useRouter();
-  const page = parseInt(router.asPath.replace(/[^0-9]/g, "")) || 1;
+export default function Page({ posts = [], pages = [], tags = [], page }) {
   return (
     <main id="main">
       <Seo title="Blog" />
@@ -32,17 +29,24 @@ export default function Page({ posts = [], pages = [], tags = [] }) {
             {pages.map((pageNumber, i) => {
               return (
                 <li key={pageNumber}>
-                  <Link href={i === 0 ? "/" : `/page/${pageNumber}`}>
+                  <Link
+                    href={i === 0 ? "/" : "/page/[id]/"}
+                    as={i === 0 ? undefined : `/page/${pageNumber}`}
+                  >
                     <a
                       className={
-                        page === pageNumber ? "currentPage" : "pagination"
+                        page === pageNumber.toString()
+                          ? "currentPage"
+                          : "pagination"
                       }
                       aria-label={
-                        page === pageNumber
+                        page === pageNumber.toString()
                           ? "Página actual"
                           : `Ir a página ${pageNumber}`
                       }
-                      aria-current={page === pageNumber ? "true" : undefined}
+                      aria-current={
+                        page === pageNumber.toString() ? "true" : undefined
+                      }
                     >
                       {pageNumber}
                     </a>
@@ -127,11 +131,12 @@ export async function getStaticProps({ params: { id } }) {
   const posts = getPostsByPage(id);
   const pages = getPostsPages();
   const tags = [...new Set(getPostsTags())];
-  return { props: { posts, tags, pages } };
+  return { props: { posts, tags, pages, page: id } };
 }
 
 Page.propTypes = {
   posts: PropTypes.array,
   pages: PropTypes.array,
+  page: PropTypes.string,
   tags: PropTypes.array,
 };
