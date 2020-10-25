@@ -32,7 +32,6 @@ const Footer = () => {
         footer {
           display: flex;
           flex-wrap: wrap;
-          position: relative;
           background: ${colors.lightGray};
           min-height: 80px;
           justify-content: center;

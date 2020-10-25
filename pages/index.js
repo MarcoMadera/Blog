@@ -100,7 +100,7 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
           border-radius: 50% !important;
           background-color: ${colors.primary} !important;
           border: 1px solid ${colors.primary} !important;
-          color: white !important;
+          color: ${colors.white} !important;
         }
         .pagination:hover {
           color: ${colors.secondary} !important;

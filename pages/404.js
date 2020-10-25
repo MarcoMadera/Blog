@@ -7,24 +7,14 @@ const Custom404 = () => {
       <p>Página no encontrada</p>
       <style jsx>{`
         main {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          justify-items: center;
-          align-items: center;
-          left: 0;
-          right: 0;
-          margin: 0 auto;
-          height: calc(100vh - 120px);
-        }
-
-        h1 {
+          height: calc(100vh - 160px);
           text-align: center;
+        }
+        h1 {
+          margin: 0;
           font-size: 100px;
         }
-
         p {
-          text-align: center;
           font-size: 30px;
         }
       `}</style>

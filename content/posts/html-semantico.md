@@ -17,10 +17,10 @@ Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí d
 
 <div style="display: block;
     font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0px;
+    margin-right: 0px;
     font-weight: bold;">¿Esto es un título?</div>
 
 

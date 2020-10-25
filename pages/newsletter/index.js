@@ -97,6 +97,7 @@ const NewsletterPage = () => {
         }
 
         h1 {
+          margin-top: 0;
           text-align: center;
         }
         a {

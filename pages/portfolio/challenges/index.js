@@ -40,7 +40,6 @@ const challenges = () => {
             "Jugar a piedra papel tijeras lagartija o spock contra la computadora (opcional)",
           ],
         ]}
-        change={true}
       />
       <Challenge
         title="Chat App CSS Illustration"
@@ -72,7 +71,6 @@ const challenges = () => {
             "La dirección de email no esta formateada correctamente",
           ],
         ]}
-        change={true}
       />
       <Challenge
         title="Easybank landing page"
@@ -98,7 +96,6 @@ const challenges = () => {
           "Ver los estados para todos los elementos interactivos",
           "Filtrar la lista de ofertas basado en las categorías seleccionadas",
         ]}
-        change={true}
       />
       <Challenge
         title="Clipboard Landing Page"
@@ -124,7 +121,6 @@ const challenges = () => {
           "Ver los estados para todos los elementos interactivos",
           "Cambiar el tema de color a preferencia",
         ]}
-        change={true}
       />
       <style jsx>{`
         main {
@@ -133,6 +129,7 @@ const challenges = () => {
           max-width: 1300px;
         }
         h1 {
+          margin-top: 0;
           text-align: center;
         }
         p {

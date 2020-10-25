@@ -2,6 +2,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
 import { getFormattedDate } from "../utils/helpers";
+import { colors } from "../styles/theme";
 const BlogCard = ({
   slug,
   title,
@@ -17,12 +18,12 @@ const BlogCard = ({
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
         <a aria-label={`post ${title}`}>
           <header>
-            <section>
+            <div>
               <h2>{title}</h2>
               <p>
                 {description}.. <span>Leer más</span>
               </p>
-            </section>
+            </div>
             <picture>
               <source srcSet={cover} media="(max-width: 876px)" />
               <img
@@ -59,8 +60,7 @@ const BlogCard = ({
         article {
           box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 0px;
           border-radius: 5px;
-          background-color: var(--blog-card-background, white);
-          transition: background-color var(--switch-transition);
+          background-color: ${colors.white};
           margin-bottom: 1rem;
         }
         article:hover,
@@ -78,15 +78,12 @@ const BlogCard = ({
         h2 {
           margin: 0;
           font-size: 1.17em;
-          color: var(--title);
-          font-family: var(--cardTitle-font-family);
         }
         p {
           margin: 0;
-          color: var(--content);
           text-align: justify;
         }
-        section {
+        header div {
           width: 760px;
           width: auto;
           padding-right: 1rem;
@@ -109,7 +106,7 @@ const BlogCard = ({
         div > a {
           margin-right: 5px;
         }
-        section p:hover span,
+        header div p:hover span,
         footer a:hover {
           text-decoration: underline;
         }

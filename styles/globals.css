@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background: #fff;
 }
 html {
@@ -82,13 +82,8 @@ strong::selection {
   box-sizing: border-box;
 }
 
-:root {
-  --general-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
 main {
-  min-height: calc(100vh - 149px - 2rem);
+  min-height: calc(100vh - 160px);
 }
 
 table {
@@ -102,9 +97,7 @@ table,
 th,
 td {
   empty-cells: hide;
-  font-family: var(--general-font-family);
-  border: 1px solid var(--content, gray);
-  transition: border var(--switch-transition, gray);
+  border: 1px solid #aaa;
 }
 
 kbd {
@@ -126,7 +119,7 @@ abbr {
   text-decoration: none;
   position: relative;
 }
-abbr:after { 
+abbr:after {
   content: "";
   width: 100%;
   position: absolute;
@@ -188,7 +181,7 @@ abbr:after {
   padding: 1rem 5rem;
   position: fixed;
   font-size: 18px;
-  transition: transform 0.3s ease 0s;
+  transition: 0.3s ease 0s;
   top: -280px;
   left: 0px;
   right: 0;

@@ -4,21 +4,17 @@ import slugify from "react-slugify";
 import { colors } from "../styles/theme";
 const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
   return (
-    <div>
-      <strong>
-        <p>{title}</p>
-      </strong>
-      <section>
-        {tags.map((tag) => (
-          <Link
-            href={"/blog/tag/[slug]/"}
-            as={`/blog/tag/${slugify(tag)}/`}
-            key={tag}
-          >
-            <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
-          </Link>
-        ))}
-      </section>
+    <section>
+      <h2>{title}</h2>
+      {tags.map((tag) => (
+        <Link
+          href={"/blog/tag/[slug]/"}
+          as={`/blog/tag/${slugify(tag)}/`}
+          key={tag}
+        >
+          <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
+        </Link>
+      ))}
       <style jsx>{`
         a {
           display: block;
@@ -37,6 +33,10 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
+        h2 {
+          font-size: 1em;
+          margin: 1em 0;
+        }
         @media screen and (max-width: 876px) {
           a {
             padding: 13.5px 5px 13.5px 0;
@@ -45,7 +45,7 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
           }
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 

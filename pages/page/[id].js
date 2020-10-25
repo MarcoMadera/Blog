@@ -16,7 +16,7 @@ import Link from "next/link";
 export default function Page({ posts = [], pages = [], tags = [], page }) {
   return (
     <main id="main">
-      <Seo title="Blog" />
+      <Seo title="Blog" canonical="https://marcomadera.com/" />
       <Aside />
       <section>
         <h1>Últimos artículos</h1>
@@ -109,7 +109,7 @@ export default function Page({ posts = [], pages = [], tags = [], page }) {
           border-radius: 50% !important;
           background-color: ${colors.primary} !important;
           border: 1px solid ${colors.primary} !important;
-          color: white !important;
+          color: ${colors.white} !important;
         }
         .pagination:hover {
           color: ${colors.secondary} !important;

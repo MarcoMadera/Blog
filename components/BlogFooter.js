@@ -7,9 +7,9 @@ const BlogFooter = ({ slug, blogTitle }) => {
   return (
     <footer>
       <section>
-        <strong>
-          <p>Comparte el artículo</p>
-        </strong>
+        <p>
+          <strong>Comparte el artículo</strong>
+        </p>
         <button
           title="Compartir en Twitter"
           onClick={() => {

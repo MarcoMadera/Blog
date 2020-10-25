@@ -7,11 +7,10 @@ const Challenge = ({
   challengeImg,
   todoList,
   level,
-  change,
 }) => {
   return (
     <article>
-      <section className={change ? "changeOrder" : ""}>
+      <div>
         <h2>{title}</h2>
         <a
           href={liveDemo}
@@ -37,9 +36,9 @@ const Challenge = ({
         >
           Código
         </a>
-        <strong>
-          <p>Nivel en Frontend Mentor: {level}</p>
-        </strong>
+        <p>
+          <strong>Nivel en Frontend Mentor: {level}</strong>
+        </p>
         <span>Reto:</span>
         <ul>
           {todoList.map((todo, i) => {
@@ -58,7 +57,7 @@ const Challenge = ({
             }
           })}
         </ul>
-      </section>
+      </div>
       <div>
         <a href={liveDemo} rel="noopener noreferrer" target="_blank">
           <img src={challengeImg} alt={title} loading="lazy" />
@@ -68,17 +67,17 @@ const Challenge = ({
         .none {
           list-style-type: none;
         }
-        .changeOrder {
+        main article:nth-child(2n + 3) div:nth-of-type(1) {
           order: 2;
         }
         @media screen and (max-width: 876px) {
-          .changeOrder {
+          main article:nth-child(2n + 3) div:nth-of-type(1) {
             order: unset;
           }
         }
       `}</style>
       <style jsx>{`
-        section a {
+        div:nth-of-type(1) a {
           margin-right: 20px;
         }
         article {
@@ -91,7 +90,7 @@ const Challenge = ({
         article > div {
           padding: 40px;
         }
-        section {
+        div:nth-of-type(1) {
           padding: 40px;
         }
         img {
@@ -100,12 +99,12 @@ const Challenge = ({
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
             0 10px 10px -5px rgba(0, 0, 0, 0.03);
         }
-        div a {
+        div:nth-of-type(2) a {
           transition: ease 0.3s;
           display: flex;
         }
-        div a:hover,
-        div a:focus {
+        div:nth-of-type(2) a:hover,
+        div:nth-of-type(2) a:focus {
           position: static;
           transform: scale(1.1);
         }
@@ -118,10 +117,10 @@ const Challenge = ({
             margin-bottom: 20px;
           }
           article > div,
-          article > section {
+          article > div:nth-of-type(1) {
             padding: 0px;
           }
-          section a {
+          div:nth-of-type(1) a {
             margin-bottom: 10px;
           }
         }

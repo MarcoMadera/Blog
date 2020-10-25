@@ -72,7 +72,7 @@ const Newsletter = () => {
           padding: 20px;
           text-align: center;
           margin-bottom: 50px;
-          background: white;
+          background: ${colors.white};
         }
 
         label {

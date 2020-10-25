@@ -53,7 +53,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         <Film width="50" height="50" />
       </aside>
       <section id="main">
-        <section>
+        <div>
           <h1>Sobre mí</h1>
           <p>
             ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
@@ -126,7 +126,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
               <a>Newsletter</a>
             </Link>
           </p>
-          <strike>
+          <del>
             <a
               href="https://trakt.tv/users/marcomadera/progress"
               target="_blank"
@@ -135,13 +135,13 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             >
               <h3>Ver series</h3>
             </a>
-          </strike>
+          </del>
           <p>
             Es de esas cosas que dejo un tiempo y continúo por temporadas, me
             gustan las series de drama y no puedo con las de ficción ni super
             heroes.
           </p>
-        </section>
+        </div>
         <div>
           <h2>¿Quieres contactar conmigo?</h2>
           <p>
@@ -168,7 +168,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
               <Email width="20" height="20" />
             </button>
           </p>
-          <video autoPlay loop muted playsinline>
+          <video autoPlay loop muted playsInline>
             <source
               src="https://res.cloudinary.com/marcomadera/video/upload/v1602516508/about/18283-212312-32345_cptpwx.mp4"
               type="video/mp4"
@@ -180,13 +180,11 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         {Object.keys(newNowPlaying).length > 0 ? (
           <div>
             <header>
-              <p>
-                <b>
-                  {newNowPlaying.listening
-                    ? "Escuchando ahora"
-                    : "Último escuchado"}
-                </b>
-              </p>
+              <h2>
+                {newNowPlaying.listening
+                  ? "Escuchando ahora"
+                  : "Último escuchado"}
+              </h2>
               <a
                 href="https://open.spotify.com/user/12133024755"
                 target="_blank"
@@ -208,9 +206,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           Object.keys(recentlyPlayed).length > 0 && (
             <div>
               <header>
-                <p>
-                  <b>Recién escuchado</b>
-                </p>
+                <h2>Recién escuchado</h2>
                 <a
                   href="https://open.spotify.com/user/12133024755"
                   target="_blank"
@@ -232,9 +228,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         )}
         {topTracks.length > 0 && (
           <>
-            <p>
-              <b>Mi top 10 de canciones</b>
-            </p>
+            <h2>Mi top 10 de canciones</h2>
             {topTracks.map(({ title, artist, songUrl, cover }) => (
               <MusicCard
                 key={songUrl}
@@ -355,21 +349,21 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           display: block;
           margin: 30px auto 0 auto;
         }
-        section p {
+        div p {
           line-height: 1.6;
         }
-        section p a {
+        div p a {
           display: inline;
           color: ${colors.primary};
         }
-        section p a:hover {
+        div p a:hover {
           text-decoration: underline;
           color: ${colors.secondary};
         }
-        section p a:focus {
+        div p a:focus {
           color: ${colors.secondary};
         }
-        section a:hover {
+        div a:hover {
           text-decoration: underline;
         }
         h3 {
@@ -384,9 +378,6 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           justify-content: space-between;
           align-items: center;
         }
-        div p {
-          margin: 0;
-        }
         aside:nth-of-type(2) {
           padding: 0 5px;
           box-sizing: border-box;
@@ -398,10 +389,18 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         h1 {
           font-size: 2em;
           text-align: center;
-          margin-top: 0;
+          margin: 0 0 1em 0;
         }
-        section p {
+        div p {
           text-align: justify;
+        }
+        aside h2 {
+          margin: 1em 0;
+          font-size: 1em;
+        }
+        aside header h2 {
+          margin: 0;
+          font-size: 1em;
         }
         main {
           display: grid;

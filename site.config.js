@@ -7,7 +7,7 @@ module.exports = {
       email: "me@marcomadera.com",
     },
     description:
-      "Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web",
+      "Marco Madera, pensamientos y opiniones sobre la web y la programación.",
     siteUrl: "https://marcomadera.com/",
     language: "es-MX",
     logo: "https://marcomadera.com/logo512.png",

@@ -66,16 +66,16 @@ export default function Post({ postData, recommendedPosts }) {
         url={`https://marcomadera.com/blog/${slug}`}
       />
       {contentAside(post.content)}
-      <article className="blog" id="main">
-        <section>
-          <header>
+      <div className="blog" id="main">
+        <div>
+          <div>
             <h1>{frontmatter.title}</h1>
             <p>
               <time dateTime={new Date(frontmatter.date).toISOString()}>
                 {getFormattedDate(new Date(frontmatter.date))}
               </time>
             </p>
-          </header>
+          </div>
           <MarkDown
             source={post.content}
             renderers={{
@@ -84,7 +84,7 @@ export default function Post({ postData, recommendedPosts }) {
           />
           <hr />
           <BlogFooter slug={slug} blogTitle={frontmatter.title} />
-        </section>
+        </div>
         <nav>
           {previousPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
@@ -114,7 +114,7 @@ export default function Post({ postData, recommendedPosts }) {
             hasDarkBackground={false}
           />
         )}
-      </article>
+      </div>
       <aside>
         <AllTags tags={frontmatter.tag} title="Etiquetas del artículo" />
         <RecommendedPosts
@@ -138,9 +138,18 @@ export default function Post({ postData, recommendedPosts }) {
           margin-bottom: 40px;
           flex-wrap: wrap;
         }
+        main > div > div > div {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+        }
+        h1 {
+          margin: 1em 0;
+        }
         a {
           border: 3px solid ${colors.secondary};
-          background: white;
+          background: ${colors.white};
           padding: 7px 10px;
           font-size: 14px;
           text-align: center;

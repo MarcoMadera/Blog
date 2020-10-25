@@ -5,9 +5,7 @@ const Contents = ({ content }) => {
   return (
     <aside>
       <section>
-        <p>
-          <b>Tabla de contenido</b>
-        </p>
+        <h2>Tabla de contenido</h2>
         {content.map((element, i) => (
           <a key={i} href={`#${slugify(element)}`}>
             {element}
@@ -31,8 +29,9 @@ const Contents = ({ content }) => {
         a:focus {
           color: ${colors.secondary};
         }
-        p {
+        h2 {
           font-size: 18px;
+          margin: 1em 0;
         }
       `}</style>
     </aside>

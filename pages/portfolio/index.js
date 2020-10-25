@@ -13,7 +13,7 @@ const Portfolio = () => {
           width={400}
           height={222}
         />
-        <section>
+        <div>
           <h2>Retos frontend</h2>
           <p>
             Esta es una serie de retos que he ido realizando para pasar el rato
@@ -33,7 +33,7 @@ const Portfolio = () => {
           <Link href="/portfolio/challenges">
             <a className={"btn btn-primary"}>Detalles</a>
           </Link>
-        </section>
+        </div>
       </article>
       <article className={"right"}>
         <img
@@ -42,7 +42,7 @@ const Portfolio = () => {
           width={400}
           height={222}
         />
-        <section>
+        <div>
           <h2>Tests para números aleatorios</h2>
           <p>
             Herramienta para verificar números aleatorios, se puede encontrar
@@ -63,7 +63,7 @@ const Portfolio = () => {
           <Link href="/portfolio/random-numbers-test">
             <a className={"btn btn-primary"}>Detalles</a>
           </Link>
-        </section>
+        </div>
       </article>
       <article>
         <img
@@ -72,7 +72,7 @@ const Portfolio = () => {
           width={400}
           height={222}
         />
-        <section>
+        <div>
           <h2>Registro de trámites en excel</h2>
           <p>
             Dashboard funcional en excel programado con visual basic for
@@ -86,7 +86,7 @@ const Portfolio = () => {
           <Link href="/portfolio/sre-excel">
             <a className="btn btn-primary">Detalles</a>
           </Link>
-        </section>
+        </div>
       </article>
       <style global jsx>{`
         .right {
@@ -98,6 +98,7 @@ const Portfolio = () => {
           line-height: 1.6;
         }
         h1{
+          margin-top: 0;
           text-align: center;
         }
         main {
@@ -137,18 +138,15 @@ const Portfolio = () => {
             animation-timing-function: ease-out;
           }
         }
-
         img {
           width: 400px;
           height: 222px;
           clip-path: inset(0% 0% 0% 0% round 10px);
           transition: ease 0.3s;
         }
-
-        section {
+        div {
           padding: 30px;
         }
-
         a {
           color: ${colors.primary};
         }
@@ -172,7 +170,7 @@ const Portfolio = () => {
             width: 100%;
             height: auto;
           }
-          section{
+          div{
             padding: 0;
           }
         }

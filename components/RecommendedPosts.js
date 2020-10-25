@@ -6,12 +6,8 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
     <div>
       {recommendedPosts && (
         <>
-          {recommendedPosts.length > 1 && (
-            <strong>
-              <p>Artículos recomendados</p>
-            </strong>
-          )}
           <section>
+            {recommendedPosts.length > 1 && <h2>Artículos recomendados</h2>}
             {recommendedPosts.map(({ slug, cover100, title }, i) => {
               if (slug === currentPost) return;
               return (
@@ -37,6 +33,10 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
         div {
           display: block;
           margin-bottom: 10px;
+        }
+        h2 {
+          font-size: 1em;
+          margin: 1em 0;
         }
         img {
           clip-path: inset(0% 0% 0% 0% round 10px);

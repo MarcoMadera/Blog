@@ -6,6 +6,7 @@ const Seo = ({
   description = "",
   cover = "https://marcomadera.com/logo512.png",
   url = "https://marcomadera.com/",
+  canonical = "",
 }) => {
   const siteMetadata = getSiteMetaData();
   const metaDescription = description || siteMetadata.description;
@@ -18,6 +19,7 @@ const Seo = ({
       </title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={metaTitle} />
+      <link rel="canonical" href={canonical || url} />
       <meta property="og:locale" content="es-MX" />
       <meta name="robots" content="index,follow" />
       <link
@@ -36,7 +38,7 @@ const Seo = ({
       />
       <meta name="twitter:site" content={`@${siteMetadata.social.twitter}`} />
       <meta property="fb:app_id" content="373017180730319" />
-      {url !== siteMetadata.siteUrl ? (
+      {url.includes("marcomadera.com/blog/") ? (
         <>
           <meta property="og:type" content="article" />
           <meta
@@ -61,8 +63,15 @@ const Seo = ({
       <meta property="og:url" content={url} />
       <meta property="twitter:image" content={cover} />
 
-      <link rel="icon" type="image/png" href="/favicon-32x32.png" />
-      <link rel="apple-touch-icon" href="/favicon-32x32.png" />
+      <link
+        rel="icon"
+        type="image/png"
+        href="https://marcomadera.com/favicon-32x32.png"
+      />
+      <link
+        rel="apple-touch-icon"
+        href="https://marcomadera.com/favicon-32x32.png"
+      />
     </Head>
   );
 };
@@ -74,4 +83,5 @@ Seo.propTypes = {
   description: PropTypes.string,
   cover: PropTypes.string,
   url: PropTypes.string,
+  canonical: PropTypes.string,
 };

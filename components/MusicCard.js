@@ -16,12 +16,10 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
           width="64"
           height="64"
         />
-        <section>
-          <p>
-            <b>{title}</b>
-          </p>
+        <div>
+          <h2>{title}</h2>
           <p>{artist}</p>
-        </section>
+        </div>
       </a>
       <style jsx>{`
         a {
@@ -39,17 +37,19 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
         img {
           margin-right: 5px;
         }
-        section {
+        div {
           width: calc(100% - 69px);
           max-width: calc(100vw - 120px);
         }
-        p {
+        p,
+        h2 {
           margin: 0;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        p:nth-of-type(1) {
+        h2 {
+          font-size: 1em;
           display: -webkit-box;
           white-space: unset;
           -webkit-line-clamp: 2;

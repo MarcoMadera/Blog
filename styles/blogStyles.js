@@ -247,8 +247,8 @@ export const blogStyles = css.global`
   .blog blockquote {
     border-left: 5px solid ${colors.primary};
     padding-left: 10px;
-    margin-inline-start: 30px;
-    margin-inline-end: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   .blog .mjx-chtml,
@@ -280,12 +280,6 @@ export const blogStyles = css.global`
   .blog a {
     color: ${colors.primary};
   }
-  .blog header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
   .blog a:hover {
     text-decoration: underline;
     color: ${colors.secondary};
@@ -311,8 +305,7 @@ export const blogStyles = css.global`
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
-    padding-inline-start: 0;
-    margin-block-end: 0;
+    margin-bottom: 0;
     padding: 0 20px 0 0;
     margin-left: 20px;
   }
@@ -545,8 +538,8 @@ export const blogStyles = css.global`
   }
   @media screen and (min-width: 0px) and (max-width: 500px) {
     .blog blockquote {
-      margin-inline-start: 15px;
-      margin-inline-end: 15px;
+      margin-left: 15px;
+      margin-right: 15px;
     }
   }
 `;

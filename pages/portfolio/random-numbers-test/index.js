@@ -10,7 +10,7 @@ const Random = () => {
       />
       <h1>Herramienta para verificar números aleatorios</h1>
       <article>
-        <section>
+        <div>
           <h2>Pruebas para números aleatorios</h2>
           <a
             href="https://test-for-random-numbers.marcomadera.vercel.app/"
@@ -39,7 +39,7 @@ const Random = () => {
             dónde explico cómo determinar el comportamiento y puedes ver los
             resultados que obtuve al aplicarlo con Math.Random() de JavaScript.
           </p>
-        </section>
+        </div>
         <div>
           <a
             href="https://test-for-random-numbers.marcomadera.vercel.app/"
@@ -65,6 +65,7 @@ const Random = () => {
           max-width: 1300px;
         }
         h1 {
+          margin-top: 0;
           text-align: center;
         }
         p {
@@ -78,10 +79,10 @@ const Random = () => {
           margin-bottom: 40px;
           align-items: center;
         }
-        article > div {
+        article > div:nth-of-type(2) {
           padding: 40px;
         }
-        section {
+        div:nth-of-type(1) {
           padding: 40px;
         }
         img {
@@ -90,12 +91,12 @@ const Random = () => {
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
             0 10px 10px -5px rgba(0, 0, 0, 0.03);
         }
-        div a {
+        div:nth-of-type(2) a {
           transition: ease 0.3s;
           display: flex;
         }
-        div a:hover,
-        div a:focus {
+        div:nth-of-type(2) a:hover,
+        div:nth-of-type(2) a:focus {
           position: static;
           transform: scale(1.1);
         }
@@ -115,11 +116,11 @@ const Random = () => {
             margin-top: 0px;
             margin-bottom: 20px;
           }
-          article > div,
-          article > section {
+          article > div:nth-of-type(2),
+          article > div:nth-of-type(1) {
             padding: 0px;
           }
-          article > section a {
+          article > div:nth-of-type(1) a {
             margin-bottom: 10px;
           }
         }

@@ -4,7 +4,7 @@ import { colors } from "../styles/theme";
 const Navbar = () => {
   const router = useRouter();
   return (
-    <nav>
+    <header>
       <Link href="/">
         <a className="logo" aria-label="Ir a la página principal">
           <picture>
@@ -22,7 +22,7 @@ const Navbar = () => {
           <span>Marco Madera</span>
         </a>
       </Link>
-      <section>
+      <nav>
         <Link href="/portfolio">
           <a
             style={{
@@ -43,7 +43,7 @@ const Navbar = () => {
             Sobre mí
           </a>
         </Link>
-      </section>
+      </nav>
       <style global jsx>{`
         .logo {
           display: flex;
@@ -87,7 +87,7 @@ const Navbar = () => {
           font-weight: 400;
           margin: 0;
         }
-        nav {
+        header {
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
@@ -101,12 +101,12 @@ const Navbar = () => {
           height: 40px;
           margin-right: 10px;
         }
-        nav section a {
+        nav a {
           display: inline-block;
           margin: 9px 5px;
         }
-        nav section a:hover,
-        nav section a:focus {
+        nav a:hover,
+        nav a:focus {
           color: ${colors.secondary};
           animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
@@ -124,7 +124,7 @@ const Navbar = () => {
           }
         }
       `}</style>
-    </nav>
+    </header>
   );
 };
 
