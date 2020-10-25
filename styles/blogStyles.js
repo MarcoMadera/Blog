@@ -360,7 +360,7 @@ export const blogStyles = css.global`
     border-radius: 10px;
   }
   .blog pre code {
-    line-height: 20px;
+    line-height: 1.8 !important;
     font-size: 14px !important;
   }
   .blog table {
@@ -538,6 +538,10 @@ export const blogStyles = css.global`
     margin: 0 auto;
     display: block;
     width: fit-content;
+  }
+  .blog iframe {
+    display: block;
+    margin: auto;
   }
   @media screen and (min-width: 0px) and (max-width: 500px) {
     .blog blockquote {

@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import "../styles/globals.css";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
+import Head from "next/head";
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -32,9 +33,15 @@ const App = ({ Component, pageProps }) => {
   Router.events.on("routeChangeComplete", () => NProgress.done());
   Router.events.on("routeChangeError", () => NProgress.done());
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 };
 

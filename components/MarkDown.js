@@ -29,6 +29,39 @@ const parseHtml = htmlParser({
       },
     },
     {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "tweet",
+      processNode: function Tweets(node) {
+        return (
+          <iframe
+            border="0"
+            frameBorder="0"
+            width="550"
+            height={node.attribs.height || 250}
+            src={`https://platform.twitter.com/embed/index.html?dnt=false&embedId=twitter-widget-0&frame=false&hideCard=false&hideThread=false&id=${node.attribs.src}&lang=en&origin=https://marcomadera.com/&theme=light&widgetsVersion=ed20a2b%3A1601588405575&width=550px`}
+            title={node.attribs.title}
+          ></iframe>
+        );
+      },
+    },
+    {
+      shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "youtube",
+      processNode: function Tweets(node) {
+        return (
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube-nocookie.com/embed/${node.attribs.src}`}
+            title={node.attribs.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ maxWidth: 100 + "%" }}
+          ></iframe>
+        );
+      },
+    },
+    {
       shouldProcessNode: function () {
         return true;
       },

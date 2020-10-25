@@ -24,11 +24,11 @@ const CodeBlock = ({ language, value }) => {
   return (
     <SyntaxHighlighter
       showLineNumbers={true}
-      showInlineLineNumbers={true}
+      showInlineLineNumbers={false}
       wrapLines={false}
       language={language}
       useInlineStyles={false}
-      lineNumberStyle={{ color: "#aaa" }}
+      lineNumberStyle={{ color: "#aaa", fontSize: "14px" }}
     >
       {value}
     </SyntaxHighlighter>
