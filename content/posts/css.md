@@ -11,7 +11,7 @@ tag:
   - Personalización
 ---
 
-He visto sitios webs impresionantes con una gran presentación, sitios que generan una buena experiencia como usuario y muchos solo lo logran con una buena apariencia. Siempre y cuando se quiera hacer una web más bonita, atractiva y presentable, aplicar estilos CSS es lo más adecuado.
+He visto sitios web impresionantes con una gran presentación, sitios que generan una buena experiencia como usuario y muchos solo lo logran con una buena apariencia. Siempre y cuando se quiera hacer una web más bonita, atractiva y presentable, aplicar estilos CSS es de lo primero a tomarse en cuenta.
 
 ## ¿Qué es CSS?
 <p>
@@ -56,11 +56,10 @@ La manera que se aprovecha mejor sería hacer un link a una hoja de estilos con 
 ```
 
 ## Selectores
-Al usar CSS en una hoja externa o en la etiqueta `<style>` 
-Los selectores son necesarios para estilar elementos específicos
+Al usar CSS en una hoja externa o en la etiqueta `<style>` los selectores son necesarios para estilar elementos específicos.
 
 ### Etiquetas
-Para seleccionar etiquetas simplemente se escribe el nombre de la etiqueta y si se quiere especificar alguna etiqueta que contenga cierto atributo se puede hacer seguido con corchetes `[]`, así seleccionará todas las etiquetas del mismo nombre que tengan cierto atributo.
+Para seleccionar etiquetas simplemente se escribe el nombre de la etiqueta, si se quiere especificar alguna etiqueta que contenga cierto atributo se puede hacer seguido con corchetes `[]`, así seleccionará todas las etiquetas del mismo nombre que tengan cierto atributo.
 
 ```css
 nav { ... }
@@ -77,17 +76,22 @@ Las id en HTML son únicas, se seleccionan con el símbolo `#`
 ```
 
 ### Clases
-Al usar el nombre de una clase con un punto "." antes se seleccionarán todos los elementos que tienen la misma clase.
+Al usar el nombre de una clase precediendo un punto "." se seleccionarán todos los elementos que tienen la misma clase.
 ```css
-.clase{
+.clase {
 
 }
 ```
 
 
 ### Combinaciones
-Los selectores se pueden combinar para seleccionar elementos que tienen cierta relación siempre de forma descendente, y se pueden compartir propiedades separando por comma ",".
+Los selectores se pueden combinar para seleccionar elementos que tienen cierta relación siempre de forma descendente.
 
+Las propiedades se pueden compartir separando por comma "," los selectores.
+
+```css
+nav.topNavbar, nav.bottomNavbar { ... }
+```
 
 Selecciona todas las etiquetas nav con clase topNavbar
 
@@ -102,15 +106,15 @@ nav .topNavbar { ... }
 ```
 Selecciona todos los elementos de primer subnivel con la clase topNavbar dentro de una etiqueta nav
 ```css
-nav > .topNavbar{ ... }
+nav > .topNavbar { ... }
 ```
 Selecciona al primer elemento del mismo nivel que sigue inmediatamente con la clase topNavbar
 ```css
-nav + .topNavbar{ ... }
+nav + .topNavbar { ... }
 ```
  Selecciona a todos los elementos del mismo nivel que sigue inmediatamente con la clase topNavbar
 ```css
-nav ~ .topNavbar{ ... }
+nav ~ .topNavbar { ... }
 ```
 Selecciona a todos los elementos con etiqueta nav que incluye topNavbar en su atributo clase
 ```css
@@ -128,7 +132,7 @@ div {
 }
 ```
 
-Las propiedades abreviadas nos permiten tener varias propiedades en una misma línea, ahorra tiempo y se mira las legible.
+Las propiedades abreviadas nos permiten tener varias propiedades en una misma línea, ahorra tiempo y se mira más legible.
 El anterior margen se puede escribir de la siguiente manera con una propiedad abreviada:
 
 ```css
@@ -160,7 +164,7 @@ Si solo se incluyen dos valores, se toma como el primer valor a margin-top y mar
 En caso de incluirse 3 valores, se toman de forma de las manecillas del reloj y el segundo valor sería para margin-left.
 
 ### Propiedades customizadas
-Para crear una propiedad customiza se utiliza como prefijo el doble guión -- y seguido del nombre de la propiedad y el valor que lleva. Para usar la propiedad se hace a través de la función "var".
+Para crear una propiedad customizada se utiliza como prefijo el doble guión -- y seguido del nombre de la propiedad y el valor que lleva. Para usar la propiedad se hace a través de la función "var".
 
 ```css
 .topNavbar {
@@ -192,7 +196,7 @@ Para usar las propiedades en un scope global del documento se pueden definir en 
 
 
 ### Herencia de propiedades
-CSS como su nombre lo indica hoja de estilos en cascada, va en forma de cascada, de arriba hacia abajo, por lo que una propiedad abreviada debe de ir antes de una propiedad unica para que sobreescriba los estilos por defecto, se pone por debajo se escribirán de nuevo los estilos por defecto.
+CSS como su nombre lo indica, hoja de estilos en cascada, va en forma de cascada, de arriba hacia abajo, por lo que una propiedad abreviada debe de ir antes de una propiedad unica para que sobreescriba los estilos por defecto, se pone por debajo para que se sobre escriban los estilos por defecto.
 
 
 Mal:
@@ -268,7 +272,7 @@ img {
 ## Reglas at
 Son declaraciones que comienzan con el símbolo arroba "@", 
 
-@import nos permite incluir una hoja de estilos externa y con esto nos da una opción alternativa a la de HTML para agregar más fuentes comúnmente y otras características bajo un conjunto de reglas si se requiere.
+@import nos permite incluir una hoja de estilos externa, con esto podemos reusar nuestros estilos y poder agregar más fuentes como alternativa a la de HTML.
 
 El siguiente código importará la fuente monserrat si se encuentra en un dispositivo de impresión.
 ```css
@@ -400,7 +404,7 @@ El siguiente código importará la fuente monserrat si se encuentra en un dispos
 }
 ```
 
-Como podemos ver el borde es el que delimita el color del background, por lo que el padding toma el color del background ya que como se vio en el modelo de caja está dentro del borde, y empuja 30 pixeles a partir del borde hacia dentro, al contrario el margen como está fuera del borde no se pinta con el background y hace un espacio del borde hacia afuera separando ambas cajas.
+Como podemos ver, el borde es el que delimita el color del background, por lo que el padding toma el color del background ya que como se vio en el modelo de caja está dentro del borde, y empuja 30 pixeles a partir del borde hacia dentro, al contrario el margen como está fuera del borde no se pinta con el background y hace un espacio del borde hacia afuera separando ambas cajas.
 
 ## Animaciones
 Las animaciones en css requieren de la regla keyframes seguida del nombre de la animación, de propiedades se pueden utilizar porcentajes para ser más específicos en los pasos o las propiedades "from" y "to" que sería lo mismo que 0% y 100%.
@@ -532,5 +536,5 @@ CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas característic
 
 [Can I Use](https://caniuse.com) es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar
 
-## Conclusion
-Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para desarrollar sitios webs, hay muchas cosas que debemos de tener en cuenta y conocer el alcance que puede tener CSS por si solo con las características que vienen por defecto es una gran ventaja a la hora de crear productos.
+## Conclusión
+Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para desarrollar sitios web, hay muchas cosas que debemos de tener en cuenta y conocer el alcance que puede tener CSS por si solo con las características que vienen por defecto es una gran ventaja a la hora de crear productos.

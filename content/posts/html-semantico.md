@@ -193,19 +193,13 @@ El pie de página suele ser usado para añadir información extra sobre la pági
 ### Títulos de cabecera
 Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.
 
-Se espera tener contenido después de un título, poner varios títulos seguidos existe la etiqueta `<hgroup>` que indica un grupo de títulos.
-
-<hgroup><h1>h1</h1><h6>h6</h6></hgroup>
-
 ```html
-<hgroup>
-  <h1>
-    h1
-  </h1>
-  <h6>
-    h6
-  </h6>
-</hgroup>
+<h1>
+  h1
+</h1>
+<h6>
+  h6
+</h6>
 ```
 
 ### address

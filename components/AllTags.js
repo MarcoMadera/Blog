@@ -6,15 +6,17 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
   return (
     <section>
       <h2>{title}</h2>
-      {tags.map((tag) => (
-        <Link
-          href={"/blog/tag/[slug]/"}
-          as={`/blog/tag/${slugify(tag)}/`}
-          key={tag}
-        >
-          <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
-        </Link>
-      ))}
+      <div>
+        {tags.map((tag) => (
+          <Link
+            href={"/blog/tag/[slug]/"}
+            as={`/blog/tag/${slugify(tag)}/`}
+            key={tag}
+          >
+            <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
+          </Link>
+        ))}
+      </div>
       <style jsx>{`
         a {
           display: block;
@@ -29,7 +31,7 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
         a:focus {
           color: ${colors.secondary};
         }
-        section {
+        div {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }

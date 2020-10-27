@@ -36,8 +36,7 @@
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "https://marcomadera.com/",
-  "description": "Mi blog personal",
-  "scope": "/",
+  "description": "Marco Madera, pensamientos y opiniones sobre la web y la programación.",
   "background_color": "#ffffff",
   "theme_color": "#ffffff"
 }

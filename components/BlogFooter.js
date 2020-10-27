@@ -7,9 +7,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
   return (
     <footer>
       <section>
-        <p>
-          <strong>Comparte el artículo</strong>
-        </p>
+        <h2>Comparte el artículo</h2>
         <button
           title="Compartir en Twitter"
           onClick={() => {
@@ -67,8 +65,9 @@ const BlogFooter = ({ slug, blogTitle }) => {
           flex-wrap: wrap;
           align-items: center;
         }
-        p {
+        h2 {
           margin: 0;
+          font-size: 16px;
         }
         @media screen and (max-width: 528px) {
           section {

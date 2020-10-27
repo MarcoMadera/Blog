@@ -8,30 +8,35 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
         <>
           <section>
             {recommendedPosts.length > 1 && <h2>Artículos recomendados</h2>}
-            {recommendedPosts.map(({ slug, cover100, title }, i) => {
-              if (slug === currentPost) return;
-              return (
-                i <= 6 && (
-                  <Link key={slug} href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
-                    <a>
-                      <img
-                        src={cover100}
-                        alt={`${title} cover`}
-                        width="40"
-                        height="40"
-                      />
-                      {title}
-                    </a>
-                  </Link>
-                )
-              );
-            })}
+            <div>
+              {recommendedPosts.map(({ slug, cover100, title }, i) => {
+                if (slug === currentPost) return;
+                return (
+                  i <= 6 && (
+                    <Link
+                      key={slug}
+                      href={"/blog/[slug]/"}
+                      as={`/blog/${slug}/`}
+                    >
+                      <a>
+                        <img
+                          src={cover100}
+                          alt={`${title} cover`}
+                          width="40"
+                          height="40"
+                        />
+                        {title}
+                      </a>
+                    </Link>
+                  )
+                );
+              })}
+            </div>
           </section>
         </>
       )}
       <style jsx>{`
         div {
-          display: block;
           margin-bottom: 10px;
         }
         h2 {
@@ -62,9 +67,10 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
           background: rgb(250, 250, 250);
           border-radius: 3px;
         }
-        section {
+        section div {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          margin-bottom: 0;
         }
         @media screen and (max-width: 876px) {
           a {

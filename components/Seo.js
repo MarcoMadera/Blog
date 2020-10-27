@@ -62,16 +62,6 @@ const Seo = ({
       <meta property="og:image:alt" content={metaDescription} />
       <meta property="og:url" content={url} />
       <meta property="twitter:image" content={cover} />
-
-      <link
-        rel="icon"
-        type="image/png"
-        href="https://marcomadera.com/favicon-32x32.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        href="https://marcomadera.com/favicon-32x32.png"
-      />
     </Head>
   );
 };

@@ -4,7 +4,7 @@ const Bio = () => {
   const { author, social } = getSiteMetaData();
 
   return (
-    <section>
+    <div>
       <p>
         <span className="Bio__follow">
           <img src="/profile.jpg" alt="Profile" width="40" height="40" />
@@ -36,7 +36,7 @@ const Bio = () => {
           display: inline-flex;
           vertical-align: middle;
         }
-        section {
+        div {
           display: flex;
           align-items: center;
           flex-wrap: wrap;
@@ -79,7 +79,7 @@ const Bio = () => {
           transition: 0.3s ease;
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 export default Bio;
