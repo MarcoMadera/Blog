@@ -18,7 +18,8 @@ const tag = ({ postData, tags }) => {
         title={`Blog tag ${postsByTag[0].tag.find((item) =>
           slugify(item).includes(slug)
         )}`}
-        url={`https://marcomadera.com/${slug}`}
+        url={`https://marcomadera.com/blog/tag/${slug}`}
+        canonical="https://marcomadera.com"
       />
       <Aside />
       <section>
