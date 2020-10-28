@@ -13,6 +13,7 @@ const Aside = () => {
           src="/profile-80x80.jpg"
           alt="Marco Madera"
           width="80"
+          loading="eager"
           height="80"
         />
       </picture>
