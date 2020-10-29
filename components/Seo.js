@@ -7,6 +7,8 @@ const Seo = ({
   cover = "https://marcomadera.com/logo512.png",
   url = "https://marcomadera.com/",
   canonical = "",
+  author = "",
+  date = "",
 }) => {
   const siteMetadata = getSiteMetaData();
   const metaDescription = description || siteMetadata.description;
@@ -48,7 +50,13 @@ const Seo = ({
           <meta
             property="article:publisher"
             content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
-          />{" "}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":"${author}","publisher":"Marco Madera","mainEntityOfPage":"${url}"}`,
+            }}
+          />
         </>
       ) : (
         <meta property="og:type" content="website" />
@@ -73,5 +81,7 @@ Seo.propTypes = {
   description: PropTypes.string,
   cover: PropTypes.string,
   url: PropTypes.string,
+  author: PropTypes.string,
   canonical: PropTypes.string,
+  date: PropTypes.string,
 };

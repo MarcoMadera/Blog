@@ -64,27 +64,34 @@ export default function Post({ postData, recommendedPosts }) {
         description={frontmatter.description || post.excerpt}
         cover={frontmatter.cover760}
         url={`https://marcomadera.com/blog/${slug}`}
+        author={frontmatter.author}
+        date={frontmatter.date}
       />
       {contentAside(post.content)}
       <div className="blog" id="main">
-        <div>
+        <article itemScope itemType="http://schema.org/Article">
           <div>
-            <h1>{frontmatter.title}</h1>
+            <h1 itemProp="name">{frontmatter.title}</h1>
             <p>
-              <time dateTime={new Date(frontmatter.date).toISOString()}>
+              <time
+                itemProp="datePublished"
+                dateTime={new Date(frontmatter.date).toISOString()}
+              >
                 {getFormattedDate(new Date(frontmatter.date))}
               </time>
             </p>
           </div>
-          <MarkDown
-            source={post.content}
-            renderers={{
-              code: CodeBlock,
-            }}
-          />
+          <div itemProp="articlebody">
+            <MarkDown
+              source={post.content}
+              renderers={{
+                code: CodeBlock,
+              }}
+            />
+          </div>
           <hr />
           <BlogFooter slug={slug} blogTitle={frontmatter.title} />
-        </div>
+        </article>
         <nav>
           {previousPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
@@ -138,7 +145,7 @@ export default function Post({ postData, recommendedPosts }) {
           margin-bottom: 40px;
           flex-wrap: wrap;
         }
-        main > div > div > div {
+        main > div > article > div:nth-of-type(1) {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;

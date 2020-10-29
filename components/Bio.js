@@ -16,7 +16,8 @@ const Bio = () => {
             Seguir
           </a>
         </span>
-        Escrito por <strong>{author.name}</strong> {author.summary}{" "}
+        Escrito por <strong itemProp="author">{author.name}</strong>{" "}
+        {author.summary}{" "}
       </p>
       <style jsx>{`
         @keyframes scale-in-center {
