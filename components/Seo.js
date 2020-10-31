@@ -21,7 +21,7 @@ const Seo = ({
       </title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={metaTitle} />
-      <link rel="canonical" href={canonical || url} />
+      <link rel="canonical" href={canonical || "https://marcomadera.com"} />
       <meta property="og:locale" content="es-MX" />
       <meta name="robots" content="index,follow" />
       <link
@@ -54,7 +54,7 @@ const Seo = ({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":"${author}","publisher":"Marco Madera","mainEntityOfPage":"${url}"}`,
+              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher":"Marco Madera","mainEntityOfPage":"${url}"}`,
             }}
           />
         </>

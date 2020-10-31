@@ -35,7 +35,7 @@ const Portfolio = () => {
           </Link>
         </div>
       </article>
-      <article className={"right"}>
+      <article>
         <img
           src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_501,w_900/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
           alt="test for random numbers cover"
@@ -88,11 +88,6 @@ const Portfolio = () => {
           </Link>
         </div>
       </article>
-      <style global jsx>{`
-        .right {
-          flex-direction: row-reverse;
-        }
-      `}</style>
       <style jsx>{`
         p {
           line-height: 1.6;
@@ -107,10 +102,19 @@ const Portfolio = () => {
           max-width: 1300px;
         }
         article {
-          display: flex;
+          display: grid;
           align-items: center;
           margin-bottom: 40px;
           transition: ease 0.4s;
+        }
+        article:nth-of-type(2n+1) {
+          grid-template-columns: 400px 1fr;
+        }
+        article:nth-of-type(2n+2) {
+          grid-template-columns: 1fr 400px;
+        }
+        article:nth-of-type(2n+2) div{
+          grid-area: 1 / 1 / 1 / 2;
         }
         article:hover a {
           animation: heartbeat 1.5s ease-in-out 1s 2 both;

@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import About from "../pages/about";
+import Home from "../pages/index";
 import { getServerSideProps } from "../pages/about";
 
 describe("getServerSideProps", () => {
@@ -29,13 +30,21 @@ describe("getServerSideProps", () => {
   });
 });
 
-test("renders email button", () => {
-  const { getByTitle } = render(<About />);
+it("renders email button About page", () => {
+  // Prevent flush for muted attribute in video element
+  Object.defineProperty(HTMLMediaElement.prototype, "muted", {
+    set: () => {},
+  });
+
+  const { getByTitle } = render(
+    <About nowPlaying={{}} topTracks={[]} recentlyPlayed={{}} />
+  );
   const emailButtom = getByTitle("Enviar correo electrónico");
   expect(emailButtom).toBeInTheDocument();
 });
-test("renders deploy link", () => {
-  const { getByText } = render(<About />);
-  const linkElement = getByText("Ver series");
+
+it("should render newsletter at home page", () => {
+  const { getByLabelText } = render(<Home />);
+  const linkElement = getByLabelText("¡Suscríbete al Newsletter!");
   expect(linkElement).toBeInTheDocument();
 });

@@ -538,7 +538,7 @@ CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas característic
 
 Soporte para la propiedad "hyphens" en distintos navegadores:
 
-<iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" frameborder="0" width="100%" height="450px"></iframe>
+<iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" frameborder="0" width="100%" height="450"></iframe>
 
 ## Conclusión
 Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para desarrollar sitios web, hay muchas cosas que debemos de tener en cuenta y conocer el alcance que puede tener CSS por si solo con las características que vienen por defecto es una gran ventaja a la hora de crear productos.

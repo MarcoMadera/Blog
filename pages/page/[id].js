@@ -16,7 +16,7 @@ import Link from "next/link";
 export default function Page({ posts = [], pages = [], tags = [], page }) {
   return (
     <main id="main">
-      <Seo title="Blog" canonical="https://marcomadera.com/" />
+      <Seo title="Blog" canonical="https://marcomadera.com" />
       <Aside />
       <section>
         <h1>Últimos artículos</h1>

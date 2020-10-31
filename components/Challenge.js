@@ -95,6 +95,8 @@ const Challenge = ({
         }
         img {
           width: 100%;
+          max-width: 700px;
+          margin: auto;
           clip-path: inset(0% 0% 0% 0% round 10px);
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
             0 10px 10px -5px rgba(0, 0, 0, 0.03);
@@ -108,6 +110,9 @@ const Challenge = ({
           position: static;
           transform: scale(1.1);
         }
+        div:nth-of-type(1) a {
+          margin-bottom: 10px;
+        }
         @media screen and (max-width: 876px) {
           article {
             grid-template-columns: auto;
@@ -119,9 +124,6 @@ const Challenge = ({
           article > div,
           article > div:nth-of-type(1) {
             padding: 0px;
-          }
-          div:nth-of-type(1) a {
-            margin-bottom: 10px;
           }
         }
       `}</style>

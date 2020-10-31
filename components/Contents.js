@@ -12,6 +12,13 @@ const Contents = ({ content }) => {
           </a>
         ))}
       </section>
+      <style global jsx>
+        {`
+          body {
+            overflow-x: visible;
+          }
+        `}
+      </style>
       <style jsx>{`
         section {
           margin-top: 40px;
