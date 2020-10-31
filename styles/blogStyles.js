@@ -251,20 +251,6 @@ export const blogStyles = css.global`
     margin-right: 30px;
   }
 
-  .blog .mjx-chtml,
-  .blog .mjx-chtml:focus {
-    display: block !important;
-    flex-wrap: wrap;
-    white-space: unset;
-    width: fit-content;
-    margin: 0 auto;
-    font-size: 100%;
-    line-break: anywhere;
-  }
-  .blog .MathJax_Preview {
-    display: none;
-  }
-
   .blog h1 {
     font-size: 1.8em;
   }

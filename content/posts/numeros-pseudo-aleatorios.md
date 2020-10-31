@@ -34,15 +34,74 @@ La uniformidad en el caso de los números aleatorios, significa que en un rango 
   <figcaption>Gráfica completamente uniforme</figcaption>
 </figure>
 
-Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2):
+Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<sup>2</sup>:
 
-$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$
+<style>
+.fraction {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.2em 0.4ex;
+  text-align: center;
+}
+
+.fraction span {
+  display: block;
+  padding-top: 0.15em;
+}
+
+.fraction span.fdn {
+  border-top: thin solid #000;
+}
+
+.fraction span.bar {
+  display: none;
+}
+.chi-eq {
+  text-align: center;
+}
+
+.eq {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15%;
+  text-align: center;
+}
+@media screen and (max-width: 490px) {
+  .eq {
+    display: block;
+  }
+}
+</style>
+
+<div className="chi-eq">
+  <i>
+    x<sup>2</sup>= &#8721;
+  </i>
+  <div className="fraction">
+    <span className="fup">
+      <i>
+        ( &#959;<sub>i</sub>
+      </i>
+      &#8722;
+      <i>
+        e<sub>i</sub> )<sup>2</sup>
+      </i>
+    </span>
+    <span className="bar">/</span>
+    <span className="fdn">
+      <i>
+        e<sub>i</sub>
+      </i>
+    </span>
+  </div>
+</div>
+
 
 Donde:
 
-oi: datos obtenidos
+<i>o<sub>i</sub></i>: datos obtenidos
 
-ei: datos esperados
+<i>e<sub>i</sub></i>: datos esperados
 
 Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
@@ -76,11 +135,41 @@ Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la p
 
 Para aplicar esta prueba necesitamos de los siguientes estadísticos:
 
-$$\mu R = {2n - 1 \over 3}$$
-
-$$\sigma ^2 R = {16n - 29 \over 90}$$
-
-$$Z = {R - \mu R \over \sigma R}$$
+<div className="eq">
+  <div className="eq__mean">
+    <i>
+      &#956;<sub>R</sub>=
+    </i>
+    <div className="fraction">
+      <span className="fup">2n - 1</span>
+      <span className="bar">/</span>
+      <span className="fdn">3</span>
+    </div>
+  </div>
+  <div className="eq__stdDev">
+    <i>
+      &#963;<sup>2</sup>
+      <sub>R</sub> =
+    </i>
+    <div className="fraction">
+      <span className="fup">16n - 29</span>
+      <span className="bar">/</span>
+      <span className="fdn">90</span>
+    </div>
+  </div>
+  <div className="eq__z">
+    <i>Z = </i>
+    <div className="fraction">
+      <span className="fup">
+        R - &#956;<sub>R</sub>
+      </span>
+      <span className="bar">/</span>
+      <span className="fdn">
+        &#963;<sub>R</sub>
+      </span>
+    </div>
+  </div>
+</div>
 
 Donde:
 
@@ -138,29 +227,142 @@ Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto d
 
 De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la fórmula de chi-cuadrada utilizada anteriormente.
 
-$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$
+<div className="chi-eq">
+  <i>
+    x<sup>2</sup>= &#8721;
+  </i>
+  <div className="fraction">
+    <span className="fup">
+      <i>
+        ( &#959;<sub>i</sub>
+      </i>
+      &#8722;
+      <i>
+        e<sub>i</sub> )<sup>2</sup>
+      </i>
+    </span>
+    <span className="bar">/</span>
+    <span className="fdn">
+      <i>
+        e<sub>i</sub>
+      </i>
+    </span>
+  </div>
+</div>
 
 Donde:
 
-oi: datos obtenidos
+<i>o<sub>i</sub></i>: datos obtenidos
 
-ei: datos esperados
+<i>e<sub>i</sub></i>: datos esperados
 
 Lo que cambia es que ahora nuestros números esperados los calcularemos de con la siguiente ecuación.
 
-$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$
+<div className="chi-eq">
+  <i>
+    e<sub>i</sub> =
+  </i>
+  <div className="fraction">
+    <span className="fup">
+      <i>2</i>
+    </span>
+    <span className="bar">/</span>
+    <span className="fdn">
+      <i>
+        <i>(i + 3)!</i>
+      </i>
+    </span>
+  </div>
+  <i>
+    [n(i<sup>2</sup> + 3<sub>i</sub> + 1) - (i<sup>3</sup> + 3<sub>i</sub>
+    <sup>2</sup> - i - 4)]
+  </i>
+</div>
 
 Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:
 
 <table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
 
-$$\epsilon {\scriptscriptstyle 1} = {2 \over (1+3)!}[300(1^2 + {3\scriptstyle 1} + 1) - (1^3 + 3{\scriptstyle 1^2} - 1 - 4)] = 125.083$$
-
-$$\epsilon {\scriptscriptstyle 2} = {2 \over (2+3)!}[300(2^2 + {3\scriptstyle 2} + 1) - (2^3 + 3{\scriptstyle 2^2} - 2 - 4)]= 59.766$$
-
-$$\epsilon {\scriptscriptstyle 3} = {2 \over (3+3)!}[300(3^2 + {3\scriptstyle 3} + 1) - (3^3 + 3{\scriptstyle 3^2} - 3 - 4)]= 17.369$$
-
-$$\epsilon {\scriptscriptstyle 4i} = {2 \over (4+3)!}[300(4^2 + {3\scriptstyle 4} + 1) - (4^3 + 3{\scriptstyle 4^2} - 4 - 4)]= 3.768$$
+<div className="chi-eq">
+<i>
+  e<sub>1</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(1 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(1<sup>2</sup> + 3(1) + 1) - (1<sup>3</sup> + 3(1
+  <sup>2</sup>) - 1 - 4)] = 125.083
+</i>
+</div>
+<div className="chi-eq">
+<i>
+  e<sub>2</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(2 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(2<sup>2</sup> + 3(2) + 1) - (2<sup>3</sup> + 3(2
+  <sup>2</sup>) - 2 - 4)] = 59.766
+</i>
+</div>
+<div className="chi-eq">
+<i>
+  e<sub>3</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(3 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(3<sup>2</sup> + 3(3) + 1) - (3<sup>3</sup> + 3(3
+  <sup>2</sup>) - 3 - 4)] = 17.369
+</i>
+</div>
+<div className="chi-eq">
+<i>
+  e<sub>4</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(4 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(4<sup>2</sup> + 3(4) + 1) - (4<sup>3</sup> + 3(4
+  <sup>2</sup>) - 4 - 4)] = 3.768
+</i>
+</div>
 
 Lo cual son números similares a los obtenidos.
 

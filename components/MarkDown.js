@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import ReactMarkdown from "react-markdown";
-import RemarkMathPlugin from "remark-math";
-import MathJax from "react-mathjax";
 import slugify from "react-slugify";
 import htmlParser from "react-markdown/plugins/html-parser";
 import React from "react";
@@ -74,7 +72,6 @@ const _mapProps = (props) => ({
   ...props,
   escapeHtml: false,
   astPlugins: [parseHtml],
-  plugins: [RemarkMathPlugin],
   unwrapDisallowed: false,
   renderers: {
     ...props.renderers,
@@ -97,18 +94,8 @@ const _mapProps = (props) => ({
       const Heading = ReactMarkdown.renderers.heading;
       return <Heading {...props} />;
     },
-    math: function Math({ value }) {
-      return <MathJax.Node formula={value} />;
-    },
-    inlineMath: function InlineMath({ value }) {
-      return <MathJax.Node inline formula={value} />;
-    },
   },
 });
 
-const Markdown = (props) => (
-  <MathJax.Provider input="tex">
-    <ReactMarkdown {..._mapProps(props)} />
-  </MathJax.Provider>
-);
+const Markdown = (props) => <ReactMarkdown {..._mapProps(props)} />;
 export default Markdown;
