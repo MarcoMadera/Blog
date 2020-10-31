@@ -9,8 +9,8 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
       <div>
         {tags.map((tag) => (
           <Link
-            href={"/blog/tag/[slug]/"}
-            as={`/blog/tag/${slugify(tag)}/`}
+            href={"/blog/etiqueta/[slug]/"}
+            as={`/blog/etiqueta/${slugify(tag)}/`}
             key={tag}
           >
             <a aria-label={`etiqueta ${tag}`}>#{tag}</a>

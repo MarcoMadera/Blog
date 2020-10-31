@@ -1,8 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import About from "../pages/about";
+import About, { getServerSideProps } from "../pages/sobre-mi";
 import Home from "../pages/index";
-import { getServerSideProps } from "../pages/about";
 
 describe("getServerSideProps", () => {
   window.fetch = jest.fn(() =>

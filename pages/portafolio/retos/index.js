@@ -5,7 +5,7 @@ const challenges = () => {
     <main id="main">
       <Seo
         title="Portafolio - Challenges"
-        url="https://marcomadera.com/challenges"
+        url="https://marcomadera.com/portafolio/retos"
       />
       <h1>Desafios frontend</h1>
       <Challenge

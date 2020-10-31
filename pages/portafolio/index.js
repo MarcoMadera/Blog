@@ -4,7 +4,7 @@ import { colors } from "../../styles/theme";
 const Portfolio = () => {
   return (
     <main id="main">
-      <Seo title="Portafolio" url="https://marcomadera.com/portfolio" />
+      <Seo title="Portafolio" url="https://marcomadera.com/portafolio" />
       <h1>Portafolio</h1>
       <article>
         <img
@@ -30,7 +30,7 @@ const Portfolio = () => {
             de diseño, solo la imagen, por lo que son realizados principalmente
             a ojo.
           </p>
-          <Link href="/portfolio/challenges">
+          <Link href="/portafolio/retos">
             <a className={"btn btn-primary"}>Detalles</a>
           </Link>
         </div>
@@ -60,7 +60,7 @@ const Portfolio = () => {
             </a>
             .
           </p>
-          <Link href="/portfolio/random-numbers-test">
+          <Link href="/portafolio/random-numbers-test">
             <a className={"btn btn-primary"}>Detalles</a>
           </Link>
         </div>
@@ -83,7 +83,7 @@ const Portfolio = () => {
             posibles errores llevando la información directamente a el
             almacenamiento.
           </p>
-          <Link href="/portfolio/sre-excel">
+          <Link href="/portafolio/sre-excel">
             <a className="btn btn-primary">Detalles</a>
           </Link>
         </div>

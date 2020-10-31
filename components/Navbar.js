@@ -23,21 +23,21 @@ const Navbar = () => {
         </a>
       </Link>
       <nav>
-        <Link href="/portfolio">
+        <Link href="/portafolio">
           <a
             style={{
               textDecoration:
-                router.route === "/portfolio" ? "underline" : undefined,
+                router.route === "/portafolio" ? "underline" : undefined,
             }}
           >
             Portafolio
           </a>
         </Link>
-        <Link href="/about">
+        <Link href="/sobre-mi">
           <a
             style={{
               textDecoration:
-                router.route === "/about" ? "underline" : undefined,
+                router.route === "/sobre-mi" ? "underline" : undefined,
             }}
           >
             Sobre mí

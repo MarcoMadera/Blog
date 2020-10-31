@@ -78,14 +78,13 @@ export const getTagsSlugs = () => {
   return paths;
 };
 
-export const getPostsTags = () => {
-  const posts = getSortedPosts();
-  let tags = [];
-  posts.map(({ frontmatter }) =>
-    frontmatter.tag.forEach((tag) => tags.push(tag))
-  );
-  return tags;
-};
+export const getPostsTags = () => [
+  ...new Set(
+    getSortedPosts()
+      .map(({ frontmatter }) => frontmatter.tag)
+      .flat()
+  ),
+];
 
 export const getPostBySlug = (slug) => {
   const posts = getSortedPosts();

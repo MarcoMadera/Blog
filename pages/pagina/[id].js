@@ -30,8 +30,8 @@ export default function Page({ posts = [], pages = [], tags = [], page }) {
               return (
                 <li key={pageNumber}>
                   <Link
-                    href={i === 0 ? "/" : "/page/[id]/"}
-                    as={i === 0 ? undefined : `/page/${pageNumber}`}
+                    href={i === 0 ? "/" : "/pagina/[id]/"}
+                    as={i === 0 ? undefined : `/pagina/${pageNumber}`}
                   >
                     <a
                       className={
@@ -130,7 +130,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { id } }) {
   const posts = getPostsByPage(id);
   const pages = getPostsPages();
-  const tags = [...new Set(getPostsTags())];
+  const tags = getPostsTags();
   return { props: { posts, tags, pages, page: id } };
 }
 

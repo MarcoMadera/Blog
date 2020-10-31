@@ -18,7 +18,7 @@ const tag = ({ postData, tags }) => {
         title={`Blog tag ${postsByTag[0].tag.find((item) =>
           slugify(item).includes(slug)
         )}`}
-        url={`https://marcomadera.com/blog/tag/${slug}`}
+        url={`https://marcomadera.com/blog/etiqueta/${slug}`}
         canonical="https://marcomadera.com"
       />
       <Aside />
@@ -69,7 +69,7 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params: { slug } }) {
-  const tags = [...new Set(getPostsTags())];
+  const tags = getPostsTags();
   const postData = getPostsByTag(slug);
   return {
     props: {

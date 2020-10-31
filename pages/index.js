@@ -25,8 +25,8 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
               return (
                 <li key={pageNumber}>
                   <Link
-                    href={i === 0 ? "/" : "/page/[id]/"}
-                    as={i === 0 ? undefined : `/page/${pageNumber}`}
+                    href={i === 0 ? "/" : "/pagina/[id]/"}
+                    as={i === 0 ? undefined : `/pagina/${pageNumber}`}
                   >
                     <a
                       className={
@@ -113,7 +113,7 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
 export async function getStaticProps() {
   const posts = getPostsByPage(1);
   const pages = getPostsPages();
-  const tags = [...new Set(getPostsTags())];
+  const tags = getPostsTags();
   return { props: { posts, tags, pages } };
 }
 
