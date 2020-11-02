@@ -1,9 +1,4 @@
-import {
-  getPostsPagesPaths,
-  getPostsByPage,
-  getPostsTags,
-  getPostsPages,
-} from "../../utils/posts";
+import { getPostsPagesPaths, getHomeData } from "../../utils/posts";
 import PropTypes from "prop-types";
 import Aside from "../../components/Aside";
 import Seo from "../../components/Seo";
@@ -128,9 +123,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { id } }) {
-  const posts = getPostsByPage(id);
-  const pages = getPostsPages();
-  const tags = getPostsTags();
+  const { posts, pages, tags } = getHomeData(id);
   return { props: { posts, tags, pages, page: id } };
 }
 

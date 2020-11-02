@@ -1,8 +1,4 @@
-import {
-  getPostsByTag,
-  getPostsTags,
-  getTagsSlugs,
-} from "../../../utils/posts";
+import { getTagData, getTagsSlugs } from "../../../utils/posts";
 import Aside from "../../../components/Aside";
 import Newsletter from "../../../components/Newsletter";
 import BlogCard from "../../../components/BlogCard";
@@ -69,8 +65,7 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params: { slug } }) {
-  const tags = getPostsTags();
-  const postData = getPostsByTag(slug);
+  const { postData, tags } = getTagData(slug);
   return {
     props: {
       postData,

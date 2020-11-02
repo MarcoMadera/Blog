@@ -29,7 +29,7 @@ En Línea
 </p>
 ```
 
-<p style="color: #fff; width: fit-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
+<p style="color: #fff;width: -moz-fit-content; width: fit-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
 En Línea
 </p>
 

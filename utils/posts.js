@@ -78,14 +78,6 @@ export const getTagsSlugs = () => {
   return paths;
 };
 
-export const getPostsTags = () => [
-  ...new Set(
-    getSortedPosts()
-      .map(({ frontmatter }) => frontmatter.tag)
-      .flat()
-  ),
-];
-
 export const getPostBySlug = (slug) => {
   const posts = getSortedPosts();
   const markdownWithMetadata = fs
@@ -101,22 +93,16 @@ export const getPostBySlug = (slug) => {
   };
   const previousPost = posts[postIndex + 1] ? posts[postIndex + 1] : null;
   const nextPost = posts[postIndex - 1] ? posts[postIndex - 1] : null;
+
+  const recommendedPosts = posts.filter(({ frontmatter }) =>
+    frontmatter.tag.some((name) => data.tag.includes(name))
+  );
   return {
     frontmatter,
     post: { content },
     previousPost,
     nextPost,
-    slug,
-  };
-};
-
-export const getPostsByTag = (slug) => {
-  const posts = getSortedPostsData();
-  const postsByTag = posts.filter(({ tag }) => slugify(tag).includes(slug));
-
-  return {
-    postsByTag,
-    slug,
+    recommendedPosts,
   };
 };
 
@@ -129,16 +115,6 @@ export const getPostsSlugs = () => {
   }));
   return paths;
 };
-
-export const getPostsByTags = (data) =>
-  [
-    ...new Set(
-      data
-        .map((tag) => getPostsByTag(slugify(tag)).postsByTag)
-        .flat()
-        .map(JSON.stringify)
-    ),
-  ].map(JSON.parse);
 
 export const getPostsPages = () => {
   const posts = getPostsFiles();
@@ -159,9 +135,36 @@ export const getPostsPagesPaths = () => {
   return paths;
 };
 
-export const getPostsByPage = (id) => {
-  const posts = getSortedPostsData();
+export const getHomeData = (id) => {
+  const allPosts = getSortedPostsData();
   const indexOfLastPost = id * 4;
   const indexOfFirstPost = indexOfLastPost - 4;
-  return posts.slice(indexOfFirstPost, indexOfLastPost);
+  const posts = allPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const pages = Array.from(
+    { length: Math.ceil(allPosts.length / 4) },
+    (_, i) => i + 1
+  );
+
+  const tags = [...new Set(allPosts.map(({ tag }) => tag).flat())];
+  return {
+    posts,
+    pages,
+    tags,
+  };
+};
+
+export const getTagData = (slug) => {
+  const posts = getSortedPostsData();
+  const tags = [...new Set(posts.map(({ tag }) => tag).flat())];
+
+  const postsByTag = posts.filter(({ tag }) => slugify(tag).includes(slug));
+  const postData = {
+    postsByTag,
+    slug,
+  };
+  return {
+    postData,
+    tags,
+  };
 };

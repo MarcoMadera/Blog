@@ -1,6 +1,6 @@
 import Aside from "../components/Aside";
 import Seo from "../components/Seo";
-import { getPostsPages, getPostsByPage, getPostsTags } from "../utils/posts";
+import { getHomeData } from "../utils/posts";
 import Newsletter from "../components/Newsletter";
 import AllTags from "../components/AllTags";
 import BlogCard from "../components/BlogCard";
@@ -111,9 +111,7 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
 };
 
 export async function getStaticProps() {
-  const posts = getPostsByPage(1);
-  const pages = getPostsPages();
-  const tags = getPostsTags();
+  const { posts, pages, tags } = getHomeData(1);
   return { props: { posts, tags, pages } };
 }
 

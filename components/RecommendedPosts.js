@@ -9,27 +9,27 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
           <section>
             {recommendedPosts.length > 1 && <h2>Artículos recomendados</h2>}
             <div>
-              {recommendedPosts.map(({ slug, cover100, title }, i) => {
-                if (slug === currentPost) return;
-                return (
-                  i <= 6 && (
-                    <Link
-                      key={slug}
-                      href={"/blog/[slug]/"}
-                      as={`/blog/${slug}/`}
-                    >
-                      <a>
-                        <img
-                          src={cover100}
-                          alt={`${title} cover`}
-                          width="40"
-                          height="40"
-                        />
-                        {title}
-                      </a>
-                    </Link>
-                  )
-                );
+              {recommendedPosts.map(({ slug, frontmatter }, i) => {
+                if (slug !== currentPost)
+                  return (
+                    i <= 6 && (
+                      <Link
+                        key={slug}
+                        href={"/blog/[slug]/"}
+                        as={`/blog/${slug}/`}
+                      >
+                        <a>
+                          <img
+                            src={frontmatter.cover100}
+                            alt={`${frontmatter.title} cover`}
+                            width="40"
+                            height="40"
+                          />
+                          {frontmatter.title}
+                        </a>
+                      </Link>
+                    )
+                  );
               })}
             </div>
           </section>

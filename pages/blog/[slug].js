@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  getPostBySlug,
-  getPostsSlugs,
-  getPostsByTags,
-} from "../../utils/posts";
+import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
 import toc from "markdown-toc-unlazy";
@@ -43,9 +39,15 @@ const contentAside = (content) => {
   return <Contents content={h2s} />;
 };
 
-export default function Post({ postData, recommendedPosts }) {
+export default function Post({ postData, slug }) {
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
-  const { post, frontmatter, nextPost, previousPost, slug } = postData;
+  const {
+    post,
+    frontmatter,
+    nextPost,
+    previousPost,
+    recommendedPosts,
+  } = postData;
   const [showComments, setShowComments] = useState(false);
   const [postTitle, setPostTitle] = useState();
   useEffect(() => {
@@ -212,13 +214,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const postData = getPostBySlug(slug);
-  const recommendedPosts = getPostsByTags(postData.frontmatter.tag);
-  return { props: { postData, recommendedPosts } };
+  return { props: { postData, slug } };
 }
 
 Post.propTypes = {
   postData: PropTypes.object,
-  recommendedPosts: PropTypes.array,
+  slug: PropTypes.string,
 };
 
 CodeBlock.propTypes = {
