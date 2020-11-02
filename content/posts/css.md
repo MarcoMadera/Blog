@@ -24,12 +24,12 @@ Existen tres formas de usar los estilos, a través de la etiqueta style, en lín
 ### Estilos en la etiqueta <style>
 De igual forma se puede usar directamente en un elemento HTML con el atributo `style` de la siguiente forma:
 ```html
-<p style="color: #fff; width: fit-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
+<p style="color: #fff; width: max-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
 En Línea
 </p>
 ```
 
-<p style="color: #fff;width: -moz-fit-content; width: fit-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
+<p style="color: #fff; width: max-content;padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
 En Línea
 </p>
 
