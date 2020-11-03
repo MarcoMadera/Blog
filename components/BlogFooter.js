@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import TwitterShare from "./icons/TwitterShare";
 import FacebookShare from "./icons/FacebookShare";
 import LinkedInShare from "./icons/LinkedInShare";
-const BlogFooter = ({ slug, blogTitle }) => {
+const BlogFooter = ({ slug, data }) => {
   return (
     <footer>
       <section>
@@ -12,7 +12,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
           title="Compartir en Twitter"
           onClick={() => {
             window.open(
-              `https://twitter.com/share?url=https://marcomadera.com/blog/${slug}&text=${blogTitle}`,
+              `https://twitter.com/share?url=https://marcomadera.com/blog/${slug}&text=${data.title}`,
               "popup",
               "width=600,height=500,scrollbars=no,resizable=no"
             );
@@ -48,7 +48,7 @@ const BlogFooter = ({ slug, blogTitle }) => {
           <LinkedInShare width={30} height={30} />
         </button>
       </section>
-      <Bio />
+      <Bio data={data} />
       <style jsx>{`
         button {
           background: none;

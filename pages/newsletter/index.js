@@ -76,7 +76,6 @@ const NewsletterPage = () => {
             onChange={handleChange}
             style={outline}
           ></input>
-          <input type="hidden" value="1" name="embed"></input>
           <button className="btn btn-primary">Suscríbete</button>
           {(email.error || email.value === "") && email.submitted ? (
             <p>Por favor inserta un correo válido</p>

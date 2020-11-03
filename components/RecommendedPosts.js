@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { colors } from "../styles/theme";
+import { imageCloudProvider } from "../site.config";
 const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
   return (
     <div>
@@ -20,7 +21,10 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
                       >
                         <a>
                           <img
-                            src={frontmatter.cover100}
+                            src={
+                              frontmatter.coverImage ??
+                              `${imageCloudProvider}/c_scale,h_40,w_40/${frontmatter.cover}`
+                            }
                             alt={`${frontmatter.title} cover`}
                             width="40"
                             height="40"

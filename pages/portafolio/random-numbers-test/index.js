@@ -46,10 +46,21 @@ const Random = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="https://res.cloudinary.com/marcomadera/image/upload/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
-              alt="Reporte Diario"
-            />
+            <picture>
+              <source
+                srcSet={
+                  "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_540,w_960/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+                }
+                media="(max-width: 876px)"
+              />
+              <img
+                loading="lazy"
+                src={
+                  "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_550/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+                }
+                alt="Reporte Diario"
+              />
+            </picture>
           </a>
         </div>
       </article>

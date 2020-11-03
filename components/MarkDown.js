@@ -35,7 +35,7 @@ const parseHtml = htmlParser({
             frameBorder="0"
             width="550"
             height={node.attribs.height || 250}
-            src={`https://platform.twitter.com/embed/index.html?dnt=false&embedId=twitter-widget-0&frame=false&hideCard=false&hideThread=false&id=${node.attribs.src}&lang=en&origin=https://marcomadera.com/&theme=light&widgetsVersion=ed20a2b%3A1601588405575&width=550px`}
+            src={`https://platform.twitter.com/embed/index.html?dnt=false&embedId=twitter-widget-0&frame=false&hideCard=false&hideThread=false&id=${node.attribs.id}&lang=en&origin=https://marcomadera.com/&theme=light&widgetsVersion=ed20a2b%3A1601588405575&width=550px`}
             title={node.attribs.title}
           ></iframe>
         );
@@ -49,7 +49,7 @@ const parseHtml = htmlParser({
           <iframe
             width="560"
             height="315"
-            src={`https://www.youtube-nocookie.com/embed/${node.attribs.src}`}
+            src={`https://www.youtube-nocookie.com/embed/${node.attribs.id}`}
             title={node.attribs.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

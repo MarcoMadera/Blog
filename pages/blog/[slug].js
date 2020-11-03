@@ -15,6 +15,7 @@ import { colors } from "../../styles/theme";
 import { getFormattedDate } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { imageCloudProvider } from "../../site.config";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -64,7 +65,10 @@ export default function Post({ postData, slug }) {
       <Seo
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
-        cover={frontmatter.cover760}
+        cover={
+          frontmatter.coverImage ??
+          `${imageCloudProvider}/c_scale,w_760/${frontmatter.cover}`
+        }
         url={`https://marcomadera.com/blog/${slug}`}
         author={frontmatter.author}
         date={frontmatter.date}
@@ -92,7 +96,7 @@ export default function Post({ postData, slug }) {
             />
           </div>
           <hr />
-          <BlogFooter slug={slug} blogTitle={frontmatter.title} />
+          <BlogFooter slug={slug} data={frontmatter} />
         </article>
         <nav>
           {previousPost ? (

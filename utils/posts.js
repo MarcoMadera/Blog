@@ -23,7 +23,7 @@ export const getSortedPosts = () => {
         .readFileSync(`content/posts/${filename}`)
         .toString();
 
-      // Parse markdown, get frontmatter data, excerpt and content.
+      // Parse markdown, get frontmatter data
       const { data } = matter(markdownWithMetadata);
 
       const frontmatter = {
@@ -49,7 +49,7 @@ export const getSortedPostsData = () => {
       // Get raw content from file
       const markdownWithMetadata = fs.readFileSync(`content/posts/${filename}`);
 
-      // Parse markdown, get frontmatter data, excerpt and content.
+      // Parse markdown, get frontmatter data
       const { data } = matter(markdownWithMetadata);
 
       const slug = filename.replace(".md", "");

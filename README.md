@@ -1,30 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Marco Madera Blog
 
-## Getting Started
+Blog Site: https://marcomadera.com
 
-First, run the development server:
+## Want to Contribute?
 
-```bash
-npm run dev
-# or
-yarn dev
+Thank you for your interest in contributing to the blog site. Submit an issue in the Issues section for reporting/fixing bugs/typos and to request new features.
+
+### Creating a new post
+
+To create a new post, create a markdown file (.md) in the `content/posts` directory. Make sure the metadata syntax at the start of your new blog follows the pattern given below:
+
+```
+---
+title: The title
+description: A brief description of the content
+date: 2020-07-20
+coverImage: image at least 760px width
+author: Your name
+summary: Your summary e: Frontend Developer
+profilePhoto: url image
+twitter: Your twitter userName
+tag:
+  - Tag
+  - Another tag related
+---
+
+Blog content goes here following the markdown syntax and must have at least one h2 (## in markdown syntax).
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Embed
+To embed videos from youtube or tweets are available with the following tags
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```html
+<!-- https://www.youtube.com/watch?v=xcJtL7QggTI id=xcJtL7QggTI -->
+<youtube id="video Id" title="Video Title">
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- https://twitter.com/Twitter/status/1323314485705297926 id=1323314485705297926 -->
+<tweet id="Tweet Id" title="Tweet Title">
+```

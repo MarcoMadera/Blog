@@ -1,7 +1,7 @@
 import Seo from "../../../components/Seo";
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
-
+import { imageCloudProvider } from "../../../site.config";
 const Article = ({ title, img, children }) => {
   return (
     <>
@@ -11,7 +11,17 @@ const Article = ({ title, img, children }) => {
           {children}
         </div>
         <div>
-          <img loading="lazy" src={img} alt={title} />
+          <picture>
+            <source
+              srcSet={`${imageCloudProvider}/c_scale,h_540,w_960/${img}`}
+              media="(max-width: 876px)"
+            />
+            <img
+              loading="lazy"
+              src={`${imageCloudProvider}/c_scale,w_550/${img}`}
+              alt={title}
+            />
+          </picture>
         </div>
         <style global jsx>{`
           main article:nth-child(2n + 3) div:nth-of-type(1) {
@@ -89,7 +99,7 @@ const sre = () => {
       <h1>Registro de trámites en Excel</h1>
       <Article
         title="Navegador"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275322/Potfolio/sreExcel/Reporte_Diario_db5g11.png"
+        img="v1595275322/Potfolio/sreExcel/Reporte_Diario_db5g11.png"
       >
         <p>
           El funcionamiento es que con ayuda de un bookmarlet, se recolecta la
@@ -101,7 +111,7 @@ const sre = () => {
       </Article>
       <Article
         title="Vista Excel"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+        img="v1595275323/Potfolio/sreExcel/Data_splifz.png"
       >
         <p>
           Esta es la vista general del dashboard, aquí es donde el usuario
@@ -112,7 +122,7 @@ const sre = () => {
       </Article>
       <Article
         title="Proceso de registro"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275323/Potfolio/sreExcel/SRE_Registro_fbjsqg.png"
+        img="v1595275323/Potfolio/sreExcel/SRE_Registro_fbjsqg.png"
       >
         <p>
           El registro se puede hacer manual, seleccionar la oficina, fecha y
@@ -121,7 +131,7 @@ const sre = () => {
       </Article>
       <Article
         title="Almacenamiento de datos"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275321/Potfolio/sreExcel/SRE_Datos_rznxtt.png"
+        img="v1595275321/Potfolio/sreExcel/SRE_Datos_rznxtt.png"
       >
         <p>
           Los datos van a una hoja aparte que no es accesible al usuario para
@@ -131,7 +141,7 @@ const sre = () => {
       </Article>
       <Article
         title="Generar gráfica"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275324/Potfolio/sreExcel/SRE_Gen_Graph_iz4vgw.png"
+        img="v1595275324/Potfolio/sreExcel/SRE_Gen_Graph_iz4vgw.png"
       >
         <p>
           Generar gráficas tiene múltiples opciones, la interfaz ofrece una
@@ -140,7 +150,7 @@ const sre = () => {
       </Article>
       <Article
         title="Gráfica generada"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275323/Potfolio/sreExcel/SRE_Graph_Generada_gg2do4.png"
+        img="v1595275323/Potfolio/sreExcel/SRE_Graph_Generada_gg2do4.png"
       >
         <p>
           La gráfica se puede generar en una hoja nueva, libro nuevo, archivo
@@ -152,7 +162,7 @@ const sre = () => {
       </Article>
       <Article
         title="Generar reporte"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275324/Potfolio/sreExcel/SRE_Gen_Reporte_yvv11c.png"
+        img="v1595275324/Potfolio/sreExcel/SRE_Gen_Reporte_yvv11c.png"
       >
         <p>
           El proceso es similar, se selecciona el rango de fechas y las opciones
@@ -162,7 +172,7 @@ const sre = () => {
       </Article>
       <Article
         title="Resultado al generar reporte PDF"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275324/Potfolio/sreExcel/SRE_Reporte_PDF_yvvswb.png"
+        img="v1595275324/Potfolio/sreExcel/SRE_Reporte_PDF_yvvswb.png"
       >
         <p>
           Al igual que la gráfica, el reporte se puede personalizar al
@@ -172,7 +182,7 @@ const sre = () => {
       </Article>
       <Article
         title="Programación"
-        img="https://res.cloudinary.com/marcomadera/image/upload/v1595275322/Potfolio/sreExcel/SRE_Programacion_aosbtb.png"
+        img="v1595275322/Potfolio/sreExcel/SRE_Programacion_aosbtb.png"
       >
         <p>
           El desarrollo del archivo se ha realizado con VBA (Visual Basic for

@@ -2,9 +2,7 @@
 title: CSS
 description: CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.
 date: 2020-10-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_300,w_300/v1602894559/Blog/7/css_k23ypb.png
-cover100: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1602894559/Blog/7/css_k23ypb.png
-cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1602894559/Blog/7/css_k23ypb.png
+cover: v1602894559/Blog/7/css_k23ypb.png
 author: Marco Madera
 tag:
   - CSS
@@ -538,7 +536,7 @@ CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas característic
 
 Soporte para la propiedad "hyphens" en distintos navegadores:
 
-<iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" frameborder="0" width="100%" height="450"></iframe>
+<iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" title="Can I Use Hyphens" frameborder="0" width="100%" height="450"></iframe>
 
 ## Conclusión
 Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para desarrollar sitios web, hay muchas cosas que debemos de tener en cuenta y conocer el alcance que puede tener CSS por si solo con las características que vienen por defecto es una gran ventaja a la hora de crear productos.

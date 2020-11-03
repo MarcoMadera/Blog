@@ -18,4 +18,5 @@ module.exports = {
       facebook: "marco.mad.lop",
     },
   },
+  imageCloudProvider: "https://res.cloudinary.com/marcomadera/image/upload",
 };

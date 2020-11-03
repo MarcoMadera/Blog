@@ -1,7 +1,21 @@
 {
   "name": "marcomadera",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Personal blog by Marco Madera https://marcomadera.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoMadera/website.git"
+  },
+  "keywords": [
+    "blog",
+    "portfolio"
+  ],
+  "author": "Marco Madera <me@marcomadera.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/MarcoMadera/website/issues"
+  },
+  "homepage": "https://marcomadera.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -14,7 +14,7 @@ const Navbar = () => {
             />
             <img
               src="/favicon-48x48.png"
-              alt="Logo patrón de desbloqueo de en forma de M"
+              alt="Logo patrón de desbloqueo en forma de M"
               width="40"
               height="40"
             />

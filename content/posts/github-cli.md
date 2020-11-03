@@ -2,9 +2,7 @@
 title: Github CLI
 description: Github CLI es la herramienta oficial para ejecutar todo el flujo de trabajo en github desde la línea de comandos.
 date: 2020-09-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_300,w_300/v1600483976/Blog/6/Octocat-removebg_wamv2v.png
-cover100: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1600483976/Blog/6/Octocat-removebg_wamv2v.png
-cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1600483976/Blog/6/Octocat-removebg_wamv2v.png
+cover: v1600483976/Blog/6/Octocat-removebg_wamv2v.png
 author: Marco Madera
 tag:
   - Terminal

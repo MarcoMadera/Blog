@@ -7,12 +7,20 @@ const Portfolio = () => {
       <Seo title="Portafolio" url="https://marcomadera.com/portafolio" />
       <h1>Portafolio</h1>
       <article>
-        <img
-          src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_501,w_900/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
-          alt="challenges cover"
-          width={400}
-          height={222}
-        />
+        <picture>
+          <source
+            srcSet={
+              "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_534,w_960/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
+            }
+            media="(max-width: 876px)"
+          />
+          <img
+            src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_222,w_400/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
+            alt="challenges cover"
+            width={400}
+            height={222}
+          />
+        </picture>
         <div>
           <h2>Retos frontend</h2>
           <p>
@@ -36,12 +44,20 @@ const Portfolio = () => {
         </div>
       </article>
       <article>
-        <img
-          src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_501,w_900/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
-          alt="test for random numbers cover"
-          width={400}
-          height={222}
-        />
+        <picture>
+          <source
+            srcSet={
+              "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_534,w_960/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+            }
+            media="(max-width: 876px)"
+          />
+          <img
+            src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_222,w_400/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+            alt="test for random numbers cover"
+            width={400}
+            height={222}
+          />
+        </picture>
         <div>
           <h2>Tests para números aleatorios</h2>
           <p>
@@ -66,12 +82,20 @@ const Portfolio = () => {
         </div>
       </article>
       <article>
-        <img
-          src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_501,w_900/v1595275323/Potfolio/sreExcel/Data_splifz.png"
-          alt="sre-excel cover"
-          width={400}
-          height={222}
-        />
+        <picture>
+          <source
+            srcSet={
+              "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_534,w_960/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+            }
+            media="(max-width: 876px)"
+          />
+          <img
+            src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_222,w_400/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+            alt="sre-excel cover"
+            width={400}
+            height={222}
+          />
+        </picture>
         <div>
           <h2>Registro de trámites en excel</h2>
           <p>

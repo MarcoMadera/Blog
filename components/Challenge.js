@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { imageCloudProvider } from "../site.config";
 const Challenge = ({
   title,
   liveDemo,
@@ -60,7 +61,17 @@ const Challenge = ({
       </div>
       <div>
         <a href={liveDemo} rel="noopener noreferrer" target="_blank">
-          <img src={challengeImg} alt={title} loading="lazy" />
+          <picture>
+            <source
+              srcSet={`${imageCloudProvider}/c_scale,w_960/${challengeImg}`}
+              media="(max-width: 876px)"
+            />
+            <img
+              loading="lazy"
+              src={`${imageCloudProvider}/c_scale,w_550/${challengeImg}`}
+              alt={title}
+            />
+          </picture>
         </a>
       </div>
       <style global jsx>{`

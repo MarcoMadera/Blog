@@ -3,15 +3,16 @@ import PropTypes from "prop-types";
 import slugify from "react-slugify";
 import { getFormattedDate } from "../utils/helpers";
 import { colors } from "../styles/theme";
+import { imageCloudProvider } from "../site.config";
 const BlogCard = ({
   slug,
   title,
   description,
   cover,
-  cover100,
   tag,
   author,
   date,
+  coverImage,
 }) => {
   return (
     <article key={slug}>
@@ -25,9 +26,18 @@ const BlogCard = ({
               </p>
             </div>
             <picture>
-              <source srcSet={cover} media="(max-width: 876px)" />
+              <source
+                srcSet={
+                  coverImage ??
+                  `${imageCloudProvider}/c_scale,h_300,w_300/${cover}`
+                }
+                media="(max-width: 876px)"
+              />
               <img
-                src={cover100}
+                src={
+                  coverImage ??
+                  `${imageCloudProvider}/c_scale,h_100,w_100/${cover}`
+                }
                 alt={`Portada del blog ${title}`}
                 width="100"
                 height="100"
@@ -122,7 +132,6 @@ BlogCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   cover: PropTypes.string,
-  cover100: PropTypes.string,
   tag: PropTypes.array,
   author: PropTypes.string,
   date: PropTypes.string,

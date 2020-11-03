@@ -2,9 +2,7 @@
 title: HTML Semántico
 description: HTML Semántico es el uso de HTML, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.
 date: 2020-09-08
-cover: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_300,w_300/v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png
-cover100: https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_100,w_100/v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png
-cover760: https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png
+cover: v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png
 author: Marco Madera
 tag:
   - HTML
