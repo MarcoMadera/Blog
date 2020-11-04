@@ -123,6 +123,14 @@ const Navbar = () => {
             transform-origin: 50% 50%;
           }
         }
+        @media print {
+          nav {
+            display: none;
+          }
+          header {
+            justify-content: center;
+          }
+        }
       `}</style>
     </header>
   );

@@ -24,6 +24,9 @@ export const blogStyles = css.global`
     pre {
       text-shadow: none !important;
     }
+    iframe[title="FastComments"] {
+      display: none !important;
+    }
   }
 
   .blog :not(pre) > code {

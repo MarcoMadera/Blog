@@ -8,7 +8,7 @@ Thank you for your interest in contributing to the blog site. Submit an issue in
 
 ### Creating a new post
 
-To create a new post, create a markdown file (.md) in the `content/posts` directory. Make sure the metadata syntax at the start of your new blog follows the pattern given below:
+To create a new post, create a markdown file (.md) in the `/posts` directory. Make sure the metadata syntax at the start of your new blog follows the pattern given below:
 
 ```
 ---

@@ -80,6 +80,11 @@ const BlogFooter = ({ slug, data }) => {
             margin: 0px;
           }
         }
+        @media print {
+          footer {
+            display: none;
+          }
+        }
       `}</style>
     </footer>
   );

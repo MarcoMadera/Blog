@@ -251,6 +251,21 @@ abbr:after {
   position: absolute;
 }
 
+@media print {
+  main {
+    grid-template-columns: minmax(0px, 760px) !important;
+  }
+  .skip-link {
+    display: none;
+  }
+  *:focus {
+    outline-style: unset;
+  }
+  a[target="_blank"]:after {
+    content: " (" attr(href) ") ";
+  }
+}
+
 @-webkit-keyframes nprogress-spinner {
   0% {
     -webkit-transform: rotate(0deg);

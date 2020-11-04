@@ -99,6 +99,11 @@ const Newsletter = () => {
         input:focus {
           border: 1px solid ${colors.secondary};
         }
+        @media print {
+          form {
+            display: none;
+          }
+        }
       `}</style>
     </form>
   );

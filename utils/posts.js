@@ -3,13 +3,10 @@ import fs from "fs";
 import slugify from "react-slugify";
 import path from "path";
 export const getPostsFiles = () => {
-  // Get all posts Files located in `content/posts`
-  const postsFiles = fs
-    .readdirSync(`${process.cwd()}/content/posts`)
-    .map((file) => ({
-      filename: `${file}`,
-    }));
-
+  // Get all posts Files located in `posts`
+  const postsFiles = fs.readdirSync(`${process.cwd()}/posts`).map((file) => ({
+    filename: `${file}`,
+  }));
   return postsFiles;
 };
 
@@ -20,7 +17,7 @@ export const getSortedPosts = () => {
     .map(({ filename }) => {
       // Get raw content from file
       const markdownWithMetadata = fs
-        .readFileSync(`content/posts/${filename}`)
+        .readFileSync(`posts/${filename}`)
         .toString();
 
       // Parse markdown, get frontmatter data
@@ -47,7 +44,7 @@ export const getSortedPostsData = () => {
   const posts = postsFiles
     .map(({ filename }) => {
       // Get raw content from file
-      const markdownWithMetadata = fs.readFileSync(`content/posts/${filename}`);
+      const markdownWithMetadata = fs.readFileSync(`posts/${filename}`);
 
       // Parse markdown, get frontmatter data
       const { data } = matter(markdownWithMetadata);
@@ -81,7 +78,7 @@ export const getTagsSlugs = () => {
 export const getPostBySlug = (slug) => {
   const posts = getSortedPosts();
   const markdownWithMetadata = fs
-    .readFileSync(path.join("content/posts", slug + ".md"))
+    .readFileSync(path.join("posts", slug + ".md"))
     .toString();
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
 

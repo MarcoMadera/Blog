@@ -119,7 +119,7 @@ const Random = () => {
           text-decoration: underline;
           color: ${colors.secondary};
         }
-        @media screen and (max-width: 876px) {
+        @media print, screen and (max-width: 876px) {
           article {
             grid-template-columns: auto;
           }

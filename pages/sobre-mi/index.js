@@ -313,7 +313,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             margin-bottom: 150px;
           }
         }
-        @media screen and (min-width: 0px) and (max-width: 1024px) {
+        @media print, screen and (min-width: 0px) and (max-width: 1024px) {
           main > aside:nth-of-type(1) > svg {
             display: inline-flex !important;
             margin-bottom: 0 !important;

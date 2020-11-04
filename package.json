@@ -4,16 +4,16 @@
   "description": "Personal blog by Marco Madera https://marcomadera.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarcoMadera/website.git"
+    "url": "git+https://github.com/MarcoMadera/Blog.git"
   },
   "keywords": [
     "blog",
     "portfolio"
   ],
   "author": "Marco Madera <me@marcomadera.com>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MarcoMadera/website/issues"
+    "url": "https://github.com/MarcoMadera/Blog/issues"
   },
   "homepage": "https://marcomadera.com",
   "scripts": {

@@ -187,7 +187,7 @@ const Portfolio = () => {
           position: static;
           transform: scale(1.1);
         }
-        @media screen and (min-width: 0px) and (max-width: 876px){
+        @media print, screen and (min-width: 0px) and (max-width: 876px){
           article{
             display block;
           }

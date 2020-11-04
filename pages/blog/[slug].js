@@ -200,6 +200,11 @@ export default function Post({ postData, slug }) {
             grid-template-columns: 240px minmax(0px, 710px) 240px;
           }
         }
+        @media print {
+          nav {
+            display: none;
+          }
+        }
       `}</style>
       <style global jsx>
         {blogStyles}

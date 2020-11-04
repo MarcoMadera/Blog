@@ -27,7 +27,7 @@ const Article = ({ title, img, children }) => {
           main article:nth-child(2n + 3) div:nth-of-type(1) {
             order: 2;
           }
-          @media screen and (max-width: 876px) {
+          @media print, screen and (max-width: 876px) {
             main article:nth-child(2n + 3) div:nth-of-type(1) {
               order: unset;
             }
@@ -70,7 +70,7 @@ const Article = ({ title, img, children }) => {
             text-decoration: underline;
             color: ${colors.secondary};
           }
-          @media screen and (max-width: 876px) {
+          @media print, screen and (max-width: 876px) {
             article {
               grid-template-columns: auto;
             }
