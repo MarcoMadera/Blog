@@ -4,10 +4,7 @@ const unsuscription = () => {
   return (
     <>
       <main id="main">
-        <Seo
-          title="Te has desuscrito :("
-          url="https://marcomadera.com/newsletter/unsuscription"
-        />
+        <Seo title="Te has desuscrito :(" path="/newsletter/unsuscription" />
         <section>
           <h1>
             ¡Te has desuscrito del Newsletter!{" "}

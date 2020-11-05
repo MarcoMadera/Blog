@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import TwitterShare from "./icons/TwitterShare";
 import FacebookShare from "./icons/FacebookShare";
 import LinkedInShare from "./icons/LinkedInShare";
+import { siteMetadata } from "../site.config";
 const BlogFooter = ({ slug, data }) => {
   return (
     <footer>
@@ -12,7 +13,7 @@ const BlogFooter = ({ slug, data }) => {
           title="Compartir en Twitter"
           onClick={() => {
             window.open(
-              `https://twitter.com/share?url=https://marcomadera.com/blog/${slug}&text=${data.title}`,
+              `https://twitter.com/share?url=${siteMetadata.siteUrl}/${slug}&text=${data.title}`,
               "popup",
               "width=600,height=500,scrollbars=no,resizable=no"
             );
@@ -25,7 +26,7 @@ const BlogFooter = ({ slug, data }) => {
           title="Compartir en Facebook"
           onClick={() => {
             window.open(
-              `https://facebook.com/sharer/sharer.php?u=${`https://marcomadera.com/blog/${slug}&quote=${blogTitle}`}`,
+              `https://facebook.com/sharer/sharer.php?u=${`${siteMetadata.siteUrl}/blog/${slug}&quote=${blogTitle}`}`,
               "popup",
               "width=600,height=500,scrollbars=no,resizable=no"
             );
@@ -38,7 +39,9 @@ const BlogFooter = ({ slug, data }) => {
           title="Compartir en LinkedIn"
           onClick={() => {
             window.open(
-              `http://www.linkedin.com/shareArticle?mini=true&url=${`https://marcomadera.com/blog/${slug}&title=${blogTitle}`}&source=marcomadera.com`,
+              `http://www.linkedin.com/shareArticle?mini=true&url=${`${siteMetadata.siteUrl}/blog/${slug}`}&title=${blogTitle}&source=${
+                siteMetadata.siteUrl
+              }`,
               "popup",
               "width=600,height=500,scrollbars=no,resizable=no"
             );

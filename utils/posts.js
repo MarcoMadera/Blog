@@ -1,8 +1,9 @@
-import matter from "gray-matter";
-import fs from "fs";
-import slugify from "react-slugify";
-import path from "path";
-export const getPostsFiles = () => {
+const matter = require("gray-matter");
+const fs = require("fs");
+const slugify = require("slugify");
+const path = require("path");
+
+const getPostsFiles = () => {
   // Get all posts Files located in `posts`
   const postsFiles = fs.readdirSync(`${process.cwd()}/posts`).map((file) => ({
     filename: `${file}`,
@@ -10,7 +11,7 @@ export const getPostsFiles = () => {
   return postsFiles;
 };
 
-export const getSortedPosts = () => {
+const getSortedPosts = () => {
   const postsFiles = getPostsFiles();
 
   const posts = postsFiles
@@ -39,7 +40,7 @@ export const getSortedPosts = () => {
   return posts;
 };
 
-export const getSortedPostsData = () => {
+const getSortedPostsData = () => {
   const postsFiles = getPostsFiles();
   const posts = postsFiles
     .map(({ filename }) => {
@@ -60,14 +61,18 @@ export const getSortedPostsData = () => {
   return posts;
 };
 
-export const getTagsSlugs = () => {
+const getTagsSlugs = () => {
   const posts = getSortedPosts();
   let paths = [];
   posts.map(({ frontmatter }) =>
     frontmatter.tag.forEach((tag) =>
       paths.push({
         params: {
-          slug: slugify(tag),
+          slug: slugify(tag, {
+            replacement: "-",
+            lower: true,
+            strict: true,
+          }),
         },
       })
     )
@@ -75,7 +80,7 @@ export const getTagsSlugs = () => {
   return paths;
 };
 
-export const getPostBySlug = (slug) => {
+const getPostBySlug = (slug) => {
   const posts = getSortedPosts();
   const markdownWithMetadata = fs
     .readFileSync(path.join("posts", slug + ".md"))
@@ -103,7 +108,7 @@ export const getPostBySlug = (slug) => {
   };
 };
 
-export const getPostsSlugs = () => {
+const getPostsSlugs = () => {
   const postsFiles = getPostsFiles();
   const paths = postsFiles.map(({ filename }) => ({
     params: {
@@ -113,7 +118,7 @@ export const getPostsSlugs = () => {
   return paths;
 };
 
-export const getPostsPages = () => {
+const getPostsPages = () => {
   const posts = getPostsFiles();
   const pages = Array.from(
     { length: Math.ceil(posts.length / 4) },
@@ -122,7 +127,7 @@ export const getPostsPages = () => {
   return pages;
 };
 
-export const getPostsPagesPaths = () => {
+const getPostsPagesPaths = () => {
   const pages = getPostsPages();
   const paths = pages.map((_, i) => ({
     params: {
@@ -132,7 +137,7 @@ export const getPostsPagesPaths = () => {
   return paths;
 };
 
-export const getHomeData = (id) => {
+const getHomeData = (id) => {
   const allPosts = getSortedPostsData();
   const indexOfLastPost = id * 4;
   const indexOfFirstPost = indexOfLastPost - 4;
@@ -151,11 +156,21 @@ export const getHomeData = (id) => {
   };
 };
 
-export const getTagData = (slug) => {
+const getTagData = (slug) => {
   const posts = getSortedPostsData();
   const tags = [...new Set(posts.map(({ tag }) => tag).flat())];
 
-  const postsByTag = posts.filter(({ tag }) => slugify(tag).includes(slug));
+  const postsByTag = posts.filter(({ tag }) =>
+    tag
+      .map((tag) =>
+        slugify(tag, {
+          replacement: "-",
+          lower: true,
+          strict: true,
+        })
+      )
+      .includes(slug)
+  );
   const postData = {
     postsByTag,
     slug,
@@ -164,4 +179,17 @@ export const getTagData = (slug) => {
     postData,
     tags,
   };
+};
+
+module.exports = {
+  getSortedPosts,
+  getPostsFiles,
+  getSortedPostsData,
+  getTagsSlugs,
+  getPostBySlug,
+  getPostsSlugs,
+  getPostsPages,
+  getPostsPagesPaths,
+  getHomeData,
+  getTagData,
 };

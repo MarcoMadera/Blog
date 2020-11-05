@@ -6,7 +6,7 @@ const Random = () => {
     <main id="main">
       <Seo
         title="Portafolio - Números Pseudo Aleatorios"
-        url="https://marcomadera.com/random-numbers-test"
+        path="/portafolio/random-numbers-test"
       />
       <h1>Herramienta para verificar números aleatorios</h1>
       <article>

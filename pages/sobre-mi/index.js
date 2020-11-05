@@ -40,7 +40,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
   }, [reqNowPlaying]);
   return (
     <main>
-      <Seo title="Sobre mí" url="https://marcomadera.com/about" />
+      <Seo title="Sobre mí" path="/about" />
       <aside>
         <Code width="50" height="50" />
         <Java width="50" height="50" />

@@ -4,6 +4,7 @@ import slugify from "react-slugify";
 import htmlParser from "react-markdown/plugins/html-parser";
 import React from "react";
 import HtmlToReact from "html-to-react";
+import { siteMetadata } from "../site.config";
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
@@ -35,7 +36,7 @@ const parseHtml = htmlParser({
             frameBorder="0"
             width="550"
             height={node.attribs.height || 250}
-            src={`https://platform.twitter.com/embed/index.html?dnt=false&embedId=twitter-widget-0&frame=false&hideCard=false&hideThread=false&id=${node.attribs.id}&lang=en&origin=https://marcomadera.com/&theme=light&widgetsVersion=ed20a2b%3A1601588405575&width=550px`}
+            src={`https://platform.twitter.com/embed/index.html?dnt=false&embedId=twitter-widget-0&frame=false&hideCard=false&hideThread=false&id=${node.attribs.id}&lang=en&origin=${siteMetadata.siteUrl}/&theme=light&widgetsVersion=ed20a2b%3A1601588405575&width=550px`}
             title={node.attribs.title}
           ></iframe>
         );

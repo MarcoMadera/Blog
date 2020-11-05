@@ -1,16 +1,15 @@
 import Head from "next/head";
-import { getSiteMetaData } from "../utils/helpers";
+import { siteMetadata } from "../site.config";
 import PropTypes from "prop-types";
 const Seo = ({
   title,
   description = "",
-  cover = "https://marcomadera.com/logo512.png",
-  url = "https://marcomadera.com/",
+  cover = `${siteMetadata.siteUrl}/logo512.png`,
+  path = "",
   canonical = "",
   author = "",
   date = "",
 }) => {
-  const siteMetadata = getSiteMetaData();
   const metaDescription = description || siteMetadata.description;
   const metaTitle = title || siteMetadata.title;
 
@@ -21,13 +20,20 @@ const Seo = ({
       </title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={metaTitle} />
-      <link rel="canonical" href={canonical || "https://marcomadera.com"} />
+      <link
+        rel="canonical"
+        href={
+          canonical || path
+            ? `${siteMetadata.siteUrl}${path}`
+            : siteMetadata.siteUrl
+        }
+      />
       <meta property="og:locale" content="es-MX" />
       <meta name="robots" content="index,follow" />
       <link
         rel="alternate"
         type="application/rss+xml"
-        href="https://marcomadera.com/rss.xml"
+        href={`${siteMetadata.siteUrl}/rss.xml`}
         title="Marco Madera"
       ></link>
       <meta property="og:description" content={metaDescription} />
@@ -40,7 +46,7 @@ const Seo = ({
       />
       <meta name="twitter:site" content={`@${siteMetadata.social.twitter}`} />
       <meta property="fb:app_id" content="373017180730319" />
-      {url.includes("marcomadera.com/blog/") ? (
+      {path.includes("/blog/") ? (
         <>
           <meta property="og:type" content="article" />
           <meta
@@ -54,7 +60,7 @@ const Seo = ({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher":"Marco Madera","mainEntityOfPage":"${url}"}`,
+              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher":"Marco Madera","mainEntityOfPage":"${siteMetadata.siteUrl}${path}"}`,
             }}
           />
         </>
@@ -68,7 +74,7 @@ const Seo = ({
       />
       <meta property="og:image" content={cover} />
       <meta property="og:image:alt" content={metaDescription} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={`${siteMetadata.siteUrl}${path}`} />
       <meta property="twitter:image" content={cover} />
     </Head>
   );

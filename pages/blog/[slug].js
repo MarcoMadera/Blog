@@ -15,7 +15,7 @@ import { colors } from "../../styles/theme";
 import { getFormattedDate } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { imageCloudProvider } from "../../site.config";
+import { imageCloudProvider, siteMetadata } from "../../site.config";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -69,7 +69,7 @@ export default function Post({ postData, slug }) {
           frontmatter.coverImage ??
           `${imageCloudProvider}/c_scale,w_760/${frontmatter.cover}`
         }
-        url={`https://marcomadera.com/blog/${slug}`}
+        path={`/blog/${slug}`}
         author={frontmatter.author}
         date={frontmatter.date}
       />

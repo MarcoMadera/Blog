@@ -12,6 +12,16 @@ module.exports = {
         permanent: true,
       },
       {
+        source: "/blog/etiqueta",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/pagina",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/pagina/1",
         destination: "/",
         permanent: true,

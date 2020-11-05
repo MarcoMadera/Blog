@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { colors } from "../styles/theme";
+import { siteMetadata } from "../site.config";
 const Footer = () => {
   return (
     <footer>
@@ -14,7 +15,7 @@ const Footer = () => {
         Sitio alternativo
       </a>
       <a
-        href="https://marcomadera.com/rss.xml"
+        href={`${siteMetadata.siteUrl}/rss.xml`}
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -1,7 +1,7 @@
 import Seo from "../../../components/Seo";
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
-import { imageCloudProvider } from "../../../site.config";
+import { siteMetadata, imageCloudProvider } from "../../../site.config";
 const Article = ({ title, img, children }) => {
   return (
     <>
@@ -92,10 +92,7 @@ const Article = ({ title, img, children }) => {
 const sre = () => {
   return (
     <main id="main">
-      <Seo
-        title="Portafolio - SRE Excel"
-        url="https://marcomadera.com/sre-excel"
-      />
+      <Seo title="Portafolio - SRE Excel" path="/sre-excel" />
       <h1>Registro de trámites en Excel</h1>
       <Article
         title="Navegador"

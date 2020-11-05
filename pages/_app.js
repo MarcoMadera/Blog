@@ -6,6 +6,7 @@ import "../styles/globals.css";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 import Head from "next/head";
+import { siteMetadata } from "../site.config";
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -53,22 +54,22 @@ const App = ({ Component, pageProps }) => {
         />
         <link
           rel="manifest"
-          href="https://marcomadera.com/manifest.json"
+          href={`${siteMetadata.siteUrl}/manifest.json`}
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="https://marcomadera.com/favicon-32x32.png"
+          href={`${siteMetadata.siteUrl}/favicon-32x32.png`}
         />
         <link
           rel="apple-touch-icon"
-          href="https://marcomadera.com/favicon-32x32.png"
+          href={`${siteMetadata.siteUrl}/favicon-32x32.png`}
         />
         <link
           rel="sitemap"
           type="application/xml"
           title="Sitemap"
-          href="https://marcomadera.com/sitemap.xml"
+          href={`${siteMetadata.siteUrl}/sitemap.xml`}
         />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

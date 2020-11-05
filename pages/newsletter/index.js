@@ -37,7 +37,7 @@ const NewsletterPage = () => {
   }
   return (
     <main id="main">
-      <Seo title="Newsletter" url="https://marcomadera.com/newsletter" />
+      <Seo title="Newsletter" path="/newsletter" />
       <div>
         <label htmlFor="bd-email">
           <h1>Newsletter</h1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Esta es mi página web personal en la que estaré compartiendo cosas interesantes sobre la web]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Tue, 20 Oct 2020 04:27:02 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><webfeeds:icon>https://marcomadera.com/logo.svg</webfeeds:icon><webfeeds:logo>https://marcomadera.com/logo.svg</webfeeds:logo><webfeeds:cover image="https://marcomadera.com/logo512.png"/><webfeeds:related layout="card" target="browser"/><webfeeds:analytics id="UA-177844057-1" engine="GoogleAnalytics"/><item><title><![CDATA[CSS]]></title><description><![CDATA[<p>He visto sitios webs impresionantes con una gran presentación, sitios que generan una buena experiencia como usuario y muchos solo lo logran con una buena apariencia. Siempre y cuando se quiera hacer una web más bonita, atractiva y presentable, aplicar estilos CSS es lo más adecuado.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Marco Madera, pensamientos y opiniones sobre la web y la programación.]]></description><link>https://marcomadera.com/</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com/</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 05 Nov 2020 02:10:52 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><webfeeds:icon>https://marcomadera.com/logo.svg</webfeeds:icon><webfeeds:logo>https://marcomadera.com/logo.svg</webfeeds:logo><webfeeds:cover image="https://marcomadera.com/logo512.png"/><webfeeds:related layout="card" target="browser"/><webfeeds:analytics id="UA-177844057-1" engine="GoogleAnalytics"/><item><title><![CDATA[CSS]]></title><description><![CDATA[<p>He visto sitios web impresionantes con una gran presentación, sitios que generan una buena experiencia como usuario y muchos solo lo logran con una buena apariencia. Siempre y cuando se quiera hacer una web más bonita, atractiva y presentable, aplicar estilos CSS es de lo primero a tomarse en cuenta.</p>
 <h2>¿Qué es CSS?</h2>
 <p>
   <abbr title="Cascading Style Sheets">CSS</abbr> es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.
@@ -7,11 +7,11 @@
 <p>Existen tres formas de usar los estilos, a través de la etiqueta style, en línea, y en una hoja externa.</p>
 <h3>Estilos en la etiqueta <style></h3>
 <p>De igual forma se puede usar directamente en un elemento HTML con el atributo <code><span class="hljs-attribute">style</span></code> de la siguiente forma:</p>
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: #fff; width: fit-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);"</span>&gt;</span>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: #fff; width: max-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);"</span>&gt;</span>
 En Línea
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
-<p style="color: #fff; width: fit-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
+<p style="color: #fff; width: max-content;padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
 En Línea
 </p>
 <h3>Estilos en línea</h3>
@@ -24,17 +24,16 @@ En Línea
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 </code></pre>
 <h3>Estilos en una hoja externa</h3>
-<p>La manera que se aprovecha mejor sería hacer un link a una hoja de estilos con terminación .css en una etiqueta <code><span class="hljs-section">&lt;link&gt;</span></code> dentro de la etiqueta <code><span class="hljs-section">&lt;head&gt;</span></code> de nuestro documento HTML de la siguiente manera, donde href es la ubicación de la hoja de estilos.</p>
+<p>La manera que se aprovecha mejor sería hacer un link a una hoja de estilos con extensión .css en una etiqueta <code><span class="hljs-section">&lt;link&gt;</span></code> dentro de la etiqueta <code><span class="hljs-section">&lt;head&gt;</span></code> de nuestro documento HTML de la siguiente manera, donde href es la ubicación de la hoja de estilos.</p>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span>
   <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>
   <span class="hljs-attr">href</span>=<span class="hljs-string">"./styles.css"</span>
 /&gt;</span>
 </code></pre>
 <h2>Selectores</h2>
-<p>Al usar CSS en una hoja externa o en la etiqueta <code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span></code><br />
-Los selectores son necesarios para estilar elementos específicos</p>
+<p>Al usar CSS en una hoja externa o en la etiqueta <code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span></code> los selectores son necesarios para estilar elementos específicos.</p>
 <h3>Etiquetas</h3>
-<p>Para seleccionar etiquetas simplemente se escribe el nombre de la etiqueta y si se quiere especificar alguna etiqueta que contenga cierto atributo se puede hacer seguido con corchetes <code>[]</code>, así seleccionará todas las etiquetas del mismo nombre que tengan cierto atributo.</p>
+<p>Para seleccionar etiquetas simplemente se escribe el nombre de la etiqueta, si se quiere especificar alguna etiqueta que contenga cierto atributo se puede hacer seguido con corchetes <code>[]</code>, así seleccionará todas las etiquetas del mismo nombre que tengan cierto atributo.</p>
 <pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> { ... }
 
 <span class="hljs-selector-tag">nav</span><span class="hljs-selector-attr">[class=<span class="hljs-string">"topNavbar"</span>]</span> { ... }
@@ -46,13 +45,16 @@ Los selectores son necesarios para estilar elementos específicos</p>
 }
 </code></pre>
 <h3>Clases</h3>
-<p>Al usar el nombre de una clase con un punto &quot;.&quot; antes se seleccionarán todos los elementos que tienen la misma clase.</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-class">.clase</span>{
+<p>Al usar el nombre de una clase precediendo un punto &quot;.&quot; se seleccionarán todos los elementos que tienen la misma clase.</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-class">.clase</span> {
 
 }
 </code></pre>
 <h3>Combinaciones</h3>
-<p>Los selectores se pueden combinar para seleccionar elementos que tienen cierta relación siempre de forma descendente, y se pueden compartir propiedades separando por comma &quot;,&quot;.</p>
+<p>Los selectores se pueden combinar para seleccionar elementos que tienen cierta relación siempre de forma descendente.</p>
+<p>Las propiedades se pueden compartir separando por comma &quot;,&quot; los selectores.</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span><span class="hljs-selector-class">.topNavbar</span>, <span class="hljs-selector-tag">nav</span><span class="hljs-selector-class">.bottomNavbar</span> { ... }
+</code></pre>
 <p>Selecciona todas las etiquetas nav con clase topNavbar</p>
 <pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span><span class="hljs-selector-class">.topNavbar</span> { ... }
 </code></pre>
@@ -60,13 +62,13 @@ Los selectores son necesarios para estilar elementos específicos</p>
 <pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> <span class="hljs-selector-class">.topNavbar</span> { ... }
 </code></pre>
 <p>Selecciona todos los elementos de primer subnivel con la clase topNavbar dentro de una etiqueta nav</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> &gt; <span class="hljs-selector-class">.topNavbar</span>{ ... }
+<pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> &gt; <span class="hljs-selector-class">.topNavbar</span> { ... }
 </code></pre>
 <p>Selecciona al primer elemento del mismo nivel que sigue inmediatamente con la clase topNavbar</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> + <span class="hljs-selector-class">.topNavbar</span>{ ... }
+<pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> + <span class="hljs-selector-class">.topNavbar</span> { ... }
 </code></pre>
 <p>Selecciona a todos los elementos del mismo nivel que sigue inmediatamente con la clase topNavbar</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> ~ <span class="hljs-selector-class">.topNavbar</span>{ ... }
+<pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span> ~ <span class="hljs-selector-class">.topNavbar</span> { ... }
 </code></pre>
 <p>Selecciona a todos los elementos con etiqueta nav que incluye topNavbar en su atributo clase</p>
 <pre><code class="hljs language-css"><span class="hljs-selector-tag">nav</span><span class="hljs-selector-attr">[class*=<span class="hljs-string">"topNavbar"</span>]</span> { ... }
@@ -80,7 +82,7 @@ Los selectores son necesarios para estilar elementos específicos</p>
   <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">10px</span>;
 }
 </code></pre>
-<p>Las propiedades abreviadas nos permiten tener varias propiedades en una misma línea, ahorra tiempo y se mira las legible.<br />
+<p>Las propiedades abreviadas nos permiten tener varias propiedades en una misma línea, ahorra tiempo y se mira más legible.<br />
 El anterior margen se puede escribir de la siguiente manera con una propiedad abreviada:</p>
 <pre><code class="hljs language-css"><span class="hljs-selector-tag">div</span> { 
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;
@@ -102,7 +104,7 @@ El anterior margen se puede escribir de la siguiente manera con una propiedad ab
 <p>Si solo se incluyen dos valores, se toma como el primer valor a margin-top y margin-bottom y el segundo valor margin-right y margin-left.</p>
 <p>En caso de incluirse 3 valores, se toman de forma de las manecillas del reloj y el segundo valor sería para margin-left.</p>
 <h3>Propiedades customizadas</h3>
-<p>Para crear una propiedad customiza se utiliza como prefijo el doble guión -- y seguido del nombre de la propiedad y el valor que lleva. Para usar la propiedad se hace a través de la función &quot;var&quot;.</p>
+<p>Para crear una propiedad customizada se utiliza como prefijo el doble guión -- y seguido del nombre de la propiedad y el valor que lleva. Para usar la propiedad se hace a través de la función &quot;var&quot;.</p>
 <pre><code class="hljs language-css"><span class="hljs-selector-class">.topNavbar</span> {
   <span class="hljs-attribute">--color-verde</span>: <span class="hljs-number">#1DB954</span>;
   <span class="hljs-attribute">--color-gris</span>: <span class="hljs-number">#ccc</span>;
@@ -127,7 +129,7 @@ El anterior margen se puede escribir de la siguiente manera con una propiedad ab
 }
 </code></pre>
 <h3>Herencia de propiedades</h3>
-<p>CSS como su nombre lo indica hoja de estilos en cascada, va en forma de cascada, de arriba hacia abajo, por lo que una propiedad abreviada debe de ir antes de una propiedad unica para que sobreescriba los estilos por defecto, se pone por debajo se escribirán de nuevo los estilos por defecto.</p>
+<p>CSS como su nombre lo indica, hoja de estilos en cascada, va en forma de cascada, de arriba hacia abajo, por lo que una propiedad abreviada debe de ir antes de una propiedad unica para que sobreescriba los estilos por defecto, se pone por debajo para que se sobre escriban los estilos por defecto.</p>
 <p>Mal:</p>
 <pre><code class="hljs language-css"><span class="hljs-selector-tag">p</span>{
   <span class="hljs-attribute">font-style</span>: italic;
@@ -185,7 +187,7 @@ El anterior margen se puede escribir de la siguiente manera con una propiedad ab
 </code></pre>
 <h2>Reglas at</h2>
 <p>Son declaraciones que comienzan con el símbolo arroba &quot;@&quot;,</p>
-<p>@import nos permite incluir una hoja de estilos externa y con esto nos da una opción alternativa a la de HTML para agregar más fuentes comúnmente y otras características bajo un conjunto de reglas si se requiere.</p>
+<p>@import nos permite incluir una hoja de estilos externa, con esto podemos reusar nuestros estilos y poder agregar más fuentes como alternativa a la de HTML.</p>
 <p>El siguiente código importará la fuente monserrat si se encuentra en un dispositivo de impresión.</p>
 <pre><code class="hljs language-css"><span class="hljs-keyword">@import</span> url(<span class="hljs-string">'https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap'</span>) print;
 </code></pre>
@@ -306,7 +308,7 @@ El anterior margen se puede escribir de la siguiente manera con una propiedad ab
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">30px</span>;
 }
 </code></pre>
-<p>Como podemos ver el borde es el que delimita el color del background, por lo que el padding toma el color del background ya que como se vio en el modelo de caja está dentro del borde, y empuja 30 pixeles a partir del borde hacia dentro, al contrario el margen como está fuera del borde no se pinta con el background y hace un espacio del borde hacia afuera separando ambas cajas.</p>
+<p>Como podemos ver, el borde es el que delimita el color del background, por lo que el padding toma el color del background ya que como se vio en el modelo de caja está dentro del borde, y empuja 30 pixeles a partir del borde hacia dentro, al contrario el margen como está fuera del borde no se pinta con el background y hace un espacio del borde hacia afuera separando ambas cajas.</p>
 <h2>Animaciones</h2>
 <p>Las animaciones en css requieren de la regla keyframes seguida del nombre de la animación, de propiedades se pueden utilizar porcentajes para ser más específicos en los pasos o las propiedades &quot;from&quot; y &quot;to&quot; que sería lo mismo que 0% y 100%.<br />
 Esta animación se le asigna a un elemento con la propiedad animation-name y con animation-duration se establece la duración de la animación.</p>
@@ -445,9 +447,11 @@ Esta animación se le asigna a un elemento con la propiedad animation-name y con
 </tr>
 </tbody>
 </table>
-<p><a href="https://caniuse.com">Can I Use</a> es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar</p>
-<h2>Conclusion</h2>
-<p>Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para desarrollar sitios webs, hay muchas cosas que debemos de tener en cuenta y conocer el alcance que puede tener CSS por si solo con las características que vienen por defecto es una gran ventaja a la hora de crear productos.</p>
+<p><a href="https://caniuse.com">Can I Use</a> es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar, podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.</p>
+<p>Soporte para la propiedad &quot;hyphens&quot; en distintos navegadores:</p>
+<iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" title="Can I Use Hyphens" frameborder="0" width="100%" height="450"></iframe>
+<h2>Conclusión</h2>
+<p>Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para desarrollar sitios web, hay muchas cosas que debemos de tener en cuenta y conocer el alcance que puede tener CSS por si solo con las características que vienen por defecto es una gran ventaja a la hora de crear productos.</p>
 ]]></description><link>https://marcomadera.com/blog/css</link><guid isPermaLink="true">https://marcomadera.com/blog/css</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Tue, 20 Oct 2020 00:00:00 GMT</pubDate><enclosure url="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1602894559/Blog/7/css_k23ypb.png" length="760" type="image/png"/></item><item><title><![CDATA[Github CLI]]></title><description><![CDATA[<p>Sin importar el lenguaje que usamos para programar, la línea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 <a href="https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3">se empezó a trabajar con Github CLI</a>, para reducir el cambio de contexto entre github web y la máquina local.</p>
 <h2>¿Qué es github CLI?</h2>
 <p>Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para ejecutar todo el flujo de trabajo en github desde la línea de comandos.</p>
@@ -618,10 +622,10 @@ Si no se incluyen flags se verá el repositorio que está en el directorio actua
 ]]></description><link>https://marcomadera.com/blog/github-cli</link><guid isPermaLink="true">https://marcomadera.com/blog/github-cli</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Sun, 20 Sep 2020 00:00:00 GMT</pubDate><enclosure url="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1600483976/Blog/6/Octocat-removebg_wamv2v.png" length="760" type="image/png"/></item><item><title><![CDATA[HTML Semántico]]></title><description><![CDATA[<p>Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?</p>
 <div style="display: block;
     font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0px;
+    margin-right: 0px;
     font-weight: bold;">¿Esto es un título?</div>
 <h2>¿Esto es un título?</h2>
 <p>Esto luce exactamente igual, pero cómo sabemos si un robot lo lee igual?<br />
@@ -778,16 +782,12 @@ Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>
 <hr />
 <h3>Títulos de cabecera</h3>
 <p>Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.</p>
-<p>Se espera tener contenido después de un título, poner varios títulos seguidos existe la etiqueta <code><span class="hljs-section">&lt;hgroup&gt;</span></code> que indica un grupo de títulos.</p>
-<p><hgroup><h1>h1</h1><h6>h6</h6></hgroup></p>
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">hgroup</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>
-    h1
-  <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>
-    h6
-  <span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">hgroup</span>&gt;</span>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>
+  h1
+<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>
+  h6
+<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
 </code></pre>
 <h3>address</h3>
 <p>Como su nombre lo dice, se usa para información de contacto.</p>
@@ -1406,11 +1406,68 @@ Para activar las ligaduras en Visual Studio Code dirígete a (File &gt; Preferen
   <img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
   <figcaption>Gráfica completamente uniforme</figcaption>
 </figure>
-<p>Una de las pruebas para determinar este comportamiento es la de chi-cuadrada (x2):</p>
-<p>$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$</p>
+<p>Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<sup>2</sup>:</p>
+<style>
+.fraction {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.2em 0.4ex;
+  text-align: center;
+}
+
+.fraction span {
+  display: block;
+  padding-top: 0.15em;
+}
+
+.fraction span.fdn {
+  border-top: thin solid #000;
+}
+
+.fraction span.bar {
+  display: none;
+}
+.chi-eq {
+  text-align: center;
+}
+
+.eq {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15%;
+  text-align: center;
+}
+@media screen and (max-width: 490px) {
+  .eq {
+    display: block;
+  }
+}
+</style>
+<div className="chi-eq">
+  <i>
+    x<sup>2</sup>= &#8721;
+  </i>
+  <div className="fraction">
+    <span className="fup">
+      <i>
+        ( &#959;<sub>i</sub>
+      </i>
+      &#8722;
+      <i>
+        e<sub>i</sub> )<sup>2</sup>
+      </i>
+    </span>
+    <span className="bar">/</span>
+    <span className="fdn">
+      <i>
+        e<sub>i</sub>
+      </i>
+    </span>
+  </div>
+</div>
 <p>Donde:</p>
-<p>oi: datos obtenidos</p>
-<p>ei: datos esperados</p>
+<p><i>o<sub>i</sub></i>: datos obtenidos</p>
+<p><i>e<sub>i</sub></i>: datos esperados</p>
 <p>Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).</p>
 <table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
 <p>Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.<br />
@@ -1431,9 +1488,41 @@ Si el resultado de nuestra x2 es menor que el resultado de la intersección se a
 <h2>Prueba de independencia</h2>
 <p>Como lo mencione antes, obtuve rachas de 3 o 4 nombres seguidos, utilizaré la prueba de rachas ascendentes y descendentes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria, dependiendo de la longitud de los números evaluados.</p>
 <p>Para aplicar esta prueba necesitamos de los siguientes estadísticos:</p>
-<p>$$\mu R = {2n - 1 \over 3}$$</p>
-<p>$$\sigma ^2 R = {16n - 29 \over 90}$$</p>
-<p>$$Z = {R - \mu R \over \sigma R}$$</p>
+<div className="eq">
+  <div className="eq__mean">
+    <i>
+      &#956;<sub>R</sub>=
+    </i>
+    <div className="fraction">
+      <span className="fup">2n - 1</span>
+      <span className="bar">/</span>
+      <span className="fdn">3</span>
+    </div>
+  </div>
+  <div className="eq__stdDev">
+    <i>
+      &#963;<sup>2</sup>
+      <sub>R</sub> =
+    </i>
+    <div className="fraction">
+      <span className="fup">16n - 29</span>
+      <span className="bar">/</span>
+      <span className="fdn">90</span>
+    </div>
+  </div>
+  <div className="eq__z">
+    <i>Z = </i>
+    <div className="fraction">
+      <span className="fup">
+        R - &#956;<sub>R</sub>
+      </span>
+      <span className="bar">/</span>
+      <span className="fdn">
+        &#963;<sub>R</sub>
+      </span>
+    </div>
+  </div>
+</div>
 <p>Donde:</p>
 <p>R: El número esperado de rachas</p>
 <p>n: El número de datos a evaluar</p>
@@ -1489,18 +1578,134 @@ Tenemos lo siguiente:</p>
 |-0.108|&lt;1.96 como esto es verdadero, se acepta nuestra hipótesis nula de que las rachas son independientes.</p>
 <h2>Distribución de la longitud de las rachas</h2>
 <p>De forma adicional podemos calcular si la longitud de las rachas son adecuadas con la fórmula de chi-cuadrada utilizada anteriormente.</p>
-<p>$$x^2 = \displaystyle\sum_{i=1}^n{(\omicron {\scriptscriptstyle i} - \epsilon {\scriptscriptstyle i})^2 \over \epsilon {\scriptscriptstyle i}}$$</p>
+<div className="chi-eq">
+  <i>
+    x<sup>2</sup>= &#8721;
+  </i>
+  <div className="fraction">
+    <span className="fup">
+      <i>
+        ( &#959;<sub>i</sub>
+      </i>
+      &#8722;
+      <i>
+        e<sub>i</sub> )<sup>2</sup>
+      </i>
+    </span>
+    <span className="bar">/</span>
+    <span className="fdn">
+      <i>
+        e<sub>i</sub>
+      </i>
+    </span>
+  </div>
+</div>
 <p>Donde:</p>
-<p>oi: datos obtenidos</p>
-<p>ei: datos esperados</p>
+<p><i>o<sub>i</sub></i>: datos obtenidos</p>
+<p><i>e<sub>i</sub></i>: datos esperados</p>
 <p>Lo que cambia es que ahora nuestros números esperados los calcularemos de con la siguiente ecuación.</p>
-<p>$$\epsilon {\scriptscriptstyle i} = {2 \over (i+3)!}[n(i^2 + {3\scriptstyle i} + 1) - (i^3 + 3{\scriptstyle i^2} - i - 4)]$$</p>
+<div className="chi-eq">
+  <i>
+    e<sub>i</sub> =
+  </i>
+  <div className="fraction">
+    <span className="fup">
+      <i>2</i>
+    </span>
+    <span className="bar">/</span>
+    <span className="fdn">
+      <i>
+        <i>(i + 3)!</i>
+      </i>
+    </span>
+  </div>
+  <i>
+    [n(i<sup>2</sup> + 3<sub>i</sub> + 1) - (i<sup>3</sup> + 3<sub>i</sub>
+    <sup>2</sup> - i - 4)]
+  </i>
+</div>
 <p>Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:</p>
 <table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
-<p>$$\epsilon {\scriptscriptstyle 1} = {2 \over (1+3)!}[300(1^2 + {3\scriptstyle 1} + 1) - (1^3 + 3{\scriptstyle 1^2} - 1 - 4)] = 125.083$$</p>
-<p>$$\epsilon {\scriptscriptstyle 2} = {2 \over (2+3)!}[300(2^2 + {3\scriptstyle 2} + 1) - (2^3 + 3{\scriptstyle 2^2} - 2 - 4)]= 59.766$$</p>
-<p>$$\epsilon {\scriptscriptstyle 3} = {2 \over (3+3)!}[300(3^2 + {3\scriptstyle 3} + 1) - (3^3 + 3{\scriptstyle 3^2} - 3 - 4)]= 17.369$$</p>
-<p>$$\epsilon {\scriptscriptstyle 4i} = {2 \over (4+3)!}[300(4^2 + {3\scriptstyle 4} + 1) - (4^3 + 3{\scriptstyle 4^2} - 4 - 4)]= 3.768$$</p>
+<div className="chi-eq">
+<i>
+  e<sub>1</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(1 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(1<sup>2</sup> + 3(1) + 1) - (1<sup>3</sup> + 3(1
+  <sup>2</sup>) - 1 - 4)] = 125.083
+</i>
+</div>
+<div className="chi-eq">
+<i>
+  e<sub>2</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(2 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(2<sup>2</sup> + 3(2) + 1) - (2<sup>3</sup> + 3(2
+  <sup>2</sup>) - 2 - 4)] = 59.766
+</i>
+</div>
+<div className="chi-eq">
+<i>
+  e<sub>3</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(3 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(3<sup>2</sup> + 3(3) + 1) - (3<sup>3</sup> + 3(3
+  <sup>2</sup>) - 3 - 4)] = 17.369
+</i>
+</div>
+<div className="chi-eq">
+<i>
+  e<sub>4</sub> =
+</i>
+<div className="fraction">
+  <span className="fup">
+    <i>2</i>
+  </span>
+  <span className="bar">/</span>
+  <span className="fdn">
+    <i>
+      <i>(4 + 3)!</i>
+    </i>
+  </span>
+</div>
+<i>
+  [300(4<sup>2</sup> + 3(4) + 1) - (4<sup>3</sup> + 3(4
+  <sup>2</sup>) - 4 - 4)] = 3.768
+</i>
+</div>
 <p>Lo cual son números similares a los obtenidos.</p>
 <p>Existe la restricción de que los números observados y esperados no pueden ser menor que 5, por lo que e4 se le sumaría a e3 quedando de la siguiente manera:</p>
 <table><thead><tr><th>Observados</th><td>116</td><td>55</td><td>23</td></tr></thead><tbody><tr><th>Esperados</th><td>125.083</td><td>59.766</td><td>21.137</td></tr></tbody></table>

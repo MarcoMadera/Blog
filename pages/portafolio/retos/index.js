@@ -3,10 +3,7 @@ import Seo from "../../../components/Seo";
 const challenges = () => {
   return (
     <main id="main">
-      <Seo
-        title="Portafolio - Challenges"
-        url="https://marcomadera.com/portafolio/retos"
-      />
+      <Seo title="Portafolio - Challenges" path="/portafolio/retos" />
       <h1>Desafios frontend</h1>
       <Challenge
         title="REST Countries API with color theme switcher"

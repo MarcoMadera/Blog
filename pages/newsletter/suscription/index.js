@@ -4,10 +4,7 @@ const suscription = () => {
   return (
     <>
       <main id="main">
-        <Seo
-          title="Suscripción exitosa!"
-          url="https://marcomadera.com/newsletter/suscription"
-        />
+        <Seo title="Suscripción exitosa!" path="/newsletter/suscription" />
         <section>
           <h1>
             ¡Ya casi estás suscrito al Newsletter!{" "}

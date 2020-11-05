@@ -10,7 +10,7 @@ Thank you for your interest in contributing to the blog site. Submit an issue in
 
 To create a new post, create a markdown file (.md) in the `/posts` directory. Make sure the metadata syntax at the start of your new blog follows the pattern given below:
 
-```
+```md
 ---
 title: The title
 description: A brief description of the content
