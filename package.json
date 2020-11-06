@@ -35,8 +35,7 @@
     "react-dom": "16.13.1",
     "react-markdown": "^4.3.1",
     "react-slugify": "^2.0.1",
-    "react-syntax-highlighter": "^13.5.3",
-    "slugify": "^1.4.6"
+    "react-syntax-highlighter": "^13.5.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",

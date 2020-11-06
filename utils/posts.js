@@ -1,6 +1,6 @@
 const matter = require("gray-matter");
 const fs = require("fs");
-const slugify = require("slugify");
+const slugify = require("react-slugify").default;
 const path = require("path");
 
 const getPostsFiles = () => {
@@ -61,24 +61,16 @@ const getSortedPostsData = () => {
   return posts;
 };
 
-const getTagsSlugs = () => {
-  const posts = getSortedPosts();
-  let paths = [];
-  posts.map(({ frontmatter }) =>
-    frontmatter.tag.forEach((tag) =>
-      paths.push({
+const getTagsSlugs = () =>
+  getSortedPosts()
+    .map(({ frontmatter }) =>
+      frontmatter.tag.map((tag) => ({
         params: {
-          slug: slugify(tag, {
-            replacement: "-",
-            lower: true,
-            strict: true,
-          }),
+          slug: slugify(tag),
         },
-      })
+      }))
     )
-  );
-  return paths;
-};
+    .reduce((allTags, tag) => allTags.concat(tag), []);
 
 const getPostBySlug = (slug) => {
   const posts = getSortedPosts();
@@ -93,8 +85,8 @@ const getPostBySlug = (slug) => {
     ...data,
     date: data.date.toString(),
   };
-  const previousPost = posts[postIndex + 1] ? posts[postIndex + 1] : null;
-  const nextPost = posts[postIndex - 1] ? posts[postIndex - 1] : null;
+  const previousPost = posts[postIndex + 1] ?? null;
+  const nextPost = posts[postIndex - 1] ?? null;
 
   const recommendedPosts = posts.filter(({ frontmatter }) =>
     frontmatter.tag.some((name) => data.tag.includes(name))
@@ -160,17 +152,7 @@ const getTagData = (slug) => {
   const posts = getSortedPostsData();
   const tags = [...new Set(posts.map(({ tag }) => tag).flat())];
 
-  const postsByTag = posts.filter(({ tag }) =>
-    tag
-      .map((tag) =>
-        slugify(tag, {
-          replacement: "-",
-          lower: true,
-          strict: true,
-        })
-      )
-      .includes(slug)
-  );
+  const postsByTag = posts.filter(({ tag }) => slugify(tag).includes(slug));
   const postData = {
     postsByTag,
     slug,
