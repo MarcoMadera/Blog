@@ -4,7 +4,14 @@ import TwitterShare from "./icons/TwitterShare";
 import FacebookShare from "./icons/FacebookShare";
 import LinkedInShare from "./icons/LinkedInShare";
 import { siteMetadata } from "../site.config";
-const BlogFooter = ({ slug, data }) => {
+const BlogFooter = ({
+  slug,
+  title,
+  profilePhoto,
+  twitter,
+  author,
+  summary,
+}) => {
   return (
     <footer>
       <section>
@@ -13,7 +20,7 @@ const BlogFooter = ({ slug, data }) => {
           title="Compartir en Twitter"
           onClick={() => {
             window.open(
-              `https://twitter.com/share?url=${siteMetadata.siteUrl}/${slug}&text=${data.title}`,
+              `https://twitter.com/share?url=${siteMetadata.siteUrl}/${slug}&text=${title}`,
               "popup",
               "width=600,height=500,scrollbars=no,resizable=no"
             );
@@ -51,7 +58,12 @@ const BlogFooter = ({ slug, data }) => {
           <LinkedInShare width={30} height={30} />
         </button>
       </section>
-      <Bio data={data} />
+      <Bio
+        profilePhoto={profilePhoto}
+        twitter={twitter}
+        author={author}
+        summary={summary}
+      />
       <style jsx>{`
         button {
           background: none;

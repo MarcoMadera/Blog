@@ -4,7 +4,7 @@ description: RSS es un formato para acceder a las actualizaciones de un sitio ya
 date: 2020-08-20
 cover: v1597944129/Blog/4/RSS_znjs6w.png
 author: Marco Madera
-tag:
+tags:
   - Web
 ---
 

@@ -4,7 +4,7 @@ description: Las pautas de accesibilidad para el contenido para la web son recom
 date: 2020-07-20
 cover: v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
 author: Marco Madera
-tag:
+tags:
   - A11Y
   - Web
   - HTML

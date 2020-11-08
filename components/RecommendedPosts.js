@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { colors } from "../styles/theme";
-import { imageCloudProvider } from "../site.config";
+import { imageCloudProvider, siteMetadata } from "../site.config";
 const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
   return (
     <div>
@@ -10,7 +10,7 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
           <section>
             {recommendedPosts.length > 1 && <h2>Artículos recomendados</h2>}
             <div>
-              {recommendedPosts.map(({ slug, frontmatter }, i) => {
+              {recommendedPosts.map(({ slug, title, author, cover }, i) => {
                 if (slug !== currentPost)
                   return (
                     i <= 6 && (
@@ -22,14 +22,15 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
                         <a>
                           <img
                             src={
-                              frontmatter.coverImage ??
-                              `${imageCloudProvider}/c_scale,h_40,w_40/${frontmatter.cover}`
+                              author !== siteMetadata.author.name
+                                ? cover
+                                : `${imageCloudProvider}/c_scale,h_40,w_40/${cover}`
                             }
-                            alt={`${frontmatter.title} cover`}
+                            alt={`${title} cover`}
                             width="40"
                             height="40"
                           />
-                          {frontmatter.title}
+                          {title}
                         </a>
                       </Link>
                     )

@@ -15,7 +15,7 @@ import { colors } from "../../styles/theme";
 import { getFormattedDate } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { imageCloudProvider, siteMetadata } from "../../site.config";
+import { siteMetadata, imageCloudProvider } from "../../site.config";
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -40,70 +40,86 @@ const contentAside = (content) => {
   return <Contents content={h2s} />;
 };
 
-export default function Post({ postData, slug }) {
+export default function Post({
+  title,
+  description,
+  date,
+  cover,
+  author,
+  tags,
+  content,
+  nextPost,
+  previousPost,
+  recommendedPosts,
+  profilePhoto,
+  twitter,
+  summary,
+  slug,
+}) {
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
-  const {
-    post,
-    frontmatter,
-    nextPost,
-    previousPost,
-    recommendedPosts,
-  } = postData;
   const [showComments, setShowComments] = useState(false);
   const [postTitle, setPostTitle] = useState();
   useEffect(() => {
-    setPostTitle(frontmatter.title);
-    if (frontmatter.title !== postTitle) {
+    setPostTitle(title);
+    if (title !== postTitle) {
       setShowComments(false);
     } else {
       setShowComments(true);
     }
-  }, [frontmatter.title, postTitle]);
+  }, [title, postTitle]);
 
   return (
     <main>
       <Seo
-        title={frontmatter.title}
-        description={frontmatter.description || post.excerpt}
+        title={title}
+        description={description}
         cover={
-          frontmatter.coverImage ??
-          `${imageCloudProvider}/c_scale,w_760/${frontmatter.cover}`
+          author !== siteMetadata.author.name
+            ? cover
+            : `${imageCloudProvider}/c_scale,w_760/${cover}`
         }
         path={`/blog/${slug}`}
-        author={frontmatter.author}
-        date={frontmatter.date}
+        author={author}
+        date={date}
       />
-      {contentAside(post.content)}
+      {contentAside(content)}
       <div className="blog" id="main">
         <article itemScope itemType="http://schema.org/Article">
           <div>
-            <h1 itemProp="name">{frontmatter.title}</h1>
+            <h1 itemProp="name">{title}</h1>
             <p>
               <time
                 itemProp="datePublished"
-                dateTime={new Date(frontmatter.date).toISOString()}
+                dateTime={new Date(date).toISOString()}
               >
-                {getFormattedDate(new Date(frontmatter.date))}
+                {getFormattedDate(new Date(date))}
               </time>
             </p>
           </div>
           <div itemProp="articlebody">
             <MarkDown
-              source={post.content}
+              source={content}
               renderers={{
                 code: CodeBlock,
               }}
             />
           </div>
           <hr />
-          <BlogFooter slug={slug} data={frontmatter} />
+          <BlogFooter
+            slug={slug}
+            title={title}
+            profilePhoto={profilePhoto}
+            twitter={twitter}
+            author={author}
+            summary={summary}
+          />
         </article>
         <nav>
           {previousPost ? (
             <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
               <a>
                 <p>← Artículo anterior</p>
-                {previousPost.frontmatter.title}
+                {previousPost.title}
               </a>
             </Link>
           ) : (
@@ -113,7 +129,7 @@ export default function Post({ postData, slug }) {
             <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
               <a>
                 <p>Siguiente artículo →</p>
-                {nextPost.frontmatter.title}
+                {nextPost.title}
               </a>
             </Link>
           ) : (
@@ -129,7 +145,7 @@ export default function Post({ postData, slug }) {
         )}
       </div>
       <aside>
-        <AllTags tags={frontmatter.tag} title="Etiquetas del artículo" />
+        <AllTags tags={tags} title="Etiquetas del artículo" />
         <RecommendedPosts
           recommendedPosts={recommendedPosts}
           currentPost={slug}
@@ -214,16 +230,16 @@ export default function Post({ postData, slug }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getPostsSlugs();
   return {
-    paths,
+    paths: getPostsSlugs(),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const postData = getPostBySlug(slug);
-  return { props: { postData, slug } };
+  return {
+    props: getPostBySlug(slug),
+  };
 }
 
 Post.propTypes = {

@@ -4,7 +4,7 @@ description: Las ligaduras tipográficas son símbolos especiales que se produce
 date: 2020-06-08
 cover: v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
 author: Marco Madera
-tag:
+tags:
   - VSCode
   - Personalización
 ---

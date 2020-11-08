@@ -3,6 +3,7 @@ module.exports = {
     title: "Marco Madera",
     author: {
       name: "Marco Madera",
+      image: "/profile.jpg",
       summary: "Desarrollador Frontend por afición",
       email: "me@marcomadera.com",
     },
@@ -17,6 +18,7 @@ module.exports = {
       linkedIn: "marcomadera",
       facebook: "marco.mad.lop",
     },
+    postsPerPage: 4,
   },
   imageCloudProvider: "https://res.cloudinary.com/marcomadera/image/upload",
 };

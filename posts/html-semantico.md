@@ -4,7 +4,7 @@ description: HTML Semántico es el uso de HTML, pero con etiquetas, atributos y 
 date: 2020-09-08
 cover: v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png
 author: Marco Madera
-tag:
+tags:
   - HTML
   - A11Y
   - Web

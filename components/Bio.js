@@ -1,31 +1,19 @@
-import { getSiteMetaData } from "../utils/helpers";
 import { colors } from "../styles/theme";
-const Bio = ({ data }) => {
-  const { author, social } = getSiteMetaData();
-
+const Bio = ({ profilePhoto, twitter, author, summary }) => {
   return (
     <div>
       <p>
         <span className="Bio__follow">
-          <img
-            src={data.profilePhoto ?? "/profile.jpg"}
-            alt="Profile"
-            width="40"
-            height="40"
-          />
+          <img src={profilePhoto} alt={author} width="40" height="40" />
           <a
-            href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${
-              data.twitter || social.twitter
-            }&tw_p=followbutton`}
+            href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${twitter}&tw_p=followbutton`}
             target="_blank"
             rel="noopener noreferrer"
           >
             Seguir
           </a>
         </span>
-        Escrito por{" "}
-        <strong itemProp="author">{data.author || author.name}</strong>{" "}
-        {data.summary || author.summary}{" "}
+        Escrito por <strong itemProp="author">{author}</strong> {summary}{" "}
       </p>
       <style jsx>{`
         @keyframes scale-in-center {

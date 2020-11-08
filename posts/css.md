@@ -4,7 +4,7 @@ description: CSS es el lenguaje que se usa para dar estilos a un documento escri
 date: 2020-10-20
 cover: v1602894559/Blog/7/css_k23ypb.png
 author: Marco Madera
-tag:
+tags:
   - CSS
   - Personalización
 ---

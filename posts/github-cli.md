@@ -4,7 +4,7 @@ description: Github CLI es la herramienta oficial para ejecutar todo el flujo de
 date: 2020-09-20
 cover: v1600483976/Blog/6/Octocat-removebg_wamv2v.png
 author: Marco Madera
-tag:
+tags:
   - Terminal
 ---
 

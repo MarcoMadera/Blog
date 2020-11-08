@@ -4,7 +4,7 @@ description: Los números pseudo-aleatorios son creados a partir de algoritmos m
 date: 2020-05-20
 cover: v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg
 author: Marco Madera
-tag:
+tags:
   - JavaScript
   - Estadística
 ---

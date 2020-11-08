@@ -6,13 +6,12 @@ import AllTags from "../../../components/AllTags";
 import Seo from "../../../components/Seo";
 import slugify from "react-slugify";
 
-const tag = ({ postData, tags }) => {
-  const { slug, postsByTag } = postData;
+const tag = ({ postsByTag, tags, slug }) => {
   return (
     <main id="main">
       <Seo
-        title={`Blog tag ${postsByTag[0].tag.find((item) =>
-          slugify(item).includes(slug)
+        title={`Blog tag ${postsByTag[0].tags.find((tag) =>
+          slugify(tag).includes(slug)
         )}`}
         path={`/blog/etiqueta/${slug}`}
       />
@@ -20,7 +19,7 @@ const tag = ({ postData, tags }) => {
       <section>
         <h1>
           Etiqueta{" "}
-          {postsByTag[0].tag.find((item) => slugify(item).includes(slug))}
+          {postsByTag[0].tags.find((tag) => slugify(tag).includes(slug))}
         </h1>
         {postsByTag.length ? (
           postsByTag.map((data) => <BlogCard {...data} key={data.slug} />)
@@ -64,11 +63,12 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params: { slug } }) {
-  const { postData, tags } = getTagData(slug);
+  const { postsByTag, tags } = getTagData(slug);
   return {
     props: {
-      postData,
+      postsByTag,
       tags,
+      slug,
     },
   };
 }

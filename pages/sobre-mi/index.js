@@ -15,13 +15,96 @@ import JavaScript from "../../components/icons/JavaScript";
 import MusicCard from "../../components/MusicCard";
 import { colors } from "../../styles/theme";
 import { useEffect, useState, useCallback } from "react";
+import { numberBetween } from "../../utils/helpers";
+
+const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
+  return (
+    <div>
+      <header>
+        <h2>{header}</h2>
+        <a
+          href="https://open.spotify.com/user/12133024755"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Perfil de spotify"
+        >
+          <Spotify width="26" height="26" fill={colors.spotify} />
+        </a>
+      </header>
+      <MusicCard
+        title={title}
+        cover={cover}
+        artist={artist}
+        songUrl={songUrl}
+      />
+      <hr />
+      <style jsx>{`
+        a {
+          display: inline-flex;
+          box-sizing: border-box;
+        }
+        header {
+          display: flex;
+          margin-top: 69px;
+          margin-bottom: 16px;
+          justify-content: space-between;
+          align-items: center;
+        }
+        h2 {
+          margin: 0;
+          font-size: 1em;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const ThingILike = ({ title, href, children }) => {
+  return (
+    <>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Página de last.fm"
+      >
+        <h3>{title}</h3>
+      </a>
+      <p>{children}</p>
+      <style global jsx>{`
+        div p a {
+          display: inline;
+          color: ${colors.primary};
+        }
+        section p a:hover,
+        section p a:focus {
+          text-decoration: underline;
+          color: ${colors.secondary};
+        }
+        section a:hover,
+        section a:focus {
+          text-decoration: underline;
+        }
+      `}</style>
+      <style jsx>{`
+        p {
+          line-height: 1.6;
+          text-align: justify;
+        }
+        h3 {
+          margin: 0px;
+          display: inline;
+        }
+      `}</style>
+    </>
+  );
+};
+
 const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
-  const [newNowPlaying, setNewNowPlaying] = useState(nowPlaying);
-  function timebetween(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  const [newNowPlaying, setNewNowPlaying] = useState(
+    Object.keys(nowPlaying).length > 0 ? nowPlaying : recentlyPlayed
+  );
+
   const reqNowPlaying = useCallback(async () => {
     const nowPlaying = await fetch(
       "https://marcomadera.com/api/now-playing"
@@ -34,7 +117,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
   useEffect(() => {
     const updateNowPlaying = setInterval(
       () => reqNowPlaying(),
-      timebetween(60000, 90000)
+      numberBetween(60000, 90000)
     );
     return () => clearInterval(updateNowPlaying);
   }, [reqNowPlaying]);
@@ -85,62 +168,44 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             ganador JavaScript.
           </p>
           <h2>Cosas que me gustan</h2>
-          <a
+          <ThingILike
+            title="La música"
             href="https://www.last.fm/user/MarcoMadera"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Página de last.fm"
+            label="Página de last.fm"
           >
-            <h3>La música</h3>
-          </a>
-          <p>
             La música es mi mejor acompañante para cualquier situación,
             especialmente a la hora de escribir, simplemente hace la vida más
             agradable. Me gusta de todo tipo y aunque no me considero de buen
             gusto me gusta compartirla.
-          </p>
-          <a
+          </ThingILike>
+          <ThingILike
+            title="Ajedrez bala"
             href="https://lichess.org/@/MarcoMadera"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Página de Lichess.org"
+            label="Página de Lichess.org"
           >
-            <h3>Ajedrez bala</h3>
-          </a>
-          <p>
             Siempre que estoy estancado en algo, juego un poco de ajedrez bala,
             como mi método para tomar un descanso y despejarme un poco.
-          </p>
-          <a
+          </ThingILike>
+          <ThingILike
+            title="Leer"
             href="https://ciberninjas.com/biblioteca-de-programacion-y-tecnologia/#-desarrollo-web"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Lecturas de programación"
+            label="Lecturas de programación"
           >
-            <h3>Leer</h3>
-          </a>
-          <p>
             Procuro dejar tiempo para leer artículos, blogs, hilos de twitter y
             novelas, contenido de la web interesante, que pueda compartir en el{" "}
             <Link href="/newsletter">
               <a>Newsletter</a>
             </Link>
-          </p>
-          <del>
-            <a
-              href="https://trakt.tv/users/marcomadera/progress"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Página de TrackTV"
-            >
-              <h3>Ver series</h3>
-            </a>
-          </del>
-          <p>
+          </ThingILike>
+          <ThingILike
+            title="Ver series"
+            href="https://trakt.tv/users/marcomadera/progress"
+            label="Página de TrackTV"
+          >
             Es de esas cosas que dejo un tiempo y continúo por temporadas, me
             gustan las series de drama y no puedo con las de ficción ni super
             heroes.
-          </p>
+          </ThingILike>
         </div>
         <div>
           <h2>¿Quieres contactar conmigo?</h2>
@@ -177,54 +242,16 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         </div>
       </section>
       <aside>
-        {Object.keys(newNowPlaying).length > 0 ? (
-          <div>
-            <header>
-              <h2>
-                {newNowPlaying.listening
-                  ? "Escuchando ahora"
-                  : "Último escuchado"}
-              </h2>
-              <a
-                href="https://open.spotify.com/user/12133024755"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Perfil de spotify"
-              >
-                <Spotify width="26" height="26" fill={colors.spotify} />
-              </a>
-            </header>
-            <MusicCard
-              title={newNowPlaying.title}
-              cover={newNowPlaying.cover}
-              artist={newNowPlaying.artist}
-              songUrl={newNowPlaying.songUrl}
-            />
-            <hr />
-          </div>
-        ) : (
-          Object.keys(recentlyPlayed).length > 0 && (
-            <div>
-              <header>
-                <h2>Recién escuchado</h2>
-                <a
-                  href="https://open.spotify.com/user/12133024755"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Perfil de spotify"
-                >
-                  <Spotify width="26" height="26" fill={colors.spotify} />
-                </a>
-              </header>
-              <MusicCard
-                title={recentlyPlayed.title}
-                cover={recentlyPlayed.cover}
-                artist={recentlyPlayed.artist}
-                songUrl={recentlyPlayed.songUrl}
-              />
-              <hr />
-            </div>
-          )
+        {Object.keys(newNowPlaying).length > 0 && (
+          <MusicHeader
+            header={
+              newNowPlaying.listening ? "Escuchando ahora" : "Último escuchado"
+            }
+            title={newNowPlaying.title}
+            cover={newNowPlaying.cover}
+            artist={newNowPlaying.artist}
+            songUrl={newNowPlaying.songUrl}
+          />
         )}
         {topTracks.length > 0 && (
           <>
@@ -337,6 +364,10 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         main > aside:nth-of-type(1) {
           padding-top: 75px;
         }
+        p {
+          text-align: justify;
+          line-height: 1.6;
+        }
         button {
           border: none;
           background: unset;
@@ -345,45 +376,12 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           display: inline-flex;
           vertical-align: bottom;
         }
-        div > video {
+        video {
           display: block;
           margin: 30px auto 0 auto;
         }
-        div p {
-          line-height: 1.6;
-        }
-        div p a {
-          display: inline;
-          color: ${colors.primary};
-        }
-        div p a:hover {
-          text-decoration: underline;
-          color: ${colors.secondary};
-        }
-        div p a:focus {
-          color: ${colors.secondary};
-        }
-        div a:hover {
-          text-decoration: underline;
-        }
-        h3 {
-          margin: 0px;
-          display: inline;
-        }
-
-        header {
-          display: flex;
-          margin-top: 69px;
-          margin-bottom: 16px;
-          justify-content: space-between;
-          align-items: center;
-        }
         aside:nth-of-type(2) {
           padding: 0 5px;
-          box-sizing: border-box;
-        }
-        aside:nth-of-type(2) div header a {
-          display: inline-flex;
           box-sizing: border-box;
         }
         h1 {
@@ -391,15 +389,8 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           text-align: center;
           margin: 0 0 1em 0;
         }
-        div p {
-          text-align: justify;
-        }
         aside h2 {
           margin: 1em 0;
-          font-size: 1em;
-        }
-        aside header h2 {
-          margin: 0;
           font-size: 1em;
         }
         main {

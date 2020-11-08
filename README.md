@@ -15,12 +15,12 @@ To create a new post, create a markdown file (.md) in the `/posts` directory. Ma
 title: The title
 description: A brief description of the content
 date: 2020-07-20
-coverImage: image at least 760px width
+cover: image at least 760px width
 author: Your name
-summary: Your summary e: Frontend Developer
+summary: Your summary e.g. Frontend Developer
 profilePhoto: url image
-twitter: Your twitter userName
-tag:
+twitter: Your twitter userName e.g. madera_marco
+tags:
   - Tag
   - Another tag related
 ---

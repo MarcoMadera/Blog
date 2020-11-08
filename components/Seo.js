@@ -49,10 +49,12 @@ const Seo = ({
       {path.includes("/blog/") ? (
         <>
           <meta property="og:type" content="article" />
-          <meta
-            property="article:author"
-            content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
-          />
+          {author === siteMetadata.author.name && (
+            <meta
+              property="article:author"
+              content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
+            />
+          )}
           <meta
             property="article:publisher"
             content={`https://www.facebook.com/${siteMetadata.social.facebook}`}

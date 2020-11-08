@@ -3,17 +3,8 @@ import PropTypes from "prop-types";
 import slugify from "react-slugify";
 import { getFormattedDate } from "../utils/helpers";
 import { colors } from "../styles/theme";
-import { imageCloudProvider } from "../site.config";
-const BlogCard = ({
-  slug,
-  title,
-  description,
-  cover,
-  tag,
-  author,
-  date,
-  coverImage,
-}) => {
+import { imageCloudProvider, siteMetadata } from "../site.config";
+const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
   return (
     <article key={slug}>
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
@@ -28,15 +19,17 @@ const BlogCard = ({
             <picture>
               <source
                 srcSet={
-                  coverImage ??
-                  `${imageCloudProvider}/c_scale,h_300,w_300/${cover}`
+                  author !== siteMetadata.author.name
+                    ? cover
+                    : `${imageCloudProvider}/c_scale,h_300,w_300/${cover}`
                 }
                 media="(max-width: 876px)"
               />
               <img
                 src={
-                  coverImage ??
-                  `${imageCloudProvider}/c_scale,h_100,w_100/${cover}`
+                  author !== siteMetadata.author.name
+                    ? cover
+                    : `${imageCloudProvider}/c_scale,h_100,w_100/${cover}`
                 }
                 alt={`Portada del blog ${title}`}
                 width="100"
@@ -48,8 +41,8 @@ const BlogCard = ({
       </Link>
       <footer>
         <div>
-          {tag.length &&
-            tag.map((tag) => (
+          {tags.length &&
+            tags.map((tag) => (
               <Link
                 href={"/blog/etiqueta/[slug]/"}
                 as={`/blog/etiqueta/${slugify(tag)}/`}
@@ -132,7 +125,7 @@ BlogCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   cover: PropTypes.string,
-  tag: PropTypes.array,
+  tags: PropTypes.array,
   author: PropTypes.string,
   date: PropTypes.string,
 };
