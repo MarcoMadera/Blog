@@ -34,42 +34,7 @@ La uniformidad en el caso de los números aleatorios, significa que en un rango 
 
 Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<sup>2</sup>:
 
-<style>
-.fraction {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0.2em 0.4ex;
-  text-align: center;
-}
-
-.fraction span {
-  display: block;
-  padding-top: 0.15em;
-}
-
-.fraction span.fdn {
-  border-top: thin solid #000;
-}
-
-.fraction span.bar {
-  display: none;
-}
-.chi-eq {
-  text-align: center;
-}
-
-.eq {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 15%;
-  text-align: center;
-}
-@media screen and (max-width: 490px) {
-  .eq {
-    display: block;
-  }
-}
-</style>
+<style>.fraction{display:inline-block;vertical-align:middle;margin:0 .2em .4ex;text-align:center}.fraction span{display:block;padding-top:.15em}.fraction span.fdn{border-top:thin solid #000}.fraction span.bar{display:none}.chi-eq{text-align:center}.eq{display:flex;justify-content:space-between;margin:0 15%;text-align:center}@media screen and (max-width:490px){.eq{display:block}}</style>
 
 <div className="chi-eq">
   <i>
@@ -94,7 +59,6 @@ Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<s
   </div>
 </div>
 
-
 Donde:
 
 <i>o<sub>i</sub></i>: datos obtenidos
@@ -103,7 +67,7 @@ Donde:
 
 Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
-<table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
+<table><colgroup span="2"></colgroup><thead><tr><th style="font-weight: bold;" colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
 
 Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo, si tenemos 100 números, nuestro intervalo va a ser de 10, si tenemos 200 será 15 redondeando hacia arriba.
 Los datos obtenidos son los datos que vamos a evaluar. Como lo que estamos evaluando son números aleatorios, esperamos tener una distribución de tipo y = a donde a = `[0 , 1]`como en la gráfica mostrada anteriormente, entonces el número esperado de eventos en una categoría sería, el número de datos a evaluar sobre el número de intervalos, en caso de tener 100 números será 10 casos esperados en cada categoría, en caso de tener 200, 14.28, en caso de tener 300, 16.666.
@@ -181,31 +145,34 @@ n: El número de datos a evaluar
 
 Z: Valor estándar de la distribución normal para la prueba.
 
-
 Igual que antes establecemos primero nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
-<table><colgroup span="2"></colgroup><thead><tr><th colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son independientes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son independientes</td></tr></tbody></table>
+<table><colgroup span="2"></colgroup><thead><tr><th style="font-weight: bold;" colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son independientes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son independientes</td></tr></tbody></table>
 
 Clasificamos los números como bien el nombre lo indica, como racha ascendente o descendente. Ejemplo:
 Dada la siguiente lista: 0.1, 0.2, 0.3, 0.4, 0.2, 0.3, 0.1, 0.2, 0.3.
 Vemos que los primeros cuatro números tienen una racha ascendente, intercala 3 números y vuelve a ascender. Como lo siguiente: ↑ ↑ ↑ ↑ ↓ ↑ ↓ ↑ ↑
 Tenemos lo siguiente:
 
-| Racha | Longitud |
-| ----- | -------- |
-| 1     | 4        |
-| 2     | 1        |
-| 3     | 1        |
-| 4     | 1        |
-| 5     | 2        |
+| **Racha** | **Longitud** |
+|:---------:|:------------:|
+|     1     |       4      |
+|     2     |       1      |
+|     3     |       1      |
+|     4     |       1      |
+|     5     |       2      |
 
 Transpuesta nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:
 
-<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>3</td><td>1</td><td>0</td><td>1</td><td>5</td></tr></tbody></table>
+| **Longitud de rachas** | 1 | 2 | 3 | 4 | **Total** |
+|:----------------------:|:-:|:-:|:-:|:-:|:---------:|
+|  **Número de rachas**  | 3 | 1 | 0 | 1 |     5     |
 
 Si aplicamos lo que sabemos hasta ahora a la lista de nuestros 300 números iniciales, quedaría de la siguiente manera:
 
-<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
+| **Longitud de rachas** |  1  |  2 |  3 | 4 | **Total** |
+|:----------------------:|:---:|:--:|:--:|:-:|:---------:|
+|  **Número de rachas**  | 116 | 55 | 19 | 4 |    194    |
 
 Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los tres estadísticos:
 
@@ -214,7 +181,6 @@ Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los 
 σ2R = 52.01 La varianza
 
 Z = -0.108 El valor de la distribución normal
-
 
 Para determinar la independencia, igualmente buscaríamos ahora en una tabla de distribución normal el valor α/2 seguiré usando 0.05, por lo que buscaré el valor de 0.025, si vamos a los valores de los laterales encontramos que la desviación normal es de 1.96, si nuestro valor α fuera 0.1 para tener una confianza del 90% la desviación normal sería de 1.65.
 
@@ -279,7 +245,9 @@ Lo que cambia es que ahora nuestros números esperados los calcularemos de con l
 
 Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:
 
-<table><thead><tr><th>Longitud de Rachas</th><td>1</td><td>2</td><td>3</td><td>4</td><th>Total</th></tr></thead><tbody><tr><th>Número de Rachas</th><td>116</td><td>55</td><td>19</td><td>4</td><td>194</td></tr></tbody></table>
+| **Longitud de rachas** |  1  |  2  |  3  |  4  | **Total** |
+|:----------------------:|:---:|:---:|:---:|:---:|:---------:|
+|  **Número de rachas**  | 116 |  55 |  19 |  4  |    194    |
 
 <div className="chi-eq">
 <i>
@@ -366,7 +334,9 @@ Lo cual son números similares a los obtenidos.
 
 Existe la restricción de que los números observados y esperados no pueden ser menor que 5, por lo que e4 se le sumaría a e3 quedando de la siguiente manera:
 
-<table><thead><tr><th>Observados</th><td>116</td><td>55</td><td>23</td></tr></thead><tbody><tr><th>Esperados</th><td>125.083</td><td>59.766</td><td>21.137</td></tr></tbody></table>
+| **Observados** |   116   |   55   |   23   |
+|:--------------:|:-------:|:------:|:------:|
+|  **Esperados** | 125.083 | 59.766 | 21.137 |
 
 Con estos datos calculamos chi-cuadrada (X2) = 1.2038
 k = 4-1 = 3
@@ -386,7 +356,9 @@ Esta muestra nos dio que los números no son uniformes pero sí independientes
 
 En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados:
 
-<table><thead><tr><th>Número de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>11</td><td>21</td><td>68</td><td>100</td></tr></tbody></table>
+| **Número de pruebas correctas** |  1 |  2 |  3 | **Total** |
+|:-------------------------------:|:--:|:--:|:--:|-----------|
+|           **Valores**           | 11 | 21 | 68 | 100       |
 
 De las 100 pruebas:
 68 pruebas cumplieron con la uniformidad, independencia y longitud.
@@ -401,7 +373,9 @@ De las 100 pruebas:
 
 En 100 pruebas de 3000 números cada una, se obtuvieron los siguientes resultados:
 
-<table><thead><tr><th>Número de pruebas correctas</th><td>1</td><td>2</td><td>3</td><th>Total</th></tr></thead><tbody><tr><th>Valores</th><td>3</td><td>48</td><td>49</td><td>100</td></tr></tbody></table>
+| **Número de pruebas correctas** | 1 |  2 |  3 | **Total** |
+|:-------------------------------:|:-:|:--:|:--:|:---------:|
+|           **Valores**           | 3 | 48 | 49 |    100    |
 
 De las 100 pruebas:
 49 pruebas cumplieron con la uniformidad, independencia y longitud.

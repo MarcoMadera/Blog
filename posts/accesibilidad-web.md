@@ -132,55 +132,7 @@ El uso del scope ayuda a los lectores de pantalla a seguir el orden correcto.
 ### Roles apropiados
 
 Los siguientes elementos tienen la apariencia de botón pero con roles diferentes:
-<style>.blog3__container{position:relative}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){display:block;width:1px;height:3px;background:#3ace3a;transform:rotate(-45deg) translate(-2px,7px)}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){display:block;width:1px;height:8px;border-radius:0;background:#3ace3a;transform:rotate(35deg) translate(5px,-4px)}.share-box{position:absolute;width:fit-content;height:fit-content;background-color:#fff;border-radius:6px;top:-135px;visibility:hidden;padding:10px;box-shadow:0 0 8px 0 rgba(0,0,0,.3)}.share-box div{font-size:13px;align-items:center}.share-box div:nth-of-type(1){display:grid;grid-template-columns:1fr auto;margin-bottom:15px}.share-box div:nth-of-type(2){display:grid;grid-template-columns:1fr 1fr;margin-bottom:8px}.share-box div:nth-of-type(3){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(4){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(5){display:grid;grid-template-columns:1fr auto}.share-box div span{line-height:1;margin:0;padding:0;width:fit-content;font-family:consolas;color:#b3b3b3}.share-box div:nth-of-type(1) span:nth-of-type(1){color:#881280;font-size:13px}.share-box div:nth-of-type(1) span:nth-of-type(2){font-size:13px}.share-box div:nth-of-type(2) span:nth-of-type(1){color:#6c7278;font-size:11px}.share-box div:nth-of-type(2) span:nth-of-type(2){display:block;width:100%;height:1px;background:#ddd}.share-box div:nth-of-type(3) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(4) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(5) span:nth-of-type(2){width:14px;height:14px;border-radius:50%;border:1px solid #3ace3a}.triangle-down{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #fff;position:absolute;bottom:-11px;left:20%}#butons:hover+.share-box{visibility:visible;left:106.5px}#anchor:hover+.share-box{visibility:visible}</style>
-<div class="blog3__container">
-<a href="#anchor" class="btn btn-primary" id="anchor" >ancla</a><div class="share-box">
-  <div>
-  <span>anchor</span>
-  <span>104.25 x 38</span>
-  </div>
-  <div>
-  <span>ACCESIBILITY</span>
-  <span></span>
-  </div>
-  <div>
-  <span>Name</span>
-  <span>ancla</span>
-  </div>
-  <div>
-  <span>Role</span>
-  <span>link</span>
-  </div>
-  <div>
-  <span>Keyboard-focusable</span>
-  <span><span></span><span></span></span>
-  </div>
-  <div class="triangle-down"></div>
-</div>
-<button type="button" class="btn btn-primary" id="butons">botón</button><div class="share-box">
-  <div>
-  <span>button</span>
-  <span>106.5 x 38</span>
-  </div>
-  <div>
-  <span>ACCESIBILITY</span>
-  <span></span>
-  </div>
-  <div>
-  <span>Name</span>
-  <span>botón</span>
-  </div>
-  <div>
-  <span>Role</span>
-  <span>button</span>
-  </div>
-  <div>
-  <span>Keyboard-focusable</span>
-  <span><span></span><span></span></span>
-  </div>
-  <div class="triangle-down"></div>
-</div>
-</div>
+<style>.blog3__container{position:relative}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){display:block;width:1px;height:3px;background:#3ace3a;transform:rotate(-45deg) translate(-2px,7px)}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){display:block;width:1px;height:8px;border-radius:0;background:#3ace3a;transform:rotate(35deg) translate(5px,-4px)}.share-box{position:absolute;width:fit-content;height:fit-content;background-color:#fff;border-radius:6px;top:-135px;visibility:hidden;padding:10px;box-shadow:0 0 8px 0 rgba(0,0,0,.3)}.share-box div{font-size:13px;align-items:center}.share-box div:nth-of-type(1){display:grid;grid-template-columns:1fr auto;margin-bottom:15px}.share-box div:nth-of-type(2){display:grid;grid-template-columns:1fr 1fr;margin-bottom:8px}.share-box div:nth-of-type(3){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(4){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(5){display:grid;grid-template-columns:1fr auto}.share-box div span{line-height:1;margin:0;padding:0;width:fit-content;font-family:consolas;color:#b3b3b3}.share-box div:nth-of-type(1) span:nth-of-type(1){color:#881280;font-size:13px}.share-box div:nth-of-type(1) span:nth-of-type(2){font-size:13px}.share-box div:nth-of-type(2) span:nth-of-type(1){color:#6c7278;font-size:11px}.share-box div:nth-of-type(2) span:nth-of-type(2){display:block;width:100%;height:1px;background:#ddd}.share-box div:nth-of-type(3) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(4) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(5) span:nth-of-type(2){width:14px;height:14px;border-radius:50%;border:1px solid #3ace3a}.triangle-down{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #fff;position:absolute;bottom:-11px;left:20%}#butons:hover+.share-box{visibility:visible;left:106.5px}#anchor:hover+.share-box{visibility:visible}</style><div class="blog3__container"><a href="#anchor" class="btn btn-primary" id="anchor" >ancla</a><div class="share-box"><div><span>anchor</span><span>104.25 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>ancla</span></div><div><span>Role</span><span>link</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div><button type="button" class="btn btn-primary" id="butons">botón</button><div class="share-box"><div><span>button</span><span>106.5 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>botón</span></div><div><span>Role</span><span>button</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div></div>
 
 Hay que definir los roles de acuerdo a la función que realizarán. En este caso el primer "botón" tiene la funcionalidad de link a otra página por lo que debería ser implementado como hipervínculo para que tome el rol de link.
 
@@ -213,14 +165,7 @@ Podemos utilizar las herramientas de Google Chrome DevTools para ver el contrast
 
 El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
 
-<style>
-
-  #inputToFocus:focus{
-  box-shadow: 0 0 5px #da0000;
-  outline: 1px solid #da0000;
-  border: 2px solid transparent;
-  }
-</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
+<style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;outline:1px solid #da0000;border:2px solid transparent}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
 
 &nbsp;&nbsp;
 

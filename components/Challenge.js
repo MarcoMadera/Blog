@@ -150,7 +150,6 @@ Challenge.propTypes = {
   challengeImg: PropTypes.string,
   todoList: PropTypes.array,
   level: PropTypes.string,
-  change: PropTypes.bool,
 };
 
 export default Challenge;

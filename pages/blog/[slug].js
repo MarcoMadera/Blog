@@ -243,8 +243,20 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 Post.propTypes = {
-  postData: PropTypes.object,
   slug: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  date: PropTypes.string,
+  cover: PropTypes.string,
+  author: PropTypes.string,
+  tags: PropTypes.array,
+  content: PropTypes.string,
+  nextPost: PropTypes.object,
+  previousPost: PropTypes.object,
+  recommendedPosts: PropTypes.array,
+  profilePhoto: PropTypes.string,
+  twitter: PropTypes.string,
+  summary: PropTypes.string,
 };
 
 CodeBlock.propTypes = {

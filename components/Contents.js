@@ -47,7 +47,6 @@ const Contents = ({ content }) => {
 
 Contents.propTypes = {
   content: PropTypes.array,
-  post: PropTypes.string,
 };
 
 export default Contents;

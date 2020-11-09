@@ -18,7 +18,6 @@ export const blogStyles = css.global`
     font-size: 1em;
     tab-size: 4;
   }
-
   @media print {
     .blog code,
     pre {
@@ -28,14 +27,12 @@ export const blogStyles = css.global`
       display: none !important;
     }
   }
-
   .blog :not(pre) > code {
     white-space: normal;
     color: #24292e;
     border-radius: 0.2em;
     padding: 0.1em;
   }
-
   .blog pre {
     overflow: auto;
     position: relative;
@@ -44,52 +41,41 @@ export const blogStyles = css.global`
     margin: 0.5em 0;
     padding: 0.8em 1em;
   }
-
   .blog pre.language-css > code,
   pre.language-sass > code,
   pre.language-scss > code {
     color: #f76d47;
   }
-
   .namespace {
     opacity: 0.7;
   }
-
   .token.atrule.rule {
     color: #d73a49;
   }
-
   .token.attr-name {
     color: #39adb5;
   }
-
   .token.attr-value {
     color: #f6a434;
   }
   .token.tag.attr-value {
     color: #24292e;
   }
-
   .token.attribute {
     color: #f6a434;
   }
-
   .token.boolean {
     color: #005cc5;
   }
-
   .token.builtin {
     color: #39adb5;
   }
-
   .token.cdata {
     color: #39adb5;
   }
-
   .token.char {
     color: #39adb5;
   }
-
   .token.class {
     color: #39adb5;
   }
@@ -116,82 +102,64 @@ export const blogStyles = css.global`
   .token.tag.script.language-javascript.class-name {
     color: #e36209;
   }
-
   .token.class-name {
     color: #e36209;
   }
-
   .token.comment {
     color: #aabfc9;
   }
-
   .token.constant {
     color: #005ccf;
   }
-
   .token.deleted {
     color: #e53935;
   }
-
   .token.doctype {
     color: #aabfc9;
   }
-
   .token.entity {
     color: #e53935;
   }
-
   .token.function {
     color: #6f42c1;
   }
   .token.color.function {
     color: #6f42c1;
   }
-
   .token.hexcode {
     color: #f76d47;
   }
-
   .token.id {
     color: #6f42c1;
     font-weight: bold;
   }
-
   .token.important {
     color: #7c4dff;
     font-weight: bold;
   }
-
   .token.inserted {
     color: #39adb5;
   }
-
   .token.keyword {
     color: #d73a49;
   }
-
   .token.number {
     color: #005cc5;
   }
-
   .token.operator {
     color: #005cc5;
   }
-
   .token.prolog {
     color: #aabfc9;
   }
-
   .token.property,
   .token.selector.pseudo-class,
   .token.variable {
     color: #005cc5;
   }
-
   .token.pseudo-class {
     color: #f6a434;
   }
-
   .token.pseudo-element {
     color: #f6a434;
   }
@@ -207,39 +175,31 @@ export const blogStyles = css.global`
   .token.tag.punctuation {
     color: #4f5cc8;
   }
-
   .token.regex {
     color: #6182b8;
   }
-
   .token.selector {
     color: #60863a;
   }
-
   .token.string,
   .token.tag.script.language-javascript {
     color: #24292e;
   }
-
   .token.symbol {
     color: #7c4dff;
   }
-
   .token.tag {
     color: #e53935;
   }
-
   .token.keyword.module {
     color: #d73a49;
   }
   .token.maybe-class-name {
     color: #ea7a09;
   }
-
   .token.url {
     color: #e53935;
   }
-
   .blog p {
     text-align: justify;
     line-height: 1.6;
@@ -253,7 +213,6 @@ export const blogStyles = css.global`
     margin-left: 30px;
     margin-right: 30px;
   }
-
   .blog h1 {
     font-size: 1.8em;
   }
@@ -276,12 +235,10 @@ export const blogStyles = css.global`
   .blog code span {
     font-family: monospace;
   }
-
   .blog ol,
   .blog ul {
     padding: 0;
   }
-
   .blog ul li {
     list-style-type: disc;
   }
@@ -310,7 +267,6 @@ export const blogStyles = css.global`
     position: static;
     transform: scale(1.1);
   }
-
   .blog img[alt$="100px"] {
     display: block;
     height: 100px;
@@ -321,7 +277,6 @@ export const blogStyles = css.global`
     float: left;
     margin: 10px;
   }
-
   .blog img[alt$="ajustar derecha"] {
     display: block;
     float: right;
@@ -333,7 +288,6 @@ export const blogStyles = css.global`
     height: 300px;
     margin: 10px;
   }
-
   .blog img[alt$="100px"] {
     display: block;
     height: 100px;
@@ -354,7 +308,6 @@ export const blogStyles = css.global`
     border-radius: 4px;
     padding: 0.5em 0.5em 0;
   }
-
   .blog input[type="number"],
   .blog select {
     border: 1px solid ${colors.gray};
@@ -369,11 +322,12 @@ export const blogStyles = css.global`
     outline: none;
     cursor: pointer;
     -webkit-appearance: none;
+    padding: 0;
+    overflow: hidden;
   }
   .blog dialog {
     border-color: ${colors.secondary};
   }
-
   .blog input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
   }
@@ -386,116 +340,130 @@ export const blogStyles = css.global`
     --optimum: ${colors.primary};
     --sub-optimum: ${colors.secondary};
     --sub-sub-optimum: ${colors.primary};
-
-    /* The gray background in Firefox */
-    background: var(--background);
     display: block;
-    margin-bottom: 1em;
+    margin: 0 auto;
     width: 100%;
-    height: 30px;
+    -webkit-appearance: none;
+    appearance: meter;
+    -moz-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: none;
+    background-color: ${colors.white};
   }
-
-  /* The gray background in Chrome, etc. */
   .blog meter::-webkit-meter-bar {
-    background: var(--background);
+    background: none;
+    background-color: var(--background);
+    height: 18px;
   }
-
-  /* The green (optimum) bar in Firefox */
-  .blog meter:-moz-meter-optimum::-moz-meter-bar {
-    background: linear-gradient(90deg, ${colors.primary}, ${colors.secondary});
+  .blog meter::-moz-meter-bar {
+    background: none;
+    background-color: var(--background);
   }
-
-  /* The green (optimum) bar in Chrome etc. */
-  .blog meter::-webkit-meter-optimum-value {
-    background: linear-gradient(90deg, ${colors.primary}, ${colors.secondary});
-  }
-
-  /* The yellow (sub-optimum) bar in Firefox */
-  .blog meter:-moz-meter-sub-optimum::-moz-meter-bar {
-    background: var(--sub-optimum);
-  }
-
-  /* The yellow (sub-optimum) bar in Chrome etc. */
-  .blog meter::-webkit-meter-suboptimum-value {
-    background: var(--sub-optimum);
-  }
-
-  /* The red (even less good) bar in Firefox */
   .blog meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-    background: var(--sub-sub-optimum);
+    border-radius: 10px;
+    background-image: linear-gradient(90deg, #dd2121 20%, #dd4921 100%);
+    background-size: 100% 100%;
   }
-
-  /* The red (even less good) bar in Chrome etc. */
   .blog meter::-webkit-meter-even-less-good-value {
-    background: var(--sub-sub-optimum);
+    background-image: linear-gradient(90deg, #dd2121 20%, #dd4921 100%);
+    background-size: 100% 100%;
+    border-radius: 10px;
   }
-  .blog progress,          /* All HTML5 progress enabled browsers */
-        .blog progress[role]     /* polyfill */ {
-    /* Turns off styling - not usually needed, but good to know. */
+  .blog meter:-moz-meter-sub-optimum::-moz-meter-bar {
+    border-radius: 10px;
+    background-image: linear-gradient(
+      90deg,
+      #dd2121 20%,
+      #dd2121 30%,
+      #df5535 40%,
+      #f2db34 60%,
+      #f2db34 100%
+    );
+    background-size: 100% 100%;
+  }
+  .blog meter::-webkit-meter-suboptimum-value {
+    border-radius: 10px;
+    background-image: linear-gradient(
+      90deg,
+      #dd2121 20%,
+      #dd2121 30%,
+      #df5535 40%,
+      #f2db34 60%,
+      #f2db34 100%
+    );
+    background-size: 100% 100%;
+  }
+  .blog meter:-moz-meter-optimum::-moz-meter-bar {
+    background-image: linear-gradient(
+      90deg,
+      #dd2121 20%,
+      #dd2121 30%,
+      #df5535 40%,
+      #f2db34 60%,
+      #f2db34 80%,
+      #72e13a 100%
+    );
+    background-size: 100% 100%;
+    border-radius: 10px;
+  }
+  .blog meter::-webkit-meter-optimum-value {
+    border-radius: 10px;
+    background-image: linear-gradient(
+      90deg,
+      #dd2121 20%,
+      #dd2121 30%,
+      #df5535 40%,
+      #f2db34 60%,
+      #f2db34 80%,
+      #72e13a 100%
+    );
+    background-size: 100% 100%;
+  }
+  .blog progress,
+  .blog progress[role] {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-
-    /* gets rid of default border in Firefox and Opera. */
     border: none;
-
-    /* Needs to be in here for Safari polyfill so background images work as expected. */
     background-size: auto;
-
-    /* Dimensions */
     width: 100%;
     border: 1px solid ${colors.gray};
     border-radius: 20px;
   }
-
-  /* Polyfill */
   .blog progress[role]:after {
-    background-image: none; /* removes default background from polyfill */
+    background-image: none;
   }
-
-  /* Ensure fallback text doesn't appear in polyfill */
   .blog progress[role] strong {
     display: none;
   }
-  .blog progress,                          /* Firefox  */ 
-        .blog progress[role][aria-valuenow] {
-    /* Polyfill */
-    background: unset !important; /* !important is needed by the polyfill */
+  .blog progress,
+  .blog progress[role][aria-valuenow] {
+    background: unset !important;
   }
-
-  /* Chrome */
   .blog progress::-webkit-progress-bar {
     background: unset;
   }
-  /* IE10 */
   .blog progress {
     color: ${colors.primary};
     border-radius: 20px;
   }
-
-  /* Firefox */
   .blog progress::-moz-progress-bar {
     background: ${colors.primary};
     border-radius: 20px;
   }
-
   .blog caption {
     padding: 8px;
     caption-side: bottom;
   }
-
-  /* Chrome */
   .blog progress::-webkit-progress-value {
     background: ${colors.primary};
     border-radius: 20px;
   }
-
-  /* Polyfill */
   .blog progress[aria-valuenow]:before {
     background: ${colors.primary};
     border-radius: 20px;
   }
-
   .blog summary {
     font-weight: bold;
     margin: -0.5em -0.5em 0;
@@ -507,11 +475,9 @@ export const blogStyles = css.global`
   .blog details > summary::-webkit-details-marker {
     color: ${colors.primary};
   }
-
   .blog details[open] {
     padding: 0.5em;
   }
-
   .blog details[open] summary {
     border-bottom: 1px solid ${colors.gray};
     margin-bottom: 0.5em;

@@ -99,6 +99,7 @@ th,
 td {
   empty-cells: hide;
   border: 1px solid #aaa;
+  font-weight: normal;
 }
 
 kbd {

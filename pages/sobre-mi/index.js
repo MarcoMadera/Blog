@@ -112,8 +112,10 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
       if (res.status !== 200) return;
       return res.json();
     });
-    setNewNowPlaying(nowPlaying);
-  }, []);
+    setNewNowPlaying(
+      Object.keys(nowPlaying).length > 0 ? nowPlaying : recentlyPlayed
+    );
+  }, [recentlyPlayed]);
   useEffect(() => {
     const updateNowPlaying = setInterval(
       () => reqNowPlaying(),
@@ -449,6 +451,20 @@ About.propTypes = {
   nowPlaying: PropTypes.object,
   topTracks: PropTypes.array,
   recentlyPlayed: PropTypes.object,
+};
+
+MusicHeader.propTypes = {
+  header: PropTypes.string,
+  title: PropTypes.string,
+  cover: PropTypes.string,
+  artist: PropTypes.string,
+  songUrl: PropTypes.string,
+};
+
+ThingILike.propTypes = {
+  title: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default About;

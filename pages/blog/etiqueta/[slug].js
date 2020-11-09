@@ -5,8 +5,9 @@ import BlogCard from "../../../components/BlogCard";
 import AllTags from "../../../components/AllTags";
 import Seo from "../../../components/Seo";
 import slugify from "react-slugify";
+import PropTypes from "prop-types";
 
-const tag = ({ postsByTag, tags, slug }) => {
+const Tag = ({ postsByTag, tags, slug }) => {
   return (
     <main id="main">
       <Seo
@@ -53,7 +54,7 @@ const tag = ({ postsByTag, tags, slug }) => {
   );
 };
 
-export default tag;
+export default Tag;
 
 export async function getStaticPaths() {
   const paths = getTagsSlugs();
@@ -72,3 +73,9 @@ export async function getStaticProps({ params: { slug } }) {
     },
   };
 }
+
+Tag.propTypes = {
+  postsByTag: PropTypes.array,
+  tags: PropTypes.array,
+  slug: PropTypes.string,
+};

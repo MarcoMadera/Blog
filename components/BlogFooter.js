@@ -33,7 +33,7 @@ const BlogFooter = ({
           title="Compartir en Facebook"
           onClick={() => {
             window.open(
-              `https://facebook.com/sharer/sharer.php?u=${`${siteMetadata.siteUrl}/blog/${slug}&quote=${blogTitle}`}`,
+              `https://facebook.com/sharer/sharer.php?u=${`${siteMetadata.siteUrl}/blog/${slug}&quote=${title}`}`,
               "popup",
               "width=600,height=500,scrollbars=no,resizable=no"
             );
@@ -46,7 +46,7 @@ const BlogFooter = ({
           title="Compartir en LinkedIn"
           onClick={() => {
             window.open(
-              `http://www.linkedin.com/shareArticle?mini=true&url=${`${siteMetadata.siteUrl}/blog/${slug}`}&title=${blogTitle}&source=${
+              `http://www.linkedin.com/shareArticle?mini=true&url=${`${siteMetadata.siteUrl}/blog/${slug}`}&title=${title}&source=${
                 siteMetadata.siteUrl
               }`,
               "popup",
@@ -106,9 +106,12 @@ const BlogFooter = ({
 };
 
 BlogFooter.propTypes = {
-  loaded: PropTypes.bool,
-  slug: PropTypes.string,
-  blogTitle: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  profilePhoto: PropTypes.string,
+  twitter: PropTypes.string,
+  author: PropTypes.string.isRequired,
+  summary: PropTypes.string,
 };
 
 export default BlogFooter;

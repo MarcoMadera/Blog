@@ -88,7 +88,7 @@ Seo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   cover: PropTypes.string,
-  url: PropTypes.string,
+  path: PropTypes.string,
   author: PropTypes.string,
   canonical: PropTypes.string,
   date: PropTypes.string,

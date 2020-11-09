@@ -12,7 +12,6 @@ tags:
 
 Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí del todo bien, lo lei en twitter sobre que debemos crear páginas web que sean leídas por humanos, no para robots, citando a google además, no pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?
 
-
 <div style="display: block;
     font-size: 1.5em;
     margin-top: 0.83em;
@@ -21,25 +20,26 @@ Esta semana estuvo rondando por mi cabeza un comentario que no sé si entendí d
     margin-right: 0px;
     font-weight: bold;">¿Esto es un título?</div>
 
-
 <h2>¿Esto es un título?</h2>
 
 Esto luce exactamente igual, pero cómo sabemos si un robot lo lee igual?
-Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>F5</kbd> en Mac o con <kbd>ctrl</kbd> + <kbd>win</kbd> + <kbd>enter</kbd> en Windows y escuchar como lo lee. 
+Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>F5</kbd> en Mac o con <kbd>ctrl</kbd> + <kbd>win</kbd> + <kbd>enter</kbd> en Windows y escuchar como lo lee.
 
 ## ¿Qué es HTML Semántico?
-<p><dfn id="-que-es-html-semantico-">HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.</p>
+
+<dfn id="-que-es-html-semantico-">HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.
 
 El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro contenido en otros contextos, por ejemplo, si una persona quiere cambiar el color de todos los parrafos a rojo, o un motor de búsqueda que quiera recolectar solo el título de nuestra página para mostrarlo.
 
 -------
 
 ## Ventajas
+
 - Es importante para el SEO, los motores de búsqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.
 - Es usado para [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico)
 - Es fácil de entender sin esfuerzo desde la estructura al contenido, por motivos de trabajo tengo que usar una web desactualizada en internet explorer 8 casi a diario y es horrible tener que encontrar elementos entre divs y tablas.
 
------
+-------
 
 ## Estructura
 
@@ -54,7 +54,7 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
     background: #eddfa9;
     grid-area: 2 / 1 / 3 / 3;
     border-radius: 10px;
-    
+
   }
   .nav {
     background: #edcfa9;
@@ -171,24 +171,37 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
 ```
 
 ### main
-Esta etiqueta señala al contenido principal de la página, solo puede existir una etiqueta de este tipo visible por página 
+
+Esta etiqueta señala al contenido principal de la página, solo puede existir una etiqueta de este tipo visible por página
+
 ### section
+
 Representa a un contenido genérico en un documento donde no es similar a otro elemento
+
 ### nav
+
 Es la etiqueta diseñada para identificar los enlaces de navegación, puede haber varías secciones de navegación en una página, no todos los enlaces necesitan de ir dentro de una etiqueta nav
+
 ### article
+
 Se usa esta etiqueta cuando hay contenido repetitivo e independiente, puede tener también header footer y section.
+
 ### aside
+
 Esta es una etiqueta que designa un área en la cual hay información suplementaria al contenido principal
+
 ### header
+
 Agrupa la introducción de la página.
+
 ### footer
+
 El pie de página suele ser usado para añadir información extra sobre la página, el autor, copyright, avisos legales navegación, etc.
 
-
------
+-------
 
 ### Títulos de cabecera
+
 Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.
 
 ```html
@@ -201,6 +214,7 @@ Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de i
 ```
 
 ### address
+
 Como su nombre lo dice, se usa para información de contacto.
 
 <address>
@@ -222,6 +236,7 @@ Dirección<br>
 ## Modificadores de texto
 
 ### Énfasis
+
 `<em>` es la etiqueta semántica para mostrar énfasis, muestra su contenido en cursiva `<i>`
 
 <em>Esto es énfasis</em>
@@ -240,7 +255,6 @@ Dirección<br>
 </p>
 ```
 
-
 ### Marcado
 
 <mark>Esto es una parte marcada porque es relevante</mark>
@@ -252,6 +266,7 @@ Dirección<br>
 ```
 
 ### Negrita
+
 `<strong>` es la etiqueta semántica para mostrar importancia en el texto, los navegadores lo muestran en negrita.
 
 <strong>Esto está en negritra porque es importante</strong>
@@ -270,23 +285,27 @@ Dirección<br>
 </p>
 ```
 
-------
+-------
 
 ## Saltos
 
 ### wbr
+
 Esta etiqueta sirve para indicar dónde está bien que suceda un salto de línea, permite separar de manera correcta palabras largas o enlaces sin que el contenido se desajuste.
 
-<p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://marco<wbr>madera<wbr>.com</p>
+¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://<wbr>marco<wbr>madera<wbr>.com
 
 ```html
-<p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://marco<wbr>madera<wbr>.com</p>
+<p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://<wbr>marco<wbr>madera<wbr>.com
 ```
 
 ### hr
+
 Representa una regla horizontal, un salto de tema en una sección.
 
-<p>Texto</p> <hr /> <p>Texto</p>
+Texto
+<hr />
+Texto
 
 ```html
 <p>Texto</p>
@@ -294,7 +313,7 @@ Representa una regla horizontal, un salto de tema en una sección.
 <p>Texto</p>
 ```
 
------
+-------
 
 ## Acotaciones
 
@@ -322,7 +341,7 @@ Representa una regla horizontal, un salto de tema en una sección.
 <q>Cita de texto</q> <cite>— Nombre del autor</cite>
 ```
 
-------
+-------
 
 ## Abreviaciones y Definiciones
 
@@ -334,14 +353,13 @@ Esto es una <abbr title="abreviación">abbr</abbr>.
 <p>Esto es una <abbr title="abreviación">abbr</abbr>.</p>
 ```
 
-
 ### Definición
 
-<p><dfn>HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.</p>
+<dfn>HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.
 
 ```html
 <p>
-  <dfn>HTML Semántico</dfn> es el uso de 
+  <dfn>HTML Semántico</dfn> es el uso de
   <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.
 </p>
 ```
@@ -366,8 +384,6 @@ Recibe un atributo open, si no está indicado, no es mostrado.
 
 Al igual que los diálogos recibe un atributo open para que pueda estar por defecto abierto.
 
-
-
 <details>
   <summary>Elemento</summary>
   <p>Contenido del elemento</p>
@@ -380,7 +396,7 @@ Al igual que los diálogos recibe un atributo open para que pueda estar por defe
 </details>
 ```
 
-------
+-------
 
 ## Imágenes
 
@@ -399,6 +415,7 @@ Al igual que los diálogos recibe un atributo open para que pueda estar por defe
 ```
 
 ### Figure
+
 Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama, código, una cita, etc, puede estar acompañado por la etiqueta figcaption que es la leyenda del contenido.
 
 <figure>
@@ -414,6 +431,7 @@ Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama,
 ```
 
 ### Picture
+
 La etiqueta source puede tener el atributo de cualquier media query, por lo tanto se puede customizar imagenes especiales para modo oscuro, puedes probar reescalar la imagen
 
 <picture>
@@ -436,19 +454,21 @@ La etiqueta source puede tener el atributo de cualquier media query, por lo tant
 </picture>
 ```
 
---------
+-------
 
 ## Formularios de entrada
+
 Hay diversos tipos de entrada, button, checkbox, date, email, password, range, text, entre otros, la mayoría se pueden tan fácil como lo siguiente.
-#### Color
 
-<input type="color">
+### Color
+
+<input type="color" value="#b50000" readonly={true}>
 
 ```html
-<input type="color">
+<input type="color" value="#b50000">
 ```
 
-#### Números
+### Números
 
 <input type="number" min="1" max="5" />
 
@@ -456,26 +476,41 @@ Hay diversos tipos de entrada, button, checkbox, date, email, password, range, t
 <input type="number" min="1" max="5" />
 ```
 
-------
+-------
 
 ## Barras
 
-#### meter
+### meter
+
 La etiqueta meter es utilizada como indicador de una escala conocida, así que cuando el indicador está en un punto específico, puede variar los colores.
 
-<meter min="10" max="20" value="18">18 puntos</meter>
+<meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
 
 ```html
-<meter min="10" max="20" value="18">18 puntos</meter>
+<meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
+```
+
+<meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
+
+```html
+<meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
+```
+
+<meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
+
+```html
+<meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
 ```
 
 ### progress
+
 La barra de progreso es utilizada para mostrar el avance de una tarea. Existen dos valores indeterminada y determinada
-<p>Determinada:</p>
+
+Determinada:
 
 <progress value="66" max="100">Determinate</progress>
 
-<p>Indeterminada:</p>
+Indeterminada:
 
 <progress>Indeterminada</progress>
 
@@ -490,6 +525,7 @@ La barra de progreso es utilizada para mostrar el avance de una tarea. Existen d
 ```
 
 ### Select
+
 La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pueden contener la etiqueta `<optgroup>` para agrupar entre opciones.
 
 <select name="elementos">
@@ -516,18 +552,18 @@ La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pue
 </select>
 ```
 
-------
+-------
 
 ## Listas
+
 En las listas el orden puede importar representado por `<ol>` o no representado por `<ul>`, debe de tener como hijo al menos un elemento de lista `<li>`
 
-<p>Lista ordenada</p>
-<ol>
- <li>objeto1</li>
- <li>objeto2</li>
- <li>objeto3</li>
- <li>objeto4</li>
-</ol>
+### Lista ordenada
+
+1. Objeto1
+2. Objeto2
+3. Objeto3
+4. Objeto4
 
 ```html
 <p>Lista ordenada</p>
@@ -539,13 +575,12 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
 </ol>
 ```
 
-<p>Lista sin orden</p>
-<ul>
- <li>objeto1</li>
- <li>objeto2</li>
- <li>objeto3</li>
- <li>objeto4</li>
-</ul>
+### Lista sin orden
+
+- Objeto1
+- Objeto2
+- Objeto3
+- Objeto4
 
 ```html
 <p>Lista sin orden</p>
@@ -557,11 +592,58 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
 </ul>
 ```
 
-------
+### Listas anidadas
 
-## Tablas 
+- Objeto 1
+  - Objeto 2
+      1. Objeto 3
+      2. Objeto 4
+  - Objeto 5
+- Objeto 6
+  - Objeto 7
 
-<table><caption>Precio de cosas</caption><colgroup><col span="0" style="background-color:#e0ece4"><col span="1" style="background-color:#ebecf1"><col span="2" style="background-color:#f1f3de"></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" style="background-color:#e0ece4">$336</td></tr></tfoot></table>
+```html
+<ul>
+  <li>Objeto 1
+    <ul>
+      <li>Objeto 2
+        <ol>
+          <li>Objeto 3</li>
+          <li>Objeto 4</li>
+        </ol>
+      </li>
+      <li>Objeto 5</li>
+    </ul>
+  </li>
+  <li>Objeto 6
+    <ul>
+      <li>Objeto 7</li>
+    </ul>
+  </li>
+</ul>
+```
+
+### Lista con checkbox
+
+- [ ] pendiente1
+- [x] pendiente2
+
+```html
+<ul>
+  <li>
+    <input type="checkbox" readonly>peniente1
+  </li>
+  <li>
+    <input type="checkbox" readonly checked>pendiente2
+  </li>
+</ul>
+```
+
+-------
+
+## Tablas
+
+<table><caption>Precio de cosas</caption><colgroup><col span="0" style="background-color:#e0ece4"><col span="1" style="background-color:#ebecf1"><col span="2" style="background-color:#f1f3de"></colgroup><thead><tr><th style="font-weight: bold;">Nombre</th><th style="font-weight: bold;">Precio</th><th style="font-weight: bold;">IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" style="background-color:#e0ece4">$336</td></tr></tfoot></table>
 
 ```html
 <table>
@@ -602,6 +684,7 @@ En las listas el orden puede importar representado por `<ol>` o no representado 
 -------
 
 ## Conclusiones
+
 Hemos cubierto varias etiquetas de HTML semántico y escribir con él es mucho más legible y limpio que escribir con solo divs, siempre y cuando sea apropiado. Los elementos mostrados son pocos de todos los que existen, es importante conocerlos y usarlos de manera correcta, para que los procesadores de HTML hagan sus tareas bien.
 
 Respecto al comentario sobre que debemos hacer web para humanos y no robots, pienso que no es muy acertado, que la computadora entienda lo que estamos haciendo es también importante, porque puede comunicar este significado a las [tecnologías asistivas](https://marcomadera.com/blog/accesibilidad-web#tecnologias-asistivas) que de igual forma son utilizadas para que humanos lean la web de una mejor manera, o hacer llegar a más personas a través del SEO de nuestra página o mejorar el sitio reconociendo los elementos que usamos fácilmente.

@@ -1,4 +1,5 @@
 import { colors } from "../styles/theme";
+import PropTypes from "prop-types";
 const Bio = ({ profilePhoto, twitter, author, summary }) => {
   return (
     <div>
@@ -78,5 +79,12 @@ const Bio = ({ profilePhoto, twitter, author, summary }) => {
       `}</style>
     </div>
   );
+};
+
+Bio.propTypes = {
+  profilePhoto: PropTypes.string,
+  twitter: PropTypes.string,
+  summary: PropTypes.string,
+  author: PropTypes.node.isRequired,
 };
 export default Bio;

@@ -1,7 +1,7 @@
 import Seo from "../../../components/Seo";
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
-import { siteMetadata, imageCloudProvider } from "../../../site.config";
+import { imageCloudProvider } from "../../../site.config";
 const Article = ({ title, img, children }) => {
   return (
     <>
