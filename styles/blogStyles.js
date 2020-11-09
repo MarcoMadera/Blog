@@ -300,8 +300,7 @@ export const blogStyles = css.global`
     font-size: 14px !important;
   }
   .blog table {
-    margin: 0 auto;
-    display: table;
+    margin: 5px auto;
   }
   .blog details {
     border: 1px solid ${colors.gray};

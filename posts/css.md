@@ -459,12 +459,12 @@ CSS no se renderiza igual en todos los navegadores, un decorador de texto puede 
 
 CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características, algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con prefijos que solo el navegador conoce porque si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda, los siguientes prefijos son los mas comunes:
 
-| Prefijo  |          Navegadores        |
-|----------|:---------------------------:|
-| -webkit- | Chrome, Safari              |
-| -moz-    | Firefox                     |
-| -o-      | Opera                       |
-| -ms-     | Microsoft Internet Explorer |
+| **Prefijo** |       **Navegadores**       |
+|:-----------:|:---------------------------:|
+|   -webkit-  |        Chrome, Safari       |
+|    -moz-    |           Firefox           |
+|     -o-     |            Opera            |
+|     -ms-    | Microsoft Internet Explorer |
 
 [Can I Use](https://caniuse.com) es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar, podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.
 

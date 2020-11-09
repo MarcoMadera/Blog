@@ -93,13 +93,18 @@ table {
   border-collapse: collapse;
   text-align: center;
 }
-
-table,
+table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+}
 th,
 td {
   empty-cells: hide;
   border: 1px solid #aaa;
   font-weight: normal;
+  padding: 5px 11px;
 }
 
 kbd {
