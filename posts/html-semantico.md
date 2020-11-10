@@ -154,13 +154,13 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
     <article>
       <header></header>
       <section>
-        <h1></h1>
+        <h2></h2>
         <p></p>
       </section>
       <footer></footer>
     </article>
     <section>
-        <h1></h1>
+        <h2></h2>
         <p></p>
     </section>
   </main>
@@ -203,15 +203,6 @@ El pie de página suele ser usado para añadir información extra sobre la pági
 ### Títulos de cabecera
 
 Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de ir en orden descendente en cada secuencia, usualmente el user-agent de los navegadores los estilan h1 como el más grande de tamaño.
-
-```html
-<h1>
-  h1
-</h1>
-<h6>
-  h6
-</h6>
-```
 
 ### address
 
@@ -377,7 +368,9 @@ Recibe un atributo open, si no está indicado, no es mostrado.
 &nbsp;
 
 ```html
-<dialog open><p>Esto es un cuadro de diálogo</p></dialog>
+<dialog open>
+  <p>Esto es un cuadro de diálogo</p>
+</dialog>
 ```
 
 ### Detalles

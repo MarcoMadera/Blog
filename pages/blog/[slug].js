@@ -14,23 +14,7 @@ import BlogFooter from "../../components/BlogFooter";
 import { colors } from "../../styles/theme";
 import { getFormattedDate } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { siteMetadata, imageCloudProvider } from "../../site.config";
-
-const CodeBlock = ({ language, value }) => {
-  return (
-    <SyntaxHighlighter
-      showLineNumbers={true}
-      showInlineLineNumbers={false}
-      wrapLines={false}
-      language={language}
-      useInlineStyles={false}
-      lineNumberStyle={{ color: "#aaa", fontSize: "14px" }}
-    >
-      {value}
-    </SyntaxHighlighter>
-  );
-};
 
 //collect every h2 in the post to place in table of contents
 const contentAside = (content) => {
@@ -97,12 +81,7 @@ export default function Post({
             </p>
           </div>
           <div itemProp="articlebody">
-            <MarkDown
-              source={content}
-              renderers={{
-                code: CodeBlock,
-              }}
-            />
+            <MarkDown source={content} />
           </div>
           <hr />
           <BlogFooter
@@ -257,9 +236,4 @@ Post.propTypes = {
   profilePhoto: PropTypes.string,
   twitter: PropTypes.string,
   summary: PropTypes.string,
-};
-
-CodeBlock.propTypes = {
-  language: PropTypes.string,
-  value: PropTypes.string,
 };

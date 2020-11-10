@@ -76,9 +76,7 @@ nav[class="topNavbar"] { ... }
 Las id en HTML son únicas, se seleccionan con el símbolo `#`
 
 ```css
-#SomeId {
-
-}
+#SomeId { ... }
 ```
 
 ### Clases
@@ -86,9 +84,7 @@ Las id en HTML son únicas, se seleccionan con el símbolo `#`
 Al usar el nombre de una clase precediendo un punto "." se seleccionarán todos los elementos que tienen la misma clase.
 
 ```css
-.clase {
-
-}
+.clase { ... }
 ```
 
 ### Combinaciones

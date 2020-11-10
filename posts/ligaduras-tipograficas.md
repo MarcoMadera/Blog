@@ -66,10 +66,10 @@ Para activar las ligaduras en Visual Studio Code dirígete a (File > Preferences
 En settings.json agrega lo siguiente en el caso de Fira Code.
 
 ```json
-  {
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": true
-  }
+{
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+}
 ```
 
 Guardas los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada, si no es el caso probablemente sea necesario reiniciar el editor.

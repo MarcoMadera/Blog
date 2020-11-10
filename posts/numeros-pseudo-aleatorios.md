@@ -361,12 +361,19 @@ En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados
 |           **Valores**           | 11 | 21 | 68 | 100       |
 
 De las 100 pruebas:
+
 68 pruebas cumplieron con la uniformidad, independencia y longitud.
+
 1 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
+
 6 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
+
 2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
+
 18 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
+
 1 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+
 4 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
 
 ### Test 2
@@ -378,17 +385,24 @@ En 100 pruebas de 3000 números cada una, se obtuvieron los siguientes resultado
 |           **Valores**           | 3 | 48 | 49 |    100    |
 
 De las 100 pruebas:
+
 49 pruebas cumplieron con la uniformidad, independencia y longitud.
+
 0 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
+
 2 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
+
 2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
+
 42 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
+
 4 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+
 1 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
 
 ### Conclusión
 
-Si recordamos, para que una secuencia de números sea catalogada como aleatoria, es necesario que tenga distribución uniforme y que sea independiente, por lo que podríamos decir que que los 18 números y 42 números, que no cumplieron la prueba de longitud de rachas, pero sí las de uniformidad e independencia, del test 1 y 2 respectivamente, también se comportan como números aleatorios.
+Si recordamos, para que una secuencia de números sea catalogada como aleatoria, es necesario que tenga distribución uniforme y que sea independiente, por lo que podríamos decir que los 18 números y 42 números, que no cumplieron la prueba de longitud de rachas, pero sí las de uniformidad e independencia, del test 1 y 2 respectivamente, también se comportan como números aleatorios.
 
 Podríamos decir que para el test 1 de 100 pruebas de 100 números cada una, 86 son aleatorias y de esas 86, 18 no cumplen la longitud de rachas.
 

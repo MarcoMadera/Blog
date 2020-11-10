@@ -5,6 +5,10 @@ import htmlParser from "react-markdown/plugins/html-parser";
 import React from "react";
 import HtmlToReact from "html-to-react";
 import { siteMetadata } from "../site.config";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import codeStyles from "../styles/codeStyles";
+import { colors } from "../styles/theme";
+
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
@@ -24,6 +28,172 @@ const parseHtml = htmlParser({
           >
             Tu navegador no soporta vídeos
           </video>
+        );
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "meter",
+      processNode: function Meter(node) {
+        return (
+          <meter
+            min={node.attribs.min}
+            max={node.attribs.max}
+            value={node.attribs.value}
+            low={node.attribs.low}
+            high={node.attribs.high}
+            optimum={node.attribs.optimum}
+          >
+            {node.attribs.value}
+            <style jsx>
+              {`
+                meter {
+                  --background: ${colors.white};
+                  --optimum: ${colors.primary};
+                  --sub-optimum: ${colors.secondary};
+                  --sub-sub-optimum: ${colors.primary};
+                  display: block;
+                  margin: 0 auto;
+                  width: 100%;
+                  -webkit-appearance: none;
+                  appearance: meter;
+                  -moz-appearance: none;
+                  border: 1px solid #ccc;
+                  border-radius: 10px;
+                  background: none;
+                  background-color: ${colors.white};
+                }
+                meter::-webkit-meter-bar {
+                  background: none;
+                  background-color: var(--background);
+                  height: 18px;
+                }
+                meter::-moz-meter-bar {
+                  background: none;
+                  background-color: var(--background);
+                }
+                meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+                  border-radius: 10px;
+                  background-image: linear-gradient(
+                    90deg,
+                    #dd2121 20%,
+                    #dd4921 100%
+                  );
+                  background-size: 100% 100%;
+                }
+                meter::-webkit-meter-even-less-good-value {
+                  background-image: linear-gradient(
+                    90deg,
+                    #dd2121 20%,
+                    #dd4921 100%
+                  );
+                  background-size: 100% 100%;
+                  border-radius: 10px;
+                }
+                meter:-moz-meter-sub-optimum::-moz-meter-bar {
+                  border-radius: 10px;
+                  background-image: linear-gradient(
+                    90deg,
+                    #dd2121 20%,
+                    #dd2121 30%,
+                    #df5535 40%,
+                    #f2db34 60%,
+                    #f2db34 100%
+                  );
+                  background-size: 100% 100%;
+                }
+                meter::-webkit-meter-suboptimum-value {
+                  border-radius: 10px;
+                  background-image: linear-gradient(
+                    90deg,
+                    #dd2121 20%,
+                    #dd2121 30%,
+                    #df5535 40%,
+                    #f2db34 60%,
+                    #f2db34 100%
+                  );
+                  background-size: 100% 100%;
+                }
+                meter:-moz-meter-optimum::-moz-meter-bar {
+                  background-image: linear-gradient(
+                    90deg,
+                    #dd2121 20%,
+                    #dd2121 30%,
+                    #df5535 40%,
+                    #f2db34 60%,
+                    #f2db34 80%,
+                    #72e13a 100%
+                  );
+                  background-size: 100% 100%;
+                  border-radius: 10px;
+                }
+                meter::-webkit-meter-optimum-value {
+                  border-radius: 10px;
+                  background-image: linear-gradient(
+                    90deg,
+                    #dd2121 20%,
+                    #dd2121 30%,
+                    #df5535 40%,
+                    #f2db34 60%,
+                    #f2db34 80%,
+                    #72e13a 100%
+                  );
+                  background-size: 100% 100%;
+                }
+              `}
+            </style>
+          </meter>
+        );
+      },
+    },
+    {
+      shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "progress",
+      processNode: function Progress(node) {
+        return (
+          <progress max={node.attribs.max} value={node.attribs.value}>
+            <style jsx>{`
+              progress,
+              progress[role] {
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                border: none;
+                background-size: auto;
+                width: 100%;
+                border: 1px solid ${colors.gray};
+                border-radius: 20px;
+              }
+              progress[role]:after {
+                background-image: none;
+              }
+              progress[role] strong {
+                display: none;
+              }
+              progress,
+              progress[role][aria-valuenow] {
+                background: unset !important;
+              }
+              progress::-webkit-progress-bar {
+                background: unset;
+              }
+              progress {
+                color: ${colors.primary};
+                border-radius: 20px;
+              }
+              progress::-moz-progress-bar {
+                background: ${colors.primary};
+                border-radius: 20px;
+              }
+              progress::-webkit-progress-value {
+                background: ${colors.primary};
+                border-radius: 20px;
+              }
+              progress[aria-valuenow]:before {
+                background: ${colors.primary};
+                border-radius: 20px;
+              }
+            `}</style>
+          </progress>
         );
       },
     },
@@ -69,13 +239,12 @@ const parseHtml = htmlParser({
   ],
 });
 
-const _mapProps = (props) => ({
-  ...props,
+const _mapProps = (source) => ({
+  source: source,
   escapeHtml: false,
   astPlugins: [parseHtml],
   unwrapDisallowed: false,
   renderers: {
-    ...props.renderers,
     link: function Link({ href, children }) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer">
@@ -86,7 +255,6 @@ const _mapProps = (props) => ({
     image: function Image({ src, alt, title }) {
       return <img loading="lazy" src={src} alt={alt} title={title} />;
     },
-
     heading: function HeadingRenderer(props) {
       if (props.level === 2) {
         return <h2 id={slugify(props.children)}>{props.children}</h2>;
@@ -95,8 +263,75 @@ const _mapProps = (props) => ({
       const Heading = ReactMarkdown.renderers.heading;
       return <Heading {...props} />;
     },
+    code: function CodeBlock({ language, value }) {
+      const style = codeStyles[`${language}`] ?? undefined;
+      return (
+        <div style={{ position: "relative", margin: "20px 0" }}>
+          <SyntaxHighlighter
+            showLineNumbers={true}
+            showInlineLineNumbers={false}
+            wrapLines={false}
+            language={language}
+            useInlineStyles={false}
+            lineNumberStyle={{ color: "#aaa", fontSize: "14px" }}
+            codeTagProps={{ "data-lang": language }}
+            PreTag={({ children }) => <pre>{children}</pre>}
+          >
+            {value}
+          </SyntaxHighlighter>
+          {style && (
+            <style global jsx>
+              {style}
+            </style>
+          )}
+          {language && (
+            <style global jsx>{`
+              code[data-lang]::before {
+                border-radius: 4px;
+                color: rgba(0, 0, 0, 0.7);
+                content: attr(data-lang);
+                font-size: 12px;
+                padding: 2px 8px;
+                position: absolute;
+                right: 8px;
+                text-transform: uppercase;
+                top: -11px;
+                border: 1px solid #ccc;
+                background: ${colors.white};
+              }
+              code[data-lang] {
+                width: 100%;
+              }
+              code,
+              pre {
+                font-family: Roboto Mono, monospace;
+                hyphens: none;
+                line-height: 1.8;
+                overflow: auto;
+                tab-size: 4;
+                text-align: left;
+                white-space: pre;
+                word-break: normal;
+                word-spacing: normal;
+                word-wrap: normal;
+                font-size: 14px;
+              }
+              pre {
+                display: block;
+                border-radius: 10px;
+                margin: 0.5em 0px;
+                overflow: auto;
+                padding: 0.8em 1em;
+                border: 1px solid #ccc;
+                color: rgb(36, 41, 46);
+              }
+            `}</style>
+          )}
+        </div>
+      );
+    },
   },
 });
 
-const Markdown = (props) => <ReactMarkdown {..._mapProps(props)} />;
+const Markdown = ({ source }) => <ReactMarkdown {..._mapProps(source)} />;
 export default Markdown;
