@@ -10,55 +10,21 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+* {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: 2px solid #b50000;
+  outline-style: dashed;
+}
+*::selection {
+  background: #d32f2fe1;
+  color: #fff;
 }
 abbr::selection,
 a::selection {
   background: #ca2424e1;
   color: rgb(252, 252, 252);
-}
-font::selection,
-br::selection,
-i::selection,
-p::selection,
-label::selection,
-span::selection,
-p::selection,
-li::selection,
-iframe::selection,
-b::selection,
-ul::selection,
-input::selection,
-textarea::selection,
-code::selection,
-sub::selection,
-sup::selection,
-th::selection,
-button::selection,
-td::selection,
-div::selection,
-kbd::selection,
-dfn::selection,
-footer::selection,
-address::selection,
-em::selection,
-mark::selection,
-blockquote::selection,
-q::selection,
-summary::selection,
-figcaption::selection,
-select::selection,
-option::selection,
-optgroup::selection,
-caption::selection,
-cite::selection,
-details::selection,
-time::selection {
-  background: #d32f2fe1;
-  color: #fff;
 }
 img::selection {
   background: #d32f2f56;
@@ -74,39 +40,13 @@ strong::selection {
   background: #be2828e1;
   color: #fff;
 }
-*:focus {
-  outline: 2px solid #b50000;
-  outline-style: dashed;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 main {
   min-height: calc(100vh - 160px);
 }
-
-table {
-  display: inline-block;
-  margin: 0 1rem 1rem 0;
-  border-collapse: collapse;
-  text-align: center;
+a {
+  color: inherit;
+  text-decoration: none;
 }
-table {
-  display: block;
-  width: max-content;
-  max-width: 100%;
-  overflow: auto;
-}
-th,
-td {
-  empty-cells: hide;
-  border: 1px solid #aaa;
-  font-weight: normal;
-  padding: 5px 11px;
-}
-
 kbd {
   background-color: #eee;
   border-radius: 3px;
@@ -121,7 +61,6 @@ kbd {
   padding: 2px 4px;
   white-space: nowrap;
 }
-
 abbr {
   text-decoration: none;
   position: relative;
@@ -156,31 +95,26 @@ abbr:after {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
 .btn.btn-primary {
   color: #fff;
   background-color: #b50000;
   border-color: #8b0000;
 }
-
 .btn.btn-primary:not(:disabled):not(.disabled):hover {
   color: #fff;
   background-color: #8b0000;
   border-color: #8b0000;
   text-decoration: none;
 }
-
 .btn.btn-primary:not(:disabled):not(.disabled):active {
   color: #fff;
   background-color: #b50000;
   border-color: #b50000;
 }
-
 .btn.btn-primary:not(:disabled):not(.disabled):focus {
   box-shadow: 0 0 0 0.2rem rgba(181, 0, 0, 0.3);
   outline: none;
 }
-
 .skip-link {
   background-color: rgb(253, 253, 253);
   box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
@@ -198,7 +132,6 @@ abbr:after {
 .skip-link:focus {
   transform: translateY(300px);
 }
-
 #nprogress .bar {
   background: #b50000;
 
@@ -210,7 +143,6 @@ abbr:after {
   width: 100%;
   height: 2px;
 }
-
 #nprogress .peg {
   display: block;
   position: absolute;
@@ -232,31 +164,25 @@ abbr:after {
   top: 15px;
   right: 15px;
 }
-
 #nprogress .spinner-icon {
   width: 18px;
   height: 18px;
   box-sizing: border-box;
-
   border: solid 2px transparent;
   border-top-color: #b50000;
   border-left-color: #b50000;
   border-radius: 50%;
-
   -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite;
 }
-
 .nprogress-custom-parent {
   overflow: hidden;
   position: relative;
 }
-
 .nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
   position: absolute;
 }
-
 @media print {
   main {
     grid-template-columns: minmax(0px, 760px) !important;
@@ -271,7 +197,6 @@ abbr:after {
     content: " (" attr(href) ") ";
   }
 }
-
 @-webkit-keyframes nprogress-spinner {
   0% {
     -webkit-transform: rotate(0deg);

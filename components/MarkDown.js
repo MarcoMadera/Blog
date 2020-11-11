@@ -6,6 +6,7 @@ import React from "react";
 import HtmlToReact from "html-to-react";
 import { siteMetadata } from "../site.config";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import gfm from "remark-gfm";
 import codeStyles from "../styles/codeStyles";
 import { colors } from "../styles/theme";
 
@@ -28,6 +29,35 @@ const parseHtml = htmlParser({
           >
             Tu navegador no soporta vídeos
           </video>
+        );
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "table",
+      replaceChildren: true,
+      processNode: function Table(_, children) {
+        return (
+          <>
+            {children}
+            <style global jsx>{`
+              .blog table {
+                margin: 5px auto;
+                border-collapse: collapse;
+                text-align: center;
+                display: block;
+                width: max-content;
+                max-width: 100%;
+                overflow: auto;
+              }
+              .blog th,
+              .blog td {
+                empty-cells: hide;
+                border: 1px solid #aaa;
+                font-weight: normal;
+                padding: 5px 11px;
+              }
+            `}</style>
+          </>
         );
       },
     },
@@ -215,7 +245,7 @@ const parseHtml = htmlParser({
     {
       shouldProcessNode: (node) =>
         node.type === "tag" && node.name === "youtube",
-      processNode: function Tweets(node) {
+      processNode: function Youtube(node) {
         return (
           <iframe
             width="560"
@@ -242,6 +272,7 @@ const parseHtml = htmlParser({
 const _mapProps = (source) => ({
   source: source,
   escapeHtml: false,
+  plugins: [gfm],
   astPlugins: [parseHtml],
   unwrapDisallowed: false,
   renderers: {
@@ -252,8 +283,82 @@ const _mapProps = (source) => ({
         </a>
       );
     },
+    inlineCode: function InlineCode({ children }) {
+      return (
+        <code>
+          {children}
+          <style jsx>{`
+            code {
+              background: #f5f5f5;
+              padding: 3px 6px;
+              border-radius: 6px;
+            }
+          `}</style>
+        </code>
+      );
+    },
     image: function Image({ src, alt, title }) {
-      return <img loading="lazy" src={src} alt={alt} title={title} />;
+      return (
+        <>
+          <img loading="lazy" src={src} alt={alt} title={title || alt} />
+          <style jsx>{`
+            img:hover {
+              position: static;
+              transform: scale(1.1);
+            }
+            img[alt$="100px"] {
+              display: block;
+              height: 100px;
+            }
+            img[alt$="ajustar izquierda 50px"] {
+              display: block;
+              height: 50px;
+              float: left;
+              margin: 10px;
+            }
+            img[alt$="ajustar derecha"] {
+              display: block;
+              float: right;
+              margin: 10px;
+            }
+            img[alt$="ajustar derecha 200px"] {
+              display: block;
+              float: right;
+              height: 300px;
+              margin: 10px;
+            }
+            img[alt$="100px"] {
+              display: block;
+              height: 100px;
+            }
+          `}</style>
+        </>
+      );
+    },
+    table: function Table({ children }) {
+      return (
+        <table>
+          {children}
+          <style global jsx>{`
+            .blog table {
+              margin: 5px auto;
+              border-collapse: collapse;
+              text-align: center;
+              display: block;
+              width: max-content;
+              max-width: 100%;
+              overflow: auto;
+            }
+            .blog th,
+            .blog td {
+              empty-cells: hide;
+              border: 1px solid #aaa;
+              font-weight: normal;
+              padding: 5px 11px;
+            }
+          `}</style>
+        </table>
+      );
     },
     heading: function HeadingRenderer(props) {
       if (props.level === 2) {
@@ -324,6 +429,9 @@ const _mapProps = (source) => ({
                 padding: 0.8em 1em;
                 border: 1px solid #ccc;
                 color: rgb(36, 41, 46);
+              }
+              code span {
+                font-family: monospace;
               }
             `}</style>
           )}

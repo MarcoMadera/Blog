@@ -11,23 +11,22 @@ export const blogStyles = css.global`
       display: none !important;
     }
   }
+  .blog a {
+    color: ${colors.primary};
+  }
+  .blog a:hover {
+    text-decoration: underline;
+    color: ${colors.secondary};
+  }
   .blog :not(pre) > code {
     white-space: normal;
     color: #24292e;
     border-radius: 0.2em;
     padding: 0.1em;
   }
-  .namespace {
-    opacity: 0.7;
-  }
   .blog p {
     text-align: justify;
     line-height: 1.6;
-  }
-  .blog p code {
-    background: #f5f5f5;
-    padding: 3px 6px;
-    border-radius: 6px;
   }
   .blog video {
     filter: brightness(110%);
@@ -43,22 +42,6 @@ export const blogStyles = css.global`
   }
   .blog > aside:nth-of-type(1) {
     order: 1;
-  }
-  .article {
-    order: 2;
-  }
-  .rightAside {
-    order: 3;
-  }
-  .blog a {
-    color: ${colors.primary};
-  }
-  .blog a:hover {
-    text-decoration: underline;
-    color: ${colors.secondary};
-  }
-  .blog code span {
-    font-family: monospace;
   }
   .blog ol,
   .blog ul {
@@ -87,39 +70,6 @@ export const blogStyles = css.global`
     max-width: 99%;
     clip-path: inset(0% 0% 0% 0% round 10px);
     transition: ease 0.3s;
-  }
-  .blog img:hover {
-    position: static;
-    transform: scale(1.1);
-  }
-  .blog img[alt$="100px"] {
-    display: block;
-    height: 100px;
-  }
-  .blog img[alt$="ajustar izquierda 50px"] {
-    display: block;
-    height: 50px;
-    float: left;
-    margin: 10px;
-  }
-  .blog img[alt$="ajustar derecha"] {
-    display: block;
-    float: right;
-    margin: 10px;
-  }
-  .blog img[alt$="ajustar derecha 200px"] {
-    display: block;
-    float: right;
-    height: 300px;
-    margin: 10px;
-  }
-  .blog img[alt$="100px"] {
-    display: block;
-    height: 100px;
-  }
-
-  .blog table {
-    margin: 5px auto;
   }
   .blog details {
     border: 1px solid ${colors.gray};

@@ -1,6 +1,6 @@
 ---
 title: HTML Semántico
-description: HTML Semántico es el uso de HTML, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.
+description: HTML Semántico es el uso etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.
 date: 2020-09-08
 cover: v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png
 author: Marco Madera
@@ -43,107 +43,7 @@ El uso de estas etiquetas permiten a los procesadores de HTML, usar nuestro cont
 
 ## Estructura
 
-<style>.section {
-    display: grid;
-    grid-template: 50px 70px 300px 70px / 1fr 2fr;
-    gap: 15px 15px;
-    height: fit-content;
-    border-radius: 10px;
-  }
-  .header {
-    background: #eddfa9;
-    grid-area: 2 / 1 / 3 / 3;
-    border-radius: 10px;
-
-  }
-  .nav {
-    background: #edcfa9;
-    grid-area: 1 / 1 / 2 / 3;
-    border-radius: 10px;
-  }
-  .aside {
-    grid-area: 3 / 1 / 4 / 2;
-    background: #e89f71;
-    border-radius: 10px;
-  }
-  .main {
-    grid-area: 3 / 2 / 4 / 3;
-    background: #d57149;
-    min-height: auto;
-    position: relative;
-    border-radius: 10px;
-  }
-  .footer {
-    grid-area: 4 / 1 / 5 / 3;
-    background: #D18F5C;
-    border-radius: 10px;
-  }
-  .article{
-    padding: 10px;
-    margin: 10px;
-    background: #d5d149;
-    border-radius: 10px;
-  }
-  .article_header{
-    display: block !important;
-    background: #eddfa9;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .article_p{
-    margin: 0;
-  }
-  .article_section{
-    background: #daa149;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .article_title{
-    margin: 0;
-  }
-  .article_footer{
-    background: #D18F5C;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .main_section{
-    background: #dfa149;
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 20px);
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-  }</style>
-
-<section class="section">
-  <nav class="nav">
-    <p>< Nav ></p>
-  </nav>
-  <header class="header">
-    <p>< Header ></p>
-  </header>
-  <aside class="aside"><p>< Aside ></p></aside>
-  <main class="main">
-    <article class="article">
-      <header class="article_header">
-        <p class="article_p">< Header ></p>
-      </header>
-      <section class="article_section">
-        <h3 class="article_title">< Section ></h3>
-        <p class="article_p">Texto</p>
-      </section>
-      <footer class="article_footer">&copy; < Footer ></footer>
-    </article>
-    <section class="main_section">
-      <h3 class="article_title">< Section ></h3>
-      <p class="article_p">Texto</p>
-    </section>
-  </main>
-  <footer class="footer">< Footer ></footer>
-</section>
+<style>.section{display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:15px 15px;height:fit-content;border-radius:10px}.header{background:#eddfa9;grid-area:2/1/3/3;border-radius:10px}.nav{background:#edcfa9;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#e89f71;border-radius:10px}.main{grid-area:3/2/4/3;background:#d57149;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#d18f5c;border-radius:10px}.article{padding:10px;margin:10px;background:#d5d149;border-radius:10px}.article_header{display:block!important;background:#eddfa9;margin-bottom:10px;padding:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#daa149;margin-bottom:10px;padding:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#d18f5c;padding:10px;border-radius:10px}.main_section{background:#dfa149;position:absolute;bottom:0;width:calc(100% - 20px);margin:10px;padding:10px;border-radius:10px}</style><section class="section"><nav class="nav"><p>< Nav ></p></nav><header class="header"><p>< Header ></p></header><aside class="aside"><p>< Aside ></p></aside><main class="main"><article class="article"><header class="article_header"><p class="article_p">< Header ></p></header><section class="article_section"><h3 class="article_title">< Section ></h3><p class="article_p">Texto</p></section><footer class="article_footer">&copy; < Footer ></footer></article><section class="main_section"><h3 class="article_title">< Section ></h3><p class="article_p">Texto</p></section></main><footer class="footer">< Footer ></footer></section>
 
 ```html
 <body>
@@ -208,12 +108,7 @@ Estos van desde el rango h1 a h6, donde el h1 es el más importante y deben de i
 
 Como su nombre lo dice, se usa para información de contacto.
 
-<address>
-Escrito por <a href="mailto:ejemplo@ejemplo.com">Nombre</a>.<br>
-Visitanos en:<br>
-Ejemplo.com<br>
-Dirección<br>
-</address>
+<address>Escrito por <a href="mailto:ejemplo@ejemplo.com">Nombre</a>.<br>Visitanos en:<br>Ejemplo.com<br>Dirección<br></address>
 
 ```html
 <address>
@@ -377,10 +272,7 @@ Recibe un atributo open, si no está indicado, no es mostrado.
 
 Al igual que los diálogos recibe un atributo open para que pueda estar por defecto abierto.
 
-<details>
-  <summary>Elemento</summary>
-  <p>Contenido del elemento</p>
-</details>
+<details><summary>Elemento</summary><p>Contenido del elemento</p></details>
 
 ```html
 <details>
@@ -395,10 +287,7 @@ Al igual que los diálogos recibe un atributo open para que pueda estar por defe
 
 ### Img
 
-<img
-  src="https://picsum.photos/100"
-  alt="Imagen"
-/>
+![Imagen](https://picsum.photos/100 "Imagen")
 
 ```html
 <img
@@ -411,10 +300,7 @@ Al igual que los diálogos recibe un atributo open para que pueda estar por defe
 
 Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama, código, una cita, etc, puede estar acompañado por la etiqueta figcaption que es la leyenda del contenido.
 
-<figure>
-  <img src="https://picsum.photos/200" alt="Figura">
-  <figcaption>Imagen Aleatoria</figcaption>
-</figure>
+<figure><img src="https://picsum.photos/200" alt="Figura" title="Figura"><figcaption>Imagen Aleatoria</figcaption></figure>
 
 ```html
 <figure>
@@ -427,14 +313,7 @@ Figure es una etiqueta de flujo de contenido, puede ser imagen, video, diagrama,
 
 La etiqueta source puede tener el atributo de cualquier media query, por lo tanto se puede customizar imagenes especiales para modo oscuro, puedes probar reescalar la imagen
 
-<picture>
-  <source srcSet="https://picsum.photos/100" media="(max-width: 500px)" />
-  <source srcSet="https://picsum.photos/200" media="(max-width: 876px)" />
-  <img
-    src="https://picsum.photos/300"
-    alt="Imagen Adaptable"
-  />
-</picture>
+<picture><source srcSet="https://picsum.photos/100" media="(max-width: 500px)" /><source srcSet="https://picsum.photos/200" media="(max-width: 876px)" /><img src="https://picsum.photos/300" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
 
 ```html
 <picture>
@@ -521,16 +400,7 @@ Indeterminada:
 
 La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pueden contener la etiqueta `<optgroup>` para agrupar entre opciones.
 
-<select name="elementos">
-<optgroup label="Grupo 1">
-  <option value="elemento1">Elemento1</option>
-  <option value="elemento2">Elemento2</option>
-  </optgroup>
-  <optgroup label="Grupo 2">
-  <option value="elemento3">Elemento3</option>
-  <option value="elemento4">Elemento4</option>
-  </optgroup>
-</select>
+<select name="elementos"><optgroup label="Grupo 1"><option value="elemento1">Elemento1</option><option value="elemento2">Elemento2</option></optgroup><optgroup label="Grupo 2"><option value="elemento3">Elemento3</option><option value="elemento4">Elemento4</option></optgroup></select>
 
 ```html
 <select name="elementos">

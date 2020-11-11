@@ -12,9 +12,6 @@ const CSS = css.global`
   code[data-lang="css"] .atrule {
     color: #005cc5;
   }
-  code[data-lang="css"] .class {
-    color: #39adb5;
-  }
   code[data-lang="css"] .comment {
     color: #6a737d;
   }
@@ -125,9 +122,51 @@ const JSON = css.global`
   }
 `;
 
+const JSX = css.global`
+  /* HTML */
+  code[data-lang="jsx"] .tag {
+    color: #e53935;
+  }
+  code[data-lang="jsx"] .tag.punctuation {
+    color: #4f5cc8;
+  }
+  code[data-lang="jsx"] .attr-name {
+    color: #005cc5;
+  }
+  code[data-lang="jsx"] .attr-value {
+    color: #19670f;
+  }
+
+  /* Javascript */
+  code[data-lang="jsx"] .keyword {
+    color: #d73a49;
+  }
+  code[data-lang="jsx"] .function {
+    color: #6f42c1;
+  }
+  code[data-lang="jsx"] .operator,
+  code[data-lang="jsx"] .variable,
+  code[data-lang="jsx"] .number,
+  code[data-lang="jsx"] .keyword.module,
+  code[data-lang="jsx"] .property-access {
+    color: #005cc5;
+  }
+  code[data-lang="jsx"] .punctuation {
+    color: #24292e;
+  }
+  code[data-lang="jsx"] .string,
+  code[data-lang="jsx"] .boolean {
+    color: #19670f;
+  }
+  code[data-lang="jsx"] .maybe-class-name {
+    color: #ee5c18;
+  }
+`;
+
 module.exports = {
   css: CSS,
   html: HTML,
   javascript: JAVASCRIPT,
   json: JSON,
+  jsx: JSX,
 };

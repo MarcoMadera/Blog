@@ -131,7 +131,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
   }, [reqNowPlaying]);
   return (
     <main>
-      <Seo title="Sobre mí" path="/about" />
+      <Seo title="Sobre mí" path="/sobre-mi" />
       <aside>
         <Code width="50" height="50" />
         <Java width="50" height="50" />

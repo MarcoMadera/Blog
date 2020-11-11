@@ -1,6 +1,6 @@
 # Marco Madera Blog
 
-Blog Site: https://marcomadera.com
+Blog Site: <https://marcomadera.com>
 
 ## Want to Contribute?
 
@@ -13,7 +13,7 @@ To create a new post, create a markdown file (.md) in the `/posts` directory. Ma
 ```md
 ---
 title: The title
-description: A brief description of the content
+description: A brief description of the content (25 - 160 characters)
 date: 2020-07-20
 cover: image at least 760px width
 author: Your name
@@ -29,6 +29,7 @@ Blog content goes here following the markdown syntax and must have at least one 
 ```
 
 ### Embed
+
 To embed videos from youtube or tweets are available with the following tags
 
 ```html
