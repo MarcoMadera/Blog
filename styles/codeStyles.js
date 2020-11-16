@@ -165,6 +165,7 @@ const JSX = css.global`
 
 module.exports = {
   css: CSS,
+  "css-extras": CSS,
   html: HTML,
   javascript: JAVASCRIPT,
   json: JSON,

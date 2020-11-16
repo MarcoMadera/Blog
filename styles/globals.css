@@ -134,12 +134,10 @@ abbr:after {
 }
 #nprogress .bar {
   background: #b50000;
-
   position: fixed;
   z-index: 1031;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 2px;
 }
@@ -151,7 +149,6 @@ abbr:after {
   height: 100%;
   box-shadow: 0 0 10px #b50000, 0 0 5px #b50000;
   opacity: 1;
-
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);

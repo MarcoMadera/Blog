@@ -1,6 +1,6 @@
 ---
-title: CSS
-description: CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.
+title: "CSS: Cascading Style Sheets"
+description: CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado.
 date: 2020-10-20
 cover: v1602894559/Blog/7/css_k23ypb.png
 author: Marco Madera
@@ -13,15 +13,16 @@ He visto sitios web impresionantes con una gran presentación, sitios que genera
 
 ## ¿Qué es CSS?
 
-<abbr title="Cascading Style Sheets">CSS</abbr> es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.
+<abbr title="Cascading Style Sheets">CSS</abbr> es el <strong>lenguaje</strong> que se usa para dar <strong>estilos</strong> de manera selectiva a un documento escrito en lenguaje marcado. Son reglas que los navegadores interpretan con las cuales podemos controlar los elementos en aspecto, posición y más.
 
 ## Uso
 
-Existen tres formas de usar los estilos, a través de la etiqueta style, en línea, y en una hoja externa.
+CSS Puede darle estilos a cualquier etiqueta html a través de los selectores.
+Existen tres formas de usar los estilos, a través de la etiqueta style, en línea a través del atributo style, y en una hoja externa.
 
-### Estilos en la etiqueta <style>
+### Estilos en línea (atributo style)
 
-De igual forma se puede usar directamente en un elemento HTML con el atributo `style` de la siguiente forma:
+Para darle estilo a un elemento se le añade el atributo `style` y se le agrega el valor con las declaraciones deseadas.
 
 ```html
 <p style="color: #fff; width: max-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
@@ -33,9 +34,9 @@ En Línea
 En Línea
 </p>
 
-### Estilos en línea
+### Estilos en la etiqueta style
 
-CSS se puede usar directamente desde la etiqueta HTML `<style>`.
+CSS se puede usar directamente desde la etiqueta de HTML `<style>`.
 
 ```html
 <style>
@@ -46,20 +47,21 @@ body {
 </style>
 ```
 
-### Estilos en una hoja externa
+### Estilos en una hoja externa (.css)
 
-La manera que se aprovecha mejor sería hacer un link a una hoja de estilos con extensión .css en una etiqueta `<link>` dentro de la etiqueta `<head>` de nuestro documento HTML de la siguiente manera, donde href es la ubicación de la hoja de estilos.
+La manera que se aprovecharía mejor sería hacer un `<link>` a una hoja de estilos (.css) dentro de la etiqueta `<head>` de nuestro documento HTML. Al momento de cargar la página, inmediatamente llamará a la hoja de estilos externa y aplicará los estilos. Con esto le quitamos el peso del html de cargar con los estilos para tener un mejor tiempo de respuesta. Para hacer esto la etiqueta `<link>` debe de ir de la siguiente forma, donde href es la ubicación de la hoja de estilos.
 
 ```html
 <link
   rel="stylesheet"
   href="./styles.css"
+  type="text/css"
 />
 ```
 
 ## Selectores
 
-Al usar CSS en una hoja externa o en la etiqueta `<style>` los selectores son necesarios para estilar elementos específicos.
+Al usar CSS en una hoja externa o en la etiqueta `<style>` los selectores son necesarios para estilar elementos específicos. Estos indican a qué elementos se le tienen que aplicar los estilos.
 
 ### Etiquetas
 
@@ -73,7 +75,7 @@ nav[class="topNavbar"] { ... }
 
 ### ID
 
-Las id en HTML son únicas, se seleccionan con el símbolo `#`
+Las id en HTML son únicas, por consecuencia hace que en CSS también solo se pueda aplicar a un solo elemento único, se seleccionan con el símbolo `#`.
 
 ```css
 #SomeId { ... }
@@ -81,7 +83,7 @@ Las id en HTML son únicas, se seleccionan con el símbolo `#`
 
 ### Clases
 
-Al usar el nombre de una clase precediendo un punto "." se seleccionarán todos los elementos que tienen la misma clase.
+Al usar el nombre de un atributo clase precediendo un punto "." se seleccionarán todos los elementos que tienen la misma clase. Esto aplica los mismo estilos a todos los elementos con la misma clase.
 
 ```css
 .clase { ... }
@@ -94,48 +96,50 @@ Los selectores se pueden combinar para seleccionar elementos que tienen cierta r
 Las propiedades se pueden compartir separando por comma "," los selectores.
 
 ```css
-nav.topNavbar, nav.bottomNavbar { ... }
+nav.topNavbar, a[href=*"example.com"], #someId { ... }
 ```
 
-Selecciona todas las etiquetas nav con clase topNavbar
+Selecciona todas las etiquetas nav con clase topNavbar.
 
 ```css
 nav.topNavbar { ... }
 ```
 
-Selecciona todos los elementos de todos los subniveles con la clase topNavbar dentro de una etiqueta nav
+Selecciona todos los elementos de todos los subniveles con la clase topNavbar dentro de una etiqueta nav.
 
 ```css
 nav .topNavbar { ... }
 ```
 
-Selecciona todos los elementos de primer subnivel con la clase topNavbar dentro de una etiqueta nav
+Selecciona todos los elementos de primer subnivel con la clase topNavbar dentro de una etiqueta nav.
 
 ```css
 nav > .topNavbar { ... }
 ```
 
-Selecciona al primer elemento del mismo nivel que sigue inmediatamente con la clase topNavbar
+Selecciona al primer elemento del mismo nivel que sigue inmediatamente con la clase topNavbar.
 
 ```css
 nav + .topNavbar { ... }
 ```
 
- Selecciona a todos los elementos del mismo nivel que sigue inmediatamente con la clase topNavbar
+ Selecciona a todos los elementos del mismo nivel que sigue inmediatamente con la clase topNavbar.
 
 ```css
 nav ~ .topNavbar { ... }
 ```
 
-Selecciona a todos los elementos con etiqueta nav que incluye topNavbar en su atributo clase
+Selecciona a todos los elementos con etiqueta nav que incluye topNavbar en su atributo clase.
 
 ```css
 nav[class*="topNavbar"] { ... }
 ```
 
-## Propiedades
+## Declaraciones
 
-Las propiedades son las reglas que sobre escribirán los estilos por default que le da el navegador, es todo lo que está dentro del paréntesis.
+Las declaraciones son las reglas que sobre escribirán los estilos por default que le da el navegador, es todo lo que está dentro del paréntesis.
+
+Las propiedades son las que estan de lado izquierdo de los puntos y el valor al lado derecho de los dos punto.
 
 ```css
 div {
@@ -146,8 +150,9 @@ div {
 }
 ```
 
-Las propiedades abreviadas nos permiten tener varias propiedades en una misma línea, ahorra tiempo y se mira más legible.
-El anterior margen se puede escribir de la siguiente manera con una propiedad abreviada:
+Las **declaraciones abreviadas** nos permiten tener varias declaraciones en una misma línea. Se emplea un propiedad general y se escriben los valores juntos que deberían de llevar. Ahorra tiempo y se mira más legible.
+
+El anterior margen se puede escribir de la siguiente manera usando una declaración abreviada:
 
 ```css
 div {
@@ -155,22 +160,11 @@ div {
 }
 ```
 
-Si se quiere usar las cuatro propiedades de margen se pueden usar, de manera que el sentido sería la misma a las manecillas del reloj de la siguiente forma.
+Si se quiere usar las cuatro propiedades de margen en una declaración abreviada se pueden usar, dando cada valor separado por espacio de manera que el sentido sería la misma a las manecillas del reloj (top right bottom left):
 
 ```css
 div {
   margin: 10px 20px 30px 40px;
-}
-```
-
-Lo que sería lo mismo a lo siguiente
-
-```css
-div {
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-bottom: 30px;
-  margin-left: 40px;
 }
 ```
 
@@ -212,7 +206,7 @@ Para usar las propiedades en un scope global del documento se pueden definir en 
 
 ### Herencia de propiedades
 
-CSS como su nombre lo indica, hoja de estilos en cascada, va en forma de cascada, de arriba hacia abajo, por lo que una propiedad abreviada debe de ir antes de una propiedad unica para que sobreescriba los estilos por defecto, se pone por debajo para que se sobre escriban los estilos por defecto.
+CSS como su nombre lo indica, hoja de estilos en cascada, va en forma de cascada, de arriba hacia abajo. Una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto.
 
 Mal:
 
@@ -234,9 +228,11 @@ p{
 
 ## Funciones
 
-CSS al igual que otros lenguajes cuenta con funciones que son visuales y no podemos crear nuevas funciones.
+CSS al igual que otros lenguajes cuenta con funciones. A diferencia de otros lenguajes, en CSS no podemos crear nuevas funciones.
 
 ### Funciones básicas
+
+En estas son las más usadas comúnmente como las de asignar propiedades customizadas, aplicar colores, hacer calculos sobre unidades del DOM entre otras.
 
 ```css
 {
@@ -249,6 +245,8 @@ CSS al igual que otros lenguajes cuenta con funciones que son visuales y no pode
 ```
 
 ### Funciones de selectores
+
+En los selectores también podemos usar funciones para iterar entre elementos. El siguiente ejemplo aplica estilos diferentes cada 3 elementos de item.
 
 ```css
 .item:nth-of-type(3n + 1) {
@@ -264,6 +262,8 @@ CSS al igual que otros lenguajes cuenta con funciones que son visuales y no pode
 
 ### Funciones de dimensiones
 
+Las funciones de dimensiones se aplican a los elementos definidos por vectores.
+
 ```css
 .dimension {
   transform: scale(2);
@@ -274,6 +274,8 @@ CSS al igual que otros lenguajes cuenta con funciones que son visuales y no pode
 
 ### Funciones filtro
 
+Las funciones de filtro definen efectos visuales, generalmente en imagenes o vídeos.
+
 ```css
 img {
   filter: brightness(110%);
@@ -283,6 +285,8 @@ img {
 ```
 
 ### Funciones en grids
+
+Estas funciones nos ayudan a estructurar nuestro contenido con grids.
 
 ```css
 .grid {
@@ -327,6 +331,8 @@ El siguiente código importará la fuente monserrat si se encuentra en un dispos
 
 ## El modelo de caja
 
+Una forma de mirar los elementos a la hora de darle estilos es de forma de cajas. La mayoria de elementos se pueden estilar de esta forma pues tienen dentro el contenido, el relleno que las asegura, el borde de la caja y el margen que las separa de otras cajas.
+
 <style>.boxModel__margin{max-width:300px;height:200px;outline:dashed 1px #000;background:#ffca96;margin:auto;position:relative}.boxModel__border{max-width:240px;height:140px;outline:solid 1px #000;background:#ffdc91}.boxModel__padding{max-width:180px;height:80px;outline:solid 1px #000;background:#bfd081}.boxModel__content{max-width:120px;height:30px;outline:solid 1px #000;background:#7fb6c2;display:flex;justify-content:center;align-items:center;font-size:13px}.boxModel-center{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto}.boxModel__margin span{font-size:13px;margin-left:10px}</style>
 <div class="boxModel__margin">
 <span>margin</span>
@@ -347,6 +353,8 @@ El siguiente código importará la fuente monserrat si se encuentra en un dispos
 - Margin - El margen es un espacio desde el borde hacia el exterior.
 
 ### Diferencia entre Padding y Margin
+
+El padding y el margin son separadores. El margin siempre es invisible y separa al exterior de nuestro elemento con respecto al borde. El padding puede ser visible al asignarle un background al elemento, separa al interior de nuestro elemento con respecto al borde.
 
 <style>.box{width:200px;height:100px;background:#99c;border:1px solid #000}.with-padding{padding:30px}.with-margin{margin:30px}</style>
 <div style="display: flex;">
@@ -376,12 +384,15 @@ El siguiente código importará la fuente monserrat si se encuentra en un dispos
 }
 ```
 
-Como podemos ver, el borde es el que delimita el color del background, por lo que el padding toma el color del background ya que como se vio en el modelo de caja está dentro del borde, y empuja 30 pixeles a partir del borde hacia dentro, al contrario el margen como está fuera del borde no se pinta con el background y hace un espacio del borde hacia afuera separando ambas cajas.
+En la primera caja el borde es el que delimita el color del background. El padding toma el color del background dando una separación de 30 pixeles a partir del borde hacia el interior.
+
+En la segunda caja el margen no se pinta con el background. Hace una separación del borde hacia el exterior de 30 pixeles.
 
 ## Animaciones
 
-Las animaciones en css requieren de la regla keyframes seguida del nombre de la animación, de propiedades se pueden utilizar porcentajes para ser más específicos en los pasos o las propiedades "from" y "to" que sería lo mismo que 0% y 100%.
-Esta animación se le asigna a un elemento con la propiedad animation-name y con animation-duration se establece la duración de la animación.
+Las animaciones en css requieren de la regla keyframes seguida del nombre de la animación. Los selectores se pueden representar con porcentajes de 0% a 100% o con las palabras "from" y "to" que sería lo mismo que 0% y 100%.
+
+Esta animación puede ser llamada asignandola a un elemento con la propiedad animation-name y con animation-duration.
 
 ```css
 @keyframes desplazamiento {
@@ -396,9 +407,13 @@ Esta animación se le asigna a un elemento con la propiedad animation-name y con
 
 Un ejemplo simple de uso de porcentajes sería el siguiente:
 
-<style>.ball{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;color:#fff;background:#d32f2fe1;border-radius:50%;position:relative;animation:bounce 3s linear alternate infinite;left:0;top:0}.ball span{position:absolute;width:20px;height:4px;background-color:#fff;border-radius:2px;box-shadow:0 0 2px 0 #ccc}.ball span:nth-of-type(1){transform:rotate(45deg)}.ball span:nth-of-type(2){transform:rotate(-45deg)}@keyframes bounce{32%,66%{top:0;animation-timing-function:ease-in}16%,50%,83%{top:80px;animation-timing-function:ease-out}100%{transform:rotate(360deg);top:0;animation-timing-function:ease-out;left:calc(100% - 50px)}}</style>
-<div style="height: 130px;">
-  <span class="ball"><span></span><span></span></span>
+<style>.ballContainer{height:130px;position:relative;width:100%}.ballWrapper{position:absolute;width:100%;height:130px;animation:bounce 3s linear alternate infinite}.ballos{position:absolute;width:100%;height:130px;animation:traslate 3s linear alternate infinite}.ball{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;color:#fff;background:#d32f2fe1;border-radius:50%;position:relative;animation:rotate 3s linear alternate infinite}.ball span{position:absolute;width:20px;height:4px;background-color:#fff;border-radius:2px;box-shadow:0 0 2px 0 #ccc}.ball span:nth-of-type(1){transform:rotate(45deg)}.ball span:nth-of-type(2){transform:rotate(-45deg)}@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes traslate{from{transform:translateX(0)}to{transform:translateX(calc(100% - 50px))}}@keyframes bounce{0%,100%,32%,66%{transform:translateY(0);animation-timing-function:ease-in}16%,50%,83%{transform:translateY(80px);animation-timing-function:ease-out}}</style>
+<div class="ballContainer">
+    <div class="ballWrapper">
+    <div class="ballos">
+        <span class="ball"><span></span><span></span></span>
+    </div>
+    </div>
 </div>
 
 ```css
@@ -451,9 +466,10 @@ Un ejemplo simple de uso de porcentajes sería el siguiente:
 
 ## Compatibilidad
 
-CSS no se renderiza igual en todos los navegadores, un decorador de texto puede que no luzca de la misma forma en firefox que en chrome, aplicar ciertos trucos para que todos luzca igual en todos los navegadores puede que sea una tarea tediosa, por lo que también es importante saber el mercado de usuarios al que va dirigido la página que creamos y saber en que navegadores enforcarnos.
+CSS no se renderiza igual en todos los navegadores, un decorador de texto puede que no luzca de la misma forma en Firefox que en Chrome. Aplicar ciertos trucos para que todos luzca igual en todos los navegadores puede que sea una tarea tediosa. Es importante saber el mercado de usuarios al que va dirigido la página que creamos para saber en que navegadores enfocarnos.
 
-CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características, algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con prefijos que solo el navegador conoce porque si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda, los siguientes prefijos son los mas comunes:
+CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características. Algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con **prefijos** que solo el navegador conoce. La ventaja de CSS es que si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda.
+Los siguientes prefijos son los mas comunes:
 
 | **Prefijo** |       **Navegadores**       |
 |:-----------:|:---------------------------:|
@@ -462,7 +478,7 @@ CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas característic
 |     -o-     |            Opera            |
 |     -ms-    | Microsoft Internet Explorer |
 
-[Can I Use](https://caniuse.com) es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar, podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.
+[Can I Use](https://caniuse.com "Can I Use") es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar. Podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.
 
 Soporte para la propiedad "hyphens" en distintos navegadores:
 
@@ -470,4 +486,4 @@ Soporte para la propiedad "hyphens" en distintos navegadores:
 
 ## Conclusión
 
-Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para desarrollar sitios web, hay muchas cosas que debemos de tener en cuenta y conocer el alcance que puede tener CSS por si solo con las características que vienen por defecto es una gran ventaja a la hora de crear productos.
+Hemos visto una vista muy general sobre lo que es CSS, aprender este lenguaje es lo básico para darle vida a sitios web. Conocer el alcance que puede tener CSS por si solo es una gran ventaja. Hay muchas cosas que debemos de tener en cuenta para crear productos y este lenguaje cada vez las facilita más. Investiga acerca de las nuevas características y pon a prueba tu creatividad.

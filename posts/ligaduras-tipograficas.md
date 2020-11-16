@@ -1,5 +1,5 @@
 ---
-title: Ligaduras tipográficas
+title: Ligaduras tipográficas - Tipos y Usos
 description: Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.
 date: 2020-06-08
 cover: v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
@@ -33,26 +33,26 @@ Estás ligaduras son más estéticas, tienen el propósito de lucir bien, entrel
 ## Ligaduras históricas
 
 ![Notacion tironiana ajustar derecha 200px](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_210/v1595269484/Blog/2/2af6de62vb43bnnc4_ou6z52.jpg "Notas tironianas")
-Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente creadas para reducir el tiempo de escritura, cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada, para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas, que fueron muy populares y por lo que después se le atribuyó la invención de la taquigrafía.
+Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente creadas para reducir el tiempo de escritura. Cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada. Para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas. Fueron muy populares, por lo que después se le atribuyó la invención de la taquigrafía.
 
 ![Ampersand ajustar izquierda 50px](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png "Ampersand")
 Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.
 
-En el alfabeto árabe los caracteres no tienen una forma fija, sino que cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea.
+En el alfabeto árabe los caracteres no tienen una forma fija. Cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea.
 <videogif title="Ligaduras Arabes" src="https://res.cloudinary.com/marcomadera/video/upload/v1602518470/Blog/2/239485-283184-288328_tvtslu.mp4"/>
 
 ---
 
 ## Ligaduras en la programación
 
-En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado, como por ejemplo '>=', mi mente por un instante tiene que procesar ambos caracteres por separado "mayor o igual" y si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.
+En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado. Lo simbolos '>=', mi mente por un instante tiene que procesar ambos caracteres por separado "mayor o igual". Si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.
 
 Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
 
-- [Fira Code](https://github.com/tonsky/FiraCode)
-- [MonoId](https://github.com/larsenwork/monoid)
-- [Hasklig](https://github.com/i-tu/Hasklig)
-- [Iosevka](https://github.com/be5invis/Iosevka)
+- [Fira Code](https://github.com/tonsky/FiraCode "Repositorio de Fira Code")
+- [MonoId](https://github.com/larsenwork/monoid "Repositorio de MonoID")
+- [Hasklig](https://github.com/i-tu/Hasklig "Repositorio de Hasklig")
+- [Iosevka](https://github.com/be5invis/Iosevka "Repositorio de Iosevka")
   &nbsp;
 
 Descarga e instala la fuente que desees como cualquier otra fuente.
@@ -78,6 +78,8 @@ Guardas los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada,
 
 ---
 
-## Opinión
+## Conclusión
 
-Las ligaduras no son un estándar en la programación, por lo que no todos las usarán, acostumbrarse a verlas puede que llegue a jugar en contra el ver el código de otras personas, a la inversa puede generar confusión ya que los lenguajes de programación son diferentes, si bien (<=) menor o igual puede escribirse en ese orden en un lenguaje, en otro puede escribirse de otra forma (=<), lo que no generaría una ligadura. Las ligaduras no son algo esencial como lo son en la música, ni te permiten escribir más rápido, en programación al final solo es visual, terminas escribiendo lo mismo, lo suyo está en probar y elegir si es para tí, anteriormente las use muy poco tiempo como para acostumbrarme y ahora les daré otra oportunidad.
+Las ligaduras no son un estándar en la programación. No todos las usarán, acostumbrarse a verlas puede que llegue hasta jugar en contra el ver el código de otras personas. Puede generar confusión ya que los lenguajes de programación son diferentes, si bien (<=) menor o igual puede escribirse en ese orden en un lenguaje, en otro puede escribirse de otra forma (=<). En algunos lenguajes algo puede generar una ligadura y otra cosa no.
+
+Las ligaduras no son algo esencial como lo son en la música, ni te permiten escribir más rápido. En programación al final solo es visual, terminas escribiendo lo mismo. Lo suyo está en probar y elegir si es para tí, anteriormente las use muy poco tiempo como para acostumbrarme y ahora les daré otra oportunidad.

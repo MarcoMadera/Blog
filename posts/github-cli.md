@@ -1,6 +1,6 @@
 ---
-title: Github CLI
-description: Github CLI es la herramienta oficial para ejecutar todo el flujo de trabajo en github desde la línea de comandos.
+title: GitHub desde la línea de comandos
+description: Github CLI es la herramienta oficial para ejecutar todo el flujo de trabajo en GitHub desde la línea de comandos.
 date: 2020-09-20
 cover: v1600483976/Blog/6/Octocat-removebg_wamv2v.png
 author: Marco Madera
@@ -8,7 +8,7 @@ tags:
   - Terminal
 ---
 
-Sin importar el lenguaje que usamos para programar, la línea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 [se empezó a trabajar con Github CLI](https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3), para reducir el cambio de contexto entre github web y la máquina local.
+Sin importar el lenguaje que usamos para programar, la línea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva, tener que estar cambiando entre la terminal y la web iba en contra de esto, por lo que en octubre de 2019 [se empezó a trabajar con Github CLI](https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3 "Primer commit de Github CLI"), para reducir el cambio de contexto entre github web y la máquina local.
 
 ## ¿Qué es github CLI?
 
@@ -26,20 +26,20 @@ gh <comando> <subcomando> [flags]
 
 Por comandos se pueden tomar los siguientes:
 
-- gist : Crea gists
-- issue : Controla issues
-- pr : Controla pull requests
-- release : Control GitHub releases
-- repo : Crear, clonar, fork, y ver repositorios
-- alias: Crea atajos de comandos
+- gist : Crea gists.
+- issue : Controla issues.
+- pr : Controla pull requests.
+- release : Control GitHub releases.
+- repo : Crear, clonar, fork, y ver repositorios.
+- alias: Crea atajos de comandos.
 - api: Hace llamadas HTTP a Rest o GraphQL API.
-- auth: Login, logout, y refresh de la autenticación
-- config: Maneja la configuración para gh
-- help: El comando de ayuda
+- auth: Login, logout, y refresh de la autenticación.
+- config: Maneja la configuración para gh.
+- help: El comando de ayuda.
 
 ## Instalación
 
-Para instalar Github <abbr title="Command Line Interface">CLI</abbr> en tu computadora, se descarga desde la [página oficial](https://cli.github.com/)
+Para instalar Github <abbr title="Command Line Interface">CLI</abbr> en tu computadora, se descarga desde la [página oficial](https://cli.github.com/ "Página oficial de Github CLI").
 
 Una vez instalado nos podemos loguear con el siguiente comando:
 
@@ -52,7 +52,7 @@ gh auth login
 Otros subcomandos que también se pueden usar:
 
 - ```gh auth logout```: Salir de la sesión.
-- ```gh auth refresh```: Actualizar las credenciales
+- ```gh auth refresh```: Actualizar las credenciales.
 - ```gh auth status```: Verificar el estado de la autenticación.
 
 ## Repositorios
@@ -70,7 +70,7 @@ Subcomandos:
 gh repo create [<name>] [flags]
 ```
 
-Adios [repo.new](https://repo.new), hola `gh repo create`
+Adios [repo.new](https://repo.new "Atajo de nuevo repositorio"), hola `gh repo create`
 
 ![Creación de repositorio](https://res.cloudinary.com/marcomadera/image/upload/v1600490072/Blog/6/repocreate_z7ri8f.png "Creación de repositorio")
 
@@ -88,7 +88,7 @@ Si no se incluyen flags se verá el repositorio que está en el directorio actua
 
 ### Clonar repositorio
 
-Existen varias formas de clonar un repositorio
+Existen varias formas de clonar un repositorio.
 
 ```bash
 gh repo clone <repositorio> [<directorio>] [-- <gitflags>...]
@@ -100,7 +100,7 @@ Esto clona un repositorio que el propietario es la persona que está autenticada
 gh repo clone proyecto
 ```
 
-Con solo el usuario y el nombre del proyecto
+Con solo el usuario y el nombre del proyecto.
 
 ```bash
 gh repo clone usuario/proyecto
@@ -120,7 +120,7 @@ gh repo clone https://github.com/usuario/proyecto
 gh repo fork [<repository>] [flags]
 ```
 
-Si no se provee de ningún argumento, hace un fork del proyecto actual, lo que es bueno se quiere empezar a arreglar bugs o realizar una nueva mejora rápidamente.
+Si no se provee de ningún argumento, hace un fork del proyecto actual. Lo que es bueno se quiere empezar a arreglar bugs o realizar una nueva mejora rápidamente.
 
 ## Pull Request
 
@@ -165,7 +165,7 @@ gh pr view [<number> | <url> | <branch>] [flags]
 
 ### Revisar el estado de las pr
 
-Esto mostrará el estado de las pr en las que participas
+Esto mostrará el estado de las pr en las que participas.
 
 ```bash
 gh pr status
@@ -223,7 +223,7 @@ Subcomandos:
 gh gist create [<filename>... | -] [flags]
 ```
 
-Para crear crear un gist nuevo se hace a través de uno o varios archivos separados por "-", por defecto los gist son privados, se pueden hacer públicos con el flag -public
+Para crear crear un gist nuevo se hace a través de uno o varios archivos separados por "-". Por defecto los gist son privados, se pueden hacer públicos con el flag `-public`.
 
 ## Alias
 
@@ -243,7 +243,7 @@ gh alias set <alias> <expansion> [flags]
 
 ![Alias](https://res.cloudinary.com/marcomadera/image/upload/v1600539890/Blog/6/aliases_u0mnwn.png "Alias")
 
-Ejemplo de lista de bugs
+Ejemplo de lista de bugs:
 
 ```bash
 alias misbugs='gh issue list -a "MarcoMadera" -l "bug"'
@@ -263,7 +263,7 @@ gh api <endpoint> [flags]
 
 Github API es poderoso, con `gh api` se pueden hacer llamadas HTTP a Rest o GraphQL API. El método que usa por defecto es GET, se puede cambiar con el flag --method.
 
-Para llamadas a la API de github se puede usar de la siguiente manera-
+Para llamadas a la API de github se puede usar de la siguiente manera:
 
 ```bash
 gh api repos/user/repo/releases
@@ -275,4 +275,4 @@ También soporta urls absolutas.
 
 ## Conclusión
 
-Github CLI reduce la necesidad de abrir [Github.com](https://github.com/) después de hacer commits y push de código, por lo que es de gran ayuda para ahorrar tiempo, a día de hoy es la versión 1.0.0 y trae la mayoría de características de github.
+Github CLI reduce la necesidad de abrir la [Página de Github](https://github.com/ "Página de Github") después de hacer commits y push de código. Por lo que es de gran ayuda para ahorrar tiempo. A día de hoy es la versión 1.0.0 y trae la mayoría de características de github.

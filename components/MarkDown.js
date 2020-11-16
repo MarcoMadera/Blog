@@ -9,7 +9,7 @@ import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import gfm from "remark-gfm";
 import codeStyles from "../styles/codeStyles";
 import { colors } from "../styles/theme";
-
+import Head from "next/head";
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
@@ -62,6 +62,22 @@ const parseHtml = htmlParser({
       },
     },
     {
+      shouldProcessNode: (node) =>
+        node.type === "style" &&
+        node.name === "style" &&
+        node.children.length > 0,
+      processNode: function Style(_, children) {
+        const styles = children[0];
+        return (
+          <div>
+            <Head>
+              <style>{styles}</style>
+            </Head>
+          </div>
+        );
+      },
+    },
+    {
       shouldProcessNode: (node) => node.type === "tag" && node.name === "meter",
       processNode: function Meter(node) {
         return (
@@ -78,9 +94,6 @@ const parseHtml = htmlParser({
               {`
                 meter {
                   --background: ${colors.white};
-                  --optimum: ${colors.primary};
-                  --sub-optimum: ${colors.secondary};
-                  --sub-sub-optimum: ${colors.primary};
                   display: block;
                   margin: 0 auto;
                   width: 100%;
@@ -276,9 +289,9 @@ const _mapProps = (source) => ({
   astPlugins: [parseHtml],
   unwrapDisallowed: false,
   renderers: {
-    link: function Link({ href, children }) {
+    link: function Link({ href, children, title }) {
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
           {children}
         </a>
       );

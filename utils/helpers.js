@@ -14,6 +14,10 @@ export function getFormattedDate(date) {
   return formattedDate;
 }
 
+export function formatNumber(n) {
+  return n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
+
 export const numberBetween = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
