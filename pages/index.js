@@ -11,7 +11,7 @@ import Link from "next/link";
 const Home = ({ posts = [], tags = [], pages = [] }) => {
   return (
     <main id="main">
-      <Seo title="Blog" />
+      <Seo title="Marco Madera 📝 | Web, React, CSS, JavaScript, NodeJs" />
       <Aside />
       <section>
         <h1>Últimos artículos</h1>

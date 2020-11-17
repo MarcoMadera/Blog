@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function Error({ statusCode }) {
   return (
     <main id="main">
-      <Seo title={`Error ${statusCode} :(`} />
+      <Seo title={`😫 Error ${statusCode || "del cliente"}`} />
       <h1>{statusCode ? statusCode : "Error"}</h1>
       <p>
         {statusCode

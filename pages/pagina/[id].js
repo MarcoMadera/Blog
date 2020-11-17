@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function Page({ posts = [], pages = [], tags = [], page }) {
   return (
     <main id="main">
-      <Seo title="Blog" />
+      <Seo title={`Marco Madera 📝 | Página ${page}`} />
       <Aside />
       <section>
         <h1>Últimos artículos</h1>

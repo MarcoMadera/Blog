@@ -11,9 +11,9 @@ const Tag = ({ postsByTag, tags, slug }) => {
   return (
     <main id="main">
       <Seo
-        title={`Blog tag ${postsByTag[0].tags.find((tag) =>
+        title={`Blog etiqueta ${postsByTag[0].tags.find((tag) =>
           slugify(tag).includes(slug)
-        )}`}
+        )} 📌`}
         path={`/blog/etiqueta/${slug}`}
       />
       <Aside />

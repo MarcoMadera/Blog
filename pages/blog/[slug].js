@@ -155,6 +155,9 @@ export default function Post({
         h1 {
           margin: 1em 0;
         }
+        article {
+          overflow: hidden;
+        }
         a {
           border: 3px solid ${colors.secondary};
           background: ${colors.white};

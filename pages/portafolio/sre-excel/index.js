@@ -92,7 +92,7 @@ const Article = ({ title, img, children }) => {
 const sre = () => {
   return (
     <main id="main">
-      <Seo title="Portafolio - SRE Excel" path="/portafolio/sre-excel" />
+      <Seo title="Portafolio 💼 | SRE Excel" path="/portafolio/sre-excel" />
       <h1>Registro de trámites en Excel</h1>
       <Article
         title="Navegador"

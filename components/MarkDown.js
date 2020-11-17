@@ -11,6 +11,7 @@ import codeStyles from "../styles/codeStyles";
 import { colors } from "../styles/theme";
 import Head from "next/head";
 import json from "refractor/lang/json";
+import css from "refractor/lang/css";
 
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
@@ -458,6 +459,7 @@ const _mapProps = (source) => ({
 
 const Markdown = ({ source }) => {
   SyntaxHighlighter.registerLanguage("json", json);
+  SyntaxHighlighter.registerLanguage("css", css);
   return <ReactMarkdown {..._mapProps(source)} />;
 };
 

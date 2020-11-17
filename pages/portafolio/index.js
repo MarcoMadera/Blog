@@ -4,7 +4,7 @@ import { colors } from "../../styles/theme";
 const Portfolio = () => {
   return (
     <main id="main">
-      <Seo title="Portafolio" path="/portafolio" />
+      <Seo title="Portafolio 💼 | Marco Madera" path="/portafolio" />
       <h1>Portafolio</h1>
       <article>
         <picture>

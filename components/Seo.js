@@ -14,11 +14,7 @@ const Seo = ({
   const metaTitle = title || siteMetadata.title;
   return (
     <Head>
-      {path.includes("/blog/") ? (
-        <title>{title}</title>
-      ) : (
-        <title>{`${title} | ${siteMetadata.title}`}</title>
-      )}
+      <title>{title}</title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={metaTitle} />
       <link

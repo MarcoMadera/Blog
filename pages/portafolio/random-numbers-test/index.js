@@ -5,7 +5,7 @@ const Random = () => {
   return (
     <main id="main">
       <Seo
-        title="Portafolio - Números Pseudo Aleatorios"
+        title="Portafolio 💼 | Números Pseudo Aleatorios"
         path="/portafolio/random-numbers-test"
       />
       <h1>Herramienta para verificar números aleatorios</h1>

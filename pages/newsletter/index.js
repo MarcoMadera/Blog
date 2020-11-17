@@ -37,12 +37,11 @@ const NewsletterPage = () => {
   }
   return (
     <main id="main">
-      <Seo title="Newsletter" path="/newsletter" />
+      <Seo title="Newsletter 📬 | Marco Madera" path="/newsletter" />
       <div>
         <label htmlFor="bd-email">
           <h1>Newsletter</h1>
         </label>
-
         <p>
           <strong>Quiero saber tu opinión,</strong> cuando recibas los artículos
           puedes responder directamente al correo electrónico o dejar un
