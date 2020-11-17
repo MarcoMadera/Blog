@@ -1,6 +1,6 @@
 ---
 title: Etiquetas de HTML Semántico
-description: HTML Semántico es el uso etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado.
+description: HTML Semántico es el uso etiquetas, atributos y valores coherentes al contenido y estructura para que tengan un mayor significado.
 date: 2020-09-08
 cover: v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png
 author: Marco Madera
@@ -27,7 +27,9 @@ Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>
 
 ## ¿Qué es HTML Semántico?
 
-<dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> es el uso de etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas. Se mejora la lectura de los elementos y se le agrega un significado semántico. El uso de estas etiquetas permiten a los procesadores de HTML usar nuestro contenido en otros contextos. Que Mengano quiere agregar un borde a las secciones de una página para distinguirlas mejor, podría hacerlo fácilmente. Un uso más común es con los motores de búsqueda, recolectan la estructura de los sitios para posicionar mejor los que cumplan los estándares.
+<dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> es el **uso de etiquetas, atributos y valores coherentes al contenido y estructura** de nuestras páginas. Se mejora la lectura de los elementos y se le agrega un significado semántico. El uso de estas etiquetas permiten a los procesadores de HTML usar nuestro contenido en otros contextos.
+
+Que Mengano quiere agregar un borde a las secciones de una página para distinguirlas mejor, podría hacerlo fácilmente. Un uso más común es con los motores de búsqueda, recolectan la estructura de los sitios para posicionar mejor los que cumplan los estándares.
 
 -------
 
@@ -43,7 +45,7 @@ Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>
 
 Los elementos de estructura son de los más importantes para el SEO, definen con está construida nuestra página y como acceden a la información los agentes terceros.
 
-<style>.section{display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:15px 15px;height:fit-content;border-radius:10px}.header{background:#eddfa9;grid-area:2/1/3/3;border-radius:10px}.nav{background:#edcfa9;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#e89f71;border-radius:10px}.main{grid-area:3/2/4/3;background:#d57149;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#d18f5c;border-radius:10px}.article{padding:10px;margin:10px;background:#d5d149;border-radius:10px}.article_header{display:block!important;background:#eddfa9;margin-bottom:10px;padding:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#daa149;margin-bottom:10px;padding:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#d18f5c;padding:10px;border-radius:10px}.main_section{background:#dfa149;position:absolute;bottom:0;width:calc(100% - 20px);margin:10px;padding:10px;border-radius:10px}</style><section class="section"><nav class="nav"><p>< Nav ></p></nav><header class="header"><p>< Header ></p></header><aside class="aside"><p>< Aside ></p></aside><main class="main"><article class="article"><header class="article_header"><p class="article_p">< Header ></p></header><section class="article_section"><h4 class="article_title">< Section ></h4><p class="article_p">Texto</p></section><footer class="article_footer">&copy; < Footer ></footer></article><section class="main_section"><h3 class="article_title">< Section ></h3><p class="article_p">Texto</p></section></main><footer class="footer">< Footer ></footer></section>
+<style>.section{display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:15px 15px;height:fit-content;border-radius:10px}.header{background:#eddfa9;grid-area:2/1/3/3;border-radius:10px}.nav{background:#edcfa9;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#e89f71;border-radius:10px}.main{grid-area:3/2/4/3;background:#d57149;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#d18f5c;border-radius:10px}.article{padding:10px;margin:10px;background:#d5d149;border-radius:10px}.article_header{display:block!important;background:#eddfa9;margin-bottom:10px;padding:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#daa149;margin-bottom:10px;padding:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#d18f5c;padding:10px;border-radius:10px}.main_section{background:#dfa149;position:absolute;bottom:0;width:calc(100% - 20px);margin:10px;padding:10px;border-radius:10px}</style><section class="section"><nav class="nav"><p>< Nav ></p></nav><header class="header"><p>< Header ></p></header><aside class="aside"><p>< Aside ></p></aside><main class="main"><article class="article"><header class="article_header"><p class="article_p">< Header ></p></header><section class="article_section"><p class="article_title">< Section ></p><p class="article_p">Texto</p></section><footer class="article_footer">&copy; < Footer ></footer></article><section class="main_section"><h3 class="article_title">< Section ></h3><p class="article_p">Texto</p></section></main><footer class="footer">< Footer ></footer></section>
 
 ```html
 <body>
@@ -288,7 +290,7 @@ Al igual que los diálogos recibe un atributo open para que pueda estar por defe
 
 ## Imágenes
 
-Hay diferentes etiquetas para representar elementos visuales en nuestras páginas web con distintos usos en ellas estan:
+Hay diferentes etiquetas para representar elementos visuales en nuestras páginas web con distintos usos en ellas están:
 
 - img
 - figure
@@ -296,7 +298,7 @@ Hay diferentes etiquetas para representar elementos visuales en nuestras página
 
 ### Img
 
-Es la etiqueta más comúnmente utilizada para mostrar imagenes.
+Es la etiqueta más comúnmente utilizada para mostrar imágenes.
 
 ![Imagen](https://picsum.photos/100 "Imagen")
 
@@ -540,7 +542,7 @@ En las listas se pueden combinar diferentes elementos como puede ser un checbox 
 
 ## Tablas
 
-Las tablas en html es un área que abarca mucha explicación de uso.
+Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y encabezados.
 
 <table><caption>Precio de cosas</caption><colgroup><col span="0" style="background-color:#e0ece4"><col span="1" style="background-color:#ebecf1"><col span="2" style="background-color:#f1f3de"></colgroup><thead><tr><th style="font-weight: bold;">Nombre</th><th style="font-weight: bold;">Precio</th><th style="font-weight: bold;">IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" style="background-color:#e0ece4">$336</td></tr></tfoot></table>
 

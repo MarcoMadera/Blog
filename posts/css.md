@@ -1,5 +1,5 @@
 ---
-title: "CSS: Cascading Style Sheets"
+title: "CSS: Hoja de estilos en cascada"
 description: CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado.
 date: 2020-10-20
 cover: v1602894559/Blog/7/css_k23ypb.png
@@ -17,12 +17,10 @@ He visto sitios web impresionantes con una gran presentación, sitios que genera
 
 ## Uso
 
-CSS Puede darle estilos a cualquier etiqueta html a través de los selectores.
+CSS Puede darle estilos a cualquier etiqueta <abbr title="HyperText Markup Language">HTML</abbr> a través de los selectores.
 Existen tres formas de usar los estilos, a través de la etiqueta style, en línea a través del atributo style, y en una hoja externa.
 
-### Estilos en línea (atributo style)
-
-Para darle estilo a un elemento se le añade el atributo `style` y se le agrega el valor con las declaraciones deseadas.
+Para darle **estilos en línea** a un elemento se le añade el atributo `style` y se le agrega el valor con las declaraciones deseadas. Este tipo de estilo tiene mayor prioridad sobre otras reglas de CSS para ser aplicadas.
 
 ```html
 <p style="color: #fff; width: max-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
@@ -34,9 +32,7 @@ En Línea
 En Línea
 </p>
 
-### Estilos en la etiqueta style
-
-CSS se puede usar directamente desde la etiqueta de HTML `<style>`.
+En HTML existe una estiqueta destinada para los **estilos internos**. Se pueden agregar estilos directamente usando la etiqueta de HTML `<style>`. Debería de usarse dentro de la etiqueta `<head>`.
 
 ```html
 <style>
@@ -47,9 +43,7 @@ body {
 </style>
 ```
 
-### Estilos en una hoja externa (.css)
-
-La manera que se aprovecharía mejor sería hacer un `<link>` a una hoja de estilos (.css) dentro de la etiqueta `<head>` de nuestro documento HTML. Al momento de cargar la página, inmediatamente llamará a la hoja de estilos externa y aplicará los estilos. Con esto le quitamos el peso del html de cargar con los estilos para tener un mejor tiempo de respuesta. Para hacer esto la etiqueta `<link>` debe de ir de la siguiente forma, donde href es la ubicación de la hoja de estilos.
+La manera que se aprovecha mejor es con **estilos externos**. Este tipo de estilo es el que tiene menor prioridad sobre otras reglas de CSS. Se hace un `<link>` a una hoja de estilos (.css) dentro de la etiqueta `<head>` de nuestro documento HTML. Al momento de cargar la página, inmediatamente llamará a la hoja de estilos externa y aplicará los estilos. Con esto le quitamos el peso del html de cargar con los estilos para tener un mejor tiempo de respuesta. Para hacer esto la etiqueta `<link>` debe de ir de la siguiente forma, donde href es la ubicación de la hoja de estilos.
 
 ```html
 <link
@@ -63,9 +57,15 @@ La manera que se aprovecharía mejor sería hacer un `<link>` a una hoja de esti
 
 Al usar CSS en una hoja externa o en la etiqueta `<style>` los selectores son necesarios para estilar elementos específicos. Estos indican a qué elementos se le tienen que aplicar los estilos.
 
-### Etiquetas
+El **selector universal** es un asterisco `*` selecciona cualquier tipo de etiqueta del documento HTML. Al igual que los demas selectores se puede combinar.
 
-Para seleccionar etiquetas simplemente se escribe el nombre de la etiqueta, si se quiere especificar alguna etiqueta que contenga cierto atributo se puede hacer seguido con corchetes `[]`, así seleccionará todas las etiquetas del mismo nombre que tengan cierto atributo.
+```css
+* { ... }
+
+div * span { ... }
+```
+
+Para **seleccionar etiquetas** simplemente se escribe el nombre de la etiqueta seguida de las declaraciones de css entre paréntesis.
 
 ```css
 nav { ... }
@@ -73,73 +73,81 @@ nav { ... }
 nav[class="topNavbar"] { ... }
 ```
 
-### ID
+Si se quiere seleccionar por atributos se puede hacer con los **selectores de atributos**. Se distinguen por los corchetes `[]` que continene la especificación del selector.
 
-Las id en HTML son únicas, por consecuencia hace que en CSS también solo se pueda aplicar a un solo elemento único, se seleccionan con el símbolo `#`.
+```css
+[lang="es-MX"] { ... }
+```
+
+Pueden ser tan especificos como se muestran en la siguiente tabla:
+
+|  **Selector atributo** |                          **Selección**                          |
+|:----------------------:|:---------------------------------------------------------------:|
+|      `[atributo]`      |              Elemento que contenga cierto atributo              |
+|  `[atributo="valor"]`  |           Elemento que el atributo sea igual al valor           |
+|  `[atributo*="valor"]` |          Elemento que el atributo incluya cierto valor          |
+|  `[atributo~="valor"]` |  Elemento que el atributo incluya el valor separado por espacio |
+|  `[atributo^="valor"]` |        Elemento que el atributo empiece con cierto valor        |
+| `[atributo\|="valor"]` | Elemento que el atributo empiece con el valor o valor (espacio) |
+|  `[atributo$="valor"]` |        Elemento que el atributo termine con cierto valor        |
+
+Las `id` en HTML son únicas, por consecuencia hace que en CSS también solo se pueda aplicar a un solo elemento único. Para **seleccionar atributos `id`** se usa el símbolo `#` antes del nombre de la `id`.
 
 ```css
 #SomeId { ... }
 ```
 
-### Clases
-
-Al usar el nombre de un atributo clase precediendo un punto "." se seleccionarán todos los elementos que tienen la misma clase. Esto aplica los mismo estilos a todos los elementos con la misma clase.
+Para **seleccionar atributos class** se usa el nombre de un atributo clase precediendo un punto `.` se seleccionarán todos los elementos que tienen el mismo atributo `class`. El siguiente ejemplo le aplica los estilos a todos los elementos con el mismo atributo `class`.
 
 ```css
 .clase { ... }
 ```
 
-### Combinaciones
+### Combinaciones de selectores
 
 Los selectores se pueden combinar para seleccionar elementos que tienen cierta relación siempre de forma descendente.
 
-Las propiedades se pueden compartir separando por comma "," los selectores.
+La manera para **compartir propiedades** es separando los selectores con comma `,`. Esto ayuda a no repetirse y tener un código más limpio.
 
 ```css
 nav.topNavbar, a[href=*"example.com"], #someId { ... }
 ```
 
-Selecciona todas las etiquetas nav con clase topNavbar.
+Para ser más selectivos podemos especificar **etiquetas, class o id's unidos** de un punto `.`. Para el siguiente ejemplo, selecciona todas las etiquetas `<nav>` que contengan el atributo `class` topNavbar y el `id` someId.
 
 ```css
-nav.topNavbar { ... }
+nav#someId.topNavbar { ... }
+
+nav.topNavb#someId { ... }
 ```
 
-Selecciona todos los elementos de todos los subniveles con la clase topNavbar dentro de una etiqueta nav.
+Otra forma de especificar elementos es a través de la **selección por jerarquía**. Se hace separando los elementos a tener en cuenta por espacios. Para el siguiente ejemplo, selecciona todos los elementos que contengan el atributo `class` topNavbar y que tenga un ancestro de etiqueta `<nav>`, no tiene que ser directamente el padre.
 
 ```css
 nav .topNavbar { ... }
 ```
 
-Selecciona todos los elementos de primer subnivel con la clase topNavbar dentro de una etiqueta nav.
+Ahora si se quiere hacer una **selección de elementos con ancestro directo** tenemos el signo `>`. En el siguiente ejemplo seleccionamos todos los elementos con el atributo `class` topNavbar que el padre sea una etiqueta `<nav>`.
 
 ```css
 nav > .topNavbar { ... }
 ```
 
-Selecciona al primer elemento del mismo nivel que sigue inmediatamente con la clase topNavbar.
-
-```css
-nav + .topNavbar { ... }
-```
-
- Selecciona a todos los elementos del mismo nivel que sigue inmediatamente con la clase topNavbar.
+Otra tipo de selector es **seleccionar elementos del mismo nivel**. Con el signo `~` podemos seleccionar elementos del mismo nivel siguientes al elemento. El siguiente ejemplo selecciona a todos los elementos del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
 
 ```css
 nav ~ .topNavbar { ... }
 ```
 
-Selecciona a todos los elementos con etiqueta nav que incluye topNavbar en su atributo clase.
+Para **seleccionar el primer elemento del mismo nivel** tenemos el signo `+`. El siguiente ejemplo selecciona al primer elemento del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
 
 ```css
-nav[class*="topNavbar"] { ... }
+nav + .topNavbar { ... }
 ```
 
 ## Declaraciones
 
-Las declaraciones son las reglas que sobre escribirán los estilos por default que le da el navegador, es todo lo que está dentro del paréntesis.
-
-Las propiedades son las que estan de lado izquierdo de los puntos y el valor al lado derecho de los dos punto.
+Las declaraciones son los estilos que sobrescribirán los estilos por defecto que le da el navegador, es todo lo que está dentro del paréntesis separado por punto y comma `;`. Están compuestas por el nombre de la propiedad y el valor.
 
 ```css
 div {
@@ -150,31 +158,37 @@ div {
 }
 ```
 
-Las **declaraciones abreviadas** nos permiten tener varias declaraciones en una misma línea. Se emplea un propiedad general y se escriben los valores juntos que deberían de llevar. Ahorra tiempo y se mira más legible.
+Las **declaraciones abreviadas** son estilos que nos permiten tener varias declaraciones en una misma línea. Se emplea una propiedad general y se escriben los valores separados por espacio. Ahorra tiempo y se mira más legible.
 
-El anterior margen se puede escribir de la siguiente manera usando una declaración abreviada:
+El anterior margen se puede reducir a lo siguiente usando una declaración abreviada. El valor sigue el patrón de las manecillas del reloj (top right bottom left):
+
+```css
+div {
+  margin: 10px 10px 10px 10px;
+}
+```
+
+También existen los **valores abreviados**. Si solo se incluyen dos valores, se toma como el primer valor a margin-top y margin-bottom y el segundo valor margin-right y margin-left. En caso de incluirse 3 valores, se toman de forma de las manecillas del reloj y el segundo valor sería para margin-left.
 
 ```css
 div {
   margin: 10px;
 }
-```
 
-Si se quiere usar las cuatro propiedades de margen en una declaración abreviada se pueden usar, dando cada valor separado por espacio de manera que el sentido sería la misma a las manecillas del reloj (top right bottom left):
-
-```css
 div {
-  margin: 10px 20px 30px 40px;
+  margin: 10px 20px;
+}
+
+div {
+  margin: 10px 20px 30px;
 }
 ```
 
-Si solo se incluyen dos valores, se toma como el primer valor a margin-top y margin-bottom y el segundo valor margin-right y margin-left.
+### Propiedades personalizadas
 
-En caso de incluirse 3 valores, se toman de forma de las manecillas del reloj y el segundo valor sería para margin-left.
+Las propiedades personalizadas son como las **variables** en otros lenguajes. Almacena valores, distinguen entre mayúsculas y minúsculas y pueden actualizar los valores a través de la cascada.
 
-### Propiedades customizadas
-
-Para crear una propiedad customizada se utiliza como prefijo el doble guión -- y seguido del nombre de la propiedad y el valor que lleva. Para usar la propiedad se hace a través de la función "var".
+Para crear una propiedad customizada se utiliza como prefijo el doble guion `--`. Tienen nombre de la propiedad y el valor que se le da. Para usar la propiedad se hace a través de la función `var`.
 
 ```css
 .topNavbar {
@@ -185,7 +199,7 @@ Para crear una propiedad customizada se utiliza como prefijo el doble guión -- 
 }
 ```
 
-Para usar las propiedades en un scope global del documento se pueden definir en la pseudo clase :root.
+Para usar las propiedades en un scope global del documento se pueden definir las propiedades en la pseudo-clase `:root`.
 
 ```css
 :root{
@@ -204,14 +218,40 @@ Para usar las propiedades en un scope global del documento se pueden definir en 
 }
 ```
 
-### Herencia de propiedades
+## Herencia y cascada
 
-CSS como su nombre lo indica, hoja de estilos en cascada, va en forma de cascada, de arriba hacia abajo. Una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto.
+Los elementos de CSS tienen la característica de que se pueden **heredar propiedades desde los ancestros hasta el elemento actual**. Esto modifica el valor que la propiedad tiene por defecto. Propiedades como `font` y `color` ocurren de forma automática. Otras propiedades es necesario decirle que herede las propiedades con valores especiales.
+
+- El valor **`initial`** establece el valor por defecto.
+- El valor **`inherit`** hereda el valor desde el ancestro.
+- El valor **`unset`** hereda el valor desde el ancestro y no existe establece el valor por defecto.
+
+```css
+div {
+  border: initial;
+  border: inherit;
+  border: unset;  
+}
+```
+
+CSS como en su nombre lo indica **hoja de estilos en cascada**, como una cascada de arriba hacia abajo. Nos indica que la última propiedad definida va a prevalecer. El **orden** es una parte importante para CSS. En el siguiente ejemplo el color del párrafo quedará en negro.
+
+```css
+p {
+  color: white;
+}
+
+p {
+  color: black;
+}
+```
+
+En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto, pues la propiedad abreviadad contiene los demás valores dados por el defecto.
 
 Mal:
 
 ```css
-p{
+p {
   font-style: italic;
   font: 20px Arial;
 }
@@ -220,9 +260,37 @@ p{
 Bien:
 
 ```css
-p{
+p {
   font: 20px Arial;
   font-style: italic;
+}
+```
+
+El lugar dónde está ubicado nuestros estilos da **importancia** a que se apliquen. También existe un valor dedicado a ello `!important`. Este valor hará que se aplique el estilo independientemente del orden que se aplique. En el siguiente ejemplo el color del párrafo quedará en blanco.
+
+```css
+p {
+  color: white !important;
+}
+
+p {
+  color: black;
+}
+```
+
+La **especificidad** es el último que entra en juego en la cascada. Si en un elemento existe aún duda sobre que elemento estilar, se mide con este factor. Para el siguiente párrafo el color será blanco.
+
+```html
+<p class="blanco"></p>
+```
+
+```css
+p.blanco {
+  color: white;
+}
+
+p {
+  color: black;
 }
 ```
 
@@ -230,9 +298,7 @@ p{
 
 CSS al igual que otros lenguajes cuenta con funciones. A diferencia de otros lenguajes, en CSS no podemos crear nuevas funciones.
 
-### Funciones básicas
-
-En estas son las más usadas comúnmente como las de asignar propiedades customizadas, aplicar colores, hacer calculos sobre unidades del DOM entre otras.
+Tenemos **funciones generales**, estas son las más usadas comúnmente como las de asignar propiedades personalizadas, aplicar colores, hacer cálculos sobre unidades del DOM entre otras.
 
 ```css
 {
@@ -244,9 +310,7 @@ En estas son las más usadas comúnmente como las de asignar propiedades customi
 }
 ```
 
-### Funciones de selectores
-
-En los selectores también podemos usar funciones para iterar entre elementos. El siguiente ejemplo aplica estilos diferentes cada 3 elementos de item.
+También podemos usar **funciones de selectores** para iterar entre elementos. El siguiente ejemplo aplica estilos diferentes cada 3 elementos de item.
 
 ```css
 .item:nth-of-type(3n + 1) {
@@ -260,9 +324,7 @@ En los selectores también podemos usar funciones para iterar entre elementos. E
 }
 ```
 
-### Funciones de dimensiones
-
-Las funciones de dimensiones se aplican a los elementos definidos por vectores.
+Las **funciones de dimensiones** se aplican a los elementos definidos por vectores.
 
 ```css
 .dimension {
@@ -272,9 +334,7 @@ Las funciones de dimensiones se aplican a los elementos definidos por vectores.
 }
 ```
 
-### Funciones filtro
-
-Las funciones de filtro definen efectos visuales, generalmente en imagenes o vídeos.
+Las **funciones de filtro** definen efectos visuales, generalmente en imágenes o vídeos.
 
 ```css
 img {
@@ -284,9 +344,7 @@ img {
 }
 ```
 
-### Funciones en grids
-
-Estas funciones nos ayudan a estructurar nuestro contenido con grids.
+Tenemos **funciones de grids**. Estas funciones nos ayudan a estructurar nuestro contenido con grids.
 
 ```css
 .grid {
@@ -298,19 +356,17 @@ Estas funciones nos ayudan a estructurar nuestro contenido con grids.
 
 ## Reglas at
 
-Son declaraciones que comienzan con el símbolo arroba "@",
+Son declaraciones que comienzan con el símbolo arroba `@`,
 
-@import nos permite incluir una hoja de estilos externa, con esto podemos reusar nuestros estilos y poder agregar más fuentes como alternativa a la de HTML.
-
-El siguiente código importará la fuente monserrat si se encuentra en un dispositivo de impresión.
+`@import` nos permite incluir una hoja de estilos externa, con esto podemos vover a usar nuestros estilos y poder agregar más estilos. El siguiente código importará la fuente Monserrat si se encuentra en un dispositivo de impresión.
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') print;
 ```
 
-@keyframes  — Describe la configuración de pasos intermedios en una secuencia de animación CSS.
+`@keyframes`  — Describe la configuración de pasos intermedios en una secuencia de animación CSS.
 
-@media se usa para aplicar estilos para diferentes tipos de medios
+`@media` se usa para aplicar estilos para diferentes tipos de medios
 
 ```css
 @media screen and (max-width: 1300px){
@@ -331,7 +387,7 @@ El siguiente código importará la fuente monserrat si se encuentra en un dispos
 
 ## El modelo de caja
 
-Una forma de mirar los elementos a la hora de darle estilos es de forma de cajas. La mayoria de elementos se pueden estilar de esta forma pues tienen dentro el contenido, el relleno que las asegura, el borde de la caja y el margen que las separa de otras cajas.
+Una forma de mirar los elementos a la hora de darle estilos es de forma de cajas. La mayoría de elementos se pueden estilar de esta forma pues tienen dentro el contenido, el relleno que las asegura, el borde de la caja y el margen que las separa de otras cajas.
 
 <style>.boxModel__margin{max-width:300px;height:200px;outline:dashed 1px #000;background:#ffca96;margin:auto;position:relative}.boxModel__border{max-width:240px;height:140px;outline:solid 1px #000;background:#ffdc91}.boxModel__padding{max-width:180px;height:80px;outline:solid 1px #000;background:#bfd081}.boxModel__content{max-width:120px;height:30px;outline:solid 1px #000;background:#7fb6c2;display:flex;justify-content:center;align-items:center;font-size:13px}.boxModel-center{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto}.boxModel__margin span{font-size:13px;margin-left:10px}</style>
 <div class="boxModel__margin">
@@ -348,13 +404,13 @@ Una forma de mirar los elementos a la hora de darle estilos es de forma de cajas
 </div>
 
 - Contenido - Es el contenido de la caja donde el texto y las imágenes aparecen.
-- Padding - El relleno es un espacio entre el contenido y el borde.
-- Border - El borde es lo que rodea al relleno y el contenido.
-- Margin - El margen es un espacio desde el borde hacia el exterior.
+- `Padding` - El relleno es un espacio entre el contenido y el borde.
+- `Border` - El borde es lo que rodea al relleno y el contenido.
+- `Margin` - El margen es un espacio desde el borde hacia el exterior.
 
 ### Diferencia entre Padding y Margin
 
-El padding y el margin son separadores. El margin siempre es invisible y separa al exterior de nuestro elemento con respecto al borde. El padding puede ser visible al asignarle un background al elemento, separa al interior de nuestro elemento con respecto al borde.
+El `padding` y el `margin` **son separadores**. El `margin` siempre es invisible y **separa al exterior** de nuestro elemento con respecto al borde. El `padding` puede ser visible al asignarle un background al elemento, **separa al interior** de nuestro elemento con respecto al borde.
 
 <style>.box{width:200px;height:100px;background:#99c;border:1px solid #000}.with-padding{padding:30px}.with-margin{margin:30px}</style>
 <div style="display: flex;">
@@ -384,15 +440,15 @@ El padding y el margin son separadores. El margin siempre es invisible y separa 
 }
 ```
 
-En la primera caja el borde es el que delimita el color del background. El padding toma el color del background dando una separación de 30 pixeles a partir del borde hacia el interior.
+En la primera caja el borde es el que delimita el color del `background`. El `padding` toma el color del `background` dando una separación de 30 pixeles a partir del borde hacia el interior.
 
-En la segunda caja el margen no se pinta con el background. Hace una separación del borde hacia el exterior de 30 pixeles.
+En la segunda caja el margen no se pinta con el `background`. Hace una separación del borde hacia el exterior de 30 pixeles.
 
 ## Animaciones
 
-Las animaciones en css requieren de la regla keyframes seguida del nombre de la animación. Los selectores se pueden representar con porcentajes de 0% a 100% o con las palabras "from" y "to" que sería lo mismo que 0% y 100%.
+Las animaciones en css requieren de la regla `keyframes` seguida del nombre de la animación. Los selectores se pueden representar con porcentajes de 0% a 100% o con las palabras `from` y `to` que sería lo mismo que 0% y 100%.
 
-Esta animación puede ser llamada asignandola a un elemento con la propiedad animation-name y con animation-duration.
+Esta animación puede ser llamada asignándola a un elemento con la propiedad `animation-name` y con `animation-duration`.
 
 ```css
 @keyframes desplazamiento {
@@ -466,10 +522,10 @@ Un ejemplo simple de uso de porcentajes sería el siguiente:
 
 ## Compatibilidad
 
-CSS no se renderiza igual en todos los navegadores, un decorador de texto puede que no luzca de la misma forma en Firefox que en Chrome. Aplicar ciertos trucos para que todos luzca igual en todos los navegadores puede que sea una tarea tediosa. Es importante saber el mercado de usuarios al que va dirigido la página que creamos para saber en que navegadores enfocarnos.
+CSS no se interpreta igual en todos los navegadores, un decorador de texto puede que no luzca de la misma forma en Firefox que en Chrome. Aplicar ciertos trucos para que todos luzca igual en todos los navegadores puede que sea una tarea tediosa. Es importante saber el mercado de usuarios al que va dirigido la página que creamos para saber en que navegadores enfocarnos.
 
 CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características. Algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con **prefijos** que solo el navegador conoce. La ventaja de CSS es que si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda.
-Los siguientes prefijos son los mas comunes:
+Los siguientes prefijos son los más comunes:
 
 | **Prefijo** |       **Navegadores**       |
 |:-----------:|:---------------------------:|
@@ -480,7 +536,7 @@ Los siguientes prefijos son los mas comunes:
 
 [Can I Use](https://caniuse.com "Can I Use") es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar. Podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.
 
-Soporte para la propiedad "hyphens" en distintos navegadores:
+Soporte para la propiedad `hyphens` en distintos navegadores:
 
 <iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" title="Can I Use Hyphens" frameborder="0" width="100%" height="450"></iframe>
 

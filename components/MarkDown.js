@@ -10,6 +10,8 @@ import gfm from "remark-gfm";
 import codeStyles from "../styles/codeStyles";
 import { colors } from "../styles/theme";
 import Head from "next/head";
+import json from "refractor/lang/json";
+
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
@@ -66,10 +68,10 @@ const parseHtml = htmlParser({
         node.type === "style" &&
         node.name === "style" &&
         node.children.length > 0,
-      processNode: function Style(_, children) {
+      processNode: function Style(_, children, i) {
         const styles = children[0];
         return (
-          <div>
+          <div key={i}>
             <Head>
               <style>{styles}</style>
             </Head>
@@ -454,5 +456,9 @@ const _mapProps = (source) => ({
   },
 });
 
-const Markdown = ({ source }) => <ReactMarkdown {..._mapProps(source)} />;
+const Markdown = ({ source }) => {
+  SyntaxHighlighter.registerLanguage("json", json);
+  return <ReactMarkdown {..._mapProps(source)} />;
+};
+
 export default Markdown;
