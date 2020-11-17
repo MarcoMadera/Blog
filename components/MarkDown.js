@@ -318,34 +318,15 @@ const _mapProps = (source) => ({
         <>
           <img loading="lazy" src={src} alt={alt} title={title || alt} />
           <style jsx>{`
-            img:hover {
-              position: static;
-              transform: scale(1.1);
-            }
-            img[alt$="100px"] {
+            img[alt$="a la derecha"] {
               display: block;
-              height: 100px;
+              float: right;
+              margin: 10px;
             }
-            img[alt$="ajustar izquierda 50px"] {
+            img[alt$="a la izquierda"] {
               display: block;
-              height: 50px;
               float: left;
               margin: 10px;
-            }
-            img[alt$="ajustar derecha"] {
-              display: block;
-              float: right;
-              margin: 10px;
-            }
-            img[alt$="ajustar derecha 200px"] {
-              display: block;
-              float: right;
-              height: 300px;
-              margin: 10px;
-            }
-            img[alt$="100px"] {
-              display: block;
-              height: 100px;
             }
           `}</style>
         </>
