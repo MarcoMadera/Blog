@@ -47,7 +47,7 @@ Una vez instalado nos podemos loguear con el siguiente comando:
 gh auth login
 ```
 
-![Login en github cli](https://res.cloudinary.com/marcomadera/image/upload/v1600485625/Blog/6/Login_Github_Cli_vjd3it.png "Login en github cli")
+![Login en github cli](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600485625/Blog/6/Login_Github_Cli_vjd3it.png "Login en github cli")
 
 Otros subcomandos que también se pueden usar:
 
@@ -72,7 +72,7 @@ gh repo create [<name>] [flags]
 
 Adios [repo.new](https://repo.new "Atajo de nuevo repositorio"), hola `gh repo create`
 
-![Creación de repositorio](https://res.cloudinary.com/marcomadera/image/upload/v1600490072/Blog/6/repocreate_z7ri8f.png "Creación de repositorio")
+![Creación de repositorio](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600490072/Blog/6/repocreate_z7ri8f.png "Creación de repositorio")
 
 ### Ver los repositorios
 
@@ -81,10 +81,10 @@ gh repo view [<repository>] [flags]
 ```
 
 Con este comando se puede observar la descripción del repositorio y el contenido del archivo README.md.
-Recibe dos argumentos, el nombre del repositorio y flags que puede ser por ejemplo -w --web para ver el repositorio en la web.
+Recibe dos argumentos, el nombre del repositorio y flags que puede ser por ejemplo `-w` `--web` para ver el repositorio en la web.
 Si no se incluyen flags se verá el repositorio que está en el directorio actual.
 
-![Ver repositorio](https://res.cloudinary.com/marcomadera/image/upload/v1600493607/Blog/6/repoview_yvcrdm.png "Ver repositorio")
+![Ver repositorio](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600493607/Blog/6/repoview_yvcrdm.png "Ver repositorio")
 
 ### Clonar repositorio
 
@@ -112,7 +112,7 @@ También se puede usar de la forma tradicional a través de un enlace.
 gh repo clone https://github.com/usuario/proyecto
 ```
 
-![Clonar repositorio](https://res.cloudinary.com/marcomadera/image/upload/v1600494350/Blog/6/repoclone_gdqyis.png "Clonar repositorio")
+![Clonar repositorio](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600494350/Blog/6/repoclone_gdqyis.png "Clonar repositorio")
 
 ### Hacer fork del repositorio
 
@@ -145,7 +145,7 @@ Subcomandos:
 gh pr create --title "Título" --body "Contenido"
 ```
 
-![Crear Pull Request](https://res.cloudinary.com/marcomadera/image/upload/v1600497956/Blog/6/rp_f3gmh5.png "Crear Pull Request")
+![Crear Pull Request](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600497956/Blog/6/rp_f3gmh5.png "Crear Pull Request")
 
 ### Enlistar las pull request
 
@@ -161,7 +161,7 @@ Se puede usar flags como filtros.
 gh pr view [<number> | <url> | <branch>] [flags]
 ```
 
-![Ver pull request](https://res.cloudinary.com/marcomadera/image/upload/v1600498372/Blog/6/prview_hrrjvo.png "Ver pull request")
+![Ver pull request](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600498372/Blog/6/prview_hrrjvo.png "Ver pull request")
 
 ### Revisar el estado de las pr
 
@@ -188,7 +188,7 @@ Subcomandos:
 gh issue create --title "Issue title" --body "Issue body"
 ```
 
-![Crear issue](https://res.cloudinary.com/marcomadera/image/upload/v1600532173/Blog/6/createissue_ckxu8l.png "Crear issue")
+![Crear issue](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600532173/Blog/6/createissue_ckxu8l.png "Crear issue")
 
 ### Ver issue
 
@@ -202,7 +202,7 @@ gh issue view {<number> | <url>} [flags]
 gh issue list
 ```
 
-![Enlistar Issue](https://res.cloudinary.com/marcomadera/image/upload/v1600535838/Blog/6/viewIssue_fl9jji.png "Enlistar Issue")
+![Enlistar Issue](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600535838/Blog/6/viewIssue_fl9jji.png "Enlistar Issue")
 
 ### Revisar el estado del issue
 
@@ -241,7 +241,7 @@ Crea un shortcut para los comandos gh
 gh alias set <alias> <expansion> [flags]
 ```
 
-![Alias](https://res.cloudinary.com/marcomadera/image/upload/v1600539890/Blog/6/aliases_u0mnwn.png "Alias")
+![Alias](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600539890/Blog/6/aliases_u0mnwn.png "Alias")
 
 Ejemplo de lista de bugs:
 
@@ -271,7 +271,7 @@ gh api repos/user/repo/releases
 
 También soporta urls absolutas.
 
-![Llamada API](https://res.cloudinary.com/marcomadera/image/upload/v1600495544/Blog/6/api_c3nf1n.png "Llamada API")
+![Llamada API](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1600495544/Blog/6/api_c3nf1n.png "Llamada API")
 
 ## Conclusión
 

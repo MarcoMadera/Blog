@@ -13,14 +13,14 @@ Las ligaduras tipográficas son **símbolos especiales** que se producen por la 
 
 En la **música** se aplica este concepto, las ligaduras son los símbolos que conectan las notas y hacen que se ejecuten como una sola nota prolongada, también ayudan en la legibilidad en el pentagrama.
 
-![Ligadura musical](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_167/v1595269483/Blog/2/2ed8a62bb1bd2f4eaeaaaa1be3be8e1e_bbofoo.jpg "Ligadura Musical")
+![Ligadura musical](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_167/v1595269483/Blog/2/2ed8a62bb1bd2f4eaeaaaa1be3be8e1e_bbofoo.jpg "Ligadura Musical")
 &nbsp;
 
 ## Ligaduras estándar
 
 Estas son ligaduras para **mejorar la legibilidad del texto**, entre las más comunes están las combinaciones 'ff' y 'fi', un ejemplo de esto está presente en el logotipo de microsoft office donde ligan ambas 'f' para evitar el espacio que quedaría de no hacerlo.
 
-![Ligadura estandar](https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/VkW3Q2D_nenmzd.jpg "Ligadura estándar")
+![Ligadura estandar](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1595269485/Blog/2/VkW3Q2D_nenmzd.jpg "Ligadura estándar")
 
 &nbsp;
 
@@ -32,10 +32,10 @@ Estás ligaduras son más estéticas, tienen el propósito de **lucir bien**, en
 
 ## Ligaduras históricas
 
-![Notacion tironiana a la derecha](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_200/v1595269484/Blog/2/2af6de62vb43bnnc4_ou6z52.jpg "Notas tironianas")
+![Notacion tironiana a la derecha](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_200/v1595269484/Blog/2/2af6de62vb43bnnc4_ou6z52.jpg "Notas tironianas")
 Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente **creadas para reducir el tiempo de escritura**. Cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada. Para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas. Fueron muy populares, por lo que después se le atribuyó la invención de la taquigrafía.
 
-![Ampersand a la izquierda](https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png "Ampersand")
+![Ampersand a la izquierda](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_125/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png "Ampersand")
 Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el ampersand, el símbolo formado por los caracteres 'e' y 't' que en español significa 'y'.
 
 En el alfabeto árabe los caracteres no tienen una forma fija. Cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea.
@@ -61,7 +61,7 @@ Descarga e instala la fuente que desees como cualquier otra fuente.
 
 La gran mayoría de editores permiten el uso de ligaduras.  
 Para activar las ligaduras en Visual Studio Code dirígete a `File > Preferences > User Settings` en la sección del editor de texto, fuentes y editar settings.json
-![Vs Code Settings](https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg "Vs Code Settings")
+![Vs Code Settings](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg "Vs Code Settings")
 
 En settings.json agrega lo siguiente en el caso de Fira Code.
 

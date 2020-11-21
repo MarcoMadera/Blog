@@ -10,12 +10,12 @@ const Portfolio = () => {
         <picture>
           <source
             srcSet={
-              "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_534,w_960/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
+              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_534,w_960/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
             }
             media="(max-width: 876px)"
           />
           <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_222,w_400/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
+            src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
             alt="challenges cover"
             width={400}
             height={222}
@@ -47,12 +47,12 @@ const Portfolio = () => {
         <picture>
           <source
             srcSet={
-              "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_534,w_960/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_534,w_960/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
             }
             media="(max-width: 876px)"
           />
           <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_222,w_400/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+            src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
             alt="test for random numbers cover"
             width={400}
             height={222}
@@ -85,12 +85,12 @@ const Portfolio = () => {
         <picture>
           <source
             srcSet={
-              "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_534,w_960/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_534,w_960/v1595275323/Potfolio/sreExcel/Data_splifz.png"
             }
             media="(max-width: 876px)"
           />
           <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_222,w_400/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+            src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595275323/Potfolio/sreExcel/Data_splifz.png"
             alt="sre-excel cover"
             width={400}
             height={222}

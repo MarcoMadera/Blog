@@ -365,7 +365,7 @@ const _mapProps = (source) => ({
       const Heading = ReactMarkdown.renderers.heading;
       return <Heading {...props} />;
     },
-    code: function CodeBlock({ language, value }) {
+    code: function CodeBlock({ language, value = "" }) {
       const style = codeStyles[`${language}`] ?? undefined;
       return (
         <div style={{ position: "relative", margin: "20px 0" }}>

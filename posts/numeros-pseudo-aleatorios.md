@@ -28,7 +28,7 @@ Para que una secuencia de números sea aleatoria, es necesario que tengan una di
 La uniformidad en el caso de los números aleatorios, significa que en un rango `[a,b]` cada intervalo tenga la misma probabilidad de ocurrir. Una distribución 100% uniforme luce de la siguiente forma:
 
 <figure>
-  <img src="https://res.cloudinary.com/marcomadera/image/upload/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
+  <img src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
   <figcaption>Gráfica completamente uniforme</figcaption>
 </figure>
 
@@ -86,7 +86,7 @@ En caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos. Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen.
 Por ahora si tomamos como muestra [esta lista](https://marcomadera.github.io/assets/blog/numerosAleatorios.txt "Lista de números") de 300 números nuestro progreso sería el siguiente:
 
-![Gráfica](https://res.cloudinary.com/marcomadera/image/upload/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png "Gráfica")
+![Gráfica](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png "Gráfica")
 
 Muestra generada a partir de Math.Random() en la consola de Google Chrome.
 

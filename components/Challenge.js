@@ -63,12 +63,12 @@ const Challenge = ({
         <a href={liveDemo} rel="noopener noreferrer" target="_blank">
           <picture>
             <source
-              srcSet={`${imageCloudProvider}/c_scale,w_960/${challengeImg}`}
+              srcSet={`${imageCloudProvider}/q_auto,f_auto,c_scale,w_960/${challengeImg}`}
               media="(max-width: 876px)"
             />
             <img
               loading="lazy"
-              src={`${imageCloudProvider}/c_scale,w_550/${challengeImg}`}
+              src={`${imageCloudProvider}/q_auto,f_auto,c_scale,w_550/${challengeImg}`}
               alt={title}
             />
           </picture>

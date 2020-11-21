@@ -13,12 +13,12 @@ const Article = ({ title, img, children }) => {
         <div>
           <picture>
             <source
-              srcSet={`${imageCloudProvider}/c_scale,h_540,w_960/${img}`}
+              srcSet={`${imageCloudProvider}/q_auto,f_auto,c_scale,h_540,w_960/${img}`}
               media="(max-width: 876px)"
             />
             <img
               loading="lazy"
-              src={`${imageCloudProvider}/c_scale,w_550/${img}`}
+              src={`${imageCloudProvider}/q_auto,f_auto,c_scale,w_550/${img}`}
               alt={title}
             />
           </picture>

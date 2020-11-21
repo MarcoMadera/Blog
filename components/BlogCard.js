@@ -21,7 +21,7 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
                 srcSet={
                   author !== siteMetadata.author.name
                     ? cover
-                    : `${imageCloudProvider}/c_scale,h_300,w_300/${cover}`
+                    : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_300,w_300/${cover}`
                 }
                 media="(max-width: 876px)"
               />
@@ -29,7 +29,7 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
                 src={
                   author !== siteMetadata.author.name
                     ? cover
-                    : `${imageCloudProvider}/c_scale,h_100,w_100/${cover}`
+                    : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_100,w_100/${cover}`
                 }
                 alt={`Portada del blog ${title}`}
                 width="100"

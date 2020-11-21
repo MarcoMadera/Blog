@@ -168,7 +168,7 @@ div {
 }
 ```
 
-También existen los **valores abreviados**. Si solo se incluyen dos valores, se toma como el primer valor a margin-top y margin-bottom y el segundo valor margin-right y margin-left. En caso de incluirse 3 valores, se toman de forma de las manecillas del reloj y el segundo valor sería para margin-left.
+También existen los **valores abreviados**. Si solo se incluyen dos valores, se toma como el primer valor a `margin-top` y `margin-bottom` y el segundo valor `margin-right` y `margin-left`. En caso de incluirse 3 valores, se toman de forma de las manecillas del reloj y el segundo valor sería para `margin-left`.
 
 ```css
 div {

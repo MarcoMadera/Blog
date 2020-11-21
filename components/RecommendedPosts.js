@@ -24,7 +24,7 @@ const RecommendedPosts = ({ recommendedPosts, currentPost }) => {
                             src={
                               author !== siteMetadata.author.name
                                 ? cover
-                                : `${imageCloudProvider}/c_scale,h_40,w_40/${cover}`
+                                : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_40,w_40/${cover}`
                             }
                             alt={`${title} cover`}
                             width="40"

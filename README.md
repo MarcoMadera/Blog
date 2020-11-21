@@ -25,7 +25,7 @@ tags:
   - Another tag related
 ---
 
-Blog content goes here following the markdown syntax and must have at least one h2 (## in markdown syntax).
+Blog content goes here following the markdown syntax.
 ```
 
 ### Embed
