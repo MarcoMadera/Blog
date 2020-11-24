@@ -83,6 +83,7 @@ const Newsletter = () => {
         p {
           font-size: 15px;
           text-align: center;
+          margin: 1em 0;
         }
 
         input {

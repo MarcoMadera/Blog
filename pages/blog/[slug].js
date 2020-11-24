@@ -15,7 +15,8 @@ import { colors } from "../../styles/theme";
 import { getFormattedDate } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
 import { siteMetadata, imageCloudProvider } from "../../site.config";
-
+import getTweets from "../../lib/get-tweets";
+import { Tweets } from "../../lib/tweets";
 //collect every h2 in the post to place in table of contents
 const contentAside = (content) => {
   const h2s = toc(content)
@@ -39,6 +40,7 @@ export default function Post({
   twitter,
   summary,
   slug,
+  tweets,
 }) {
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
   const [showComments, setShowComments] = useState(false);
@@ -62,7 +64,6 @@ export default function Post({
             ? cover
             : `${imageCloudProvider}/c_scale,w_760/${cover}`
         }
-        path={`/blog/${slug}`}
         author={author}
         date={date}
       />
@@ -81,7 +82,9 @@ export default function Post({
             </p>
           </div>
           <div itemProp="articlebody">
-            <MarkDown source={content} />
+            <Tweets.Provider value={tweets}>
+              <MarkDown source={content} />
+            </Tweets.Provider>
           </div>
           <hr />
           <BlogFooter
@@ -166,6 +169,11 @@ export default function Post({
           text-align: center;
           align-self: stretch;
           width: 220px;
+          color: ${colors.primary};
+        }
+        a:hover {
+          text-decoration: underline;
+          color: ${colors.secondary};
         }
         p {
           font-size: 16px;
@@ -219,8 +227,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
+  let data = getPostBySlug(slug);
+  const tweets = await getTweets(data.content);
   return {
-    props: getPostBySlug(slug),
+    props: { ...data, tweets },
   };
 }
 
@@ -234,6 +244,7 @@ Post.propTypes = {
   tags: PropTypes.array,
   content: PropTypes.string,
   nextPost: PropTypes.object,
+  tweets: PropTypes.object,
   previousPost: PropTypes.object,
   recommendedPosts: PropTypes.array,
   profilePhoto: PropTypes.string,

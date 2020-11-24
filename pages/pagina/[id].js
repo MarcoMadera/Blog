@@ -8,10 +8,14 @@ import BlogCard from "../../components/BlogCard";
 import Custom404 from "../404";
 import { colors } from "../../styles/theme";
 import Link from "next/link";
+import { siteMetadata } from "../../site.config";
 export default function Page({ posts = [], pages = [], tags = [], page }) {
   return (
     <main id="main">
-      <Seo title={`Marco Madera 📝 | Página ${page}`} />
+      <Seo
+        title={`Marco Madera 📝 | Página ${page}`}
+        canonical={siteMetadata.siteUrl}
+      />
       <Aside />
       <section>
         <h1>Últimos artículos</h1>
@@ -59,6 +63,7 @@ export default function Page({ posts = [], pages = [], tags = [], page }) {
       <style jsx>{`
         h1 {
           font-size: 1rem;
+          margin: 0.83em 0;
         }
         nav {
           display: flex;

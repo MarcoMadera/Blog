@@ -55,6 +55,7 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
       <style jsx>{`
         h1 {
           font-size: 1rem;
+          margin: 0.83em 0;
         }
         nav {
           display: flex;

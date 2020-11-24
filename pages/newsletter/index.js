@@ -37,7 +37,7 @@ const NewsletterPage = () => {
   }
   return (
     <main id="main">
-      <Seo title="Newsletter 📬 | Marco Madera" path="/newsletter" />
+      <Seo title="Newsletter 📬 | Marco Madera" />
       <div>
         <label htmlFor="bd-email">
           <h1>Newsletter</h1>
@@ -96,6 +96,7 @@ const NewsletterPage = () => {
 
         h1 {
           margin-top: 0;
+          margin-bottom: 0.67em;
           text-align: center;
         }
         a {

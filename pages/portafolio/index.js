@@ -4,7 +4,7 @@ import { colors } from "../../styles/theme";
 const Portfolio = () => {
   return (
     <main id="main">
-      <Seo title="Portafolio 💼 | Marco Madera" path="/portafolio" />
+      <Seo title="Portafolio 💼 | Marco Madera" />
       <h1>Portafolio</h1>
       <article>
         <picture>
@@ -118,6 +118,7 @@ const Portfolio = () => {
         }
         h1{
           margin-top: 0;
+          margin-bottom: 0.67em;
           text-align: center;
         }
         main {

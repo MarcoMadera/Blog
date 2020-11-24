@@ -37,5 +37,5 @@ To embed videos from youtube or tweets are available with the following tags
 <youtube id="video Id" title="Video Title">
 
 <!-- https://twitter.com/Twitter/status/1323314485705297926 id=1323314485705297926 -->
-<tweet id="Tweet Id" title="Tweet Title">
+<tweet id="Tweet Id">
 ```

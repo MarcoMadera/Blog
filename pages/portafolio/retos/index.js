@@ -3,7 +3,7 @@ import Seo from "../../../components/Seo";
 const challenges = () => {
   return (
     <main id="main">
-      <Seo title="Portafolio 💼 | Retos Frontend" path="/portafolio/retos" />
+      <Seo title="Portafolio 💼 | Retos Frontend" />
       <h1>Retos frontend</h1>
       <Challenge
         title="REST Countries API with color theme switcher"
@@ -127,6 +127,7 @@ const challenges = () => {
         }
         h1 {
           margin-top: 0;
+          margin-bottom: 0.67em;
           text-align: center;
         }
         p {

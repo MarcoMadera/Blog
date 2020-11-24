@@ -11,22 +11,11 @@ export const blogStyles = css.global`
       display: none !important;
     }
   }
-  .blog a {
-    color: ${colors.primary};
-  }
-  .blog a:hover {
-    text-decoration: underline;
-    color: ${colors.secondary};
-  }
   .blog :not(pre) > code {
     white-space: normal;
     color: #24292e;
     border-radius: 0.2em;
     padding: 0.1em;
-  }
-  .blog p {
-    text-align: justify;
-    line-height: 1.6;
   }
   .blog video {
     filter: brightness(110%);
@@ -63,7 +52,6 @@ export const blogStyles = css.global`
     padding: 0 20px 0 0;
     margin-left: 20px;
   }
-  .blog img,
   .blog video {
     display: block;
     margin: auto;
@@ -71,11 +59,7 @@ export const blogStyles = css.global`
     clip-path: inset(0% 0% 0% 0% round 10px);
     transition: ease 0.3s;
   }
-  .blog details {
-    border: 1px solid ${colors.gray};
-    border-radius: 4px;
-    padding: 0.5em 0.5em 0;
-  }
+
   .blog input[type="number"],
   .blog select {
     border: 1px solid ${colors.gray};
@@ -107,24 +91,6 @@ export const blogStyles = css.global`
   .blog caption {
     padding: 8px;
     caption-side: bottom;
-  }
-  .blog summary {
-    font-weight: bold;
-    margin: -0.5em -0.5em 0;
-    padding: 0.5em;
-  }
-  .blog details > summary::marker {
-    color: ${colors.primary};
-  }
-  .blog details > summary::-webkit-details-marker {
-    color: ${colors.primary};
-  }
-  .blog details[open] {
-    padding: 0.5em;
-  }
-  .blog details[open] summary {
-    border-bottom: 1px solid ${colors.gray};
-    margin-bottom: 0.5em;
   }
   .blog figure {
     margin: 0 auto;

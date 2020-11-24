@@ -6,6 +6,7 @@ import AllTags from "../../../components/AllTags";
 import Seo from "../../../components/Seo";
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
+import { siteMetadata } from "../../../site.config";
 
 const Tag = ({ postsByTag, tags, slug }) => {
   return (
@@ -14,7 +15,7 @@ const Tag = ({ postsByTag, tags, slug }) => {
         title={`Blog etiqueta ${postsByTag[0].tags.find((tag) =>
           slugify(tag).includes(slug)
         )} 📌`}
-        path={`/blog/etiqueta/${slug}`}
+        canonical={siteMetadata.siteUrl}
       />
       <Aside />
       <section>

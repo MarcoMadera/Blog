@@ -44,6 +44,11 @@ const Bio = ({ profilePhoto, twitter, author, summary }) => {
           width: 40px;
           height: 40px;
           margin: 0 10px 0 0 !important;
+          clip-path: inset(0% round 10px);
+          transition: all 0.3s ease 0s;
+        }
+        img:hover {
+          transform: scale(1.1);
         }
         span:hover a {
           display: inline-block;
@@ -75,6 +80,9 @@ const Bio = ({ profilePhoto, twitter, author, summary }) => {
           font: normal normal normal 11px/18px "Helvetica Neue", Arial,
             sans-serif;
           transition: 0.3s ease;
+        }
+        a:hover {
+          text-decoration: underline;
         }
       `}</style>
     </div>

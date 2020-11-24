@@ -544,7 +544,9 @@ En las listas se pueden combinar diferentes elementos como puede ser un checbox 
 
 Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y encabezados.
 
-<table><caption>Precio de cosas</caption><colgroup><col span="0" style="background-color:#e0ece4"><col span="1" style="background-color:#ebecf1"><col span="2" style="background-color:#f1f3de"></colgroup><thead><tr><th style="font-weight: bold;">Nombre</th><th style="font-weight: bold;">Precio</th><th style="font-weight: bold;">IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" style="background-color:#e0ece4">$336</td></tr></tfoot></table>
+<style>col{background-color:#e0ece4;}col[span="1"]{background-color:#ebecf1;}col[span="2"]{background-color:#f1f3de;}td[colspan="2"] {background-color:#e0ece4;}</style>
+
+<table><caption>Precio de cosas</caption><colgroup><col span="0" ><col span="1" ><col span="2" ></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colSpan="2" >$336</td></tr></tfoot></table>
 
 ```html
 <table>

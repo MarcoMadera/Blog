@@ -1,17 +1,19 @@
 import Head from "next/head";
 import { siteMetadata } from "../site.config";
 import PropTypes from "prop-types";
+import { useRouter } from "next/router";
+
 const Seo = ({
   title,
   description = "",
   cover = `${siteMetadata.siteUrl}/logo512.png`,
-  path = "",
   canonical = "",
   author = "",
   date = "",
 }) => {
   const metaDescription = description || siteMetadata.description;
   const metaTitle = title || siteMetadata.title;
+  const router = useRouter();
   return (
     <Head>
       <title>{title}</title>
@@ -20,9 +22,9 @@ const Seo = ({
       <link
         rel="canonical"
         href={
-          canonical || path
-            ? `${siteMetadata.siteUrl}${path}`
-            : siteMetadata.siteUrl
+          canonical ?? router.asPath === "/"
+            ? siteMetadata.siteUrl
+            : `${siteMetadata.siteUrl}${router.asPath}`
         }
       />
       <meta property="og:locale" content="es-MX" />
@@ -43,7 +45,7 @@ const Seo = ({
       />
       <meta name="twitter:site" content={`@${siteMetadata.social.twitter}`} />
       <meta property="fb:app_id" content="373017180730319" />
-      {path.includes("/blog/") ? (
+      {router.asPath.includes("/blog/") ? (
         <>
           <meta property="og:type" content="article" />
           {author === siteMetadata.author.name && (
@@ -59,7 +61,7 @@ const Seo = ({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher":"Marco Madera","mainEntityOfPage":"${siteMetadata.siteUrl}${path}"}`,
+              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher":"Marco Madera","mainEntityOfPage":"${siteMetadata.siteUrl}${router.asPath}"}`,
             }}
           />
         </>
@@ -73,7 +75,10 @@ const Seo = ({
       />
       <meta property="og:image" content={cover} />
       <meta property="og:image:alt" content={metaDescription} />
-      <meta property="og:url" content={`${siteMetadata.siteUrl}${path}`} />
+      <meta
+        property="og:url"
+        content={`${siteMetadata.siteUrl}${router.asPath}`}
+      />
       <meta property="twitter:image" content={cover} />
     </Head>
   );

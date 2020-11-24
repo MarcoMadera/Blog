@@ -92,7 +92,7 @@ const Article = ({ title, img, children }) => {
 const sre = () => {
   return (
     <main id="main">
-      <Seo title="Portafolio 💼 | SRE Excel" path="/portafolio/sre-excel" />
+      <Seo title="Portafolio 💼 | SRE Excel" />
       <h1>Registro de trámites en Excel</h1>
       <Article
         title="Navegador"
@@ -194,6 +194,7 @@ const sre = () => {
         }
         h1 {
           margin-top: 0;
+          margin-bottom: 0.67em;
           text-align: center;
         }
         p {

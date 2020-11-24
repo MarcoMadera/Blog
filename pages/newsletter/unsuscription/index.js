@@ -4,10 +4,7 @@ const unsuscription = () => {
   return (
     <>
       <main id="main">
-        <Seo
-          title="Te has desuscrito 😢 | Marco Madera"
-          path="/newsletter/unsuscription"
-        />
+        <Seo title="Te has desuscrito 😢 | Marco Madera" />
         <section>
           <h1>
             ¡Te has desuscrito del Newsletter!{" "}
@@ -36,6 +33,7 @@ const unsuscription = () => {
 
           h1 {
             margin-top: 0;
+            margin-bottom: 0.67em;
             text-align: center;
           }
           main {

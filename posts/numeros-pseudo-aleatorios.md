@@ -27,8 +27,10 @@ Para que una secuencia de números sea aleatoria, es necesario que tengan una di
 
 La uniformidad en el caso de los números aleatorios, significa que en un rango `[a,b]` cada intervalo tenga la misma probabilidad de ocurrir. Una distribución 100% uniforme luce de la siguiente forma:
 
+<style>.graficaUniformeImg{display:block;margin: auto;max-width: 99%;clip-path: inset(0% round 10px);}</style>
+
 <figure>
-  <img src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
+  <img class="graficaUniformeImg" src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
   <figcaption>Gráfica completamente uniforme</figcaption>
 </figure>
 
@@ -67,7 +69,7 @@ Donde:
 
 Primero formulamos nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
-<table><colgroup span="2"></colgroup><thead><tr><th style="font-weight: bold;" colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
+<table><colgroup span="2"></colgroup><thead><tr><th colSpan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son uniformes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son uniformes</td></tr></tbody></table>
 
 Sea 'n' el número de datos que vamos a evaluar, determinamos el número de intervalos que vamos a utilizar de la siguiente manera: √n, por ejemplo:
 
@@ -163,7 +165,7 @@ Z: Valor estándar de la distribución normal para la prueba.
 
 Igual que antes establecemos primero nuestra hipótesis nula (h0) e hipótesis alternativa (h1).
 
-<table><colgroup span="2"></colgroup><thead><tr><th style="font-weight: bold;" colspan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son independientes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son independientes</td></tr></tbody></table>
+<table><colgroup span="2"></colgroup><thead><tr><th colSpan="2" scope="colgroup">Hipótesis</th></tr></thead><tbody><tr><td>H<sub>0</sub></td><td>Los datos son independientes</td></tr><tr><td>H<sub>1</sub></td><td>Los datos no son independientes</td></tr></tbody></table>
 
 Clasificamos los números como bien el nombre lo indica. Como racha ascendente o descendente. Ejemplo:
 Dada la siguiente lista: 0.1, 0.2, 0.3, 0.4, 0.2, 0.3, 0.1, 0.2, 0.3.
@@ -266,8 +268,7 @@ Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longi
 |:----------------------:|:---:|:---:|:---:|:---:|:---------:|
 |  **Número de rachas**  | 116 |  55 |  19 |  4  |    194    |
 
-<div className="chi-eq">
-<i>
+<div className="chi-eq"><i>
   e<sub>1</sub> =
 </i>
 <div className="fraction">

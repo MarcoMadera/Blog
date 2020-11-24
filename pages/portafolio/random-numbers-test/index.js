@@ -4,10 +4,7 @@ import { colors } from "../../../styles/theme";
 const Random = () => {
   return (
     <main id="main">
-      <Seo
-        title="Portafolio 💼 | Números Pseudo Aleatorios"
-        path="/portafolio/random-numbers-test"
-      />
+      <Seo title="Portafolio 💼 | Números Pseudo Aleatorios" />
       <h1>Herramienta para verificar números aleatorios</h1>
       <article>
         <div>
@@ -77,6 +74,7 @@ const Random = () => {
         }
         h1 {
           margin-top: 0;
+          margin-bottom: 0.67em;
           text-align: center;
         }
         p {

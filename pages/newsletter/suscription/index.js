@@ -4,10 +4,7 @@ const suscription = () => {
   return (
     <>
       <main id="main">
-        <Seo
-          title="Suscripción exitosa! 🎉| Marco Madera"
-          path="/newsletter/suscription"
-        />
+        <Seo title="Suscripción exitosa! 🎉| Marco Madera" />
         <section>
           <h1>
             ¡Ya casi estás suscrito al Newsletter!{" "}
@@ -39,6 +36,7 @@ const suscription = () => {
 
           h1 {
             margin-top: 0;
+            margin-bottom: 0.67em;
             text-align: center;
           }
           main {
