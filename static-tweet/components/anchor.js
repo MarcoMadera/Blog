@@ -1,3 +1,4 @@
+import { tweets } from "../../styles/theme";
 const PROTOCOL = /^(https?:|)\/\//;
 
 const beautifyHref = (href) => {
@@ -30,7 +31,7 @@ export const A = (p) => (
     {p.children[0] === p.href ? beautifyHref(p.href) : p.children}
     <style jsx>{`
       a {
-        color: var(--link-color);
+        color: ${tweets.linkColor};
         text-decoration: none;
       }
       @media (any-hover: hover) {

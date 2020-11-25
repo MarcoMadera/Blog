@@ -7,7 +7,6 @@ import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
 import RecommendedPosts from "../../components/RecommendedPosts";
-import { useState, useEffect } from "react";
 import { FastCommentsCommentWidget } from "fastcomments-react";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
@@ -17,6 +16,9 @@ import { blogStyles } from "../../styles/blogStyles";
 import { siteMetadata, imageCloudProvider } from "../../site.config";
 import getTweets from "../../lib/get-tweets";
 import { Tweets } from "../../lib/tweets";
+import useMounted from "../../hooks/useMounted";
+import { useRouter } from "next/router";
+
 //collect every h2 in the post to place in table of contents
 const contentAside = (content) => {
   const h2s = toc(content)
@@ -43,16 +45,8 @@ export default function Post({
   tweets,
 }) {
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
-  const [showComments, setShowComments] = useState(false);
-  const [postTitle, setPostTitle] = useState();
-  useEffect(() => {
-    setPostTitle(title);
-    if (title !== postTitle) {
-      setShowComments(false);
-    } else {
-      setShowComments(true);
-    }
-  }, [title, postTitle]);
+  const router = useRouter();
+  const mounted = useMounted();
 
   return (
     <main>
@@ -118,11 +112,11 @@ export default function Post({
             <div />
           )}
         </nav>
-        {showComments && (
+        {mounted && (
           <FastCommentsCommentWidget
             tenantId={tenantId}
-            allowAnon={true}
-            hasDarkBackground={false}
+            urlId={`${siteMetadata.siteUrl}${router.asPath}`}
+            url={`${siteMetadata.siteUrl}${router.asPath}`}
           />
         )}
       </div>

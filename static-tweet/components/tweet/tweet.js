@@ -1,6 +1,7 @@
 import TweetHeader from "./tweet-header";
 import TweetInfo from "./tweet-info";
 import TweetAction from "./tweet-action";
+import { tweets } from "../../../styles/theme";
 
 export default function Tweet({ children, data }) {
   return (
@@ -13,17 +14,17 @@ export default function Tweet({ children, data }) {
       <TweetAction tweet={data} />
       <style jsx>{`
         .tweet {
-          color: var(--tweet-font-color);
-          font: var(--tweet-font);
+          color: ${tweets.tweetFontColor};
+          font: ${tweets.tweetFont};
           overflow: hidden;
-          background: var(--tweet-bg-color);
-          border: var(--tweet-border);
+          background: ${tweets.tweetBgColor};
+          border: ${tweets.tweetBorder};
           border-radius: 5px;
-          margin: var(--container-margin);
+          margin: ${tweets.containerMargin};
         }
         @media (any-hover: hover) {
           .tweet:hover {
-            border: var(--tweet-border-hover);
+            border: ${tweets.tweetBorderHover};
           }
         }
         .tweet > div {

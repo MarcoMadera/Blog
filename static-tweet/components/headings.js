@@ -1,9 +1,9 @@
 import css from "styled-jsx/css";
-
+import { tweets } from "../../styles/theme";
 const { className, styles } = css.resolve`
    {
     font-weight: 600;
-    margin: var(--heading-margin-top) 0 var(--heading-margin-bottom) 0;
+    margin: ${tweets.headingMarginTop} 0 ${tweets.headingMarginBottom} 0;
   }
 `;
 
@@ -18,8 +18,8 @@ const Permalink = ({ children, id }) => (
         display: block;
         position: absolute;
         visibility: hidden;
-        margin-top: calc(-1 * var(--heading-margin-top));
-        padding-top: var(--heading-margin-top);
+        margin-top: calc(-1 * ${tweets.headingMarginTop});
+        padding-top: ${tweets.headingMarginTop};
       }
       a {
         color: inherit;

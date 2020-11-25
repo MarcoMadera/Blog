@@ -1,7 +1,6 @@
 import { useTweet } from "../lib/tweets";
 import Node from "../static-tweet/node";
 import components from "../static-tweet/components/";
-import twitterTheme from "../static-tweet/components/twitter-layout/twitter.module.css";
 
 export default function Tweet({ id, caption }) {
   const tweet = useTweet(id);
@@ -10,7 +9,7 @@ export default function Tweet({ id, caption }) {
   if (tweet.ignore) return null;
 
   return (
-    <div className={twitterTheme.theme}>
+    <div>
       {tweet && <Node components={components} node={tweet.ast[0]} />}
       {caption != null ? <p>{caption}</p> : null}
       <style jsx>{`

@@ -28,6 +28,9 @@ export const Img = ({ src, alt = "", title }) => {
       </details-dialog>
       <LoadDetailsDialog />
       <style jsx>{`
+        div img {
+          max-width: calc(100vw - 10px);
+        }
         details *:focus {
           outline: none;
           outline-style: none;

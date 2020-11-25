@@ -8,7 +8,6 @@ export const Meter = (props) => {
       <style jsx>
         {`
           meter {
-            --background: ${colors.white};
             display: block;
             margin: 0 auto;
             width: 100%;
@@ -22,12 +21,12 @@ export const Meter = (props) => {
           }
           meter::-webkit-meter-bar {
             background: none;
-            background-color: var(--background);
+            background-color: ${colors.white};
             height: 18px;
           }
           meter::-moz-meter-bar {
             background: none;
-            background-color: var(--background);
+            background-color: ${colors.white};
           }
           meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
             border-radius: 10px;

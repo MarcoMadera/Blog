@@ -1,3 +1,5 @@
+import { tweets } from "../../../styles/theme";
+
 export default function TweetHeader({ tweet }) {
   const url = `https://twitter.com/${tweet.username}`;
   const avatar = tweet.avatar.normal;
@@ -53,7 +55,7 @@ export default function TweetHeader({ tweet }) {
         }
         @media (any-hover: hover) {
           .author:hover {
-            color: var(--tweet-link-color-hover);
+            color: ${tweets.tweetLinkColorHover};
           }
         }
         .name,
@@ -67,7 +69,7 @@ export default function TweetHeader({ tweet }) {
           font-weight: 700;
         }
         .username {
-          color: var(--tweet-color-gray);
+          color: ${tweets.tweetColorGray};
           font-size: 0.875rem;
         }
         .brand {

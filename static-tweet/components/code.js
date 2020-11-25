@@ -1,3 +1,5 @@
+import { tweets } from "../../styles/theme";
+
 export const Code = (p) => (
   <>
     <code {...p} />
@@ -9,7 +11,7 @@ export const Code = (p) => (
           serif;
       }
       code.inline {
-        color: var(--inline-code-color);
+        color: ${tweets.inlineCodeColor};
         font-size: 1rem;
         white-space: pre-wrap;
       }
@@ -22,10 +24,10 @@ export const Pre = (p) => (
     <pre {...p} />
     <style jsx>{`
       pre {
-        color: var(--code-color);
-        background: var(--code-bg-color);
+        color: ${tweets.codeColor};
+        background: ${tweets.codeBgColor};
         padding: 1.25rem;
-        margin: var(--container-margin);
+        margin: ${tweets.containerMargin};
         white-space: pre;
         overflow: auto;
         -webkit-overflow-scrolling: touch;

@@ -1,3 +1,5 @@
+import { tweets } from "../../styles/theme";
+
 export const Div = (p) => (
   <div className={p.className}>
     {p.children}
@@ -6,14 +8,14 @@ export const Div = (p) => (
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
         gap: 1px;
-        margin: var(--container-margin);
+        margin: ${tweets.containerMargin};
       }
       .image-count-3 > :global(:first-child) {
         grid-row-end: span 2;
       }
       .gif-container,
       .video-container {
-        margin: var(--container-margin);
+        margin: ${tweets.containerMargin};
       }
       .gif-container > :global(video),
       .video-container > :global(video) {

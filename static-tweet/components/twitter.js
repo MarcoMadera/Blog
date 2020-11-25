@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import formatDistanceStrict from "date-fns/formatDistanceStrict";
-
+import { tweets } from "../../styles/theme";
 export const TwitterLink = (p) => (
   <a
     href={p.href}
@@ -99,7 +99,7 @@ export const Poll = ({ data }) => {
 
       <style jsx>{`
         .poll {
-          margin: var(--poll-margin);
+          margin: ${tweets.pollMargin};
         }
         .options {
           display: grid;
@@ -116,17 +116,17 @@ export const Poll = ({ data }) => {
         }
         .chart {
           height: 100%;
-          background: var(--poll-bar-color);
+          background: ${tweets.pollBarColor}
         }
         hr {
           border: 0;
-          border-top: 1px solid var(--accents-2);
+          border-top: 1px solid  ${tweets.accents2}
           margin: 1rem 0 0.5rem 0;
         }
         .footer {
           display: flex;
           font-size: 0.875rem;
-          color: var(--accents-4);
+          color:  ${tweets.accents4}
         }
         .votes-count {
           flex-grow: 1;

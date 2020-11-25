@@ -1,3 +1,5 @@
+import { tweets } from "../../styles/theme";
+
 export const Table = (p) => (
   <div className="table-container">
     <table {...p} />
@@ -6,7 +8,7 @@ export const Table = (p) => (
         display: flex;
         justify-content: center;
         width: 100%;
-        margin: var(--container-margin);
+        margin: ${tweets.containerMargin};
       }
       table {
         display: block;
@@ -24,7 +26,7 @@ export const Th = (p) => (
       th {
         font-weight: 600;
         padding: 0.5rem 0.875rem;
-        border: 1px solid var(--accents-2);
+        border: 1px solid ${tweets.accents2};
       }
     `}</style>
   </>
@@ -36,7 +38,7 @@ export const Td = (p) => (
     <style jsx>{`
       td {
         padding: 0.5rem 0.875rem;
-        border: 1px solid var(--accents-2);
+        border: 1px solid ${tweets.accents2};
       }
     `}</style>
   </>
