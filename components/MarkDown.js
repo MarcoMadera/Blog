@@ -18,6 +18,11 @@ import {
   Img,
   Details,
   CodeBlock,
+  Ul,
+  Ol,
+  Li,
+  Video,
+  Blockquote,
 } from "../components/tags/";
 import Tweet from "../components/tweet";
 
@@ -30,16 +35,14 @@ const parseHtml = htmlParser({
         node.type === "tag" && node.name === "videogif",
       processNode: function VideoGifs(node) {
         return (
-          <video
+          <Video
             src={node.attribs.src}
             title={node.attribs.title}
             muted
             loop
             autoPlay
             playsInline
-          >
-            Tu navegador no soporta vídeos
-          </video>
+          />
         );
       },
     },
@@ -59,6 +62,32 @@ const parseHtml = htmlParser({
       shouldProcessNode: (node) => node.type === "tag" && node.name === "td",
       processNode: function TabD({ attribs }, children) {
         return <Td {...attribs}>{children}</Td>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "ol",
+      processNode: function OrderedList({ attribs }, children) {
+        return <Ol {...attribs}>{children}</Ol>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "ul",
+      processNode: function UnorderedList({ attribs }, children) {
+        return <Ul {...attribs}>{children}</Ul>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "li",
+      processNode: function ListItem({ attribs }, children) {
+        return <Li {...attribs}>{children}</Li>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "video",
+      processNode: function Clip({ attribs }) {
+        return (
+          <Video src={attribs.src} title={attribs.title} autoPlay controls />
+        );
       },
     },
     {
@@ -150,14 +179,18 @@ const _mapProps = (source) => ({
     paragraph: function Para({ node, children }) {
       if (
         node.children[0].type === "text" ||
-        (node.children[0].type === "parsedHtml" &&
-          node.children[0].tag === "dfn") ||
         node.children[0].type === "link" ||
+        node.children[0].type === "strong" ||
+        node.children[0].type === "emphasis" ||
+        node.children[0].type === "inlineCode" ||
+        node.children[0].type === "delete" ||
+        node.children[0].tag === "dfn" ||
+        node.children[0].tag === "abbr" ||
         node.children[0].tag === "i"
       ) {
         return <P>{children}</P>;
       }
-      return <div>{children}</div>;
+      return <>{children}</>;
     },
     link: function Link({ href, children, title }) {
       return (
@@ -180,6 +213,19 @@ const _mapProps = (source) => ({
     },
     inlineCode: function Inline({ children }) {
       return <InlineCode>{children}</InlineCode>;
+    },
+    blockquote: function BlokQuote({ children }) {
+      return <Blockquote>{children}</Blockquote>;
+    },
+    list: function Lists({ ordered, children }) {
+      if (ordered) {
+        return <Ol>{children}</Ol>;
+      } else {
+        return <Ul>{children}</Ul>;
+      }
+    },
+    listItem: function ListsItems({ children, checked }) {
+      return <Li checked={checked}>{children}</Li>;
     },
     image: function Image({ src, alt, title }) {
       return <Img src={src} alt={alt} title={title} />;

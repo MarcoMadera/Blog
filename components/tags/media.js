@@ -113,3 +113,22 @@ export const Img = ({ src, alt = "", title }) => {
     </details>
   );
 };
+
+export const Video = (props) => {
+  console.log(props.title);
+  return (
+    <video src={props.src} title={props.title} {...props}>
+      Tu navegador no soporta videos
+      <style jsx>{`
+        video {
+          filter: brightness(110%);
+          display: block;
+          margin: auto;
+          max-width: 99%;
+          clip-path: inset(0% 0% 0% 0% round 10px);
+          transition: ease 0.3s;
+        }
+      `}</style>
+    </video>
+  );
+};

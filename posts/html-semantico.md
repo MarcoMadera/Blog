@@ -207,7 +207,7 @@ Texto
 
 ### blockquote
 
-<blockquote>Bloque acotado</blockquote>
+> Bloque acotado
 
 ```html
 <blockquote>Bloque acotado</blockquote>
