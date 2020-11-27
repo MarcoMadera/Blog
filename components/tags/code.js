@@ -19,21 +19,38 @@ export const InlineCode = ({ children }) => {
   );
 };
 
-export const CodeBlock = ({ language, value = "" }) => {
+export const CodeBlock = ({ language, value = "", meta = [] }) => {
+  let remove = [];
+  let add = [];
   SyntaxHighlighter.registerLanguage("json", json);
   SyntaxHighlighter.registerLanguage("css", css);
+  if (meta !== null) {
+    const data = meta.split(" ").map(Number);
+    data.forEach((number) => {
+      number > 0 ? add.push(number) : remove.push(number * -1);
+    });
+  }
   const style = codeStyles[`${language}`] ?? undefined;
   return (
     <div style={{ position: "relative", margin: "20px 0" }}>
       <SyntaxHighlighter
         showLineNumbers={true}
-        showInlineLineNumbers={false}
-        wrapLines={false}
+        showInlineLineNumbers={true}
+        wrapLines={true}
         language={language}
         useInlineStyles={false}
         lineNumberStyle={{ color: "#aaa", fontSize: "14px" }}
         codeTagProps={{ "data-lang": language }}
         PreTag={({ children }) => <pre>{children}</pre>}
+        lineProps={(lineNumber) => {
+          let style = { display: "block" };
+          if (add.includes(lineNumber)) {
+            style.backgroundColor = "#dbffdb";
+          } else if (remove.includes(lineNumber)) {
+            style.backgroundColor = "#ffecec";
+          }
+          return { style };
+        }}
       >
         {value}
       </SyntaxHighlighter>

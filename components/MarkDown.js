@@ -248,8 +248,8 @@ const _mapProps = (source) => ({
       const Heading = ReactMarkdown.renderers.heading;
       return <Heading {...props} />;
     },
-    code: function CodeBlk({ language, value = "" }) {
-      return <CodeBlock language={language} value={value} />;
+    code: function CodeBlk({ language, value = "", node }) {
+      return <CodeBlock language={language} value={value} meta={node.meta} />;
     },
   },
 });

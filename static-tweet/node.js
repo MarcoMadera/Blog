@@ -7,6 +7,9 @@ const defaultHandler = (name) => (props, components) => {
 };
 
 function handleNode(node, components, i) {
+  if (node === undefined) {
+    return null;
+  }
   if (typeof node === "string") {
     return node;
   }

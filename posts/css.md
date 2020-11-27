@@ -250,7 +250,7 @@ En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace 
 
 Mal:
 
-```css
+```css -2
 p {
   font-style: italic;
   font: 20px Arial;
@@ -259,7 +259,7 @@ p {
 
 Bien:
 
-```css
+```css 3
 p {
   font: 20px Arial;
   font-style: italic;
@@ -356,7 +356,7 @@ Tenemos **funciones de grids**. Estas funciones nos ayudan a estructurar nuestro
 
 ## Reglas at
 
-Son declaraciones que comienzan con el símbolo arroba `@`,
+Son declaraciones que comienzan con el símbolo arroba `@`.
 
 `@import` nos permite incluir una hoja de estilos externa, con esto podemos vover a usar nuestros estilos y poder agregar más estilos. El siguiente código importará la fuente Monserrat si se encuentra en un dispositivo de impresión.
 
