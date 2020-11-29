@@ -3,6 +3,16 @@ import LinkedIn from "./icons/LinkedIn";
 import Twitter from "./icons/Twitter";
 import { siteMetadata } from "../site.config";
 import { colors } from "../styles/theme";
+import PropTypes from "prop-types";
+
+const Anchor = ({ href, label, children }) => {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+      {children}
+    </a>
+  );
+};
+
 const Aside = () => {
   const { social } = siteMetadata;
   return (
@@ -25,30 +35,24 @@ const Aside = () => {
         Soy Marco, autor del blog. Gracias por pasarte, cualquier cosa me puedes
         contactar a través de las siguientes redes:
       </p>
-      <a
+      <Anchor
         href={`https://github.com/${social.gitHub}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Página de Github"
+        label="Página de Github"
       >
         <Github fill={colors.primary} />
-      </a>
-      <a
+      </Anchor>
+      <Anchor
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Página de LinkedIn"
+        label="Página de LinkedIn"
       >
         <LinkedIn fill={colors.primary} />
-      </a>
-      <a
+      </Anchor>
+      <Anchor
         href={`https://twitter.com/${social.twitter}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Página de Twitter"
+        label="Página de Twitter"
       >
         <Twitter fill={colors.primary} />
-      </a>
+      </Anchor>
       <style jsx>{`
         aside {
           height: 300px;
@@ -63,10 +67,14 @@ const Aside = () => {
         p {
           margin 1em 0;
         }
-        a {
+        aside :global(a) {
           display: inline-flex;
           box-sizing: border-box;
           margin: 0 10px;
+        }
+        aside :global(a:hover svg),
+        aside :global(a:focus svg) {
+          fill: ${colors.secondary};
         }
         picture {
           display: inline-flex;
@@ -77,14 +85,14 @@ const Aside = () => {
           clip-path: circle(50% at 50% 50%);
         }
       `}</style>
-      <style global jsx>{`
-        a:hover svg,
-        a:focus svg {
-          fill: ${colors.secondary};
-        }
-      `}</style>
     </aside>
   );
+};
+
+Anchor.propTypes = {
+  href: PropTypes.string,
+  label: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Aside;

@@ -26,11 +26,15 @@ export const InlineCode = ({ children }) => {
   );
 };
 
+const Span = ({ number }) => {
+  return <span>{`${number}\n`}</span>;
+};
+
 const LeftLinesNumbers = ({ lineNumbers }) => {
   return (
     <code>
       {lineNumbers.map((number) => (
-        <span key={number}>{`${number}\n`}</span>
+        <Span key={number} number={number} />
       ))}
       <style jsx>{`
         code {
@@ -86,7 +90,7 @@ const customClasses = {
   variable: "t",
 };
 
-export const CodeBlock = ({ language, value = "", meta = [] }) => {
+export const CodeBlock = ({ language, value = "" }) => {
   const lineNumbers = Array.from(
     { length: (value.match(/\n/g) || "").length + 1 },
     (_, i) => i + 1

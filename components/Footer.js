@@ -1,33 +1,24 @@
 import Link from "next/link";
 import { colors } from "../styles/theme";
 import { siteMetadata } from "../site.config";
+
+const Anchor = ({ href, children }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer">
+    {children}
+  </a>
+);
+
 const Footer = () => {
   return (
     <footer>
       <Link href="/newsletter">
         <a>Newsletter</a>
       </Link>
-      <a
-        href="https://marcomadera.github.io/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Sitio alternativo
-      </a>
-      <a
-        href={`${siteMetadata.siteUrl}/rss.xml`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        RSS
-      </a>
-      <a
-        href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Anchor href="https://marcomadera.github.io/">Sitio alternativo</Anchor>
+      <Anchor href={`${siteMetadata.siteUrl}/rss.xml`}>RSS</Anchor>
+      <Anchor href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
         Licencia
-      </a>
+      </Anchor>
       <span>Marco Madera &copy; 2020</span>
       <style jsx>{`
         footer {
@@ -43,7 +34,7 @@ const Footer = () => {
         span {
           display: inline-flex;
         }
-        a {
+        footer :global(a) {
           margin: 0 10px;
         }
       `}</style>

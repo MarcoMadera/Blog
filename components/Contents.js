@@ -1,18 +1,25 @@
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
 import { colors } from "../styles/theme";
+
+const Anchor = ({ href, children }) => <a href={href}>{children}</a>;
+
+const Section = ({ children }) => <section>{children}</section>;
+
+const Heading = ({ children }) => <h2>{children}</h2>;
+
 const Contents = ({ content = [] }) => {
   return (
     <aside>
       {content.length > 0 && (
-        <section>
-          <h2>Tabla de contenido</h2>
+        <Section>
+          <Heading>Tabla de contenido</Heading>
           {content.map((element, i) => (
-            <a key={i} href={`#${slugify(element)}`}>
+            <Anchor key={i} href={`#${slugify(element)}`}>
               {element}
-            </a>
+            </Anchor>
           ))}
-        </section>
+        </Section>
       )}
       <style global jsx>
         {`
@@ -22,23 +29,23 @@ const Contents = ({ content = [] }) => {
         `}
       </style>
       <style jsx>{`
-        section {
+        aside :global(section) {
           margin-top: 40px;
           position: sticky;
           top: 0px;
         }
-        a {
+        aside :global(a) {
           color: ${colors.primary};
           list-style: circle;
           display: block;
           margin: 10px 0;
           width: fit-content;
         }
-        a:hover,
-        a:focus {
+        aside :global(a:hover),
+        aside :global(a:focus) {
           color: ${colors.secondary};
         }
-        h2 {
+        aside :global(h2) {
           font-size: 18px;
           margin: 1em 0;
         }
@@ -49,6 +56,16 @@ const Contents = ({ content = [] }) => {
 
 Contents.propTypes = {
   content: PropTypes.array,
+};
+Section.propTypes = {
+  children: PropTypes.node,
+};
+Heading.propTypes = {
+  children: PropTypes.node,
+};
+Anchor.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Contents;

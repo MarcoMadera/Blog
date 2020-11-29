@@ -4,6 +4,27 @@ import TwitterShare from "./icons/TwitterShare";
 import FacebookShare from "./icons/FacebookShare";
 import LinkedInShare from "./icons/LinkedInShare";
 import { siteMetadata } from "../site.config";
+
+const Section = ({ children }) => <section>{children}</section>;
+
+const Button = ({ url, network, children }) => (
+  <button
+    title={`Compartir en ${network}`}
+    onClick={() => {
+      window.open(
+        `${url}`,
+        "popup",
+        "width=600,height=500,scrollbars=no,resizable=no"
+      );
+      return false;
+    }}
+  >
+    {children}
+  </button>
+);
+
+const Heading = ({ children }) => <h2>{children}</h2>;
+
 const BlogFooter = ({
   slug,
   title,
@@ -14,50 +35,29 @@ const BlogFooter = ({
 }) => {
   return (
     <footer>
-      <section>
-        <h2>Comparte el artículo</h2>
-        <button
-          title="Compartir en Twitter"
-          onClick={() => {
-            window.open(
-              `https://twitter.com/share?url=${siteMetadata.siteUrl}/${slug}&text=${title}`,
-              "popup",
-              "width=600,height=500,scrollbars=no,resizable=no"
-            );
-            return false;
-          }}
+      <Section>
+        <Heading>Comparte el artículo</Heading>
+        <Button
+          network="Twitter"
+          url={`https://twitter.com/share?url=${siteMetadata.siteUrl}/${slug}&text=${title}`}
         >
           <TwitterShare width={30} height={30} />
-        </button>
-        <button
-          title="Compartir en Facebook"
-          onClick={() => {
-            window.open(
-              `https://facebook.com/sharer/sharer.php?u=${`${siteMetadata.siteUrl}/blog/${slug}&quote=${title}`}`,
-              "popup",
-              "width=600,height=500,scrollbars=no,resizable=no"
-            );
-            return false;
-          }}
+        </Button>
+        <Button
+          network="Facebook"
+          url={`https://facebook.com/sharer/sharer.php?u=${`${siteMetadata.siteUrl}/blog/${slug}&quote=${title}`}`}
         >
           <FacebookShare width={30} height={30} />
-        </button>
-        <button
-          title="Compartir en LinkedIn"
-          onClick={() => {
-            window.open(
-              `http://www.linkedin.com/shareArticle?mini=true&url=${`${siteMetadata.siteUrl}/blog/${slug}`}&title=${title}&source=${
-                siteMetadata.siteUrl
-              }`,
-              "popup",
-              "width=600,height=500,scrollbars=no,resizable=no"
-            );
-            return false;
-          }}
+        </Button>
+        <Button
+          network="LinkedIn"
+          url={`http://www.linkedin.com/shareArticle?mini=true&url=${`${siteMetadata.siteUrl}/blog/${slug}`}&title=${title}&source=${
+            siteMetadata.siteUrl
+          }`}
         >
           <LinkedInShare width={30} height={30} />
-        </button>
-      </section>
+        </Button>
+      </Section>
       <Bio
         profilePhoto={profilePhoto}
         twitter={twitter}
@@ -65,7 +65,7 @@ const BlogFooter = ({
         summary={summary}
       />
       <style jsx>{`
-        button {
+        footer :global(button) {
           background: none;
           border: none;
           cursor: pointer;
@@ -75,22 +75,22 @@ const BlogFooter = ({
           width: 30px;
           height: 30px;
         }
-        section {
+        footer :global(section) {
           display: flex;
           flex-wrap: wrap;
           align-items: center;
         }
-        h2 {
+        footer :global(h2) {
           margin: 0;
           font-size: 16px;
         }
         @media screen and (max-width: 528px) {
-          section {
+          footer :global(section) {
             display: block;
           }
         }
         @media screen and (max-width: 876px) {
-          button {
+          footer :global(button) {
             padding: 9px;
             margin: 0px;
           }

@@ -137,6 +137,10 @@ export default function Post({
           padding: 0 20px;
           margin-bottom: 50px;
         }
+        div[itemProp="articlebody"] :global(p) {
+          text-align: justify;
+          line-height: 1.6;
+        }
         nav {
           display: flex;
           justify-content: space-between;

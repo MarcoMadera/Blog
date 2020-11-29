@@ -206,7 +206,7 @@ const _mapProps = (source) => ({
         node.children[0].tag === "abbr" ||
         node.children[0].tag === "i"
       ) {
-        return <P>{children}</P>;
+        return <p>{children}</p>;
       }
       return <>{children}</>;
     },
