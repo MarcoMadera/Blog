@@ -115,7 +115,6 @@ export const Img = ({ src, alt = "", title }) => {
 };
 
 export const Video = (props) => {
-  console.log(props.title);
   return (
     <video src={props.src} title={props.title} {...props}>
       Tu navegador no soporta videos

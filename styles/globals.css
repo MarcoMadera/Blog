@@ -4,6 +4,7 @@ body {
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background: #fff;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 html {
   scroll-behavior: smooth;

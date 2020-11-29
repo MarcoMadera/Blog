@@ -1,164 +1,175 @@
 import css from "styled-jsx/css";
 
 const CSS = css.global`
-  code[data-lang="css"] .selector {
-    color: #60863a;
+  code[data-lang="css"] .P {
+    color: #c62828;
   }
-  code[data-lang="css"] .atrule.rule,
-  code[data-lang="css"] .atrule.keyword {
-    color: #d73a49;
-  }
-  code[data-lang="css"] .property,
-  code[data-lang="css"] .atrule {
-    color: #005cc5;
-  }
-  code[data-lang="css"] .comment {
-    color: #6a737d;
-  }
-  code[data-lang="css"] .id {
-    color: #36368c;
-  }
-  code[data-lang="css"] .class {
-    color: #1e5626;
-  }
-  code[data-lang="css"] .attr-name {
-    color: #005cc5;
-  }
-  code[data-lang="css"] .attr-value {
+  code[data-lang="css"] .P .o {
     color: #24292e;
   }
-  code[data-lang="css"] .function {
-    color: #694fd2;
+  code[data-lang="css"] .P .n {
+    color: #673ab7;
   }
-  code[data-lang="css"] .string {
+  code[data-lang="css"] .a .p,
+  code[data-lang="css"] .a .H {
+    color: #3f51b5;
+  }
+  code[data-lang="css"] .M,
+  code[data-lang="css"] .a {
+    color: #005cc5;
+  }
+  code[data-lang="css"] .E {
+    color: #6a737d;
+  }
+  code[data-lang="css"] .g {
+    color: #36368c;
+  }
+  code[data-lang="css"] .D {
+    color: #475800;
+  }
+  code[data-lang="css"] .b {
+    color: #005cc5;
+  }
+  code[data-lang="css"] .B {
+    color: #2e7d32;
+  }
+  code[data-lang="css"] .N,
+  code[data-lang="css"] .F {
+    color: #673ab7;
+  }
+  code[data-lang="css"] .q {
     color: #19670f;
   }
-  code[data-lang="css"] .variable {
+  code[data-lang="css"] .t {
     color: #005cc5;
+  }
+  code[data-lang="css"] .S {
+    color: #2e7d32;
   }
 `;
 
 const HTML = css.global`
-  code[data-lang="html"] .tag {
+  code[data-lang="html"] .r {
     color: #e53935;
   }
-  code[data-lang="html"] .punctuation {
+  code[data-lang="html"] .o {
     color: #4f5cc8;
   }
-  code[data-lang="html"] .attr-name {
+  code[data-lang="html"] .b {
     color: #005cc5;
   }
-  code[data-lang="html"] .attr-value {
-    color: #19670f;
+  code[data-lang="html"] .B {
+    color: #2e7d32;
   }
-  code[data-lang="html"] .language-css.selector {
-    color: #60863a;
+  code[data-lang="html"] .css .P {
+    color: #c62828;
   }
-  code[data-lang="html"] .language-css.atrule.rule,
-  code[data-lang="html"] .language-css.atrule.keyword {
-    color: #d73a49;
+  code[data-lang="html"] .css .a.p,
+  code[data-lang="html"] .css .a.H {
+    color: #3f51b5;
   }
-  code[data-lang="html"] .language-css.property,
-  code[data-lang="html"] .language-css.atrule {
+  code[data-lang="html"] .css .M,
+  code[data-lang="html"] .css .a {
     color: #005cc5;
   }
-  code[data-lang="html"] .language-css.class {
-    color: #39adb5;
-  }
-  code[data-lang="html"] .language-css.comment {
+  code[data-lang="html"] .css .E {
     color: #6a737d;
   }
-  code[data-lang="html"] .language-css.id {
+  code[data-lang="html"] .css .g {
     color: #36368c;
   }
-  code[data-lang="html"] .language-css.class {
-    color: #1e5626;
+  code[data-lang="html"] .css .D {
+    color: #475800;
   }
-  code[data-lang="html"] .language-css.attr-name {
+  code[data-lang="html"] .css .b {
     color: #005cc5;
   }
-  code[data-lang="html"] .language-css.function {
-    color: #694fd2;
+  code[data-lang="html"] .css .N,
+  code[data-lang="html"] .css .F {
+    color: #673ab7;
   }
-  code[data-lang="html"] .language-css.string {
+  code[data-lang="html"] .css .q {
     color: #19670f;
   }
-  code[data-lang="html"] .language-css.variable {
+  code[data-lang="html"] .css .t {
     color: #005cc5;
   }
-  code[data-lang="html"] .comment {
+  code[data-lang="html"] .css .S {
+    color: #2e7d32;
+  }
+  code[data-lang="html"] .E {
     color: #6a737d;
   }
 `;
 
 const JAVASCRIPT = css.global`
-  code[data-lang="javascript"] .keyword {
-    color: #d73a49;
+  code[data-lang="javascript"] .H {
+    color: #9c27b0;
   }
-  code[data-lang="javascript"] .function {
+  code[data-lang="javascript"] .F {
     color: #6f42c1;
   }
-  code[data-lang="javascript"] .operator,
-  code[data-lang="javascript"] .variable,
-  code[data-lang="javascript"] .number,
-  code[data-lang="javascript"] .property-access {
+  code[data-lang="javascript"] .K,
+  code[data-lang="javascript"] .t,
+  code[data-lang="javascript"] .k,
+  code[data-lang="javascript"] .m {
     color: #005cc5;
   }
-  code[data-lang="javascript"] .punctuation {
+  code[data-lang="javascript"] .o {
     color: #24292e;
   }
 `;
 
 const JSON = css.global`
-  code[data-lang="json"] .operator,
-  code[data-lang="json"] .property {
+  code[data-lang="json"] .K,
+  code[data-lang="json"] .M {
     color: #005cc5;
   }
-  code[data-lang="json"] .string {
+  code[data-lang="json"] .q {
     color: #19670f;
   }
-  code[data-lang="json"] .boolean {
-    color: #d73a49;
+  code[data-lang="json"] .C {
+    color: #d32f2f;
   }
 `;
 
 const JSX = css.global`
   /* HTML */
-  code[data-lang="jsx"] .tag {
+  code[data-lang="jsx"] .r {
     color: #e53935;
   }
-  code[data-lang="jsx"] .tag.punctuation {
+  code[data-lang="jsx"] .r.o {
     color: #4f5cc8;
   }
-  code[data-lang="jsx"] .attr-name {
+  code[data-lang="jsx"] .b {
     color: #005cc5;
   }
-  code[data-lang="jsx"] .attr-value {
-    color: #19670f;
+  code[data-lang="jsx"] .B {
+    color: #2e7d32;
   }
 
   /* Javascript */
-  code[data-lang="jsx"] .keyword {
-    color: #d73a49;
+  code[data-lang="jsx"] .H {
+    color: #9c27b0;
   }
-  code[data-lang="jsx"] .function {
+  code[data-lang="jsx"] .F {
     color: #6f42c1;
   }
-  code[data-lang="jsx"] .operator,
-  code[data-lang="jsx"] .variable,
-  code[data-lang="jsx"] .number,
-  code[data-lang="jsx"] .keyword.module,
-  code[data-lang="jsx"] .property-access {
+  code[data-lang="jsx"] .K,
+  code[data-lang="jsx"] .t,
+  code[data-lang="jsx"] .k,
+  code[data-lang="jsx"] .H.I,
+  code[data-lang="jsx"] .m {
     color: #005cc5;
   }
-  code[data-lang="jsx"] .punctuation {
+  code[data-lang="jsx"] .o {
     color: #24292e;
   }
-  code[data-lang="jsx"] .string,
-  code[data-lang="jsx"] .boolean {
+  code[data-lang="jsx"] .q,
+  code[data-lang="jsx"] .C {
     color: #19670f;
   }
-  code[data-lang="jsx"] .maybe-class-name {
+  code[data-lang="jsx"] .i {
     color: #ee5c18;
   }
 `;

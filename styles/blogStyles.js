@@ -31,9 +31,6 @@ export const blogStyles = css.global`
     padding: 0;
     overflow: hidden;
   }
-  .blog dialog {
-    border-color: ${colors.secondary};
-  }
   .blog input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
   }
@@ -41,7 +38,6 @@ export const blogStyles = css.global`
     border: none;
     border-radius: 100%;
   }
-
   .blog caption {
     padding: 8px;
     caption-side: bottom;

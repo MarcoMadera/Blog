@@ -259,7 +259,7 @@ Esto es una <abbr title="abreviación">abbr</abbr>.
 
 Recibe un atributo open, si no está indicado, no es mostrado.
 
-<dialog open><p>Esto es un cuadro de diálogo</p></dialog>
+<dialog open={true}><p>Esto es un cuadro de diálogo</p></dialog>
 
 &nbsp;
 

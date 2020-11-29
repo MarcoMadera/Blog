@@ -6,6 +6,7 @@ import React from "react";
 import HtmlToReact from "html-to-react";
 import gfm from "remark-gfm";
 import Head from "next/head";
+import { colors } from "../styles/theme";
 import {
   A,
   Progress,
@@ -145,6 +146,23 @@ const parseHtml = htmlParser({
     },
     {
       shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "dialog",
+      processNode: function Tweets({ attribs }, children) {
+        return (
+          <dialog {...attribs}>
+            {children}
+            <style jsx>{`
+              dialog {
+                border-color: ${colors.primary};
+                margin: 0 auto;
+              }
+            `}</style>
+          </dialog>
+        );
+      },
+    },
+    {
+      shouldProcessNode: (node) =>
         node.type === "tag" && node.name === "youtube",
       processNode: function Youtube(node) {
         return (
@@ -249,7 +267,17 @@ const _mapProps = (source) => ({
       return <Heading {...props} />;
     },
     code: function CodeBlk({ language, value = "", node }) {
-      return <CodeBlock language={language} value={value} meta={node.meta} />;
+      return (
+        <div>
+          <CodeBlock language={language} value={value} meta={node.meta} />
+          <style jsx>{`
+            div {
+              position: relative;
+              margin: 20px 0;
+            }
+          `}</style>
+        </div>
+      );
     },
   },
 });
