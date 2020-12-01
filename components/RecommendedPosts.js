@@ -36,7 +36,7 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
           <Div>
             {recommendedPosts.map((props, i) => {
               if (props.slug !== currentPost)
-                return i <= 6 && <AnchorImg {...props} />;
+                return i <= 6 && <AnchorImg key={i} {...props} />;
             })}
           </Div>
         </>

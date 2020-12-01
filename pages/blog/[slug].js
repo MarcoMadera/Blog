@@ -19,10 +19,6 @@ import { Tweets } from "../../lib/tweets";
 import useMounted from "../../hooks/useMounted";
 import { useRouter } from "next/router";
 
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 //collect every h2 in the post to place in table of contents
 const contentAside = (content) => {
   const h2s = toc(content)

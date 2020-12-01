@@ -132,6 +132,21 @@ const parseHtml = htmlParser({
       },
     },
     {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "a",
+      processNode: function progressBar(node, children) {
+        return (
+          <A
+            href={node.attribs.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={node.attribs.title}
+          >
+            {children}
+          </A>
+        );
+      },
+    },
+    {
       shouldProcessNode: (node) =>
         node.type === "tag" && node.name === "details",
       processNode: function Deta(_, children) {
@@ -204,7 +219,8 @@ const _mapProps = (source) => ({
         node.children[0].type === "delete" ||
         node.children[0].tag === "dfn" ||
         node.children[0].tag === "abbr" ||
-        node.children[0].tag === "i"
+        node.children[0].tag === "i" ||
+        node.children[0].tag === "em"
       ) {
         return <p>{children}</p>;
       }

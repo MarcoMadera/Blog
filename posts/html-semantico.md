@@ -27,7 +27,7 @@ Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>
 
 ## ¿Qué es HTML Semántico?
 
-<dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> es el **uso de etiquetas, atributos y valores coherentes al contenido y estructura** de nuestras páginas. Se mejora la lectura de los elementos y se le agrega un significado semántico. El uso de estas etiquetas permiten a los procesadores de HTML usar nuestro contenido en otros contextos.
+<dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> es el **uso de etiquetas, atributos y valores coherentes** al contenido y estructura de nuestras páginas. Se mejora la lectura de los elementos y se le agrega un significado semántico. El uso de estas etiquetas permiten a los procesadores de HTML usar nuestro contenido en otros contextos.
 
 Que Mengano quiere agregar un borde a las secciones de una página para distinguirlas mejor, podría hacerlo fácilmente. Un uso más común es con los motores de búsqueda, recolectan la estructura de los sitios para posicionar mejor los que cumplan los estándares.
 
@@ -45,7 +45,7 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 
 Los elementos de estructura son de los más importantes para el SEO, definen con está construida nuestra página y como acceden a la información los agentes terceros.
 
-<style>.section{display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:15px 15px;height:fit-content;border-radius:10px}.header{background:#eddfa9;grid-area:2/1/3/3;border-radius:10px}.nav{background:#edcfa9;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#e89f71;border-radius:10px}.main{grid-area:3/2/4/3;background:#d57149;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#d18f5c;border-radius:10px}.article{padding:10px;margin:10px;background:#d5d149;border-radius:10px}.article_header{display:block!important;background:#eddfa9;margin-bottom:10px;padding:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#daa149;margin-bottom:10px;padding:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#d18f5c;padding:10px;border-radius:10px}.main_section{background:#dfa149;position:absolute;bottom:0;width:calc(100% - 20px);margin:10px;padding:10px;border-radius:10px}</style><section class="section"><nav class="nav"><p>< Nav ></p></nav><header class="header"><p>< Header ></p></header><aside class="aside"><p>< Aside ></p></aside><main class="main"><article class="article"><header class="article_header"><p class="article_p">< Header ></p></header><section class="article_section"><p class="article_title">< Section ></p><p class="article_p">Texto</p></section><footer class="article_footer">&copy; < Footer ></footer></article><section class="main_section"><h3 class="article_title">< Section ></h3><p class="article_p">Texto</p></section></main><footer class="footer">< Footer ></footer></section>
+<style>.section{display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:10px 10px;height:fit-content;border-radius:10px}.header{background:#eddfa9;grid-area:2/1/3/3;border-radius:10px}.nav{background:#edcfa9;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#e89f71;border-radius:10px}.main{grid-area:3/2/4/3;background:#d57149;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#d18f5c;border-radius:10px}.article{padding:10px;margin:10px;background:#d5d149;border-radius:10px}.article_header{display:block!important;background:#eddfa9;margin-bottom:10px;padding:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#daa149;margin-bottom:10px;padding:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#d18f5c;padding:10px;border-radius:10px}.main_section{background:#dfa149;position:absolute;bottom:0;width:calc(100% - 20px);margin:10px;padding:10px;border-radius:10px}</style><section class="section"><nav class="nav"><p>< Nav ></p></nav><header class="header"><p>< Header ></p></header><aside class="aside"><p>< Aside ></p></aside><main class="main"><article class="article"><header class="article_header"><p class="article_p">< Header ></p></header><section class="article_section"><p class="article_title">< Section ></p><p class="article_p">Texto</p></section><footer class="article_footer">&copy; < Footer ></footer></article><section class="main_section"><h3 class="article_title">< Section ></h3><p class="article_p">Texto</p></section></main><footer class="footer">< Footer ></footer></section>
 
 ```html
 <body>
@@ -72,190 +72,69 @@ Los elementos de estructura son de los más importantes para el SEO, definen con
 <!-- No necesariamente tiene que seguir esta estructura -->
 ```
 
-### main
-
-Esta etiqueta señala al contenido principal de la página. Solo puede existir una etiqueta de este tipo visible por página.
-
-### section
-
-Representa a un contenido genérico en un documento donde no es similar a otro elemento.
-
-### nav
-
-Es la etiqueta diseñada para identificar los enlaces de navegación. Puede haber varías secciones de navegación en una página, no todos los enlaces necesitan de ir dentro de una etiqueta nav.
-
-### article
-
-Se usa esta etiqueta cuando hay contenido repetitivo e independiente, puede tener también header footer y section.
-
-### aside
-
-Esta es una etiqueta que designa un área en la cual hay información suplementaria al contenido principal.
-
-### header
-
-Agrupa la introducción de la página.
-
-### footer
-
-El pie de página suele ser usado para añadir información extra sobre la página, el autor, copyright, avisos legales navegación, etc.
+- Con la etiqueta `<nav>` se pueden identificar los **enlaces de navegación**. Puede haber varías secciones de navegación en una página y no todos los enlaces necesitan de ir dentro de una etiqueta nav.
+- La etiqueta `<header>` agrupa la **introducción de la página**.
+- `<aside>` es una etiqueta que designa un área en la cual hay **información suplementaria** al contenido principal.
+- La etiqueta `<main>` señala al **contenido principal** de la página. Solo puede existir una etiqueta de este tipo visible por página.
+- La etiqueta `<article>` se usa cuando hay **contenido repetitivo** e independiente, puede tener también header footer y section.
+- La etiqueta `<section>` representa a un **contenido genérico** en un documento donde no es similar a otro elemento.
+- El `<footer>` suele ser usado para añadir **información extra** sobre la página, el autor, copyright, avisos legales navegación, etc.
 
 -------
 
-### Títulos de cabecera
+## Presentación de textos
 
-Estos van desde el rango h1 a h6, donde el h1 es el más importante. Deben de ir en orden descendente en cada secuencia. Usualmente el user-agent de los navegadores estilan a la etiqueta `<h1>` como el más grande de tamaño.
+El texto principal que debe de ser el más llamativo es el **título de cabecera**, hay de varios y van desde el rango `<h1>` a `<h6>`, donde el `<h1>` es el más importante. Deben de ir en orden descendente en cada secuencia. Usualmente el user-agent de los navegadores estilan a la etiqueta `<h1>` como el más grande de tamaño y en negrita.
 
-### address
+La etiqueta más común para mostrar texto es la de los **párrafos** con la etiqueta `<p>`. Existen etiquetas para modificar el texto y así darle personalidad como la de énfasis `<em>` para <em>realzar la entonación</em> de la frase. `<mark>` para resaltar <mark>información relevante</mark> o `<strong>` para mostrar **palabras o frases importantes**.
 
-Como su nombre lo dice, se usa para información de contacto.
+Para mostrar texto borrado se usa la etiqueta ~`<strike>`~ <ins>`<del>`</ins> y para insertar texto la etiqueta `<ins>`
+La forma de usar las etiquetas anteriores es sencilla solo poniendo el texto entre las etiqueta de la siguiente forma:
 
-<address>Escrito por <a href="mailto:ejemplo@ejemplo.com">Nombre</a>.<br>Visitanos en:<br>Ejemplo.com<br>Dirección<br></address>
+```html
+<etiqueta>texto<etiqueta>
+```
+
+En <dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> existen etiquetas para abreviar `<abbr>` y definir `<dfn>`. Las abreviaciones se pueden plasmar en html con la etiqueta `<abbr>` llevan de atributo `title` el titulo de la abreviación. Las definiciones se usan con la etiqueta `<dfn>`, se usan para direccionar a la definición a través de un atributo que puede ser `id`.
+
+> Para hacer **acotaciones** tenemos la etiqueta `<blockquote>` para crear un bloque de contenido citado de otra fuente o la etiqueta `<q>` para hacer una <q cite="https://example.com">cita textual</q> la cual acepta el atributo `cite` el cual contendra la referencia de la cita.
+
+```html
+<dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn>
+
+<blockquote>Bloque acotado</blockquote>
+<q cite="https://example.com">cita textual</q>
+```
+
+Otra forma de mostrar información es con la etiqueta `<address>`. Como su nombre lo dice, se usa para **información de contacto**, se usa tipicamente en el pie de página.
+
+<address>Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a>.<br>Visitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>Dirección: Caborca Sonora, México</address>
 
 ```html
 <address>
-Escrito por <a href="mailto:ejemplo@ejemplo.com">Nombre</a>.<br>
-Visitanos en:<br>
-Ejemplo.com<br>
-Dirección<br>
+  Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a>.<br>
+  Visitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>
+  Dirección: Caborca Sonora, México
 </address>
 ```
 
-## Modificadores de texto
+Para **separar el texto** tenemos varias etiquetas. La etiqueta `<br>` representa un salto de línea como es visto en el ejemplo anterior.La etiqueta `<wbr>` sirve para indicar en qué palabra está bien que suceda un salto de línea. Permite separar de manera correcta palabras largas o enlaces sin que el contenido se desajuste. Y la etiqueta `<hr>` representa una línea horizontal que separa bloques de texto.
 
-### Énfasis
-
-`<em>` es la etiqueta semántica para mostrar énfasis, muestra su contenido en cursiva `<i>`.
-
-<em>Esto es énfasis</em>
-
-```html
-<p>
-  <em>Esto es énfasis</em>
-</p>
-```
-
-<i>Esto es cursivo</i>
-
-```html
-<p>
-  <i>Esto es cursivo</i>
-</p>
-```
-
-### Marcado
-
-<mark>Esto es una parte marcada porque es relevante.</mark>
-
-```html
-<p>
-  <mark>Esto es una parte marcada porque es relevante</mark>
-</p>
-```
-
-### Negrita
-
-`<strong>` es la etiqueta semántica para mostrar importancia en el texto, los navegadores lo muestran en negrita.
-
-<strong>Esto está en negritra porque es importante.</strong>
-
-```html
-<p>
-  <strong>Esto está en negritra porque es importante.</strong>
-</p>
-```
-
-<b>Esto está en negritra pero no es importante.</b>
-
-```html
-<p>
-  <b>Esto está en negritra pero no es importante.</b>
-</p>
-```
+¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamentes-<wbr>largos:<wbr>http://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
 
 -------
 
-## Saltos
-
-### wbr
-
-Esta etiqueta sirve para indicar dónde está bien que suceda un salto de línea. Permite separar de manera correcta palabras largas o enlaces sin que el contenido se desajuste.
-
-¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://<wbr>marco<wbr>madera<wbr>.com
+Lo de arriba 👆 es una regla horizontal
 
 ```html
-<p>¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>y-<wbr>no-<wbr>queremos-<wbr>que-<wbr>nuestra-<wbr>aplicación-<wbr>tenga-<wbr>overflow-<wbr>al-<wbr>verla-<wbr>en-<wbr>un-<wbr>celular-<wbr>o-<wbr>si-<wbr>tenemos-<wbr>una-<wbr>url-<wbr>como-<wbr>esta:<wbr>http://<wbr>marco<wbr>madera<wbr>.com
+¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamentes-<wbr>largos:<wbr>https://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
+
+<hr>
+
+<p>Lo de arriba 👆 es una regla horizontal</p>
 ```
 
-### hr
-
-Representa una regla horizontal, un salto de tema en una sección.
-
-Texto
-<hr />
-Texto
-
-```html
-<p>Texto</p>
-<hr />
-<p>Texto</p>
-```
-
--------
-
-## Acotaciones
-
-### blockquote
-
-> Bloque acotado
-
-```html
-<blockquote>Bloque acotado</blockquote>
-```
-
-### q
-
-<q cite="https://example.com">Cuota</q>
-
-```html
-<q cite="https://example.com">Cuota.</q>
-```
-
-### cite
-
-<q>Cita de texto</q> <cite>— Nombre del autor</cite>
-
-```html
-<q>Cita de texto</q> <cite>— Nombre del autor</cite>
-```
-
--------
-
-## Abreviaciones y Definiciones
-
-Las abreviaciones se pueden plasmar en html con la etiqueta `<abbr>` llevan el titulo de la abreviación.
-Las definiciones se usan con la etiqueta `<dfn>`, se usan para direccionar a la definición a través de un atributo que puede ser id.
-
-### Abreviación
-
-Esto es una <abbr title="abreviación">abbr</abbr>.
-
-```html
-<p>Esto es una <abbr title="abreviación">abbr</abbr>.</p>
-```
-
-### Definición
-
-<dfn>HTML Semántico</dfn> es el uso de <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.
-
-```html
-<p>
-  <dfn>HTML Semántico</dfn> es el uso de
-  <abbr title="Hyper Text Markup Language">HTML</abbr>, pero con etiquetas.
-</p>
-```
-
-### Diálogos
+## Elementos interactivos
 
 Recibe un atributo open, si no está indicado, no es mostrado.
 
@@ -273,9 +152,7 @@ Recibe un atributo open, si no está indicado, no es mostrado.
 </dialog>
 ```
 
-### Detalles
-
-Al igual que los diálogos recibe un atributo open para que pueda estar por defecto abierto.
+Para mostrar **detalles** con la etiqueta `<details>` al igual que los diálogos recibe un atributo open para que pueda estar por defecto abierto.
 
 <details><summary>Elemento</summary><p>Contenido del elemento</p></details>
 
