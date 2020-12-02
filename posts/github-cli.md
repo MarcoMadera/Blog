@@ -14,7 +14,9 @@ Sin importar el lenguaje que usamos para programar, la línea de comandos es una
 
 Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para ejecutar todo el flujo de trabajo en github desde la línea de comandos.
 
-Esta herramienta nos permite interactuar con repositorios, issues, pull request y más.
+Esta herramienta nos permite interactuar con repositorios, issues, pull request y más y ya ha sido lanzada.
+
+<tweet id="1306586113293729795">
 
 ## Uso
 

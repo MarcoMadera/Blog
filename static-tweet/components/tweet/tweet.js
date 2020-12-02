@@ -35,7 +35,7 @@ export default function Tweet({ children, data }) {
       <style jsx global>{`
         .tweet :global(.icon) {
           display: inline-block;
-          height: 25px;
+          height: 20px;
           vertical-align: text-bottom;
           background-size: contain;
           background-repeat: no-repeat;

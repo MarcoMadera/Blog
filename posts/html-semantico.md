@@ -106,7 +106,7 @@ En <dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> ex
 <q cite="https://example.com">cita textual</q>
 ```
 
-Otra forma de mostrar información es con la etiqueta `<address>`. Como su nombre lo dice, se usa para **información de contacto**, se usa tipicamente en el pie de página.
+Otra forma de mostrar información es con la etiqueta `<address>`. Como su nombre lo dice, se usa para **información de contacto**, se usa típicamente en el pie de página.
 
 <address>Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a>.<br>Visitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>Dirección: Caborca Sonora, México</address>
 
@@ -136,7 +136,7 @@ Lo de arriba 👆 es una regla horizontal
 
 ## Elementos interactivos
 
-Recibe un atributo open, si no está indicado, no es mostrado.
+Un elemento interactivo que tenemos son los **cuadros de dialogos** con la etiqueta `<dialog>`. Recibe un atributo `open` que hará visible el cuadro de dialogo, si este atributo no está indicado no es mostrado el contenido.
 
 <dialog open={true}><p>Esto es un cuadro de diálogo</p></dialog>
 
@@ -152,7 +152,7 @@ Recibe un atributo open, si no está indicado, no es mostrado.
 </dialog>
 ```
 
-Para mostrar **detalles** con la etiqueta `<details>` al igual que los diálogos recibe un atributo open para que pueda estar por defecto abierto.
+Otro elemento similar a son los **detalles** con la etiqueta `<details>`. De igual forma recibe un atributo `open` para que pueda estar visible por defecto. Este elemento lleva la etiqueta `<summary>`, que es el extracto que será mostrado en todo momento para identificar el contenido.
 
 <details><summary>Elemento</summary><p>Contenido del elemento</p></details>
 
@@ -162,137 +162,6 @@ Para mostrar **detalles** con la etiqueta `<details>` al igual que los diálogos
   <p>Contenido del elemento</p>
 </details>
 ```
-
--------
-
-## Imágenes
-
-Hay diferentes etiquetas para representar elementos visuales en nuestras páginas web con distintos usos en ellas están:
-
-- img
-- figure
-- picture
-
-### Img
-
-Es la etiqueta más comúnmente utilizada para mostrar imágenes.
-
-![Imagen](https://picsum.photos/100 "Imagen")
-
-```html
-<img
-  src="https://picsum.photos/100"
-  alt="Imagen"
-/>
-```
-
-### Figure
-
-Figure es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta figcaption que es la leyenda del contenido.
-
-<figure><img src="https://picsum.photos/200" alt="Figura" title="Figura"><figcaption>Imagen Aleatoria</figcaption></figure>
-
-```html
-<figure>
-  <img src="https://picsum.photos/200" alt="Figura">
-  <figcaption>Imagen Aleatoria</figcaption>
-</figure>
-```
-
-### Picture
-
-La etiqueta `<picture>` es para elementos visuales, puede contener varias etiquetas `<sources>` con condiciones, la primera que cumpla será la que va a ser mostrada. La etiqueta `<source>` puede tener el atributo de cualquier media query. Se pueden mostrar imágenes especiales para modo oscuro o mostrar diferentes imágenes dependiendo del ancho del viewport.
-
-<picture><source srcSet="https://picsum.photos/100" media="(max-width: 500px)" /><source srcSet="https://picsum.photos/200" media="(max-width: 876px)" /><img src="https://picsum.photos/300" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
-
-```html
-<picture>
-  <source srcSet="https://picsum.photos/100" media="(max-width: 500px)" />
-  <source srcSet="https://picsum.photos/200" media="(max-width: 876px)" />
-  <img
-    src="https://picsum.photos/300"
-    alt="Imagen Adaptable"
-  />
-</picture>
-```
-
--------
-
-## Formularios de entrada
-
-Hay diversos tipos de entrada, button, checkbox, date, email, password, range, text, entre otros, la mayoría se pueden tan fácil como lo siguiente.
-
-### Color
-
-Recibe un atributo de nombre value con el valor inicial del color que debe de ser mostrado el elemento.
-
-<input type="color" value="#b50000" readonly={true}>
-
-```html
-<input type="color" value="#b50000">
-```
-
-### Números
-
-Este formulario es especifico para números se puede definir un rango mínimo y máximo.
-
-<input type="number" min="1" max="5" />
-
-```html
-<input type="number" min="1" max="5" />
-```
-
--------
-
-## Barras
-
-Las barras utilizadas en html son de tipo meter que mide a una escala conocida y progress que representa el progreso de una acción.
-
-### meter
-
-La etiqueta meter es utilizada como indicador de una escala conocida, así que cuando el indicador está en un punto específico, puede variar los colores.
-
-<meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
-
-```html
-<meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
-```
-
-<meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
-
-```html
-<meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
-```
-
-<meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
-
-```html
-<meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
-```
-
-### progress
-
-La barra de progreso es utilizada para mostrar el avance de una tarea. Existen dos valores indeterminada y determinada.
-
-Determinada:
-
-<progress value="66" max="100">Determinate</progress>
-
-Indeterminada:
-
-<progress>Indeterminada</progress>
-
-```html
-<p>Determinada:</p>
-
-<progress value="66" max="100">Determinada</progress>
-
-<p>Indeterminada:</p>
-
-<progress>Indeterminada</progress>
-```
-
-### Select
 
 La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pueden contener la etiqueta `<optgroup>` para agrupar entre opciones.
 
@@ -322,13 +191,121 @@ La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pue
 
 -------
 
+## Imágenes
+
+Hay diferentes etiquetas para representar elementos visuales en nuestras páginas web con distintos usos.
+La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `src`, que es la fuente de la imagen y el atributo `alt`, que es la descripción de la imagen.
+
+![Imagen](https://picsum.photos/100 "Imagen")
+
+```html
+<img
+  src="https://picsum.photos/100"
+  alt="Imagen"
+/>
+```
+
+`<Figure>` es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta `<figcaption>` que es la leyenda del contenido.
+
+<figure><img src="https://picsum.photos/200" alt="Figura" title="Figura"><figcaption>Imagen Aleatoria</figcaption></figure>
+
+```html
+<figure>
+  <img src="https://picsum.photos/200" alt="Figura">
+  <figcaption>Imagen Aleatoria</figcaption>
+</figure>
+```
+
+La etiqueta `<picture>` es para **elementos visuales**, puede contener varias etiquetas `<sources>` con condiciones, la primera que cumpla será la que va a ser mostrada. La etiqueta `<source>` puede tener el atributo de cualquier *media query*. Se pueden mostrar imágenes especiales para modo oscuro o mostrar diferentes imágenes dependiendo del ancho del *viewport*.
+
+<picture><source srcSet="https://picsum.photos/100" media="(max-width: 500px)" /><source srcSet="https://picsum.photos/200" media="(max-width: 876px)" /><img src="https://picsum.photos/300" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
+
+```html
+<picture>
+  <source srcSet="https://picsum.photos/100" media="(max-width: 500px)" />
+  <source srcSet="https://picsum.photos/200" media="(max-width: 876px)" />
+  <img
+    src="https://picsum.photos/300"
+    alt="Imagen Adaptable"
+  />
+</picture>
+```
+
+-------
+
+## Formularios de entrada
+
+Los formularios de entrada se identifican con la etiqueta `<input>` y pueden estar dentro de la etiqueta `<form>`. El elemento `<input>` acepta el atributo `type` del cual hay diversos valores como: *button*, *checkbox*, *date*, *email*, *password*, *range*, *text*, entre otros, la mayoría se pueden plastar tan fácil como los siguientes.
+
+La etiqueta `<input>` de tipo *color* recibe un atributo de nombre value con el valor inicial del color que debe de ser mostrado el elemento.
+
+<input type="color" value="#b50000" readonly={true}>
+
+```html
+<input type="color" value="#b50000">
+```
+
+La etiqueta `<input>` de tipo *number* es especifico para números. Se puede definir un rango mínimo y máximo.
+
+<input type="number" min="1" max="5" />
+
+```html
+<input type="number" min="1" max="5" />
+```
+
+-------
+
+## Barras
+
+Las barras utilizadas en html son de tipo meter que mide a una escala conocida y progress que representa el progreso de una acción.
+
+La etiqueta `<meter>` es utilizada como indicador de una **escala conocida**, así que cuando el indicador está en un punto específico, puede variar los colores.
+
+<meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
+
+```html
+<meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
+```
+
+<meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
+
+```html
+<meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
+```
+
+<meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
+
+```html
+<meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
+```
+
+La **barra de progreso** es utilizada para mostrar el avance de una tarea. Existen dos valores indeterminada y determinada.
+
+Determinada:
+
+<progress value="66" max="100">Determinate</progress>
+
+Indeterminada:
+
+<progress>Indeterminada</progress>
+
+```html
+<p>Determinada:</p>
+
+<progress value="66" max="100">Determinada</progress>
+
+<p>Indeterminada:</p>
+
+<progress>Indeterminada</progress>
+```
+
+-------
+
 ## Listas
 
-En las listas el orden puede importar representado por `<ol>` o no representado por `<ul>`, debe de tener como hijo al menos un elemento de lista `<li>`.
+Las listas pueden ser creadas donde los elementos tengan una secuencia ordernada o desordenada. Sin el importar el tipo de lista debe de contener al menos una etiqueta `<li>` que es la que especifica el contenido.
 
-### Lista ordenada
-
-Se utiliza para tareas con un orden especifico.
+Para **listas con un orden especifico** usamos la etiqueta `<ol>` de *lista ordernada* que encapsula los elementos de nuestra lista.
 
 1. Objeto1
 2. Objeto2
@@ -345,9 +322,7 @@ Se utiliza para tareas con un orden especifico.
 </ol>
 ```
 
-### Lista sin orden
-
-En estas listas el orden no es importante.
+Las siguientes son **listas donde el orden no es importante**, usamos la etiqueta `<ul>` de *lista desordernada* que encapsula los elementos de nuestra lista..
 
 - Objeto1
 - Objeto2
@@ -364,9 +339,7 @@ En estas listas el orden no es importante.
 </ul>
 ```
 
-### Listas anidadas
-
-Otra formar de visualizar las listar es anidandolas, llevando la información cada vez más profundo.
+Otra forma de crear listas con estos elementos son las **listas anidadas**, llevando la información cada vez más profundo como en el siguiente ejemplo:
 
 - Objeto 1
   - Objeto 2
@@ -397,9 +370,7 @@ Otra formar de visualizar las listar es anidandolas, llevando la información ca
 </ul>
 ```
 
-### Lista con checkbox
-
-En las listas se pueden combinar diferentes elementos como puede ser un checbox para marcar de completada la tarea.
+También nos podemos poner más creativos y usar distintas combinaciones con diferentes elementos como puede ser un **checbox** para marcar de completada la tarea.
 
 - [ ] pendiente1
 - [x] pendiente2
