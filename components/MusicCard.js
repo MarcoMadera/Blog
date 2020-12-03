@@ -47,8 +47,6 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-        }
-        h2 {
           font-size: 1em;
           display: -webkit-box;
           white-space: unset;

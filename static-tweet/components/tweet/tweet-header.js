@@ -34,6 +34,7 @@ export default function TweetHeader({ tweet }) {
       <style jsx>{`
         .header {
           display: flex;
+          padding-bottom: 10px;
         }
         .avatar {
           height: 49px;

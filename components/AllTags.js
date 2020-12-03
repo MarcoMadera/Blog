@@ -26,9 +26,6 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
         ))}
       </Div>
       <style jsx>{`
-        section {
-          margin-top: 40px;
-        }
         section :global(a) {
           display: block;
           margin: 0 0 3px 0;
@@ -49,6 +46,7 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
         section :global(h2) {
           font-size: 1em;
           margin: 1em 0 1em 0;
+          font-weight: 600;
         }
         @media screen and (max-width: 876px) {
           section :global(a) {

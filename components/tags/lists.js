@@ -7,6 +7,7 @@ export const Ol = (props) => {
       <style jsx>{`
         ol {
           padding: 0;
+          margin: 1rem 0;
         }
       `}</style>
     </ol>
@@ -20,6 +21,7 @@ export const Ul = (props) => {
       <style jsx>{`
         ul {
           padding: 0;
+          margin: 1rem 0;
         }
       `}</style>
     </ul>

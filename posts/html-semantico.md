@@ -18,7 +18,7 @@ Esta semana estuvo rondando por mi cabeza un comentario que leí en twitter. No 
     margin-bottom: 0.83em;
     margin-left: 0px;
     margin-right: 0px;
-    font-weight: bold;">¿Esto es un título?</div>
+    font-weight: 600;">¿Esto es un título?</div>
 
 <h2>¿Esto es un título?</h2>
 

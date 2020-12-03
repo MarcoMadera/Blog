@@ -141,6 +141,10 @@ export default function Post({
           text-align: justify;
           line-height: 1.6;
         }
+        div[itemProp="articlebody"] :global(h2),
+        div[itemProp="articlebody"] :global(h3) {
+          font-weight: 600;
+        }
         nav {
           display: flex;
           justify-content: space-between;
@@ -152,9 +156,14 @@ export default function Post({
           flex-wrap: wrap;
           justify-content: space-between;
           align-items: center;
+          margin-top: 30px;
+        }
+        aside {
+          margin-top: 20px;
         }
         h1 {
-          margin: 1em 0;
+          margin: 0;
+          font-weight: 600;
         }
         article {
           overflow: hidden;

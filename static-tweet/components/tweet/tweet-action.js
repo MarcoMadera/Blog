@@ -41,7 +41,7 @@ export default function TweetAction({ tweet }) {
           color: ${tweets.tweetLinkColor};
           font-size: 0.875rem;
           align-items: center;
-          padding: 0.625rem 1.25rem;
+          padding: 0.625rem 15px;
           text-decoration: none;
           border-top: ${tweets.tweetBorder};
         }

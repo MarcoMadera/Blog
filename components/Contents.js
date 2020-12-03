@@ -48,6 +48,7 @@ const Contents = ({ content = [] }) => {
         aside :global(h2) {
           font-size: 18px;
           margin: 1em 0;
+          font-weight: 600;
         }
       `}</style>
     </aside>

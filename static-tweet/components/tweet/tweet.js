@@ -13,35 +13,37 @@ export default function Tweet({ children, data }) {
       </div>
       <TweetAction tweet={data} />
       <style jsx>{`
-        .tweet {
+        div.tweet {
           color: ${tweets.tweetFontColor};
-          font: ${tweets.tweetFont};
           overflow: hidden;
           background: ${tweets.tweetBgColor};
           border: ${tweets.tweetBorder};
-          border-radius: 5px;
+          border-radius: 15px;
           margin: ${tweets.containerMargin};
         }
         @media (any-hover: hover) {
-          .tweet:hover {
+          div.tweet:hover {
             border: ${tweets.tweetBorderHover};
           }
         }
-        .tweet > div {
+        div.tweet > div {
           position: relative;
-          padding: 1.25rem 1.25rem 0.625rem 1.25rem;
+          padding: 10px 15px 5px 15px;
         }
-      `}</style>
-      <style jsx global>{`
-        .tweet :global(.icon) {
+        div.tweet :global(.icon) {
           display: inline-block;
           height: 20px;
           vertical-align: text-bottom;
           background-size: contain;
           background-repeat: no-repeat;
         }
-        :global(.blog) .tweet :global(p) {
+        div.tweet :global(p) {
           text-align: left;
+          line-height: 1.3125;
+          margin: 0px;
+          padding: 0px;
+          font-size: 17px;
+          font-weight: 400;
         }
       `}</style>
     </div>

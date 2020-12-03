@@ -81,6 +81,7 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
         h2 {
           margin: 0;
           font-size: 1.17em;
+          font-weight: 600;
         }
         p {
           margin: 0;

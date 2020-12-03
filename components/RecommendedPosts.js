@@ -48,6 +48,7 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
         div :global(h2) {
           font-size: 1em;
           margin: 1em 0;
+          font-weight: 600;
         }
         div :global(img) {
           clip-path: inset(0% 0% 0% 0% round 10px);

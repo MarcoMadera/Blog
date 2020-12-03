@@ -37,7 +37,7 @@ const Permalink = ({ children, id }) => (
       .permalink {
         visibility: hidden;
         display: none;
-        font-weight: 500;
+        font-weight: 600;
       }
       @media screen and (min-width: 992px) {
         a {

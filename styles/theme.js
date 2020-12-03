@@ -31,8 +31,6 @@ export const tweets = {
   liMargin: "0 0 0.5rem 0",
 
   /* Embedded tweet */
-  tweetFont:
-    "normal normal 16px/1.4 Helvetica, Roboto, Segoe UI, Calibri, sans-serif",
   tweetFontColor: "#1c2022",
   tweetBgColor: "#fff",
   tweetBorder: "1px solid #e1e8ed",

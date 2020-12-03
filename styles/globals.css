@@ -44,12 +44,14 @@ strong::selection {
 h1,
 h3,
 h4,
-h5,
+h5 {
+  margin: 1em 0;
+}
 p {
   margin: 1em 0;
 }
 h2 {
-  margin: 0.83em 0;
+  margin: 0.83em 0 0 0;
 }
 a {
   color: inherit;

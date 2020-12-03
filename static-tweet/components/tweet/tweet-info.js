@@ -59,6 +59,7 @@ export default function TweetInfo({ tweet }) {
         .info {
           font-size: 0.875rem;
           display: flex;
+          margin: 10px 0 3px 0;
         }
         .like {
           display: flex;

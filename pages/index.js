@@ -77,7 +77,7 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
           line-height: 1;
           margin: 0 5px;
           color: ${colors.primary};
-          font-weight: 500;
+          font-weight: 600;
           padding: 5px 12px;
           width: 30px;
           height: 30px;

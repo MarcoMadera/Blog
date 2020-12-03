@@ -14,8 +14,10 @@ export default function Tweet({ id, caption }) {
       {caption != null ? <p>{caption}</p> : null}
       <style jsx>{`
         div {
-          max-width: 598px;
-          min-width: 220px;
+          max-width: 550px;
+          min-width: 250px;
+          border-width: 1px;
+          border-radius: 15px;
           margin: 2rem auto;
         }
         p {
