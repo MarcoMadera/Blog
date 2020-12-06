@@ -49,10 +49,6 @@ const App = ({ Component, pageProps }) => {
           href="https://www.google-analytics.com"
         />
         <link
-          rel="preconnect dns-prefetch"
-          href="https://vitals.vercel-analytics.com"
-        />
-        <link
           rel="manifest"
           href={`${siteMetadata.siteUrl}/manifest.json`}
         ></link>

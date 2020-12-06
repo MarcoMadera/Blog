@@ -79,8 +79,12 @@ const parseHtml = htmlParser({
     },
     {
       shouldProcessNode: (node) => node.type === "tag" && node.name === "li",
-      processNode: function ListItem({ attribs }, children) {
-        return <Li {...attribs}>{children}</Li>;
+      processNode: function ListItem({ attribs }, children, i) {
+        return (
+          <Li {...attribs} key={i}>
+            {children}
+          </Li>
+        );
       },
     },
     {
@@ -267,11 +271,11 @@ const _mapProps = (source) => ({
     table: function Tab({ children }) {
       return <Table>{children}</Table>;
     },
-    tableCell: function ThTd({ isHeader, children }) {
+    tableCell: function ThTd({ isHeader, align, children }) {
       if (isHeader) {
         return <Th>{children}</Th>;
       } else {
-        return <Td>{children}</Td>;
+        return <Td align={align}>{children}</Td>;
       }
     },
     heading: function HeadingRenderer(props) {

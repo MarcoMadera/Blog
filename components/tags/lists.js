@@ -1,27 +1,39 @@
-import { bool } from "prop-types";
+import { PropTypes } from "prop-types";
 
-export const Ol = (props) => {
+export const Ol = ({ attribs, children }) => {
   return (
-    <ol {...props}>
-      {props.children}
+    <ol {...attribs}>
+      {children}
       <style jsx>{`
         ol {
-          padding: 0;
-          margin: 1rem 0;
+          margin: 0.5em 0;
+        }
+        ol :global(ol),
+        ol :global(ul) {
+          margin: 0;
+        }
+        ol :global(li) {
+          margin-left: 20px;
         }
       `}</style>
     </ol>
   );
 };
 
-export const Ul = (props) => {
+export const Ul = ({ attribs, children }) => {
   return (
-    <ul {...props}>
-      {props.children}
+    <ul {...attribs}>
+      {children}
       <style jsx>{`
         ul {
-          padding: 0;
-          margin: 1rem 0;
+          margin: 0.5em 0;
+        }
+        ul :global(ol),
+        ul :global(ul) {
+          margin: 0;
+        }
+        ul :global(li) {
+          margin-left: 20px;
         }
       `}</style>
     </ul>
@@ -50,13 +62,10 @@ export const Li = ({ children, checked }) => {
       {children}
       <style jsx>{`
         li {
-          list-style-position: outside;
+          list-style-position: inside;
           font-size: 1rem;
           font-weight: 400;
           line-height: 1.6;
-          margin-bottom: 0;
-          padding: 0 20px 0 0;
-          margin-left: 20px;
         }
       `}</style>
     </li>

@@ -196,7 +196,7 @@ La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pue
 Hay diferentes etiquetas para representar elementos visuales en nuestras páginas web con distintos usos.
 La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `src`, que es la fuente de la imagen y el atributo `alt`, que es la descripción de la imagen.
 
-![Imagen](https://picsum.photos/100 "Imagen")
+![Imagen](https://res.cloudinary.com/marcomadera/image/upload/v1607128033/Blog/5/122-100x100_t7cyli.jpg "Imagen")
 
 ```html
 <img
@@ -207,7 +207,7 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 
 `<Figure>` es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta `<figcaption>` que es la leyenda del contenido.
 
-<figure><img src="https://picsum.photos/200" alt="Figura" title="Figura"><figcaption>Imagen Aleatoria</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/marcomadera/image/upload/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura"><figcaption>Imagen Aleatoria</figcaption></figure>
 
 ```html
 <figure>
@@ -218,7 +218,7 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 
 La etiqueta `<picture>` es para **elementos visuales**, puede contener varias etiquetas `<sources>` con condiciones, la primera que cumpla será la que va a ser mostrada. La etiqueta `<source>` puede tener el atributo de cualquier *media query*. Se pueden mostrar imágenes especiales para modo oscuro o mostrar diferentes imágenes dependiendo del ancho del *viewport*.
 
-<picture><source srcSet="https://picsum.photos/100" media="(max-width: 500px)" /><source srcSet="https://picsum.photos/200" media="(max-width: 876px)" /><img src="https://picsum.photos/300" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
+<picture><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/v1607127814/Blog/5/510-100x100_nbahln.jpg" media="(max-width: 500px)" /><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/v1607127728/Blog/5/1051-200x200_rok2jh.jpg" media="(max-width: 876px)" /><img src="https://res.cloudinary.com/marcomadera/image/upload/v1607127804/Blog/5/71-300x300_ojopy4.jpg" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
 
 ```html
 <picture>
@@ -341,13 +341,14 @@ Las siguientes son **listas donde el orden no es importante**, usamos la etiquet
 
 Otra forma de crear listas con estos elementos son las **listas anidadas**, llevando la información cada vez más profundo como en el siguiente ejemplo:
 
-- Objeto 1
-  - Objeto 2
-      1. Objeto 3
-      2. Objeto 4
-  - Objeto 5
-- Objeto 6
-  - Objeto 7
+1. Objeto 1
+    1. Objeto 2
+    2. Objeto 3
+        - Objeto 3
+        - Objeto 4
+    3. Objeto 5
+2. Objeto 6
+    1. Objeto 7
 
 ```html
 <ul>

@@ -20,7 +20,9 @@ export const Img = ({ src, alt = "", title }) => {
             title={title || alt}
             src={`${
               src.includes("res.cloudinary.com")
-                ? src.split("upload/").join("upload/c_mfit,w_1.2,")
+                ? src
+                    .split("upload/")
+                    .join("upload/c_mfit,w_1.2,q_auto,f_auto/")
                 : src
             }`}
           />

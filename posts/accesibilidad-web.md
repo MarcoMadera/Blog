@@ -65,7 +65,7 @@ Las tecnologías asistivas sirven de **ayuda para las personas con dificultades*
 
 Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de etiquetas y atributos. Usar [HTML semántico](https://marcomadera.com/blog/html-semantico "Blog HTML Semántico") ayudará al navegador a **incluir significado** en el árbol de accesibilidad. Así los lectores de pantalla pueden entender el rol, propiedades y estado que tiene esa parte de nuestro código.
 
-![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png "Chrome Accesibility")
+![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png "Chrome Accesibility")
 
 ### No recomendado:
 
@@ -153,13 +153,13 @@ Para tener más empatía con las personas con discapacidades visuales podemos em
 
 Customize and control `DevTools > More tools > Rendering > Emulate vision deficiencies`
 
-![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png "Emular visión")
+![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png "Emular visión")
 
 ### Color y contraste
 
 Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
 
-![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png "Herramienta de contraste")
+![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png "Herramienta de contraste")
 
 ### Focus
 

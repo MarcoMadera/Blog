@@ -1,12 +1,11 @@
-export const Table = (props) => {
+export const Table = ({ children, ...attribs }) => {
   return (
-    <table {...props}>
-      {props.children}
+    <table {...attribs}>
+      {children}
       <style jsx>{`
         table {
           margin: 5px auto;
           border-collapse: collapse;
-          text-align: center;
           display: block;
           width: max-content;
           max-width: 100%;
@@ -17,12 +16,13 @@ export const Table = (props) => {
   );
 };
 
-export const Th = (props) => {
+export const Th = ({ children, ...attribs }) => {
   return (
-    <th {...props}>
-      {props.children}
+    <th {...attribs}>
+      {children}
       <style jsx>{`
         th {
+          text-align: center;
           empty-cells: hide;
           border: 1px solid #aaa;
           font-weight: bold;
@@ -33,12 +33,13 @@ export const Th = (props) => {
   );
 };
 
-export const Td = (props) => {
+export const Td = ({ align, children, ...attribs }) => {
   return (
-    <td {...props}>
-      {props.children}
+    <td {...attribs}>
+      {children}
       <style jsx>{`
         td {
+          text-align: ${align ?? "center"};
           empty-cells: hide;
           border: 1px solid #aaa;
           font-weight: normal;

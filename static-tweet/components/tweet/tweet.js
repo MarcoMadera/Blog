@@ -37,9 +37,9 @@ export default function Tweet({ children, data }) {
           background-size: contain;
           background-repeat: no-repeat;
         }
-        div.tweet :global(p) {
+        div.tweet div :global(p) {
           text-align: left;
-          line-height: 1.3125;
+          line-height: 1.5125;
           margin: 0px;
           padding: 0px;
           font-size: 17px;

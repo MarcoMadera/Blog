@@ -8,7 +8,7 @@ tags:
   - Web
 ---
 
-![RSS a la derecha](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1606004831/Blog/4/RSS_znjs6w_d3xoyw.png "RSS")
+![RSS a la derecha](https://res.cloudinary.com/marcomadera/image/upload/v1606004831/Blog/4/RSS_znjs6w_d3xoyw.png "RSS")
 
 Algo que siempre veía en los sitios era el icono típico de RSS. Nunca le presté importancia hasta ahora que lo estoy implementando en el sitio. Cuando miraba una página con él, me daba la sensación de que no estaba actualizada o que usaba tecnologías del pasado, porque realmente el icono luce antiguo. Nunca me di la tarea de entender que significada ni para qué servía; y aquí estoy ahora implementandolo.
 
@@ -26,19 +26,19 @@ Primero lo que se necesita es que la página deseada tenga implementada la funci
 - [Feedly](https://feedly.com/ "Feedly")
 - [Inoreader](https://www.inoreader.com/ "Inoreader")
 
-![Suscription Feedly](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597948860/Blog/4/subscription-feedly_cen18m.png "Suscription Feedly")
+![Suscription Feedly](https://res.cloudinary.com/marcomadera/image/upload/v1597948860/Blog/4/subscription-feedly_cen18m.png "Suscription Feedly")
 
 &nbsp; &nbsp;👆 En este caso solo necesité de la dirección del sitio para que lo detectará automáticamente.
 
 &nbsp;
 
-![Feedly presentación](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597947959/Blog/4/ejemplo-rss-feedly_lyldsf.png "Feedly presentación")
+![Feedly presentación](https://res.cloudinary.com/marcomadera/image/upload/v1597947959/Blog/4/ejemplo-rss-feedly_lyldsf.png "Feedly presentación")
 
 Vista de revista. Puedes marcar los que ya has leído para que te aparezcan los últimos, guardarlos para leerlos después y muchas otras funcionalidades que te proporciona esta herramienta.
 
 &nbsp;
 
-![Modo lectura Feedreader](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1606004883/Blog/4/ejemplo-rss-feedreader-lectura_efkdey.png "Modo lectura Feedreader")
+![Modo lectura Feedreader](https://res.cloudinary.com/marcomadera/image/upload/v1606004883/Blog/4/ejemplo-rss-feedreader-lectura_efkdey.png "Modo lectura Feedreader")
 
 Ahora con Feedreader en modo lectura
 
