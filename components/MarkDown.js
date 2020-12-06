@@ -12,7 +12,6 @@ import {
   Progress,
   Meter,
   InlineCode,
-  P,
   Table,
   Th,
   Td,
@@ -139,12 +138,7 @@ const parseHtml = htmlParser({
       shouldProcessNode: (node) => node.type === "tag" && node.name === "a",
       processNode: function progressBar(node, children) {
         return (
-          <A
-            href={node.attribs.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={node.attribs.title}
-          >
+          <A {...node.attribs} target="_blank" rel="noopener noreferrer">
             {children}
           </A>
         );
@@ -155,6 +149,12 @@ const parseHtml = htmlParser({
         node.type === "tag" && node.name === "details",
       processNode: function Deta(_, children) {
         return <Details>{children}</Details>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "code",
+      processNode: function Deta({ attribs }, children) {
+        return <InlineCode {...attribs}>{children}</InlineCode>;
       },
     },
     {
@@ -230,9 +230,9 @@ const _mapProps = (source) => ({
       }
       return <>{children}</>;
     },
-    link: function Link({ href, children, title }) {
+    link: function Link({ children, ...attribs }) {
       return (
-        <A href={href} target="_blank" rel="noopener noreferrer" title={title}>
+        <A target="_blank" rel="noopener noreferrer" {...attribs}>
           {children}
         </A>
       );
@@ -255,15 +255,21 @@ const _mapProps = (source) => ({
     blockquote: function BlokQuote({ children }) {
       return <Blockquote>{children}</Blockquote>;
     },
-    list: function Lists({ ordered, children }) {
+    list: function Lists({ ordered, children, depth }) {
       if (ordered) {
-        return <Ol>{children}</Ol>;
+        return <Ol depth={depth}>{children}</Ol>;
       } else {
-        return <Ul>{children}</Ul>;
+        return <Ul depth={depth}>{children}</Ul>;
       }
     },
     listItem: function ListsItems({ children, checked }) {
-      return <Li checked={checked}>{children}</Li>;
+      return (
+        <Li checked={checked}>
+          {children[0].props.node.type === "paragraph"
+            ? children[0].props.children
+            : children}
+        </Li>
+      );
     },
     image: function Image({ src, alt, title }) {
       return <Img src={src} alt={alt} title={title} />;

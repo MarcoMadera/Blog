@@ -1,5 +1,5 @@
 ---
-title: Accesibilidad Web, importancia y uso
+title: La accesibilidad en la web
 description: Las pautas de accesibilidad para el contenido para la web son recomendaciones para crear contenido web más accesible.
 date: 2020-07-20
 cover: v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
@@ -18,9 +18,7 @@ La accesibilidad web es la práctica continua de asegurarnos que todo lo que cre
 
 [Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/ "Web Content Accessibility Guidelines") creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.
 
-&nbsp;
-
-## ¿Por qué implementar accesibilidad?
+## ¿Por qué implementar accesibilidad en la web?
 
 Una declaración de accesibilidad **demuestra compromiso** y proporciona detalles a los usuarios con discapacidades sobre las implementaciones que pueden usar y mejorar su experiencia en el sitio web.
 
@@ -28,8 +26,6 @@ Una declaración de accesibilidad **demuestra compromiso** y proporciona detalle
 - Para incluir a personas en situaciones de discapacidad.
 - Para mejorar la usabilidad de nuestros proyectos.
 - Porque en algunos países es la ley.
-
-&nbsp;
 
 ## Principios WCAG
 
@@ -47,8 +43,6 @@ Los criterios de WCAG comprende 3 niveles de conformidad:
 - AA requiere cumplir los criterios del nivel A y AA
 - AAA el nivel más alto requiere cumplir los criterios del nivel AA y AAA.
 
-&nbsp;
-
 ## Tecnologías asistivas
 
 Las tecnologías asistivas sirven de **ayuda para las personas con dificultades**. Ayudan a realizar tareas regulares con el objetivo de mejorar su calidad de vida y su integración. Algunas de estas tecnologías son:
@@ -58,8 +52,6 @@ Las tecnologías asistivas sirven de **ayuda para las personas con dificultades*
 - Lupa de pantalla
 - Control de voz
 - Varilla bucal
-
-&nbsp;&nbsp;
 
 ## HTML Semántico
 
@@ -78,8 +70,6 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 </body>
 ```
 
-&nbsp;
-
 ### Recomendado:
 
 ```html
@@ -91,8 +81,6 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 </body>
 ```
 
-&nbsp;&nbsp;
-
 ### Uso de texto alternativo en imágenes
 
 Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la **descripción**.
@@ -100,8 +88,6 @@ Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a l
 ```html
 <img src ="img src" alt="description">
 ```
-
-&nbsp;
 
 ### Uso de scope en tablas
 
@@ -128,12 +114,10 @@ El uso del scope ayuda a los lectores de pantalla a seguir el **orden correcto**
 </table>
 ```
 
-&nbsp;
-
 ### Roles apropiados
 
 Los siguientes elementos tienen la apariencia de botón pero con roles diferentes:
-<style>.blog3__container{position:relative}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){display:block;width:1px;height:3px;background:#3ace3a;transform:rotate(-45deg) translate(-2px,7px)}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){display:block;width:1px;height:8px;border-radius:0;background:#3ace3a;transform:rotate(35deg) translate(5px,-4px)}.share-box{position:absolute;width:fit-content;height:fit-content;background-color:#fff;border-radius:6px;top:-135px;visibility:hidden;padding:10px;box-shadow:0 0 8px 0 rgba(0,0,0,.3)}.share-box div{font-size:13px;align-items:center}.share-box div:nth-of-type(1){display:grid;grid-template-columns:1fr auto;margin-bottom:15px}.share-box div:nth-of-type(2){display:grid;grid-template-columns:1fr 1fr;margin-bottom:8px}.share-box div:nth-of-type(3){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(4){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(5){display:grid;grid-template-columns:1fr auto}.share-box div span{line-height:1;margin:0;padding:0;width:fit-content;font-family:consolas;color:#b3b3b3}.share-box div:nth-of-type(1) span:nth-of-type(1){color:#881280;font-size:13px}.share-box div:nth-of-type(1) span:nth-of-type(2){font-size:13px}.share-box div:nth-of-type(2) span:nth-of-type(1){color:#6c7278;font-size:11px}.share-box div:nth-of-type(2) span:nth-of-type(2){display:block;width:100%;height:1px;background:#ddd}.share-box div:nth-of-type(3) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(4) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(5) span:nth-of-type(2){width:14px;height:14px;border-radius:50%;border:1px solid #3ace3a}.triangle-down{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #fff;position:absolute;bottom:-11px;left:20%}#butons:hover+.share-box{visibility:visible;left:106.5px}#anchor:hover+.share-box{visibility:visible}</style><div class="blog3__container"><a href="#anchor" class="btn btn-primary" id="anchor" >ancla</a><div class="share-box"><div><span>anchor</span><span>104.25 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>ancla</span></div><div><span>Role</span><span>link</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div><button type="button" class="btn btn-primary" id="butons">botón</button><div class="share-box"><div><span>button</span><span>106.5 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>botón</span></div><div><span>Role</span><span>button</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div></div>
+<style>.blog3__container{position:relative}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){display:block;width:1px;height:3px;background:#3ace3a;transform:rotate(-45deg) translate(-2px,7px)}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){display:block;width:1px;height:8px;border-radius:0;background:#3ace3a;transform:rotate(35deg) translate(5px,-4px)}.share-box{position:absolute;width:fit-content;height:fit-content;background-color:#fff;border-radius:6px;top:-135px;visibility:hidden;padding:10px;box-shadow:0 0 8px 0 rgba(0,0,0,.3)}.share-box div{font-size:13px;align-items:center}.share-box div:nth-of-type(1){display:grid;grid-template-columns:1fr auto;margin-bottom:15px}.share-box div:nth-of-type(2){display:grid;grid-template-columns:1fr 1fr;margin-bottom:8px}.share-box div:nth-of-type(3){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(4){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(5){display:grid;grid-template-columns:1fr auto}.share-box div span{line-height:1;margin:0;padding:0;width:fit-content;font-family:consolas;color:#b3b3b3}.share-box div:nth-of-type(1) span:nth-of-type(1){color:#881280;font-size:13px}.share-box div:nth-of-type(1) span:nth-of-type(2){font-size:13px}.share-box div:nth-of-type(2) span:nth-of-type(1){color:#6c7278;font-size:11px}.share-box div:nth-of-type(2) span:nth-of-type(2){display:block;width:100%;height:1px;background:#ddd}.share-box div:nth-of-type(3) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(4) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(5) span:nth-of-type(2){width:14px;height:14px;border-radius:50%;border:1px solid #3ace3a}.triangle-down{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #fff;position:absolute;bottom:-11px;left:20%}#butons:hover+.share-box{visibility:visible;left:106.5px}#anchor:hover+.share-box{visibility:visible}</style><div class="blog3__container"><a href="#anchor" className="btn btn-primary" id="anchor" >ancla</a><div class="share-box"><div><span>anchor</span><span>104.25 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>ancla</span></div><div><span>Role</span><span>link</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div><button type="button" class="btn btn-primary" id="butons">botón</button><div class="share-box"><div><span>button</span><span>106.5 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>botón</span></div><div><span>Role</span><span>button</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div></div>
 
 Hay que **definir los roles de acuerdo a la función que realizarán**. En este caso el primer "botón" tiene la funcionalidad de enlazar a otra página por lo que debería ser implementado como hipervínculo para que tome el rol de link.
 
@@ -151,7 +135,7 @@ Estos atributos se pueden añadir a cualquier etiqueta HTML para **comunicar cam
 
 Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las dev tools de Google Chrome a través de las siguientes opciones:
 
-Customize and control `DevTools > More tools > Rendering > Emulate vision deficiencies`
+Customize and control <code lang="en">DevTools > More tools > Rendering > Emulate vision deficiencies</code>
 
 ![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png "Emular visión")
 
@@ -166,8 +150,6 @@ Podemos utilizar las herramientas de Google Chrome DevTools para ver el contrast
 El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
 
 <style>#inputToFocus{padding:1px 2px;}#inputToFocus:focus{box-shadow:0 0 5px #da0000;outline:1px solid #da0000;border:2px solid transparent;}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
-
-&nbsp;&nbsp;
 
 ### Skip Links
 
@@ -232,8 +214,6 @@ const listenKeys = (e) => {
 
 document.body.addEventListener("keyup", (e) => listenKeys(e));
 ```
-
-&nbsp;
 
 ## Test de accesibilidad
 

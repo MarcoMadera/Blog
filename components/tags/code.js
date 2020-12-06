@@ -8,9 +8,9 @@ import prism from "@mapbox/rehype-prism";
 import React from "react";
 import PropTypes from "prop-types";
 
-export const InlineCode = ({ children }) => {
+export const InlineCode = ({ children, ...attrbs }) => {
   return (
-    <code>
+    <code {...attrbs}>
       {children}
       <style jsx>{`
         code {
@@ -190,6 +190,9 @@ LeftLinesNumbers.propTypes = {
 };
 InlineCode.propTypes = {
   children: PropTypes.node,
+};
+Span.propTypes = {
+  number: PropTypes.number,
 };
 CodeBlock.propTypes = {
   language: PropTypes.string,

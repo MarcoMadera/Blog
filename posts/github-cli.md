@@ -133,10 +133,6 @@ Para **listar issues** se usa `gh issue list`. Los *flags* se pueden usar como f
 
 ![Listar Issue](https://res.cloudinary.com/marcomadera/image/upload/v1600535838/Blog/6/viewIssue_fl9jji.png "Listar Issue")
 
-```bash
-gh issue list -s "all"
-```
-
 ## Gist
 
 El comando para manejar los *gists* es `gist` seguido de una acción que pueden ser una de las siguientes:

@@ -1,9 +1,9 @@
 import { colors } from "../../styles/theme";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
-export const A = ({ href, title, target, rel, children }) => {
+export const A = ({ href, title, children, classname, ...attribs }) => {
   return (
-    <a href={href} title={title || href} target={target} rel={rel}>
+    <a href={href} title={title || href} {...attribs} className={classname}>
       {children}
       <style jsx>{`
         a {
@@ -16,4 +16,11 @@ export const A = ({ href, title, target, rel, children }) => {
       `}</style>
     </a>
   );
+};
+
+A.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string,
+  title: PropTypes.string,
+  classname: PropTypes.string,
 };

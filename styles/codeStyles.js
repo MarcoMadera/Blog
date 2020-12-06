@@ -104,19 +104,26 @@ const HTML = css.global`
 
 const JAVASCRIPT = css.global`
   code[data-lang="javascript"] .H {
-    color: #9c27b0;
+    color: #e53935;
   }
-  code[data-lang="javascript"] .F {
+  code[data-lang="javascript"] .F,
+  code[data-lang="javascript"] .m {
     color: #6f42c1;
   }
-  code[data-lang="javascript"] .K,
   code[data-lang="javascript"] .t,
-  code[data-lang="javascript"] .k,
-  code[data-lang="javascript"] .m {
+  code[data-lang="javascript"] .f,
+  code[data-lang="javascript"] .I {
     color: #005cc5;
   }
   code[data-lang="javascript"] .o {
     color: #24292e;
+  }
+  code[data-lang="javascript"] .q {
+    color: #2e7d32;
+  }
+  code[data-lang="javascript"] .l,
+  code[data-lang="javascript"] .k {
+    color: #607d8b;
   }
 `;
 

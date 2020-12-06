@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { colors } from "../styles/theme";
 import { siteMetadata } from "../site.config";
+import PropTypes from "prop-types";
 
 const Anchor = ({ href, children }) => (
   <a href={href} target="_blank" rel="noopener noreferrer">
@@ -40,6 +41,11 @@ const Footer = () => {
       `}</style>
     </footer>
   );
+};
+
+Anchor.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string,
 };
 
 export default Footer;

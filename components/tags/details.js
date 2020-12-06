@@ -1,4 +1,5 @@
 import { colors } from "../../styles/theme";
+import PropTypes from "prop-types";
 
 export const Details = ({ children }) => {
   return (
@@ -31,4 +32,8 @@ export const Details = ({ children }) => {
       `}</style>
     </details>
   );
+};
+
+Details.propTypes = {
+  children: PropTypes.node,
 };

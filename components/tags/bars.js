@@ -1,10 +1,10 @@
 import { colors } from "../../styles/theme";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
-export const Meter = (props) => {
+export const Meter = ({ children, ...attribs }) => {
   return (
     <>
-      <meter {...props}>{props.children}</meter>
+      <meter {...attribs}>{children}</meter>
       <style jsx>
         {`
           meter {
@@ -94,10 +94,10 @@ export const Meter = (props) => {
   );
 };
 
-export const Progress = (props) => {
+export const Progress = ({ value, ...attribs }) => {
   return (
-    <progress {...props}>
-      {props.value}
+    <progress {...attribs}>
+      {value}
       <style jsx>{`
         progress,
         progress[role] {
@@ -142,4 +142,11 @@ export const Progress = (props) => {
       `}</style>
     </progress>
   );
+};
+
+Meter.propTypes = {
+  children: PropTypes.node,
+};
+Progress.propTypes = {
+  value: PropTypes.node,
 };

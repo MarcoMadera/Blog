@@ -1,4 +1,5 @@
 import { colors } from "../../styles/theme";
+import PropTypes from "prop-types";
 
 export const P = ({ children }) => {
   return (
@@ -33,4 +34,11 @@ export const Blockquote = ({ children }) => {
       `}</style>
     </blockquote>
   );
+};
+
+P.propTypes = {
+  children: PropTypes.node,
+};
+Blockquote.propTypes = {
+  children: PropTypes.node,
 };

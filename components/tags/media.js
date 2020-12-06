@@ -1,12 +1,14 @@
 import dynamic from "next/dynamic";
+import PropTypes from "prop-types";
+
+const LoadDetailsDialog = dynamic(
+  () => import("../../static-tweet/components/twitter-layout/details-dialog"),
+  {
+    ssr: false,
+  }
+);
 
 export const Img = ({ src, alt = "", title }) => {
-  const LoadDetailsDialog = dynamic(
-    () => import("../../static-tweet/components/twitter-layout/details-dialog"),
-    {
-      ssr: false,
-    }
-  );
   return (
     <details>
       <summary>
@@ -116,9 +118,10 @@ export const Img = ({ src, alt = "", title }) => {
   );
 };
 
-export const Video = (props) => {
+export const Video = ({ src, title, ...attribs }) => {
   return (
-    <video src={props.src} title={props.title} {...props}>
+    // eslint-disable-next-line jsx-a11y/media-has-caption
+    <video src={src} title={title} {...attribs}>
       Tu navegador no soporta videos
       <style jsx>{`
         video {
@@ -132,4 +135,14 @@ export const Video = (props) => {
       `}</style>
     </video>
   );
+};
+
+Img.propTypes = {
+  alt: PropTypes.string,
+  title: PropTypes.string,
+  src: PropTypes.string,
+};
+Video.propTypes = {
+  title: PropTypes.string,
+  src: PropTypes.string,
 };

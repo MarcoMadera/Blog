@@ -113,5 +113,16 @@ BlogFooter.propTypes = {
   author: PropTypes.string.isRequired,
   summary: PropTypes.string,
 };
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+Button.propTypes = {
+  url: PropTypes.string,
+  network: PropTypes.string,
+  children: PropTypes.node,
+};
+Heading.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default BlogFooter;

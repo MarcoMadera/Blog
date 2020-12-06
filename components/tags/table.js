@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export const Table = ({ children, ...attribs }) => {
   return (
     <table {...attribs}>
@@ -33,9 +35,9 @@ export const Th = ({ children, ...attribs }) => {
   );
 };
 
-export const Td = ({ align, children, ...attribs }) => {
+export const Td = ({ align, children, colspan, ...attribs }) => {
   return (
-    <td {...attribs}>
+    <td colSpan={colspan} {...attribs}>
       {children}
       <style jsx>{`
         td {
@@ -48,4 +50,16 @@ export const Td = ({ align, children, ...attribs }) => {
       `}</style>
     </td>
   );
+};
+
+Table.propTypes = {
+  children: PropTypes.node,
+};
+Th.propTypes = {
+  children: PropTypes.node,
+};
+Td.propTypes = {
+  children: PropTypes.node,
+  align: PropTypes.string,
+  colspan: PropTypes.string,
 };
