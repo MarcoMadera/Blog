@@ -1,49 +1,63 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { colors } from "../styles/theme";
-const Navbar = () => {
+import PropTypes from "prop-types";
+const Anchor = ({ label, href, children, ...attribs }) => {
   const router = useRouter();
   return (
+    <Link href={href}>
+      <a
+        aria-label={label}
+        {...attribs}
+        style={{
+          textDecoration:
+            router.route === href && router.route !== "/"
+              ? "underline"
+              : undefined,
+        }}
+      >
+        {children}
+      </a>
+    </Link>
+  );
+};
+
+const Logo = () => {
+  return (
+    <>
+      <picture>
+        <source
+          srcSet="/apple-touch-icon-120x120.png"
+          media="(max-width: 876px)"
+        />
+        <img
+          src="/favicon-48x48.png"
+          alt="Logo patrón de desbloqueo en forma de M"
+          width="40"
+          height="40"
+        />
+      </picture>
+      <span>Marco Madera</span>
+    </>
+  );
+};
+
+const Nav = ({ children }) => <nav>{children}</nav>;
+
+const Navbar = () => {
+  return (
     <header>
-      <Link href="/">
-        <a className="logo" aria-label="Ir a la página principal">
-          <picture>
-            <source
-              srcSet="/apple-touch-icon-120x120.png"
-              media="(max-width: 876px)"
-            />
-            <img
-              src="/favicon-48x48.png"
-              alt="Logo patrón de desbloqueo en forma de M"
-              width="40"
-              height="40"
-            />
-          </picture>
-          <span>Marco Madera</span>
-        </a>
-      </Link>
-      <nav>
-        <Link href="/portafolio">
-          <a
-            style={{
-              textDecoration:
-                router.route === "/portafolio" ? "underline" : undefined,
-            }}
-          >
-            Portafolio
-          </a>
-        </Link>
-        <Link href="/sobre-mi">
-          <a
-            style={{
-              textDecoration:
-                router.route === "/sobre-mi" ? "underline" : undefined,
-            }}
-          >
-            Sobre mí
-          </a>
-        </Link>
-      </nav>
+      <Anchor href="/" label="Ir a la página principal" className="logo">
+        <Logo />
+      </Anchor>
+      <Nav>
+        <Anchor href="/portafolio" label="Ir al portafolio">
+          Portafolio
+        </Anchor>
+        <Anchor href="/sobre-mi" label="Ir a sobre mí">
+          Sobre mí
+        </Anchor>
+      </Nav>
       <style global jsx>{`
         .logo {
           display: flex;
@@ -79,10 +93,10 @@ const Navbar = () => {
         }
       `}</style>
       <style jsx>{`
-        picture {
+        header :global(picture) {
           display: inline-flex;
         }
-        span {
+        header :global(span) {
           font-size: 1.17em;
           font-weight: 400;
           margin: 0;
@@ -96,17 +110,17 @@ const Navbar = () => {
           max-width: 1300px;
           flex-wrap: wrap;
         }
-        img {
+        header :global(img) {
           width: 40px;
           height: 40px;
           margin-right: 10px;
         }
-        nav a {
+        header :global(nav a) {
           display: inline-block;
           margin: 9px 5px;
         }
-        nav a:hover,
-        nav a:focus {
+        header :global(nav a:hover),
+        header :global(nav a:focus) {
           color: ${colors.secondary};
           animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
@@ -124,7 +138,7 @@ const Navbar = () => {
           }
         }
         @media print {
-          nav {
+          header :global(nav) {
             display: none;
           }
           header {
@@ -134,6 +148,15 @@ const Navbar = () => {
       `}</style>
     </header>
   );
+};
+
+Nav.propTypes = {
+  children: PropTypes.node,
+};
+Anchor.propTypes = {
+  children: PropTypes.node,
+  label: PropTypes.string,
+  href: PropTypes.string,
 };
 
 export default Navbar;

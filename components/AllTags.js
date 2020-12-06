@@ -4,11 +4,7 @@ import slugify from "react-slugify";
 import { colors } from "../styles/theme";
 
 const Anchor = ({ tag }) => (
-  <Link
-    href={"/blog/etiqueta/[slug]/"}
-    as={`/blog/etiqueta/${slugify(tag)}/`}
-    key={tag}
-  >
+  <Link href={"/blog/etiqueta/[slug]/"} as={`/blog/etiqueta/${slugify(tag)}/`}>
     <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
   </Link>
 );

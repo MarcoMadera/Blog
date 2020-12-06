@@ -6,7 +6,7 @@ import { colors } from "../styles/theme";
 import { imageCloudProvider, siteMetadata } from "../site.config";
 const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
   return (
-    <article key={slug}>
+    <article>
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
         <a aria-label={`post ${title}`}>
           <header>

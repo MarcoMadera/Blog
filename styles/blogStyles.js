@@ -11,9 +11,6 @@ export const blogStyles = css.global`
       display: none !important;
     }
   }
-  .blog h1 {
-    font-size: 1.8em;
-  }
   .blog input[type="number"],
   .blog select {
     border: 1px solid ${colors.gray};

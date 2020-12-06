@@ -51,9 +51,12 @@ const getPostBySlug = (slug) => {
 
   const { data, content } = matter(markdownWithMetadata);
 
-  const recommendedPosts = posts.filter(({ tags }) =>
-    tags.some((tag) => data.tags.includes(tag))
-  );
+  const recommendedPosts = posts
+    .filter(({ tags }) => tags.some((tag) => data.tags.includes(tag)))
+    .map(({ title, cover, slug, author }) => {
+      return { title: title, cover: cover, slug: slug, author: author };
+    });
+
   return {
     ...data,
     date: data.date.toString(),
@@ -62,8 +65,18 @@ const getPostBySlug = (slug) => {
     profilePhoto: data.profilePhoto ?? metaData.author.image,
     twitter: data.twitter ?? metaData.social.twitter,
     summary: data.summary ?? metaData.author.summary,
-    previousPost: posts[postIndex + 1] ?? null,
-    nextPost: posts[postIndex - 1] ?? null,
+    previousPost: posts[postIndex + 1]
+      ? {
+          title: posts[postIndex + 1].title,
+          slug: posts[postIndex + 1].slug,
+        }
+      : null,
+    nextPost: posts[postIndex - 1]
+      ? {
+          title: posts[postIndex - 1].title,
+          slug: posts[postIndex - 1].slug,
+        }
+      : null,
     recommendedPosts,
     slug,
   };

@@ -9,7 +9,7 @@ const Heading = ({ children }) => <h2>{children}</h2>;
 
 const AnchorImg = ({ slug, title, author, cover }) => {
   return (
-    <Link key={slug} href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
+    <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
       <a>
         <img
           src={
@@ -36,7 +36,7 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
           <Div>
             {recommendedPosts.map((props, i) => {
               if (props.slug !== currentPost)
-                return i <= 6 && <AnchorImg key={i} {...props} />;
+                return i <= 6 && <AnchorImg key={props.slug} {...props} />;
             })}
           </Div>
         </>

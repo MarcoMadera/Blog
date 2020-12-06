@@ -47,7 +47,6 @@ export default function Post({
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
   const router = useRouter();
   const mounted = useMounted();
-
   return (
     <main>
       <Seo
@@ -162,6 +161,7 @@ export default function Post({
           margin-top: 20px;
         }
         h1 {
+          font-size: 1.8em;
           margin: 0;
           font-weight: 600;
         }
