@@ -1,71 +1,55 @@
 import Link from "next/link";
 import Seo from "../../components/Seo";
-import { colors } from "../../styles/theme";
+import { H1, H2, P, A, Img, ALink } from "../../components/tags";
 const Portfolio = () => {
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Marco Madera" />
-      <h1>Portafolio</h1>
+      <H1>Portafolio</H1>
       <article>
-        <picture>
-          <source
-            srcSet={
-              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_534,w_960/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
-            }
-            media="(max-width: 876px)"
-          />
-          <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
-            alt="challenges cover"
-            width={400}
-            height={222}
-          />
-        </picture>
+        <Img
+          src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
+          alt="Portada de retos frontend"
+          width={400}
+          height={222}
+        />
         <div>
-          <h2>Retos frontend</h2>
-          <p>
+          <H2>Retos frontend</H2>
+          <P>
             Esta es una serie de retos que he ido realizando para pasar el rato
             de la página de{" "}
-            <a
+            <A
               href="https://www.frontendmentor.io/"
               target="_blank"
               rel="noopener noreferrer"
             >
               Frontend Mentor
-            </a>{" "}
+            </A>{" "}
             donde el objetivo es mejorar las habilidades de código con proyectos
             reales. Los retos son de la sección gratis, no incluyen el archivo
             de diseño, solo la imagen, por lo que son realizados principalmente
             a ojo.
-          </p>
+          </P>
           <Link href="/portafolio/retos">
-            <a className={"btn btn-primary"}>Detalles</a>
+            <a className="btn btn-primary">Detalles</a>
           </Link>
         </div>
       </article>
       <article>
-        <picture>
-          <source
-            srcSet={
-              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_534,w_960/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
-            }
-            media="(max-width: 876px)"
-          />
-          <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
-            alt="test for random numbers cover"
-            width={400}
-            height={222}
-          />
-        </picture>
+        <Img
+          src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+          alt="Portada de test for random numbers"
+          width={400}
+          height={222}
+        />
         <div>
-          <h2>Tests para números aleatorios</h2>
-          <p>
+          <H2>Tests para números aleatorios</H2>
+          <P>
             Herramienta para verificar números aleatorios, se puede encontrar
             información detallada sobre la realización de esta aplicacion en el{" "}
-            <Link href="/blog/numeros-pseudo-aleatorios">
-              <a>blog de números pseudo aleatorios</a>
-            </Link>
+            <ALink href="/blog/numeros-pseudo-aleatorios">
+              blog de números pseudo aleatorios
+            </ALink>
             , y/o probarlo en la siguiente página de{" "}
             <a
               target="_blank"
@@ -75,30 +59,22 @@ const Portfolio = () => {
               test para numeros aleatorios
             </a>
             .
-          </p>
+          </P>
           <Link href="/portafolio/random-numbers-test">
-            <a className={"btn btn-primary"}>Detalles</a>
+            <a className="btn btn-primary">Detalles</a>
           </Link>
         </div>
       </article>
       <article>
-        <picture>
-          <source
-            srcSet={
-              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_534,w_960/v1595275323/Potfolio/sreExcel/Data_splifz.png"
-            }
-            media="(max-width: 876px)"
-          />
-          <img
-            src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595275323/Potfolio/sreExcel/Data_splifz.png"
-            alt="sre-excel cover"
-            width={400}
-            height={222}
-          />
-        </picture>
+        <Img
+          src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+          alt="Portada de sre-excel"
+          width={400}
+          height={222}
+        />
         <div>
-          <h2>Registro de trámites en excel</h2>
-          <p>
+          <H2>Registro de trámites en excel</H2>
+          <P>
             Dashboard funcional en excel programado con visual basic for
             applications para dar seguimiento a trámites realizados, se obtiene
             la información automáticamente a través de un bookmarklet en el
@@ -106,18 +82,14 @@ const Portfolio = () => {
             excel. Con esto se evita la tarea de transcribir, asi se evitan
             posibles errores llevando la información directamente a el
             almacenamiento.
-          </p>
+          </P>
           <Link href="/portafolio/sre-excel">
             <a className="btn btn-primary">Detalles</a>
           </Link>
         </div>
       </article>
       <style jsx>{`
-        p {
-          line-height: 1.6;
-        }
-        h1{
-          margin-top: 0;
+        main :global(h1){
           margin-bottom: 0.67em;
           text-align: center;
         }
@@ -167,26 +139,8 @@ const Portfolio = () => {
             animation-timing-function: ease-out;
           }
         }
-        img {
-          width: 400px;
-          height: 222px;
-          clip-path: inset(0% 0% 0% 0% round 10px);
-          transition: ease 0.3s;
-        }
         div {
           padding: 30px;
-        }
-        a {
-          color: ${colors.primary};
-        }
-        a:hover {
-          text-decoration: underline;
-          color: ${colors.secondary};
-        }
-
-        img:hover {
-          position: static;
-          transform: scale(1.1);
         }
         @media print, screen and (min-width: 0px) and (max-width: 876px){
           article{

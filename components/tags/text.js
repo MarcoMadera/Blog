@@ -7,7 +7,7 @@ export const P = ({ children }) => {
       {children}
       <style jsx>{`
         p {
-          text-align: justify;
+          margin: 1em 0;
           line-height: 1.6;
         }
       `}</style>

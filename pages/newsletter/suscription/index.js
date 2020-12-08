@@ -1,4 +1,5 @@
 import Seo from "../../../components/Seo";
+import { H1 } from "../../../components/tags";
 
 const suscription = () => {
   return (
@@ -6,12 +7,12 @@ const suscription = () => {
       <main id="main">
         <Seo title="Suscripción exitosa! 🎉| Marco Madera" />
         <section>
-          <h1>
+          <H1>
             ¡Ya casi estás suscrito al Newsletter!{" "}
             <span role="img" aria-label="emoji de celebración">
               🎉
             </span>
-          </h1>
+          </H1>
           <p>
             Te envié un correo de confirmación, da clic en él y completarás el
             proceso.
@@ -26,26 +27,15 @@ const suscription = () => {
           />
         </section>
         <style jsx>{`
-          p {
-            text-align: center;
-          }
-
           section {
             text-align: center;
           }
-
-          h1 {
-            margin-top: 0;
+          main :global(h1) {
             margin-bottom: 0.67em;
-            text-align: center;
           }
           main {
             margin: 0 30px;
-          }
-          @media screen and (min-width: 0px) and (max-width: 500px) {
-            main {
-              margin: 0 30px;
-            }
+            min-height: calc(100vh - 160px);
           }
           @media screen and (min-width: 500px) {
             main {

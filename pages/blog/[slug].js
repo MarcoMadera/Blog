@@ -18,6 +18,7 @@ import getTweets from "../../lib/get-tweets";
 import { Tweets } from "../../lib/tweets";
 import useMounted from "../../hooks/useMounted";
 import { useRouter } from "next/router";
+import { H1 } from "../../components/tags";
 
 //collect every h2 in the post to place in table of contents
 const contentAside = (content) => {
@@ -64,7 +65,7 @@ export default function Post({
       <div className="blog" id="main">
         <article itemScope itemType="http://schema.org/Article">
           <div>
-            <h1 itemProp="name">{title}</h1>
+            <H1 itemProp="name">{title}</H1>
             <p>
               <time
                 itemProp="datePublished"
@@ -159,11 +160,6 @@ export default function Post({
         }
         aside {
           margin-top: 20px;
-        }
-        h1 {
-          font-size: 1.8em;
-          margin: 0;
-          font-weight: 600;
         }
         article {
           overflow: hidden;

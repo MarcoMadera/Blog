@@ -1,5 +1,25 @@
 import PropTypes from "prop-types";
 import { imageCloudProvider } from "../site.config";
+import { H2, P, Ul, Li, Img } from "./tags";
+
+export const Anchor = ({ href, children }) => {
+  return (
+    <a
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+      className="btn btn-primary"
+    >
+      {children}
+      <style jsx>{`
+        a {
+          margin: 20px 20px 0 0;
+        }
+      `}</style>
+    </a>
+  );
+};
+
 const Challenge = ({
   title,
   liveDemo,
@@ -12,67 +32,37 @@ const Challenge = ({
   return (
     <article>
       <div>
-        <h2>{title}</h2>
-        <a
-          href={liveDemo}
-          rel="noopener noreferrer"
-          target="_blank"
-          className="btn btn-primary"
-        >
-          Ver en vivo
-        </a>
-        <a
-          href={challengePage}
-          rel="noopener noreferrer"
-          target="_blank"
-          className="btn btn-primary"
-        >
-          Página del reto
-        </a>
-        <a
-          href={repo}
-          rel="noopener noreferrer"
-          target="_blank"
-          className="btn btn-primary"
-        >
-          Código
-        </a>
-        <p>
+        <H2>{title}</H2>
+        <Anchor href={liveDemo}>Ver en vivo</Anchor>
+        <Anchor href={challengePage}>Página del reto</Anchor>
+        <Anchor href={repo}>Código</Anchor>
+        <P>
           <strong>Nivel en Frontend Mentor: {level}</strong>
-        </p>
+        </P>
         <span>Reto:</span>
-        <ul>
+        <Ul>
           {todoList.map((todo, i) => {
             if (Array.isArray(todo)) {
               return (
-                <li key={i} className="none">
-                  <ul>
+                <Li key={i} className="none">
+                  <Ul depth={1}>
                     {todo.map((subtodo, i) => (
-                      <li key={i}>{subtodo}</li>
+                      <Li key={i}>{subtodo}</Li>
                     ))}
-                  </ul>
-                </li>
+                  </Ul>
+                </Li>
               );
             } else {
-              return <li key={i}>{todo}</li>;
+              return <Li key={i}>{todo}</Li>;
             }
           })}
-        </ul>
+        </Ul>
       </div>
       <div>
-        <a href={liveDemo} rel="noopener noreferrer" target="_blank">
-          <picture>
-            <source
-              srcSet={`${imageCloudProvider}/q_auto,f_auto,c_scale,w_960/${challengeImg}`}
-              media="(max-width: 876px)"
-            />
-            <img
-              loading="lazy"
-              src={`${imageCloudProvider}/q_auto,f_auto,c_scale,w_550/${challengeImg}`}
-              alt={title}
-            />
-          </picture>
-        </a>
+        <Img
+          src={`${imageCloudProvider}/q_auto,f_auto,c_scale,w_550/${challengeImg}`}
+          alt={title}
+        />
       </div>
       <style global jsx>{`
         .none {
@@ -88,41 +78,14 @@ const Challenge = ({
         }
       `}</style>
       <style jsx>{`
-        div:nth-of-type(1) a {
-          margin-right: 20px;
-        }
         article {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          margin-top: 40px;
           margin-bottom: 40px;
           align-items: center;
         }
         article > div {
           padding: 40px;
-        }
-        div:nth-of-type(1) {
-          padding: 40px;
-        }
-        img {
-          width: 100%;
-          max-width: 700px;
-          margin: auto;
-          clip-path: inset(0% 0% 0% 0% round 10px);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
-            0 10px 10px -5px rgba(0, 0, 0, 0.03);
-        }
-        div:nth-of-type(2) a {
-          transition: ease 0.3s;
-          display: flex;
-        }
-        div:nth-of-type(2) a:hover,
-        div:nth-of-type(2) a:focus {
-          position: static;
-          transform: scale(1.1);
-        }
-        div:nth-of-type(1) a {
-          margin-bottom: 10px;
         }
         @media print, screen and (max-width: 876px) {
           article {
@@ -150,6 +113,10 @@ Challenge.propTypes = {
   challengeImg: PropTypes.string,
   todoList: PropTypes.array,
   level: PropTypes.string,
+};
+Anchor.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Challenge;

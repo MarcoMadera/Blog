@@ -1,4 +1,5 @@
 import Seo from "../../../components/Seo";
+import { H1 } from "../../../components/tags";
 
 const unsuscription = () => {
   return (
@@ -6,12 +7,12 @@ const unsuscription = () => {
       <main id="main">
         <Seo title="Te has desuscrito 😢 | Marco Madera" />
         <section>
-          <h1>
+          <H1>
             ¡Te has desuscrito del Newsletter!{" "}
             <span role="img" aria-label="emoji cara triste">
               😢
             </span>
-          </h1>
+          </H1>
           <p>Ya no recibirás más emails por mi parte, gracias por leer.</p>
           <video
             loop
@@ -23,26 +24,15 @@ const unsuscription = () => {
           />
         </section>
         <style jsx>{`
-          p {
-            text-align: center;
-          }
-
           section {
             text-align: center;
           }
-
-          h1 {
-            margin-top: 0;
+          main :global(h1) {
             margin-bottom: 0.67em;
-            text-align: center;
           }
           main {
             margin: 0 30px;
-          }
-          @media screen and (min-width: 0px) and (max-width: 500px) {
-            main {
-              margin: 0 30px;
-            }
+            min-height: calc(100vh - 160px);
           }
           @media screen and (min-width: 500px) {
             main {

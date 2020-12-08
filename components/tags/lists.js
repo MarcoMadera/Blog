@@ -26,9 +26,9 @@ export const Ul = ({ attribs, children, depth }) => {
   );
 };
 
-export const Li = ({ children, checked }) => {
+export const Li = ({ children, checked, ...attribs }) => {
   return (
-    <li>
+    <li {...attribs}>
       {checked === true && (
         <input
           style={{ marginRight: "5px" }}

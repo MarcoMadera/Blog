@@ -1,64 +1,44 @@
-import Link from "next/link";
 import Seo from "../../../components/Seo";
-import { colors } from "../../../styles/theme";
+import { H1, H2, Img, P, ALink } from "../../../components/tags";
+import { Anchor } from "../../../components/Challenge";
+
 const Random = () => {
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Números Pseudo Aleatorios" />
-      <h1>Herramienta para verificar números aleatorios</h1>
+      <H1>Herramienta para verificar números aleatorios</H1>
       <article>
         <div>
-          <h2>Pruebas para números aleatorios</h2>
-          <a
-            href="https://test-for-random-numbers.marcomadera.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
+          <H2>Pruebas para números aleatorios</H2>
+          <Anchor href="https://test-for-random-numbers.marcomadera.vercel.app/">
             Ver en vivo
-          </a>
-          <a
-            href="https://github.com/MarcoMadera/Test-for-random-numbers"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
+          </Anchor>
+          <Anchor href="https://github.com/MarcoMadera/Test-for-random-numbers">
             Código
-          </a>
-          <p>
+          </Anchor>
+          <P>
             Esta es una sencilla herramienta para verificar si los números
             insertados cumplen el comportamiento de los números aleatorios, se
             puede encontrar información detallada sobre la realización de este
             proyecto en el blog de{" "}
-            <Link href="/blog/numeros-pseudo-aleatorios">
-              <a>números pseudo aleatorios</a>
-            </Link>{" "}
+            <ALink
+              href="/blog/numeros-pseudo-aleatorios"
+              title="blog de números pseudo aleatorios"
+            >
+              números pseudo aleatorios
+            </ALink>{" "}
             dónde explico cómo determinar el comportamiento y puedes ver los
             resultados que obtuve al aplicarlo con Math.Random() de JavaScript.
-          </p>
+          </P>
         </div>
         <div>
-          <a
-            href="https://test-for-random-numbers.marcomadera.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <picture>
-              <source
-                srcSet={
-                  "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_540,w_960/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
-                }
-                media="(max-width: 876px)"
-              />
-              <img
-                loading="lazy"
-                src={
-                  "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
-                }
-                alt="Reporte Diario"
-              />
-            </picture>
-          </a>
+          <Img
+            loading="lazy"
+            src={
+              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+            }
+            alt="Reporte Diario"
+          />
         </div>
       </article>
       <style global jsx>{`
@@ -71,20 +51,17 @@ const Random = () => {
           margin: 0 auto;
           padding: 0 20px;
           max-width: 1300px;
+          min-height: calc(100vh - 160px);
         }
-        h1 {
-          margin-top: 0;
-          margin-bottom: 0.67em;
+        :global(h1) {
           text-align: center;
         }
-        p {
-          line-height: 1.6;
+        :global(p) {
           text-align: justify;
         }
         article {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          margin-top: 40px;
           margin-bottom: 40px;
           align-items: center;
         }
@@ -93,29 +70,6 @@ const Random = () => {
         }
         div:nth-of-type(1) {
           padding: 40px;
-        }
-        img {
-          width: 100%;
-          clip-path: inset(0% 0% 0% 0% round 10px);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
-            0 10px 10px -5px rgba(0, 0, 0, 0.03);
-        }
-        div:nth-of-type(2) a {
-          transition: ease 0.3s;
-          display: flex;
-        }
-        div:nth-of-type(2) a:hover,
-        div:nth-of-type(2) a:focus {
-          position: static;
-          transform: scale(1.1);
-        }
-
-        a {
-          color: ${colors.primary};
-        }
-        a:hover {
-          text-decoration: underline;
-          color: ${colors.secondary};
         }
         @media print, screen and (max-width: 876px) {
           article {

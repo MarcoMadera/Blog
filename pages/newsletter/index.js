@@ -1,6 +1,7 @@
 import Seo from "../../components/Seo";
 import { useState } from "react";
 import { colors } from "../../styles/theme";
+import { H1 } from "../../components/tags";
 const NewsletterPage = () => {
   const [email, setEmail] = useState({
     value: "",
@@ -40,7 +41,7 @@ const NewsletterPage = () => {
       <Seo title="Newsletter 📬 | Marco Madera" />
       <div>
         <label htmlFor="bd-email">
-          <h1>Newsletter</h1>
+          <H1>Newsletter</H1>
         </label>
         <p>
           <strong>Quiero saber tu opinión,</strong> cuando recibas los artículos
@@ -85,19 +86,14 @@ const NewsletterPage = () => {
         </form>
       </div>
       <style jsx>{`
-        p {
-          text-align: center;
-          line-height: 1.6;
-        }
-
         div {
           text-align: center;
         }
-
-        h1 {
-          margin-top: 0;
+        p {
+          line-height: 1.6;
+        }
+        main :global(h1) {
           margin-bottom: 0.67em;
-          text-align: center;
         }
         a {
           color: ${colors.primary};
@@ -106,7 +102,6 @@ const NewsletterPage = () => {
           text-decoration: underline;
           color: ${colors.secondary};
         }
-
         input {
           margin: 0 auto 40px auto;
           width: 100%;
@@ -123,11 +118,7 @@ const NewsletterPage = () => {
         }
         main {
           margin: 0 30px;
-        }
-        @media screen and (min-width: 0px) and (max-width: 500px) {
-          main {
-            margin: 0 30px;
-          }
+          min-height: calc(100vh - 160px);
         }
         @media screen and (min-width: 500px) {
           main {

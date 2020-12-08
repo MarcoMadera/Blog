@@ -50,8 +50,13 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
           font-size: 1em;
           display: -webkit-box;
           white-space: unset;
-          -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
+        }
+        h2 {
+          -webkit-line-clamp: 2;
+        }
+        p {
+          -webkit-line-clamp: 1;
         }
       `}</style>
     </article>

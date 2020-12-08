@@ -1,10 +1,11 @@
 import Challenge from "../../../components/Challenge";
+import { H1 } from "../../../components/tags";
 import Seo from "../../../components/Seo";
 const challenges = () => {
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Retos Frontend" />
-      <h1>Retos frontend</h1>
+      <H1>Retos frontend</H1>
       <Challenge
         title="REST Countries API with color theme switcher"
         level="Avanzado"
@@ -125,13 +126,8 @@ const challenges = () => {
           padding: 0 20px;
           max-width: 1300px;
         }
-        h1 {
-          margin-top: 0;
-          margin-bottom: 0.67em;
+        :global(h1) {
           text-align: center;
-        }
-        p {
-          line-height: 1.6;
         }
       `}</style>
     </main>

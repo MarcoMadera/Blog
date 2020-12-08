@@ -22,9 +22,10 @@ export const Img = ({ src, alt = "", title }) => {
             title={title || alt}
             src={`${
               src.includes("res.cloudinary.com")
-                ? src
-                    .split("upload/")
-                    .join("upload/c_mfit,w_1.2,q_auto,f_auto/")
+                ? src.replace(
+                    /(upload\/).*?(\/)/g,
+                    "$1" + "c_mfit,w_1,q_auto,f_auto" + "$2"
+                  )
                 : src
             }`}
           />
@@ -33,7 +34,8 @@ export const Img = ({ src, alt = "", title }) => {
       <LoadDetailsDialog />
       <style jsx>{`
         div img {
-          max-width: calc(100vw - 10px);
+          max-height: calc(100vh - 20px);
+          max-width: calc(100vw - 5px);
         }
         details *:focus {
           outline: none;

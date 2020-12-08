@@ -16,6 +16,7 @@ import MusicCard from "../../components/MusicCard";
 import { colors } from "../../styles/theme";
 import { useEffect, useState, useCallback } from "react";
 import { numberBetween } from "../../utils/helpers";
+import { H1, H2, H3, P } from "../../components/tags";
 
 const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
   return (
@@ -53,6 +54,7 @@ const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
         h2 {
           margin: 0;
           font-size: 1em;
+          font-weight: 600;
         }
       `}</style>
     </div>
@@ -68,9 +70,9 @@ const ThingILike = ({ title, href, children }) => {
         rel="noopener noreferrer"
         aria-label="Página de last.fm"
       >
-        <h3>{title}</h3>
+        <H3>{title}</H3>
       </a>
-      <p>{children}</p>
+      <P>{children}</P>
       <style global jsx>{`
         div p a {
           display: inline;
@@ -87,12 +89,7 @@ const ThingILike = ({ title, href, children }) => {
         }
       `}</style>
       <style jsx>{`
-        p {
-          line-height: 1.6;
-          text-align: justify;
-        }
-        h3 {
-          margin: 0px;
+        :global(h3) {
           display: inline;
         }
       `}</style>
@@ -145,8 +142,8 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
       </aside>
       <section id="main">
         <div>
-          <h1>Sobre mí</h1>
-          <p>
+          <H1>Sobre mí</H1>
+          <P>
             ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
             auxiliar administrativo en la secretaría de relaciones exteriores,
             programador web frontend por afición y entusiasta de las tecnología
@@ -156,9 +153,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             cursos, leer artículos y tutoriales. Trataré de compartir mis
             conocimientos en la sección de blog, misma que trataré como libreta
             personal para futuro con temas relacionados a la programación.
-          </p>
-          <h2>¿Cómo empecé a programar?</h2>
-          <p>
+          </P>
+          <H2>¿Cómo empecé a programar?</H2>
+          <P>
             Es algo que vengo haciendo desde preparatoria, cuando descubrí que
             se podían hacer aplicaciones para android, me eché un clavado en el
             mundo de Java sin saber ni siquiera de control de versiones ni de
@@ -174,8 +171,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             scraping, pero también me interesaba JavaScript, Python fue algo que
             pasó muy rápido, no me gustó del todo la sintáxis quedando como
             ganador JavaScript.
-          </p>
-          <h2>Cosas que me gustan</h2>
+          </P>
+          <H2>Cosas que me gustan</H2>
+          <br></br>
           <ThingILike
             title="La música"
             href="https://www.last.fm/user/MarcoMadera"
@@ -216,8 +214,8 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           </ThingILike>
         </div>
         <div>
-          <h2>¿Quieres contactar conmigo?</h2>
-          <p>
+          <H2>¿Quieres contactar conmigo?</H2>
+          <P>
             Puedes mandarme un mensaje por{" "}
             <a
               href="https://twitter.com/madera_marco"
@@ -240,7 +238,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             >
               <Email width="20" height="20" />
             </button>
-          </p>
+          </P>
           <video autoPlay loop muted playsInline>
             <source
               src="https://res.cloudinary.com/marcomadera/video/upload/v1602516508/about/18283-212312-32345_cptpwx.mp4"
@@ -372,9 +370,8 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         main > aside:nth-of-type(1) {
           padding-top: 75px;
         }
-        p {
+        main :global(p) {
           text-align: justify;
-          line-height: 1.6;
         }
         button {
           border: none;
@@ -392,14 +389,13 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           padding: 0 5px;
           box-sizing: border-box;
         }
-        h1 {
-          font-size: 2em;
+        :global(h1) {
           text-align: center;
-          margin: 0 0 1em 0;
         }
         aside h2 {
           margin: 1em 0;
           font-size: 1em;
+          font-weight: 600;
         }
         main {
           display: grid;
