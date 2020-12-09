@@ -64,7 +64,7 @@ Descarga e instala la fuente que desees como cualquier otra fuente.
 
 La gran mayoría de editores permiten el uso de ligaduras. Para activar las ligaduras en Visual Studio Code dirígete a `File > Preferences > User Settings` en la sección del editor de texto, fuentes y editar settings.json
 
-![Vs Code Settings](https://res.cloudinary.com/marcomadera/image/upload/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg "Vs Code Settings")
+![Vs Code Settings](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1595269485/Blog/2/hZhhlKS_cdxsaq.jpg "Vs Code Settings")
 
 En settings.json agrega lo siguiente en el caso de Fira Code.
 

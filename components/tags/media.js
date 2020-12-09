@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
-
+import Image from "next/image";
 const LoadDetailsDialog = dynamic(
   () => import("../../static-tweet/components/twitter-layout/details-dialog"),
   {
@@ -12,34 +12,44 @@ export const Img = ({ src, alt = "", title }) => {
   return (
     <details>
       <summary>
-        <img loading="lazy" alt={alt} title={title || alt} src={`${src}`} />
+        <img loading="lazy" alt={alt} title={title || alt} src={src} />
       </summary>
       <details-dialog>
         <div className="bg" data-close-dialog>
-          <img
-            loading="lazy"
-            alt={alt}
-            title={title || alt}
-            src={`${
-              src.includes("res.cloudinary.com")
-                ? src.replace(
-                    /(upload\/).*?(\/)/g,
-                    "$1" + "c_mfit,w_1,q_auto,f_auto" + "$2"
-                  )
-                : src
-            }`}
-          />
+          <div className="imageContainer">
+            <Image
+              layout="fill"
+              loading="lazy"
+              alt={alt}
+              title={title || alt}
+              src={`${
+                src.includes("res.cloudinary.com/marcomadera")
+                  ? src.replace(
+                      /(https:\/\/res.cloudinary.com\/marcomadera\/image\/upload\/).*?(\/)/g,
+                      "$2"
+                    )
+                  : src
+              }`}
+            />
+          </div>
         </div>
       </details-dialog>
       <LoadDetailsDialog />
       <style jsx>{`
-        div img {
-          max-height: calc(100vh - 20px);
-          max-width: calc(100vw - 5px);
+        div :global(img) {
+          object-fit: scale-down;
         }
         details *:focus {
           outline: none;
           outline-style: none;
+        }
+        .imageContainer {
+          width: 100%;
+          max-width: calc(100vw - 30px);
+          max-height: calc(100vh - 20px);
+          height: 100%;
+          display: block;
+          position: relative;
         }
         details {
           display: block;
@@ -84,7 +94,7 @@ export const Img = ({ src, alt = "", title }) => {
           object-fit: cover;
           cursor: pointer;
           border-radius: 10px;
-          max-width: 99%;
+          max-width: 100%;
         }
         :global(details-dialog) {
           position: fixed;
