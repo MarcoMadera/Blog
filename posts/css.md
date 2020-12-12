@@ -389,7 +389,7 @@ Son declaraciones que comienzan con el símbolo arroba `@`.
 
 Una forma de mirar los elementos a la hora de darle estilos es de forma de cajas. La mayoría de elementos se pueden estilar de esta forma pues tienen dentro el contenido, el relleno que las asegura, el borde de la caja y el margen que las separa de otras cajas.
 
-<style>.boxModel__margin{max-width:300px;height:200px;outline:dashed 1px #000;background:#ffca96;margin:auto;position:relative}.boxModel__border{max-width:240px;height:140px;outline:solid 1px #000;background:#ffdc91}.boxModel__padding{max-width:180px;height:80px;outline:solid 1px #000;background:#bfd081}.boxModel__content{max-width:120px;height:30px;outline:solid 1px #000;background:#7fb6c2;display:flex;justify-content:center;align-items:center;font-size:13px}.boxModel-center{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto}.boxModel__margin span{font-size:13px;margin-left:10px}</style>
+<style>.boxModel__margin{color:#000;max-width:300px;height:200px;outline:dashed 1px #8a8a8a;background:#ffca96;margin:auto;position:relative}.boxModel__border{max-width:240px;height:140px;outline:solid 1px #000;background:#ffdc91}.boxModel__padding{max-width:180px;height:80px;outline:solid 1px #000;background:#bfd081}.boxModel__content{max-width:120px;height:30px;outline:solid 1px #000;background:#7fb6c2;display:flex;justify-content:center;align-items:center;font-size:13px}.boxModel-center{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto}.boxModel__margin span{font-size:13px;margin-left:10px}</style>
 <div class="boxModel__margin">
 <span>margin</span>
   <div class="boxModel__border boxModel-center">
@@ -412,7 +412,7 @@ Una forma de mirar los elementos a la hora de darle estilos es de forma de cajas
 
 El `padding` y el `margin` **son separadores**. El `margin` siempre es invisible y **separa al exterior** de nuestro elemento con respecto al borde. El `padding` puede ser visible al asignarle un background al elemento, **separa al interior** de nuestro elemento con respecto al borde.
 
-<style>.box{width:200px;height:100px;background:#99c;border:1px solid #000}.with-padding{padding:30px}.with-margin{margin:30px}</style>
+<style>.box{color:#000;width:200px;height:100px;background:#99c;border:1px solid #000}.with-padding{padding:30px}.with-margin{margin:30px}</style>
 <div style="display: flex;">
   <div class="box with-padding">Con relleno</div>
   <div class="box with-margin">Con margen</div>

@@ -4,6 +4,7 @@ export { InlineCode, CodeBlock } from "./code";
 export { P, Blockquote } from "./text";
 export { Table, Th, Td } from "./table";
 export { Img, Video } from "./media";
-export { Details } from "./details";
+export { Details, Select } from "./interactive";
+export { Input } from "./inputs";
 export { Ol, Ul, Li } from "./lists";
 export { H1, H2, H3 } from "./headers";

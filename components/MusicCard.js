@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import { colors } from "../styles/theme";
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const MusicCard = ({ songUrl, cover, title, artist }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <article>
       <a
@@ -32,7 +35,8 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
         }
         a:hover,
         a:focus-within {
-          box-shadow: 0px 0px 4px 0px rgba(84, 84, 84, 0.15);
+          box-shadow: 0px 0px 4px 0px
+            ${darkMode ? "rgba(200, 200, 200, 0.30)" : "rgba(84, 84, 84, 0.15)"};
         }
         img {
           margin-right: 5px;
@@ -51,6 +55,7 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
           display: -webkit-box;
           white-space: unset;
           -webkit-box-orient: vertical;
+          text-align: left;
         }
         h2 {
           -webkit-line-clamp: 2;

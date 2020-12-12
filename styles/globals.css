@@ -123,23 +123,6 @@ abbr:after {
   box-shadow: 0 0 0 0.2rem rgba(181, 0, 0, 0.3);
   outline: none;
 }
-.skip-link {
-  background-color: rgb(253, 253, 253);
-  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
-  display: block;
-  padding: 1rem 5rem;
-  position: fixed;
-  font-size: 18px;
-  transition: 0.3s ease 0s;
-  top: -280px;
-  left: 0px;
-  right: 0;
-  margin: 0 auto;
-  width: fit-content;
-}
-.skip-link:focus {
-  transform: translateY(300px);
-}
 #nprogress .bar {
   background: #b50000;
   position: fixed;
@@ -191,9 +174,6 @@ abbr:after {
 @media print {
   main {
     grid-template-columns: minmax(0px, 760px) !important;
-  }
-  .skip-link {
-    display: none;
   }
   *:focus {
     outline-style: unset;

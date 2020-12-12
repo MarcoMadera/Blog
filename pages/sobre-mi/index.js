@@ -77,7 +77,7 @@ const ThingILike = ({ title, href, children }) => {
       <P>{children}</P>
       <style global jsx>{`
         div p a {
-          display: inline;
+          display: inline-block;
           color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         section p a:hover,
@@ -372,7 +372,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         main > aside:nth-of-type(1) {
           padding-top: 75px;
         }
-        main :global(p) {
+        section :global(p) {
           text-align: justify;
         }
         button {

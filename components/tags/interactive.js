@@ -1,7 +1,9 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-
+import { useContext } from "react";
+import { ThemeContext } from "../Layout";
 export const Details = ({ children }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <details>
       {children}
@@ -17,10 +19,10 @@ export const Details = ({ children }) => {
           padding: 0.5em 0.5em 0;
         }
         details > summary::marker {
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         details > summary::-webkit-details-marker {
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         details[open] {
           padding: 0.5em;
@@ -33,7 +35,28 @@ export const Details = ({ children }) => {
     </details>
   );
 };
+export const Select = ({ children, name }) => {
+  const { darkMode } = useContext(ThemeContext);
+  return (
+    <select name={name}>
+      {children}
+      <style jsx>{`
+        select {
+          background: ${darkMode ? colors.background : "#fff"};
+          color: ${darkMode ? colors.color : "#000"};
+          border: 1px solid ${colors.gray};
+          border-radius: 4px;
+          padding: 0.5em;
+        }
+      `}</style>
+    </select>
+  );
+};
 
 Details.propTypes = {
+  children: PropTypes.node,
+};
+Select.propTypes = {
+  name: PropTypes.string,
   children: PropTypes.node,
 };

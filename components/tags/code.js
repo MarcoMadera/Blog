@@ -122,6 +122,7 @@ export const CodeBlock = ({ language, value = "" }) => {
                   font-size: 14px;
                   hyphens: none;
                   line-height: 1.8;
+                  background: ${darkMode ? colors.background : colors.white};
                   margin: 0.5em 0px;
                   overflow: auto;
                   padding: 0.8em 1em;
@@ -142,9 +143,6 @@ export const CodeBlock = ({ language, value = "" }) => {
               <LeftLinesNumbers lineNumbers={lineNumbers} />
               {children}
               <style jsx>{`
-                 {
-                  /* There's a perfomance repaint on scroll issue with the language square that needs to be fix */
-                }
                 code::before {
                   border-radius: 4px;
                   color: ${darkMode

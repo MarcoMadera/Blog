@@ -1,22 +1,39 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import PropTypes from "prop-types";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { colors } from "../styles/theme";
 
-export const ThemeContext = createContext({ darkMode: false });
+export const ThemeContext = createContext({
+  darkMode: false,
+});
 
 const Layout = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
-    setDarkMode((darkMode) => darkMode === false);
+    if (darkMode === false) {
+      localStorage.setItem("theme", "dark");
+      return setDarkMode(true);
+    } else {
+      localStorage.setItem("theme", "light");
+      return setDarkMode(false);
+    }
   };
+  useEffect(() => {
+    if (localStorage.getItem("theme") === "dark") {
+      setDarkMode(true);
+    } else if (localStorage.getItem("theme") === "light") {
+      setDarkMode(false);
+    } else {
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? setDarkMode(true)
+        : setDarkMode(false);
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <a href="#main" className="skip-link">
-        Saltar al contenido
-      </a>
+      <a href="#main">Saltar al contenido</a>
       <Navbar />
       {children}
       <Footer />
@@ -24,6 +41,37 @@ const Layout = ({ children }) => {
         body {
           background: ${darkMode ? colors.background : "#fff"};
           color: ${darkMode ? colors.color : "#000"};
+        }
+        @media print {
+          body {
+            color: #000;
+          }
+        }
+      `}</style>
+      <style jsx>{`
+        a {
+          background-color: ${darkMode
+            ? colors.backgrounFooter
+            : "rgb(253, 253, 253)"};
+          box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
+          display: block;
+          padding: 1rem 5rem;
+          position: fixed;
+          font-size: 18px;
+          transition: 0.3s ease 0s;
+          top: -280px;
+          left: 0px;
+          right: 0;
+          margin: 0 auto;
+          width: fit-content;
+        }
+        a:focus {
+          transform: translateY(300px);
+        }
+        @media print {
+          a {
+            display: none;
+          }
         }
       `}</style>
     </ThemeContext.Provider>

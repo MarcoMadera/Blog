@@ -28,11 +28,6 @@ export default function Tweet({ id, caption }) {
           margin-top: 10px;
           padding: 0;
         }
-        @media (max-width: 500px) {
-          div {
-            max-width: 300px;
-          }
-        }
       `}</style>
     </div>
   );

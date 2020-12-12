@@ -23,9 +23,12 @@ import {
   Li,
   Video,
   Blockquote,
+  Select,
+  Input,
 } from "../components/tags/";
 import Tweet from "../components/tweet";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
@@ -158,6 +161,19 @@ const parseHtml = htmlParser({
       },
     },
     {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "input",
+      processNode: function Deta({ attribs }) {
+        return <Input {...attribs} />;
+      },
+    },
+    {
+      shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "select",
+      processNode: function Deta({ attribs }, children) {
+        return <Select {...attribs}>{children}</Select>;
+      },
+    },
+    {
       shouldProcessNode: (node) => node.type === "tag" && node.name === "tweet",
       processNode: function Tweets(node) {
         return <Tweet id={node.attribs.id} />;
@@ -167,13 +183,17 @@ const parseHtml = htmlParser({
       shouldProcessNode: (node) =>
         node.type === "tag" && node.name === "dialog",
       processNode: function Tweets({ attribs }, children) {
+        const { darkMode } = useContext(ThemeContext);
         return (
           <dialog {...attribs}>
             {children}
             <style jsx>{`
               dialog {
+                background: ${darkMode ? colors.background : colors.white};
                 border-color: ${colors.primary};
+                color: ${darkMode ? colors.color : "#000"};
                 margin: 0 auto;
+                padding: 10px;
               }
             `}</style>
           </dialog>

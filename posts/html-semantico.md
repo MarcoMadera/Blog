@@ -45,7 +45,7 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 
 Los elementos de estructura son de los más importantes para el SEO, definen con está construida nuestra página y como acceden a la información los agentes terceros.
 
-<style>.section{display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:10px 10px;height:fit-content;border-radius:10px}.header{background:#eddfa9;grid-area:2/1/3/3;border-radius:10px}.nav{background:#edcfa9;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#e89f71;border-radius:10px}.main{grid-area:3/2/4/3;background:#d57149;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#d18f5c;border-radius:10px}.article{padding:10px;margin:10px;background:#d5d149;border-radius:10px}.article_header{display:block!important;background:#eddfa9;margin-bottom:10px;padding:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#daa149;margin-bottom:10px;padding:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#d18f5c;padding:10px;border-radius:10px}.main_section{background:#dfa149;position:absolute;bottom:0;width:calc(100% - 20px);margin:10px;padding:10px;border-radius:10px}</style><section class="section"><nav class="nav"><p>< Nav ></p></nav><header class="header"><p>< Header ></p></header><aside class="aside"><p>< Aside ></p></aside><main class="main"><article class="article"><header class="article_header"><p class="article_p">< Header ></p></header><section class="article_section"><p class="article_title">< Section ></p><p class="article_p">Texto</p></section><footer class="article_footer">&copy; < Footer ></footer></article><section class="main_section"><h3 class="article_title">< Section ></h3><p class="article_p">Texto</p></section></main><footer class="footer">< Footer ></footer></section>
+<style>.section *{padding:10px;}.section{color:#fff;text-align:center;display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:10px 10px;height:fit-content;border-radius:10px}.header{background:#2193b3;grid-area:2/1/3/3;border-radius:10px}.nav{background:#2ba149;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#b9283b;border-radius:10px}.main{grid-area:3/2/4/3;background:#af462c;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#b8972b;border-radius:10px}.article{background:#ef9855;border-radius:10px}.article_header{display:block!important;background:#2193b3;margin-bottom:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#a57020;margin-bottom:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#b8972b;border-radius:10px}.main_section{background:#a57020;position:absolute;bottom:10px;width:calc(100% - 20px);border-radius:10px}</style><section class="section"><nav class="nav">< Nav ></nav><header class="header">< Header ></header><aside class="aside">< Aside ></aside><main class="main">< Main ><article class="article">< Article ><header class="article_header">< Header ></header><section class="article_section">< Section ></section><footer class="article_footer">< Footer > &copy;</footer></article><section class="main_section">< Section ><br>Contenido</section></main><footer class="footer">< Footer ><br>&copy;</footer></section>
 
 ```html
 <body>
@@ -239,7 +239,7 @@ Los formularios de entrada se identifican con la etiqueta `<input>` y pueden est
 
 La etiqueta `<input>` de tipo *color* recibe un atributo de nombre value con el valor inicial del color que debe de ser mostrado el elemento.
 
-<input type="color" value="#b50000" readonly={true}>
+<input type="color">
 
 ```html
 <input type="color" value="#b50000">
@@ -250,7 +250,7 @@ La etiqueta `<input>` de tipo *number* es especifico para números. Se puede def
 <input type="number" min="1" max="5" />
 
 ```html
-<input type="number" min="1" max="5" />
+<input type="number" value="1" min="1" max="5" />
 ```
 
 -------
@@ -393,7 +393,7 @@ También nos podemos poner más creativos y usar distintas combinaciones con dif
 
 Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y encabezados.
 
-<style>col{background-color:#e0ece4;}col[span="1"]{background-color:#ebecf1;}col[span="2"]{background-color:#f1f3de;}td[colspan="2"] {background-color:#e0ece4;}</style>
+<style>table{color: #fff;}col{background-color:#133163;}col[span="1"]{background-color:#293882;}col[span="2"]{background-color:#42461c;}td[colspan="2"] {background-color:#1c7f3d;}</style>
 
 <table><caption>Precio de cosas</caption><colgroup><col span="0" ><col span="1" ><col span="2" ></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" >$336</td></tr></tfoot></table>
 
@@ -401,8 +401,8 @@ Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y 
 <table>
   <caption>Precio de cosas</caption>
   <colgroup>
-    <col span="0" style="background-color:#e0ece4">
-    <col span="1" style="background-color:#ebecf1">
+    <col span="0" style="background-color:#ff4e4a">
+    <col span="1" style="background-color:#293882">
     <col span="2" style="background-color:#f1f3de">
   </colgroup>
   <thead>
@@ -427,7 +427,7 @@ Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y 
   <tfoot>
     <tr>
       <td>Total</td>
-      <td colspan="2" style="background-color:#e0ece4">$336</td>
+      <td colspan="2" style="background-color:#1c7f3d">$336</td>
     </tr>
   </tfoot>
 </table>

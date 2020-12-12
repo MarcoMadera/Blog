@@ -3,13 +3,15 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-export const A = ({ href, title, children, classname, ...attribs }) => {
+// eslint-disable-next-line no-unused-vars
+export const A = ({ href, title, children, classname, node, ...attribs }) => {
   const { darkMode } = useContext(ThemeContext);
   return (
     <a href={href} title={title || href} {...attribs} className={classname}>
       {children}
       <style jsx>{`
         a {
+          display: inline-block;
           color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         a:hover {
@@ -47,6 +49,7 @@ A.propTypes = {
   href: PropTypes.string,
   title: PropTypes.string,
   classname: PropTypes.string,
+  node: PropTypes.object,
 };
 ALink.propTypes = {
   children: PropTypes.node,
