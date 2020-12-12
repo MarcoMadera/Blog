@@ -2,9 +2,11 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
 import { getFormattedDate } from "../utils/helpers";
-import { colors } from "../styles/theme";
 import { imageCloudProvider, siteMetadata } from "../site.config";
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <article>
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
@@ -61,14 +63,19 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
       </footer>
       <style jsx>{`
         article {
-          box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 0px;
+          box-shadow: ${darkMode
+              ? "rgba(255,255,255,0.2)"
+              : "rgba(0, 0, 0, 0.2)"}
+            0px 0px 2px 0px;
           border-radius: 5px;
-          background-color: ${colors.white};
           margin-bottom: 1rem;
         }
         article:hover,
         article:focus-within {
-          box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px 0px;
+          box-shadow: ${darkMode
+              ? "rgba(255,255,255,0.3)"
+              : "rgba(0, 0, 0, 0.3)"}
+            0px 0px 2px 0px;
         }
         header {
           display: grid;

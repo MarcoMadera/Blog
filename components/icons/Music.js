@@ -1,14 +1,17 @@
 import { colors } from "../../styles/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../Layout";
 function Music(props) {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 502 502" {...props}>
       <title>Música</title>
       <path
-        fill={colors.primary}
+        fill={darkMode ? colors.darkPrimary : colors.primary}
         d="M167.599 282.635H96.277c-39.39 0-71.322 31.932-71.322 71.322s31.932 71.322 71.322 71.322 71.322-31.932 71.322-71.322v-71.322zm309.447 66.721h-71.322c-39.39 0-71.322 31.932-71.322 71.322S366.334 492 405.724 492s71.322-31.932 71.322-71.322v-71.322z"
       ></path>
       <path
-        fill={colors.secondary}
+        fill={darkMode ? colors.darkSecondary : colors.secondary}
         d="M477.046 150.344V76.721L167.599 10v73.623z"
       ></path>
       <path d="M318.01 169.002c-.696 0-1.402-.073-2.109-.225l-26-5.584c-5.4-1.16-8.837-6.477-7.677-11.876 1.159-5.4 6.474-8.839 11.876-7.677l26 5.584c5.4 1.16 8.837 6.477 7.677 11.876-1.007 4.692-5.155 7.902-9.767 7.902z"></path>

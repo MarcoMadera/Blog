@@ -2,7 +2,8 @@ import Link from "next/link";
 import { colors } from "../styles/theme";
 import { siteMetadata } from "../site.config";
 import PropTypes from "prop-types";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const Anchor = ({ href, children }) => (
   <a href={href} target="_blank" rel="noopener noreferrer">
     {children}
@@ -10,6 +11,7 @@ const Anchor = ({ href, children }) => (
 );
 
 const Footer = () => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <footer>
       <Link href="/newsletter">
@@ -25,7 +27,7 @@ const Footer = () => {
         footer {
           display: flex;
           flex-wrap: wrap;
-          background: ${colors.lightGray};
+          background: ${darkMode ? colors.backgrounFooter : colors.lightGray};
           min-height: 80px;
           justify-content: center;
           align-items: center;

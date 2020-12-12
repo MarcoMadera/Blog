@@ -8,7 +8,10 @@ import PropTypes from "prop-types";
 import Custom404 from "./404";
 import { colors } from "../styles/theme";
 import Link from "next/link";
+import { useContext } from "react";
+import { ThemeContext } from "../components/Layout";
 const Home = ({ posts = [], tags = [], pages = [] }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <main id="main">
       <Seo title="Marco Madera 📝 | Web, React, CSS, JavaScript, NodeJs" />
@@ -76,7 +79,7 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
           justify-content: center;
           line-height: 1;
           margin: 0 5px;
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
           font-weight: 600;
           padding: 5px 12px;
           width: 30px;
@@ -99,12 +102,16 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
       <style global jsx>{`
         .currentPage {
           border-radius: 50% !important;
-          background-color: ${colors.primary} !important;
-          border: 1px solid ${colors.primary} !important;
+          background-color: ${darkMode
+            ? colors.darkPrimary
+            : colors.primary} !important;
+          border: 1px solid ${darkMode ? colors.darkPrimary : colors.primary} !important;
           color: ${colors.white} !important;
         }
         .pagination:hover {
-          color: ${colors.secondary} !important;
+          color: ${darkMode
+            ? colors.darkSecondary
+            : colors.secondary} !important;
         }
       `}</style>
     </main>

@@ -142,7 +142,6 @@ export const Video = ({ src, title, ...attribs }) => {
           margin: auto;
           max-width: 99%;
           clip-path: inset(0% 0% 0% 0% round 10px);
-          transition: ease 0.3s;
         }
       `}</style>
     </video>

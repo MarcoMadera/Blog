@@ -1,24 +1,7 @@
 import PropTypes from "prop-types";
 import { imageCloudProvider } from "../site.config";
 import { H2, P, Ul, Li, Img } from "./tags";
-
-export const Anchor = ({ href, children }) => {
-  return (
-    <a
-      href={href}
-      rel="noopener noreferrer"
-      target="_blank"
-      className="btn btn-primary"
-    >
-      {children}
-      <style jsx>{`
-        a {
-          margin: 20px 20px 0 0;
-        }
-      `}</style>
-    </a>
-  );
-};
+import ActionAnchor from "./ActionAnchor";
 
 const Challenge = ({
   title,
@@ -33,9 +16,9 @@ const Challenge = ({
     <article>
       <div>
         <H2>{title}</H2>
-        <Anchor href={liveDemo}>Ver en vivo</Anchor>
-        <Anchor href={challengePage}>Página del reto</Anchor>
-        <Anchor href={repo}>Código</Anchor>
+        <ActionAnchor href={liveDemo}>Ver en vivo</ActionAnchor>
+        <ActionAnchor href={challengePage}>Página del reto</ActionAnchor>
+        <ActionAnchor href={repo}>Código</ActionAnchor>
         <P>
           <strong>Nivel en Frontend Mentor: {level}</strong>
         </P>
@@ -113,10 +96,6 @@ Challenge.propTypes = {
   challengeImg: PropTypes.string,
   todoList: PropTypes.array,
   level: PropTypes.string,
-};
-Anchor.propTypes = {
-  href: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default Challenge;

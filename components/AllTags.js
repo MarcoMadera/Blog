@@ -2,7 +2,8 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
 import { colors } from "../styles/theme";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const Anchor = ({ tag }) => (
   <Link href={"/blog/etiqueta/[slug]/"} as={`/blog/etiqueta/${slugify(tag)}/`}>
     <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
@@ -13,6 +14,7 @@ const Heading = ({ children }) => <h2>{children}</h2>;
 const Div = ({ children }) => <div>{children}</div>;
 
 const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <section>
       <Heading>{title}</Heading>
@@ -25,15 +27,15 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
         section :global(a) {
           display: block;
           margin: 0 0 3px 0;
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
           width: fit-content;
         }
-        section :global(a:hover) {
-          color: ${colors.secondary};
-          text-decoration: underline;
-        }
+        section :global(a:hover),
         section :global(a:focus) {
-          color: ${colors.secondary};
+          color: ${darkMode ? colors.darkSecondary : colors.secondary};
+        }
+        section :global(a:hover) {
+          text-decoration: underline;
         }
         section :global(div) {
           display: grid;

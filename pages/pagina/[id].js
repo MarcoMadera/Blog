@@ -9,7 +9,10 @@ import Custom404 from "../404";
 import { colors } from "../../styles/theme";
 import Link from "next/link";
 import { siteMetadata } from "../../site.config";
+import { useContext } from "react";
+import { ThemeContext } from "../../components/Layout";
 export default function Page({ posts = [], pages = [], tags = [], page }) {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <main id="main">
       <Seo
@@ -84,7 +87,7 @@ export default function Page({ posts = [], pages = [], tags = [], page }) {
           justify-content: center;
           line-height: 1;
           margin: 0 5px;
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
           font-weight: 600;
           padding: 5px 12px;
           width: 30px;
@@ -107,12 +110,16 @@ export default function Page({ posts = [], pages = [], tags = [], page }) {
       <style global jsx>{`
         .currentPage {
           border-radius: 50% !important;
-          background-color: ${colors.primary} !important;
-          border: 1px solid ${colors.primary} !important;
+          background-color: ${darkMode
+            ? colors.darkPrimary
+            : colors.primary} !important;
+          border: 1px solid ${darkMode ? colors.darkPrimary : colors.primary} !important;
           color: ${colors.white} !important;
         }
         .pagination:hover {
-          color: ${colors.secondary} !important;
+          color: ${darkMode
+            ? colors.darkSecondary
+            : colors.secondary} !important;
         }
       `}</style>
     </main>

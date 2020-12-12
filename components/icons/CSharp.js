@@ -1,5 +1,8 @@
 import { colors } from "../../styles/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../Layout";
 function CSharp(props) {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,8 +19,14 @@ function CSharp(props) {
           y2="235.867"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor={colors.primary}></stop>
-          <stop offset="1" stopColor={colors.secondary}></stop>
+          <stop
+            offset="0"
+            stopColor={darkMode ? colors.darkPrimary : colors.primary}
+          ></stop>
+          <stop
+            offset="1"
+            stopColor={darkMode ? colors.darkSecondary : colors.secondary}
+          ></stop>
         </linearGradient>
         <linearGradient
           id="b"
@@ -27,8 +36,14 @@ function CSharp(props) {
           y2="372.773"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor={colors.primary}></stop>
-          <stop offset="1" stopColor={colors.secondary}></stop>
+          <stop
+            offset="0"
+            stopColor={darkMode ? colors.darkPrimary : colors.primary}
+          ></stop>
+          <stop
+            offset="1"
+            stopColor={darkMode ? colors.darkSecondary : colors.secondary}
+          ></stop>
         </linearGradient>
         <linearGradient
           id="c"
@@ -38,8 +53,14 @@ function CSharp(props) {
           y2="502.094"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor={colors.primary}></stop>
-          <stop offset="1" stopColor={colors.tertiary}></stop>
+          <stop
+            offset="0"
+            stopColor={darkMode ? colors.darkPrimary : colors.primary}
+          ></stop>
+          <stop
+            offset="1"
+            stopColor={darkMode ? colors.darkTertiary : colors.tertiary}
+          ></stop>
         </linearGradient>
         <clipPath id="a">
           <path d="M435.279 113.284L247.191 4.692c-10.835-6.257-28.567-6.257-39.402 0L19.701 113.284C8.865 119.539 0 134.896 0 147.408v217.185c.843 14.571 8.286 26.639 19.701 34.123l188.088 108.592c10.835 6.257 28.567 6.257 39.402 0l188.088-108.592c12.248-8.146 19.219-20.408 19.701-34.123V147.408c-.44-13.165-8.323-26.443-19.701-34.124z"></path>

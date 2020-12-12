@@ -2,7 +2,11 @@ import Seo from "../../components/Seo";
 import { useState } from "react";
 import { colors } from "../../styles/theme";
 import { H1 } from "../../components/tags";
+import { useContext } from "react";
+import { ThemeContext } from "../../components/Layout";
+import ActionButton from "../../components/ActionButton";
 const NewsletterPage = () => {
+  const { darkMode } = useContext(ThemeContext);
   const [email, setEmail] = useState({
     value: "",
     error: false,
@@ -76,7 +80,7 @@ const NewsletterPage = () => {
             onChange={handleChange}
             style={outline}
           ></input>
-          <button className="btn btn-primary">Suscríbete</button>
+          <ActionButton>Suscríbete</ActionButton>
           {(email.error || email.value === "") && email.submitted ? (
             <p>Por favor inserta un correo válido</p>
           ) : (
@@ -96,11 +100,11 @@ const NewsletterPage = () => {
           margin-bottom: 0.67em;
         }
         a {
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         a:hover {
           text-decoration: underline;
-          color: ${colors.secondary};
+          color: ${darkMode ? colors.darkSecondary : colors.secondary};
         }
         input {
           margin: 0 auto 40px auto;
@@ -111,9 +115,10 @@ const NewsletterPage = () => {
           padding: 10px 15px;
         }
         input:focus {
-          border: 1px solid ${colors.secondary};
+          border: 1px solid
+            ${darkMode ? colors.darkSecondary : colors.secondary};
         }
-        button {
+        :global(button) {
           width: 100%;
         }
         main {

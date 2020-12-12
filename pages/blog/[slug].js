@@ -19,7 +19,8 @@ import { Tweets } from "../../lib/tweets";
 import useMounted from "../../hooks/useMounted";
 import { useRouter } from "next/router";
 import { H1 } from "../../components/tags";
-
+import { useContext } from "react";
+import { ThemeContext } from "../../components/Layout";
 //collect every h2 in the post to place in table of contents
 const contentAside = (content) => {
   const h2s = toc(content)
@@ -48,6 +49,7 @@ export default function Post({
   const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
   const router = useRouter();
   const mounted = useMounted();
+  const { darkMode } = useContext(ThemeContext);
   return (
     <main>
       <Seo
@@ -165,18 +167,18 @@ export default function Post({
           overflow: hidden;
         }
         a {
-          border: 3px solid ${colors.secondary};
-          background: ${colors.white};
+          border: 3px solid
+            ${darkMode ? colors.darkSecondary : colors.secondary};
           padding: 7px 10px;
           font-size: 14px;
           text-align: center;
           align-self: stretch;
           width: 220px;
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         a:hover {
           text-decoration: underline;
-          color: ${colors.secondary};
+          color: ${darkMode ? colors.darkSecondary : colors.secondary};
         }
         p {
           font-size: 16px;

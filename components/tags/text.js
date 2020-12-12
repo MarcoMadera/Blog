@@ -1,6 +1,7 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-
+import { useContext } from "react";
+import { ThemeContext } from "../Layout";
 export const P = ({ children }) => {
   return (
     <p>
@@ -15,12 +16,14 @@ export const P = ({ children }) => {
   );
 };
 export const Blockquote = ({ children }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <blockquote>
       {children}
       <style jsx>{`
         blockquote {
-          border-left: 5px solid ${colors.primary};
+          border-left: 5px solid
+            ${darkMode ? colors.darkPrimary : colors.primary};
           padding-left: 10px;
           margin-left: 30px;
           margin-right: 30px;

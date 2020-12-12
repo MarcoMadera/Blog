@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
+import ActionButton from "./ActionButton";
 const Label = ({ children }) => <label htmlFor="bd-email">{children}</label>;
 const P = ({ children }) => <p>{children}</p>;
 const Input = (props) => <input {...props} />;
-const Button = ({ children }) => (
-  <button className="btn btn-primary">{children}</button>
-);
 const Newsletter = () => {
   const [email, setEmail] = useState({
     value: "",
@@ -38,6 +37,7 @@ const Newsletter = () => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
 
+  const { darkMode } = useContext(ThemeContext);
   return (
     <form
       action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
@@ -55,7 +55,7 @@ const Newsletter = () => {
         placeholder="Correo electrónico*"
         onChange={handleChange}
       />
-      <Button>Suscríbete</Button>
+      <ActionButton>Suscríbete</ActionButton>
       {(email.error || email.value === "") && email.submitted ? (
         <P>Por favor inserta un correo válido</P>
       ) : (
@@ -69,12 +69,11 @@ const Newsletter = () => {
           margin-top: 40px;
           width: 100%;
           height: fit-content;
-          border: 3px solid ${colors.primary};
+          border: 3px solid ${darkMode ? colors.darkPrimary : colors.primary};
           border-radius: 4px;
           padding: 20px;
           text-align: center;
           margin-bottom: 50px;
-          background: ${colors.white};
         }
         form :global(label) {
           font-size: 18px;
@@ -87,6 +86,7 @@ const Newsletter = () => {
           margin: 1em 0;
         }
         form :global(input) {
+          background: ${darkMode ? colors.background : "#fff"};
           border-radius: 4px;
           outline: unset;
           border: 1px solid
@@ -99,7 +99,8 @@ const Newsletter = () => {
           width: 100%;
         }
         form :global(input:focus) {
-          border: 1px solid ${colors.secondary};
+          border: 1px solid
+            ${darkMode ? colors.darkSecondary : colors.secondary};
         }
         @media print {
           form {
@@ -115,9 +116,6 @@ Label.propTypes = {
   children: PropTypes.node,
 };
 P.propTypes = {
-  children: PropTypes.node,
-};
-Button.propTypes = {
   children: PropTypes.node,
 };
 

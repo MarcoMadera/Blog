@@ -58,7 +58,6 @@ const Bio = ({ profilePhoto, twitter, author, summary }) => {
           height: 40px;
           margin: 0 10px 0 0 !important;
           clip-path: inset(0% round 10px);
-          transition: all 0.3s ease 0s;
         }
         div :global(img:hover) {
           transform: scale(1.1);

@@ -1,6 +1,7 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-
+import { useContext } from "react";
+import { ThemeContext } from "../Layout";
 export const Meter = ({ children, ...attribs }) => {
   return (
     <>
@@ -17,16 +18,13 @@ export const Meter = ({ children, ...attribs }) => {
             border: 1px solid #ccc;
             border-radius: 10px;
             background: none;
-            background-color: ${colors.white};
           }
           meter::-webkit-meter-bar {
             background: none;
-            background-color: ${colors.white};
             height: 18px;
           }
           meter::-moz-meter-bar {
             background: none;
-            background-color: ${colors.white};
           }
           meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
             border-radius: 10px;
@@ -95,8 +93,9 @@ export const Meter = ({ children, ...attribs }) => {
 };
 
 export const Progress = ({ value, ...attribs }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
-    <progress {...attribs}>
+    <progress value={value} {...attribs}>
       {value}
       <style jsx>{`
         progress,
@@ -124,19 +123,19 @@ export const Progress = ({ value, ...attribs }) => {
           background: unset;
         }
         progress {
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
           border-radius: 20px;
         }
         progress::-moz-progress-bar {
-          background: ${colors.primary};
+          background: ${darkMode ? colors.darkPrimary : colors.primary};
           border-radius: 20px;
         }
         progress::-webkit-progress-value {
-          background: ${colors.primary};
+          background: ${darkMode ? colors.darkPrimary : colors.primary};
           border-radius: 20px;
         }
         progress[aria-valuenow]:before {
-          background: ${colors.primary};
+          background: ${darkMode ? colors.darkPrimary : colors.primary};
           border-radius: 20px;
         }
       `}</style>

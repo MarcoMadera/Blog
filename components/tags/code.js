@@ -7,14 +7,16 @@ import remark2rehype from "remark-rehype";
 import prism from "@mapbox/rehype-prism";
 import React from "react";
 import PropTypes from "prop-types";
-
+import { useContext } from "react";
+import { ThemeContext } from "../Layout";
 export const InlineCode = ({ children, ...attrbs }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <code {...attrbs}>
       {children}
       <style jsx>{`
         code {
-          background: #f5f5f5;
+          background: ${darkMode ? "#f0f6fc26" : "#f5f5f5"};
           padding: 3px 6px;
           border-radius: 6px;
           font-family: "Roboto Mono", monospace;
@@ -91,11 +93,14 @@ const customClasses = {
 };
 
 export const CodeBlock = ({ language, value = "" }) => {
+  const { darkMode } = useContext(ThemeContext);
   const lineNumbers = Array.from(
     { length: (value.match(/\n/g) || "").length + 1 },
     (_, i) => i + 1
   );
-  const style = codeStyles[`${language}`] ?? undefined;
+  const style = darkMode
+    ? codeStyles.dark[`${language}`] ?? undefined
+    : codeStyles.light[`${language}`] ?? undefined;
   const processor = unified()
     .use(markdown)
     .use(remark2rehype)
@@ -111,7 +116,7 @@ export const CodeBlock = ({ language, value = "" }) => {
                 pre {
                   border: 1px solid #ccc;
                   border-radius: 10px;
-                  color: rgb(36, 41, 46);
+                  color: ${darkMode ? "#c9d1d9" : "rgb(36, 41, 46)"};
                   display: block;
                   font-family: Roboto Mono, monospace;
                   font-size: 14px;
@@ -137,9 +142,14 @@ export const CodeBlock = ({ language, value = "" }) => {
               <LeftLinesNumbers lineNumbers={lineNumbers} />
               {children}
               <style jsx>{`
+                 {
+                  /* There's a perfomance repaint on scroll issue with the language square that needs to be fix */
+                }
                 code::before {
                   border-radius: 4px;
-                  color: rgba(0, 0, 0, 0.7);
+                  color: ${darkMode
+                    ? "rgba(255, 255, 255, 0.7)"
+                    : "rgba(0, 0, 0, 0.7)"};
                   content: attr(data-lang);
                   font-size: 12px;
                   padding: 2px 8px;
@@ -148,7 +158,7 @@ export const CodeBlock = ({ language, value = "" }) => {
                   text-transform: uppercase;
                   top: -11px;
                   border: 1px solid #ccc;
-                  background: ${colors.white};
+                  background: ${darkMode ? colors.background : colors.white};
                 }
               `}</style>
             </code>

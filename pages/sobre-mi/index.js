@@ -17,7 +17,8 @@ import { colors } from "../../styles/theme";
 import { useEffect, useState, useCallback } from "react";
 import { numberBetween } from "../../utils/helpers";
 import { H1, H2, H3, P } from "../../components/tags";
-
+import { useContext } from "react";
+import { ThemeContext } from "../../components/Layout";
 const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
   return (
     <div>
@@ -62,6 +63,7 @@ const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
 };
 
 const ThingILike = ({ title, href, children }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <>
       <a
@@ -76,12 +78,12 @@ const ThingILike = ({ title, href, children }) => {
       <style global jsx>{`
         div p a {
           display: inline;
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         section p a:hover,
         section p a:focus {
           text-decoration: underline;
-          color: ${colors.secondary};
+          color: ${darkMode ? colors.darkSecondary : colors.secondary};
         }
         section a:hover,
         section a:focus {

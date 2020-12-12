@@ -14,9 +14,7 @@ export default function Tweet({ children, data }) {
       <TweetAction tweet={data} />
       <style jsx>{`
         div.tweet {
-          color: ${tweets.tweetFontColor};
           overflow: hidden;
-          background: ${tweets.tweetBgColor};
           border: ${tweets.tweetBorder};
           border-radius: 15px;
           margin: ${tweets.containerMargin};

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Seo from "../../components/Seo";
+import ActionLink from "../../components/ActionLink";
 import { H1, H2, P, A, Img, ALink } from "../../components/tags";
 const Portfolio = () => {
   return (
@@ -30,9 +30,7 @@ const Portfolio = () => {
             de diseño, solo la imagen, por lo que son realizados principalmente
             a ojo.
           </P>
-          <Link href="/portafolio/retos">
-            <a className="btn btn-primary">Detalles</a>
-          </Link>
+          <ActionLink href="/portafolio/retos">Detalles</ActionLink>
         </div>
       </article>
       <article>
@@ -60,9 +58,9 @@ const Portfolio = () => {
             </a>
             .
           </P>
-          <Link href="/portafolio/random-numbers-test">
-            <a className="btn btn-primary">Detalles</a>
-          </Link>
+          <ActionLink href="/portafolio/random-numbers-test">
+            Detalles
+          </ActionLink>
         </div>
       </article>
       <article>
@@ -83,9 +81,7 @@ const Portfolio = () => {
             posibles errores llevando la información directamente a el
             almacenamiento.
           </P>
-          <Link href="/portafolio/sre-excel">
-            <a className="btn btn-primary">Detalles</a>
-          </Link>
+          <ActionLink href="/portafolio/sre-excel">Detalles</ActionLink>
         </div>
       </article>
       <style jsx>{`
@@ -102,7 +98,6 @@ const Portfolio = () => {
           display: grid;
           align-items: center;
           margin-bottom: 40px;
-          transition: ease 0.4s;
         }
         article:nth-of-type(2n+1) {
           grid-template-columns: 400px 1fr;
@@ -113,7 +108,7 @@ const Portfolio = () => {
         article:nth-of-type(2n+2) div{
           grid-area: 1 / 1 / 1 / 2;
         }
-        article:hover a {
+        article:hover :global(.actionLink) {
           animation: heartbeat 1.5s ease-in-out 1s 2 both;
         }
         @keyframes heartbeat {

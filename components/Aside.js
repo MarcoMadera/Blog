@@ -4,7 +4,8 @@ import Twitter from "./icons/Twitter";
 import { siteMetadata } from "../site.config";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const Anchor = ({ href, label, children }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
@@ -15,6 +16,7 @@ const Anchor = ({ href, label, children }) => {
 
 const Aside = () => {
   const { social } = siteMetadata;
+  const { darkMode } = useContext(ThemeContext);
   return (
     <aside>
       <picture>
@@ -39,26 +41,28 @@ const Aside = () => {
         href={`https://github.com/${social.gitHub}`}
         label="Página de Github"
       >
-        <Github fill={colors.primary} />
+        <Github fill={darkMode ? colors.darkPrimary : colors.primary} />
       </Anchor>
       <Anchor
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
         label="Página de LinkedIn"
       >
-        <LinkedIn fill={colors.primary} />
+        <LinkedIn fill={darkMode ? colors.darkPrimary : colors.primary} />
       </Anchor>
       <Anchor
         href={`https://twitter.com/${social.twitter}`}
         label="Página de Twitter"
       >
-        <Twitter fill={colors.primary} />
+        <Twitter fill={darkMode ? colors.darkPrimary : colors.primary} />
       </Anchor>
       <style jsx>{`
         aside {
           height: 300px;
           border-radius: 12px;
-          background-color: ${colors.white};
-          box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 0px;
+          box-shadow: ${
+            darkMode ? "rgba(255,255,255,0.2)" : "rgba(0, 0, 0, 0.2)"
+          }
+            0px 0px 2px 0px;
           text-align: center;
           padding: 20px;
           width: 100%;
@@ -74,7 +78,7 @@ const Aside = () => {
         }
         aside :global(a:hover svg),
         aside :global(a:focus svg) {
-          fill: ${colors.secondary};
+          fill: ${darkMode ? colors.darkSecondary : colors.secondary};
         }
         picture {
           display: inline-flex;

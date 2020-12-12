@@ -1,7 +1,8 @@
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
 import { colors } from "../styles/theme";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const Anchor = ({ href, children }) => <a href={href}>{children}</a>;
 
 const Section = ({ children }) => <section>{children}</section>;
@@ -9,6 +10,7 @@ const Section = ({ children }) => <section>{children}</section>;
 const Heading = ({ children }) => <h2>{children}</h2>;
 
 const Contents = ({ content = [] }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <aside>
       {content.length > 0 && (
@@ -35,7 +37,7 @@ const Contents = ({ content = [] }) => {
           top: 0px;
         }
         aside :global(a) {
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
           list-style: circle;
           display: block;
           margin: 10px 0;
@@ -43,7 +45,7 @@ const Contents = ({ content = [] }) => {
         }
         aside :global(a:hover),
         aside :global(a:focus) {
-          color: ${colors.secondary};
+          color: ${darkMode ? colors.darkSecondary : colors.secondary};
         }
         aside :global(h2) {
           font-size: 18px;

@@ -1,6 +1,6 @@
 import Seo from "../../../components/Seo";
 import { H1, H2, Img, P, ALink } from "../../../components/tags";
-import { Anchor } from "../../../components/Challenge";
+import ActionAnchor from "../../../components/ActionAnchor";
 
 const Random = () => {
   return (
@@ -10,12 +10,12 @@ const Random = () => {
       <article>
         <div>
           <H2>Pruebas para números aleatorios</H2>
-          <Anchor href="https://test-for-random-numbers.marcomadera.vercel.app/">
+          <ActionAnchor href="https://test-for-random-numbers.marcomadera.vercel.app/">
             Ver en vivo
-          </Anchor>
-          <Anchor href="https://github.com/MarcoMadera/Test-for-random-numbers">
+          </ActionAnchor>
+          <ActionAnchor href="https://github.com/MarcoMadera/Test-for-random-numbers">
             Código
-          </Anchor>
+          </ActionAnchor>
           <P>
             Esta es una sencilla herramienta para verificar si los números
             insertados cumplen el comportamiento de los números aleatorios, se

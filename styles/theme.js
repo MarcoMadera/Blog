@@ -7,6 +7,15 @@ export const colors = {
   white: "#fff",
   twitter: "#1b95e0",
   spotify: "#1db954",
+
+  // Dark Mode
+  darkPrimary: "#da2828",
+  darkSecondary: "#c30101",
+  darkTertiary: "#7b1111",
+  background: "#0d1117",
+  backgrounFooter: "#161b22",
+  color: "#c9d1d9",
+  red: "#c22117",
 };
 
 export const tweets = {

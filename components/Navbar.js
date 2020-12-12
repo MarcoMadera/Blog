@@ -2,6 +2,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import Moon from "./icons/Moon";
+import Sun from "./icons/Sun";
+import { ThemeContext } from "./Layout";
 const Anchor = ({ label, href, children, ...attribs }) => {
   const router = useRouter();
   return (
@@ -45,12 +49,23 @@ const Logo = () => {
 const Nav = ({ children }) => <nav>{children}</nav>;
 
 const Navbar = () => {
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
   return (
     <header>
       <Anchor href="/" label="Ir a la página principal" className="logo">
         <Logo />
       </Anchor>
       <Nav>
+        <button
+          onClick={() => toggleDarkMode()}
+          className="Header__darkMode Header__darkMode-Title"
+        >
+          {darkMode ? (
+            <Moon width={16} height={16} fill="rgb(250, 250, 250)" />
+          ) : (
+            <Sun width={16} height={16} />
+          )}
+        </button>
         <Anchor href="/portafolio" label="Ir al portafolio">
           Portafolio
         </Anchor>
@@ -93,6 +108,13 @@ const Navbar = () => {
         }
       `}</style>
       <style jsx>{`
+        button {
+          display: inline-flex;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          margin: 8px;
+        }
         header :global(picture) {
           display: inline-flex;
         }
@@ -115,13 +137,18 @@ const Navbar = () => {
           height: 40px;
           margin-right: 10px;
         }
+        header :global(nav) {
+          display: flex;
+          align-items: center;
+        }
         header :global(nav a) {
           display: inline-block;
+          min-width: fit-content;
           margin: 9px 5px;
         }
         header :global(nav a:hover),
         header :global(nav a:focus) {
-          color: ${colors.secondary};
+          color: ${darkMode ? colors.darkSecondary : colors.secondary};
           animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
         }

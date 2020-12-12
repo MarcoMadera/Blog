@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import { colors } from "../styles/theme";
 import { imageCloudProvider, siteMetadata } from "../site.config";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
 const Div = ({ children }) => <div>{children}</div>;
 
 const Heading = ({ children }) => <h2>{children}</h2>;
@@ -28,6 +29,7 @@ const AnchorImg = ({ slug, title, author, cover }) => {
 };
 
 const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <div>
       {recommendedPosts.length > 1 && (
@@ -61,18 +63,16 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
           align-items: center;
           margin: 0;
           padding: 3px;
-          color: ${colors.primary};
+          color: ${darkMode ? colors.darkPrimary : colors.primary};
+        }
+        div :global(a:focus),
+        div :global(a:hover) {
+          background: ${darkMode ? "#ffffff1c" : "rgb(250, 250, 250)"};
+          color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          border-radius: 3px;
         }
         div :global(a:hover) {
-          color: ${colors.secondary};
           text-decoration: underline;
-          background: rgb(250, 250, 250);
-          border-radius: 3px;
-        }
-        div :global(a:focus) {
-          color: ${colors.secondary};
-          background: rgb(250, 250, 250);
-          border-radius: 3px;
         }
         div :global(div) {
           display: grid;
