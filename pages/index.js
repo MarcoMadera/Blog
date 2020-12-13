@@ -82,8 +82,8 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
           color: ${darkMode ? colors.darkPrimary : colors.primary};
           font-weight: 600;
           padding: 5px 12px;
-          width: 30px;
-          height: 30px;
+          width: 31px;
+          height: 31px;
           border-radius: 50% !important;
         }
         main {
@@ -105,7 +105,6 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
           background-color: ${darkMode
             ? colors.darkPrimary
             : colors.primary} !important;
-          border: 1px solid ${darkMode ? colors.darkPrimary : colors.primary} !important;
           color: ${colors.white} !important;
         }
         .pagination:hover {

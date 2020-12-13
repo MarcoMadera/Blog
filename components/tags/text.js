@@ -9,7 +9,7 @@ export const P = ({ children }) => {
       <style jsx>{`
         p {
           margin: 1em 0;
-          line-height: 1.6;
+          line-height: 25.6px;
         }
       `}</style>
     </p>

@@ -19,7 +19,8 @@ export const InlineCode = ({ children, ...attrbs }) => {
           background: ${darkMode ? "#f0f6fc26" : "#f5f5f5"};
           padding: 3px 6px;
           border-radius: 6px;
-          font-family: "Roboto Mono", monospace;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
           line-height: 1.8;
           font-size: 14px;
         }
@@ -118,7 +119,8 @@ export const CodeBlock = ({ language, value = "" }) => {
                   border-radius: 10px;
                   color: ${darkMode ? "#c9d1d9" : "rgb(36, 41, 46)"};
                   display: block;
-                  font-family: Roboto Mono, monospace;
+                  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+                    Consolas, "Liberation Mono", "Courier New", monospace;
                   font-size: 14px;
                   hyphens: none;
                   line-height: 1.8;
@@ -132,6 +134,10 @@ export const CodeBlock = ({ language, value = "" }) => {
                   word-break: normal;
                   word-spacing: normal;
                   word-wrap: normal;
+                }
+                pre :global(code) {
+                  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+                    Consolas, "Liberation Mono", "Courier New", monospace;
                 }
               `}</style>
             </pre>
@@ -150,6 +156,8 @@ export const CodeBlock = ({ language, value = "" }) => {
                     : "rgba(0, 0, 0, 0.7)"};
                   content: attr(data-lang);
                   font-size: 12px;
+                  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+                    Consolas, "Liberation Mono", "Courier New", monospace;
                   padding: 2px 8px;
                   position: absolute;
                   right: 8px;

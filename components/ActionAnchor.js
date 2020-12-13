@@ -13,7 +13,7 @@ const ActionAnchor = ({ children, href }) => {
         a {
           color: #fff;
           background-color: ${darkMode ? colors.darkPrimary : colors.primary};
-          border-color: ${darkMode ? colors.darkSeconday : colors.secondary};
+          border-color: ${darkMode ? colors.darkSecondary : colors.secondary};
           cursor: pointer;
           display: inline-block;
           font-weight: 400;

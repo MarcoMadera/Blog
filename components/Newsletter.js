@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
 import ActionButton from "./ActionButton";
+import { Input } from "./tags";
 const Label = ({ children }) => <label htmlFor="bd-email">{children}</label>;
 const P = ({ children }) => <p>{children}</p>;
-const Input = (props) => <input {...props} />;
 const Newsletter = () => {
   const [email, setEmail] = useState({
     value: "",
@@ -86,8 +86,6 @@ const Newsletter = () => {
           margin: 1em 0;
         }
         form :global(input) {
-          background: ${darkMode ? colors.background : "#fff"};
-          border-radius: 4px;
           outline: unset;
           border: 1px solid
             ${email.error && email.submitted ? "red" : colors.gray};

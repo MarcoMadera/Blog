@@ -11,7 +11,7 @@ const ActionButton = ({ children }) => {
         button {
           color: #fff;
           background-color: ${darkMode ? colors.darkPrimary : colors.primary};
-          border-color: ${darkMode ? colors.darkSeconday : colors.secondary};
+          border-color: ${darkMode ? colors.darkSecondary : colors.secondary};
           cursor: pointer;
           display: inline-block;
           font-weight: 400;
@@ -20,6 +20,7 @@ const ActionButton = ({ children }) => {
           user-select: none;
           border: 1px solid transparent;
           padding: 0.375rem 2rem;
+          font-family: Arial;
           font-size: 1rem;
           line-height: 1.5;
           border-radius: 28px;
