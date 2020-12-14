@@ -25,6 +25,8 @@ import {
   Blockquote,
   Select,
   Input,
+  Kbd,
+  Abbr,
 } from "../components/tags/";
 import Tweet from "../components/tweet";
 import { useContext } from "react";
@@ -174,6 +176,18 @@ const parseHtml = htmlParser({
       },
     },
     {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "kbd",
+      processNode: function KeyBoard({ attribs }, children) {
+        return <Kbd {...attribs}>{children}</Kbd>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "abbr",
+      processNode: function KeyBoard({ attribs }, children) {
+        return <Abbr {...attribs}>{children}</Abbr>;
+      },
+    },
+    {
       shouldProcessNode: (node) => node.type === "tag" && node.name === "tweet",
       processNode: function Tweets(node) {
         return <Tweet id={node.attribs.id} />;
@@ -189,9 +203,11 @@ const parseHtml = htmlParser({
             {children}
             <style jsx>{`
               dialog {
-                background: ${darkMode ? colors.background : colors.white};
+                background: ${darkMode
+                  ? colors.dark_background
+                  : colors.background};
                 border-color: ${colors.primary};
-                color: ${darkMode ? colors.color : "#000"};
+                color: ${darkMode ? colors.dark_textColor : colors.textColor};
                 margin: 0 auto;
                 padding: 10px;
               }
@@ -250,9 +266,14 @@ const _mapProps = (source) => ({
       }
       return <>{children}</>;
     },
-    link: function Link({ children, ...attribs }) {
+    link: function Link({ children, node, ...attribs }) {
       return (
-        <A target="_blank" rel="noopener noreferrer" {...attribs}>
+        <A
+          target="_blank"
+          title={node.title}
+          rel="noopener noreferrer"
+          {...attribs}
+        >
           {children}
         </A>
       );

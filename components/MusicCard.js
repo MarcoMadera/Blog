@@ -28,10 +28,12 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
         a {
           display: flex;
           border-radius: 3px;
-          border: 1px solid ${colors.gray};
+          border: 1px solid ${colors.accents1};
           margin-bottom: 10px;
           padding: 5px;
           align-items: center;
+          text-decoration: none;
+          color: inherit;
         }
         a:hover,
         a:focus-within {

@@ -1,7 +1,6 @@
 import Seo from "../../components/Seo";
 import PropTypes from "prop-types";
 import Spotify from "../../components/icons/Spotify";
-import Link from "next/link";
 import Email from "../../components/icons/Email";
 import Code from "../../components/icons/Code";
 import AugmentedReallity from "../../components/icons/AugmentedReallity";
@@ -16,9 +15,7 @@ import MusicCard from "../../components/MusicCard";
 import { colors } from "../../styles/theme";
 import { useEffect, useState, useCallback } from "react";
 import { numberBetween } from "../../utils/helpers";
-import { H1, H2, H3, P } from "../../components/tags";
-import { useContext } from "react";
-import { ThemeContext } from "../../components/Layout";
+import { H1, H2, H3, P, A, ALink } from "../../components/tags";
 const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
   return (
     <div>
@@ -41,10 +38,6 @@ const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
       />
       <hr />
       <style jsx>{`
-        a {
-          display: inline-flex;
-          box-sizing: border-box;
-        }
         header {
           display: flex;
           margin-top: 69px;
@@ -57,13 +50,15 @@ const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
           font-size: 1em;
           font-weight: 600;
         }
+        a {
+          display: inline-flex;
+        }
       `}</style>
     </div>
   );
 };
 
 const ThingILike = ({ title, href, children }) => {
-  const { darkMode } = useContext(ThemeContext);
   return (
     <>
       <a
@@ -75,19 +70,15 @@ const ThingILike = ({ title, href, children }) => {
         <H3>{title}</H3>
       </a>
       <P>{children}</P>
-      <style global jsx>{`
-        div p a {
-          display: inline-block;
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+      <style jsx>{`
+        a {
+          color: inherit !important;
+          text-decoration: none !important;
         }
-        section p a:hover,
-        section p a:focus {
-          text-decoration: underline;
-          color: ${darkMode ? colors.darkSecondary : colors.secondary};
-        }
-        section a:hover,
-        section a:focus {
-          text-decoration: underline;
+        a:hover,
+        a:focus {
+          color: inherit !important;
+          text-decoration: underline !important;
         }
       `}</style>
       <style jsx>{`
@@ -201,9 +192,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           >
             Procuro dejar tiempo para leer artículos, blogs, hilos de twitter y
             novelas, contenido de la web interesante, que pueda compartir en el{" "}
-            <Link href="/newsletter">
-              <a>Newsletter</a>
-            </Link>
+            <ALink href="/newsletter" title="Newsletter">
+              Newsletter
+            </ALink>
           </ThingILike>
           <ThingILike
             title="Ver series"
@@ -219,14 +210,15 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           <H2>¿Quieres contactar conmigo?</H2>
           <P>
             Puedes mandarme un mensaje por{" "}
-            <a
+            <A
               href="https://twitter.com/madera_marco"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Página de Twitter"
+              title="Visita mi Twitter"
             >
               Twitter
-            </a>
+            </A>
             , o mándame un correo dando clic al icono{" "}
             <button
               title="Enviar correo electrónico"

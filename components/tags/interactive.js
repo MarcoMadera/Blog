@@ -14,21 +14,21 @@ export const Details = ({ children }) => {
           padding: 0.5em;
         }
         details {
-          border: 1px solid ${colors.gray};
+          border: 1px solid ${colors.accents1};
           border-radius: 4px;
           padding: 0.5em 0.5em 0;
         }
         details > summary::marker {
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+          color: ${darkMode ? colors.dark_primary : colors.primary};
         }
         details > summary::-webkit-details-marker {
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+          color: ${darkMode ? colors.dark_primary : colors.primary};
         }
         details[open] {
           padding: 0.5em;
         }
         details[open] summary {
-          border-bottom: 1px solid ${colors.gray};
+          border-bottom: 1px solid ${colors.accents1};
           margin-bottom: 0.5em;
         }
       `}</style>
@@ -42,9 +42,9 @@ export const Select = ({ children, name }) => {
       {children}
       <style jsx>{`
         select {
-          background: ${darkMode ? colors.background : "#fff"};
-          color: ${darkMode ? colors.color : "#000"};
-          border: 1px solid ${colors.gray};
+          background: ${darkMode ? colors.dark_background : colors.background};
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          border: 1px solid ${colors.accents1};
           border-radius: 4px;
           padding: 0.5em;
         }

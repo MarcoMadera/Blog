@@ -168,17 +168,17 @@ export default function Post({
         }
         a {
           border: 3px solid
-            ${darkMode ? colors.darkSecondary : colors.secondary};
+            ${darkMode ? colors.dark_secondary : colors.secondary};
           padding: 7px 10px;
           font-size: 14px;
           text-align: center;
           align-self: stretch;
           width: 220px;
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+          color: ${darkMode ? colors.dark_primary : colors.primary};
         }
         a:hover {
           text-decoration: underline;
-          color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         p {
           font-size: 16px;

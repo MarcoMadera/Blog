@@ -1,7 +1,7 @@
 import Seo from "../../../components/Seo";
 import PropTypes from "prop-types";
 import { imageCloudProvider } from "../../../site.config";
-import { H1, H2, Img, P } from "../../../components/tags";
+import { H1, H2, Img, P, Kbd } from "../../../components/tags";
 const Article = ({ title, img, children }) => {
   return (
     <>
@@ -128,7 +128,7 @@ const sre = () => {
           La gráfica se puede generar en una hoja nueva, libro nuevo, archivo
           PDF y/o imagen PNG, si se genera en hoja nueva se puede modificar los
           estilos a preferencia y después exportarla a PDF o imagen PNG con
-          atajos <kbd>ctrl</kbd> + <kbd>p</kbd> o <kbd>ctrl</kbd> + <kbd>g</kbd>{" "}
+          atajos <Kbd>ctrl</Kbd> + <Kbd>p</Kbd> o <Kbd>ctrl</Kbd> + <Kbd>g</Kbd>{" "}
           respectivamente.
         </P>
       </Article>

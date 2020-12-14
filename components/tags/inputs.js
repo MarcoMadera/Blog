@@ -47,9 +47,9 @@ export const Input = ({ type, ...attribs }) => {
       <input type={type} {...attribs} />
       <style jsx>{`
         input {
-          background: ${darkMode ? colors.background : "#fff"};
-          color: ${darkMode ? colors.color : "#000"};
-          border: 1px solid ${colors.gray};
+          background: ${darkMode ? colors.dark_background : colors.background};
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          border: 1px solid ${colors.accents1};
           border-radius: 4px;
           padding: 0.5em;
         }

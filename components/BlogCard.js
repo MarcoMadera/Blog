@@ -113,6 +113,8 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
         a {
           display: inline-flex;
           box-sizing: border-box;
+          text-decoration: none;
+          color: inherit;
         }
         div > a {
           margin-right: 5px;

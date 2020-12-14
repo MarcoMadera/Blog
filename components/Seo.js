@@ -2,7 +2,9 @@ import Head from "next/head";
 import { siteMetadata } from "../site.config";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
-
+import { useContext } from "react";
+import { ThemeContext } from "./Layout";
+import { colors } from "../styles/theme";
 const Seo = ({
   title,
   description = "",
@@ -14,6 +16,7 @@ const Seo = ({
   const metaDescription = description || siteMetadata.description;
   const metaTitle = title || siteMetadata.title;
   const router = useRouter();
+  const { darkMode } = useContext(ThemeContext);
   return (
     <Head>
       <title>{title}</title>
@@ -29,6 +32,10 @@ const Seo = ({
       />
       <meta property="og:locale" content="es-MX" />
       <meta name="robots" content="index,follow" />
+      <meta
+        name="theme-color"
+        content={darkMode ? colors.dark_background : colors.background}
+      />
       <link
         rel="alternate"
         type="application/rss+xml"

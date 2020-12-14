@@ -15,6 +15,54 @@ export const P = ({ children }) => {
     </p>
   );
 };
+export const Abbr = ({ children, ...attribs }) => {
+  const { darkMode } = useContext(ThemeContext);
+  return (
+    <abbr {...attribs}>
+      {children}
+      <style jsx>{`
+        abbr {
+          text-decoration: none;
+          position: relative;
+        }
+        abbr:after {
+          content: "";
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0px;
+          border-width: 0 0 2px;
+          border-style: dashed;
+          border-color: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+      `}</style>
+    </abbr>
+  );
+};
+export const Kbd = ({ children, ...attribs }) => {
+  return (
+    <kbd {...attribs}>
+      {children}
+      <style jsx>{`
+        kbd {
+          background-color: #eee;
+          font-family: monospace;
+          border-radius: 3px;
+          border: 1px solid #b4b4b4;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+            0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+          color: #333;
+          display: inline-block;
+          font-size: 0.85em;
+          font-weight: 700;
+          line-height: 1;
+          padding: 2px 4px;
+          white-space: nowrap;
+        }
+      `}</style>
+    </kbd>
+  );
+};
 export const Blockquote = ({ children }) => {
   const { darkMode } = useContext(ThemeContext);
   return (
@@ -23,7 +71,7 @@ export const Blockquote = ({ children }) => {
       <style jsx>{`
         blockquote {
           border-left: 5px solid
-            ${darkMode ? colors.darkPrimary : colors.primary};
+            ${darkMode ? colors.dark_primary : colors.primary};
           padding-left: 10px;
           margin-left: 30px;
           margin-right: 30px;
@@ -40,6 +88,12 @@ export const Blockquote = ({ children }) => {
 };
 
 P.propTypes = {
+  children: PropTypes.node,
+};
+Abbr.propTypes = {
+  children: PropTypes.node,
+};
+Kbd.propTypes = {
   children: PropTypes.node,
 };
 Blockquote.propTypes = {

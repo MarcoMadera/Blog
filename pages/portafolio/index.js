@@ -45,17 +45,20 @@ const Portfolio = () => {
           <P>
             Herramienta para verificar números aleatorios, se puede encontrar
             información detallada sobre la realización de esta aplicacion en el{" "}
-            <ALink href="/blog/numeros-pseudo-aleatorios">
+            <ALink
+              href="/blog/numeros-pseudo-aleatorios"
+              title="Blog: Números Pseudo Aleatorios"
+            >
               blog de números pseudo aleatorios
             </ALink>
             , y/o probarlo en la siguiente página de{" "}
-            <a
+            <A
               target="_blank"
               rel="noopener noreferrer"
               href="https://test-for-random-numbers.marcomadera.vercel.app/"
             >
               test para numeros aleatorios
-            </a>
+            </A>
             .
           </P>
           <ActionLink href="/portafolio/random-numbers-test">

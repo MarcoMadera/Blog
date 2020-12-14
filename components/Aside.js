@@ -41,19 +41,19 @@ const Aside = () => {
         href={`https://github.com/${social.gitHub}`}
         label="Página de Github"
       >
-        <Github fill={darkMode ? colors.darkPrimary : colors.primary} />
+        <Github fill={darkMode ? colors.dark_primary : colors.primary} />
       </Anchor>
       <Anchor
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
         label="Página de LinkedIn"
       >
-        <LinkedIn fill={darkMode ? colors.darkPrimary : colors.primary} />
+        <LinkedIn fill={darkMode ? colors.dark_primary : colors.primary} />
       </Anchor>
       <Anchor
         href={`https://twitter.com/${social.twitter}`}
         label="Página de Twitter"
       >
-        <Twitter fill={darkMode ? colors.darkPrimary : colors.primary} />
+        <Twitter fill={darkMode ? colors.dark_primary : colors.primary} />
       </Anchor>
       <style jsx>{`
         aside {
@@ -78,7 +78,7 @@ const Aside = () => {
         }
         aside :global(a:hover svg),
         aside :global(a:focus svg) {
-          fill: ${darkMode ? colors.darkSecondary : colors.secondary};
+          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         picture {
           display: inline-flex;

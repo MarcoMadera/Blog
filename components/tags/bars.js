@@ -15,7 +15,7 @@ export const Meter = ({ children, ...attribs }) => {
             -webkit-appearance: none;
             appearance: meter;
             -moz-appearance: none;
-            border: 1px solid #ccc;
+            border: 1px solid ${colors.accents1};
             border-radius: 10px;
             background: none;
           }
@@ -28,11 +28,19 @@ export const Meter = ({ children, ...attribs }) => {
           }
           meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
             border-radius: 10px;
-            background-image: linear-gradient(90deg, #dd2121 20%, #dd4921 100%);
+            background-image: linear-gradient(
+              90deg,
+              ${colors.red} 20%,
+              ${colors.red} 100%
+            );
             background-size: 100% 100%;
           }
           meter::-webkit-meter-even-less-good-value {
-            background-image: linear-gradient(90deg, #dd2121 20%, #dd4921 100%);
+            background-image: linear-gradient(
+              90deg,
+              ${colors.red} 20%,
+              ${colors.red} 100%
+            );
             background-size: 100% 100%;
             border-radius: 10px;
           }
@@ -40,11 +48,11 @@ export const Meter = ({ children, ...attribs }) => {
             border-radius: 10px;
             background-image: linear-gradient(
               90deg,
-              #dd2121 20%,
-              #dd2121 30%,
-              #df5535 40%,
-              #f2db34 60%,
-              #f2db34 100%
+              ${colors.red} 20%,
+              ${colors.red} 30%,
+              ${colors.red} 40%,
+              ${colors.yellow} 60%,
+              ${colors.yellow} 100%
             );
             background-size: 100% 100%;
           }
@@ -52,23 +60,23 @@ export const Meter = ({ children, ...attribs }) => {
             border-radius: 10px;
             background-image: linear-gradient(
               90deg,
-              #dd2121 20%,
-              #dd2121 30%,
-              #df5535 40%,
-              #f2db34 60%,
-              #f2db34 100%
+              ${colors.red} 20%,
+              ${colors.red} 30%,
+              ${colors.red} 40%,
+              ${colors.yellow} 60%,
+              ${colors.yellow} 100%
             );
             background-size: 100% 100%;
           }
           meter:-moz-meter-optimum::-moz-meter-bar {
             background-image: linear-gradient(
               90deg,
-              #dd2121 20%,
-              #dd2121 30%,
-              #df5535 40%,
-              #f2db34 60%,
-              #f2db34 80%,
-              #72e13a 100%
+              ${colors.red} 20%,
+              ${colors.red} 30%,
+              ${colors.red} 40%,
+              ${colors.yellow} 60%,
+              ${colors.yellow} 80%,
+              ${colors.green} 100%
             );
             background-size: 100% 100%;
             border-radius: 10px;
@@ -77,12 +85,12 @@ export const Meter = ({ children, ...attribs }) => {
             border-radius: 10px;
             background-image: linear-gradient(
               90deg,
-              #dd2121 20%,
-              #dd2121 30%,
-              #df5535 40%,
-              #f2db34 60%,
-              #f2db34 80%,
-              #72e13a 100%
+              ${colors.red} 20%,
+              ${colors.red} 30%,
+              ${colors.red} 40%,
+              ${colors.yellow} 60%,
+              ${colors.yellow} 80%,
+              ${colors.green} 100%
             );
             background-size: 100% 100%;
           }
@@ -99,43 +107,43 @@ export const Progress = ({ value, ...attribs }) => {
       {value}
       <style jsx>{`
         progress,
-        progress[role] {
+        progress {
           appearance: none;
           -moz-appearance: none;
           -webkit-appearance: none;
           border: none;
           background-size: auto;
           width: 100%;
-          border: 1px solid ${colors.gray};
+          border: 1px solid ${colors.accents1};
           border-radius: 20px;
         }
-        progress[role]:after {
+        progress:after {
           background-image: none;
         }
-        progress[role] strong {
+        progress strong {
           display: none;
         }
         progress,
-        progress[role][aria-valuenow] {
+        progress {
           background: unset !important;
         }
         progress::-webkit-progress-bar {
           background: unset;
         }
         progress {
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+          color: ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 20px;
         }
         progress::-moz-progress-bar {
-          background: ${darkMode ? colors.darkPrimary : colors.primary};
+          background: ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 20px;
         }
         progress::-webkit-progress-value {
-          background: ${darkMode ? colors.darkPrimary : colors.primary};
+          background: ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 20px;
         }
-        progress[aria-valuenow]:before {
-          background: ${darkMode ? colors.darkPrimary : colors.primary};
+        progress:before {
+          background: ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 20px;
         }
       `}</style>

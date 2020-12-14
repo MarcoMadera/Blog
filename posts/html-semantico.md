@@ -351,24 +351,25 @@ Otra forma de crear listas con estos elementos son las **listas anidadas**, llev
     1. Objeto 7
 
 ```html
-<ul>
+<ol>
   <li>Objeto 1
-    <ul>
-      <li>Objeto 2
-        <ol>
+    <ol>
+      <li>Objeto 2</li>
+      <li>Objeto 3
+        <ul>
           <li>Objeto 3</li>
           <li>Objeto 4</li>
-        </ol>
+        </ul>
       </li>
       <li>Objeto 5</li>
-    </ul>
+    </ol>
   </li>
   <li>Objeto 6
-    <ul>
+    <ol>
       <li>Objeto 7</li>
-    </ul>
+    </ol>
   </li>
-</ul>
+</ol>
 ```
 
 También nos podemos poner más creativos y usar distintas combinaciones con diferentes elementos como puede ser un **checbox** para marcar de completada la tarea.

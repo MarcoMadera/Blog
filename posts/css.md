@@ -463,13 +463,9 @@ Esta animación puede ser llamada asignándola a un elemento con la propiedad `a
 
 Un ejemplo simple de uso de porcentajes sería el siguiente:
 
-<style>.ballContainer{height:130px;position:relative;width:100%}.ballWrapper{position:absolute;width:100%;height:130px;animation:bounce 3s linear alternate infinite}.ballos{position:absolute;width:100%;height:130px;animation:traslate 3s linear alternate infinite}.ball{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;color:#fff;background:#d32f2fe1;border-radius:50%;position:relative;animation:rotate 3s linear alternate infinite}.ball span{position:absolute;width:20px;height:4px;background-color:#fff;border-radius:2px;box-shadow:0 0 2px 0 #ccc}.ball span:nth-of-type(1){transform:rotate(45deg)}.ball span:nth-of-type(2){transform:rotate(-45deg)}@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes traslate{from{transform:translateX(0)}to{transform:translateX(calc(100% - 50px))}}@keyframes bounce{0%,100%,32%,66%{transform:translateY(0);animation-timing-function:ease-in}16%,50%,83%{transform:translateY(80px);animation-timing-function:ease-out}}</style>
-<div class="ballContainer">
-    <div class="ballWrapper">
-    <div class="ballos">
-        <span class="ball"><span></span><span></span></span>
-    </div>
-    </div>
+<style>.ball{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;color:#fff;background:#d32f2fe1;border-radius:50%;position:relative;animation:bounce 3s linear alternate infinite;left:0;top:0}.ball span{position:absolute;width:20px;height:4px;background-color:white;border-radius:2px;box-shadow:0 0 2px 0 #ccc}.ball span:nth-of-type(1){transform:rotate(45deg)}.ball span:nth-of-type(2){transform:rotate(-45deg)}@keyframes bounce{32%,66%{top:0;animation-timing-function:ease-in}16%,50%,83%{top:80px;animation-timing-function:ease-out}100%{transform:rotate(360deg);top:0;animation-timing-function:ease-in;left:calc(100% - 50px)}}</style>
+<div style="height: 130px;">
+  <span class="ball"><span></span><span></span></span>
 </div>
 
 ```css

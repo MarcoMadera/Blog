@@ -141,6 +141,11 @@ const Navbar = () => {
           display: flex;
           align-items: center;
         }
+        header :global(a),
+        header :global(nav a) {
+          text-decoration: none;
+          color: inherit;
+        }
         header :global(nav a) {
           display: inline-block;
           min-width: fit-content;
@@ -148,7 +153,7 @@ const Navbar = () => {
         }
         header :global(nav a:hover),
         header :global(nav a:focus) {
-          color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
           animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
         }

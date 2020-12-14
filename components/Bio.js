@@ -80,7 +80,7 @@ const Bio = ({ profilePhoto, twitter, author, summary }) => {
           box-sizing: border-box;
           padding: 1px 5px 1px 4px;
           background-color: ${colors.twitter};
-          color: ${colors.white} !important;
+          color: ${colors.background} !important;
           border-radius: 3px 3px 10px 10px;
           font-weight: 600;
           cursor: pointer;

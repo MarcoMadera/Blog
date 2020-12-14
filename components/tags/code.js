@@ -16,7 +16,7 @@ export const InlineCode = ({ children, ...attrbs }) => {
       {children}
       <style jsx>{`
         code {
-          background: ${darkMode ? "#f0f6fc26" : "#f5f5f5"};
+          background: ${darkMode ? colors.dark_accents4 : colors.accents4};
           padding: 3px 6px;
           border-radius: 6px;
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -43,7 +43,7 @@ const LeftLinesNumbers = ({ lineNumbers }) => {
         code {
           float: left;
           margin-right: 10px;
-          color: rgb(170, 170, 170);
+          color: ${colors.accents1};
           font-size: 14px;
         }
       `}</style>
@@ -117,14 +117,18 @@ export const CodeBlock = ({ language, value = "" }) => {
                 pre {
                   border: 1px solid #ccc;
                   border-radius: 10px;
-                  color: ${darkMode ? "#c9d1d9" : "rgb(36, 41, 46)"};
+                  color: ${darkMode
+                    ? colors.dark_textColor
+                    : colors.dark_accents5};
                   display: block;
                   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
                     Consolas, "Liberation Mono", "Courier New", monospace;
                   font-size: 14px;
                   hyphens: none;
                   line-height: 1.8;
-                  background: ${darkMode ? colors.background : colors.white};
+                  background: ${darkMode
+                    ? colors.dark_background
+                    : colors.background};
                   margin: 0.5em 0px;
                   overflow: auto;
                   padding: 0.8em 1em;
@@ -164,7 +168,9 @@ export const CodeBlock = ({ language, value = "" }) => {
                   text-transform: uppercase;
                   top: -11px;
                   border: 1px solid #ccc;
-                  background: ${darkMode ? colors.background : colors.white};
+                  background: ${darkMode
+                    ? colors.dark_background
+                    : colors.background};
                 }
               `}</style>
             </code>

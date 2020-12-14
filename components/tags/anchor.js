@@ -3,41 +3,55 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-// eslint-disable-next-line no-unused-vars
-export const A = ({ href, title, children, classname, node, ...attribs }) => {
+
+export const A = ({ href, title, children, classname, ...attribs }) => {
   const { darkMode } = useContext(ThemeContext);
   return (
-    <a href={href} title={title || href} {...attribs} className={classname}>
+    <a
+      href={href}
+      title={title || (title !== "" && href)}
+      {...attribs}
+      className={classname}
+    >
       {children}
       <style jsx>{`
         a {
-          display: inline-block;
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+          display: inline;
+          text-decoration: none;
+          color: ${darkMode ? colors.dark_primary : colors.primary};
         }
-        a:hover {
+        a:hover,
+        a:focus {
           text-decoration: underline;
-          color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
       `}</style>
     </a>
   );
 };
-export const ALink = ({ href, title, children, classname, ...attribs }) => {
+export const ALink = ({ href, title, children, classname, as, ...attribs }) => {
   const { darkMode } = useContext(ThemeContext);
   return (
     <>
-      <Link href={href}>
-        <a title={title || href} {...attribs} className={classname}>
+      <Link href={href} as={as}>
+        <a
+          title={title || (title !== "" && href)}
+          {...attribs}
+          className={classname}
+        >
           {children}
         </a>
       </Link>
       <style jsx>{`
         a {
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+          display: inline;
+          text-decoration: none;
+          color: ${darkMode ? colors.dark_primary : colors.primary};
         }
-        a:hover {
+        a:hover,
+        a:focus {
           text-decoration: underline;
-          color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
       `}</style>
     </>
@@ -55,5 +69,6 @@ ALink.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
   title: PropTypes.string,
+  as: PropTypes.string,
   classname: PropTypes.string,
 };

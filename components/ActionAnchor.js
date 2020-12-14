@@ -11,13 +11,14 @@ const ActionAnchor = ({ children, href }) => {
       </a>
       <style jsx>{`
         a {
-          color: #fff;
-          background-color: ${darkMode ? colors.darkPrimary : colors.primary};
-          border-color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          color: ${colors.white};
+          background-color: ${darkMode ? colors.dark_primary : colors.primary};
+          border-color: ${darkMode ? colors.dark_secondary : colors.secondary};
           cursor: pointer;
           display: inline-block;
           font-weight: 400;
           text-align: center;
+          text-decoration: none;
           vertical-align: middle;
           user-select: none;
           border: 1px solid transparent;
@@ -31,17 +32,17 @@ const ActionAnchor = ({ children, href }) => {
           margin: 20px 20px 0 0;
         }
         a:not(:disabled):not(.disabled):hover {
-          color: #fff;
+          color: ${colors.white};
           background-color: ${darkMode
-            ? colors.darkSecondary
+            ? colors.dark_secondary
             : colors.secondary};
-          border-color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          border-color: ${darkMode ? colors.dark_secondary : colors.secondary};
           text-decoration: none;
         }
         a:not(:disabled):not(.disabled):active {
-          color: #fff;
-          background-color: ${darkMode ? colors.darkPrimary : colors.primary};
-          border-color: ${darkMode ? colors.darkPrimary : colors.primary};
+          color: ${colors.white};
+          background-color: ${darkMode ? colors.dark_primary : colors.primary};
+          border-color: ${darkMode ? colors.dark_primary : colors.primary};
         }
         a:not(:disabled):not(.disabled):focus {
           box-shadow: 0 0 0 0.2rem rgba(181, 0, 0, 0.3);

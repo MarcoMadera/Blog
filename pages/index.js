@@ -79,12 +79,13 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
           justify-content: center;
           line-height: 1;
           margin: 0 5px;
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
+          color: ${darkMode ? colors.dark_primary : colors.primary};
           font-weight: 600;
           padding: 5px 12px;
           width: 31px;
           height: 31px;
           border-radius: 50% !important;
+          text-decoration: none;
         }
         main {
           display: grid;
@@ -103,13 +104,13 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
         .currentPage {
           border-radius: 50% !important;
           background-color: ${darkMode
-            ? colors.darkPrimary
+            ? colors.dark_primary
             : colors.primary} !important;
-          color: ${colors.white} !important;
+          color: ${colors.background} !important;
         }
         .pagination:hover {
           color: ${darkMode
-            ? colors.darkSecondary
+            ? colors.dark_secondary
             : colors.secondary} !important;
         }
       `}</style>

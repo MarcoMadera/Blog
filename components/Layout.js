@@ -39,20 +39,20 @@ const Layout = ({ children }) => {
       <Footer />
       <style global jsx>{`
         body {
-          background: ${darkMode ? colors.background : "#fff"};
-          color: ${darkMode ? colors.color : "#000"};
+          background: ${darkMode ? colors.dark_background : colors.background};
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
         }
         @media print {
           body {
-            color: #000;
+            color: ${colors.black};
           }
         }
       `}</style>
       <style jsx>{`
         a {
           background-color: ${darkMode
-            ? colors.backgrounFooter
-            : "rgb(253, 253, 253)"};
+            ? colors.dark_accents2
+            : colors.accents2};
           box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
           display: block;
           padding: 1rem 5rem;

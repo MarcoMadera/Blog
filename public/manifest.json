@@ -36,7 +36,5 @@
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "https://marcomadera.com/",
-  "description": "Marco Madera, pensamientos y opiniones sobre la web y la programación.",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff"
+  "description": "Marco Madera, pensamientos y opiniones sobre la web y la programación."
 }

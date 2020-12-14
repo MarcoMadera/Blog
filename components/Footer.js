@@ -27,7 +27,7 @@ const Footer = () => {
         footer {
           display: flex;
           flex-wrap: wrap;
-          background: ${darkMode ? colors.backgrounFooter : colors.lightGray};
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
           min-height: 80px;
           justify-content: center;
           align-items: center;
@@ -39,6 +39,8 @@ const Footer = () => {
         }
         footer :global(a) {
           margin: 0 10px;
+          text-decoration: none;
+          color: inherit;
         }
       `}</style>
     </footer>

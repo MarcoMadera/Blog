@@ -20,12 +20,12 @@ const Random = () => {
             Esta es una sencilla herramienta para verificar si los números
             insertados cumplen el comportamiento de los números aleatorios, se
             puede encontrar información detallada sobre la realización de este
-            proyecto en el blog de{" "}
+            proyecto en el{" "}
             <ALink
               href="/blog/numeros-pseudo-aleatorios"
-              title="blog de números pseudo aleatorios"
+              title="Blog: Números Pseudo Aleatorios"
             >
-              números pseudo aleatorios
+              blog de números pseudo aleatorios
             </ALink>{" "}
             dónde explico cómo determinar el comportamiento y puedes ver los
             resultados que obtuve al aplicarlo con Math.Random() de JavaScript.

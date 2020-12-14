@@ -69,7 +69,7 @@ const Newsletter = () => {
           margin-top: 40px;
           width: 100%;
           height: fit-content;
-          border: 3px solid ${darkMode ? colors.darkPrimary : colors.primary};
+          border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 4px;
           padding: 20px;
           text-align: center;
@@ -88,7 +88,7 @@ const Newsletter = () => {
         form :global(input) {
           outline: unset;
           border: 1px solid
-            ${email.error && email.submitted ? "red" : colors.gray};
+            ${email.error && email.submitted ? "red" : colors.accents1};
           padding: 6px 8px;
           width: 100%;
           margin-bottom: 30px;
@@ -98,7 +98,7 @@ const Newsletter = () => {
         }
         form :global(input:focus) {
           border: 1px solid
-            ${darkMode ? colors.darkSecondary : colors.secondary};
+            ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         @media print {
           form {

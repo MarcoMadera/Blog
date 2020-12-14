@@ -1,32 +1,12 @@
 import PropTypes from "prop-types";
-import Link from "next/link";
 import { colors } from "../styles/theme";
 import { imageCloudProvider, siteMetadata } from "../site.config";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
+import { ALink } from "./tags";
 const Div = ({ children }) => <div>{children}</div>;
 
 const Heading = ({ children }) => <h2>{children}</h2>;
-
-const AnchorImg = ({ slug, title, author, cover }) => {
-  return (
-    <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
-      <a>
-        <img
-          src={
-            author !== siteMetadata.author.name
-              ? cover
-              : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_40,w_40/${cover}`
-          }
-          alt={`${title} cover`}
-          width="40"
-          height="40"
-        />
-        {title}
-      </a>
-    </Link>
-  );
-};
 
 const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
   const { darkMode } = useContext(ThemeContext);
@@ -36,9 +16,30 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
         <>
           <Heading>Artículos recomendados</Heading>
           <Div>
-            {recommendedPosts.map((props, i) => {
-              if (props.slug !== currentPost)
-                return i <= 6 && <AnchorImg key={props.slug} {...props} />;
+            {recommendedPosts.map(({ slug, title, author, cover }, i) => {
+              if (slug !== currentPost)
+                return (
+                  i <= 6 && (
+                    <ALink
+                      key={slug}
+                      title={title}
+                      href={"/blog/[slug]/"}
+                      as={`/blog/${slug}/`}
+                    >
+                      <img
+                        src={
+                          author !== siteMetadata.author.name
+                            ? cover
+                            : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_40,w_40/${cover}`
+                        }
+                        alt={`${title} cover`}
+                        width="40"
+                        height="40"
+                      />
+                      {title}
+                    </ALink>
+                  )
+                );
             })}
           </Div>
         </>
@@ -63,16 +64,11 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
           align-items: center;
           margin: 0;
           padding: 3px;
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
         }
         div :global(a:focus),
         div :global(a:hover) {
-          background: ${darkMode ? "#ffffff1c" : "rgb(250, 250, 250)"};
-          color: ${darkMode ? colors.darkSecondary : colors.secondary};
+          background: ${darkMode ? colors.dark_accents3 : colors.accents5};
           border-radius: 3px;
-        }
-        div :global(a:hover) {
-          text-decoration: underline;
         }
         div :global(div) {
           display: grid;
@@ -93,12 +89,6 @@ RecommendedPosts.propTypes = {
   recommendedPosts: PropTypes.array,
   currentPost: PropTypes.string,
   slug: PropTypes.string,
-};
-AnchorImg.propTypes = {
-  slug: PropTypes.string,
-  title: PropTypes.string,
-  author: PropTypes.string,
-  cover: PropTypes.string,
 };
 Div.propTypes = {
   children: PropTypes.node,

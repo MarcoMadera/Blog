@@ -1,7 +1,7 @@
 import Seo from "../../components/Seo";
 import { useState } from "react";
 import { colors } from "../../styles/theme";
-import { H1 } from "../../components/tags";
+import { H1, Input, A } from "../../components/tags";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout";
 import ActionButton from "../../components/ActionButton";
@@ -55,13 +55,13 @@ const NewsletterPage = () => {
         </p>
         <p>
           Uso el servicio de{" "}
-          <a
+          <A
             href="https://buttondown.email"
             target="_blank"
             rel="noopener noreferrer"
           >
             ButtonDown
-          </a>{" "}
+          </A>{" "}
           para enviarte los artículos más recientes, no usaré tu correo
           electrónico para otro objetivo, no te enviaré nada de spam.
         </p>
@@ -72,14 +72,14 @@ const NewsletterPage = () => {
           onSubmit={handleSubmit}
           noValidate
         >
-          <input
+          <Input
             type="email"
             name="email"
             id="bd-email"
             placeholder="Correo electrónico*"
             onChange={handleChange}
             style={outline}
-          ></input>
+          ></Input>
           <ActionButton>Suscríbete</ActionButton>
           {(email.error || email.value === "") && email.submitted ? (
             <p>Por favor inserta un correo válido</p>
@@ -99,24 +99,17 @@ const NewsletterPage = () => {
         main :global(h1) {
           margin-bottom: 0.67em;
         }
-        a {
-          color: ${darkMode ? colors.darkPrimary : colors.primary};
-        }
-        a:hover {
-          text-decoration: underline;
-          color: ${darkMode ? colors.darkSecondary : colors.secondary};
-        }
-        input {
+        main :global(input) {
           margin: 0 auto 40px auto;
           width: 100%;
           display: block;
           border-radius: 4px;
-          border: 1px solid ${colors.gray};
+          border: 1px solid ${colors.accents1};
           padding: 10px 15px;
         }
-        input:focus {
+        main :global(input:focus) {
           border: 1px solid
-            ${darkMode ? colors.darkSecondary : colors.secondary};
+            ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         :global(button) {
           width: 100%;
