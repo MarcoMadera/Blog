@@ -50,6 +50,8 @@ const Layout = ({ children }) => {
       `}</style>
       <style jsx>{`
         a {
+          text-decoration: none;
+          color: inherit;
           background-color: ${darkMode
             ? colors.dark_accents2
             : colors.accents2};

@@ -1,28 +1,22 @@
 import { Fragment } from "react";
 import formatDistanceStrict from "date-fns/formatDistanceStrict";
 import { tweets } from "../../styles/theme";
-export const TwitterLink = (p) => (
+export const TwitterLink = ({ href, title, type, children }) => (
   <a
-    href={p.href}
+    href={href}
     target="_blank"
     rel="noopener noreferrer"
-    title={p.title || p.href}
+    title={title || type ? undefined : href}
   >
-    <s>{p.type}</s>
-    <b>{p.children}</b>
-
+    {`${type}${children}`}
     <style jsx>{`
       a {
-        color: #22bad9;
+        color: ${tweets.linkColor};
         text-decoration: none;
       }
-      @media (any-hover: hover) {
-        a:hover > b {
-          text-decoration: underline;
-        }
-      }
-      s {
-        text-decoration: none;
+      a:hover,
+      a:focus {
+        text-decoration: underline;
       }
     `}</style>
   </a>
@@ -36,7 +30,7 @@ export const Mention = (p) => (
 
 export const Hashtag = (p) => (
   <TwitterLink href={p.href} type="#">
-    {p.children[0].replace(/^\#/, "")}
+    {p.children[0].replace(/^#/, "")}
   </TwitterLink>
 );
 

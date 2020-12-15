@@ -9,7 +9,7 @@ export const A = ({ href, title, children, classname, ...attribs }) => {
   return (
     <a
       href={href}
-      title={title || (title !== "" && href)}
+      title={title === "" ? undefined : title ?? href}
       {...attribs}
       className={classname}
     >
@@ -35,7 +35,7 @@ export const ALink = ({ href, title, children, classname, as, ...attribs }) => {
     <>
       <Link href={href} as={as}>
         <a
-          title={title || (title !== "" && href)}
+          title={title === "" ? undefined : title ?? href}
           {...attribs}
           className={classname}
         >

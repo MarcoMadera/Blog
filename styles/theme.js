@@ -40,7 +40,7 @@ export const tweets = {
   accents5: "#666666",
 
   bgColor: "#fff",
-  linkColor: "#0c00ff",
+  linkColor: "#1b95e0",
   pollBarColor: "#0c00ff",
   inlineCodeColor: "#be00ff",
   codeColor: "#9efeff",
