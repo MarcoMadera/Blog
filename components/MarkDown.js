@@ -341,17 +341,7 @@ const _mapProps = (source) => ({
       return <Heading {...props} />;
     },
     code: function CodeBlk({ language, value = "", node }) {
-      return (
-        <div>
-          <CodeBlock language={language} value={value} meta={node.meta} />
-          <style jsx>{`
-            div {
-              position: relative;
-              margin: 20px 0;
-            }
-          `}</style>
-        </div>
-      );
+      return <CodeBlock language={language} value={value} meta={node.meta} />;
     },
   },
 });

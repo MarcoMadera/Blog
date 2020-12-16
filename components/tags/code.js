@@ -36,9 +36,12 @@ const Span = ({ number }) => {
 export const Pre = ({ children, ...atrribs }) => {
   const { darkMode } = useContext(ThemeContext);
   return (
-    <pre {...atrribs}>
-      {children}
+    <div>
+      <pre {...atrribs}>{children}</pre>
       <style jsx>{`
+        div {
+          position: relative;
+        }
         pre {
           border: 1px solid #ccc;
           border-radius: 10px;
@@ -64,8 +67,25 @@ export const Pre = ({ children, ...atrribs }) => {
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
             "Liberation Mono", "Courier New", monospace;
         }
+        pre :global(code[data-lang]:before) {
+          border-radius: 4px;
+          color: ${darkMode
+            ? "rgba(255, 255, 255, 0.7)"
+            : "rgba(0, 0, 0, 0.7)"};
+          content: attr(data-lang);
+          font-size: 12px;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
+          padding: 2px 8px;
+          position: absolute;
+          right: 8px;
+          text-transform: uppercase;
+          top: -11px;
+          border: 1px solid #ccc;
+          background: ${darkMode ? colors.dark_background : colors.background};
+        }
       `}</style>
-    </pre>
+    </div>
   );
 };
 
@@ -141,7 +161,7 @@ export const CodeBlock = ({ language, value = "" }) => {
   const processor = unified()
     .use(markdown)
     .use(remark2rehype)
-    .use(prism, [{ ignoreMissing: true }])
+    .use(prism, { ignoreMissing: true })
     .use(rehype2react, {
       createElement: React.createElement,
       components: {
@@ -153,27 +173,6 @@ export const CodeBlock = ({ language, value = "" }) => {
             <code data-lang={language}>
               <LeftLinesNumbers lineNumbers={lineNumbers} />
               {children}
-              <style jsx>{`
-                code::before {
-                  border-radius: 4px;
-                  color: ${darkMode
-                    ? "rgba(255, 255, 255, 0.7)"
-                    : "rgba(0, 0, 0, 0.7)"};
-                  content: attr(data-lang);
-                  font-size: 12px;
-                  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-                    Consolas, "Liberation Mono", "Courier New", monospace;
-                  padding: 2px 8px;
-                  position: absolute;
-                  right: 8px;
-                  text-transform: uppercase;
-                  top: -11px;
-                  border: 1px solid #ccc;
-                  background: ${darkMode
-                    ? colors.dark_background
-                    : colors.background};
-                }
-              `}</style>
             </code>
           );
         },
