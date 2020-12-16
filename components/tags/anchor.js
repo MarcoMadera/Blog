@@ -29,13 +29,20 @@ export const A = ({ href, title, children, classname, ...attribs }) => {
     </a>
   );
 };
-export const ALink = ({ href, title, children, classname, as, ...attribs }) => {
+export const ALink = ({
+  href,
+  title,
+  children,
+  classname,
+  as: asref,
+  ...attribs
+}) => {
   const { darkMode } = useContext(ThemeContext);
   return (
     <>
-      <Link href={href} as={as}>
+      <Link href={href} as={asref}>
         <a
-          title={title === "" ? undefined : title ?? href}
+          title={title === "" ? undefined : title ?? (asref || href)}
           {...attribs}
           className={classname}
         >

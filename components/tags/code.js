@@ -9,10 +9,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-export const InlineCode = ({ children, ...attrbs }) => {
+export const InlineCode = ({ children, classname, ...attrbs }) => {
   const { darkMode } = useContext(ThemeContext);
   return (
-    <code {...attrbs}>
+    <code className={classname} {...attrbs}>
       {children}
       <style jsx>{`
         code {
@@ -31,6 +31,42 @@ export const InlineCode = ({ children, ...attrbs }) => {
 
 const Span = ({ number }) => {
   return <span>{`${number}\n`}</span>;
+};
+
+export const Pre = ({ children, ...atrribs }) => {
+  const { darkMode } = useContext(ThemeContext);
+  return (
+    <pre {...atrribs}>
+      {children}
+      <style jsx>{`
+        pre {
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          color: ${darkMode ? colors.dark_textColor : colors.dark_accents5};
+          display: block;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
+          font-size: 14px;
+          hyphens: none;
+          line-height: 1.8;
+          background: ${darkMode ? colors.dark_background : colors.background};
+          margin: 0.5em 0px;
+          overflow: auto;
+          padding: 0.8em 1em;
+          tab-size: 4;
+          text-align: left;
+          white-space: pre;
+          word-break: normal;
+          word-spacing: normal;
+          word-wrap: normal;
+        }
+        pre :global(code) {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
+        }
+      `}</style>
+    </pre>
+  );
 };
 
 const LeftLinesNumbers = ({ lineNumbers }) => {
@@ -109,43 +145,8 @@ export const CodeBlock = ({ language, value = "" }) => {
     .use(rehype2react, {
       createElement: React.createElement,
       components: {
-        pre: function PreCode({ children }) {
-          return (
-            <pre>
-              {children}
-              <style jsx>{`
-                pre {
-                  border: 1px solid #ccc;
-                  border-radius: 10px;
-                  color: ${darkMode
-                    ? colors.dark_textColor
-                    : colors.dark_accents5};
-                  display: block;
-                  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-                    Consolas, "Liberation Mono", "Courier New", monospace;
-                  font-size: 14px;
-                  hyphens: none;
-                  line-height: 1.8;
-                  background: ${darkMode
-                    ? colors.dark_background
-                    : colors.background};
-                  margin: 0.5em 0px;
-                  overflow: auto;
-                  padding: 0.8em 1em;
-                  tab-size: 4;
-                  text-align: left;
-                  white-space: pre;
-                  word-break: normal;
-                  word-spacing: normal;
-                  word-wrap: normal;
-                }
-                pre :global(code) {
-                  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-                    Consolas, "Liberation Mono", "Courier New", monospace;
-                }
-              `}</style>
-            </pre>
-          );
+        pre: function PreCode({ children }, i) {
+          return <Pre key={i}>{children}</Pre>;
         },
         code: function CodeBlock({ children }) {
           return (

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
@@ -18,7 +17,7 @@ import getTweets from "../../lib/get-tweets";
 import { Tweets } from "../../lib/tweets";
 import useMounted from "../../hooks/useMounted";
 import { useRouter } from "next/router";
-import { H1 } from "../../components/tags";
+import { H1, ALink } from "../../components/tags";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout";
 //collect every h2 in the post to place in table of contents
@@ -94,22 +93,22 @@ export default function Post({
         </article>
         <nav>
           {previousPost ? (
-            <Link href={"/blog/[slug]"} as={`/blog/${previousPost.slug}`}>
-              <a>
-                <p>← Artículo anterior</p>
-                {previousPost.title}
-              </a>
-            </Link>
+            <ALink
+              title=""
+              href={"/blog/[slug]"}
+              as={`/blog/${previousPost.slug}`}
+            >
+              <p>← Artículo anterior</p>
+              {previousPost.title}
+            </ALink>
           ) : (
             <div />
           )}
           {nextPost ? (
-            <Link href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
-              <a>
-                <p>Siguiente artículo →</p>
-                {nextPost.title}
-              </a>
-            </Link>
+            <ALink title="" href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
+              <p>Siguiente artículo →</p>
+              {nextPost.title}
+            </ALink>
           ) : (
             <div />
           )}
@@ -166,7 +165,7 @@ export default function Post({
         article {
           overflow: hidden;
         }
-        a {
+        nav :global(a) {
           border: 3px solid
             ${darkMode ? colors.dark_secondary : colors.secondary};
           padding: 7px 10px;
@@ -174,11 +173,6 @@ export default function Post({
           text-align: center;
           align-self: stretch;
           width: 220px;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
-        }
-        a:hover {
-          text-decoration: underline;
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         p {
           font-size: 16px;
@@ -186,23 +180,23 @@ export default function Post({
           margin: 0;
         }
         @media screen and (min-width: 0px) and (max-width: 370px) {
-          a {
+          nav :global(a) {
             width: 100%;
             margin-bottom: 30px;
           }
         }
         @media screen and (min-width: 370px) and (max-width: 400px) {
-          a {
+          nav :global(a) {
             max-width: 165px;
           }
         }
         @media screen and (min-width: 400px) and (max-width: 500px) {
-          a {
+          nav :global(a) {
             width: 170px;
           }
         }
         @media screen and (min-width: 500px) and (max-width: 1024px) {
-          a {
+          nav :global(a) {
             width: 230px;
           }
         }

@@ -27,6 +27,7 @@ import {
   Input,
   Kbd,
   Abbr,
+  Pre,
 } from "../components/tags/";
 import Tweet from "../components/tweet";
 import { useContext } from "react";
@@ -67,6 +68,12 @@ const parseHtml = htmlParser({
       shouldProcessNode: (node) => node.type === "tag" && node.name === "td",
       processNode: function TabD({ attribs }, children) {
         return <Td {...attribs}>{children}</Td>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "pre",
+      processNode: function PreC({ attribs }, children) {
+        return <Pre {...attribs}>{children}</Pre>;
       },
     },
     {

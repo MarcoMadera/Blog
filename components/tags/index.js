@@ -1,6 +1,6 @@
 export { A, ALink } from "./anchor";
 export { Meter, Progress } from "./bars";
-export { InlineCode, CodeBlock } from "./code";
+export { InlineCode, CodeBlock, Pre } from "./code";
 export { P, Blockquote, Kbd, Abbr } from "./text";
 export { Table, Th, Td } from "./table";
 export { Img, Video } from "./media";
