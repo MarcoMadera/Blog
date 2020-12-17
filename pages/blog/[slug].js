@@ -20,13 +20,6 @@ import { useRouter } from "next/router";
 import { H1, ALink } from "../../components/tags";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout";
-//collect every h2 in the post to place in table of contents
-const contentAside = (content) => {
-  const h2s = toc(content)
-    .json.filter(({ lvl }) => lvl === 2)
-    .map(({ content }) => content);
-  return <Contents content={h2s} />;
-};
 
 export default function Post({
   title,
@@ -49,6 +42,9 @@ export default function Post({
   const router = useRouter();
   const mounted = useMounted();
   const { darkMode } = useContext(ThemeContext);
+  const h2s = toc(content)
+    .json.filter(({ lvl }) => lvl === 2)
+    .map(({ content }) => content);
   return (
     <main>
       <Seo
@@ -62,7 +58,7 @@ export default function Post({
         author={author}
         date={date}
       />
-      {contentAside(content)}
+      <Contents content={h2s} />
       <div className="blog" id="main">
         <article itemScope itemType="http://schema.org/Article">
           <div>
@@ -118,6 +114,7 @@ export default function Post({
             tenantId={tenantId}
             urlId={`${siteMetadata.siteUrl}${router.asPath}`}
             url={`${siteMetadata.siteUrl}${router.asPath}`}
+            hasDarkBackground={darkMode}
           />
         )}
       </div>

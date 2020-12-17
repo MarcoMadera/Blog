@@ -165,8 +165,12 @@ const parseHtml = htmlParser({
     },
     {
       shouldProcessNode: (node) => node.type === "tag" && node.name === "code",
-      processNode: function Deta({ attribs }, children) {
-        return <InlineCode {...attribs}>{children}</InlineCode>;
+      processNode: function Deta({ attribs }, children, i) {
+        return (
+          <InlineCode {...attribs} key={i}>
+            {children}
+          </InlineCode>
+        );
       },
     },
     {

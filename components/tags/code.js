@@ -41,6 +41,7 @@ export const Pre = ({ children, ...atrribs }) => {
       <style jsx>{`
         div {
           position: relative;
+          margin: 20px 0;
         }
         pre {
           border: 1px solid #ccc;
