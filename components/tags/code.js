@@ -213,6 +213,10 @@ LeftLinesNumbers.propTypes = {
 };
 InlineCode.propTypes = {
   children: PropTypes.node,
+  classname: PropTypes.string,
+};
+Pre.propTypes = {
+  children: PropTypes.node,
 };
 Span.propTypes = {
   number: PropTypes.number,

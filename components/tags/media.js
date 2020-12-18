@@ -23,7 +23,7 @@ export const Img = ({ src, alt = "", title }) => {
               alt={alt}
               title={title || alt}
               src={`${
-                src.includes("res.cloudinary.com/marcomadera")
+                src.startsWith("https://res.cloudinary.com/marcomadera")
                   ? src.replace(
                       /(https:\/\/res.cloudinary.com\/marcomadera\/image\/upload\/).*?(\/)/g,
                       "$2"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
 import { getFormattedDate } from "../utils/helpers";
-import { imageCloudProvider, siteMetadata } from "../site.config";
+import { imageCloudProvider } from "../site.config";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
 const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
@@ -21,17 +21,35 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
             <picture>
               <source
                 srcSet={
-                  author !== siteMetadata.author.name
-                    ? cover
-                    : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_300,w_300/${cover}`
+                  cover.startsWith(imageCloudProvider)
+                    ? cover.replace(
+                        new RegExp(
+                          `(?<=${imageCloudProvider.replace(
+                            /[.*+?^${}()|/[\]\\]/g,
+                            "\\$&"
+                          )})`,
+                          "g"
+                        ),
+                        "/q_auto,f_auto,c_scale,h_300,w_300"
+                      )
+                    : cover
                 }
                 media="(max-width: 876px)"
               />
               <img
-                src={
-                  author !== siteMetadata.author.name
-                    ? cover
-                    : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_100,w_100/${cover}`
+                srcSet={
+                  cover.startsWith(imageCloudProvider)
+                    ? cover.replace(
+                        new RegExp(
+                          `(?<=${imageCloudProvider.replace(
+                            /[.*+?^${}()|/[\]\\]/g,
+                            "\\$&"
+                          )})`,
+                          "g"
+                        ),
+                        "/q_auto,f_auto,c_scale,h_100,w_100"
+                      )
+                    : cover
                 }
                 alt={`Portada del blog ${title}`}
                 width="100"

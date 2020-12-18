@@ -2,7 +2,7 @@
 title: "CSS: Hoja de estilos en cascada"
 description: CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado.
 date: 2020-10-20
-cover: v1602894559/Blog/7/css_k23ypb.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1602894559/Blog/7/css_k23ypb.png
 author: Marco Madera
 tags:
   - CSS

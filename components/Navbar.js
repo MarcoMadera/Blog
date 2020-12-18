@@ -59,6 +59,7 @@ const Navbar = () => {
         <button
           onClick={() => toggleDarkMode()}
           className="Header__darkMode Header__darkMode-Title"
+          aria-label={`Cambiar al tema ${darkMode ? "claro" : "oscuro"}`}
         >
           {darkMode ? (
             <Moon width={16} height={16} fill="rgb(250, 250, 250)" />

@@ -53,8 +53,8 @@ const getPostBySlug = (slug) => {
 
   const recommendedPosts = posts
     .filter(({ tags }) => tags.some((tag) => data.tags.includes(tag)))
-    .map(({ title, cover, slug, author }) => {
-      return { title: title, cover: cover, slug: slug, author: author };
+    .map(({ title, cover, slug }) => {
+      return { title, cover, slug };
     });
 
   return {

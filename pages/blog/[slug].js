@@ -51,9 +51,18 @@ export default function Post({
         title={title}
         description={description}
         cover={
-          author !== siteMetadata.author.name
-            ? cover
-            : `${imageCloudProvider}/c_scale,w_760/${cover}`
+          cover.startsWith(imageCloudProvider)
+            ? cover.replace(
+                new RegExp(
+                  `(?<=${imageCloudProvider.replace(
+                    /[.*+?^${}()|/[\]\\]/g,
+                    "\\$&"
+                  )})`,
+                  "g"
+                ),
+                "/q_auto,f_auto,c_scale,w_760"
+              )
+            : cover
         }
         author={author}
         date={date}

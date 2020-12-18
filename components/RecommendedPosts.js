@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { colors } from "../styles/theme";
-import { imageCloudProvider, siteMetadata } from "../site.config";
+import { imageCloudProvider } from "../site.config";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
 import { ALink } from "./tags";
@@ -16,7 +16,7 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
         <>
           <Heading>Artículos recomendados</Heading>
           <Div>
-            {recommendedPosts.map(({ slug, title, author, cover }, i) => {
+            {recommendedPosts.map(({ slug, title, cover }, i) => {
               if (slug !== currentPost)
                 return (
                   i <= 6 && (
@@ -28,9 +28,18 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
                     >
                       <img
                         src={
-                          author !== siteMetadata.author.name
-                            ? cover
-                            : `${imageCloudProvider}/q_auto,f_auto,c_scale,h_40,w_40/${cover}`
+                          cover.startsWith(imageCloudProvider)
+                            ? cover.replace(
+                                new RegExp(
+                                  `(?<=${imageCloudProvider.replace(
+                                    /[.*+?^${}()|/[\]\\]/g,
+                                    "\\$&"
+                                  )})`,
+                                  "g"
+                                ),
+                                "/q_auto,f_auto,c_scale,h_40,w_40"
+                              )
+                            : cover
                         }
                         alt={`${title} cover`}
                         width="40"
