@@ -39,11 +39,12 @@ const parseHtml = htmlParser({
     {
       shouldProcessNode: (node) =>
         node.type === "tag" && node.name === "videogif",
-      processNode: function VideoGifs(node) {
+      processNode: function VideoGifs({ attribs }) {
+        const { darkMode } = useContext(ThemeContext);
         return (
           <Video
-            src={node.attribs.src}
-            title={node.attribs.title}
+            src={attribs.src ?? (darkMode ? attribs.dark : attribs.light)}
+            title={attribs.title}
             muted
             loop
             autoPlay
@@ -190,6 +191,15 @@ const parseHtml = htmlParser({
       shouldProcessNode: (node) => node.type === "tag" && node.name === "kbd",
       processNode: function KeyBoard({ attribs }, children) {
         return <Kbd {...attribs}>{children}</Kbd>;
+      },
+    },
+    {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "image",
+      processNode: function Images({ attribs }) {
+        const { darkMode } = useContext(ThemeContext);
+        return (
+          <Img src={darkMode ? attribs.dark : attribs.light} {...attribs} />
+        );
       },
     },
     {

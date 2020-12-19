@@ -29,14 +29,12 @@ La uniformidad en el caso de los números aleatorios, significa que en un rango 
 
 <style>.graficaUniformeImg{display:block;margin: auto;max-width: 99%;clip-path: inset(0% round 10px);}</style>
 
-<figure>
-  <img class="graficaUniformeImg" src="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597524703/Blog/1/bcbb-bbc-ddsb_okwxxu.png" alt="Gráfica uniforme">
-  <figcaption>Gráfica completamente uniforme</figcaption>
-</figure>
+<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608331325/Blog/1/Graph1_iiqyqc.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608335119/Blog/1/Graph1-dark_r9zxe8.png" alt="Gráfica uniforme">
+Gráfica completamente uniforme
 
 Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<sup>2</sup>:
 
-<style>.fraction{display:inline-block;vertical-align:middle;margin:0 .2em .4ex;text-align:center}.fraction span{display:block;padding-top:.15em}.fraction span.fdn{border-top:thin solid #000}.fraction span.bar{display:none}.chi-eq{text-align:center}.eq{display:flex;justify-content:space-between;margin:0 15%;text-align:center}@media screen and (max-width:490px){.eq{display:block}}</style>
+<style>.fraction{display:inline-block;vertical-align:middle;margin:0 .2em .4ex;text-align:center}.fraction span{display:block;padding-top:.15em}.fraction span.fdn{border-top:thin solid #8a8a8a}.fraction span.bar{display:none}.chi-eq{text-align:center}.eq{display:flex;justify-content:space-between;margin:0 15%;text-align:center}@media screen and (max-width:490px){.eq{display:block}}</style>
 
 <div className="chi-eq">
   <i>
@@ -88,7 +86,7 @@ En caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos. Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen.
 Por ahora si tomamos como muestra [esta lista](https://marcomadera.github.io/assets/blog/numerosAleatorios.txt "Lista de números") de 300 números nuestro progreso sería el siguiente:
 
-![Gráfica](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto/v1597524702/Blog/1/bcbc-abc-ddsb_msbomr.png "Gráfica")
+<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608331325/Blog/1/Graph2_lmzua3.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608335119/Blog/1/Graph2-dark_pyj8ok.png" alt="Gráfica">
 
 Muestra generada a partir de Math.Random() en la consola de Google Chrome.
 

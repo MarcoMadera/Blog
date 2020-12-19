@@ -18,9 +18,9 @@ export const Table = ({ children, ...attribs }) => {
   );
 };
 
-export const Th = ({ children, ...attribs }) => {
+export const Th = ({ children, colspan, ...attribs }) => {
   return (
-    <th {...attribs}>
+    <th colSpan={colspan} {...attribs}>
       {children}
       <style jsx>{`
         th {
@@ -57,6 +57,7 @@ Table.propTypes = {
 };
 Th.propTypes = {
   children: PropTypes.node,
+  colspan: PropTypes.string,
 };
 Td.propTypes = {
   children: PropTypes.node,

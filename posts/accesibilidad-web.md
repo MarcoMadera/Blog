@@ -57,7 +57,7 @@ Las tecnologías asistivas sirven de **ayuda para las personas con dificultades*
 
 Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de etiquetas y atributos. Usar [HTML semántico](https://marcomadera.com/blog/html-semantico "Blog HTML Semántico") ayudará al navegador a **incluir significado** en el árbol de accesibilidad. Así los lectores de pantalla pueden entender el rol, propiedades y estado que tiene esa parte de nuestro código.
 
-![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/v1595398073/Blog/3/ebc46-f396nv-vbccd_hltpf5.png "Chrome Accesibility")
+![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608356303/Blog/3/Accesibilidad1_pqz4vx.png "Chrome Accesibility")
 
 ### No recomendado:
 
@@ -86,7 +86,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la **descripción**.
 
 ```html
-<img src ="img src" alt="description">
+<img src ="img src" alt="texto mostrar en caso que no esté disponible la imagen">
 ```
 
 ### Uso de scope en tablas
@@ -135,15 +135,15 @@ Estos atributos se pueden añadir a cualquier etiqueta HTML para **comunicar cam
 
 Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las dev tools de Google Chrome a través de las siguientes opciones:
 
-Customize and control <code lang="en">DevTools > More tools > Rendering > Emulate vision deficiencies</code>
+<code lang="en">Customize and control DevTools > More tools > Rendering > Emulate vision deficiencies</code>
 
-![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/v1595570280/Blog/3/b3dsba-fbdbf-dasb2_kidwp6.png "Emular visión")
+![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608356303/Blog/3/Accesibilidad2_duoax2.png "Emular visión")
 
 ### Color y contraste
 
 Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
 
-![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/v1595547652/Blog/3/ecds-ecevsb-dbdbe-cbvxz_hqjyvo.png "Herramienta de contraste")
+![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_350,dpr_auto/v1608356304/Blog/3/Accesibilidad3_uybwkk.png "Herramienta de contraste")
 
 ### Focus
 

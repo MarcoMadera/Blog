@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import Image from "next/image";
+import { useContext } from "react";
+import { ThemeContext } from "../Layout";
 const LoadDetailsDialog = dynamic(
   () => import("../../static-tweet/components/twitter-layout/details-dialog"),
   {
@@ -131,13 +133,14 @@ export const Img = ({ src, alt = "", title }) => {
 };
 
 export const Video = ({ src, title, ...attribs }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     // eslint-disable-next-line jsx-a11y/media-has-caption
     <video src={src} title={title} {...attribs}>
       Tu navegador no soporta videos
       <style jsx>{`
         video {
-          filter: brightness(110%);
+          filter: ${darkMode ? "none" : "brightness(110%)"};
           display: block;
           margin: auto;
           max-width: 99%;
