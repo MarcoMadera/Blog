@@ -46,55 +46,66 @@ const Bio = ({ profilePhoto, twitter, author, summary }) => {
         div :global(span) {
           display: inline-flex;
           vertical-align: middle;
+          margin-right: 10px;
+          position: relative;
         }
         div {
-          display: flex;
           align-items: center;
+          display: flex;
           flex-wrap: wrap;
           margin-bottom: 10px;
         }
         div :global(img) {
-          width: 40px;
-          height: 40px;
-          margin: 0 10px 0 0 !important;
           clip-path: inset(0% round 10px);
+          height: 40px;
+          transition: 0.3s ease;
+          width: 40px;
         }
         div :global(img:hover) {
           transform: scale(1.1);
         }
-        div :global(span:hover a) {
-          display: inline-block;
+        div :global(span:hover img + a) {
           animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
+          display: inline-block;
+          width: 40px;
         }
-        div :global(img:hover + a) {
-          padding: 1px 7px 1px 6px;
-          margin-left: -2px;
-          margin-top: 22px;
+        div :global(span:hover img:hover + a) {
+          animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+          display: inline-block;
+          width: 44px;
         }
         div :global(a) {
-          margin-top: 20px;
-          position: absolute;
-          border: none;
-          height: 20px;
-          box-sizing: border-box;
-          padding: 1px 5px 1px 4px;
           background-color: ${colors.twitter};
+          border: none;
+          border-radius: 0px 0px 10px 10px;
+          box-sizing: border-box;
           color: ${colors.background} !important;
-          border-radius: 3px 3px 10px 10px;
-          font-weight: 600;
           cursor: pointer;
-          outline: 0;
           display: none;
-          white-space: nowrap;
-          overflow: hidden;
-          text-align: left;
           font: normal normal normal 11px/18px "Helvetica Neue", Arial,
             sans-serif;
+          font-weight: 600;
+          height: 20px;
+          margin-left: -2px;
+          margin-top: 22px;
+          padding: 1px 7px 1px 6px;
+          outline: 0;
+          overflow: hidden;
+          position: absolute;
+          text-align: left;
           transition: 0.3s ease;
+          white-space: nowrap;
+          width: 40px;
         }
         div :global(a:hover) {
+          display: inline-block;
+          margin-left: 0;
+          margin-top: 20px;
+          padding: 1px 5px 4px 4px;
           text-decoration: underline;
+          width: 40px;
         }
       `}</style>
     </div>

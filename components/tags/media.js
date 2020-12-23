@@ -25,7 +25,7 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
   const layout = width && height ? "intrinsic" : "fill";
   return (
     <details>
-      <summary>
+      <summary aria-label="Expandir imagen">
         {src.startsWith(imageCloudProvider) ? (
           <div
             style={

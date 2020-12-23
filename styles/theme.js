@@ -9,11 +9,12 @@ export const colors = {
   accents5: "#fafafa",
   background: "#fff",
   textColor: "#000",
+  codeTextColor: "#767676",
 
   // Dark Mode
-  dark_primary: "#da2828",
-  dark_secondary: "#c30101",
-  dark_tertiary: "#7b1111",
+  dark_primary: "#ef2c2c",
+  dark_secondary: "#de2323",
+  dark_tertiary: "#d01111",
   dark_accents1: "#21262d",
   dark_accents2: "#3d4148",
   dark_accents3: "#161b22",
@@ -21,7 +22,7 @@ export const colors = {
   dark_accents5: "#24292e",
   dark_background: "#0d1117",
   dark_textColor: "#c9d1d9",
-
+  dark_codeTextColor: "#aaa",
   white: "#fff",
   black: "#000",
   red: "#dd2121",

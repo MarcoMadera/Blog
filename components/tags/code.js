@@ -91,6 +91,7 @@ export const Pre = ({ children, ...atrribs }) => {
 };
 
 const LeftLinesNumbers = ({ lineNumbers }) => {
+  const { darkMode } = useContext(ThemeContext);
   return (
     <code>
       {lineNumbers.map((number) => (
@@ -100,7 +101,7 @@ const LeftLinesNumbers = ({ lineNumbers }) => {
         code {
           float: left;
           margin-right: 10px;
-          color: ${colors.accents1};
+          color: ${darkMode ? colors.dark_codeTextColor : colors.codeTextColor};
           font-size: 14px;
         }
       `}</style>

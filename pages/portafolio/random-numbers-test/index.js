@@ -40,12 +40,10 @@ const Random = () => {
           />
         </div>
       </article>
-      <style global jsx>{`
-        .btn-primary {
-          margin-right: 20px;
-        }
-      `}</style>
       <style jsx>{`
+        div :global(a) {
+          margin: 20px 20px 0 0;
+        }
         main {
           margin: 0 auto;
           padding: 0 20px;

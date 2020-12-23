@@ -29,6 +29,8 @@ import {
   Abbr,
   Pre,
 } from "../components/tags/";
+import ActionAnchor from "./ActionAnchor";
+import ActionButton from "./ActionButton";
 import Tweet from "../components/tweet";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
@@ -75,6 +77,20 @@ const parseHtml = htmlParser({
       shouldProcessNode: (node) => node.type === "tag" && node.name === "pre",
       processNode: function PreC({ attribs }, children) {
         return <Pre {...attribs}>{children}</Pre>;
+      },
+    },
+    {
+      shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "actionanchor",
+      processNode: function ActAnchor({ attribs }, children) {
+        return <ActionAnchor {...attribs}>{children}</ActionAnchor>;
+      },
+    },
+    {
+      shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "actionbutton",
+      processNode: function ActButton({ attribs }, children) {
+        return <ActionButton {...attribs}>{children}</ActionButton>;
       },
     },
     {

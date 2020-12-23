@@ -33,14 +33,14 @@ const AllTags = ({ tags, title = "Todas las etiquetas" }) => {
         }
         section :global(h2) {
           font-size: 1em;
-          margin: 1em 0 1em 0;
           font-weight: 600;
+          margin: 1em 0 1em 0;
         }
         @media screen and (max-width: 876px) {
           section :global(a) {
             padding: 13.5px 5px 13.5px 0;
-            min-width: 48px;
             margin: 0;
+            min-width: 48px;
           }
         }
       `}</style>

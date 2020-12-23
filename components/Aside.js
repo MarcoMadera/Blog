@@ -57,16 +57,16 @@ const Aside = () => {
       </Anchor>
       <style jsx>{`
         aside {
-          height: 300px;
           border-radius: 12px;
           box-shadow: ${
             darkMode ? "rgba(255,255,255,0.2)" : "rgba(0, 0, 0, 0.2)"
           }
             0px 0px 2px 0px;
-          text-align: center;
-          padding: 20px;
-          width: 100%;
+          height: 300px;
           margin-top: 40px;
+          padding: 20px;
+          text-align: center;
+          width: 100%;
         }
         p {
           margin 1em 0;
@@ -84,9 +84,9 @@ const Aside = () => {
           display: inline-flex;
         }
         img {
-          width: 80px;
-          height: 80px;
           clip-path: circle(50% at 50% 50%);
+          height: 80px;
+          width: 80px;
         }
       `}</style>
     </aside>

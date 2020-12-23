@@ -144,6 +144,9 @@ export default function Post({
           padding: 0 20px;
           margin-bottom: 50px;
         }
+        div :globa(h1) {
+          margin-right: 10px;
+        }
         div[itemProp="articlebody"] :global(p) {
           text-align: justify;
           line-height: 1.6;
@@ -167,9 +170,6 @@ export default function Post({
         }
         aside {
           margin-top: 20px;
-        }
-        article {
-          overflow: hidden;
         }
         nav :global(a) {
           border: 3px solid

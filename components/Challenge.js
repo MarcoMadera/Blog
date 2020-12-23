@@ -57,6 +57,9 @@ const Challenge = ({
         }
       `}</style>
       <style jsx>{`
+        div :global(a) {
+          margin: 20px 20px 0 0;
+        }
         article {
           display: grid;
           grid-template-columns: 1fr 1fr;
