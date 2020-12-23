@@ -196,22 +196,29 @@ La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pue
 Hay diferentes etiquetas para representar elementos visuales en nuestras páginas web con distintos usos.
 La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `src`, que es la fuente de la imagen y el atributo `alt`, que es la descripción de la imagen.
 
-![Imagen](https://res.cloudinary.com/marcomadera/image/upload/v1607128033/Blog/5/122-100x100_t7cyli.jpg "Imagen")
+<img
+  src="https://res.cloudinary.com/marcomadera/image/upload/v1607128033/Blog/5/122-100x100_t7cyli.jpg"
+  alt="Imagen"
+  width="100"
+  height="100"
+/>
 
 ```html
 <img
   src="https://picsum.photos/100"
   alt="Imagen"
+  width="100"
+  height="100"
 />
 ```
 
 `<Figure>` es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta `<figcaption>` que es la leyenda del contenido.
 
-<figure><img src="https://res.cloudinary.com/marcomadera/image/upload/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura"><figcaption>Imagen Aleatoria</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/marcomadera/image/upload/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura" width="200" height="200"><figcaption>Imagen Aleatoria</figcaption></figure>
 
 ```html
 <figure>
-  <img src="https://picsum.photos/200" alt="Figura">
+  <img src="https://picsum.photos/200" alt="Figura" width="200" height="200">
   <figcaption>Imagen Aleatoria</figcaption>
 </figure>
 ```

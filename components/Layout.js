@@ -45,6 +45,7 @@ const Layout = ({ children }) => {
         @media print {
           body {
             color: ${colors.black};
+            background: ${colors.white};
           }
         }
       `}</style>

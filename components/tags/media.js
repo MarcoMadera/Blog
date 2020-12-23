@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
+import { imageCloudProvider } from "../../site.config";
 const LoadDetailsDialog = dynamic(
   () => import("../../static-tweet/components/twitter-layout/details-dialog"),
   {
@@ -10,36 +11,101 @@ const LoadDetailsDialog = dynamic(
   }
 );
 
-export const Img = ({ src, alt = "", title }) => {
+export const Img = ({ src, alt = "", title, width: w, height: h }) => {
+  const height =
+    h ||
+    (src.startsWith(imageCloudProvider) &&
+      src.match(/h_(\d+)/) &&
+      src.match(/h_(\d+)/)[1]);
+  const width =
+    w ||
+    (src.startsWith(imageCloudProvider) &&
+      src.match(/w_(\d+)/) &&
+      src.match(/w_(\d+)/)[1]);
+  const layout = width && height ? "intrinsic" : "fill";
   return (
     <details>
       <summary>
-        <img loading="lazy" alt={alt} title={title || alt} src={src} />
+        {src.startsWith(imageCloudProvider) ? (
+          <div
+            style={
+              layout === "fill"
+                ? {
+                    position: "relative",
+                    width: "705px",
+                    height: "380px",
+                  }
+                : {}
+            }
+          >
+            <Image
+              layout={layout}
+              alt={alt}
+              width={(width && height && width) || undefined}
+              height={(width && height && height) || undefined}
+              title={title || alt}
+              quality={100}
+              objectFit={layout === "fill" && "fill"}
+              src={`${src.replace(
+                new RegExp(
+                  `${imageCloudProvider.replace(
+                    /[.*+?^${}()|/[\]\\]/g,
+                    "\\$&"
+                  )}.+?(/)`,
+                  "g"
+                ),
+                ""
+              )}`}
+            />
+          </div>
+        ) : (
+          <img
+            alt={alt}
+            title={title || alt}
+            src={src}
+            width={width}
+            height={height}
+          />
+        )}
       </summary>
       <details-dialog>
         <div className="bg" data-close-dialog>
           <div className="imageContainer">
-            <Image
-              layout="fill"
-              loading="lazy"
-              alt={alt}
-              title={title || alt}
-              src={`${
-                src.startsWith("https://res.cloudinary.com/marcomadera")
-                  ? src.replace(
-                      /(https:\/\/res.cloudinary.com\/marcomadera\/image\/upload\/).*?(\/)/g,
-                      "$2"
-                    )
-                  : src
-              }`}
-            />
+            {src.startsWith(imageCloudProvider) ? (
+              <Image
+                layout="fill"
+                loading="lazy"
+                alt={alt}
+                objectFit="scale-down"
+                title={title || alt}
+                src={`${src.replace(
+                  new RegExp(
+                    `${imageCloudProvider.replace(
+                      /[.*+?^${}()|/[\]\\]/g,
+                      "\\$&"
+                    )}.+?(/)`,
+                    "g"
+                  ),
+                  ""
+                )}`}
+              />
+            ) : (
+              <img
+                alt={alt}
+                title={title || alt}
+                src={src}
+                width={width}
+                height={height}
+              />
+            )}
           </div>
         </div>
       </details-dialog>
       <LoadDetailsDialog />
       <style jsx>{`
         div :global(img) {
-          object-fit: scale-down;
+          max-width: calc(100vw - 3rem);
+          max-height: calc(100vh - 10vh);
         }
         details *:focus {
           outline: none;
@@ -91,9 +157,8 @@ export const Img = ({ src, alt = "", title }) => {
         summary::-webkit-details-marker {
           display: none;
         }
-        summary > img {
+        summary :global(img) {
           max-height: 100vh;
-          object-fit: cover;
           cursor: pointer;
           border-radius: 10px;
           max-width: 100%;
@@ -155,6 +220,8 @@ Img.propTypes = {
   alt: PropTypes.string,
   title: PropTypes.string,
   src: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
 };
 Video.propTypes = {
   title: PropTypes.string,

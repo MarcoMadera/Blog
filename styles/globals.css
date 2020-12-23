@@ -14,20 +14,21 @@ html {
   box-sizing: border-box;
 }
 *:focus {
-  outline: 2px solid #b50000;
   outline-style: dashed;
+  outline-width: 2px;
+  outline-color: #b50000;
 }
 *::selection {
-  background: #d32f2fe1;
+  background-color: #d32f2fe1;
   color: #fff;
 }
 abbr::selection,
 a::selection {
-  background: #ca2424e1;
+  background-color: #ca2424e1;
   color: rgb(252, 252, 252);
 }
 img::selection {
-  background: #d32f2f56;
+  background-color: #d32f2f56;
   color: #fff;
 }
 h1::selection,
@@ -37,7 +38,7 @@ h4::selection,
 h5::selection,
 h6::selection,
 strong::selection {
-  background: #be2828e1;
+  background-color: #be2828e1;
   color: #fff;
 }
 h1,
@@ -50,7 +51,7 @@ p {
   margin: 1em 0;
 }
 #nprogress .bar {
-  background: #b50000;
+  background-color: #b50000;
   position: fixed;
   z-index: 1031;
   top: 0;

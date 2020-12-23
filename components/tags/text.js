@@ -10,6 +10,9 @@ export const P = ({ children }) => {
         p {
           margin: 1em 0;
           line-height: 25.6px;
+          -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+          page-break-inside: avoid; /* Firefox */
+          break-inside: avoid; /* IE 10+ */
         }
       `}</style>
     </p>
@@ -34,6 +37,13 @@ export const Abbr = ({ children, ...attribs }) => {
           border-width: 0 0 2px;
           border-style: dashed;
           border-color: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+        @media print {
+          abbr:after {
+            content: " (" attr(title) ") ";
+            position: unset;
+            border: none;
+          }
         }
       `}</style>
     </abbr>

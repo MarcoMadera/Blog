@@ -29,7 +29,7 @@ La uniformidad en el caso de los números aleatorios, significa que en un rango 
 
 <style>.graficaUniformeImg{display:block;margin: auto;max-width: 99%;clip-path: inset(0% round 10px);}</style>
 
-<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608331325/Blog/1/Graph1_iiqyqc.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608335119/Blog/1/Graph1-dark_r9zxe8.png" alt="Gráfica uniforme">
+<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_346,dpr_auto/v1608331325/Blog/1/Graph1_iiqyqc.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_345,dpr_auto/v1608335119/Blog/1/Graph1-dark_r9zxe8.png" alt="Gráfica uniforme">
 Gráfica completamente uniforme
 
 Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<sup>2</sup>:
@@ -86,7 +86,7 @@ En caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos. Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen.
 Por ahora si tomamos como muestra [esta lista](https://marcomadera.github.io/assets/blog/numerosAleatorios.txt "Lista de números") de 300 números nuestro progreso sería el siguiente:
 
-<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608331325/Blog/1/Graph2_lmzua3.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608335119/Blog/1/Graph2-dark_pyj8ok.png" alt="Gráfica">
+<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_349,dpr_auto/v1608331325/Blog/1/Graph2_lmzua3.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_347,dpr_auto/v1608335119/Blog/1/Graph2-dark_pyj8ok.png" alt="Gráfica">
 
 Muestra generada a partir de Math.Random() en la consola de Google Chrome.
 

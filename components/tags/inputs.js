@@ -52,6 +52,7 @@ export const Input = ({ type, ...attribs }) => {
           border: 1px solid ${colors.accents1};
           border-radius: 4px;
           padding: 0.5em;
+          font-family: Arial;
         }
       `}</style>
     </>

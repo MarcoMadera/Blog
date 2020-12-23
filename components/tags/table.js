@@ -27,7 +27,7 @@ export const Th = ({ children, colspan, ...attribs }) => {
           text-align: center;
           empty-cells: hide;
           border: 1px solid #aaa;
-          font-weight: bold;
+          font-weight: 700;
           padding: 5px 11px;
         }
       `}</style>

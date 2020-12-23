@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { imageCloudProvider } from "../site.config";
 import { H2, P, Ul, Li, Img } from "./tags";
 import ActionAnchor from "./ActionAnchor";
 
@@ -42,10 +41,7 @@ const Challenge = ({
         </Ul>
       </div>
       <div>
-        <Img
-          src={`${imageCloudProvider}/q_auto,f_auto,c_scale,w_550/${challengeImg}`}
-          alt={title}
-        />
+        <Img src={challengeImg} alt={title} />
       </div>
       <style global jsx>{`
         .none {

@@ -19,7 +19,7 @@ En la **música** se aplica este concepto, las ligaduras son los símbolos que c
 
 Estas son ligaduras para **mejorar la legibilidad del texto**, entre las más comunes están las combinaciones 'ff' y 'fi', un ejemplo de esto está presente en el logotipo de microsoft office donde ligan ambas 'f' para evitar el espacio que quedaría de no hacerlo.
 
-<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_250,dpr_auto/v1608354135/Blog/2/saxnasff_ly1hld.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_250,dpr_auto/v1608354135/Blog/2/saxnasff-dark_rjcetg.png" alt="Ligadura estándar" title="Ligadura estándar">
+<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_250,h_156,dpr_auto/v1608354135/Blog/2/saxnasff_ly1hld.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_250,h_156,dpr_auto/v1608354135/Blog/2/saxnasff-dark_rjcetg.png" alt="Ligadura estándar" title="Ligadura estándar">
 
 &nbsp;
 
@@ -63,7 +63,7 @@ Descarga e instala la fuente que desees como cualquier otra fuente.
 
 La gran mayoría de editores permiten el uso de ligaduras. Para activar las ligaduras en Visual Studio Code dirígete a `File > Preferences > User Settings` en la sección del editor de texto, fuentes y editar settings.json
 
-![Vs Code Settings](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,dpr_auto/v1608402440/Blog/2/VSCode-Settings_pkw4yl.png "Vs Code Settings")
+![Vs Code Settings](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_308,dpr_auto/v1608402440/Blog/2/VSCode-Settings_pkw4yl.png "Vs Code Settings")
 
 En settings.json agrega lo siguiente en el caso de Fira Code.
 

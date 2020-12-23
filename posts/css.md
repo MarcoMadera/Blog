@@ -81,7 +81,7 @@ Si se quiere seleccionar por atributos se puede hacer con los **selectores de at
 
 Pueden ser tan especificos como se muestran en la siguiente tabla:
 
-|  **Selector atributo** |                          **Selección**                          |
+|    Selector atributo   |                            Selección                            |
 |:----------------------:|:---------------------------------------------------------------:|
 |      `[atributo]`      |              Elemento que contenga cierto atributo              |
 |  `[atributo="valor"]`  |           Elemento que el atributo sea igual al valor           |
@@ -523,7 +523,7 @@ CSS no se interpreta igual en todos los navegadores, un decorador de texto puede
 CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características. Algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con **prefijos** que solo el navegador conoce. La ventaja de CSS es que si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda.
 Los siguientes prefijos son los más comunes:
 
-| **Prefijo** |       **Navegadores**       |
+|   Prefijo   |         Navegadores         |
 |:-----------:|:---------------------------:|
 |   -webkit-  |        Chrome, Safari       |
 |    -moz-    |           Firefox           |

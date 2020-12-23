@@ -203,6 +203,12 @@ const parseHtml = htmlParser({
       },
     },
     {
+      shouldProcessNode: (node) => node.type === "tag" && node.name === "img",
+      processNode: function Images({ attribs }) {
+        return <Img src={attribs.src} {...attribs} />;
+      },
+    },
+    {
       shouldProcessNode: (node) => node.type === "tag" && node.name === "abbr",
       processNode: function KeyBoard({ attribs }, children) {
         return <Abbr {...attribs}>{children}</Abbr>;
@@ -333,8 +339,8 @@ const _mapProps = (source) => ({
         </Li>
       );
     },
-    image: function Image({ src, alt, title }) {
-      return <Img src={src} alt={alt} title={title} />;
+    image: function Image({ src, alt, title, attribs }) {
+      return <Img src={src} alt={alt} title={title} {...attribs} />;
     },
     table: function Tab({ children }) {
       return <Table>{children}</Table>;

@@ -33,9 +33,8 @@ const Random = () => {
         </div>
         <div>
           <Img
-            loading="lazy"
             src={
-              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+              "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_268/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
             }
             alt="Reporte Diario"
           />
