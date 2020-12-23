@@ -143,7 +143,7 @@ Para tener más empatía con las personas con discapacidades visuales podemos em
 
 Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
 
-![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_350,h_393,dpr_auto/v1608356304/Blog/3/Accesibilidad3_uybwkk.png "Herramienta de contraste")
+![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_350,h_372,dpr_auto/v1608356304/Blog/3/Accesibilidad3_uybwkk.png "Herramienta de contraste")
 
 ### Focus
 

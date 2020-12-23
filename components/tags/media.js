@@ -220,8 +220,8 @@ Img.propTypes = {
   alt: PropTypes.string,
   title: PropTypes.string,
   src: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 Video.propTypes = {
   title: PropTypes.string,
