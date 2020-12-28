@@ -19,7 +19,7 @@ En la **música** se aplica este concepto, las ligaduras son los símbolos que c
 
 Estas son ligaduras para **mejorar la legibilidad del texto**, entre las más comunes están las combinaciones 'ff' y 'fi', un ejemplo de esto está presente en el logotipo de microsoft office donde ligan ambas 'f' para evitar el espacio que quedaría de no hacerlo.
 
-<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_260,h_163,dpr_auto/v1608354135/Blog/2/saxnasff_ly1hld.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_250,h_156,dpr_auto/v1608354135/Blog/2/saxnasff-dark_rjcetg.png" alt="Ligadura estándar" title="Ligadura estándar">
+<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_260,h_163,dpr_auto/v1608354135/Blog/2/saxnasff_ly1hld.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_260,h_163,dpr_auto/v1608354135/Blog/2/saxnasff-dark_rjcetg.png" alt="Ligadura estándar" title="Ligadura estándar">
 
 &nbsp;
 

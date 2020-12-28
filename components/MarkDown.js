@@ -343,7 +343,7 @@ const _mapProps = (source) => ({
     listItem: function ListsItems({ children, checked }) {
       return (
         <Li checked={checked}>
-          {children[0].props.node.type === "paragraph"
+          {children[0].props.node && children[0].props.node.type === "paragraph"
             ? children[0].props.children
             : children}
         </Li>

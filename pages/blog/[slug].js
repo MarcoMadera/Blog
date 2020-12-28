@@ -144,7 +144,7 @@ export default function Post({
           padding: 0 20px;
           margin-bottom: 50px;
         }
-        div :globa(h1) {
+        div :global(h1) {
           margin-right: 10px;
         }
         div[itemProp="articlebody"] :global(p) {

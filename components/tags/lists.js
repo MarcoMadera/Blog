@@ -6,7 +6,7 @@ export const Ol = ({ attribs, children, depth }) => {
       {children}
       <style jsx>{`
         ol {
-          margin: ${depth === 0 ? "1em 0;" : depth > 0 ? "0 0 0 20px;" : "0;"};
+          margin: ${depth > 0 ? "0 0 0 20px;" : "1em 0 1em 20px;"};
         }
       `}</style>
     </ol>
@@ -19,7 +19,7 @@ export const Ul = ({ attribs, children, depth }) => {
       {children}
       <style jsx>{`
         ul {
-          margin: ${depth === 0 ? "1em 0;" : depth > 0 ? "0 0 0 20px;" : "0;"};
+          margin: ${depth > 0 ? "0 0 0 20px;" : "1em 0 1em 20px;"};
         }
       `}</style>
     </ul>
@@ -48,7 +48,7 @@ export const Li = ({ children, checked, ...attribs }) => {
       {children}
       <style jsx>{`
         li {
-          list-style-position: inside;
+          list-style-position: outside;
           font-size: 1rem;
           font-weight: 400;
           line-height: 1.6;

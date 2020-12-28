@@ -36,7 +36,7 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 ## Ventajas
 
 - Es importante para el SEO, los motores de búsqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.
-- Es usado para mejorar la [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico)
+- Es usado para mejorar la [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico).
 - Es fácil de entender sin esfuerzo desde la estructura al contenido, no me imagino lo horrible tener que encontrar elementos entre divs y tablas, en la web de hace años.
 
 -------
@@ -108,7 +108,7 @@ En <dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> ex
 
 Otra forma de mostrar información es con la etiqueta `<address>`. Como su nombre lo dice, se usa para **información de contacto**, se usa típicamente en el pie de página.
 
-<address>Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a>.<br>Visitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>Dirección: Caborca Sonora, México</address>
+<address>Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a><br>Visitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>Dirección: Caborca Sonora, México</address>
 
 ```html
 <address>
