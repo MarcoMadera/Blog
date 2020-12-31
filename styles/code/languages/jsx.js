@@ -14,7 +14,7 @@ export const JSX = css.global`
     color: ${colors.blue};
   }
   code[data-lang="jsx"] .H {
-    color: ${colors.darkPink};
+    color: ${colors.darkpink};
   }
   code[data-lang="jsx"] .q,
   code[data-lang="jsx"] .C,
@@ -22,7 +22,7 @@ export const JSX = css.global`
     color: ${colors.green};
   }
   code[data-lang="jsx"] .r.o {
-    color: ${colors.lightPurple};
+    color: ${colors.lightpurple};
   }
   code[data-lang="jsx"] .i {
     color: ${colors.orange};
@@ -51,7 +51,7 @@ export const Dark_JSX = css.global`
   }
   code[data-lang="jsx"] .r.o,
   code[data-lang="jsx"] .F {
-    color: ${colors.dark_lightPurple};
+    color: ${colors.dark_lightpurple};
   }
   code[data-lang="jsx"] .i {
     color: ${colors.dark_orange};

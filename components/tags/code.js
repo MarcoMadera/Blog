@@ -67,6 +67,8 @@ export const Pre = ({ children, ...atrribs }) => {
         pre :global(code) {
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
             "Liberation Mono", "Courier New", monospace;
+          background: none;
+          padding: 0;
         }
         pre :global(code[data-lang]:before) {
           border-radius: 4px;

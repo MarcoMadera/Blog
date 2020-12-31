@@ -12,7 +12,7 @@ export const JAVASCRIPT = css.global`
   }
   code[data-lang="javascript"] .l,
   code[data-lang="javascript"] .k {
-    color: ${colors.darkGray};
+    color: ${colors.darkgray};
   }
   code[data-lang="javascript"] .q {
     color: ${colors.green};
@@ -37,7 +37,7 @@ export const Dark_JAVASCRIPT = css.global`
   }
   code[data-lang="javascript"] .F,
   code[data-lang="javascript"] .m {
-    color: ${colors.dark_lightPurple};
+    color: ${colors.dark_lightpurple};
   }
   code[data-lang="javascript"] .H {
     color: ${colors.dark_red};

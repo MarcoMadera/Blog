@@ -15,7 +15,6 @@ export default function Tweet({ id, caption }) {
       <style jsx>{`
         div {
           max-width: 550px;
-          min-width: 250px;
           border-width: 1px;
           border-radius: 15px;
           margin: 2rem auto;

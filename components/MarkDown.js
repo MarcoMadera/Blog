@@ -29,6 +29,7 @@ import {
   Abbr,
   Pre,
 } from "../components/tags/";
+import Colors from "../components/Colors";
 import ActionAnchor from "./ActionAnchor";
 import ActionButton from "./ActionButton";
 import Tweet from "../components/tweet";
@@ -201,6 +202,13 @@ const parseHtml = htmlParser({
         node.type === "tag" && node.name === "select",
       processNode: function Deta({ attribs }, children) {
         return <Select {...attribs}>{children}</Select>;
+      },
+    },
+    {
+      shouldProcessNode: (node) =>
+        node.type === "tag" && node.name === "colors",
+      processNode: function Color({ attribs }) {
+        return <Colors {...attribs} />;
       },
     },
     {

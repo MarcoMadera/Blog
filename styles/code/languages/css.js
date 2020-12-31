@@ -14,10 +14,10 @@ export const CSS = css.global`
     color: ${colors.blue};
   }
   code[data-lang="css"] .E {
-    color: ${colors.darkGray};
+    color: ${colors.darkgray};
   }
   code[data-lang="css"] .D {
-    color: ${colors.darkYellow};
+    color: ${colors.darkyellow};
   }
   code[data-lang="css"] .B,
   code[data-lang="css"] .S,
@@ -25,11 +25,11 @@ export const CSS = css.global`
     color: ${colors.green};
   }
   code[data-lang="css"] .a {
-    color: ${colors.lightBlue};
+    color: ${colors.lightblue};
   }
   code[data-lang="css"] .a .p,
   code[data-lang="css"] .a .H {
-    color: ${colors.lightPurple};
+    color: ${colors.lightpurple};
   }
   code[data-lang="css"] .P .n,
   code[data-lang="css"] .N,
@@ -50,10 +50,10 @@ export const Dark_CSS = css.global`
     color: ${colors.dark_blue};
   }
   code[data-lang="css"] .E {
-    color: ${colors.dark_darkGray};
+    color: ${colors.dark_darkgray};
   }
   code[data-lang="css"] .D {
-    color: ${colors.dark_darkYellow};
+    color: ${colors.dark_darkyellow};
   }
   code[data-lang="css"] .q,
   code[data-lang="css"] .S,
@@ -64,7 +64,7 @@ export const Dark_CSS = css.global`
   code[data-lang="css"] .N,
   code[data-lang="css"] .F,
   code[data-lang="css"] .P .n {
-    color: ${colors.dark_lightPurple};
+    color: ${colors.dark_lightpurple};
   }
   code[data-lang="css"] .a .p,
   code[data-lang="css"] .a .H {

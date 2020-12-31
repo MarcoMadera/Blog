@@ -45,7 +45,7 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 
 Los elementos de estructura son de los más importantes para el SEO, definen con está construida nuestra página y como acceden a la información los agentes terceros.
 
-<style>.section *{padding:10px;}.section{color:#fff;text-align:center;display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:10px 10px;height:fit-content;border-radius:10px}.header{background:#2193b3;grid-area:2/1/3/3;border-radius:10px}.nav{background:#2ba149;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#b9283b;border-radius:10px}.main{grid-area:3/2/4/3;background:#af462c;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#b8972b;border-radius:10px}.article{background:#ef9855;border-radius:10px}.article_header{display:block!important;background:#2193b3;margin-bottom:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#a57020;margin-bottom:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#b8972b;border-radius:10px}.main_section{background:#a57020;position:absolute;bottom:10px;width:calc(100% - 20px);border-radius:10px}</style><section class="section"><nav class="nav">< Nav ></nav><header class="header">< Header ></header><aside class="aside">< Aside ></aside><main class="main">< Main ><article class="article">< Article ><header class="article_header">< Header ></header><section class="article_section">< Section ></section><footer class="article_footer">< Footer > &copy;</footer></article><section class="main_section">< Section ><br>Contenido</section></main><footer class="footer">< Footer ><br>&copy;</footer></section>
+<style>.section *{padding:10px;}.section{color:#fff;text-align:center;display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:10px 10px;height:fit-content;border-radius:10px}.header{background:#2193b3;grid-area:2/1/3/3;border-radius:10px}.nav{background:#2ba149;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#b9283b;border-radius:10px}.main{grid-area:3/2/4/3;background:#af462c;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#b8972b;border-radius:10px}.article{background:#ef9855;border-radius:10px}.article_header{display:block!important;background:#2193b3;margin-bottom:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#a57020;margin-bottom:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#b8972b;border-radius:10px}.main_section{background:#a57020;position:absolute;bottom:10px;width:calc(100% - 20px);border-radius:10px}</style><section class="section"><nav class="nav">&lt;Nav&gt;</nav><header class="header">&lt;Header&gt;</header><aside class="aside">&lt;Aside&gt;</aside><main class="main">&lt;Main&gt;<article class="article">&lt;Article&gt;<header class="article_header">&lt;Header&gt;</header><section class="article_section">&lt;Section&gt;</section><footer class="article_footer">&lt;Footer&gt; &copy;</footer></article><section class="main_section">&lt;Section&gt;<br>Contenido</section></main><footer class="footer">&lt;Footer&gt;<br>&copy;</footer></section>
 
 ```html
 <body>
@@ -62,8 +62,8 @@ Los elementos de estructura son de los más importantes para el SEO, definen con
       <footer></footer>
     </article>
     <section>
-        <h2></h2>
-        <p></p>
+      <h2></h2>
+      <p></p>
     </section>
   </main>
   <footer></footer>
@@ -404,7 +404,7 @@ Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y 
 
 <style>table{color: #fff;}col{background-color:#133163;}col[span="1"]{background-color:#293882;}col[span="2"]{background-color:#42461c;}td[colspan="2"] {background-color:#1c7f3d;}</style>
 
-<table><caption>Precio de cosas</caption><colgroup><col span="0" ><col span="1" ><col span="2" ></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2" >$336</td></tr></tfoot></table>
+<table><caption>Precio de cosas</caption><colgroup><col span="0"><col span="1"><col span="2"></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2">$336</td></tr></tfoot></table>
 
 ```html
 <table>
