@@ -5,11 +5,11 @@ import { createContext, useState, useEffect } from "react";
 import { colors } from "../styles/theme";
 
 export const ThemeContext = createContext({
-  darkMode: false,
+  darkMode: true,
 });
 
 const Layout = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const toggleDarkMode = () => {
     if (darkMode === false) {
       localStorage.setItem("theme", "dark");
@@ -20,14 +20,10 @@ const Layout = ({ children }) => {
     }
   };
   useEffect(() => {
-    if (localStorage.getItem("theme") === "dark") {
-      setDarkMode(true);
-    } else if (localStorage.getItem("theme") === "light") {
+    if (localStorage.getItem("theme") === "light") {
       setDarkMode(false);
     } else {
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? setDarkMode(true)
-        : setDarkMode(false);
+      setDarkMode(true);
     }
   }, []);
 
