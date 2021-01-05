@@ -99,7 +99,7 @@ const sre = () => {
         <P>
           El registro se puede hacer manual: se selecciona la oficina, la fecha
           que por defecto será el día actual omitiendo los días no hábiles y sin
-          poder acceder a días futuros y se vacian los datos en los campos
+          poder acceder a días futuros y se vacían los datos en los campos
           especificados. Se tiene la opción de no reporte y un espacio
           obligatorio para explicar el motivo.
         </P>

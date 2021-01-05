@@ -139,30 +139,30 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           <P>
             ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
             auxiliar administrativo en la secretaría de relaciones exteriores,
-            programador web frontend por afición y entusiasta de las tecnología
-            web que cada día me gustan más: JavaScript, Node.js, React, etc...
+            programador web frontend por afición y entusiasta de las tecnologías
+            web que cada día me gustan más: JavaScript, Node.js, React, etc.
             Estoy en constante proceso de aprendizaje sobre las nuevas
             tecnologías y me gusta estar informado de lo que pasa en la web, ver
             cursos, leer artículos y tutoriales. Trataré de compartir mis
             conocimientos en la sección de blog, misma que trataré como libreta
-            personal para futuro con temas relacionados a la programación.
+            personal para futuro con temas relacionados con la programación.
           </P>
           <H2>¿Cómo empecé a programar?</H2>
           <P>
             Es algo que vengo haciendo desde preparatoria, cuando descubrí que
-            se podían hacer aplicaciones para android, me eché un clavado en el
+            se podían hacer aplicaciones para Android, me eché un clavado en el
             mundo de Java sin saber ni siquiera de control de versiones ni de
             git. Logré hacer algunas aplicaciones básicas y aún sin estar
             satisfecho con los resultados decidí dar el siguiente paso. En ese
             entonces por el 2013 empezaba a resonar sobre la realidad aumentada,
-            lo que veía lo quería intentar así que me pasé a C#, con el cúal
+            lo que veía lo quería intentar así que me pasé a C#, con el cual
             obviamente también quería hacer una cantidad de videojuegos, pero
             nunca tuve el conocimiento para hacer algo estable por todo el
             trabajo que conlleva y porque no sé nada de videojuegos; no los
-            juego. Después de estas étapas me empecé a interesar en Python con
-            el próposito de hacer proyectos sobre ciencia de datos y web
+            juego. Después de estas etapas me empecé a interesar en Python con
+            el propósito de hacer proyectos sobre ciencia de datos y web
             scraping, pero también me interesaba JavaScript, Python fue algo que
-            pasó muy rápido, no me gustó del todo la sintáxis quedando como
+            pasó muy rápido, no me gustó del todo la sintaxis quedando como
             ganador JavaScript.
           </P>
           <H2>Cosas que me gustan</H2>
@@ -190,7 +190,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             href="https://ciberninjas.com/biblioteca-de-programacion-y-tecnologia/#-desarrollo-web"
             label="Lecturas de programación"
           >
-            Procuro dejar tiempo para leer artículos, blogs, hilos de twitter y
+            Procuro dejar tiempo para leer artículos, blogs, hilos de Twitter y
             novelas, contenido de la web interesante, que pueda compartir en el{" "}
             <ALink href="/newsletter" title="Newsletter">
               Newsletter
@@ -202,8 +202,8 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             label="Página de TrackTV"
           >
             Es de esas cosas que dejo un tiempo y continúo por temporadas, me
-            gustan las series de drama y no puedo con las de ficción ni super
-            heroes.
+            gustan las series de drama y no puedo con las de ficción ni
+            superhéroes.
           </ThingILike>
         </div>
         <div>
