@@ -20,7 +20,7 @@ Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial
 
 GitHub <abbr title="Command Line Interface">CLI</abbr> se descarga desde su [página oficial](https://cli.github.com/ "Página oficial de GitHub CLI"). Está disponible para MAC Windows Linux y en paquetes binarios.
 
-Github CLI es interactivo con cada uno de sus comandos que nos guiarán a lo que queramos hacer. Una vez instalado nos podemos *loguear* con `gh auth login` y seguir las instrucciones:
+Github CLI es interactivo con cada uno de sus comandos que nos guiarán a lo que queramos hacer. Una vez instalado podemos iniciar sesión con `gh auth login` y seguir las instrucciones:
 
 <colors green blue red gray yellow>
 
@@ -160,7 +160,7 @@ Branch 'rp' set up to track remote branch 'rp' from 'origin'.
 
 Con `gh pr list` seguido de los *flags* podemos **listar pull request**. Los *flags* se pueden usar como filtros. `--limit` seguido del número limita a la lista. `--state` y  `--label` seguidos por el valor muestra solo las `pr` que coincidan.
 
-Para **ver pull request** se usa `gh pr view` seguido del número del *pull request* o directamente la *url*.
+Para **ver pull request** se usa `gh pr view` seguido del número del *pull request* o directamente la *URL*.
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios>gh pr view
 <span style="font-weight:600;">Update README.md</span>
@@ -192,14 +192,14 @@ El comando para manejar *issues* es `issue` seguido de una acción que pueden se
 
 Para **crear issues** se usa el comando `gh issue create`. Para agregar directamente un título usamos el *flag* `--title`, para el contenido el *flag* `--body`.
 
-<pre><code data-lang="CLI">C:\Users\marco\repositorios\github-cli>gh issue create --title "titulo" --body "contenido" --label "bug"
+<pre><code data-lang="CLI">C:\Users\marco\repositorios\github-cli>gh issue create --title "título" --body "contenido" --label "bug"
 
 Creating issue in MarcoMadera/github-cli
 
 https://github.com/MarcoMadera/github-cli/issues/2
 </code></pre>
 
-Para **ver issues** se usa `gh issue view` seguido del número del *pull request* o directamente la *url*.
+Para **ver issues** se usa `gh issue view` seguido del número del *pull request* o directamente la *URL*.
 
 Para **listar issues** se usa `gh issue list`. Los *flags* se pueden usar como filtros: `--limit` seguida del número limita a la lista, `--author`, `--label`, `--assignee` seguidos por el valor muestra solo las `issues` que coincidan.
 
@@ -238,9 +238,9 @@ El comando para manejar los *gists* es `gist` seguido de una acción que pueden 
   </ul>
 </div>
 
-Para crear **crear un gist** nuevo se hace a través del siguiente comando: `gh gist create` seguido del nombre de uno o varios archivos separados por espacio. Por defecto los gist son privados, se pueden hacer públicos con el *flag* `-public`.
+Para **crear un gist** nuevo se hace a través del siguiente comando: `gh gist create` seguido del nombre de uno o varios archivos separados por espacio. Por defecto los gist son privados, se pueden hacer públicos con el *flag* `-public`.
 
-Para **editar ver o borrar un gists** es con `gh gist edit` `gh gist view` o `gh gist delete` respectivamente seguido del *id* del *gist* o directamente la *url*.
+Para **editar ver o borrar un gists** es con `gh gist edit` `gh gist view` o `gh gist delete` respectivamente seguido del *ID* del *gist* o directamente la *URL*.
 
 ## Alias
 
@@ -271,7 +271,7 @@ cr: repo create
 
 ## API
 
-Github API es poderoso, con `gh api` se pueden hacer llamadas <abbr title="Hyper Text Transfer Protocol">HTTP</abbr> a <abbr title="Representational State Transfer">REST</abbr> o GraphQL API. Se usa con el comando `gh api` seguido del *endpoint* que puede ser una *url* absoluta o la represetación de un repositorio de la siguiente manera de ejemplo `repos/user/repo/releases`. El método que usa por defecto es `GET`, se puede cambiar con el *flag* `--method`.
+Github API es poderoso, con `gh api` se pueden hacer llamadas <abbr title="Hyper Text Transfer Protocol">HTTP</abbr> a <abbr title="Representational State Transfer">REST</abbr> o GraphQL API. Se usa con el comando `gh api` seguido del *endpoint* que puede ser una *URL* absoluta o la representación de un repositorio de la siguiente manera de ejemplo `repos/user/repo/releases`. El método que usa por defecto es `GET`, se puede cambiar con el *flag* `--method`.
 
 <pre><code data-lang="CLI">C:\Users\marco>gh api https://marcomadera.com/api/now-playing
 {

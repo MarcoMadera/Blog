@@ -1,6 +1,6 @@
 import Seo from "../../../components/Seo";
 import PropTypes from "prop-types";
-import { H1, H2, Img, P, Kbd } from "../../../components/tags";
+import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "../../../components/tags";
 const Article = ({ title, img, children }) => {
   return (
     <>
@@ -65,15 +65,14 @@ const sre = () => {
       <Seo title="Portafolio 💼 | SRE Excel" />
       <H1>Registro de trámites en Excel</H1>
       <Article
-        title="Navegador"
+        title="Página web"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_309/v1595275322/Potfolio/sreExcel/Reporte_Diario_db5g11.png"
       >
         <P>
-          El funcionamiento es que con ayuda de un bookmarlet, se recolecta la
-          información necesaria, y finalizar la jornada se puede acceder a la
-          página del reporte para mirar los reporte en el navegador, éste se
-          puede imprimir o descargar para después vaciarlo en excel de forma
-          sencilla.
+          El funcionamiento es que con ayuda de un <em>bookmarlet</em>, se
+          recolecta la información necesaria. Al finalizar la jornada, se puede
+          acceder desde la página web donde se podrá imprimir o descargar los
+          datos para después vaciarlos a Excel de forma sencilla.
         </P>
       </Article>
       <Article
@@ -81,10 +80,16 @@ const sre = () => {
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_297/v1595275323/Potfolio/sreExcel/Data_splifz.png"
       >
         <P>
-          Esta es la vista general del dashboard, aquí es donde el usuario
-          convive, todo se hace en está hoja, registrar los trámites, generar
-          gráficas, generar el reporte, ver el progreso, eficiencia y
-          comparaciones.
+          Esta es la vista general del <em>dashboard</em>, aquí es donde el
+          usuario convive. Todas las funciones se pueden acceder desde esta
+          hoja:
+          <Ul>
+            <Li>Registrar los trámites.</Li>
+            <Li>Generar gráficas.</Li>
+            <Li>Generar el reporte.</Li>
+            <Li>Visualizar el progreso y eficiencia.</Li>
+            <Li>Hacer comparaciones.</Li>
+          </Ul>
         </P>
       </Article>
       <Article
@@ -92,8 +97,15 @@ const sre = () => {
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_297/v1595275323/Potfolio/sreExcel/SRE_Registro_fbjsqg.png"
       >
         <P>
-          El registro se puede hacer manual, seleccionar la oficina, fecha y
-          vaciar los datos o también se puede pegar y que se llene rápidamente.
+          El registro se puede hacer manual: se selecciona la oficina, la fecha
+          que por defecto será el día actual omitiendo los días no hábiles y sin
+          poder acceder a días futuros y se vacian los datos en los campos
+          especificados. Se tiene la opción de no reporte y un espacio
+          obligatorio para explicar el motivo.
+        </P>
+        <P>
+          La otra forma es registro es pegar directamente lo descargado de la
+          página y se llenará rápidamente.
         </P>
       </Article>
       <Article
@@ -102,17 +114,18 @@ const sre = () => {
       >
         <P>
           Los datos van a una hoja aparte que no es accesible al usuario para
-          evitar modificaciones al momento de compartir el archivo, usualmente
+          evitar modificaciones al momento de compartir el archivo. Usualmente
           está oculta y con contraseña.
         </P>
       </Article>
       <Article
-        title="Generar gráfica"
+        title="Generar gráficas"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_298/v1595275324/Potfolio/sreExcel/SRE_Gen_Graph_iz4vgw.png"
       >
         <P>
-          Generar gráficas tiene múltiples opciones, la interfaz ofrece una
-          vista prevía que cambia conforme se seleccionan las opciones.
+          Generar gráficas tiene múltiples opciones intuitivas. La interfaz
+          ofrece una vista prevía que cambia en tiempo real conforme se incluyen
+          campos.
         </P>
       </Article>
       <Article
@@ -132,9 +145,11 @@ const sre = () => {
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_296/v1595275324/Potfolio/sreExcel/SRE_Gen_Reporte_yvv11c.png"
       >
         <P>
-          El proceso es similar, se selecciona el rango de fechas y las opciones
-          necesarias, se puede confirgurar el tipo de archivo PDF o nueva hoja y
-          orientación de la hoja.{" "}
+          El proceso es similar al generar gráficas. Se selecciona el rango de
+          fechas a tomar en cuenta y los demás campos necesarios. Como opciones
+          adicionales se puede configurar el tipo de archivo; en PDF o en una
+          nueva hoja de Excel y la orientación de la hoja; vertical u
+          horizontal.{" "}
         </P>
       </Article>
       <Article
@@ -142,9 +157,10 @@ const sre = () => {
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_309/v1595275324/Potfolio/sreExcel/SRE_Reporte_PDF_yvvswb.png"
       >
         <P>
-          Al igual que la gráfica, el reporte se puede personalizar al
-          exportarlo a una nueva hoja en lugar de directamente a PDF que tiene
-          un estilo por defecto.
+          Al igual que al generar una gráfica, el reporte se puede personalizar
+          al momento de exportarlo a una nueva hoja de Excel para después
+          exportarla con <Kbd>ctrl</Kbd> + <Kbd>p</Kbd>. Al escoger el tipo de
+          PDF directamente tomará el estilo por defecto mostrado.
         </P>
       </Article>
       <Article
@@ -152,8 +168,14 @@ const sre = () => {
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_297/v1595275322/Potfolio/sreExcel/SRE_Programacion_aosbtb.png"
       >
         <P>
-          El desarrollo del archivo se ha realizado con VBA (Visual Basic for
-          Applications) y Excel 2016.
+          El desarrollo del archivo se ha realizado con{" "}
+          <Abbr
+            title="Visual Basic for
+          Applications"
+          >
+            VBA
+          </Abbr>{" "}
+          (<em>Visual Basic for Applications</em>) y Excel 2016.
         </P>
       </Article>
       <style jsx>{`

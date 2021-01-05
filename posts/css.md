@@ -32,7 +32,7 @@ En Línea
 En Línea
 </p>
 
-En HTML existe una estiqueta destinada para los **estilos internos**. Se pueden agregar estilos directamente usando la etiqueta de HTML `<style>`. Debería de usarse dentro de la etiqueta `<head>`.
+En HTML existe una etiqueta destinada para los **estilos internos**. Se pueden agregar estilos directamente usando la etiqueta de HTML `<style>`. Debería de usarse dentro de la etiqueta `<head>`.
 
 ```html
 <style>
@@ -43,7 +43,7 @@ body {
 </style>
 ```
 
-La manera que se aprovecha mejor es con **estilos externos**. Este tipo de estilo es el que tiene menor prioridad sobre otras reglas de CSS. Se hace un `<link>` a una hoja de estilos (.css) dentro de la etiqueta `<head>` de nuestro documento HTML. Al momento de cargar la página, inmediatamente llamará a la hoja de estilos externa y aplicará los estilos. Con esto le quitamos el peso del html de cargar con los estilos para tener un mejor tiempo de respuesta. Para hacer esto la etiqueta `<link>` debe de ir de la siguiente forma, donde href es la ubicación de la hoja de estilos.
+La manera que se aprovecha mejor es con **estilos externos**. Este tipo de estilo es el que tiene menor prioridad sobre otras reglas de CSS. Se hace un `<link>` a una hoja de estilos (.css) dentro de la etiqueta `<head>` de nuestro documento HTML. Al momento de cargar la página, inmediatamente llamará a la hoja de estilos externa y aplicará los estilos. Con esto le quitamos el peso al archivo HTML de cargar con los estilos para tener un mejor tiempo de respuesta. Para hacer esto la etiqueta `<link>` debe de ir de la siguiente forma, donde `href` es la ubicación de la hoja de estilos.
 
 ```html
 <link
@@ -57,7 +57,7 @@ La manera que se aprovecha mejor es con **estilos externos**. Este tipo de estil
 
 Al usar CSS en una hoja externa o en la etiqueta `<style>` los selectores son necesarios para estilar elementos específicos. Estos indican a qué elementos se le tienen que aplicar los estilos.
 
-El **selector universal** es un asterisco `*` selecciona cualquier tipo de etiqueta del documento HTML. Al igual que los demas selectores se puede combinar.
+El **selector universal** es un asterisco `*` selecciona cualquier tipo de etiqueta del documento HTML. Al igual que los demás selectores se puede combinar.
 
 ```css
 * { ... }
@@ -65,7 +65,7 @@ El **selector universal** es un asterisco `*` selecciona cualquier tipo de etiqu
 div * span { ... }
 ```
 
-Para **seleccionar etiquetas** simplemente se escribe el nombre de la etiqueta seguida de las declaraciones de css entre paréntesis.
+Para **seleccionar etiquetas** simplemente se escribe el nombre de la etiqueta seguida de las declaraciones de CSS entre paréntesis.
 
 ```css
 nav { ... }
@@ -73,13 +73,13 @@ nav { ... }
 nav[class="topNavbar"] { ... }
 ```
 
-Si se quiere seleccionar por atributos se puede hacer con los **selectores de atributos**. Se distinguen por los corchetes `[]` que continene la especificación del selector.
+Si se quiere seleccionar por atributos se puede hacer con los **selectores de atributos**. Se distinguen por los corchetes `[]` que contiene la especificación del selector.
 
 ```css
 [lang="es-MX"] { ... }
 ```
 
-Pueden ser tan especificos como se muestran en la siguiente tabla:
+Pueden ser tan específicos como se muestran en la siguiente tabla:
 
 |    Selector atributo   |                            Selección                            |
 |:----------------------:|:---------------------------------------------------------------:|
@@ -91,7 +91,7 @@ Pueden ser tan especificos como se muestran en la siguiente tabla:
 | `[atributo\|="valor"]` | Elemento que el atributo empiece con el valor o valor (espacio) |
 |  `[atributo$="valor"]` |        Elemento que el atributo termine con cierto valor        |
 
-Las `id` en HTML son únicas, por consecuencia hace que en CSS también solo se pueda aplicar a un solo elemento único. Para **seleccionar atributos `id`** se usa el símbolo `#` antes del nombre de la `id`.
+Las `ID` en HTML son únicas, por consecuencia hace que en CSS también solo se pueda aplicar a un solo elemento único. Para **seleccionar atributos `ID`** se usa el símbolo `#` antes del nombre de la `ID`.
 
 ```css
 #SomeId { ... }
@@ -113,12 +113,12 @@ La manera para **compartir propiedades** es separando los selectores con comma `
 nav.topNavbar, a[href=*"example.com"], #someId { ... }
 ```
 
-Para ser más selectivos podemos especificar **etiquetas, class o id's unidos** de un punto `.`. Para el siguiente ejemplo, selecciona todas las etiquetas `<nav>` que contengan el atributo `class` topNavbar y el `id` someId.
+Para ser más selectivos podemos especificar **etiquetas, class o id's unidos** de un punto `.`. Para el siguiente ejemplo, selecciona todas las etiquetas `<nav>` que contengan el atributo `class` topNavbar y el `ID` someID.
 
 ```css
-nav#someId.topNavbar { ... }
+nav#someID.topNavbar { ... }
 
-nav.topNavb#someId { ... }
+nav.topNavb#someID { ... }
 ```
 
 Otra forma de especificar elementos es a través de la **selección por jerarquía**. Se hace separando los elementos a tener en cuenta por espacios. Para el siguiente ejemplo, selecciona todos los elementos que contengan el atributo `class` topNavbar y que tenga un ancestro de etiqueta `<nav>`, no tiene que ser directamente el padre.
@@ -188,7 +188,7 @@ div {
 
 Las propiedades personalizadas son como las **variables** en otros lenguajes. Almacena valores, distinguen entre mayúsculas y minúsculas y pueden actualizar los valores a través de la cascada.
 
-Para crear una propiedad customizada se utiliza como prefijo el doble guion `--`. Tienen nombre de la propiedad y el valor que se le da. Para usar la propiedad se hace a través de la función `var`.
+Para crear una propiedad personalizada se utiliza como prefijo el doble guion `--`. Tienen nombre de la propiedad y el valor que se le da. Para usar la propiedad se hace a través de la función `var`.
 
 ```css
 .topNavbar {
@@ -246,7 +246,7 @@ p {
 }
 ```
 
-En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto, pues la propiedad abreviadad contiene los demás valores dados por el defecto.
+En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto, pues la propiedad abreviada contiene los demás valores dados por el defecto.
 
 Mal:
 
@@ -266,7 +266,7 @@ p {
 }
 ```
 
-El lugar dónde está ubicado nuestros estilos da **importancia** a que se apliquen. También existe un valor dedicado a ello `!important`. Este valor hará que se aplique el estilo independientemente del orden que se aplique. En el siguiente ejemplo el color del párrafo quedará en blanco.
+El lugar donde está ubicado nuestros estilos da **importancia** a que se apliquen. También existe un valor dedicado a ello `!important`. Este valor hará que se aplique el estilo independientemente del orden que se aplique. En el siguiente ejemplo el color del párrafo quedará en blanco.
 
 ```css
 p {
@@ -310,7 +310,7 @@ Tenemos **funciones generales**, estas son las más usadas comúnmente como las 
 }
 ```
 
-También podemos usar **funciones de selectores** para iterar entre elementos. El siguiente ejemplo aplica estilos diferentes cada 3 elementos de item.
+También podemos usar **funciones de selectores** para iterar entre elementos. El siguiente ejemplo aplica estilos diferentes cada 3 elementos.
 
 ```css
 .item:nth-of-type(3n + 1) {
@@ -358,7 +358,7 @@ Tenemos **funciones de grids**. Estas funciones nos ayudan a estructurar nuestro
 
 Son declaraciones que comienzan con el símbolo arroba `@`.
 
-`@import` nos permite incluir una hoja de estilos externa, con esto podemos vover a usar nuestros estilos y poder agregar más estilos. El siguiente código importará la fuente Monserrat si se encuentra en un dispositivo de impresión.
+`@import` nos permite incluir una hoja de estilos externa, con esto podemos volver a usar nuestros estilos y poder agregar más estilos. El siguiente código importará la fuente Montserrat si se encuentra en un dispositivo de impresión.
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') print;
@@ -440,13 +440,13 @@ El `padding` y el `margin` **son separadores**. El `margin` siempre es invisible
 }
 ```
 
-En la primera caja el borde es el que delimita el color del `background`. El `padding` toma el color del `background` dando una separación de 30 pixeles a partir del borde hacia el interior.
+En la primera caja el borde es el que delimita el color del `background`. El `padding` toma el color del `background` dando una separación de 30 píxeles a partir del borde hacia el interior.
 
-En la segunda caja el margen no se pinta con el `background`. Hace una separación del borde hacia el exterior de 30 pixeles.
+En la segunda caja el margen no se pinta con el `background`. Hace una separación del borde hacia el exterior de 30 píxeles.
 
 ## Animaciones
 
-Las animaciones en css requieren de la regla `keyframes` seguida del nombre de la animación. Los selectores se pueden representar con porcentajes de 0% a 100% o con las palabras `from` y `to` que sería lo mismo que 0% y 100%.
+Las animaciones en CSS requieren de la regla `keyframes` seguida del nombre de la animación. Los selectores se pueden representar con porcentajes de 0% a 100% o con las palabras `from` y `to` que sería lo mismo que 0% y 100%.
 
 Esta animación puede ser llamada asignándola a un elemento con la propiedad `animation-name` y con `animation-duration`.
 
@@ -518,7 +518,7 @@ Un ejemplo simple de uso de porcentajes sería el siguiente:
 
 ## Compatibilidad
 
-CSS no se interpreta igual en todos los navegadores, un decorador de texto puede que no luzca de la misma forma en Firefox que en Chrome. Aplicar ciertos trucos para que todos luzca igual en todos los navegadores puede que sea una tarea tediosa. Es importante saber el mercado de usuarios al que va dirigido la página que creamos para saber en que navegadores enfocarnos.
+CSS no se interpreta igual en todos los navegadores, un decorador de texto puede que no luzca de la misma forma en Firefox que en Chrome. Aplicar ciertos trucos para que todos luzca igual en todos los navegadores puede que sea una tarea tediosa. Es importante saber el mercado de usuarios al que va dirigido la página que creamos para saber en qué navegadores enfocarnos.
 
 CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características. Algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con **prefijos** que solo el navegador conoce. La ventaja de CSS es que si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda.
 Los siguientes prefijos son los más comunes:

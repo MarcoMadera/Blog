@@ -10,7 +10,7 @@ tags:
   - Web
 ---
 
-Esta semana estuvo rondando por mi cabeza un comentario que leí en twitter. No sé si lo entendí del todo bien, trataba sobre crear páginas web que sean leídas por humanos, no para robots. No pude encontrar la referencia, pero estoy  seguro que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?
+Esta semana estuvo rondando por mi cabeza un comentario que leí en Twitter. No sé si lo entendí del todo bien, trataba sobre crear páginas web que sean leídas por humanos, no para robots. No pude encontrar la referencia, pero estoy seguro de que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?
 
 <div style="display: block;
     font-size: 1.5em;
@@ -22,8 +22,8 @@ Esta semana estuvo rondando por mi cabeza un comentario que leí en twitter. No 
 
 <h2>¿Esto es un título?</h2>
 
-Esto luce exactamente igual, pero cómo sabemos si un robot lo lee igual?
-Algo sencillo de hacer es abrir el lector de pantalla con <kbd>Cmd</kbd> + <kbd>F5</kbd> en Mac o con <kbd>ctrl</kbd> + <kbd>win</kbd> + <kbd>enter</kbd> en Windows. Escuchar como lo lee y encuentra la diferencia.
+Esto luce exactamente igual, pero ¿cómo sabemos si un robot lo lee igual?
+Algo sencillo de hacer es abrir el lector de pantalla con <kbd>cmd</kbd> + <kbd>f5</kbd> en Mac o con <kbd>ctrl</kbd> + <kbd>win</kbd> + <kbd>enter</kbd> en Windows. Escuchar como lo lee y encuentra la diferencia.
 
 ## ¿Qué es HTML Semántico?
 
@@ -37,13 +37,13 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 
 - Es importante para el SEO, los motores de búsqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.
 - Es usado para mejorar la [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico).
-- Es fácil de entender sin esfuerzo desde la estructura al contenido, no me imagino lo horrible tener que encontrar elementos entre divs y tablas, en la web de hace años.
+- Es fácil de entender sin esfuerzo desde la estructura al contenido, no me imagino lo horrible tener que encontrar elementos entre varios `div` y tablas, en la web de hace años.
 
 -------
 
 ## Estructura
 
-Los elementos de estructura son de los más importantes para el SEO, definen con está construida nuestra página y como acceden a la información los agentes terceros.
+Los elementos de estructura son de los más importantes para el SEO, definen como está construida nuestra página y como acceden a la información los agentes terceros.
 
 <style>.section *{padding:10px;}.section{color:#fff;text-align:center;display:grid;grid-template:50px 70px 300px 70px/1fr 2fr;gap:10px 10px;height:fit-content;border-radius:10px}.header{background:#2193b3;grid-area:2/1/3/3;border-radius:10px}.nav{background:#2ba149;grid-area:1/1/2/3;border-radius:10px}.aside{grid-area:3/1/4/2;background:#b9283b;border-radius:10px}.main{grid-area:3/2/4/3;background:#af462c;min-height:auto;position:relative;border-radius:10px}.footer{grid-area:4/1/5/3;background:#b8972b;border-radius:10px}.article{background:#ef9855;border-radius:10px}.article_header{display:block!important;background:#2193b3;margin-bottom:10px;border-radius:10px}.article_p{margin:0}.article_section{background:#a57020;margin-bottom:10px;border-radius:10px}.article_title{margin:0}.article_footer{background:#b8972b;border-radius:10px}.main_section{background:#a57020;position:absolute;bottom:10px;width:calc(100% - 20px);border-radius:10px}</style><section class="section"><nav class="nav">&lt;Nav&gt;</nav><header class="header">&lt;Header&gt;</header><aside class="aside">&lt;Aside&gt;</aside><main class="main">&lt;Main&gt;<article class="article">&lt;Article&gt;<header class="article_header">&lt;Header&gt;</header><section class="article_section">&lt;Section&gt;</section><footer class="article_footer">&lt;Footer&gt; &copy;</footer></article><section class="main_section">&lt;Section&gt;<br>Contenido</section></main><footer class="footer">&lt;Footer&gt;<br>&copy;</footer></section>
 
@@ -72,7 +72,7 @@ Los elementos de estructura son de los más importantes para el SEO, definen con
 <!-- No necesariamente tiene que seguir esta estructura -->
 ```
 
-- Con la etiqueta `<nav>` se pueden identificar los **enlaces de navegación**. Puede haber varías secciones de navegación en una página y no todos los enlaces necesitan de ir dentro de una etiqueta nav.
+- Con la etiqueta `<nav>` se pueden identificar los **enlaces de navegación**. Puede haber varías secciones de navegación en una página y no todos los enlaces necesitan de ir dentro de una etiqueta `nav`.
 - La etiqueta `<header>` agrupa la **introducción de la página**.
 - `<aside>` es una etiqueta que designa un área en la cual hay **información suplementaria** al contenido principal.
 - La etiqueta `<main>` señala al **contenido principal** de la página. Solo puede existir una etiqueta de este tipo visible por página.
@@ -84,18 +84,18 @@ Los elementos de estructura son de los más importantes para el SEO, definen con
 
 ## Presentación de textos
 
-El texto principal que debe de ser el más llamativo es el **título de cabecera**, hay de varios y van desde el rango `<h1>` a `<h6>`, donde el `<h1>` es el más importante. Deben de ir en orden descendente en cada secuencia. Usualmente el user-agent de los navegadores estilan a la etiqueta `<h1>` como el más grande de tamaño y en negrita.
+El texto principal que debe de ser el más llamativo es el **título de cabecera**, hay de varios y van desde el rango `<h1>` a `<h6>`, donde el `<h1>` es el más importante. Deben de ir en orden descendente en cada secuencia. Usualmente el *user-agent* de los navegadores estilan a la etiqueta `<h1>` como el más grande de tamaño y en negrita.
 
 La etiqueta más común para mostrar texto es la de los **párrafos** con la etiqueta `<p>`. Existen etiquetas para modificar el texto y así darle personalidad como la de énfasis `<em>` para <em>realzar la entonación</em> de la frase. `<mark>` para resaltar <mark>información relevante</mark> o `<strong>` para mostrar **palabras o frases importantes**.
 
 Para mostrar texto borrado se usa la etiqueta ~`<strike>`~ <ins>`<del>`</ins> y para insertar texto la etiqueta `<ins>`
-La forma de usar las etiquetas anteriores es sencilla solo poniendo el texto entre las etiqueta de la siguiente forma:
+La forma de usar las etiquetas anteriores es sencilla, solo poniendo el texto entre la etiqueta de la siguiente forma:
 
 ```html
 <etiqueta>texto<etiqueta>
 ```
 
-En <dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> existen etiquetas para abreviar `<abbr>` y definir `<dfn>`. Las abreviaciones se pueden plasmar en html con la etiqueta `<abbr>` llevan de atributo `title` el titulo de la abreviación. Las definiciones se usan con la etiqueta `<dfn>`, se usan para direccionar a la definición a través de un atributo que puede ser `id`.
+En <dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> existen etiquetas para abreviar `<abbr>` y definir `<dfn>`. Las abreviaciones se pueden plasmar en html con la etiqueta `<abbr>` llevan de atributo `title` el título de la abreviación. Las definiciones se usan con la etiqueta `<dfn>`, se usan para direccionar a la definición a través de un atributo que puede ser `id`.
 
 > Para hacer **acotaciones** tenemos la etiqueta `<blockquote>` para crear un bloque de contenido citado de otra fuente o la etiqueta `<q>` para hacer una <q cite="https://example.com">cita textual</q> la cual acepta el atributo `cite` el cual contendra la referencia de la cita.
 
@@ -108,26 +108,26 @@ En <dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> ex
 
 Otra forma de mostrar información es con la etiqueta `<address>`. Como su nombre lo dice, se usa para **información de contacto**, se usa típicamente en el pie de página.
 
-<address>Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a><br>Visitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>Dirección: Caborca Sonora, México</address>
+<address>Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a><br>Vísitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>Dirección: Caborca Sonora, México</address>
 
 ```html
 <address>
   Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a>.<br>
-  Visitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>
+  Vísitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>
   Dirección: Caborca Sonora, México
 </address>
 ```
 
 Para **separar el texto** tenemos varias etiquetas. La etiqueta `<br>` representa un salto de línea como es visto en el ejemplo anterior.La etiqueta `<wbr>` sirve para indicar en qué palabra está bien que suceda un salto de línea. Permite separar de manera correcta palabras largas o enlaces sin que el contenido se desajuste. Y la etiqueta `<hr>` representa una línea horizontal que separa bloques de texto.
 
-¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamentes-<wbr>largos:<wbr>http://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
+¿qué-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisiéramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamente-<wbr>largos:<wbr>http://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
 
 -------
 
 Lo de arriba 👆 es una regla horizontal
 
 ```html
-¿que-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisieramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamentes-<wbr>largos:<wbr>https://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
+¿qué-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisiéramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamente-<wbr>largos:<wbr>https://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
 
 <hr>
 
@@ -136,7 +136,7 @@ Lo de arriba 👆 es una regla horizontal
 
 ## Elementos interactivos
 
-Un elemento interactivo que tenemos son los **cuadros de dialogos** con la etiqueta `<dialog>`. Recibe un atributo `open` que hará visible el cuadro de dialogo, si este atributo no está indicado no es mostrado el contenido.
+Un elemento interactivo que tenemos son los **cuadros de diálogo** con la etiqueta `<dialog>`. Recibe un atributo `open` que hará visible el cuadro de diálogo, si este atributo no está indicado no es mostrado el contenido.
 
 <dialog open={true}><p>Esto es un cuadro de diálogo</p></dialog>
 
@@ -243,7 +243,7 @@ La etiqueta `<picture>` es para **elementos visuales**, puede contener varias et
 
 ## Formularios de entrada
 
-Los formularios de entrada se identifican con la etiqueta `<input>` y pueden estar dentro de la etiqueta `<form>`. El elemento `<input>` acepta el atributo `type` del cual hay diversos valores como: *button*, *checkbox*, *date*, *email*, *password*, *range*, *text*, entre otros, la mayoría se pueden plastar tan fácil como los siguientes.
+Los formularios de entrada se identifican con la etiqueta `<input>` y pueden estar dentro de la etiqueta `<form>`. El elemento `<input>` acepta el atributo `type` del cual hay diversos valores como: *button*, *checkbox*, *date*, *email*, *password*, *range*, *text*, entre otros, la mayoría se pueden plasmar tan fácil como los siguientes.
 
 La etiqueta `<input>` de tipo *color* recibe un atributo de nombre value con el valor inicial del color que debe de ser mostrado el elemento.
 
@@ -253,7 +253,7 @@ La etiqueta `<input>` de tipo *color* recibe un atributo de nombre value con el 
 <input type="color" value="#b50000">
 ```
 
-La etiqueta `<input>` de tipo *number* es especifico para números. Se puede definir un rango mínimo y máximo.
+La etiqueta `<input>` de tipo *number* es específico para números. Se puede definir un rango mínimo y máximo.
 
 <input type="number" min="1" max="5" />
 
@@ -265,7 +265,7 @@ La etiqueta `<input>` de tipo *number* es especifico para números. Se puede def
 
 ## Barras
 
-Las barras utilizadas en html son de tipo meter que mide a una escala conocida y progress que representa el progreso de una acción.
+Las barras utilizadas en HTML son de tipo *meter* que mide a una escala conocida y *progress* que representa el progreso de una acción.
 
 La etiqueta `<meter>` es utilizada como indicador de una **escala conocida**, así que cuando el indicador está en un punto específico, puede variar los colores.
 
@@ -287,7 +287,7 @@ La etiqueta `<meter>` es utilizada como indicador de una **escala conocida**, as
 <meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
 ```
 
-La **barra de progreso** es utilizada para mostrar el avance de una tarea. Existen dos valores indeterminada y determinada.
+La **barra de progreso** es utilizada para mostrar el avance de una tarea. Existen dos valores: indeterminada y determinada.
 
 Determinada:
 
@@ -311,9 +311,9 @@ Indeterminada:
 
 ## Listas
 
-Las listas pueden ser creadas donde los elementos tengan una secuencia ordernada o desordenada. Sin el importar el tipo de lista debe de contener al menos una etiqueta `<li>` que es la que especifica el contenido.
+Las listas pueden ser creadas donde los elementos tengan una secuencia ordenada o desordenada. Sin el importar el tipo de lista debe de contener al menos una etiqueta `<li>` que es la que especifica el contenido.
 
-Para **listas con un orden especifico** usamos la etiqueta `<ol>` de *lista ordernada* que encapsula los elementos de nuestra lista.
+Para **listas con un orden específico** usamos la etiqueta `<ol>` de *lista ordenada* que encapsula los elementos de nuestra lista.
 
 1. Objeto1
 2. Objeto2
@@ -330,7 +330,7 @@ Para **listas con un orden especifico** usamos la etiqueta `<ol>` de *lista orde
 </ol>
 ```
 
-Las siguientes son **listas donde el orden no es importante**, usamos la etiqueta `<ul>` de *lista desordernada* que encapsula los elementos de nuestra lista..
+Las siguientes son **listas donde el orden no es importante**, usamos la etiqueta `<ul>` de *lista desordenada* que encapsula los elementos de nuestra lista.
 
 - Objeto1
 - Objeto2
@@ -380,7 +380,7 @@ Otra forma de crear listas con estos elementos son las **listas anidadas**, llev
 </ol>
 ```
 
-También nos podemos poner más creativos y usar distintas combinaciones con diferentes elementos como puede ser un **checbox** para marcar de completada la tarea.
+También nos podemos poner más creativos y usar distintas combinaciones con diferentes elementos como puede ser un **checkbox** para marcar de completada la tarea.
 
 - [ ] pendiente1
 - [x] pendiente2
@@ -448,6 +448,6 @@ Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y 
 
 La web no debe de ser hecha solo para humanos. Que las computadoras entiendan lo que estamos plasmando es importante. Comunican el significado a las [tecnologías asistivas](https://marcomadera.com/blog/accesibilidad-web#tecnologias-asistivas "Tecnologías asistivas") y hacen llegar a más personas a través del SEO.
 
-Hemos cubierto varias etiquetas de HTML semántico. Escribir con ellas es mucho más legible y limpio que con solo `divs`. Se deben de usar de manera apropiada siguiendo las recomendaciones y los estándares de la web.
+Hemos cubierto varias etiquetas de HTML semántico. Escribir con ellas es mucho más legible y limpio que con solo elementos `div`. Se deben de usar de manera apropiada siguiendo las recomendaciones y los estándares de la web.
 
 Quedan más etiquetas que no fueron mencionadas, dedica un tiempo para conocer sus usos y posibilidades.

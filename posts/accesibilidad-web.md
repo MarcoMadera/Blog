@@ -48,7 +48,7 @@ Los criterios de WCAG comprende 3 niveles de conformidad:
 Las tecnologías asistivas sirven de **ayuda para las personas con dificultades**. Ayudan a realizar tareas regulares con el objetivo de mejorar su calidad de vida y su integración. Algunas de estas tecnologías son:
 
 - Lectores de pantalla
-- Extensiones que manipulan el css
+- Extensiones que manipulan el CSS
 - Lupa de pantalla
 - Control de voz
 - Varilla bucal
@@ -91,7 +91,7 @@ Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a l
 
 ### Uso de scope en tablas
 
-El uso del scope ayuda a los lectores de pantalla a seguir el **orden correcto**.
+El uso del *scope* ayuda a los lectores de pantalla a seguir el **orden correcto**.
 
 ```html
 <table border="1">
@@ -125,17 +125,17 @@ Hay que **definir los roles de acuerdo a la función que realizarán**. En este 
 
 Estos atributos se pueden añadir a cualquier etiqueta HTML para **comunicar cambios especiales al DOM** de nuestra aplicación. Roles propiedades y estados. Siempre es preferible usar un elemento HTML semántico correcto si es que existe en lugar de usar ARIA.
 
-- Roles: Define el tipo general del objeto. Comunican a los navegadores cuales son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy específicas, es mejor depender del HTML semántico para comunicar los roles. Atributo: "role".
+- Roles: Define el tipo general del objeto. Comunican a los navegadores cuáles son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy específicas, es mejor depender del HTML semántico para comunicar los roles. Atributo: `role`.
 
-- Propiedades: Comunican atributos que son esenciales para el comportamiento o significado de un elemento pero que suelen comunicar visualmente. Atributo: “aria-label”.
+- Propiedades: Comunican atributos que son esenciales para el comportamiento o significado de un elemento, pero que suelen comunicar visualmente. Atributo: `aria-label`.
 
-- Estado: Comunican estados y cambios de estados en elementos que se suelen comunicar visualmente aria-hidden=“true” para que el lector de pantalla solo lea los elementos visibles en el estado actual de la página.
+- Estado: Comunican estados y cambios de estados en elementos que se suelen comunicar visualmente `aria-hidden="true"` para que el lector de pantalla solo lea los elementos visibles en el estado actual de la página.
 
 ### Estilos
 
 Para tener más empatía con las personas con discapacidades visuales podemos emular a través de las dev tools de Google Chrome a través de las siguientes opciones:
 
-<code lang="en">Customize and control DevTools > More tools > Rendering > Emulate vision deficiencies</code>
+<code lang="en">Customize and control DevTools > More tools > Rendering > Emulate deficiencies</code>
 
 ![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_310,dpr_auto/v1608356303/Blog/3/Accesibilidad2_duoax2.png "Emular visión")
 
@@ -196,7 +196,7 @@ Valor de 0: Debe ser enfocado y ser accesible a través de la navegación secuen
 
 Podemos añadir acciones con el teclado escuchando las teclas. [Guía de códigos](http://keycode.info/ "Guía de códigos")
 
-Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla ESC. Esto añade una característica más a nuestro sitio.
+Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla <kbd>esc</kbd>. Esto añade una característica más a nuestro sitio.
 
 ```javascript
 const listenKeys = (e) => {
@@ -217,7 +217,7 @@ document.body.addEventListener("keyup", (e) => listenKeys(e));
 
 ## Test de accesibilidad
 
-Los test de accesibilidad ayudan a resolver problemas comunes. Se pueden hacer a través de devtools con lighthouse o a través de otras plataformas.
+Los test de accesibilidad ayudan a resolver problemas comunes. Se pueden hacer a través de *devtools* con *lighthouse* o a través de otras plataformas.
 
 - [Axe core](https://github.com/dequelabs/axe-core "Axe core")
 

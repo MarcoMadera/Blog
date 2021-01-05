@@ -17,7 +17,7 @@ En la **música** se aplica este concepto, las ligaduras son los símbolos que c
 
 ## Ligaduras estándar
 
-Estas son ligaduras para **mejorar la legibilidad del texto**, entre las más comunes están las combinaciones 'ff' y 'fi', un ejemplo de esto está presente en el logotipo de microsoft office donde ligan ambas 'f' para evitar el espacio que quedaría de no hacerlo.
+Estas son ligaduras para **mejorar la legibilidad del texto**, entre las más comunes están las combinaciones 'ff' y 'fi', un ejemplo de esto está presente en el logotipo de Microsoft office donde ligan ambas 'f' para evitar el espacio que quedaría de no hacerlo.
 
 <image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_260,h_163,dpr_auto/v1608354135/Blog/2/saxnasff_ly1hld.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_260,h_163,dpr_auto/v1608354135/Blog/2/saxnasff-dark_rjcetg.png" alt="Ligadura estándar" title="Ligadura estándar">
 
@@ -47,7 +47,7 @@ En el alfabeto árabe los caracteres no tienen una forma fija. Cada letra se esc
 
 ## Ligaduras en la programación
 
-En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado. Lo simbolos `>=`, mi mente por un instante tiene que procesar ambos caracteres por separado "mayor o igual". Si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.
+En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado. Lo símbolos `>=`, mi mente por un instante tiene que procesar ambos caracteres por separado "mayor o igual". Si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.
 
 Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
 
@@ -82,6 +82,6 @@ Guarda los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada, 
 
 ## Conclusión
 
-Las ligaduras no son un estándar en la programación. No todos las usarán, acostumbrarse a verlas puede que llegue hasta jugar en contra el ver el código de otras personas. Puede generar confusión ya que los lenguajes de programación son diferentes, si bien `<=` menor o igual puede escribirse en ese orden en un lenguaje, en otro puede escribirse de otra forma `=<`. En algunos lenguajes algo puede generar una ligadura y otra cosa no.
+Las ligaduras no son un estándar en la programación. No todos las usarán, acostumbrarse a verlas puede que llegue hasta jugar en contra el ver el código de otras personas. Puede generar confusión, ya que los lenguajes de programación son diferentes, si bien `<=` menor o igual puede escribirse en ese orden en un lenguaje, en otro puede escribirse de otra forma `=<`. En algunos lenguajes algo puede generar una ligadura y otra cosa no.
 
 Las ligaduras no son algo esencial como lo son en la música, ni te permiten escribir más rápido. En programación al final solo es visual, terminas escribiendo lo mismo. Lo suyo está en probar y elegir si es para ti, anteriormente las use muy poco tiempo como para acostumbrarme y ahora les daré otra oportunidad.

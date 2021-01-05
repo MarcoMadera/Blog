@@ -22,7 +22,7 @@ const Footer = () => {
       <Anchor href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
         Licencia
       </Anchor>
-      <span>Marco Madera &copy; 2020</span>
+      <span>Marco Madera &copy; 2020 - 2021</span>
       <style jsx>{`
         footer {
           display: flex;

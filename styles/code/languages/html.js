@@ -18,7 +18,7 @@ export const HTML = css.global`
     color: ${colors.darkgray};
   }
   code[data-lang="html"] .css .D {
-    color: ${colors.darkYellow};
+    color: ${colors.darkyellow};
   }
   code[data-lang="html"] .E {
     color: ${colors.gray};
@@ -30,12 +30,12 @@ export const HTML = css.global`
     color: ${colors.green};
   }
   code[data-lang="html"] .css .a {
-    color: ${colors.lightBlue};
+    color: ${colors.lightblue};
   }
   code[data-lang="html"] .o,
   code[data-lang="html"] .css .a .p,
   code[data-lang="html"] .css .a .H {
-    color: ${colors.lightPurple};
+    color: ${colors.lightpurple};
   }
   code[data-lang="html"] .css .g,
   code[data-lang="html"] .css .P .n,

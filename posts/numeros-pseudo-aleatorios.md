@@ -9,13 +9,13 @@ tags:
   - Estadística
 ---
 
-Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript. Surge tras programar el paquete de node [random-messages-names](https://github.com/MarcoMadera/random-messages-names "Paquete de node Random Messages Names") el cual como su nombre lo dice retorna mensajes y nombres aleatorios. Tiene 1000 apellidos y 2788 nombres diferentes. Al estar probando me di cuenta que había veces que ocurrían rachas seguidas de nombres repetidos. Tres o cuatro veces el mismo nombre. Por eso es que me dio por comprobar la aleatoriedad de Math.Random() a través de unas pruebas estadísticas.
+Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript. Surge tras programar el paquete de node [random-messages-names](https://github.com/MarcoMadera/random-messages-names "Paquete de node Random Messages Names") el cual como su nombre lo dice retorna mensajes y nombres aleatorios. Tiene 1000 apellidos y 2788 nombres diferentes. Al estar probando me di cuenta de que había veces que ocurrían rachas seguidas de nombres repetidos. Tres o cuatro veces el mismo nombre. Por eso es que me dio por comprobar la aleatoriedad de Math.Random() a través de unas pruebas estadísticas.
 
 Primero hay que saber qué es Math.Random(), la definición de la especificación estándar del lenguaje, ECMAScript 2015 dice:
 
 > Devuelve un número con signo positivo. Mayor o igual que 0 pero menor que 1. Elegido aleatoriamente o pseudo aleatoriamente con una distribución aproximadamente uniforme en ese rango. Utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas.
 
-Dato importante que sacamos de está definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo. Depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome. Ambos utilizan el motor V8 para correr JavaScript. Por otro lado Firefox utiliza SpiderMonkey y Safari usa Nitro. Aunque los tres usen el algoritmo xorshift128 +, mis resultados valdrán solo para V8 porque el motor se encarga de escoger la semilla que genera los números.
+Dato importante que sacamos de esta definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo. Depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome. Ambos utilizan el motor V8 para correr JavaScript. Por otro lado Firefox utiliza SpiderMonkey y Safari usa Nitro. Aunque los tres usen el algoritmo xorshift128 +, mis resultados valdrán solo para V8 porque el motor se encarga de escoger la semilla que genera los números.
 
 ## ¿Qué son los números pseudo-aleatorios?
 
@@ -94,11 +94,11 @@ Visualmente entre más recta es la línea, más uniforme es. Por lo que a simple
 
 Para corroborar lo que vemos, necesitamos, el valor de chi-cuadrada(x2), los grados de libertad (K) y un nivel de confianza (α).
 
-Al aplicar la formula de chi-cuadrada: x2=28.92
+Al aplicar la fórmula de chi-cuadrada: x2=28.92
 
 Para calcular K = Número de intervalos - 1, en este caso K=17.
 
-El nivel de confianza (α) que usaré es de 0.05, pero puede ser diferente ya que este es decidido por la persona encargada de la investigación, es el riesgo que se toma.
+El nivel de confianza (α) que usaré es de 0.05, pero puede ser diferente, ya que este es decidido por la persona encargada de la investigación, es el riesgo que se toma.
 
 Se puede calcular de dos formas. En una tabla de probabilidades de chi-cuadrada con el área a la derecha se busca los grados de libertad de 17 y buscamos el valor que más se acerque a nuestro resultado. Nos situamos entre la columna 0.05 y 0.025, esa va a ser nuestra probabilidad, que exactamente es: 0.03527. La multiplicamos por 100: 3.527% y este es el valor de que nuestra hipótesis nula esté correcta. De que nuestros datos sigan una distribución uniforme. Como 5% < 3.527% no se cumple, rechazamos nuestra hipótesis nula y aceptamos la hipótesis alternativa.
 
@@ -109,7 +109,7 @@ Si el resultado de nuestra x2 es menor que el resultado de la intersección se a
 
 ## Prueba de independencia
 
-Como lo mencione antes, obtuve rachas de tres o cuatros nombres seguidos. Utilizaré la prueba de rachas ascendentes y descendentes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria. Esto dependiendo de la longitud de los números evaluados.
+Como lo mencione antes, obtuve rachas de tres o cuatro nombres seguidos. Utilizaré la prueba de rachas ascendentes y descendentes para determinar el número esperado máximo y mínimo de rachas que pueden existir en una secuencia aleatoria. Esto dependiendo de la longitud de los números evaluados.
 
 Para aplicar esta prueba necesitamos de los siguientes estadísticos:
 

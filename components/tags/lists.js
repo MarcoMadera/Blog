@@ -6,7 +6,7 @@ export const Ol = ({ attribs, children, depth }) => {
       {children}
       <style jsx>{`
         ol {
-          margin: ${depth > 0 ? "0 0 0 20px;" : "1em 0 1em 20px;"};
+          margin: ${depth > 0 ? `0 0 0 ${20 * depth}px;` : "1em 0 1em 20px;"};
         }
       `}</style>
     </ol>
@@ -19,7 +19,7 @@ export const Ul = ({ attribs, children, depth }) => {
       {children}
       <style jsx>{`
         ul {
-          margin: ${depth > 0 ? "0 0 0 20px;" : "1em 0 1em 20px;"};
+          margin: ${depth > 0 ? `0 0 0 ${20 * depth}px;` : "1em 0 1em 20px;"};
         }
       `}</style>
     </ul>
