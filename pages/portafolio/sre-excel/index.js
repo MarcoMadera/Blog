@@ -1,6 +1,11 @@
 import Seo from "../../../components/Seo";
 import PropTypes from "prop-types";
 import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "../../../components/tags";
+import ExcelIcon from "../../../components/icons/Excel";
+import Js from "../../../components/icons/JS";
+import Html5 from "../../../components/icons/Html5";
+import Css from "../../../components/icons/Css";
+import Vba from "../../../components/icons/Vba";
 const Article = ({ title, img, children }) => {
   return (
     <>
@@ -74,6 +79,9 @@ const sre = () => {
           acceder desde la página web donde se podrá imprimir o descargar los
           datos para después vaciarlos a Excel de forma sencilla.
         </P>
+        <Html5 width={50} height={50} />
+        <Css width={50} height={50} />
+        <Js width={50} height={50} />
       </Article>
       <Article
         title="Vista Excel"
@@ -91,6 +99,7 @@ const sre = () => {
             <Li>Hacer comparaciones.</Li>
           </Ul>
         </P>
+        <ExcelIcon width={50} height={50} />
       </Article>
       <Article
         title="Proceso de registro"
@@ -177,6 +186,7 @@ const sre = () => {
           </Abbr>{" "}
           (<em>Visual Basic for Applications</em>) y Excel 2016.
         </P>
+        <Vba width={50} height={50} />
       </Article>
       <style jsx>{`
         main {

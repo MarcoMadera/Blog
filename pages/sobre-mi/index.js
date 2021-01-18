@@ -102,16 +102,19 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
       if (res.status !== 200) return;
       return res.json();
     });
+
     const recentlyPlayed = await fetch(
       "https://marcomadera.com/api/recently-played"
     ).then((res) => {
       if (res.status !== 200) return;
       return res.json();
     });
+
     setNewNowPlaying(
       Object.keys(nowPlaying).length > 0 ? nowPlaying : recentlyPlayed
     );
   }, []);
+
   useEffect(() => {
     const updateNowPlaying = setInterval(
       () => reqNowPlaying(),
@@ -119,6 +122,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
     );
     return () => clearInterval(updateNowPlaying);
   }, [reqNowPlaying]);
+
   return (
     <main>
       <Seo title="Sobre mí | Marco Madera" />

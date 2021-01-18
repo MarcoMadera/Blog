@@ -77,7 +77,7 @@ const Portfolio = () => {
       <H1>Portafolio</H1>
       <Article
         title="Retos frontend"
-        img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1597699966/Potfolio/challenges/challenges_ejazkx.png"
+        img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1610994328/Potfolio/challenges/1_h7zddv.jpg"
       >
         <P>
           Esta es una serie de retos que he ido realizando para pasar el rato.

@@ -2,6 +2,10 @@ import { H1, H2, Ul, Li, P, Img } from "../../../components/tags";
 import ActionAnchor from "../../../components/ActionAnchor";
 import Seo from "../../../components/Seo";
 import PropTypes from "prop-types";
+import Css from "../../../components/icons/Css";
+import Html5 from "../../../components/icons/Html5";
+import ReactIcon from "../../../components/icons/React";
+import Svelte from "../../../components/icons/Svelte";
 
 const Challenge = ({
   title,
@@ -93,6 +97,7 @@ const challenges = () => {
           <Li>Hacer clic en los países fronterizos en la página de detalles</Li>
           <Li>Alternar el tema entre modo claro y oscuro (opcional)</Li>
         </Ul>
+        <ReactIcon width={50} height={50} />
       </Challenge>
       <Challenge
         title="Rock Paper Scissors / Lizard Spock"
@@ -119,6 +124,7 @@ const challenges = () => {
             </Ul>
           </Li>
         </Ul>
+        <ReactIcon width={50} height={50} />
       </Challenge>
       <Challenge
         title="Chat App CSS Illustration"
@@ -138,6 +144,8 @@ const challenges = () => {
             Ver la interfaz del chat animada en la entrada inicial (opcional).
           </Li>
         </Ul>
+        <Html5 width={50} height={50} />
+        <Css width={50} height={50} />
       </Challenge>
       <Challenge
         title="Manage landing page"
@@ -168,6 +176,7 @@ const challenges = () => {
             </Ul>
           </Li>
         </Ul>
+        <ReactIcon width={50} height={50} />
       </Challenge>
       <Challenge
         title="Easybank landing page"
@@ -184,6 +193,7 @@ const challenges = () => {
           </Li>
           <Li>Ver los estados para todos los elementos interactivos.</Li>
         </Ul>
+        <ReactIcon width={50} height={50} />
       </Challenge>
       <Challenge
         title="Job listings with filtering"
@@ -203,6 +213,24 @@ const challenges = () => {
             Filtrar la lista de ofertas basada en las categorías seleccionadas.
           </Li>
         </Ul>
+        <ReactIcon width={50} height={50} />
+      </Challenge>
+      <Challenge
+        title="LoopStudios Landing Page"
+        level="Junior"
+        liveDemo="https://loopstudios-landing-page.marcomadera.vercel.app/"
+        challengePage="https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw"
+        repo="https://github.com/MarcoMadera/Loopstudios-Landing-Page"
+        challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_403/v1610993095/Potfolio/challenges/desktop-preview_zqqulr.jpg"
+      >
+        <Ul>
+          <Li>
+            Ver el diseño óptimo para el sitio para escritorio (1440px) y móvil
+            (375px).
+          </Li>
+          <Li>Ver los estados para todos los elementos interactivos.</Li>
+        </Ul>
+        <Svelte width={50} height={50} />
       </Challenge>
       <Challenge
         title="Clipboard Landing Page"
@@ -219,6 +247,7 @@ const challenges = () => {
           </Li>
           <Li>Ver los estados para todos los elementos interactivos.</Li>
         </Ul>
+        <ReactIcon width={50} height={50} />
       </Challenge>
       <Challenge
         title="Social Media Dashboard"
@@ -236,6 +265,7 @@ const challenges = () => {
           <Li>Ver los estados para todos los elementos interactivos.</Li>
           <Li>Poder cambiar el tema de color a claro u oscuro.</Li>
         </Ul>
+        <ReactIcon width={50} height={50} />
       </Challenge>
       <style jsx>{`
         main {

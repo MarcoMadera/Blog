@@ -1,7 +1,8 @@
 import Seo from "../../../components/Seo";
 import { H1, H2, Img, P, ALink } from "../../../components/tags";
 import ActionAnchor from "../../../components/ActionAnchor";
-
+import ReactIcon from "../../../components/icons/React";
+import ChartJs from "../../../components/icons/ChartJs";
 const Random = () => {
   return (
     <main id="main">
@@ -30,6 +31,8 @@ const Random = () => {
             dónde explico cómo determinar el comportamiento y puedes ver los
             resultados que obtuve al aplicarlo con Math.Random() de JavaScript.
           </P>
+          <ReactIcon width={50} height={50} />
+          <ChartJs width={50} height={50} />
         </div>
         <div>
           <Img
