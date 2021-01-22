@@ -141,10 +141,11 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         <div>
           <H1>Sobre mí</H1>
           <P>
-            ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
-            auxiliar administrativo en la secretaría de relaciones exteriores,
-            programador web frontend por afición y entusiasta de las tecnologías
-            web que cada día me gustan más: JavaScript, Node.js, React, etc.
+            ¡Hola! Mi nombre es Marco Madera tengo 24 años, soy programador web
+            frontend por afición y entusiasta de las tecnologías web que cada
+            día me gustan más: JavaScript, Node.js, React, etc.
+          </P>
+          <P>
             Estoy en constante proceso de aprendizaje sobre las nuevas
             tecnologías y me gusta estar informado de lo que pasa en la web, ver
             cursos, leer artículos y tutoriales. Trataré de compartir mis
@@ -157,17 +158,20 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             se podían hacer aplicaciones para Android, me eché un clavado en el
             mundo de Java sin saber ni siquiera de control de versiones ni de
             git. Logré hacer algunas aplicaciones básicas y aún sin estar
-            satisfecho con los resultados decidí dar el siguiente paso. En ese
-            entonces por el 2013 empezaba a resonar sobre la realidad aumentada,
-            lo que veía lo quería intentar así que me pasé a C#, con el cual
-            obviamente también quería hacer una cantidad de videojuegos, pero
-            nunca tuve el conocimiento para hacer algo estable por todo el
-            trabajo que conlleva y porque no sé nada de videojuegos; no los
-            juego. Después de estas etapas me empecé a interesar en Python con
-            el propósito de hacer proyectos sobre ciencia de datos y web
-            scraping, pero también me interesaba JavaScript, Python fue algo que
-            pasó muy rápido, no me gustó del todo la sintaxis quedando como
-            ganador JavaScript.
+            satisfecho con los resultados decidí dar el siguiente paso.
+          </P>
+          <P>
+            Por el 2013 empezaba a resonar sobre la realidad aumentada, lo que
+            veía lo quería intentar así que me pasé a C#, con el cual quería
+            hacer una cantidad de videojuegos, pero nunca tuve el conocimiento
+            para hacer algo estable por todo el trabajo que conlleva y porque no
+            sé nada de videojuegos; no los juego.
+          </P>
+          <P>
+            Después me empecé a interesar en Python con el propósito de hacer
+            proyectos sobre ciencia de datos y web scraping, pero también me
+            interesaba JavaScript, Python fue algo que pasó muy rápido, no me
+            gustó del todo la sintaxis quedando como ganador JavaScript.
           </P>
           <H2>Cosas que me gustan</H2>
           <br></br>
