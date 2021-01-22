@@ -44,7 +44,9 @@ export default function Post({
   const { darkMode } = useContext(ThemeContext);
   const h2s = toc(content)
     .json.filter(({ lvl }) => lvl === 2)
-    .map(({ content }) => content);
+    .map(({ content, slug }) => {
+      return { header: content, link: `#${slug}` };
+    });
   return (
     <main>
       <Seo
@@ -67,35 +69,38 @@ export default function Post({
         author={author}
         date={date}
       />
-      <Contents content={h2s} />
-      <div className="blog" id="main">
-        <article itemScope itemType="http://schema.org/Article">
-          <div>
-            <H1 itemProp="name">{title}</H1>
-            <p>
-              <time
-                itemProp="datePublished"
-                dateTime={new Date(date).toISOString()}
-              >
-                {getFormattedDate(new Date(date))}
-              </time>
-            </p>
-          </div>
-          <div itemProp="articlebody">
-            <Tweets.Provider value={tweets}>
-              <MarkDown source={content} />
-            </Tweets.Provider>
-          </div>
-          <hr />
-          <BlogFooter
-            slug={slug}
-            title={title}
-            profilePhoto={profilePhoto}
-            twitter={twitter}
-            author={author}
-            summary={summary}
-          />
-        </article>
+      <article
+        className="blog"
+        id="main"
+        itemScope
+        itemType="http://schema.org/Article"
+      >
+        <header>
+          <H1 itemProp="name">{title}</H1>
+          <p>
+            <time
+              itemProp="datePublished"
+              dateTime={new Date(date).toISOString()}
+            >
+              {getFormattedDate(date)}
+            </time>
+          </p>
+        </header>
+        <Contents content={h2s} />
+        <div itemProp="articlebody">
+          <Tweets.Provider value={tweets}>
+            <MarkDown source={content} />
+          </Tweets.Provider>
+        </div>
+        <hr />
+        <BlogFooter
+          slug={slug}
+          title={title}
+          profilePhoto={profilePhoto}
+          twitter={twitter}
+          author={author}
+          summary={summary}
+        />
         <nav>
           {previousPost ? (
             <ALink
@@ -126,7 +131,7 @@ export default function Post({
             hasDarkBackground={darkMode}
           />
         )}
-      </div>
+      </article>
       <aside>
         <AllTags tags={tags} title="Etiquetas del artículo" />
         <RecommendedPosts
@@ -137,14 +142,19 @@ export default function Post({
       </aside>
       <style jsx>{`
         main {
-          display: grid;
-          grid-template-columns: minmax(0px, 760px);
-          grid-gap: 2em;
-          justify-content: center;
           padding: 0 20px;
-          margin-bottom: 50px;
+          margin: 30px auto 50px auto;
         }
-        div :global(h1) {
+        div[itemProp="articlebody"] {
+          grid-area: body;
+        }
+        article > :global(div:nth-of-type(2)) {
+          grid-area: comments;
+        }
+        hr {
+          grid-area: hr;
+        }
+        header :global(h1) {
           margin-right: 10px;
         }
         div[itemProp="articlebody"] :global(p) {
@@ -155,21 +165,20 @@ export default function Post({
         div[itemProp="articlebody"] :global(h3) {
           font-weight: 600;
         }
+        nav,
+        main header {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
         nav {
-          display: flex;
-          justify-content: space-between;
+          grid-area: nav;
+          flex-wrap: wrap;
           margin-bottom: 40px;
-          flex-wrap: wrap;
         }
-        main > div > article > div:nth-of-type(1) {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
+        main header {
           align-items: center;
-          margin-top: 30px;
-        }
-        aside {
-          margin-top: 20px;
+          grid-area: header;
         }
         nav :global(a) {
           border: 3px solid
@@ -201,14 +210,31 @@ export default function Post({
             width: 170px;
           }
         }
-        @media screen and (min-width: 500px) and (max-width: 1024px) {
+        @media screen and (min-width: 500px) and (max-width: 875px) {
           nav :global(a) {
             width: 230px;
           }
         }
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 875px) {
           main {
-            grid-template-columns: 240px minmax(0px, 710px) 240px;
+            display: grid;
+            grid-template-columns: minmax(0px, 982px) 240px;
+            grid-gap: 2em;
+          }
+          nav :global(a) {
+            width: 230px;
+          }
+        }
+        @media screen and (min-width: 1124px) {
+          main {
+            max-width: 1300px;
+            grid-template-columns: minmax(0px, 982px) 240px;
+          }
+          article {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 982px);
+            grid-template-areas: "toc header" "toc body" ". hr" ". footer" ". nav" ". comments";
+            column-gap: 2em;
           }
         }
         @media print {
@@ -232,7 +258,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  let data = getPostBySlug(slug);
+  const data = getPostBySlug(slug);
   const tweets = await getTweets(data.content);
   return {
     props: { ...data, tweets },

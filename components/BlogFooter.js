@@ -65,6 +65,9 @@ const BlogFooter = ({
         summary={summary}
       />
       <style jsx>{`
+        footer {
+          grid-area: footer;
+        }
         footer :global(button) {
           background: none;
           border: none;

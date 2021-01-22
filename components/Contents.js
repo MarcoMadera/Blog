@@ -1,53 +1,61 @@
-import slugify from "react-slugify";
 import PropTypes from "prop-types";
 import { A } from "./tags";
 
 const Section = ({ children }) => <section>{children}</section>;
 
-const Heading = ({ children }) => <h2>{children}</h2>;
+const Heading = ({ children }) => <h2 id="headerMenu">{children}</h2>;
+
+const OrderedList = ({ children }) => <ol>{children}</ol>;
+
+const ListItem = ({ children }) => <li>{children}</li>;
 
 const Contents = ({ content = [] }) => {
   return (
-    <aside>
-      {content.length > 0 && (
-        <Section>
-          <Heading>Tabla de contenido</Heading>
-          {content.map((element, i) => (
-            <A key={i} title="" href={`#${slugify(element)}`}>
-              {element}
-            </A>
-          ))}
-        </Section>
-      )}
-      <style global jsx>
-        {`
-          body {
-            overflow-x: visible;
-          }
-        `}
-      </style>
+    <nav aria-labelledby="headerMenu">
+      <Section>
+        <Heading>Tabla de contenido</Heading>
+        {content.length > 0 && (
+          <OrderedList>
+            {content.map(({ header, link }, i) => (
+              <ListItem key={i}>
+                <A title="" href={link}>
+                  {header}
+                </A>
+              </ListItem>
+            ))}
+          </OrderedList>
+        )}
+      </Section>
       <style jsx>{`
-        aside :global(section) {
-          margin-top: 40px;
+        nav {
+          grid-area: toc;
+        }
+        :global(body) {
+          overflow-x: visible;
+        }
+        nav :global(li) {
+          list-style: none;
+          margin: 10px 0;
+        }
+        nav :global(section) {
           position: sticky;
           top: 0px;
         }
-        aside :global(a) {
-          margin: 10px 0;
+        nav :global(a) {
           width: fit-content;
           display: block;
         }
-        aside :global(a:hover),
-        aside :global(a:focus) {
+        nav :global(a:hover),
+        nav :global(a:focus) {
           text-decoration: none;
         }
-        aside :global(h2) {
+        nav :global(h2) {
           font-size: 18px;
-          margin: 1em 0;
+          line-height: 43px;
           font-weight: 600;
         }
       `}</style>
-    </aside>
+    </nav>
   );
 };
 
@@ -55,6 +63,12 @@ Contents.propTypes = {
   content: PropTypes.array,
 };
 Section.propTypes = {
+  children: PropTypes.node,
+};
+ListItem.propTypes = {
+  children: PropTypes.node,
+};
+OrderedList.propTypes = {
   children: PropTypes.node,
 };
 Heading.propTypes = {

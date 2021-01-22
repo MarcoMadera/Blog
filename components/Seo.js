@@ -68,7 +68,7 @@ const Seo = ({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{"@context":"http://schema.org","@type":"NewsArticle","headline":"${title}","image":["${cover}"],"datePublished":"${date}","dateModified":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher":"Marco Madera","mainEntityOfPage":"${siteMetadata.siteUrl}${router.asPath}"}`,
+              __html: `{"@context":"http://schema.org","@type":"Article","headline":"${title}","description":"${metaDescription}","image":"${cover}","datePublished":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher": { "@type": "Organization", "name": "${siteMetadata.siteUrl}", "logo": { "@type": "ImageObject", "url": "${siteMetadata.siteUrl}logo.svg" } },,"mainEntityOfPage":{"@type": "WebPage","@id": "${siteMetadata.siteUrl}${router.asPath}"}}`,
             }}
           />
         </>

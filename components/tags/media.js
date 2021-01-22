@@ -126,7 +126,6 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
             : alt.includes("a la izquierda")
             ? "left"
             : "none"};
-          height: 100%;
           overflow: hidden;
           border: unset !important;
           width: ${alt.includes("a la derecha") ||

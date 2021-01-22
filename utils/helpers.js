@@ -3,15 +3,26 @@ import { siteMetadata } from "../site.config";
 export function getSiteMetaData() {
   return siteMetadata;
 }
-export function getFormattedDate(date) {
-  const options = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  };
-  const formattedDate = date.toLocaleDateString("es", options);
-  return formattedDate;
+
+const months = {
+  0: "ene.",
+  1: "feb.",
+  2: "mar.",
+  3: "abr.",
+  4: "may.",
+  5: "jun.",
+  6: "jul.",
+  7: "ago.",
+  8: "sep.",
+  9: "oct.",
+  10: "nov.",
+  11: "dic.",
+};
+
+export function getFormattedDate(d) {
+  const date = new Date(d);
+  const month = months[date.getUTCMonth()];
+  return `${date.getUTCDate()} ${month} ${date.getUTCFullYear()}`;
 }
 
 export function formatNumber(n) {

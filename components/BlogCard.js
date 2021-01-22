@@ -75,7 +75,7 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
         <span>
           {author} |{" "}
           <time dateTime={new Date(date).toISOString()}>
-            {getFormattedDate(new Date(date))}
+            {getFormattedDate(date)}
           </time>
         </span>
       </footer>
