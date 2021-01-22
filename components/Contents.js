@@ -1,3 +1,4 @@
+import slugify from "react-slugify";
 import PropTypes from "prop-types";
 import { A } from "./tags";
 
@@ -16,10 +17,10 @@ const Contents = ({ content = [] }) => {
         <Heading>Tabla de contenido</Heading>
         {content.length > 0 && (
           <OrderedList>
-            {content.map(({ header, link }, i) => (
+            {content.map((item, i) => (
               <ListItem key={i}>
-                <A title="" href={link}>
-                  {header}
+                <A title="" href={`#${slugify(item)}`}>
+                  {item}
                 </A>
               </ListItem>
             ))}

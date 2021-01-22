@@ -44,8 +44,8 @@ export default function Post({
   const { darkMode } = useContext(ThemeContext);
   const h2s = toc(content)
     .json.filter(({ lvl }) => lvl === 2)
-    .map(({ content, slug }) => {
-      return { header: content, link: `#${slug}` };
+    .map(({ content }) => {
+      return content;
     });
   return (
     <main>
@@ -143,7 +143,7 @@ export default function Post({
       <style jsx>{`
         main {
           padding: 0 20px;
-          margin: 30px auto 50px auto;
+          margin: 10px auto 50px auto;
         }
         div[itemProp="articlebody"] {
           grid-area: body;
@@ -233,7 +233,7 @@ export default function Post({
           article {
             display: grid;
             grid-template-columns: 240px minmax(0, 982px);
-            grid-template-areas: "toc header" "toc body" ". hr" ". footer" ". nav" ". comments";
+            grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav" "toc comments";
             column-gap: 2em;
           }
         }
