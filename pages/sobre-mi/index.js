@@ -1,24 +1,26 @@
-import Seo from "../../components/Seo";
-import PropTypes from "prop-types";
-import Spotify from "../../components/icons/Spotify";
-import Email from "../../components/icons/Email";
-import Code from "../../components/icons/Code";
+import { A, ALink, H1, H2, H3, Hr, P } from "../../components/tags";
 import AugmentedReallity from "../../components/icons/AugmentedReallity";
-import Chess from "../../components/icons/Chess";
-import Music from "../../components/icons/Music";
 import Book from "../../components/icons/Book";
+import Chess from "../../components/icons/Chess";
+import CSharp from "../../components/icons/CSharp";
+import { colors } from "../../styles/theme";
+import Code from "../../components/icons/Code";
+import Email from "../../components/icons/Email";
 import Film from "../../components/icons/Film";
 import Java from "../../components/icons/Java";
-import CSharp from "../../components/icons/CSharp";
 import JavaScript from "../../components/icons/JavaScript";
+import Music from "../../components/icons/Music";
 import MusicCard from "../../components/MusicCard";
-import { colors } from "../../styles/theme";
-import { useEffect, useState, useCallback } from "react";
 import { numberBetween } from "../../utils/helpers";
-import { H1, H2, H3, P, A, ALink } from "../../components/tags";
-const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
+import PropTypes from "prop-types";
+import Seo from "../../components/Seo";
+import { siteMetadata } from "../../site.config";
+import Spotify from "../../components/icons/Spotify";
+import { useCallback, useEffect, useState } from "react";
+
+function MusicHeader({ artist, cover, header, songUrl, title }) {
   return (
-    <div>
+    <>
       <header>
         <h2>{header}</h2>
         <a
@@ -36,29 +38,32 @@ const MusicHeader = ({ header, title, cover, artist, songUrl }) => {
         artist={artist}
         songUrl={songUrl}
       />
-      <hr />
+      <Hr />
       <style jsx>{`
-        header {
-          display: flex;
-          margin-top: 69px;
-          margin-bottom: 16px;
-          justify-content: space-between;
-          align-items: center;
-        }
-        h2 {
-          margin: 0;
-          font-size: 1em;
-          font-weight: 600;
-        }
         a {
           display: inline-flex;
         }
+        h2 {
+          font-size: 1em;
+          font-weight: 600;
+          margin: 0;
+        }
+        header {
+          align-items: center;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 60px;
+          margin-bottom: 16px;
+        }
+        header ~ :global(hr) {
+          margin: 0.8em 0 0.7em 0;
+        }
       `}</style>
-    </div>
+    </>
   );
-};
+}
 
-const ThingILike = ({ title, href, children }) => {
+function ThingILike({ children, href, title }) {
   return (
     <>
       <a
@@ -75,36 +80,40 @@ const ThingILike = ({ title, href, children }) => {
           color: inherit !important;
           text-decoration: none !important;
         }
-        a:hover,
-        a:focus {
+        a:focus,
+        a:hover {
           color: inherit !important;
           text-decoration: underline !important;
         }
-      `}</style>
-      <style jsx>{`
-        :global(h3) {
+        a :global(h3) {
           display: inline;
+        }
+        a ~ :global(p) {
+          margin-top: 0.8em;
         }
       `}</style>
     </>
   );
-};
+}
 
-const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
+export default function About({
+  nowPlaying = {},
+  topTracks = [],
+  recentlyPlayed = {},
+}) {
   const [newNowPlaying, setNewNowPlaying] = useState(
     Object.keys(nowPlaying).length > 0 ? nowPlaying : recentlyPlayed
   );
-
   const reqNowPlaying = useCallback(async () => {
     const nowPlaying = await fetch(
-      "https://marcomadera.com/api/now-playing"
+      `${siteMetadata.siteUrl}/api/now-playing`
     ).then((res) => {
       if (res.status !== 200) return;
       return res.json();
     });
 
     const recentlyPlayed = await fetch(
-      "https://marcomadera.com/api/recently-played"
+      `${siteMetadata.siteUrl}/api/recently-played`
     ).then((res) => {
       if (res.status !== 200) return;
       return res.json();
@@ -176,9 +185,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           <H2>Cosas que me gustan</H2>
           <br></br>
           <ThingILike
-            title="La música"
             href="https://www.last.fm/user/MarcoMadera"
             label="Página de last.fm"
+            title="La música"
           >
             La música es mi mejor acompañante para cualquier situación,
             especialmente a la hora de escribir, simplemente hace la vida más
@@ -186,17 +195,17 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             gusto me gusta compartirla.
           </ThingILike>
           <ThingILike
-            title="Ajedrez bala"
             href="https://lichess.org/@/MarcoMadera"
             label="Página de Lichess.org"
+            title="Ajedrez bala"
           >
             Siempre que estoy estancado en algo, juego un poco de ajedrez bala,
             como mi método para tomar un descanso y despejarme un poco.
           </ThingILike>
           <ThingILike
-            title="Leer"
             href="https://ciberninjas.com/biblioteca-de-programacion-y-tecnologia/#-desarrollo-web"
             label="Lecturas de programación"
+            title="Leer"
           >
             Procuro dejar tiempo para leer artículos, blogs, hilos de Twitter y
             novelas, contenido de la web interesante, que pueda compartir en el{" "}
@@ -205,9 +214,9 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             </ALink>
           </ThingILike>
           <ThingILike
-            title="Ver series"
             href="https://trakt.tv/users/marcomadera/progress"
             label="Página de TrackTV"
+            title="Ver series"
           >
             Es de esas cosas que dejo un tiempo y continúo por temporadas, me
             gustan las series de drama y no puedo con las de ficción ni
@@ -219,17 +228,16 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
           <P>
             Puedes mandarme un mensaje por{" "}
             <A
-              href="https://twitter.com/madera_marco"
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="Página de Twitter"
+              href="https://twitter.com/madera_marco"
+              rel="noopener noreferrer"
+              target="_blank"
               title="Visita mi Twitter"
             >
               Twitter
             </A>
             , o mándame un correo dando clic al icono{" "}
             <button
-              title="Enviar correo electrónico"
               onClick={() => {
                 window.open(
                   "mailto:me@marcomadera.com",
@@ -237,6 +245,7 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
                 );
                 return false;
               }}
+              title="Enviar correo electrónico"
             >
               <Email width="20" height="20" />
             </button>
@@ -252,13 +261,13 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
       <aside>
         {Object.keys(newNowPlaying).length > 0 && (
           <MusicHeader
+            artist={newNowPlaying.artist}
+            cover={newNowPlaying.cover}
             header={
               newNowPlaying.listening ? "Escuchando ahora" : "Último escuchado"
             }
-            title={newNowPlaying.title}
-            cover={newNowPlaying.cover}
-            artist={newNowPlaying.artist}
             songUrl={newNowPlaying.songUrl}
+            title={newNowPlaying.title}
           />
         )}
         {topTracks.length > 0 && (
@@ -266,11 +275,11 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
             <h2>Mi top 10 de canciones</h2>
             {topTracks.map(({ title, artist, songUrl, cover }) => (
               <MusicCard
-                key={songUrl}
-                title={title}
-                cover={cover}
                 artist={artist}
+                cover={cover}
+                key={songUrl}
                 songUrl={songUrl}
+                title={title}
               />
             ))}
           </>
@@ -369,43 +378,44 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
         }
       `}</style>
       <style jsx>{`
+        aside h2 {
+          font-size: 1em;
+          font-weight: 600;
+          margin: 0 0 0.6em 0;
+        }
+        aside:nth-of-type(2) {
+          box-sizing: border-box;
+          padding: 0 5px;
+        }
+        button {
+          background: unset;
+          border: none;
+          cursor: pointer;
+          display: inline-flex;
+          padding: 0;
+          vertical-align: bottom;
+        }
+        main {
+          display: grid;
+          grid-gap: 2em;
+          grid-template-columns: 240px minmax(0px, 710px) 240px;
+          justify-content: center;
+          margin-bottom: 50px;
+          min-height: calc(100vh - 160px);
+          padding: 0 20px;
+        }
+        main :global(h1) {
+          text-align: center;
+        }
         main > aside:nth-of-type(1) {
           padding-top: 75px;
         }
         section :global(p) {
           text-align: justify;
         }
-        button {
-          border: none;
-          background: unset;
-          cursor: pointer;
-          padding: 0;
-          display: inline-flex;
-          vertical-align: bottom;
-        }
         video {
           display: block;
           margin: 30px auto 0 auto;
-        }
-        aside:nth-of-type(2) {
-          padding: 0 5px;
-          box-sizing: border-box;
-        }
-        :global(h1) {
-          text-align: center;
-        }
-        aside h2 {
-          margin: 1em 0;
-          font-size: 1em;
-          font-weight: 600;
-        }
-        main {
-          display: grid;
-          grid-template-columns: 240px minmax(0px, 710px) 240px;
-          grid-gap: 2em;
-          justify-content: center;
-          padding: 0 20px;
-          margin-bottom: 50px;
         }
         @media screen and (min-width: 0px) and (max-width: 876px) {
           main {
@@ -420,27 +430,27 @@ const About = ({ nowPlaying = {}, topTracks = [], recentlyPlayed = {} }) => {
       `}</style>
     </main>
   );
-};
+}
 
 export async function getServerSideProps() {
   let nowPlaying;
   let topTracks;
   let recentlyPlayed;
   Promise.all([
-    (nowPlaying = await fetch("https://marcomadera.com/api/now-playing").then(
+    (nowPlaying = await fetch(`${siteMetadata.siteUrl}/api/now-playing`).then(
       (res) => {
         if (res.status !== 200) return;
         return res.json();
       }
     )),
-    (topTracks = await fetch("https://marcomadera.com/api/top-tracks").then(
+    (topTracks = await fetch(`${siteMetadata.siteUrl}/api/top-tracks`).then(
       (res) => {
         if (res.status !== 200) return;
         return res.json();
       }
     )),
     (recentlyPlayed = await fetch(
-      "https://marcomadera.com/api/recently-played"
+      `${siteMetadata.siteUrl}/api/recently-played`
     ).then((res) => {
       if (res.status !== 200) return;
       return res.json();
@@ -470,5 +480,3 @@ ThingILike.propTypes = {
   href: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
-
-export default About;

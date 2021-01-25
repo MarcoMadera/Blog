@@ -1,8 +1,10 @@
 import { colors } from "../../styles/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-function Java(props) {
+
+export default function Java(props) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,5 +24,3 @@ function Java(props) {
     </svg>
   );
 }
-
-export default Java;

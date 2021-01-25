@@ -6,17 +6,19 @@ import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
-const Anchor = ({ href, label, children }) => {
+
+function Anchor({ children, href, label }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
       {children}
     </a>
   );
-};
+}
 
-const Aside = () => {
+export default function Aside() {
   const { social } = siteMetadata;
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <aside>
       <picture>
@@ -68,9 +70,6 @@ const Aside = () => {
           text-align: center;
           width: 100%;
         }
-        p {
-          margin 1em 0;
-        }
         aside :global(a) {
           display: inline-flex;
           box-sizing: border-box;
@@ -80,23 +79,24 @@ const Aside = () => {
         aside :global(a:focus svg) {
           fill: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
-        picture {
-          display: inline-flex;
-        }
         img {
           clip-path: circle(50% at 50% 50%);
           height: 80px;
           width: 80px;
         }
+        p {
+          margin 1em 0;
+        }
+        picture {
+          display: inline-flex;
+        }
       `}</style>
     </aside>
   );
-};
+}
 
 Anchor.propTypes = {
+  children: PropTypes.node,
   href: PropTypes.string,
   label: PropTypes.string,
-  children: PropTypes.node,
 };
-
-export default Aside;

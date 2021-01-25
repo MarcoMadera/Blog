@@ -1,17 +1,19 @@
-import Aside from "../components/Aside";
-import Seo from "../components/Seo";
-import { getHomeData } from "../utils/posts";
-import Newsletter from "../components/Newsletter";
 import AllTags from "../components/AllTags";
+import Aside from "../components/Aside";
 import BlogCard from "../components/BlogCard";
-import PropTypes from "prop-types";
-import Custom404 from "./404";
 import { colors } from "../styles/theme";
+import Custom404 from "./404";
+import { getHomeDataFromPage } from "../utils/posts";
 import Link from "next/link";
-import { useContext } from "react";
+import Newsletter from "../components/Newsletter";
+import PropTypes from "prop-types";
+import Seo from "../components/Seo";
 import { ThemeContext } from "../components/Layout";
-const Home = ({ posts = [], tags = [], pages = [] }) => {
+import { useContext } from "react";
+
+export default function Home({ posts = [], tags = [], pages = [] }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <main id="main">
       <Seo title="Marco Madera 📝 | Web, React, CSS, JavaScript, NodeJs" />
@@ -56,43 +58,55 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
         <Newsletter />
       </aside>
       <style jsx>{`
+        a {
+          align-items: center;
+          border-radius: 50% !important;
+          color: ${darkMode ? colors.dark_primary : colors.primary};
+          display: flex;
+          font-weight: 600;
+          height: 31px;
+          justify-content: center;
+          line-height: 1;
+          margin: 0 5px;
+          padding: 5px 12px;
+          text-decoration: none;
+          width: 31px;
+        }
         h1 {
           font-size: 1rem;
           margin: 0.83em 0;
+        }
+        li {
+          display: inline-block;
+        }
+        main {
+          display: grid;
+          grid-gap: 2em;
+          grid-template-columns: 240px minmax(0px, 710px) 240px;
+          justify-content: center;
+          padding: 0 20px 50px 20px;
+          min-height: calc(100vh - 160px);
         }
         nav {
           display: flex;
           justify-content: center;
         }
+        nav :global(.currentPage) {
+          background-color: ${darkMode
+            ? colors.dark_primary
+            : colors.primary} !important;
+          border-radius: 50% !important;
+          color: ${colors.background} !important;
+        }
+        nav :global(.pagination:hover) {
+          color: ${darkMode
+            ? colors.dark_secondary
+            : colors.secondary} !important;
+        }
         ol {
           list-style: none;
-          padding: 0;
           margin: 0;
-        }
-
-        li {
-          display: inline-block;
-        }
-        a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          line-height: 1;
-          margin: 0 5px;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
-          font-weight: 600;
-          padding: 5px 12px;
-          width: 31px;
-          height: 31px;
-          border-radius: 50% !important;
-          text-decoration: none;
-        }
-        main {
-          display: grid;
-          grid-template-columns: 240px minmax(0px, 710px) 240px;
-          grid-gap: 2em;
-          justify-content: center;
-          padding: 0 20px 50px 20px;
+          padding: 0;
         }
         @media screen and (min-width: 0px) and (max-width: 876px) {
           main {
@@ -100,30 +114,14 @@ const Home = ({ posts = [], tags = [], pages = [] }) => {
           }
         }
       `}</style>
-      <style global jsx>{`
-        .currentPage {
-          border-radius: 50% !important;
-          background-color: ${darkMode
-            ? colors.dark_primary
-            : colors.primary} !important;
-          color: ${colors.background} !important;
-        }
-        .pagination:hover {
-          color: ${darkMode
-            ? colors.dark_secondary
-            : colors.secondary} !important;
-        }
-      `}</style>
     </main>
   );
-};
-
-export async function getStaticProps() {
-  const { posts, pages, tags } = getHomeData(1);
-  return { props: { posts, tags, pages } };
 }
 
-export default Home;
+export async function getStaticProps() {
+  const { posts, pages, tags } = getHomeDataFromPage(1);
+  return { props: { posts, tags, pages } };
+}
 
 Home.propTypes = {
   posts: PropTypes.array,

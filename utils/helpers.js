@@ -29,8 +29,8 @@ export function formatNumber(n) {
   return n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
-export const numberBetween = (min, max) => {
+export function numberBetween(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}

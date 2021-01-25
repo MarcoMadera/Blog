@@ -1,10 +1,10 @@
 import { getNowPlaying } from "../../lib/spotify";
 
-export default async (_, res) => {
+export default async function nowPlaying(_, res) {
   const response = await getNowPlaying();
-  let nowPlaying = {};
+  let track = {};
   if (response.currently_playing_type === "track") {
-    nowPlaying = {
+    track = {
       artist: response.item.artists.map((_artist) => _artist.name).join(", "),
       songUrl: response.item.external_urls.spotify,
       title: response.item.name,
@@ -14,5 +14,5 @@ export default async (_, res) => {
   }
 
   res.statusCode = 200;
-  res.json(nowPlaying);
-};
+  res.json(track);
+}

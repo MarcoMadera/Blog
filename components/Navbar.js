@@ -6,8 +6,10 @@ import { useContext } from "react";
 import Moon from "./icons/Moon";
 import Sun from "./icons/Sun";
 import { ThemeContext } from "./Layout";
-const Anchor = ({ label, href, children, ...attribs }) => {
+
+function Anchor({ label, href, children, ...attribs }) {
   const router = useRouter();
+
   return (
     <Link href={href}>
       <a
@@ -24,9 +26,9 @@ const Anchor = ({ label, href, children, ...attribs }) => {
       </a>
     </Link>
   );
-};
+}
 
-const Logo = () => {
+function Logo() {
   return (
     <>
       <picture>
@@ -44,12 +46,15 @@ const Logo = () => {
       <span>Marco Madera</span>
     </>
   );
-};
+}
 
-const Nav = ({ children }) => <nav>{children}</nav>;
+function Nav({ children }) {
+  return <nav>{children}</nav>;
+}
 
-const Navbar = () => {
+export default function Navbar() {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+
   return (
     <header>
       <Anchor href="/" label="Ir a la página principal" className="logo">
@@ -110,11 +115,45 @@ const Navbar = () => {
       `}</style>
       <style jsx>{`
         button {
-          display: inline-flex;
           background-color: transparent;
           border: none;
           cursor: pointer;
+          display: inline-flex;
           margin: 8px;
+        }
+        header {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin: 0 auto;
+          max-width: 1300px;
+          padding: 20px;
+        }
+        header :global(a),
+        header :global(nav a) {
+          color: inherit;
+          text-decoration: none;
+        }
+        header :global(img) {
+          height: 40px;
+          margin-right: 10px;
+          width: 40px;
+        }
+        header :global(nav) {
+          align-items: center;
+          display: flex;
+        }
+        header :global(nav a) {
+          display: inline-block;
+          margin: 9px 5px;
+          min-width: fit-content;
+        }
+        header :global(nav a:hover),
+        header :global(nav a:focus) {
+          animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         header :global(picture) {
           display: inline-flex;
@@ -124,46 +163,11 @@ const Navbar = () => {
           font-weight: 400;
           margin: 0;
         }
-        header {
-          margin: 0 auto;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px;
-          max-width: 1300px;
-          flex-wrap: wrap;
-        }
-        header :global(img) {
-          width: 40px;
-          height: 40px;
-          margin-right: 10px;
-        }
-        header :global(nav) {
-          display: flex;
-          align-items: center;
-        }
-        header :global(a),
-        header :global(nav a) {
-          text-decoration: none;
-          color: inherit;
-        }
-        header :global(nav a) {
-          display: inline-block;
-          min-width: fit-content;
-          margin: 9px 5px;
-        }
-        header :global(nav a:hover),
-        header :global(nav a:focus) {
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
-          animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-            both;
-        }
-
         @keyframes text-pop-up-top {
           0% {
+            text-shadow: none;
             transform: translateY(0);
             transform-origin: 50% 50%;
-            text-shadow: none;
           }
           100% {
             transform: translateY(-2px);
@@ -171,25 +175,23 @@ const Navbar = () => {
           }
         }
         @media print {
-          header :global(nav) {
-            display: none;
-          }
           header {
             justify-content: center;
+          }
+          header :global(nav) {
+            display: none;
           }
         }
       `}</style>
     </header>
   );
-};
+}
 
+Anchor.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string,
+  label: PropTypes.string,
+};
 Nav.propTypes = {
   children: PropTypes.node,
 };
-Anchor.propTypes = {
-  children: PropTypes.node,
-  label: PropTypes.string,
-  href: PropTypes.string,
-};
-
-export default Navbar;

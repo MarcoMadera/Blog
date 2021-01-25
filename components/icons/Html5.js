@@ -1,4 +1,4 @@
-function Html5(props) {
+export default function Html5(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" {...props}>
       <title>HTML5</title>
@@ -21,5 +21,3 @@ function Html5(props) {
     </svg>
   );
 }
-
-export default Html5;

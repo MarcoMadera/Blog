@@ -3,8 +3,10 @@ import { ThemeContext } from "./Layout";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
 import Link from "next/link";
-const ActionLink = ({ children, href }) => {
+
+export default function ActionLink({ children, href }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <>
       <Link href={href}>
@@ -51,11 +53,9 @@ const ActionLink = ({ children, href }) => {
       `}</style>
     </>
   );
-};
+}
 
 ActionLink.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
 };
-
-export default ActionLink;

@@ -133,7 +133,7 @@ Ahora si se quiere hacer una **selección de elementos con ancestro directo** te
 nav > .topNavbar { ... }
 ```
 
-Otra tipo de selector es **seleccionar elementos del mismo nivel**. Con el signo `~` podemos seleccionar elementos del mismo nivel siguientes al elemento. El siguiente ejemplo selecciona a todos los elementos del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
+Otro tipo de selector es **seleccionar elementos del mismo nivel**. Con el signo `~` podemos seleccionar elementos del mismo nivel siguientes al elemento. El siguiente ejemplo selecciona a todos los elementos del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
 
 ```css
 nav ~ .topNavbar { ... }

@@ -1,4 +1,4 @@
-function LinkedInShare(props) {
+export default function LinkedInShare(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,5 +14,3 @@ function LinkedInShare(props) {
     </svg>
   );
 }
-
-export default LinkedInShare;

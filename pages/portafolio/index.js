@@ -94,7 +94,7 @@ const Portfolio = () => {
           diseño, por lo que son realizados principalmente a ojo de la imagen
           proporcionada.
         </P>
-        <ActionLink href="/portafolio/retos">Detalles</ActionLink>
+        <ActionLink href="/portafolio/retos-frontend">Detalles</ActionLink>
       </Article>
       <Article
         title="Tests para números aleatorios"
@@ -120,7 +120,9 @@ const Portfolio = () => {
           </A>
           .
         </P>
-        <ActionLink href="/portafolio/random-numbers-test">Detalles</ActionLink>
+        <ActionLink href="/portafolio/test-de-numeros-aleatorios">
+          Detalles
+        </ActionLink>
       </Article>
       <Article
         title="Registro de trámites en Excel"
@@ -148,8 +150,8 @@ const Portfolio = () => {
           padding: 0 20px;
           margin: 0 auto;
           max-width: 1300px;
+          min-height: calc(100vh - 160px);
         }
-
         div {
           padding: 30px;
         }

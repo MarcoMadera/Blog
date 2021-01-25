@@ -4,15 +4,15 @@ const slugify = require("react-slugify").default;
 const path = require("path");
 const metaData = require("../site.config").siteMetadata;
 
-const getPostsFiles = () => {
+function getPostsFiles() {
   // Get all posts Files located in `posts`
   const postsFiles = fs.readdirSync(`${process.cwd()}/posts`).map((file) => ({
     filename: `${file}`,
   }));
   return postsFiles;
-};
+}
 
-const getSortedPostsData = () => {
+function getSortedPostsData() {
   const postsFiles = getPostsFiles();
   const posts = postsFiles
     .map(({ filename }) => {
@@ -31,18 +31,19 @@ const getSortedPostsData = () => {
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date));
   return posts;
-};
+}
 
-const getTagsSlugs = () =>
-  getSortedPostsData().flatMap(({ tags }) =>
+function getTagsSlugs() {
+  return getSortedPostsData().flatMap(({ tags }) =>
     tags.map((tag) => ({
       params: {
-        slug: slugify(tag),
+        tag: slugify(tag),
       },
     }))
   );
+}
 
-const getPostBySlug = (slug) => {
+function getPostBySlug(slug) {
   const posts = getSortedPostsData();
   const markdownWithMetadata = fs
     .readFileSync(path.join("posts", slug + ".md"))
@@ -80,31 +81,34 @@ const getPostBySlug = (slug) => {
     recommendedPosts,
     slug,
   };
-};
+}
 
-const getPostsSlugs = () =>
-  getPostsFiles().map(({ filename }) => ({
+function getPostsSlugs() {
+  return getPostsFiles().map(({ filename }) => ({
     params: {
       slug: filename.replace(".md", ""),
     },
   }));
+}
 
-const getPostsPages = () =>
-  Array.from(
+function getPostsPages() {
+  return Array.from(
     { length: Math.ceil(getPostsFiles().length / metaData.postsPerPage) },
     (_, i) => i + 1
   );
+}
 
-const getPostsPagesPaths = () =>
-  getPostsPages().map((page) => ({
+function getPostsPagesPaths() {
+  return getPostsPages().map((pageNumber) => ({
     params: {
-      id: page.toString(),
+      number: pageNumber.toString(),
     },
   }));
+}
 
-const getHomeData = (id) => {
+function getHomeDataFromPage(number) {
   const allPosts = getSortedPostsData();
-  const indexOfLastPost = id * metaData.postsPerPage;
+  const indexOfLastPost = number * metaData.postsPerPage;
   const indexOfFirstPost = indexOfLastPost - metaData.postsPerPage;
   return {
     posts: allPosts.slice(indexOfFirstPost, indexOfLastPost),
@@ -114,15 +118,15 @@ const getHomeData = (id) => {
     ),
     tags: [...new Set(allPosts.flatMap(({ tags }) => tags))],
   };
-};
+}
 
-const getTagData = (slug) => {
+function getTagData(slug) {
   const posts = getSortedPostsData();
   return {
     postsByTag: posts.filter(({ tags }) => slugify(tags).includes(slug)),
     tags: [...new Set(posts.flatMap(({ tags }) => tags))],
   };
-};
+}
 
 module.exports = {
   getSortedPostsData,
@@ -132,6 +136,6 @@ module.exports = {
   getPostsSlugs,
   getPostsPages,
   getPostsPagesPaths,
-  getHomeData,
+  getHomeDataFromPage,
   getTagData,
 };

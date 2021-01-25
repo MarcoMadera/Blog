@@ -1,59 +1,64 @@
 import codeStyles from "../../styles/codeStyles";
 import { colors } from "../../styles/theme";
-import unified from "unified";
 import markdown from "remark-parse";
+import prism from "@mapbox/rehype-prism";
+import PropTypes from "prop-types";
 import rehype2react from "rehype-react";
 import remark2rehype from "remark-rehype";
-import prism from "@mapbox/rehype-prism";
-import React from "react";
-import PropTypes from "prop-types";
-import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-export const InlineCode = ({ children, classname, ...attrbs }) => {
+import unified from "unified";
+import { useContext, createElement } from "react";
+
+export function InlineCode({ classname, children, ...attrbs }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <code className={classname} {...attrbs}>
       {children}
       <style jsx>{`
         code {
           background: ${darkMode ? colors.dark_accents4 : colors.accents4};
-          padding: 3px 6px;
           border-radius: 6px;
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
             "Liberation Mono", "Courier New", monospace;
-          line-height: 1.8;
           font-size: 14px;
+          line-height: 1.8;
+          padding: 3px 6px;
         }
       `}</style>
     </code>
   );
-};
+}
 
-const Span = ({ number }) => {
+function Span({ number }) {
   return <span>{`${number}\n`}</span>;
-};
+}
 
-export const Pre = ({ children, ...atrribs }) => {
+export function Pre({ children, ...atrribs }) {
   const { darkMode } = useContext(ThemeContext);
   return (
     <div>
       <pre {...atrribs}>{children}</pre>
       <style jsx>{`
         div {
-          position: relative;
           margin: 20px 0;
+          position: relative;
+        }
+        pre,
+        pre :global(code),
+        pre :global(code[data-lang]:before) {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
         }
         pre {
+          background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid #ccc;
           border-radius: 10px;
           color: ${darkMode ? colors.dark_textColor : colors.dark_accents5};
           display: block;
-          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-            "Liberation Mono", "Courier New", monospace;
           font-size: 14px;
           hyphens: none;
           line-height: 1.8;
-          background: ${darkMode ? colors.dark_background : colors.background};
           margin: 0.5em 0px;
           overflow: auto;
           padding: 0.8em 1em;
@@ -65,34 +70,30 @@ export const Pre = ({ children, ...atrribs }) => {
           word-wrap: normal;
         }
         pre :global(code) {
-          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-            "Liberation Mono", "Courier New", monospace;
           background: none;
           padding: 0;
         }
         pre :global(code[data-lang]:before) {
+          background: ${darkMode ? colors.dark_background : colors.background};
+          border: 1px solid #ccc;
           border-radius: 4px;
           color: ${darkMode
             ? "rgba(255, 255, 255, 0.7)"
             : "rgba(0, 0, 0, 0.7)"};
           content: attr(data-lang);
           font-size: 12px;
-          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-            "Liberation Mono", "Courier New", monospace;
           padding: 2px 8px;
           position: absolute;
           right: 8px;
           text-transform: uppercase;
           top: -11px;
-          border: 1px solid #ccc;
-          background: ${darkMode ? colors.dark_background : colors.background};
         }
       `}</style>
     </div>
   );
-};
+}
 
-const LeftLinesNumbers = ({ lineNumbers }) => {
+function LeftLinesNumbers({ lineNumbers }) {
   const { darkMode } = useContext(ThemeContext);
   return (
     <code>
@@ -101,15 +102,15 @@ const LeftLinesNumbers = ({ lineNumbers }) => {
       ))}
       <style jsx>{`
         code {
-          float: left;
-          margin-right: 10px;
           color: ${darkMode ? colors.dark_codeTextColor : colors.codeTextColor};
+          float: left;
           font-size: 14px;
+          margin-right: 10px;
         }
       `}</style>
     </code>
   );
-};
+}
 
 const customClasses = {
   atrule: "a",
@@ -118,8 +119,8 @@ const customClasses = {
   "attr-value": "B",
   attribute: "c",
   boolean: "C",
+  class: "d",
   "class-name": "D",
-  class: "D",
   color: "e",
   comment: "E",
   "control-flow": "f",
@@ -153,26 +154,29 @@ const customClasses = {
   variable: "t",
 };
 
-export const CodeBlock = ({ language, value = "" }) => {
+export function CodeBlock({ language, value = "" }) {
   const { darkMode } = useContext(ThemeContext);
+
   const lineNumbers = Array.from(
     { length: (value.match(/\n/g) || "").length + 1 },
     (_, i) => i + 1
   );
+
   const style = darkMode
     ? codeStyles.dark[`${language}`] ?? undefined
     : codeStyles.light[`${language}`] ?? undefined;
+
   const processor = unified()
     .use(markdown)
     .use(remark2rehype)
     .use(prism, { ignoreMissing: true })
     .use(rehype2react, {
-      createElement: React.createElement,
+      createElement: createElement,
       components: {
-        pre: function PreCode({ children }, i) {
+        pre: function PreformattedNode({ children }, i) {
           return <Pre key={i}>{children}</Pre>;
         },
-        code: function CodeBlock({ children }) {
+        code: function CodeNode({ children }) {
           return (
             <code data-lang={language}>
               <LeftLinesNumbers lineNumbers={lineNumbers} />
@@ -180,7 +184,7 @@ export const CodeBlock = ({ language, value = "" }) => {
             </code>
           );
         },
-        span: function Spann({ className, children }) {
+        span: function SpanNode({ className, children }) {
           const clase = className.split(" ");
           return (
             <span
@@ -199,6 +203,7 @@ export const CodeBlock = ({ language, value = "" }) => {
     });
 
   const file = processor.processSync(`~~~${language}\n${value}\n~~~`);
+
   return (
     <>
       {file.contents.props.children}
@@ -209,25 +214,25 @@ export const CodeBlock = ({ language, value = "" }) => {
       )}
     </>
   );
-};
+}
 
-LeftLinesNumbers.propTypes = {
-  lineNumbers: PropTypes.array,
+CodeBlock.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  language: PropTypes.string,
+  meta: PropTypes.string,
+  value: PropTypes.string,
 };
 InlineCode.propTypes = {
-  children: PropTypes.node,
   classname: PropTypes.string,
+  children: PropTypes.node,
+};
+LeftLinesNumbers.propTypes = {
+  lineNumbers: PropTypes.array,
 };
 Pre.propTypes = {
   children: PropTypes.node,
 };
 Span.propTypes = {
   number: PropTypes.number,
-};
-CodeBlock.propTypes = {
-  language: PropTypes.string,
-  value: PropTypes.string,
-  meta: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
 };

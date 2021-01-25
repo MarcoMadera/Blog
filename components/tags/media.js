@@ -1,9 +1,10 @@
 import dynamic from "next/dynamic";
-import PropTypes from "prop-types";
 import Image from "next/image";
-import { useContext } from "react";
-import { ThemeContext } from "../Layout";
 import { imageCloudProvider } from "../../site.config";
+import PropTypes from "prop-types";
+import { ThemeContext } from "../Layout";
+import { useContext } from "react";
+
 const LoadDetailsDialog = dynamic(
   () => import("../../static-tweet/components/twitter-layout/details-dialog"),
   {
@@ -11,18 +12,21 @@ const LoadDetailsDialog = dynamic(
   }
 );
 
-export const Img = ({ src, alt = "", title, width: w, height: h }) => {
+export function Img({ src, alt = "", title, width: w, height: h }) {
   const height =
     h ||
     (src.startsWith(imageCloudProvider) &&
       src.match(/h_(\d+)/) &&
       src.match(/h_(\d+)/)[1]);
+
   const width =
     w ||
     (src.startsWith(imageCloudProvider) &&
       src.match(/w_(\d+)/) &&
       src.match(/w_(\d+)/)[1]);
+
   const layout = width && height ? "intrinsic" : "fill";
+
   return (
     <details>
       <summary aria-label="Expandir imagen">
@@ -32,20 +36,18 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
               layout === "fill"
                 ? {
                     position: "relative",
-                    width: "705px",
                     height: "380px",
+                    width: "705px",
                   }
                 : {}
             }
           >
             <Image
-              layout={layout}
               alt={alt}
-              width={(width && height && width) || undefined}
+              layout={layout}
               height={(width && height && height) || undefined}
-              title={title || alt}
-              quality={100}
               objectFit={layout === "fill" && "fill"}
+              quality={100}
               src={`${src.replace(
                 new RegExp(
                   `${imageCloudProvider.replace(
@@ -56,15 +58,17 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
                 ),
                 ""
               )}`}
+              title={title || alt}
+              width={(width && height && width) || undefined}
             />
           </div>
         ) : (
           <img
             alt={alt}
-            title={title || alt}
-            src={src}
-            width={width}
             height={height}
+            src={src}
+            title={title || alt}
+            width={width}
           />
         )}
       </summary>
@@ -73,11 +77,10 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
           <div className="imageContainer">
             {src.startsWith(imageCloudProvider) ? (
               <Image
+                alt={alt}
                 layout="fill"
                 loading="lazy"
-                alt={alt}
                 objectFit="scale-down"
-                title={title || alt}
                 src={`${src.replace(
                   new RegExp(
                     `${imageCloudProvider.replace(
@@ -88,14 +91,15 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
                   ),
                   ""
                 )}`}
+                title={title || alt}
               />
             ) : (
               <img
                 alt={alt}
-                title={title || alt}
+                height={height}
                 src={src}
                 width={width}
-                height={height}
+                title={title || alt}
               />
             )}
           </div>
@@ -104,86 +108,86 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
       <LoadDetailsDialog />
       <style jsx>{`
         div :global(img) {
-          max-width: calc(100vw - 3rem);
           max-height: calc(100vh - 10vh);
+          max-width: calc(100vw - 3rem);
         }
         details *:focus {
           outline: none;
           outline-style: none;
         }
         .imageContainer {
-          width: 100%;
+          display: block;
+          height: 100%;
           max-width: calc(100vw - 30px);
           max-height: calc(100vh - 20px);
-          height: 100%;
-          display: block;
           position: relative;
+          width: 100%;
         }
         details {
+          border: unset;
           display: block;
           float: ${alt.includes("a la derecha")
             ? "right"
             : alt.includes("a la izquierda")
             ? "left"
             : "none"};
-          overflow: hidden;
-          border: unset !important;
-          width: ${alt.includes("a la derecha") ||
-          alt.includes("a la izquierda")
-            ? "max-content"
-            : "auto"};
           margin: ${alt.includes("a la derecha") ||
           alt.includes("a la izquierda")
             ? "10px"
             : "0"};
+          overflow: hidden;
           padding: 0;
+          width: ${alt.includes("a la derecha") ||
+          alt.includes("a la izquierda")
+            ? "max-content"
+            : "auto"};
         }
         details[open] {
-          padding: 0 !important;
+          padding: 0;
         }
         details[open] summary {
-          border: unset !important;
+          border: unset;
         }
         summary {
-          position: relative;
-          list-style: none;
           border: unset;
           display: flex;
           justify-content: center;
-          padding: 0;
+          list-style: none;
           margin: 0 !important;
+          padding: 0;
+          position: relative;
         }
         summary::-webkit-details-marker {
           display: none;
         }
         summary :global(img) {
-          max-height: 100vh;
-          cursor: pointer;
           border-radius: 10px;
+          cursor: pointer;
+          max-height: 100vh;
           max-width: 100%;
         }
         :global(details-dialog) {
-          position: fixed;
-          top: 0;
-          left: 50%;
-          width: 100vw;
-          height: 100vh;
           box-sizing: border-box;
-          text-align: center;
+          height: 100vh;
+          left: 50%;
+          position: fixed;
           transform: translateX(-50%);
+          text-align: center;
+          top: 0;
+          width: 100vw;
           z-index: 999;
         }
         details[open] :global(details-dialog) > .bg {
-          padding: 5vh 1.5rem;
-          display: flex;
           align-items: center;
-          justify-content: center;
-          position: fixed;
           background: rgba(0, 0, 0, 0.3);
-          top: 0;
-          right: 0;
-          left: 0;
           bottom: 0;
+          display: flex;
+          justify-content: center;
+          left: 0;
+          padding: 5vh 1.5rem;
+          position: fixed;
+          right: 0;
+          top: 0;
           z-index: -1;
         }
         @media screen and (max-width: 450px) {
@@ -194,26 +198,27 @@ export const Img = ({ src, alt = "", title, width: w, height: h }) => {
       `}</style>
     </details>
   );
-};
+}
 
-export const Video = ({ src, title, ...attribs }) => {
+export function Video({ src, dark, light, title, ...attribs }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     // eslint-disable-next-line jsx-a11y/media-has-caption
-    <video src={src} title={title} {...attribs}>
+    <video src={src ?? (darkMode ? dark : light)} title={title} {...attribs}>
       Tu navegador no soporta videos
       <style jsx>{`
         video {
-          filter: ${darkMode ? "none" : "brightness(110%)"};
           display: block;
+          clip-path: inset(0% 0% 0% 0% round 10px);
+          filter: ${darkMode ? "none" : "brightness(110%)"};
           margin: auto;
           max-width: 99%;
-          clip-path: inset(0% 0% 0% 0% round 10px);
         }
       `}</style>
     </video>
   );
-};
+}
 
 Img.propTypes = {
   alt: PropTypes.string,
@@ -225,4 +230,6 @@ Img.propTypes = {
 Video.propTypes = {
   title: PropTypes.string,
   src: PropTypes.string,
+  dark: PropTypes.string,
+  light: PropTypes.string,
 };

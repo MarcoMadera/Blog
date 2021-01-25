@@ -1,4 +1,4 @@
-function ChartJs(props) {
+export default function ChartJs(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" {...props}>
       <title>ChartJS</title>
@@ -22,5 +22,3 @@ function ChartJs(props) {
     </svg>
   );
 }
-
-export default ChartJs;

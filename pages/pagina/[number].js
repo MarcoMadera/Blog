@@ -1,4 +1,4 @@
-import { getPostsPagesPaths, getHomeData } from "../../utils/posts";
+import { getPostsPagesPaths, getHomeDataFromPage } from "../../utils/posts";
 import PropTypes from "prop-types";
 import Aside from "../../components/Aside";
 import Seo from "../../components/Seo";
@@ -11,12 +11,19 @@ import Link from "next/link";
 import { siteMetadata } from "../../site.config";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout";
-export default function Page({ posts = [], pages = [], tags = [], page }) {
+
+export default function Page({
+  posts = [],
+  pages = [],
+  tags = [],
+  currentPage,
+}) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <main id="main">
       <Seo
-        title={`Marco Madera 📝 | Página ${page}`}
+        title={`Marco Madera 📝 | Página ${currentPage}`}
         canonical={siteMetadata.siteUrl}
       />
       <Aside />
@@ -37,17 +44,19 @@ export default function Page({ posts = [], pages = [], tags = [], page }) {
                   >
                     <a
                       className={
-                        page === pageNumber.toString()
+                        currentPage === pageNumber.toString()
                           ? "currentPage"
                           : "pagination"
                       }
                       aria-label={
-                        page === pageNumber.toString()
+                        currentPage === pageNumber.toString()
                           ? "Página actual"
-                          : `Ir a página ${pageNumber}`
+                          : `Ir a la página ${pageNumber}`
                       }
                       aria-current={
-                        page === pageNumber.toString() ? "true" : undefined
+                        currentPage === pageNumber.toString()
+                          ? "true"
+                          : undefined
                       }
                     >
                       {pageNumber}
@@ -134,14 +143,14 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { id } }) {
-  const { posts, pages, tags } = getHomeData(id);
-  return { props: { posts, tags, pages, page: id } };
+export async function getStaticProps({ params: { number } }) {
+  const { posts, pages, tags } = getHomeDataFromPage(number);
+  return { props: { posts, tags, pages, currentPage: number } };
 }
 
 Page.propTypes = {
   posts: PropTypes.array,
   pages: PropTypes.array,
-  page: PropTypes.string,
+  currentPage: PropTypes.string,
   tags: PropTypes.array,
 };

@@ -8,7 +8,7 @@ export const ThemeContext = createContext({
   darkMode: true,
 });
 
-const Layout = ({ children }) => {
+export default function Layout({ children }) {
   const [darkMode, setDarkMode] = useState(true);
   const toggleDarkMode = () => {
     if (darkMode === false) {
@@ -47,21 +47,21 @@ const Layout = ({ children }) => {
       `}</style>
       <style jsx>{`
         a {
-          text-decoration: none;
-          color: inherit;
           background-color: ${darkMode
             ? colors.dark_accents2
             : colors.accents2};
           box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
+          color: inherit;
           display: block;
+          font-size: 18px;
+          left: 0px;
+          margin: 0 auto;
           padding: 1rem 5rem;
           position: fixed;
-          font-size: 18px;
-          transition: 0.3s ease 0s;
-          top: -280px;
-          left: 0px;
           right: 0;
-          margin: 0 auto;
+          transition: 0.3s ease 0s;
+          text-decoration: none;
+          top: -280px;
           width: fit-content;
         }
         a:focus {
@@ -75,10 +75,8 @@ const Layout = ({ children }) => {
       `}</style>
     </ThemeContext.Provider>
   );
-};
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default Layout;

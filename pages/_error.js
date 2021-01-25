@@ -1,10 +1,11 @@
 import Seo from "../components/Seo";
 import PropTypes from "prop-types";
-function Error({ statusCode }) {
+
+export default function Error({ statusCode }) {
   return (
     <main id="main">
       <Seo title={`😫 Error ${statusCode || "del cliente"}`} />
-      <h1>{statusCode ? statusCode : "Error"}</h1>
+      <h1>{statusCode ?? "Error"}</h1>
       <p>
         {statusCode
           ? `Ocurrió un error con el código ${statusCode} en el servidor`
@@ -28,11 +29,9 @@ function Error({ statusCode }) {
 }
 
 Error.getInitialProps = ({ res, err }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+  const statusCode = res?.statusCode ?? err?.statusCode;
   return { statusCode };
 };
-
-export default Error;
 
 Error.propTypes = {
   statusCode: PropTypes.number,

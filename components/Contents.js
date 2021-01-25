@@ -1,16 +1,24 @@
+import { A } from "./tags";
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
-import { A } from "./tags";
 
-const Section = ({ children }) => <section>{children}</section>;
+function Section({ children }) {
+  return <section>{children}</section>;
+}
 
-const Heading = ({ children }) => <h2 id="headerMenu">{children}</h2>;
+function Heading({ children }) {
+  return <h2 id="headerMenu">{children}</h2>;
+}
 
-const OrderedList = ({ children }) => <ol>{children}</ol>;
+function OrderedList({ children }) {
+  return <ol>{children}</ol>;
+}
 
-const ListItem = ({ children }) => <li>{children}</li>;
+function ListItem({ children }) {
+  return <li>{children}</li>;
+}
 
-const Contents = ({ content = [] }) => {
+function Contents({ content = [] }) {
   return (
     <nav aria-labelledby="headerMenu">
       <Section>
@@ -28,11 +36,24 @@ const Contents = ({ content = [] }) => {
         )}
       </Section>
       <style jsx>{`
+        :global(body) {
+          overflow-x: visible;
+        }
         nav {
           grid-area: toc;
         }
-        :global(body) {
-          overflow-x: visible;
+        nav :global(a) {
+          display: block;
+          width: fit-content;
+        }
+        nav :global(a:hover),
+        nav :global(a:focus) {
+          text-decoration: none;
+        }
+        nav :global(h2) {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 43px;
         }
         nav :global(li) {
           list-style: none;
@@ -42,23 +63,10 @@ const Contents = ({ content = [] }) => {
           position: sticky;
           top: 0px;
         }
-        nav :global(a) {
-          width: fit-content;
-          display: block;
-        }
-        nav :global(a:hover),
-        nav :global(a:focus) {
-          text-decoration: none;
-        }
-        nav :global(h2) {
-          font-size: 18px;
-          line-height: 43px;
-          font-weight: 600;
-        }
       `}</style>
     </nav>
   );
-};
+}
 
 Contents.propTypes = {
   content: PropTypes.array,

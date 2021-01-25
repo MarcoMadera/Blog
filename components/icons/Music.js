@@ -1,8 +1,10 @@
 import { colors } from "../../styles/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-function Music(props) {
+
+export default function Music(props) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 502 502" {...props}>
       <title>Música</title>
@@ -20,5 +22,3 @@ function Music(props) {
     </svg>
   );
 }
-
-export default Music;

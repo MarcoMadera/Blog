@@ -1,8 +1,10 @@
 import { colors } from "../../styles/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-function Film(props) {
+
+export default function Film(props) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -55,5 +57,3 @@ function Film(props) {
     </svg>
   );
 }
-
-export default Film;

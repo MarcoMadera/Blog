@@ -1,12 +1,13 @@
-import Seo from "../../../components/Seo";
+import Seo from "../../components/Seo";
 import PropTypes from "prop-types";
-import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "../../../components/tags";
-import ExcelIcon from "../../../components/icons/Excel";
-import Js from "../../../components/icons/JS";
-import Html5 from "../../../components/icons/Html5";
-import Css from "../../../components/icons/Css";
-import Vba from "../../../components/icons/Vba";
-const Article = ({ title, img, children }) => {
+import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "../../components/tags";
+import ExcelIcon from "../../components/icons/Excel";
+import Js from "../../components/icons/JS";
+import Html5 from "../../components/icons/Html5";
+import Css from "../../components/icons/Css";
+import Vba from "../../components/icons/Vba";
+
+function Article({ title, img, children }) {
   return (
     <>
       <article>
@@ -62,9 +63,9 @@ const Article = ({ title, img, children }) => {
       </article>
     </>
   );
-};
+}
 
-const sre = () => {
+export default function sreExcel() {
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | SRE Excel" />
@@ -201,12 +202,10 @@ const sre = () => {
       `}</style>
     </main>
   );
-};
+}
 
 Article.propTypes = {
   title: PropTypes.string,
   img: PropTypes.string,
   children: PropTypes.node,
 };
-
-export default sre;

@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
 import { colors } from "../styles/theme";
-import { useContext } from "react";
+import PropTypes from "prop-types";
 import { ThemeContext } from "./Layout";
-const MusicCard = ({ songUrl, cover, title, artist }) => {
+import { useContext } from "react";
+
+export default function MusicCard({ artist, cover, songUrl, title }) {
   const { darkMode } = useContext(ThemeContext);
   return (
     <article>
@@ -26,41 +27,40 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
       </a>
       <style jsx>{`
         a {
-          display: flex;
-          border-radius: 3px;
+          align-items: center;
           border: 1px solid ${colors.accents1};
+          border-radius: 3px;
+          color: inherit;
+          display: flex;
           margin-bottom: 10px;
           padding: 5px;
-          align-items: center;
           text-decoration: none;
-          color: inherit;
         }
         a:hover,
         a:focus-within {
           box-shadow: 0px 0px 4px 0px
             ${darkMode ? "rgba(200, 200, 200, 0.30)" : "rgba(84, 84, 84, 0.15)"};
         }
-        img {
-          margin-right: 5px;
-        }
         div {
-          width: calc(100% - 69px);
           max-width: calc(100vw - 120px);
+          width: calc(100% - 69px);
         }
-        p,
-        h2 {
-          margin: 0;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          font-size: 1em;
-          display: -webkit-box;
-          white-space: unset;
+        h2,
+        p {
           -webkit-box-orient: vertical;
+          display: -webkit-box;
+          font-size: 1em;
+          margin: 0;
+          overflow: hidden;
           text-align: left;
+          text-overflow: ellipsis;
+          white-space: unset;
         }
         h2 {
           -webkit-line-clamp: 2;
+        }
+        img {
+          margin-right: 5px;
         }
         p {
           -webkit-line-clamp: 1;
@@ -68,13 +68,11 @@ const MusicCard = ({ songUrl, cover, title, artist }) => {
       `}</style>
     </article>
   );
-};
+}
 
 MusicCard.propTypes = {
-  songUrl: PropTypes.string,
-  cover: PropTypes.string,
-  title: PropTypes.string,
   artist: PropTypes.string,
+  cover: PropTypes.string,
+  songUrl: PropTypes.string,
+  title: PropTypes.string,
 };
-
-export default MusicCard;

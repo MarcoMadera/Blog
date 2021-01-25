@@ -1,8 +1,10 @@
 import { colors } from "../../styles/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-function JavaScript(props) {
+
+export default function JavaScript(props) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" {...props}>
       <title>JavaScript</title>
@@ -27,5 +29,3 @@ function JavaScript(props) {
     </svg>
   );
 }
-
-export default JavaScript;

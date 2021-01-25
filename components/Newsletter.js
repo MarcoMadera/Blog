@@ -1,13 +1,19 @@
-import { useState } from "react";
-import { colors } from "../styles/theme";
-import PropTypes from "prop-types";
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
 import ActionButton from "./ActionButton";
+import { colors } from "../styles/theme";
 import { Input } from "./tags";
-const Label = ({ children }) => <label htmlFor="bd-email">{children}</label>;
-const P = ({ children }) => <p>{children}</p>;
-const Newsletter = () => {
+import PropTypes from "prop-types";
+import { useContext, useState } from "react";
+import { ThemeContext } from "./Layout";
+
+function Label({ children }) {
+  return <label htmlFor="bd-email">{children}</label>;
+}
+
+function P({ children }) {
+  return <p>{children}</p>;
+}
+
+function Newsletter() {
   const [email, setEmail] = useState({
     value: "",
     error: false,
@@ -64,16 +70,16 @@ const Newsletter = () => {
       )}
       <style jsx>{`
         form {
-          position: sticky;
-          top: 10px;
-          margin-top: 40px;
-          width: 100%;
-          height: fit-content;
           border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 4px;
-          padding: 20px;
-          text-align: center;
+          height: fit-content;
           margin-bottom: 50px;
+          margin-top: 40px;
+          padding: 20px;
+          position: sticky;
+          text-align: center;
+          top: 10px;
+          width: 100%;
         }
         form :global(label) {
           font-size: 18px;
@@ -86,12 +92,12 @@ const Newsletter = () => {
           margin: 1em 0;
         }
         form :global(input) {
-          outline: unset;
           border: 1px solid
             ${email.error && email.submitted ? "red" : colors.accents1};
+          margin-bottom: 30px;
+          outline: unset;
           padding: 6px 8px;
           width: 100%;
-          margin-bottom: 30px;
         }
         form :global(button) {
           width: 100%;
@@ -108,7 +114,7 @@ const Newsletter = () => {
       `}</style>
     </form>
   );
-};
+}
 
 Label.propTypes = {
   children: PropTypes.node,

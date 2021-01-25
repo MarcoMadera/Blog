@@ -8,12 +8,12 @@ import slugify from "react-slugify";
 import PropTypes from "prop-types";
 import { siteMetadata } from "../../../site.config";
 
-const Tag = ({ postsByTag, tags, slug }) => {
+export default function Tag({ postsByTag, tags, tag }) {
   return (
     <main id="main">
       <Seo
-        title={`Blog etiqueta ${postsByTag[0].tags.find((tag) =>
-          slugify(tag).includes(slug)
+        title={`Blog etiqueta ${postsByTag[0].tags.find((item) =>
+          slugify(item).includes(tag)
         )} 📌`}
         canonical={siteMetadata.siteUrl}
       />
@@ -21,7 +21,7 @@ const Tag = ({ postsByTag, tags, slug }) => {
       <section>
         <h1>
           Etiqueta{" "}
-          {postsByTag[0].tags.find((tag) => slugify(tag).includes(slug))}
+          {postsByTag[0].tags.find((item) => slugify(item).includes(tag))}
         </h1>
         {postsByTag.length ? (
           postsByTag.map((data) => <BlogCard {...data} key={data.slug} />)
@@ -53,9 +53,7 @@ const Tag = ({ postsByTag, tags, slug }) => {
       `}</style>
     </main>
   );
-};
-
-export default Tag;
+}
 
 export async function getStaticPaths() {
   const paths = getTagsSlugs();
@@ -64,13 +62,13 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-export async function getStaticProps({ params: { slug } }) {
-  const { postsByTag, tags } = getTagData(slug);
+export async function getStaticProps({ params: { tag } }) {
+  const { postsByTag, tags } = getTagData(tag);
   return {
     props: {
       postsByTag,
       tags,
-      slug,
+      tag,
     },
   };
 }
@@ -78,5 +76,5 @@ export async function getStaticProps({ params: { slug } }) {
 Tag.propTypes = {
   postsByTag: PropTypes.array,
   tags: PropTypes.array,
-  slug: PropTypes.string,
+  tag: PropTypes.string,
 };

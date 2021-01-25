@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { ThemeContext } from "./Layout";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
-const ActionAnchor = ({ children, href, ...attribs }) => {
+
+export default function ActionAnchor({ children, href, ...attribs }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <>
       <a href={href} rel="noopener noreferrer" target="_blank" {...attribs}>
@@ -50,11 +52,9 @@ const ActionAnchor = ({ children, href, ...attribs }) => {
       `}</style>
     </>
   );
-};
+}
 
 ActionAnchor.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
 };
-
-export default ActionAnchor;

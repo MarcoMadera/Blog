@@ -1,15 +1,24 @@
-import PropTypes from "prop-types";
+import { ALink } from "./tags";
 import { colors } from "../styles/theme";
 import { imageCloudProvider } from "../site.config";
-import { useContext } from "react";
+import PropTypes from "prop-types";
 import { ThemeContext } from "./Layout";
-import { ALink } from "./tags";
-const Div = ({ children }) => <div>{children}</div>;
+import { useContext } from "react";
 
-const Heading = ({ children }) => <h2>{children}</h2>;
+function Div({ children }) {
+  return <div>{children}</div>;
+}
 
-const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
+function Heading({ children }) {
+  return <h2>{children}</h2>;
+}
+
+export default function RecommendedPosts({
+  currentPost,
+  recommendedPosts = [],
+}) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <div>
       {recommendedPosts.length > 1 && (
@@ -17,38 +26,38 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
           <Heading>Artículos recomendados</Heading>
           <Div>
             {recommendedPosts.map(({ slug, title, cover }, i) => {
-              if (slug !== currentPost)
-                return (
-                  i <= 6 && (
-                    <ALink
-                      key={slug}
-                      title={title}
-                      href={"/blog/[slug]/"}
-                      as={`/blog/${slug}/`}
-                    >
-                      <img
-                        src={
-                          cover.startsWith(imageCloudProvider)
-                            ? cover.replace(
-                                new RegExp(
-                                  `(?<=${imageCloudProvider.replace(
-                                    /[.*+?^${}()|/[\]\\]/g,
-                                    "\\$&"
-                                  )})`,
-                                  "g"
-                                ),
-                                "/q_auto,f_auto,c_scale,h_40,w_40"
-                              )
-                            : cover
-                        }
-                        alt={`${title} cover`}
-                        width="40"
-                        height="40"
-                      />
-                      {title}
-                    </ALink>
-                  )
-                );
+              return (
+                slug !== currentPost &&
+                i <= 6 && (
+                  <ALink
+                    key={slug}
+                    title={title}
+                    href={"/blog/[slug]/"}
+                    as={`/blog/${slug}/`}
+                  >
+                    <img
+                      src={
+                        cover.startsWith(imageCloudProvider)
+                          ? cover.replace(
+                              new RegExp(
+                                `(?<=${imageCloudProvider.replace(
+                                  /[.*+?^${}()|/[\]\\]/g,
+                                  "\\$&"
+                                )})`,
+                                "g"
+                              ),
+                              "/q_auto,f_auto,c_scale,h_40,w_40"
+                            )
+                          : cover
+                      }
+                      alt={`${title} cover`}
+                      width="40"
+                      height="40"
+                    />
+                    {title}
+                  </ALink>
+                )
+              );
             })}
           </Div>
         </>
@@ -57,20 +66,9 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
         div {
           margin-bottom: 10px;
         }
-        div :global(h2) {
-          font-size: 1em;
-          margin: 1em 0;
-          font-weight: 600;
-        }
-        div :global(img) {
-          clip-path: inset(0% 0% 0% 0% round 10px);
-          width: 40px;
-          height: 40px;
-          margin-right: 5px;
-        }
         div :global(a) {
-          display: flex;
           align-items: center;
+          display: flex;
           margin: 0;
           padding: 3px;
         }
@@ -84,6 +82,17 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           margin-bottom: 0;
         }
+        div :global(h2) {
+          font-size: 1em;
+          font-weight: 600;
+          margin: 1em 0;
+        }
+        div :global(img) {
+          clip-path: inset(0% 0% 0% 0% round 10px);
+          height: 40px;
+          margin-right: 5px;
+          width: 40px;
+        }
         @media screen and (max-width: 876px) {
           div :global(a) {
             margin: 13.5px 5px 13.5px 0;
@@ -92,18 +101,16 @@ const RecommendedPosts = ({ recommendedPosts = [], currentPost }) => {
       `}</style>
     </div>
   );
-};
+}
 
-RecommendedPosts.propTypes = {
-  recommendedPosts: PropTypes.array,
-  currentPost: PropTypes.string,
-  slug: PropTypes.string,
-};
 Div.propTypes = {
   children: PropTypes.node,
 };
 Heading.propTypes = {
   children: PropTypes.node,
 };
-
-export default RecommendedPosts;
+RecommendedPosts.propTypes = {
+  currentPost: PropTypes.string,
+  recommendedPosts: PropTypes.array,
+  slug: PropTypes.string,
+};

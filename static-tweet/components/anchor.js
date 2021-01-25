@@ -5,7 +5,9 @@ const beautifyHref = (href) => {
   const text = href.replace(PROTOCOL, "");
   const i = text.indexOf("/");
 
-  if (i === -1) return text;
+  if (i === -1) {
+    return text;
+  }
   // Remove trailing slash
   if (i === text.length - 1) {
     return text.substring(0, i);

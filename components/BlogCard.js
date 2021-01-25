@@ -5,8 +5,18 @@ import { getFormattedDate } from "../utils/helpers";
 import { imageCloudProvider } from "../site.config";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
-const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
+
+export default function BlogCard({
+  author,
+  cover,
+  date,
+  description,
+  slug,
+  title,
+  tags,
+}) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <article>
       <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
@@ -20,6 +30,7 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
             </div>
             <picture>
               <source
+                media="(max-width: 876px)"
                 srcSet={
                   cover.startsWith(imageCloudProvider)
                     ? cover.replace(
@@ -34,9 +45,10 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
                       )
                     : cover
                 }
-                media="(max-width: 876px)"
               />
               <img
+                alt={`Portada del blog ${title}`}
+                height="100"
                 srcSet={
                   cover.startsWith(imageCloudProvider)
                     ? cover.replace(
@@ -51,9 +63,7 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
                       )
                     : cover
                 }
-                alt={`Portada del blog ${title}`}
                 width="100"
-                height="100"
               />
             </picture>
           </header>
@@ -64,8 +74,8 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
           {tags.length &&
             tags.map((tag) => (
               <Link
-                href={"/blog/etiqueta/[slug]/"}
                 as={`/blog/etiqueta/${slugify(tag)}/`}
+                href={"/blog/etiqueta/[tag]/"}
                 key={tag}
               >
                 <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
@@ -80,12 +90,18 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
         </span>
       </footer>
       <style jsx>{`
+        a {
+          display: inline-flex;
+          box-sizing: border-box;
+          text-decoration: none;
+          color: inherit;
+        }
         article {
+          border-radius: 5px;
           box-shadow: ${darkMode
               ? "rgba(255,255,255,0.2)"
               : "rgba(0, 0, 0, 0.2)"}
             0px 0px 2px 0px;
-          border-radius: 5px;
           margin-bottom: 1rem;
         }
         article:hover,
@@ -95,12 +111,14 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
               : "rgba(0, 0, 0, 0.3)"}
             0px 0px 2px 0px;
         }
-        header {
-          display: grid;
-          grid-template-columns: 100fr 1fr;
-          padding: 0.5rem 1rem 0 1rem;
+        div > a {
+          margin-right: 5px;
         }
-        h2:hover {
+        footer {
+          padding: 0 1rem 0.4rem;
+        }
+        footer a:hover,
+        header div p:hover span {
           text-decoration: underline;
         }
         h2 {
@@ -108,52 +126,42 @@ const BlogCard = ({ slug, title, description, cover, tags, author, date }) => {
           font-size: 1.17em;
           font-weight: 600;
         }
-        p {
-          margin: 0;
-          text-align: justify;
+        h2:hover {
+          text-decoration: underline;
+        }
+        header {
+          display: grid;
+          grid-template-columns: 100fr 1fr;
+          padding: 0.5rem 1rem 0 1rem;
         }
         header div {
           width: 760px;
           width: auto;
           padding-right: 1rem;
         }
-        picture {
-          display: inline-flex;
-        }
         img {
           width: 100px;
           height: 100px;
           clip-path: inset(0% 0% 0% 0% round 10px);
         }
-        footer {
-          padding: 0 1rem 0.4rem;
+        p {
+          margin: 0;
+          text-align: justify;
         }
-        a {
+        picture {
           display: inline-flex;
-          box-sizing: border-box;
-          text-decoration: none;
-          color: inherit;
-        }
-        div > a {
-          margin-right: 5px;
-        }
-        header div p:hover span,
-        footer a:hover {
-          text-decoration: underline;
         }
       `}</style>
     </article>
   );
-};
-
-export default BlogCard;
+}
 
 BlogCard.propTypes = {
-  slug: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  cover: PropTypes.string,
-  tags: PropTypes.array,
   author: PropTypes.string,
+  cover: PropTypes.string,
   date: PropTypes.string,
+  description: PropTypes.string,
+  slug: PropTypes.string,
+  tags: PropTypes.array,
+  title: PropTypes.string,
 };

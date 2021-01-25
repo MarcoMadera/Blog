@@ -8,8 +8,9 @@ import { useEffect } from "react";
 import Head from "next/head";
 import { siteMetadata } from "../site.config";
 
-const App = ({ Component, pageProps }) => {
+export default function App({ Component, pageProps }) {
   const router = useRouter();
+
   useEffect(() => {
     // update page url minimal google analytics
     const handleRouteChange = () => {
@@ -33,6 +34,7 @@ const App = ({ Component, pageProps }) => {
   Router.events.on("routeChangeStart", () => NProgress.start());
   Router.events.on("routeChangeComplete", () => NProgress.done());
   Router.events.on("routeChangeError", () => NProgress.done());
+
   return (
     <>
       <Head>
@@ -75,11 +77,9 @@ const App = ({ Component, pageProps }) => {
       </Layout>
     </>
   );
-};
+}
 
 App.propTypes = {
   Component: PropTypes.any,
   pageProps: PropTypes.any,
 };
-
-export default App;

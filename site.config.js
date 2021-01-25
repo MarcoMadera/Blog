@@ -9,7 +9,10 @@ module.exports = {
     },
     description:
       "Comparto mis conocimientos, pensamientos y opiniones sobre la programación",
-    siteUrl: "https://marcomadera.com",
+    siteUrl:
+      process.env.NODE_ENV === "production"
+        ? "https://marcomadera.com"
+        : "http://localhost:3000",
     language: "es-MX",
     logo: "https://marcomadera.com/logo512.png",
     social: {

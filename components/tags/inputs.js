@@ -1,10 +1,11 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-import { useContext, useState } from "react";
 import { ThemeContext } from "../Layout";
+import { useContext, useState } from "react";
 
-const Color = ({ type, ...attribs }) => {
+function Color({ type, ...attribs }) {
   const [initial, setInitial] = useState("#b50000");
+
   return (
     <>
       <input
@@ -15,15 +16,15 @@ const Color = ({ type, ...attribs }) => {
       />
       <style jsx>{`
         input {
-          border-radius: 100%;
-          height: 40px;
-          width: 40px;
-          border: none;
-          outline: none;
-          cursor: pointer;
           -webkit-appearance: none;
-          padding: 0;
+          border: none;
+          border-radius: 100%;
+          cursor: pointer;
+          height: 40px;
+          outline: none;
           overflow: hidden;
+          padding: 0;
+          width: 40px;
         }
         input[type="color"]::-webkit-color-swatch-wrapper {
           padding: 0;
@@ -35,33 +36,35 @@ const Color = ({ type, ...attribs }) => {
       `}</style>
     </>
   );
-};
+}
 
-export const Input = ({ type, ...attribs }) => {
+export function Input({ type, ...attribs }) {
   const { darkMode } = useContext(ThemeContext);
+
   if (type === "color") {
     return <Color type="color" {...attribs}></Color>;
   }
+
   return (
     <>
       <input type={type} {...attribs} />
       <style jsx>{`
         input {
           background: ${darkMode ? colors.dark_background : colors.background};
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
           border: 1px solid ${colors.accents1};
           border-radius: 4px;
-          padding: 0.5em;
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
           font-family: Arial;
+          padding: 0.5em;
         }
       `}</style>
     </>
   );
-};
+}
 
-Input.propTypes = {
+Color.propTypes = {
   type: PropTypes.string,
 };
-Color.propTypes = {
+Input.propTypes = {
   type: PropTypes.string,
 };

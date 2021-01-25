@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useTweet } from "../lib/tweets";
 import Node from "../static-tweet/node";
 import components from "../static-tweet/components/";
@@ -6,7 +7,9 @@ export default function Tweet({ id, caption }) {
   const tweet = useTweet(id);
 
   // Happens when `getStaticProps` is traversing the tree to collect the tweet ids
-  if (tweet.ignore) return null;
+  if (tweet.ignore) {
+    return null;
+  }
 
   return (
     <div>

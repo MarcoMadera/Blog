@@ -1,26 +1,29 @@
-import Seo from "../../../components/Seo";
-import { H1 } from "../../../components/tags";
+import Seo from "../../components/Seo";
+import { H1 } from "../../components/tags";
 
-const unsuscription = () => {
+const suscription = () => {
   return (
     <>
       <main id="main">
-        <Seo title="Te has desuscrito 😢 | Marco Madera" />
+        <Seo title="Suscripción exitosa! 🎉| Marco Madera" />
         <section>
           <H1>
-            ¡Te has desuscrito del Newsletter!{" "}
-            <span role="img" aria-label="emoji cara triste">
-              😢
+            ¡Ya casi estás suscrito al Newsletter!{" "}
+            <span role="img" aria-label="emoji de celebración">
+              🎉
             </span>
           </H1>
-          <p>Ya no recibirás más emails por mi parte, gracias por leer.</p>
+          <p>
+            Te envié un correo de confirmación, da clic en él y completarás el
+            proceso.
+          </p>
           <video
             loop
             autoPlay
             playsInline
             muted
-            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532720/Newsletter/12912-323943-434566767_ashg4k.mp4"
-            title="Adios vaquero"
+            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532672/Newsletter/312o32-3123192-434923432_pv6toa.mp4"
+            title="Aplausos"
           />
         </section>
         <style jsx>{`
@@ -47,4 +50,4 @@ const unsuscription = () => {
   );
 };
 
-export default unsuscription;
+export default suscription;

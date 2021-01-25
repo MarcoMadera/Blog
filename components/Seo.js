@@ -1,22 +1,24 @@
+import { colors } from "../styles/theme";
 import Head from "next/head";
-import { siteMetadata } from "../site.config";
 import PropTypes from "prop-types";
+import { siteMetadata } from "../site.config";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { ThemeContext } from "./Layout";
-import { colors } from "../styles/theme";
-const Seo = ({
-  title,
-  description = "",
-  cover = `${siteMetadata.siteUrl}/logo512.png`,
-  canonical = "",
+
+export default function Seo({
   author = "",
+  canonical = "",
+  cover = `${siteMetadata.siteUrl}/logo512.png`,
   date = "",
-}) => {
+  description = "",
+  title,
+}) {
   const metaDescription = description || siteMetadata.description;
   const metaTitle = title || siteMetadata.title;
   const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <Head>
       <title>{title}</title>
@@ -68,7 +70,7 @@ const Seo = ({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{"@context":"http://schema.org","@type":"Article","headline":"${title}","description":"${metaDescription}","image":"${cover}","datePublished":"${date}","author":{"@type" : "Person","name" : "${author}"},"publisher": { "@type": "Organization", "name": "${siteMetadata.siteUrl}", "logo": { "@type": "ImageObject", "url": "${siteMetadata.siteUrl}logo.svg" } },,"mainEntityOfPage":{"@type": "WebPage","@id": "${siteMetadata.siteUrl}${router.asPath}"}}`,
+              __html: `{"@context": "http://schema.org","@type": "Article", headline: "${title}", description: "${metaDescription}", image: "${cover}", datePublished: "${date}", author: {"@type": "Person", name: "${author}"}, publisher: {"@type": "Organization", name: "${siteMetadata.siteUrl}", logo: { "@type": "ImageObject", url: "${siteMetadata.siteUrl}logo.svg" }, mainEntityOfPage: {"@type": "WebPage","@id": "${siteMetadata.siteUrl}${router.asPath}"},},}`,
             }}
           />
         </>
@@ -89,16 +91,13 @@ const Seo = ({
       <meta property="twitter:image" content={cover} />
     </Head>
   );
-};
-
-export default Seo;
+}
 
 Seo.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  cover: PropTypes.string,
-  path: PropTypes.string,
   author: PropTypes.string,
   canonical: PropTypes.string,
+  cover: PropTypes.string,
   date: PropTypes.string,
+  description: PropTypes.string,
+  title: PropTypes.string,
 };

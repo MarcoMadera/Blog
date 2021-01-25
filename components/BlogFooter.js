@@ -1,38 +1,44 @@
 import Bio from "./Bio";
-import PropTypes from "prop-types";
-import TwitterShare from "./icons/TwitterShare";
 import FacebookShare from "./icons/FacebookShare";
 import LinkedInShare from "./icons/LinkedInShare";
+import PropTypes from "prop-types";
 import { siteMetadata } from "../site.config";
+import TwitterShare from "./icons/TwitterShare";
 
-const Section = ({ children }) => <section>{children}</section>;
+function Section({ children }) {
+  return <section>{children}</section>;
+}
 
-const Button = ({ url, network, children }) => (
-  <button
-    title={`Compartir en ${network}`}
-    onClick={() => {
-      window.open(
-        `${url}`,
-        "popup",
-        "width=600,height=500,scrollbars=no,resizable=no"
-      );
-      return false;
-    }}
-  >
-    {children}
-  </button>
-);
+function Button({ url, network, children }) {
+  return (
+    <button
+      title={`Compartir en ${network}`}
+      onClick={() => {
+        window.open(
+          `${url}`,
+          "popup",
+          "width=600,height=500,scrollbars=no,resizable=no"
+        );
+        return false;
+      }}
+    >
+      {children}
+    </button>
+  );
+}
 
-const Heading = ({ children }) => <h2>{children}</h2>;
+function Heading({ children }) {
+  return <h2>{children}</h2>;
+}
 
-const BlogFooter = ({
-  slug,
-  title,
-  profilePhoto,
-  twitter,
+export default function BlogFooter({
   author,
+  profilePhoto,
+  slug,
   summary,
-}) => {
+  title,
+  twitter,
+}) {
   return (
     <footer>
       <Section>
@@ -59,10 +65,10 @@ const BlogFooter = ({
         </Button>
       </Section>
       <Bio
-        profilePhoto={profilePhoto}
-        twitter={twitter}
         author={author}
+        profilePhoto={profilePhoto}
         summary={summary}
+        twitter={twitter}
       />
       <style jsx>{`
         footer {
@@ -71,21 +77,21 @@ const BlogFooter = ({
         footer :global(button) {
           background: none;
           border: none;
-          cursor: pointer;
           box-sizing: content-box;
+          cursor: pointer;
+          height: 30px;
           margin: 9px;
           padding: 0;
           width: 30px;
-          height: 30px;
-        }
-        footer :global(section) {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
         }
         footer :global(h2) {
-          margin: 0;
           font-size: 16px;
+          margin: 0;
+        }
+        footer :global(section) {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
         }
         @media screen and (max-width: 528px) {
           footer :global(section) {
@@ -94,8 +100,8 @@ const BlogFooter = ({
         }
         @media screen and (max-width: 876px) {
           footer :global(button) {
-            padding: 9px;
             margin: 0px;
+            padding: 9px;
           }
         }
         @media print {
@@ -106,26 +112,24 @@ const BlogFooter = ({
       `}</style>
     </footer>
   );
-};
+}
 
 BlogFooter.propTypes = {
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  profilePhoto: PropTypes.string,
-  twitter: PropTypes.string,
   author: PropTypes.string.isRequired,
+  profilePhoto: PropTypes.string,
+  slug: PropTypes.string.isRequired,
   summary: PropTypes.string,
-};
-Section.propTypes = {
-  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  twitter: PropTypes.string,
 };
 Button.propTypes = {
-  url: PropTypes.string,
-  network: PropTypes.string,
   children: PropTypes.node,
+  network: PropTypes.string,
+  url: PropTypes.string,
 };
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default BlogFooter;
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+};

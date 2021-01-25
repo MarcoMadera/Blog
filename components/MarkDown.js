@@ -1,52 +1,55 @@
 /* eslint-disable react/prop-types */
-import ReactMarkdown from "react-markdown";
-import slugify from "react-slugify";
-import htmlParser from "react-markdown/plugins/html-parser";
-import React from "react";
-import HtmlToReact from "html-to-react";
-import gfm from "remark-gfm";
-import Head from "next/head";
-import { colors } from "../styles/theme";
 import {
   A,
-  Progress,
-  Meter,
-  InlineCode,
-  Table,
-  Th,
-  Td,
-  Img,
-  Details,
-  CodeBlock,
-  Ul,
-  Ol,
-  Li,
-  Video,
+  Abbr,
   Blockquote,
-  Select,
+  CodeBlock,
+  Details,
+  Dialog,
+  Hr,
+  Img,
+  InlineCode,
   Input,
   Kbd,
-  Abbr,
+  Li,
+  Meter,
+  Ol,
   Pre,
+  Progress,
+  Select,
+  Table,
+  Td,
+  Th,
+  Ul,
+  Video,
 } from "../components/tags/";
-import Colors from "../components/Colors";
 import ActionAnchor from "./ActionAnchor";
 import ActionButton from "./ActionButton";
+import Colors from "../components/Colors";
+import gfm from "remark-gfm";
+import Head from "next/head";
+import htmlParser from "react-markdown/plugins/html-parser";
+import HtmlToReact from "html-to-react";
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import slugify from "react-slugify";
+import { ThemeContext } from "./Layout";
 import Tweet from "../components/tweet";
 import { useContext } from "react";
-import { ThemeContext } from "./Layout";
+
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 const parseHtml = htmlParser({
-  isValidNode: (node) => node.type !== "script",
+  isValidNode: ({ type }) => type !== "script",
   processingInstructions: [
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "videogif",
-      processNode: function VideoGifs({ attribs }) {
-        const { darkMode } = useContext(ThemeContext);
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "videogif",
+      processNode: function VideoGifNode({ attribs }) {
         return (
           <Video
-            src={attribs.src ?? (darkMode ? attribs.dark : attribs.light)}
+            src={attribs.src}
+            dark={attribs.dark}
+            light={attribs.light}
             title={attribs.title}
             muted
             loop
@@ -57,58 +60,58 @@ const parseHtml = htmlParser({
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "table",
-      processNode: function Tab(_, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "table",
+      processNode: function TableNode(_, children) {
         return <Table>{children}</Table>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "th",
-      processNode: function TabH({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "th",
+      processNode: function TableHeaderNode({ attribs }, children) {
         return <Th {...attribs}>{children}</Th>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "td",
-      processNode: function TabD({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "td",
+      processNode: function TableDataNode({ attribs }, children) {
         return <Td {...attribs}>{children}</Td>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "pre",
-      processNode: function PreC({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "pre",
+      processNode: function PreformatedNode({ attribs }, children) {
         return <Pre {...attribs}>{children}</Pre>;
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "actionanchor",
-      processNode: function ActAnchor({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "actionanchor",
+      processNode: function ActionAnchorNode({ attribs }, children) {
         return <ActionAnchor {...attribs}>{children}</ActionAnchor>;
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "actionbutton",
-      processNode: function ActButton({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "actionbutton",
+      processNode: function ActionButtonNode({ attribs }, children) {
         return <ActionButton {...attribs}>{children}</ActionButton>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "ol",
-      processNode: function OrderedList({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "ol",
+      processNode: function OrderedListNode({ attribs }, children) {
         return <Ol {...attribs}>{children}</Ol>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "ul",
-      processNode: function UnorderedList({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "ul",
+      processNode: function UnorderedListNode({ attribs }, children) {
         return <Ul {...attribs}>{children}</Ul>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "li",
-      processNode: function ListItem({ attribs }, children, i) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "li",
+      processNode: function ListItemNode({ attribs }, children, i) {
         return (
           <Li {...attribs} key={i}>
             {children}
@@ -117,19 +120,17 @@ const parseHtml = htmlParser({
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "video",
-      processNode: function Clip({ attribs }) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "video",
+      processNode: function VideoNode({ attribs }) {
         return (
           <Video src={attribs.src} title={attribs.title} autoPlay controls />
         );
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "style" &&
-        node.name === "style" &&
-        node.children.length > 0,
-      processNode: function Style(_, children, i) {
+      shouldProcessNode: ({ type, name, children }) =>
+        type === "style" && name === "style" && children.length > 0,
+      processNode: function StyleNode(_, children, i) {
         const styles = children[0];
         return (
           <div key={i}>
@@ -141,16 +142,16 @@ const parseHtml = htmlParser({
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "meter",
-      processNode: function metar(node, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "meter",
+      processNode: function MeterNode({ attribs }, children) {
         return (
           <Meter
-            min={node.attribs.min}
-            max={node.attribs.max}
-            value={node.attribs.value}
-            low={node.attribs.low}
-            high={node.attribs.high}
-            optimum={node.attribs.optimum}
+            min={attribs.min}
+            max={attribs.max}
+            value={attribs.value}
+            low={attribs.low}
+            high={attribs.high}
+            optimum={attribs.optimum}
           >
             {children}
           </Meter>
@@ -158,32 +159,32 @@ const parseHtml = htmlParser({
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "progress",
-      processNode: function progressBar(node) {
-        return <Progress max={node.attribs.max} value={node.attribs.value} />;
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "progress",
+      processNode: function ProgressBarNode({ attribs }) {
+        return <Progress max={attribs.max} value={attribs.value} />;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "a",
-      processNode: function progressBar(node, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "a",
+      processNode: function AnchorNode({ attribs }, children) {
         return (
-          <A {...node.attribs} target="_blank" rel="noopener noreferrer">
+          <A {...attribs} target="_blank" rel="noopener noreferrer">
             {children}
           </A>
         );
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "details",
-      processNode: function Deta(_, children) {
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "details",
+      processNode: function DetailsNode(_, children) {
         return <Details>{children}</Details>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "code",
-      processNode: function Deta({ attribs }, children, i) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "code",
+      processNode: function InlineCodeNode({ attribs }, children, i) {
         return (
           <InlineCode {...attribs} key={i}>
             {children}
@@ -192,34 +193,34 @@ const parseHtml = htmlParser({
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "input",
-      processNode: function Deta({ attribs }) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "input",
+      processNode: function InputNode({ attribs }) {
         return <Input {...attribs} />;
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "select",
-      processNode: function Deta({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "select",
+      processNode: function SelectNode({ attribs }, children) {
         return <Select {...attribs}>{children}</Select>;
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "colors",
-      processNode: function Color({ attribs }) {
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "colors",
+      processNode: function ColorsNode({ attribs }) {
         return <Colors {...attribs} />;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "kbd",
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "kbd",
       processNode: function KeyBoard({ attribs }, children) {
         return <Kbd {...attribs}>{children}</Kbd>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "image",
-      processNode: function Images({ attribs }) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "image",
+      processNode: function ImageNode({ attribs }) {
         const { darkMode } = useContext(ThemeContext);
         return (
           <Img src={darkMode ? attribs.dark : attribs.light} {...attribs} />
@@ -227,50 +228,34 @@ const parseHtml = htmlParser({
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "abbr",
-      processNode: function KeyBoard({ attribs }, children) {
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "abbr",
+      processNode: function AbbreviationNode({ attribs }, children) {
         return <Abbr {...attribs}>{children}</Abbr>;
       },
     },
     {
-      shouldProcessNode: (node) => node.type === "tag" && node.name === "tweet",
-      processNode: function Tweets(node) {
-        return <Tweet id={node.attribs.id} />;
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "tweet",
+      processNode: function TweetNode({ attribs }) {
+        return <Tweet id={attribs.id} />;
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "dialog",
-      processNode: function Tweets({ attribs }, children) {
-        const { darkMode } = useContext(ThemeContext);
-        return (
-          <dialog {...attribs}>
-            {children}
-            <style jsx>{`
-              dialog {
-                background: ${darkMode
-                  ? colors.dark_background
-                  : colors.background};
-                border-color: ${colors.primary};
-                color: ${darkMode ? colors.dark_textColor : colors.textColor};
-                margin: 0 auto;
-                padding: 10px;
-              }
-            `}</style>
-          </dialog>
-        );
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "dialog",
+      processNode: function DialogNode({ attribs }, children) {
+        return <Dialog {...attribs}>{children}</Dialog>;
       },
     },
     {
-      shouldProcessNode: (node) =>
-        node.type === "tag" && node.name === "youtube",
-      processNode: function Youtube(node) {
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "youtube",
+      processNode: function YoutubeVideoNode({ attribs }) {
         return (
           <iframe
             width="560"
             height="315"
-            src={`https://www.youtube-nocookie.com/embed/${node.attribs.id}`}
-            title={node.attribs.title}
+            src={`https://www.youtube-nocookie.com/embed/${attribs.id}`}
+            title={attribs.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -294,24 +279,20 @@ const _mapProps = (source) => ({
   plugins: [gfm],
   astPlugins: [parseHtml],
   renderers: {
-    paragraph: function Para({ node, children }) {
-      if (
-        node.children[0].type === "text" ||
-        node.children[0].type === "link" ||
-        node.children[0].type === "strong" ||
-        node.children[0].type === "emphasis" ||
-        node.children[0].type === "inlineCode" ||
-        node.children[0].type === "delete" ||
-        node.children[0].tag === "dfn" ||
-        node.children[0].tag === "abbr" ||
-        node.children[0].tag === "i" ||
-        node.children[0].tag === "em"
-      ) {
-        return <p>{children}</p>;
-      }
-      return <>{children}</>;
+    paragraph: function ParagraphMd({ node, children }) {
+      const allowedChildren = {
+        types: ["text", "link", "strong,", "emphasis", "inlineCode", "delete"],
+        tags: ["dfn", "abbr", "i", "em"],
+      };
+
+      return allowedChildren.types.includes(node.children[0].type) ||
+        allowedChildren.tags.includes(node.children[0].tag) ? (
+        <p>{children}</p>
+      ) : (
+        <>{children}</>
+      );
     },
-    link: function Link({ children, node, ...attribs }) {
+    link: function LinkMd({ children, node, ...attribs }) {
       return (
         <A
           target="_blank"
@@ -323,32 +304,23 @@ const _mapProps = (source) => ({
         </A>
       );
     },
-    thematicBreak: function Break() {
-      return (
-        <>
-          <hr />
-          <style jsx>{`
-            hr {
-              margin: 0.5em 0;
-            }
-          `}</style>
-        </>
-      );
+    thematicBreak: function HorizontalRuleMd() {
+      return <Hr />;
     },
-    inlineCode: function Inline({ children }) {
+    inlineCode: function InlineCodeMd({ children }) {
       return <InlineCode>{children}</InlineCode>;
     },
-    blockquote: function BlokQuote({ children }) {
+    blockquote: function BlockQuoteMd({ children }) {
       return <Blockquote>{children}</Blockquote>;
     },
-    list: function Lists({ ordered, children, depth }) {
+    list: function ListsNode({ ordered, children, depth }) {
       if (ordered) {
         return <Ol depth={depth}>{children}</Ol>;
       } else {
         return <Ul depth={depth}>{children}</Ul>;
       }
     },
-    listItem: function ListsItems({ children, checked }) {
+    listItem: function ListsItemMd({ children, checked }) {
       return (
         <Li checked={checked}>
           {children[0].props.node && children[0].props.node.type === "paragraph"
@@ -357,20 +329,20 @@ const _mapProps = (source) => ({
         </Li>
       );
     },
-    image: function Image({ src, alt, title, attribs }) {
+    image: function ImageMD({ src, alt, title, attribs }) {
       return <Img src={src} alt={alt} title={title} {...attribs} />;
     },
-    table: function Tab({ children }) {
+    table: function TableMd({ children }) {
       return <Table>{children}</Table>;
     },
-    tableCell: function ThTd({ isHeader, align, children }) {
+    tableCell: function TableCellMd({ isHeader, align, children }) {
       if (isHeader) {
         return <Th>{children}</Th>;
       } else {
         return <Td align={align}>{children}</Td>;
       }
     },
-    heading: function HeadingRenderer(props) {
+    heading: function HeadingMd(props) {
       if (props.level === 2) {
         return <h2 id={slugify(props.children)}>{props.children}</h2>;
       }
@@ -378,14 +350,12 @@ const _mapProps = (source) => ({
       const Heading = ReactMarkdown.renderers.heading;
       return <Heading {...props} />;
     },
-    code: function CodeBlk({ language, value = "", node }) {
+    code: function CodeBlockMd({ language, value = "", node }) {
       return <CodeBlock language={language} value={value} meta={node.meta} />;
     },
   },
 });
 
-const Markdown = ({ source }) => {
+export default function Markdown({ source }) {
   return <ReactMarkdown {..._mapProps(source)} />;
-};
-
-export default Markdown;
+}

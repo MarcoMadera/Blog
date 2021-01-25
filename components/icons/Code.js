@@ -1,8 +1,10 @@
 import { colors } from "../../styles/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-function Code(props) {
+
+export default function Code(props) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
       <title>Código</title>
@@ -21,5 +23,3 @@ function Code(props) {
     </svg>
   );
 }
-
-export default Code;

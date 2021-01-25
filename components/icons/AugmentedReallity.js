@@ -1,9 +1,10 @@
-import React from "react";
 import { colors } from "../../styles/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-function AugmentedReallity(props) {
+
+export default function AugmentedReallity(props) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
       <title>Realidad Aumentada</title>
@@ -18,5 +19,3 @@ function AugmentedReallity(props) {
     </svg>
   );
 }
-
-export default AugmentedReallity;

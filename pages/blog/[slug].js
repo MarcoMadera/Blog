@@ -17,7 +17,7 @@ import getTweets from "../../lib/get-tweets";
 import { Tweets } from "../../lib/tweets";
 import useMounted from "../../hooks/useMounted";
 import { useRouter } from "next/router";
-import { H1, ALink } from "../../components/tags";
+import { H1, ALink, Hr } from "../../components/tags";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout";
 
@@ -92,7 +92,7 @@ export default function Post({
             <MarkDown source={content} />
           </Tweets.Provider>
         </div>
-        <hr />
+        <Hr />
         <BlogFooter
           slug={slug}
           title={title}
@@ -151,7 +151,7 @@ export default function Post({
         article > :global(div:nth-of-type(2)) {
           grid-area: comments;
         }
-        hr {
+        article > :global(hr) {
           grid-area: hr;
         }
         header :global(h1) {

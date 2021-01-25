@@ -1,9 +1,10 @@
-import Seo from "../../../components/Seo";
-import { H1, H2, Img, P, ALink } from "../../../components/tags";
-import ActionAnchor from "../../../components/ActionAnchor";
-import ReactIcon from "../../../components/icons/React";
-import ChartJs from "../../../components/icons/ChartJs";
-const Random = () => {
+import ActionAnchor from "../../components/ActionAnchor";
+import { ALink, H1, H2, Img, P } from "../../components/tags";
+import ChartJs from "../../components/icons/ChartJs";
+import ReactIcon from "../../components/icons/React";
+import Seo from "../../components/Seo";
+
+export default function TestRandomNumbers() {
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Números Pseudo Aleatorios" />
@@ -44,43 +45,41 @@ const Random = () => {
         </div>
       </article>
       <style jsx>{`
-        div :global(a) {
-          margin: 20px 20px 0 0;
-        }
-        main {
-          margin: 0 auto;
-          padding: 0 20px;
-          max-width: 1300px;
-          min-height: calc(100vh - 160px);
-        }
-        :global(h1) {
-          text-align: center;
-        }
-        :global(p) {
-          text-align: justify;
-        }
         article {
+          align-items: center;
           display: grid;
           grid-template-columns: 1fr 1fr;
           margin-bottom: 40px;
-          align-items: center;
         }
         article > div:nth-of-type(2) {
           padding: 40px;
         }
+        div :global(a) {
+          margin: 20px 20px 0 0;
+        }
         div:nth-of-type(1) {
           padding: 40px;
+        }
+        main {
+          margin: 0 auto;
+          max-width: 1300px;
+          min-height: calc(100vh - 160px);
+          padding: 0 20px;
+        }
+        main :global(h1) {
+          text-align: center;
+        }
+        main :global(p) {
+          text-align: justify;
         }
         @media print, screen and (max-width: 876px) {
           article {
             grid-template-columns: auto;
-          }
-          article {
-            margin-top: 0px;
             margin-bottom: 20px;
+            margin-top: 0px;
           }
-          article > div:nth-of-type(2),
-          article > div:nth-of-type(1) {
+          article > div:nth-of-type(1),
+          article > div:nth-of-type(2) {
             padding: 0px;
           }
           article > div:nth-of-type(1) a {
@@ -90,6 +89,4 @@ const Random = () => {
       `}</style>
     </main>
   );
-};
-
-export default Random;
+}

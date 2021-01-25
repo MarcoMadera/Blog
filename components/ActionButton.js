@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { ThemeContext } from "./Layout";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
-const ActionButton = ({ children, ...attribs }) => {
+
+export default function ActionButton({ children, ...attribs }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <button {...attribs}>
       {children}
@@ -48,10 +50,8 @@ const ActionButton = ({ children, ...attribs }) => {
       `}</style>
     </button>
   );
-};
+}
 
 ActionButton.propTypes = {
   children: PropTypes.node,
 };
-
-export default ActionButton;

@@ -1,17 +1,21 @@
-import Link from "next/link";
 import { colors } from "../styles/theme";
-import { siteMetadata } from "../site.config";
+import Link from "next/link";
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { siteMetadata } from "../site.config";
 import { ThemeContext } from "./Layout";
-const Anchor = ({ href, children }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer">
-    {children}
-  </a>
-);
+import { useContext } from "react";
 
-const Footer = () => {
+function Anchor({ href, children }) {
+  return (
+    <a href={href} rel="noopener noreferrer" target="_blank">
+      {children}
+    </a>
+  );
+}
+
+function Footer() {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <footer>
       <Link href="/newsletter">
@@ -25,27 +29,26 @@ const Footer = () => {
       <span>Marco Madera &copy; 2020 - 2021</span>
       <style jsx>{`
         footer {
+          align-items: center;
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
           display: flex;
           flex-wrap: wrap;
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
-          min-height: 80px;
           justify-content: center;
-          align-items: center;
+          min-height: 80px;
           text-align: center;
-          flex-wrap: wrap;
+        }
+        footer :global(a) {
+          color: inherit;
+          margin: 0 10px;
+          text-decoration: none;
         }
         span {
           display: inline-flex;
         }
-        footer :global(a) {
-          margin: 0 10px;
-          text-decoration: none;
-          color: inherit;
-        }
       `}</style>
     </footer>
   );
-};
+}
 
 Anchor.propTypes = {
   children: PropTypes.node,

@@ -1,9 +1,11 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-export const Details = ({ children }) => {
+import { useContext } from "react";
+
+export function Details({ children }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <details>
       {children}
@@ -34,29 +36,30 @@ export const Details = ({ children }) => {
       `}</style>
     </details>
   );
-};
-export const Select = ({ children, name }) => {
+}
+export function Select({ children, name }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <select name={name}>
       {children}
       <style jsx>{`
         select {
           background: ${darkMode ? colors.dark_background : colors.background};
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
           border: 1px solid ${colors.accents1};
           border-radius: 4px;
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
           padding: 0.5em;
         }
       `}</style>
     </select>
   );
-};
+}
 
 Details.propTypes = {
   children: PropTypes.node,
 };
 Select.propTypes = {
-  name: PropTypes.string,
   children: PropTypes.node,
+  name: PropTypes.string,
 };

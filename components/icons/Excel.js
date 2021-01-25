@@ -1,4 +1,4 @@
-function Excel(props) {
+export default function Excel(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,5 +26,3 @@ function Excel(props) {
     </svg>
   );
 }
-
-export default Excel;

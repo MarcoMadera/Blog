@@ -1,4 +1,4 @@
-function Vba(props) {
+export default function Vba(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" {...props}>
       <title>Visual Basic for Applications</title>
@@ -65,5 +65,3 @@ function Vba(props) {
     </svg>
   );
 }
-
-export default Vba;

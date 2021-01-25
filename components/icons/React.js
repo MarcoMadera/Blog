@@ -1,4 +1,4 @@
-function ReactIcon(props) {
+export default function ReactIcon(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="200 50 450 500" {...props}>
       <title>ReactJS</title>
@@ -9,5 +9,3 @@ function ReactIcon(props) {
     </svg>
   );
 }
-
-export default ReactIcon;

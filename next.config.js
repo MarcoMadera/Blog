@@ -44,7 +44,12 @@ module.exports = {
       },
       {
         source: "/portfolio/challenges",
-        destination: "/portafolio/retos",
+        destination: "/portafolio/retos-frontend",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/random-numbers-test",
+        destination: "/portafolio/test-de-numeros-aleatorios",
         permanent: true,
       },
       {

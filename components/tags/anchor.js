@@ -1,43 +1,46 @@
 import { colors } from "../../styles/theme";
-import PropTypes from "prop-types";
 import Link from "next/link";
-import { useContext } from "react";
+import PropTypes from "prop-types";
 import { ThemeContext } from "../Layout";
+import { useContext } from "react";
 
-export const A = ({ href, title, children, classname, ...attribs }) => {
+export function A({ classname, children, href, title, ...attribs }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <a
+      className={classname}
       href={href}
       title={title === "" ? undefined : title ?? href}
       {...attribs}
-      className={classname}
     >
       {children}
       <style jsx>{`
         a {
+          color: ${darkMode ? colors.dark_primary : colors.primary};
           display: inline;
           text-decoration: none;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
         }
         a:hover,
         a:focus {
-          text-decoration: underline;
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
+          text-decoration: underline;
         }
       `}</style>
     </a>
   );
-};
-export const ALink = ({
+}
+
+export function ALink({
+  as: asref,
+  classname,
+  children,
   href,
   title,
-  children,
-  classname,
-  as: asref,
   ...attribs
-}) => {
+}) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <>
       <Link href={href} as={asref}>
@@ -51,31 +54,30 @@ export const ALink = ({
       </Link>
       <style jsx>{`
         a {
+          color: ${darkMode ? colors.dark_primary : colors.primary};
           display: inline;
           text-decoration: none;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
         }
-        a:hover,
-        a:focus {
-          text-decoration: underline;
+        a:focus,
+        a:hover {
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
+          text-decoration: underline;
         }
       `}</style>
     </>
   );
-};
+}
 
 A.propTypes = {
+  classname: PropTypes.string,
   children: PropTypes.node,
   href: PropTypes.string,
   title: PropTypes.string,
-  classname: PropTypes.string,
-  node: PropTypes.object,
 };
 ALink.propTypes = {
+  as: PropTypes.string,
+  classname: PropTypes.string,
   children: PropTypes.node,
   href: PropTypes.string,
   title: PropTypes.string,
-  as: PropTypes.string,
-  classname: PropTypes.string,
 };

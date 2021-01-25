@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { ThemeContext } from "./Layout";
 import { colors } from "../styles/code/colors";
 import Head from "next/head";
-const Colors = ({ ...allColors }) => {
+
+export default function Colors({ ...allColors }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <Head>
       <style>
@@ -17,6 +19,4 @@ const Colors = ({ ...allColors }) => {
       </style>
     </Head>
   );
-};
-
-export default Colors;
+}

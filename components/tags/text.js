@@ -2,79 +2,43 @@ import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { ThemeContext } from "../Layout";
-export const P = ({ children }) => {
-  return (
-    <p>
-      {children}
-      <style jsx>{`
-        p {
-          margin: 1em 0;
-          line-height: 25.6px;
-          -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-          page-break-inside: avoid; /* Firefox */
-          break-inside: avoid; /* IE 10+ */
-        }
-      `}</style>
-    </p>
-  );
-};
-export const Abbr = ({ children, ...attribs }) => {
+
+export function Abbr({ children, ...attribs }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <abbr {...attribs}>
       {children}
       <style jsx>{`
         abbr {
-          text-decoration: none;
           position: relative;
+          text-decoration: none;
         }
         abbr:after {
+          border-color: ${darkMode ? colors.dark_primary : colors.primary};
+          border-style: dashed;
+          border-width: 0 0 2px;
+          bottom: 0px;
           content: "";
           width: 100%;
-          position: absolute;
           left: 0;
-          bottom: 0px;
-          border-width: 0 0 2px;
-          border-style: dashed;
-          border-color: ${darkMode ? colors.dark_primary : colors.primary};
+          position: absolute;
         }
         @media print {
           abbr:after {
+            border: none;
             content: " (" attr(title) ") ";
             position: unset;
-            border: none;
           }
         }
       `}</style>
     </abbr>
   );
-};
-export const Kbd = ({ children, ...attribs }) => {
-  return (
-    <kbd {...attribs}>
-      {children}
-      <style jsx>{`
-        kbd {
-          background-color: #eee;
-          font-family: monospace;
-          border-radius: 3px;
-          border: 1px solid #b4b4b4;
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
-            0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
-          color: #333;
-          display: inline-block;
-          font-size: 0.85em;
-          font-weight: 700;
-          line-height: 1;
-          padding: 2px 4px;
-          white-space: nowrap;
-        }
-      `}</style>
-    </kbd>
-  );
-};
-export const Blockquote = ({ children }) => {
+}
+
+export function Blockquote({ children }) {
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <blockquote>
       {children}
@@ -82,9 +46,9 @@ export const Blockquote = ({ children }) => {
         blockquote {
           border-left: 5px solid
             ${darkMode ? colors.dark_primary : colors.primary};
-          padding-left: 10px;
           margin-left: 30px;
           margin-right: 30px;
+          padding-left: 10px;
         }
         @media screen and (min-width: 0px) and (max-width: 500px) {
           blockquote {
@@ -95,17 +59,97 @@ export const Blockquote = ({ children }) => {
       `}</style>
     </blockquote>
   );
-};
+}
 
-P.propTypes = {
+export function Dialog({ children, ...attr }) {
+  const { darkMode } = useContext(ThemeContext);
+  return (
+    <dialog {...attr}>
+      {children}
+      <style jsx>{`
+        dialog {
+          background: ${darkMode ? colors.dark_background : colors.background};
+          border-color: ${colors.primary};
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          margin: 0 auto;
+          padding: 10px;
+        }
+      `}</style>
+    </dialog>
+  );
+}
+
+export function Hr({ ...attr }) {
+  return (
+    <>
+      <hr {...attr} />
+      <style jsx>{`
+        hr {
+          border: 1px solid #ccc;
+          border-bottom: 0px;
+          border-left: 0px;
+          border-right: 0px;
+          margin: 0.5em 0;
+        }
+      `}</style>
+    </>
+  );
+}
+
+export function Kbd({ children, ...attribs }) {
+  return (
+    <kbd {...attribs}>
+      {children}
+      <style jsx>{`
+        kbd {
+          background-color: #eee;
+          border: 1px solid #b4b4b4;
+          border-radius: 3px;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+            0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+          color: #333;
+          display: inline-block;
+          font-family: monospace;
+          font-size: 0.85em;
+          font-weight: 700;
+          line-height: 1;
+          padding: 2px 4px;
+          white-space: nowrap;
+        }
+      `}</style>
+    </kbd>
+  );
+}
+
+export function P({ children }) {
+  return (
+    <p>
+      {children}
+      <style jsx>{`
+        p {
+          -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+          break-inside: avoid; /* IE 10+ */
+          line-height: 25.6px;
+          margin: 1em 0;
+          page-break-inside: avoid; /* Firefox */
+        }
+      `}</style>
+    </p>
+  );
+}
+
+Abbr.propTypes = {
   children: PropTypes.node,
 };
-Abbr.propTypes = {
+Blockquote.propTypes = {
+  children: PropTypes.node,
+};
+Dialog.propTypes = {
   children: PropTypes.node,
 };
 Kbd.propTypes = {
   children: PropTypes.node,
 };
-Blockquote.propTypes = {
+P.propTypes = {
   children: PropTypes.node,
 };

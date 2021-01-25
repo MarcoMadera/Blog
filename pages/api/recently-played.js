@@ -1,8 +1,8 @@
 import { getRecentlyPlayed } from "../../lib/spotify";
 
-export default async (_, res) => {
+export default async function recentlyPlayed(_, res) {
   const response = await getRecentlyPlayed();
-  const recentlyPlayed = {
+  const track = {
     artist: response.items[0].track.artists
       .map((_artist) => _artist.name)
       .join(", "),
@@ -11,5 +11,5 @@ export default async (_, res) => {
     cover: response.items[0].track.album.images[2].url,
   };
   res.statusCode = 200;
-  res.json(recentlyPlayed);
-};
+  res.json(track);
+}

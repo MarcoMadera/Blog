@@ -1,4 +1,4 @@
-function FacebookShare(props) {
+export default function FacebookShare(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,5 +14,3 @@ function FacebookShare(props) {
     </svg>
   );
 }
-
-export default FacebookShare;

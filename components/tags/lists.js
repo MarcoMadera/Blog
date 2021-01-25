@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const Ol = ({ attribs, children, depth }) => {
+export function Ol({ attribs, children, depth }) {
   return (
     <ol {...attribs}>
       {children}
@@ -11,9 +11,9 @@ export const Ol = ({ attribs, children, depth }) => {
       `}</style>
     </ol>
   );
-};
+}
 
-export const Ul = ({ attribs, children, depth }) => {
+export function Ul({ attribs, children, depth }) {
   return (
     <ul {...attribs}>
       {children}
@@ -24,40 +24,40 @@ export const Ul = ({ attribs, children, depth }) => {
       `}</style>
     </ul>
   );
-};
+}
 
-export const Li = ({ children, checked, ...attribs }) => {
+export function Li({ children, checked, ...attribs }) {
   return (
     <li {...attribs}>
       {checked === true && (
         <input
-          style={{ marginRight: "5px" }}
-          type="checkbox"
           checked
           readOnly
+          style={{ marginRight: "5px" }}
+          type="checkbox"
         />
       )}
       {checked === false && (
         <input
-          style={{ marginRight: "5px" }}
-          type="checkbox"
           checked={false}
           readOnly
+          style={{ marginRight: "5px" }}
+          type="checkbox"
         />
       )}
       {children}
       <style jsx>{`
         li {
-          list-style-position: outside;
           font-size: 1rem;
           font-weight: 400;
           line-height: 1.6;
+          list-style-position: outside;
           text-align: justify;
         }
       `}</style>
     </li>
   );
-};
+}
 
 Ol.propTypes = {
   attribs: PropTypes.object,

@@ -1,10 +1,10 @@
 export { A, ALink } from "./anchor";
 export { Meter, Progress } from "./bars";
-export { InlineCode, CodeBlock, Pre } from "./code";
-export { P, Blockquote, Kbd, Abbr } from "./text";
-export { Table, Th, Td } from "./table";
-export { Img, Video } from "./media";
-export { Details, Select } from "./interactive";
-export { Input } from "./inputs";
-export { Ol, Ul, Li } from "./lists";
+export { CodeBlock, InlineCode, Pre } from "./code";
 export { H1, H2, H3 } from "./headers";
+export { Input } from "./inputs";
+export { Details, Select } from "./interactive";
+export { Li, Ol, Ul } from "./lists";
+export { Img, Video } from "./media";
+export { Table, Th, Td } from "./table";
+export { Abbr, Blockquote, Dialog, Hr, Kbd, P } from "./text";

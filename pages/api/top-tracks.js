@@ -1,6 +1,6 @@
 import { getTopTracks } from "../../lib/spotify";
 
-export default async (_, res) => {
+export default async function topTracks(_, res) {
   const { items } = await getTopTracks();
   const tracks = items.map((track) => ({
     artist: track.artists.map((_artist) => _artist.name).join(", "),
@@ -11,4 +11,4 @@ export default async (_, res) => {
 
   res.statusCode = 200;
   res.json(tracks);
-};
+}
