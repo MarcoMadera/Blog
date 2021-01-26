@@ -1,7 +1,7 @@
 ---
 title: "Tipos y objetos en JavaScript"
 description: En JavaScript tenemos varios tipos de datos; booleanos, numéricos, los de texto o string, el null que indica que una variable.
-date: 2021-01-20
+date: 2021-01-27
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1611100833/Blog/tipos-y-objetos-en-javascript/Js_ul0yih.png
 author: Marco Madera
 tags:
