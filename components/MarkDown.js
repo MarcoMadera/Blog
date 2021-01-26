@@ -292,12 +292,13 @@ const _mapProps = (source) => ({
         <>{children}</>
       );
     },
-    link: function LinkMd({ children, node, ...attribs }) {
+    link: function LinkMd({ children, node, href, ...attribs }) {
       return (
         <A
-          target="_blank"
+          target={href.startsWith("#") ? "_self" : "_blank"}
           title={node.title}
-          rel="noopener noreferrer"
+          rel={href.startsWith("#") ? undefined : "noopener noreferrer"}
+          href={href}
           {...attribs}
         >
           {children}

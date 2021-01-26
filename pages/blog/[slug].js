@@ -107,6 +107,7 @@ export default function Post({
               title=""
               href={"/blog/[slug]"}
               as={`/blog/${previousPost.slug}`}
+              rel="prev"
             >
               <p>← Artículo anterior</p>
               {previousPost.title}
@@ -115,7 +116,12 @@ export default function Post({
             <div />
           )}
           {nextPost ? (
-            <ALink title="" href={"/blog/[slug]"} as={`/blog/${nextPost.slug}`}>
+            <ALink
+              title=""
+              href={"/blog/[slug]"}
+              as={`/blog/${nextPost.slug}`}
+              rel="next"
+            >
               <p>Siguiente artículo →</p>
               {nextPost.title}
             </ALink>
