@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:rss": "node ./lib/feed.js",
+    "build:rss": "set NODE_ENV=production&& node ./lib/feed.js",
     "start": "next start",
     "test": "jest --watch",
     "test:ci": "jest --ci"
