@@ -6,17 +6,14 @@ import Contents from "../../components/Contents";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
 import RecommendedPosts from "../../components/RecommendedPosts";
-import { FastCommentsCommentWidget } from "fastcomments-react";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
 import { colors } from "../../styles/theme";
 import { getFormattedDate } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
-import { siteMetadata, imageCloudProvider } from "../../site.config";
+import { imageCloudProvider } from "../../site.config";
 import getTweets from "../../lib/get-tweets";
 import { Tweets } from "../../lib/tweets";
-import useMounted from "../../hooks/useMounted";
-import { useRouter } from "next/router";
 import { H1, ALink, Hr } from "../../components/tags";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout";
@@ -38,9 +35,6 @@ export default function Post({
   slug,
   tweets,
 }) {
-  const { NEXT_PUBLIC_COMMENTS: tenantId } = process.env;
-  const router = useRouter();
-  const mounted = useMounted();
   const { darkMode } = useContext(ThemeContext);
   const h2s = toc(content)
     .json.filter(({ lvl }) => lvl === 2)
@@ -129,14 +123,6 @@ export default function Post({
             <div />
           )}
         </nav>
-        {mounted && (
-          <FastCommentsCommentWidget
-            tenantId={tenantId}
-            urlId={`${siteMetadata.siteUrl}${router.asPath}`}
-            url={`${siteMetadata.siteUrl}${router.asPath}`}
-            hasDarkBackground={darkMode}
-          />
-        )}
       </article>
       <aside>
         <AllTags tags={tags} title="Etiquetas del artículo" />
@@ -153,9 +139,6 @@ export default function Post({
         }
         div[itemProp="articlebody"] {
           grid-area: body;
-        }
-        article > :global(div:nth-of-type(2)) {
-          grid-area: comments;
         }
         article > :global(hr) {
           grid-area: hr;
@@ -239,7 +222,7 @@ export default function Post({
           article {
             display: grid;
             grid-template-columns: 240px minmax(0, 982px);
-            grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav" "toc comments";
+            grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav";
             column-gap: 2em;
           }
         }

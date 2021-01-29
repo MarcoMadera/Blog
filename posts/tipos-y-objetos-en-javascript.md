@@ -89,7 +89,7 @@ La coerción sucede cuando tenemos que **convertir un valor de un tipo de dato a
 true + 5 // 6
 ```
 
-Aquí estamos sumando un número 2 con el valor `null` y estamos recibiendo un resultado `false`. ¿Por qué sucede esto? Bueno, sucede porque JavaScript está convirtiendo el valor `true` a 1 para darle sentido a esta operación. En este caso, el 2 nos retorna un `true` como *booleano* y el `null` como un `false`. Al no ser iguales recibimos un `false`.
+Aquí estamos sumando el valor booleano true con el número 5 y estamos recibiendo un resultado de 6. ¿Por qué sucede esto? Bueno, sucede porque JavaScript está convirtiendo el valor `true` a 1 para darle sentido a esta operación. En este caso, `true` nos retorna un 1. Al sumarse recibimos un 6.
 
 ```javascript
 ["abc"] + "abc" // abcabc
@@ -233,7 +233,7 @@ estudiante.permisos();
 
 Se puede observar las similitudes a los prototipos, se declara la clase, dentro tiene el método constructor donde recibe las propiedades y se declaran los métodos. Ahora al ver la estructura del objeto vemos lo siguiente donde la izquierda es creada en forma de prototipo y la derecha en forma de clase.
 
-![Prototipos vs Classes](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_630,h_267dpr_auto/v1611633447/Blog/tipos-y-objetos-en-javascript/Proto-vs-Classes_xdvwjy.png)
+![Prototipos vs Classes](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_630,h_267,dpr_auto/v1611633447/Blog/tipos-y-objetos-en-javascript/Proto-vs-Classes_xdvwjy.png)
 
 Se puede observar que la diferencia es que en el constructor una es de tipo función y la otra dice `class`, pero al ver el tipo se puede ver que por detrás la clase es una función.
 

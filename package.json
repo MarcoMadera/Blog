@@ -30,7 +30,6 @@
     "@zeit/fetch": "^5.2.0",
     "cheerio": "^1.0.0-rc.3",
     "date-fns": "^2.16.1",
-    "fastcomments-react": "^1.0.3",
     "github-slugger": "^1.3.0",
     "gray-matter": "^4.0.2",
     "markdown-toc-unlazy": "^1.0.1",
