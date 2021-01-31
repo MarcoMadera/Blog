@@ -18,10 +18,9 @@ export default function Seo({
   const metaTitle = title || siteMetadata.title;
   const router = useRouter();
   const { darkMode } = useContext(ThemeContext);
-
   return (
     <Head>
-      <title>{title}</title>
+      <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={metaTitle} />
       <link
@@ -54,7 +53,8 @@ export default function Seo({
       />
       <meta name="twitter:site" content={`@${siteMetadata.social.twitter}`} />
       <meta property="fb:app_id" content="373017180730319" />
-      {router.asPath.includes("/blog/") ? (
+      {router.asPath.startsWith("/blog/") &&
+      !router.asPath.startsWith("/blog/etiqueta") ? (
         <>
           <meta property="og:type" content="article" />
           {author === siteMetadata.author.name && (
@@ -70,7 +70,15 @@ export default function Seo({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{"@context": "http://schema.org","@type": "Article", headline: "${title}", description: "${metaDescription}", image: "${cover}", datePublished: "${date}", author: {"@type": "Person", name: "${author}"}, publisher: {"@type": "Organization", name: "${siteMetadata.siteUrl}", logo: { "@type": "ImageObject", url: "${siteMetadata.siteUrl}logo.svg" }, mainEntityOfPage: {"@type": "WebPage","@id": "${siteMetadata.siteUrl}${router.asPath}"},},}`,
+              __html: `{"@context": "https://schema.org","@type": "Article", headline: "${metaTitle}", description: "${metaDescription}", image: "${cover}", datePublished: "${date}", author: {"@type": "Person", name: "${
+                author || siteMetadata.author.name
+              }"}, publisher: {"@type": "Organization", name: "${
+                siteMetadata.siteUrl
+              }", logo: { "@type": "ImageObject", url: "${
+                siteMetadata.siteUrl
+              }/logo.svg" }, mainEntityOfPage: {"@type": "WebPage","@id": "${
+                siteMetadata.siteUrl
+              }${router.asPath}"},},}`,
             }}
           />
         </>
