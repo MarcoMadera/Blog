@@ -3,6 +3,7 @@ import Seo from "../../components/Seo";
 import MarkDown from "../../components/MarkDown";
 import toc from "markdown-toc-unlazy";
 import Contents from "../../components/Contents";
+import Comments from "../../components/comments/index";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
 import RecommendedPosts from "../../components/RecommendedPosts";
@@ -123,6 +124,7 @@ export default function Post({
             <div />
           )}
         </nav>
+        <Comments slug={slug} />
       </article>
       <aside>
         <AllTags tags={tags} title="Etiquetas del artículo" />
@@ -222,7 +224,7 @@ export default function Post({
           article {
             display: grid;
             grid-template-columns: 240px minmax(0, 982px);
-            grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav";
+            grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav" "toc comments";
             column-gap: 2em;
           }
         }

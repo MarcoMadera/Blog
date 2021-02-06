@@ -65,10 +65,10 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
         ) : (
           <img
             alt={alt}
-            height={height}
+            height={height ? height : undefined}
             src={src}
             title={title || alt}
-            width={width}
+            width={width ? width : undefined}
           />
         )}
       </summary>
@@ -96,9 +96,9 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
             ) : (
               <img
                 alt={alt}
-                height={height}
+                height={height ? height : undefined}
                 src={src}
-                width={width}
+                width={width ? width : undefined}
                 title={title || alt}
               />
             )}
