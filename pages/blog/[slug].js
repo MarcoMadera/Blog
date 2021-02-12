@@ -2,7 +2,7 @@ import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/Markdown";
 import toc from "markdown-toc-unlazy";
-import Contents from "../../components/Contents";
+import TableOfContents from "../../components/TableOfContents";
 import Comments from "../../components/Comments";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
@@ -84,7 +84,7 @@ export default function Post({
             </time>
           </p>
         </header>
-        <Contents content={h2s} />
+        <TableOfContents content={h2s} />
         <div itemProp="articlebody">
           <Tweets.Provider value={tweets}>
             <MarkDown

@@ -18,7 +18,7 @@ function ListItem({ children }) {
   return <li>{children}</li>;
 }
 
-function Contents({ content = [] }) {
+export default function TableOfContents({ content = [] }) {
   return (
     <nav aria-labelledby="headerMenu">
       <Section>
@@ -68,7 +68,7 @@ function Contents({ content = [] }) {
   );
 }
 
-Contents.propTypes = {
+TableOfContents.propTypes = {
   content: PropTypes.array,
 };
 Section.propTypes = {
@@ -83,5 +83,3 @@ OrderedList.propTypes = {
 Heading.propTypes = {
   children: PropTypes.node,
 };
-
-export default Contents;
