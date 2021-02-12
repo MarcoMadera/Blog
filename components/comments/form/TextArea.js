@@ -27,7 +27,7 @@ export default function TextArea({
     <>
       <textarea
         id="Comment"
-        maxLength="400"
+        maxLength="800"
         placeholder="Escribe tu comentario"
         onChange={(e) => setComment(e.target.value)}
         onFocus={() => setSelectTextArea(true)}

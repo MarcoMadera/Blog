@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { Image, Anchor } from "../icons";
+import { Image, Anchor, ImageCloud, BlockCode, BlockQuote } from "../icons";
 import LoginButtons from "../login";
 import { ThemeContext } from "../../Layout";
 import { colors } from "../../../styles/theme";
@@ -20,15 +20,35 @@ export default function Options({
 }) {
   const { darkMode } = useContext(ThemeContext);
   const options = [
-    { name: "Cursiva", tagName: "i", children: "I" },
-    { name: "Negrita", tagName: "strong", children: "B" },
-    { name: "Tachado", tagName: "del", children: "D" },
-    { name: "Subrayado", tagName: "u", children: "U" },
+    { name: "Negrita", openMark: "**", closeMark: "**", children: "B" },
+    { name: "Cursiva", openMark: "*", closeMark: "*", children: "I" },
+    { name: "Tachado", openMark: "~~", closeMark: "~~", children: "D" },
+    {
+      name: "Subrayado",
+      openMark: "<u>",
+      closeMark: "</u>",
+      children: "U",
+    },
+    { name: "Código en línea", openMark: "`", closeMark: "`", children: "<>" },
+    {
+      name: "Bloque acotado",
+      type: "blockquote",
+      children: <BlockQuote width={13} height={13} />,
+    },
+    {
+      name: "Bloque de código",
+      type: "blockCode",
+      children: <BlockCode width={24} height={24} />,
+    },
     {
       name: "Enlace",
-      tagName: "enlace",
-      attr: "a",
+      type: "anchor",
       children: <Anchor width={17} height={17} />,
+    },
+    {
+      name: "Imagen por enlace",
+      type: "anchorImage",
+      children: <ImageCloud width={24} height={24} />,
     },
   ];
 
@@ -36,11 +56,28 @@ export default function Options({
     <div className="hiddenOptions">
       <div className="options__container">
         <div className="options">
+          {options.map(({ name, openMark, closeMark, children, type }) => {
+            return (
+              <Button
+                key={name}
+                title={name}
+                commentText={commentText}
+                setCurrentCaret={setCurrentCaret}
+                setComment={setComment}
+                openMark={openMark}
+                closeMark={closeMark}
+                setInfo={setInfo}
+                type={type}
+              >
+                {children}
+              </Button>
+            );
+          })}
           <label
             htmlFor="imageInput"
             className="optionButton"
             aria-label="Incluir imagen"
-            title="Imagen"
+            title="Subir imagen"
           >
             <Image width={23} height={23} />
             <input
@@ -53,22 +90,6 @@ export default function Options({
               }}
             />
           </label>
-          {options.map(({ name, tagName, children, attr }) => {
-            return (
-              <Button
-                key={tagName}
-                title={name}
-                commentText={commentText}
-                setCurrentCaret={setCurrentCaret}
-                setComment={setComment}
-                tagName={tagName}
-                setInfo={setInfo}
-                attr={attr}
-              >
-                {children}
-              </Button>
-            );
-          })}
         </div>
         <input
           type="submit"

@@ -1,70 +1,9 @@
-import { Img, A } from "../tags";
+import { Img } from "../tags";
 import React from "react";
-import HtmlToReactParser from "html-to-react";
 import PropTypes from "prop-types";
-
+import MarkDown from "../Markdown";
+import { instructions, renderers } from "../Markdown/instructions/comments";
 export default function Feed({ allComments }) {
-  function parseComment(comment) {
-    const allowedTags = ["i", "del", "strong", "u", "p"];
-    const isValidNode = ({ type }) => type !== "script";
-    const processNodeDefinitions = new HtmlToReactParser.ProcessNodeDefinitions(
-      React
-    );
-    const instructions = [
-      {
-        shouldProcessNode: function ({ type, name }) {
-          return type === "tag" && name === "enlace";
-        },
-        processNode: function Anchor(node, children) {
-          return node.attribs.a ? (
-            <A
-              target={node.attribs.a?.startsWith("#") ? "_self" : "_blank"}
-              rel={
-                node.attribs.a?.startsWith("#")
-                  ? undefined
-                  : "noopener noreferrer"
-              }
-              href={node.attribs.a}
-            >
-              {children}
-            </A>
-          ) : (
-            children
-          );
-        },
-      },
-      {
-        shouldProcessNode: function ({ type, name }) {
-          return type === "tag" && !allowedTags.includes(name);
-        },
-        processNode: function Text(_, children) {
-          return <>{children}</>;
-        },
-      },
-      {
-        // Anything else
-        shouldProcessNode: function ({ type, name }) {
-          if (allowedTags.includes(name)) {
-            return true;
-          }
-          if (type === "tag" && !allowedTags.includes(name)) {
-            return false;
-          }
-          return true;
-        },
-        processNode: processNodeDefinitions.processDefaultNode,
-      },
-    ];
-
-    const parser = HtmlToReactParser.Parser;
-    const htmlToReact = new parser();
-    const ParsedComment = htmlToReact.parseWithInstructions(
-      `<p>${comment}</p>`,
-      isValidNode,
-      instructions
-    );
-    return ParsedComment;
-  }
   return (
     <>
       {allComments.length > 0 ? (
@@ -82,8 +21,14 @@ export default function Feed({ allComments }) {
                   </i>
                 </header>
                 <img src={avatar} alt={username} title={username} />
-                {parseComment(comment)}
-                {img && <Img src={img} alt="" />}
+                <div>
+                  <MarkDown
+                    source={comment}
+                    instructions={instructions}
+                    renderers={renderers}
+                  />
+                  {img && <Img src={img} alt="" />}
+                </div>
               </article>
             </li>
           ))}
@@ -91,9 +36,11 @@ export default function Feed({ allComments }) {
             ul {
               margin: 5px 0;
             }
-            article :global(p) {
-              margin: 0;
+            div {
               grid-area: comment;
+            }
+            article :global(p) {
+              margin-top: 0;
               word-break: break-word;
               white-space: pre-wrap;
             }
@@ -107,6 +54,9 @@ export default function Feed({ allComments }) {
             }
             b {
               margin-right: 10px;
+            }
+            i {
+              font-size: 13px;
             }
             header {
               display: flex;

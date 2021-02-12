@@ -1,9 +1,9 @@
 import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Seo from "../../components/Seo";
-import MarkDown from "../../components/MarkDown";
+import MarkDown from "../../components/Markdown";
 import toc from "markdown-toc-unlazy";
 import Contents from "../../components/Contents";
-import Comments from "../../components/comments/index";
+import Comments from "../../components/Comments";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
 import RecommendedPosts from "../../components/RecommendedPosts";
@@ -18,7 +18,10 @@ import { Tweets } from "../../lib/tweets";
 import { H1, ALink, Hr } from "../../components/tags";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout";
-
+import {
+  renderers,
+  instructions,
+} from "../../components/Markdown/instructions/posts/";
 export default function Post({
   title,
   description,
@@ -84,7 +87,11 @@ export default function Post({
         <Contents content={h2s} />
         <div itemProp="articlebody">
           <Tweets.Provider value={tweets}>
-            <MarkDown source={content} />
+            <MarkDown
+              source={content}
+              instructions={instructions}
+              renderers={renderers}
+            />
           </Tweets.Provider>
         </div>
         <Hr />
