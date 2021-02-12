@@ -1,9 +1,9 @@
 import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Seo from "../../components/Seo";
-import MarkDown from "../../components/Markdown";
+import MarkDown from "../../components/Markdown/index";
 import toc from "markdown-toc-unlazy";
 import TableOfContents from "../../components/TableOfContents";
-import Comments from "../../components/Comments";
+import Comments from "../../components/Comment";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
 import RecommendedPosts from "../../components/RecommendedPosts";
