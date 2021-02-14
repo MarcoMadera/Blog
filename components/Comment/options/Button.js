@@ -9,107 +9,73 @@ export default function Button({
   children,
   type,
   setInfo,
+  mark,
   openMark,
   closeMark,
 }) {
-  function calculateCaretStart(initial, textbetweenTag) {
-    if (openMark && !textbetweenTag) {
-      return initial + openMark.length;
+  function calculateCaret(initial, textbetweenTag) {
+    if (mark) {
+      const caret = initial ? initial + mark.length + 1 : mark.length;
+      return { start: caret, end: caret };
     }
-    if (openMark && textbetweenTag) {
-      return (
-        initial + openMark.length + textbetweenTag.length + closeMark.length
-      );
-    }
-    if (type === "anchor") {
-      return initial + 1;
-    }
-    if (type === "blockCode") {
-      return initial + 4;
-    }
-    if (type === "blockquote") {
-      return initial + 3;
-    }
-    if (type === "anchorImage") {
-      return initial + 2;
-    }
-    return initial;
-  }
-  function calculateCaretEnd(initial, textbetweenTag) {
-    if (openMark) {
-      return initial + openMark.length;
-    }
-    if (openMark && textbetweenTag) {
-      return (
-        initial + openMark.length + textbetweenTag.length + closeMark.length
-      );
-    }
-    if (type === "blockquote") {
-      return initial + 3;
-    }
-    if (type === "blockCode") {
-      return initial + 12;
+    if (openMark && closeMark) {
+      const caret =
+        initial +
+        openMark.length +
+        (textbetweenTag.length && textbetweenTag.length + closeMark.length);
+
+      return { start: caret, end: caret };
     }
     if (type === "anchor") {
-      return initial + 20;
+      const caretStart =
+        initial + (textbetweenTag.length ? textbetweenTag.length + 3 : 18);
+      const caretEnd =
+        initial + (textbetweenTag.length ? textbetweenTag.length + 22 : 37);
+      return { start: caretStart, end: caretEnd };
     }
     if (type === "anchorImage") {
-      return initial + 32;
+      const caretEnd =
+        initial + (textbetweenTag.length ? textbetweenTag.length + 10 : 40);
+      return { start: initial + 10, end: caretEnd };
     }
-    return initial;
+    if (type === "blockCode") {
+      return {
+        start: initial + (initial ? 4 : 3),
+        end: initial ? initial + 12 : 11,
+      };
+    }
   }
   function newComment(commentBefore, textbetweenTag, commentAfter) {
-    if (openMark) {
+    if (mark) {
+      return `${
+        commentBefore.length ? `${commentBefore}\n${mark}` : mark
+      }${textbetweenTag}${commentAfter.length ? `${commentAfter}\n` : ""}`;
+    }
+    if (openMark && closeMark) {
       return (
         commentBefore + openMark + textbetweenTag + closeMark + commentAfter
       );
     }
-    if (type === "blockquote" && !textbetweenTag) {
-      return commentBefore + "\n> " + commentAfter;
+    if (type === "blockCode") {
+      return (
+        (commentBefore.length ? commentBefore + "\n" : "") +
+        `${"```lenguaje\n"}${
+          textbetweenTag || "Código"
+        }${"\n```"}\n${commentAfter}`
+      );
     }
-    if (type === "blockquote" && textbetweenTag) {
-      return commentBefore + "\n> " + textbetweenTag + "\n" + commentAfter;
-    }
-    if (type === "blockCode" && !textbetweenTag) {
-      return commentBefore + "\n```lenguage\nCódigo\n```\n" + commentAfter;
-    }
-    if (type === "blockCode" && textbetweenTag) {
+    if (type === "anchor") {
       return (
         commentBefore +
-        "\n```lenguage\n" +
-        textbetweenTag +
-        "\n" +
-        "```\n" +
+        `[${textbetweenTag || "texto a mostrar"}](` +
+        "https://ejemplo.com)" +
         commentAfter
       );
     }
-    if (type === "anchor" && !textbetweenTag) {
-      return (
-        commentBefore + "[https://ejemplo.com](texto a mostrar)" + commentAfter
-      );
-    }
-    if (type === "anchor" && textbetweenTag) {
+    if (type === "anchorImage") {
       return (
         commentBefore +
-        "[https://ejemplo.com](" +
-        textbetweenTag +
-        ")" +
-        commentAfter
-      );
-    }
-    if (type === "anchorImage" && !textbetweenTag) {
-      return (
-        commentBefore +
-        "![https://ejemplo.com/imagen.png](título)" +
-        commentAfter
-      );
-    }
-    if (type === "anchorImage" && textbetweenTag) {
-      return (
-        commentBefore +
-        "![https://ejemplo.com/imagen.png](" +
-        textbetweenTag +
-        ")" +
+        `![título](${textbetweenTag || "https://ejemplo.com/imagen.png"})` +
         commentAfter
       );
     }
@@ -134,13 +100,7 @@ export default function Button({
       lastPos,
       commentText.current.value.lenght
     );
-    const caretStart = calculateCaretStart(
-      commentBefore.length,
-      textbetweenTag
-    );
-    const caretEnd = calculateCaretEnd(commentBefore.length, textbetweenTag);
-
-    setCurrentCaret({ start: caretStart, end: caretEnd });
+    setCurrentCaret(calculateCaret(commentBefore.length, textbetweenTag));
 
     const text = newComment(commentBefore, textbetweenTag, commentAfter);
     setComment(text);

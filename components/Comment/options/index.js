@@ -1,5 +1,14 @@
 import Button from "./Button";
-import { Image, Anchor, ImageCloud, BlockCode, BlockQuote } from "../icons";
+import {
+  Image,
+  Anchor,
+  ImageCloud,
+  BlockCode,
+  BlockQuote,
+  BulletList,
+  CheckList,
+  NumberList,
+} from "../icons";
 import LoginButtons from "../login";
 import { ThemeContext } from "../../Layout";
 import { colors } from "../../../styles/theme";
@@ -20,19 +29,15 @@ export default function Options({
 }) {
   const { darkMode } = useContext(ThemeContext);
   const options = [
+    { name: "Título", type: "header", mark: "### ", children: "T" },
     { name: "Negrita", openMark: "**", closeMark: "**", children: "B" },
-    { name: "Cursiva", openMark: "*", closeMark: "*", children: "I" },
+    { name: "Cursiva", openMark: "_", closeMark: "_", children: "I" },
     { name: "Tachado", openMark: "~~", closeMark: "~~", children: "D" },
-    {
-      name: "Subrayado",
-      openMark: "<u>",
-      closeMark: "</u>",
-      children: "U",
-    },
     { name: "Código en línea", openMark: "`", closeMark: "`", children: "<>" },
     {
       name: "Bloque acotado",
       type: "blockquote",
+      mark: "> ",
       children: <BlockQuote width={13} height={13} />,
     },
     {
@@ -46,6 +51,24 @@ export default function Options({
       children: <Anchor width={17} height={17} />,
     },
     {
+      name: "Lista de puntos",
+      type: "bulletList",
+      mark: "- ",
+      children: <BulletList width={20} height={20} />,
+    },
+    {
+      name: "Lista de números",
+      type: "numberList",
+      mark: "1. ",
+      children: <NumberList width={20} height={20} />,
+    },
+    {
+      name: "Lista de tareas",
+      type: "checkList",
+      mark: "- [ ] ",
+      children: <CheckList width={18} height={18} />,
+    },
+    {
       name: "Imagen por enlace",
       type: "anchorImage",
       children: <ImageCloud width={24} height={24} />,
@@ -56,23 +79,26 @@ export default function Options({
     <div className="hiddenOptions">
       <div className="options__container">
         <div className="options">
-          {options.map(({ name, openMark, closeMark, children, type }) => {
-            return (
-              <Button
-                key={name}
-                title={name}
-                commentText={commentText}
-                setCurrentCaret={setCurrentCaret}
-                setComment={setComment}
-                openMark={openMark}
-                closeMark={closeMark}
-                setInfo={setInfo}
-                type={type}
-              >
-                {children}
-              </Button>
-            );
-          })}
+          {options.map(
+            ({ name, openMark, closeMark, children, type, mark }) => {
+              return (
+                <Button
+                  key={name}
+                  title={name}
+                  commentText={commentText}
+                  setCurrentCaret={setCurrentCaret}
+                  setComment={setComment}
+                  openMark={openMark}
+                  closeMark={closeMark}
+                  setInfo={setInfo}
+                  type={type}
+                  mark={mark}
+                >
+                  {children}
+                </Button>
+              );
+            }
+          )}
           <label
             htmlFor="imageInput"
             className="optionButton"
@@ -170,6 +196,11 @@ export default function Options({
         label:hover,
         label:focus {
           border: 1px solid #cccccca1;
+        }
+        @media screen and (max-width: 540px) {
+          input[type="submit"] {
+            width: 100%;
+          }
         }
       `}</style>
     </div>

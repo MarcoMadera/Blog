@@ -6,6 +6,22 @@ import PropTypes from "prop-types";
 import TextArea from "./TextArea";
 import Options from "../options";
 
+export function updateCommentsList(slug, setAllComments, setInfo) {
+  database
+    .ref("comments")
+    .orderByChild("post")
+    .equalTo(slug)
+    .limitToLast(10)
+    .once("value", (snapshot) => {
+      let allComments = [];
+      snapshot.forEach((snap) => {
+        allComments.unshift(snap.val());
+      });
+      setAllComments(allComments);
+    })
+    .catch(() => setInfo("Error al actualizar los comentarios"));
+}
+
 export default function Form({
   slug,
   user,
@@ -13,8 +29,9 @@ export default function Form({
   setAllComments,
   info,
   setInfo,
+  updateComments,
+  setUpdateComments,
 }) {
-  const [submitComment, setSubmitComment] = useState(false);
   const [selectTextArea, setSelectTextArea] = useState(false);
   const [imgURL, setImgURL] = useState(null);
   const [task, setTask] = useState(null);
@@ -25,20 +42,8 @@ export default function Form({
 
   useEffect(() => {
     setInfo("");
-    database
-      .ref("comments")
-      .orderByChild("post")
-      .equalTo(slug)
-      .limitToLast(10)
-      .once("value", (snapshot) => {
-        let allComments = [];
-        snapshot.forEach((snap) => {
-          allComments.unshift(snap.val());
-        });
-        setAllComments(allComments);
-      })
-      .catch(() => setInfo("Error al cargar los comentarios"));
-  }, [slug, submitComment, setAllComments, setInfo]);
+    updateCommentsList(slug, setAllComments, setInfo);
+  }, [slug, setAllComments, setInfo]);
 
   useEffect(() => {
     if (task) {
@@ -69,10 +74,9 @@ export default function Form({
   useEffect(() => {
     return () => setSelectTextArea(false);
   }, [slug]);
+
   async function handleSubmit(e) {
     e.preventDefault();
-    const commentsRef = database.ref().child("comments");
-    const newPostRef = commentsRef.push();
 
     setInfo("");
     if (!user) {
@@ -83,7 +87,10 @@ export default function Form({
       setInfo("Escribe al menos 10 caracteres");
       return;
     }
-    setSubmitComment(true);
+    const commentsRef = database.ref("comments");
+    const newPostRef = commentsRef.push();
+    const commentId = (await newPostRef).key.toString();
+    setUpdateComments(true);
     await newPostRef
       .set({
         username: user.username,
@@ -94,9 +101,11 @@ export default function Form({
         post: slug,
         date: firebase.database.ServerValue.TIMESTAMP,
         uid: user.uid,
+        commentId: commentId,
       })
       .catch(() => setInfo("Error al publicar el comentario"));
-    setSubmitComment(false);
+    updateCommentsList(slug, setAllComments, setInfo);
+    setUpdateComments(false);
     setImgURL(null);
     setComment("");
     setInfo("");
@@ -129,7 +138,7 @@ export default function Form({
         user={user}
         handleDrop={handleDrop}
         handleSubmit={handleSubmit}
-        submitComment={submitComment}
+        updateComments={updateComments}
         commentText={commentText}
         setCurrentCaret={setCurrentCaret}
         setComment={setComment}
@@ -173,4 +182,6 @@ Form.propTypes = {
   setUser: PropTypes.func,
   setAllComments: PropTypes.func,
   setInfo: PropTypes.func,
+  updateComments: PropTypes.bool,
+  setUpdateComments: PropTypes.func,
 };

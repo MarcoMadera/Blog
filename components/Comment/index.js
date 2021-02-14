@@ -7,9 +7,9 @@ import Form from "./form/index";
 
 export default function Comments({ slug }) {
   const [allComments, setAllComments] = useState([]);
+  const [updateComments, setUpdateComments] = useState(false);
   const [user, setUser] = useState(undefined);
   const [info, setInfo] = useState("");
-
   useEffect(() => {
     onAuthStateChanged(setUser);
   }, []);
@@ -35,10 +35,18 @@ export default function Comments({ slug }) {
         user={user}
         setUser={setUser}
         setAllComments={setAllComments}
+        updateComments={updateComments}
+        setUpdateComments={setUpdateComments}
         info={info}
         setInfo={setInfo}
       />
-      <Feed allComments={allComments} />
+      <Feed
+        allComments={allComments}
+        user={user}
+        setInfo={setInfo}
+        slug={slug}
+        setAllComments={setAllComments}
+      />
       <style jsx>{`
         button {
           border: 0;

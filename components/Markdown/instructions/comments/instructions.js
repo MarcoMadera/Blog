@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { A } from "../../../tags";
 
 export const instructions = {
@@ -6,19 +7,15 @@ export const instructions = {
   },
   processingInstructions: [
     {
-      shouldProcessNode: function ({ type, name }) {
-        return type === "tag" && name === "a";
-      },
-      processNode: function Anchor(node, children) {
-        return node?.attribs.href ? (
+      shouldProcessNode: ({ type, name }) => type === "tag" && name === "a",
+      processNode: function AnchorNode({ attribs }, children) {
+        return attribs.href ? (
           <A
-            target={node.attribs.href?.startsWith("#") ? "_self" : "_blank"}
+            target={attribs.href?.startsWith("#") ? "_self" : "_blank"}
             rel={
-              node.attribs.href?.startsWith("#")
-                ? undefined
-                : "noopener noreferrer"
+              attribs.href?.startsWith("#") ? undefined : "noopener noreferrer"
             }
-            href={node.attribs.a}
+            href={attribs?.href}
           >
             {children}
           </A>

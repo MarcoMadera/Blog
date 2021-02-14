@@ -12,14 +12,14 @@ import {
   Td,
   Th,
   Ul,
+  H3,
 } from "../../../tags";
-import ReactMarkdown from "react-markdown";
 
 export const renderers = {
   paragraph: function ParagraphMd({ node, children }) {
     const allowedChildren = {
       types: ["text", "link", "strong,", "emphasis", "inlineCode", "delete"],
-      tags: ["dfn", "abbr", "i", "em"],
+      tags: ["dfn", "abbr", "i", "em", "u"],
     };
     return allowedChildren.types.includes(node.children[0].type) ||
       allowedChildren.tags.includes(node.children[0].tag) ? (
@@ -80,12 +80,7 @@ export const renderers = {
     }
   },
   heading: function HeadingMd(props) {
-    if (props.level === 1) {
-      return <h2>{props.children}</h2>;
-    }
-
-    const Heading = ReactMarkdown.renderers.heading;
-    return <Heading {...props} />;
+    return <H3>{props.children}</H3>;
   },
   code: function CodeBlockMd({ language, value = "", node }) {
     return <CodeBlock language={language} value={value} meta={node.meta} />;

@@ -91,6 +91,7 @@ export default function Post({
               source={content}
               instructions={instructions}
               renderers={renderers}
+              escapeHtml={false}
             />
           </Tweets.Provider>
         </div>

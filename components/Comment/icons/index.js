@@ -6,3 +6,6 @@ export { Image } from "./Image";
 export { ImageCloud } from "./ImageCloud";
 export { BlockCode } from "./BlockCode";
 export { BlockQuote } from "./BlockQuote";
+export { BulletList } from "./BulletList";
+export { CheckList } from "./CheckList";
+export { NumberList } from "./NumberList";
