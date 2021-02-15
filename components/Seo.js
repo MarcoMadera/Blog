@@ -70,15 +70,15 @@ export default function Seo({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{"@context": "https://schema.org","@type": "Article", headline: "${metaTitle}", description: "${metaDescription}", image: "${cover}", datePublished: "${date}", author: {"@type": "Person", name: "${
+              __html: `{"@context":"https://schema.org","@type":"Article","headline":"${metaTitle}","description":"${metaDescription}","image":"${cover}","datePublished":"${date}","author":{"@type":"Person","name":"${
                 author || siteMetadata.author.name
-              }"}, publisher: {"@type": "Organization", name: "${
+              }"},"publisher":{"@type":"Organization","name":"${
                 siteMetadata.siteUrl
-              }", logo: { "@type": "ImageObject", url: "${
+              }","logo":{"@type":"ImageObject","url":"${
                 siteMetadata.siteUrl
-              }/logo.svg" }, mainEntityOfPage: {"@type": "WebPage","@id": "${
+              }/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"${
                 siteMetadata.siteUrl
-              }${router.asPath}"},},}`,
+              }${router.asPath}"}}`,
             }}
           />
         </>
