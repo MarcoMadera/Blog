@@ -29,7 +29,7 @@ export default function Options({
 }) {
   const { darkMode } = useContext(ThemeContext);
   const options = [
-    { name: "Título", type: "header", mark: "### ", children: "T" },
+    { name: "Título", type: "header", mark: "# ", children: "T" },
     { name: "Negrita", openMark: "**", closeMark: "**", children: "B" },
     { name: "Cursiva", openMark: "_", closeMark: "_", children: "I" },
     { name: "Tachado", openMark: "~~", closeMark: "~~", children: "D" },

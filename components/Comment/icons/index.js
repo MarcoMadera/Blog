@@ -9,3 +9,4 @@ export { BlockQuote } from "./BlockQuote";
 export { BulletList } from "./BulletList";
 export { CheckList } from "./CheckList";
 export { NumberList } from "./NumberList";
+export { Markdown } from "./Markdown";

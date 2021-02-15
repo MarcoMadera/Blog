@@ -81,6 +81,9 @@ export default function Feed({
               word-break: break-word;
               white-space: pre-wrap;
             }
+            article :global(h3) {
+              font-size: 1.4em;
+            }
             img {
               width: 60px;
               height: 60px;

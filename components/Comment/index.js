@@ -10,6 +10,7 @@ export default function Comments({ slug }) {
   const [updateComments, setUpdateComments] = useState(false);
   const [user, setUser] = useState(undefined);
   const [info, setInfo] = useState("");
+  const [preview, setPreview] = useState(false);
   useEffect(() => {
     onAuthStateChanged(setUser);
   }, []);
@@ -20,16 +21,28 @@ export default function Comments({ slug }) {
       .catch(() => setInfo("Ha ocurrido un error al cerrar sesión"));
   }
   return (
-    <div>
+    <section>
       <label htmlFor="Comment">
         <H2>Comentarios</H2>
       </label>
-      {user && (
-        <>
-          <span>Sesión iniciada como {user.username} </span>
-          <button onClick={handleLogOut}>(cerrar sesión)</button>
-        </>
-      )}
+      <div className="controls">
+        {user ? (
+          <div>
+            <span>Sesión iniciada como {user.username} </span>
+            <button onClick={handleLogOut}>(cerrar sesión)</button>
+          </div>
+        ) : (
+          <span></span>
+        )}
+        <button
+          className="previewButton"
+          onClick={() => {
+            setPreview((e) => !e);
+          }}
+        >
+          {preview ? "Volver" : "Preview"}
+        </button>
+      </div>
       <Form
         slug={slug}
         user={user}
@@ -39,6 +52,7 @@ export default function Comments({ slug }) {
         setUpdateComments={setUpdateComments}
         info={info}
         setInfo={setInfo}
+        preview={preview}
       />
       <Feed
         allComments={allComments}
@@ -48,11 +62,25 @@ export default function Comments({ slug }) {
         setAllComments={setAllComments}
       />
       <style jsx>{`
+        .controls {
+          display: inline-flex;
+          width: 100%;
+          column-gap: 5px;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
         button {
           border: 0;
           background: transparent;
           color: inherit;
           cursor: pointer;
+          line-height: 19px;
+        }
+        button.previewButton {
+          float: right;
+          border: 1px solid #cccccc4d;
+          border-radius: 4px;
+          padding: 5px 8px;
         }
         label {
           display: table;
@@ -61,7 +89,7 @@ export default function Comments({ slug }) {
           font-size: 14px;
         }
       `}</style>
-    </div>
+    </section>
   );
 }
 

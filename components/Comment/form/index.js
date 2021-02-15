@@ -5,7 +5,7 @@ import firebase from "firebase/app";
 import PropTypes from "prop-types";
 import TextArea from "./TextArea";
 import Options from "../options";
-
+import Preview from "./Preview";
 export function updateCommentsList(slug, setAllComments, setInfo) {
   database
     .ref("comments")
@@ -31,6 +31,7 @@ export default function Form({
   setInfo,
   updateComments,
   setUpdateComments,
+  preview,
 }) {
   const [selectTextArea, setSelectTextArea] = useState(false);
   const [imgURL, setImgURL] = useState(null);
@@ -65,8 +66,10 @@ export default function Form({
 
   // Set the cursor position after select one modified text option
   useEffect(() => {
-    commentText.current.selectionEnd = currentCaret.end;
-    commentText.current.selectionStart = currentCaret.start;
+    if (commentText) {
+      commentText.current.selectionEnd = currentCaret.end;
+      commentText.current.selectionStart = currentCaret.start;
+    }
   }, [currentCaret]);
 
   // Hide the options everytime the slug blog changes
@@ -124,34 +127,40 @@ export default function Form({
     setTask(uploadImage(image, slug));
   }
   return (
-    <form>
-      <TextArea
-        setComment={setComment}
-        setSelectTextArea={setSelectTextArea}
-        comment={comment}
-        commentText={commentText}
-        setDrag={setDrag}
-        drag={drag}
-        handleDrop={handleDrop}
-      />
-      <Options
-        user={user}
-        handleDrop={handleDrop}
-        handleSubmit={handleSubmit}
-        updateComments={updateComments}
-        commentText={commentText}
-        setCurrentCaret={setCurrentCaret}
-        setComment={setComment}
-        setInfo={setInfo}
-        setUser={setUser}
-        selectTextArea={selectTextArea}
-      />
-      {info && (
-        <p className="infoComment">
-          <Info width={20} height={20} /> {info}
-        </p>
+    <>
+      {preview ? (
+        <Preview comment={comment} />
+      ) : (
+        <form>
+          <TextArea
+            setComment={setComment}
+            setSelectTextArea={setSelectTextArea}
+            comment={comment}
+            commentText={commentText}
+            setDrag={setDrag}
+            drag={drag}
+            handleDrop={handleDrop}
+          />
+          <Options
+            user={user}
+            handleDrop={handleDrop}
+            handleSubmit={handleSubmit}
+            updateComments={updateComments}
+            commentText={commentText}
+            setCurrentCaret={setCurrentCaret}
+            setComment={setComment}
+            setInfo={setInfo}
+            setUser={setUser}
+            selectTextArea={selectTextArea}
+          />
+          {info && (
+            <p className="infoComment">
+              <Info width={20} height={20} /> {info}
+            </p>
+          )}
+          {imgURL && <img src={imgURL} alt="" />}
+        </form>
       )}
-      {imgURL && <img src={imgURL} alt="" />}
       <style jsx>{`
         form {
           width: 100%;
@@ -171,7 +180,7 @@ export default function Form({
           margin-right: 5px;
         }
       `}</style>
-    </form>
+    </>
   );
 }
 Form.propTypes = {
@@ -182,6 +191,7 @@ Form.propTypes = {
   setUser: PropTypes.func,
   setAllComments: PropTypes.func,
   setInfo: PropTypes.func,
+  preview: PropTypes.bool,
   updateComments: PropTypes.bool,
   setUpdateComments: PropTypes.func,
 };

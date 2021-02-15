@@ -47,7 +47,7 @@ export default function TextArea({
           max-width: 100%;
           height: 94px;
           font-size: 14px;
-          margin: 2px;
+          margin: 2px 0;
           min-height: 94px;
           max-height: 200px;
           background-color: ${drag === "Enter"
