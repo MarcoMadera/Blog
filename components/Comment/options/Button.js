@@ -111,21 +111,21 @@ export default function Button({
       {children}
       <style jsx>{`
         button {
-          display: inline-flex;
-          border: 0;
-          background: transparent;
-          color: inherit;
-          position: relative;
-          border-radius: 3px;
-          padding: 3px;
-          border: 1px solid #cccccc4d;
-          cursor: pointer;
-          width: 32px;
-          height: 32px;
           align-items: center;
+          background: transparent;
+          border: 1px solid #cccccc4d;
+          border-radius: 3px;
+          color: inherit;
+          cursor: pointer;
+          display: inline-flex;
+          height: 32px;
+          width: 32px;
           justify-content: center;
           font-style: ${title === "Cursiva" ? "italic" : "unset"};
           font-weight: ${title === "Negrita" ? "bold" : "unset"};
+          font-size: ${title === "Título" ? "16px" : "13.333px"};
+          padding: 3px;
+          position: relative;
           text-decoration: ${title === "Subrayado"
             ? "underline"
             : title === "Tachado"

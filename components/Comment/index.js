@@ -40,7 +40,7 @@ export default function Comments({ slug }) {
             setPreview((e) => !e);
           }}
         >
-          {preview ? "Volver" : "Preview"}
+          {preview ? "Editor" : "Vista previa"}
         </button>
       </div>
       <Form

@@ -3,6 +3,7 @@ import { instructions, renderers } from "../../Markdown/instructions/comments";
 import PropTypes from "prop-types";
 import { Markdown as MarkDownIcon } from "../icons";
 import { A } from "../../tags";
+
 export default function Preview({ comment }) {
   return (
     <section>
@@ -28,6 +29,9 @@ export default function Preview({ comment }) {
         }
         section :global(a svg) {
           margin-right: 5px;
+        }
+        section :global(h3) {
+          font-size: 1.4em;
         }
         div {
           display: inline-block;
