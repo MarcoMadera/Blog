@@ -22,7 +22,7 @@ export default function Preview({ comment }) {
         <MarkDownIcon width={21} /> Aprende más sobre la sintaxis
       </A>
       <style jsx>{`
-        section :global(a) {
+        div + :global(a) {
           display: inline-flex;
           font-size: 14px;
         }
