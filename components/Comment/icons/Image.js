@@ -1,9 +1,8 @@
-import { ThemeContext } from "../../Layout";
-import { useContext } from "react";
 import { colors } from "../../../styles/theme";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 export function Image(props) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 58" {...props}>
       <path

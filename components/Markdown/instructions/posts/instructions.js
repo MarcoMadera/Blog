@@ -25,9 +25,8 @@ import Colors from "../../../Colors";
 import HtmlToReact from "html-to-react";
 import React from "react";
 import Head from "next/head";
-import { ThemeContext } from "../../../Layout";
 import Tweet from "../../../tweet";
-import { useContext } from "react";
+import useDarkMode from "../../../../hooks/useDarkMode";
 
 /* eslint-disable react/prop-types */
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
@@ -215,7 +214,7 @@ export const instructions = {
     {
       shouldProcessNode: ({ type, name }) => type === "tag" && name === "image",
       processNode: function ImageNode({ attribs }) {
-        const { darkMode } = useContext(ThemeContext);
+        const { darkMode } = useDarkMode();
         return (
           <Img src={darkMode ? attribs.dark : attribs.light} {...attribs} />
         );

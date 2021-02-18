@@ -2,10 +2,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
-import { useContext } from "react";
 import Moon from "./icons/Moon";
 import Sun from "./icons/Sun";
-import { ThemeContext } from "./Layout";
+import useDarkMode from "../hooks/useDarkMode";
 
 function Anchor({ label, href, children, ...attribs }) {
   const router = useRouter();
@@ -53,7 +52,7 @@ function Nav({ children }) {
 }
 
 export default function Navbar() {
-  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <header>

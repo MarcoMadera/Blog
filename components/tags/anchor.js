@@ -1,11 +1,10 @@
 import { colors } from "../../styles/theme";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import { ThemeContext } from "../Layout";
-import { useContext } from "react";
+import useDarkMode from "../../hooks/useDarkMode";
 
 export function A({ classname, children, href, title, ...attribs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <a
@@ -39,7 +38,7 @@ export function ALink({
   title,
   ...attribs
 }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <>

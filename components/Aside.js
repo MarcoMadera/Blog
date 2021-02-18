@@ -4,8 +4,7 @@ import Twitter from "./icons/Twitter";
 import { siteMetadata } from "../site.config";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
+import useDarkMode from "../hooks/useDarkMode";
 
 function Anchor({ children, href, label }) {
   return (
@@ -17,7 +16,7 @@ function Anchor({ children, href, label }) {
 
 export default function Aside() {
   const { social } = siteMetadata;
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <aside>

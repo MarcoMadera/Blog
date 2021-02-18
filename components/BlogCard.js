@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import slugify from "react-slugify";
 import { getFormattedDate } from "../utils/helpers";
 import { imageCloudProvider } from "../site.config";
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
+import useDarkMode from "../hooks/useDarkMode";
 
 export default function BlogCard({
   author,
@@ -15,7 +14,7 @@ export default function BlogCard({
   title,
   tags,
 }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <article>

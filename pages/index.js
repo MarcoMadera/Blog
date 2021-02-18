@@ -8,11 +8,10 @@ import Link from "next/link";
 import Newsletter from "../components/Newsletter";
 import PropTypes from "prop-types";
 import Seo from "../components/Seo";
-import { ThemeContext } from "../components/Layout";
-import { useContext } from "react";
+import useDarkMode from "../hooks/useDarkMode";
 
 export default function Home({ posts = [], tags = [], pages = [] }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <main id="main">

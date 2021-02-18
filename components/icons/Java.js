@@ -1,9 +1,8 @@
+import useDarkMode from "../../hooks/useDarkMode";
 import { colors } from "../../styles/theme";
-import { useContext } from "react";
-import { ThemeContext } from "../Layout";
 
 export default function Java(props) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <svg

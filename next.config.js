@@ -8,6 +8,11 @@ module.exports = {
   async redirects() {
     return [
       {
+        source: "/privacy",
+        destination: "/privacidad",
+        permanent: true,
+      },
+      {
         source: "/blog",
         destination: "/",
         permanent: true,

@@ -2,8 +2,7 @@ import { ALink } from "./tags";
 import { colors } from "../styles/theme";
 import { imageCloudProvider } from "../site.config";
 import PropTypes from "prop-types";
-import { ThemeContext } from "./Layout";
-import { useContext } from "react";
+import useDarkMode from "../hooks/useDarkMode";
 
 function Div({ children }) {
   return <div>{children}</div>;
@@ -17,7 +16,7 @@ export default function RecommendedPosts({
   currentPost,
   recommendedPosts = [],
 }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <div>

@@ -1,7 +1,6 @@
 import { colors } from "../../../styles/theme";
-import { ThemeContext } from "../../Layout";
-import { useContext } from "react";
 import PropTypes from "prop-types";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 export default function TextArea({
   setComment,
@@ -12,7 +11,7 @@ export default function TextArea({
   setDrag,
   drag,
 }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   function handleDragEnter(e) {
     e.preventDefault();

@@ -1,8 +1,7 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-import { ThemeContext } from "../Layout";
-import { useContext, useState } from "react";
-
+import useDarkMode from "../../hooks/useDarkMode";
+import { useState } from "react";
 function Color({ type, ...attribs }) {
   const [initial, setInitial] = useState("#b50000");
 
@@ -39,7 +38,7 @@ function Color({ type, ...attribs }) {
 }
 
 export function Input({ type, ...attribs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   if (type === "color") {
     return <Color type="color" {...attribs}></Color>;

@@ -9,8 +9,7 @@ import Custom404 from "../404";
 import { colors } from "../../styles/theme";
 import Link from "next/link";
 import { siteMetadata } from "../../site.config";
-import { useContext } from "react";
-import { ThemeContext } from "../../components/Layout";
+import useDarkMode from "../../hooks/useDarkMode";
 
 export default function Page({
   posts = [],
@@ -18,7 +17,7 @@ export default function Page({
   tags = [],
   currentPage,
 }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <main id="main">

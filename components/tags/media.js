@@ -2,8 +2,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { imageCloudProvider } from "../../site.config";
 import PropTypes from "prop-types";
-import { ThemeContext } from "../Layout";
-import { useContext } from "react";
+import useDarkMode from "../../hooks/useDarkMode";
 
 const LoadDetailsDialog = dynamic(
   () => import("../../static-tweet/components/twitter-layout/details-dialog"),
@@ -201,7 +200,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
 }
 
 export function Video({ src, dark, light, title, ...attribs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     // eslint-disable-next-line jsx-a11y/media-has-caption

@@ -16,12 +16,12 @@ import { imageCloudProvider } from "../../site.config";
 import getTweets from "../../lib/get-tweets";
 import { Tweets } from "../../lib/tweets";
 import { H1, ALink, Hr } from "../../components/tags";
-import { useContext } from "react";
-import { ThemeContext } from "../../components/Layout";
 import {
   renderers,
   instructions,
 } from "../../components/Markdown/instructions/posts/";
+import useDarkMode from "../../hooks/useDarkMode";
+
 export default function Post({
   title,
   description,
@@ -39,7 +39,7 @@ export default function Post({
   slug,
   tweets,
 }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   const h2s = toc(content)
     .json.filter(({ lvl }) => lvl === 2)
     .map(({ content }) => {

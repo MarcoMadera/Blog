@@ -1,38 +1,66 @@
 import Navbar from "./Navbar";
+import { useRouter } from "next/router";
 import Footer from "./Footer";
 import PropTypes from "prop-types";
-import { createContext, useState, useEffect } from "react";
+import { useEffect } from "react";
 import { colors } from "../styles/theme";
-
-export const ThemeContext = createContext({
-  darkMode: true,
-});
-
+import useDarkMode from "../hooks/useDarkMode";
+import CookiesModal from "./CookiesModal";
+import useCookies from "../hooks/useCookies";
 export default function Layout({ children }) {
-  const [darkMode, setDarkMode] = useState(true);
-  const toggleDarkMode = () => {
-    if (darkMode === false) {
-      localStorage.setItem("theme", "dark");
-      return setDarkMode(true);
-    } else {
-      localStorage.setItem("theme", "light");
-      return setDarkMode(false);
-    }
-  };
+  const { darkMode, setDarkMode } = useDarkMode();
+  const { acceptedcookies, setAcceptedCookies } = useCookies();
+  const router = useRouter();
+
   useEffect(() => {
     if (localStorage.getItem("theme") === "light") {
       setDarkMode(false);
     } else {
       setDarkMode(true);
     }
-  }, []);
+
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+      window.track("pageview");
+      setAcceptedCookies(true);
+    }
+    if (localStorage.getItem("cookiesAccepted") === "false") {
+      setAcceptedCookies(false);
+    }
+  }, [setAcceptedCookies, setDarkMode]);
+
+  useEffect(() => {
+    // update page url minimal google analytics
+    const handleRouteChange = () => {
+      if (acceptedcookies === true) {
+        window.track("pageview");
+      }
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // Reset focus on page change
+    router.events.on("routeChangeStart", () => {
+      document.body.setAttribute("tabIndex", "-1");
+    });
+
+    document.body.addEventListener("blur", () => {
+      document.body.removeAttribute("tabIndex");
+    });
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events, acceptedcookies]);
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <>
       <a href="#main">Saltar al contenido</a>
       <Navbar />
       {children}
       <Footer />
+      {acceptedcookies === undefined ? (
+        <CookiesModal setAcceptedCookies={setAcceptedCookies} />
+      ) : (
+        ""
+      )}
       <style global jsx>{`
         body {
           background: ${darkMode ? colors.dark_background : colors.background};
@@ -73,7 +101,7 @@ export default function Layout({ children }) {
           }
         }
       `}</style>
-    </ThemeContext.Provider>
+    </>
   );
 }
 

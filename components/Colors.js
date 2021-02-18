@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
 import { colors } from "../styles/code/colors";
 import Head from "next/head";
+import useDarkMode from "../hooks/useDarkMode";
 
 export default function Colors({ ...allColors }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <Head>

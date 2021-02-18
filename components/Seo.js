@@ -3,8 +3,7 @@ import Head from "next/head";
 import PropTypes from "prop-types";
 import { siteMetadata } from "../site.config";
 import { useRouter } from "next/router";
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
+import useDarkMode from "../hooks/useDarkMode";
 
 export default function Seo({
   author = "",
@@ -17,7 +16,8 @@ export default function Seo({
   const metaDescription = description || siteMetadata.description;
   const metaTitle = title || siteMetadata.title;
   const router = useRouter();
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
+
   return (
     <Head>
       <title>{metaTitle}</title>

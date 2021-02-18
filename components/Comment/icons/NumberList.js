@@ -1,9 +1,8 @@
-import { ThemeContext } from "../../Layout";
-import { useContext } from "react";
+import useDarkMode from "../../../hooks/useDarkMode";
 import { colors } from "../../../styles/theme";
 
 export function NumberList(props) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

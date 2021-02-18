@@ -1,8 +1,6 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-import { ThemeContext } from "../Layout";
-import { useContext } from "react";
-
+import useDarkMode from "../../hooks/useDarkMode";
 export function Meter({ children, ...attribs }) {
   return (
     <>
@@ -108,7 +106,7 @@ export function Meter({ children, ...attribs }) {
 }
 
 export function Progress({ value, ...attribs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <progress value={value} {...attribs}>

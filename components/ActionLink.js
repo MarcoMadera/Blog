@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
 import Link from "next/link";
+import useDarkMode from "../hooks/useDarkMode";
 
 export default function ActionLink({ children, href }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <>

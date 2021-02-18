@@ -2,11 +2,10 @@ import Seo from "../../components/Seo";
 import { useState } from "react";
 import { colors } from "../../styles/theme";
 import { H1, Input, A } from "../../components/tags";
-import { useContext } from "react";
-import { ThemeContext } from "../../components/Layout";
+import useDarkMode from "../../hooks/useDarkMode";
 import ActionButton from "../../components/ActionButton";
 const NewsletterPage = () => {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   const [email, setEmail] = useState({
     value: "",
     error: false,

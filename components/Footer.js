@@ -2,8 +2,7 @@ import { colors } from "../styles/theme";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { siteMetadata } from "../site.config";
-import { ThemeContext } from "./Layout";
-import { useContext } from "react";
+import useDarkMode from "../hooks/useDarkMode";
 
 function Anchor({ href, children }) {
   return (
@@ -14,7 +13,7 @@ function Anchor({ href, children }) {
 }
 
 function Footer() {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <footer>

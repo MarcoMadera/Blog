@@ -10,10 +10,9 @@ import {
   NumberList,
 } from "../icons";
 import LoginButtons from "../login";
-import { ThemeContext } from "../../Layout";
 import { colors } from "../../../styles/theme";
-import { useContext } from "react";
 import PropTypes from "prop-types";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 export default function Options({
   user,
@@ -27,7 +26,7 @@ export default function Options({
   setUser,
   selectTextArea,
 }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   const options = [
     { name: "Título", type: "header", mark: "# ", children: "T" },
     { name: "Negrita", openMark: "**", closeMark: "**", children: "B" },

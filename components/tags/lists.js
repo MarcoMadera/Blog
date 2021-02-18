@@ -52,7 +52,8 @@ export function Li({ children, checked = null, ...attribs }) {
           line-height: 1.6;
           display: ${checked === null ? "list-item" : "flex"};
           align-items: center;
-          list-style-position: ${checked === null ? "inside" : "outside"};
+          list-style-position: outside;
+          margin-left: 20px;
           text-align: justify;
         }
         input {

@@ -2,8 +2,8 @@ import ActionButton from "./ActionButton";
 import { colors } from "../styles/theme";
 import { Input } from "./tags";
 import PropTypes from "prop-types";
-import { useContext, useState } from "react";
-import { ThemeContext } from "./Layout";
+import { useState } from "react";
+import useDarkMode from "../hooks/useDarkMode";
 
 function Label({ children }) {
   return <label htmlFor="bd-email">{children}</label>;
@@ -43,7 +43,7 @@ function Newsletter() {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
 
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   return (
     <form
       action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"

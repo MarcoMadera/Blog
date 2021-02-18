@@ -1,9 +1,8 @@
 import { colors } from "../../styles/theme";
-import { useContext } from "react";
-import { ThemeContext } from "../Layout";
+import useDarkMode from "../../hooks/useDarkMode";
 
 export default function CSharp(props) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <svg

@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
+import useDarkMode from "../hooks/useDarkMode";
 
 export default function ActionAnchor({ children, href, ...attribs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <>

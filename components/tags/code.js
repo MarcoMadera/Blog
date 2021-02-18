@@ -5,12 +5,12 @@ import prism from "@mapbox/rehype-prism";
 import PropTypes from "prop-types";
 import rehype2react from "rehype-react";
 import remark2rehype from "remark-rehype";
-import { ThemeContext } from "../Layout";
 import unified from "unified";
-import { useContext, createElement } from "react";
+import { createElement } from "react";
+import useDarkMode from "../../hooks/useDarkMode";
 
 export function InlineCode({ classname, children, ...attrbs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <code className={classname} {...attrbs}>
@@ -35,7 +35,7 @@ function Span({ number }) {
 }
 
 export function Pre({ children, ...atrribs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   return (
     <div>
       <pre {...atrribs}>{children}</pre>
@@ -94,7 +94,7 @@ export function Pre({ children, ...atrribs }) {
 }
 
 function LeftLinesNumbers({ lineNumbers }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   return (
     <code>
       {lineNumbers.map((number) => (
@@ -155,7 +155,7 @@ const customClasses = {
 };
 
 export function CodeBlock({ language, value = "" }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   const lineNumbers = Array.from(
     { length: (value.match(/\n/g) || "").length + 1 },

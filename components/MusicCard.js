@@ -1,10 +1,8 @@
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
-import { ThemeContext } from "./Layout";
-import { useContext } from "react";
-
+import useDarkMode from "../hooks/useDarkMode";
 export default function MusicCard({ artist, cover, songUrl, title }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   return (
     <article>
       <a

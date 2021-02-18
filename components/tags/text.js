@@ -1,10 +1,9 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { ThemeContext } from "../Layout";
+import useDarkMode from "../../hooks/useDarkMode";
 
 export function Abbr({ children, ...attribs }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <abbr {...attribs}>
@@ -37,7 +36,7 @@ export function Abbr({ children, ...attribs }) {
 }
 
 export function Blockquote({ children }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
 
   return (
     <blockquote>
@@ -62,7 +61,7 @@ export function Blockquote({ children }) {
 }
 
 export function Dialog({ children, ...attr }) {
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useDarkMode();
   return (
     <dialog {...attr}>
       {children}
