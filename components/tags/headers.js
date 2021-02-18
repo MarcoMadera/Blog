@@ -21,7 +21,7 @@ export function H2({ children, ...attribs }) {
       {children}
       <style jsx>{`
         h2 {
-          margin: 0;
+          margin: 0.8rem 0 0.3rem 0;
           font-size: 1.5em;
           font-weight: 600;
         }

@@ -53,7 +53,7 @@ export function Li({ children, checked = null, ...attribs }) {
           display: ${checked === null ? "list-item" : "flex"};
           align-items: center;
           list-style-position: outside;
-          margin-left: 20px;
+          margin-left: ${checked === null ? "20px" : "0"};
           text-align: justify;
         }
         input {

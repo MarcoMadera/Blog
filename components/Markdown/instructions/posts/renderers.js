@@ -12,6 +12,7 @@ import {
   Td,
   Th,
   Ul,
+  H2,
 } from "../../../tags";
 import slugify from "react-slugify";
 import ReactMarkdown from "react-markdown";
@@ -82,7 +83,7 @@ export const renderers = {
   },
   heading: function HeadingMd(props) {
     if (props.level === 2) {
-      return <h2 id={slugify(props.children)}>{props.children}</h2>;
+      return <H2 id={slugify(props.children)}>{props.children}</H2>;
     }
 
     const Heading = ReactMarkdown.renderers.heading;

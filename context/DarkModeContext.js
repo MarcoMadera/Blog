@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useState, createContext } from "react";
-const Context = createContext();
+const DarkModeContext = createContext({ darkMode: true });
 
 export function DarkModeContextProvider({ children }) {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <Context.Provider value={{ darkMode, setDarkMode }}>
+    <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
       {children}
-    </Context.Provider>
+    </DarkModeContext.Provider>
   );
 }
 
-export default Context;
+export default DarkModeContext;
