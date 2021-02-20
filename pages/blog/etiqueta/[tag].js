@@ -44,6 +44,7 @@ export default function Tag({ postsByTag, tags, tag }) {
         }
         h1 {
           font-size: 1rem;
+          margin: 0.83em 0px;
         }
         @media screen and (min-width: 0px) and (max-width: 876px) {
           main {

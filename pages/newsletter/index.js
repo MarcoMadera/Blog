@@ -110,7 +110,7 @@ const NewsletterPage = () => {
           border: 1px solid
             ${darkMode ? colors.dark_secondary : colors.secondary};
         }
-        :global(button) {
+        main :global(button) {
           width: 100%;
         }
         main {
