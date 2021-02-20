@@ -73,6 +73,21 @@ export function Pre({ children, ...atrribs }) {
           background: none;
           padding: 0;
         }
+        pre::-webkit-scrollbar {
+          height: 8px;
+          width: 8px;
+          overflow: visible;
+        }
+        pre::-webkit-scrollbar-thumb {
+          background: #d32f2fe1;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 30px;
+          border-bottom-left-radius: 30px;
+        }
+        pre::-webkit-scrollbar-track {
+          background: transparent;
+        }
         pre :global(code[data-lang]:before) {
           background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid #ccc;

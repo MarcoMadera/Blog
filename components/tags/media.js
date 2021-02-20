@@ -136,6 +136,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           overflow: hidden;
           padding: 0;
           width: max-content;
+          max-width: 100%;
         }
         details[open] {
           padding: 0;
@@ -152,6 +153,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           padding: 0;
           position: relative;
           width: max-content;
+          max-width: 100%;
         }
         summary::-webkit-details-marker {
           display: none;
