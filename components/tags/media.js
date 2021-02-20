@@ -34,7 +34,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           layout === "fill"
             ? {
                 position: "relative",
-                height: "380px",
+                maxHeight: "380px",
                 maxWidth: "100%",
               }
             : {}

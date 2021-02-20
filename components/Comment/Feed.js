@@ -69,6 +69,9 @@ export default function Feed({
             button:focus {
               text-decoration: underline;
             }
+            b {
+              break-after: avoid;
+            }
             ul {
               margin: 5px 0;
             }
@@ -111,7 +114,7 @@ export default function Feed({
             }
             article {
               display: grid;
-              grid-template-columns: 70px 1fr;
+              grid-template-columns: 70px minmax(0, 1fr);
               grid-template-rows: auto 1fr;
               grid-template-areas: "avatar username" "avatar comment" "avatar .";
               justify-content: space-between;
