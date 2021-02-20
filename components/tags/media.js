@@ -28,39 +28,38 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
 
   return (
     <details>
-      <summary aria-label="Expandir imagen">
+      <summary
+        aria-label="Expandir imagen"
+        style={
+          layout === "fill"
+            ? {
+                position: "relative",
+                height: "380px",
+                maxWidth: "100%",
+              }
+            : {}
+        }
+      >
         {src.startsWith(imageCloudProvider) ? (
-          <div
-            style={
-              layout === "fill"
-                ? {
-                    position: "relative",
-                    height: "380px",
-                    width: "705px",
-                  }
-                : {}
-            }
-          >
-            <Image
-              alt={alt}
-              layout={layout}
-              height={(width && height && height) || undefined}
-              objectFit={layout === "fill" && "fill"}
-              quality={100}
-              src={`${src.replace(
-                new RegExp(
-                  `${imageCloudProvider.replace(
-                    /[.*+?^${}()|/[\]\\]/g,
-                    "\\$&"
-                  )}.+?(/)`,
-                  "g"
-                ),
-                ""
-              )}`}
-              title={title || alt}
-              width={(width && height && width) || undefined}
-            />
-          </div>
+          <Image
+            alt={alt}
+            layout={layout}
+            height={(width && height && height) || undefined}
+            objectFit={layout === "fill" && "fill"}
+            quality={100}
+            src={`${src.replace(
+              new RegExp(
+                `${imageCloudProvider.replace(
+                  /[.*+?^${}()|/[\]\\]/g,
+                  "\\$&"
+                )}.+?(/)`,
+                "g"
+              ),
+              ""
+            )}`}
+            title={title || alt}
+            width={(width && height && width) || undefined}
+          />
         ) : (
           <img
             alt={alt}
@@ -133,13 +132,10 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           margin: ${alt.includes("a la derecha") ||
           alt.includes("a la izquierda")
             ? "10px"
-            : "0"};
+            : "0 auto"};
           overflow: hidden;
           padding: 0;
-          width: ${alt.includes("a la derecha") ||
-          alt.includes("a la izquierda")
-            ? "max-content"
-            : "auto"};
+          width: max-content;
         }
         details[open] {
           padding: 0;
@@ -152,9 +148,10 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           display: flex;
           justify-content: center;
           list-style: none;
-          margin: 0 !important;
+          margin: 0 auto;
           padding: 0;
           position: relative;
+          width: max-content;
         }
         summary::-webkit-details-marker {
           display: none;
@@ -188,6 +185,12 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           right: 0;
           top: 0;
           z-index: -1;
+        }
+        details:focus-within,
+        details:active {
+          outline-style: dashed;
+          outline-width: 2px;
+          outline-color: #b50000;
         }
         @media screen and (max-width: 450px) {
           :global(details-dialog) {

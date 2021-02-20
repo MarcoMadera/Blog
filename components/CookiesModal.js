@@ -30,7 +30,10 @@ export default function CookiesModal() {
       <p>
         Utilizo cookies para rastrear la cantidad de personas que visitan mi
         sitio web. Haz clic en aceptar para ayudar a mejorar mi contenido.{" "}
-        <ALink href="/cookies">Política de cookies</ALink>.
+        <ALink href="/cookies" title="Política de cookies">
+          Política de cookies
+        </ALink>
+        .
       </p>
       <div>
         <button

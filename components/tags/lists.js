@@ -30,18 +30,14 @@ export function Li({ children, checked = null, ...attribs }) {
   return (
     <li {...attribs}>
       {checked === true && (
-        <>
-          <label>
-            <input checked readOnly type="checkbox" />
-          </label>
-        </>
+        <label>
+          <input checked readOnly type="checkbox" />
+        </label>
       )}
       {checked === false && (
-        <>
-          <label>
-            <input checked={false} readOnly type="checkbox" />
-          </label>
-        </>
+        <label>
+          <input checked={false} readOnly type="checkbox" />
+        </label>
       )}
       {children}
       <style jsx>{`

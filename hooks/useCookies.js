@@ -9,10 +9,7 @@ export default function useCookies() {
       localStorage.setItem("cookiesAccepted", "false");
       return setAcceptedCookies(false);
     }
-    if (acceptedcookies === false) {
-      localStorage.setItem("cookiesAccepted", "true");
-      return setAcceptedCookies(true);
-    }
+
     localStorage.setItem("cookiesAccepted", "true");
     return setAcceptedCookies(true);
   }

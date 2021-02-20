@@ -8,10 +8,10 @@ export default function useDarkMode() {
     if (darkMode === false) {
       localStorage.setItem("theme", "dark");
       return setDarkMode(true);
-    } else {
-      localStorage.setItem("theme", "light");
-      return setDarkMode(false);
     }
+
+    localStorage.setItem("theme", "light");
+    return setDarkMode(false);
   }
   return {
     darkMode,

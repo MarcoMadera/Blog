@@ -3,6 +3,7 @@ import { H1, H2, H3, A, Ul, Li, P } from "../../components/tags";
 import useCookies from "../../hooks/useCookies";
 import { colors } from "../../styles/theme";
 import useDarkMode from "../../hooks/useDarkMode";
+
 export default function Cookies() {
   const { darkMode } = useDarkMode();
   const { acceptedcookies, toggleCookies } = useCookies();
@@ -14,7 +15,11 @@ export default function Cookies() {
         <span>
           Clic para {acceptedcookies ? "deshabilitar" : "permitir"} cookies:
         </span>
-        <label>
+        <label
+          aria-label={`${
+            acceptedcookies ? "deshabilitar" : "permitir"
+          } cookies`}
+        >
           <input
             type="checkbox"
             onClick={() => toggleCookies()}
@@ -156,46 +161,31 @@ export default function Cookies() {
           display: grid;
           grid-template-columns: 1fr auto;
         }
+        input {
+          clip: rect(0, 0, 0, 0);
+          width: 0;
+          height: 0;
+          padding: 0;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          top: 0;
+          left: 0;
+        }
         label {
           margin-left: 20px;
           display: inline-block;
           position: relative;
           width: 55px;
-          height: 25px;
+          height: 24px;
           border: 1px solid #cccccc4d;
           border-radius: 50px;
           background-color: ${darkMode
             ? colors.dark_accents2
             : colors.accents2};
-          padding: 0 2px;
+          padding: 0 1px;
           cursor: pointer;
-        }
-        input {
-          display: inline-block;
-          clip: rect(0, 0, 0, 0);
-          width: 0;
-          height: 100%;
-          padding: 0;
-          vertical-align: middle;
-        }
-        input:before {
-          display: block;
-          content: "";
-          border-radius: 50%;
-          width: 20px;
-          height: 20px;
-          background-color: ${colors.white};
-          cursor: pointer;
-          transition: 300ms;
-          will-change: auto;
-          user-select: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cpath style='fill:%23455A64;' d='M256,0c-82.436,0.094-149.239,66.898-149.333,149.333v96c0,5.891,4.776,10.667,10.667,10.667 S128,251.224,128,245.333h21.333c0,5.891,4.776,10.667,10.667,10.667c5.891,0,10.667-4.776,10.667-10.667v-96 C170.667,102.205,208.872,64,256,64s85.333,38.205,85.333 c5.891,0,10.667-4.776,10.667-10.667v-53.333C405.239,66.898,338.436,0.094,256,0z'/%3E%3Cpath style='fill:%23FFC107;' d='M394.667,234.667H117.333c-17.673,0-32,14.327-32,32v192c0,29.455,23.878,53.333,53.333,53.333 h234.667c29.455,0,53.333-23.878,53.333-53.333v-192C426.667,248.994,412.34,234.667,394.667,234.667z'/%3E%3Cpath style='fill:%23455A64;' d='M284.8,372.693c8.864-8.011,13.905-19.412,13.867-31.36c0-23.564-19.103-42.667-42.667-42.667 s-42.667,19.103-42.667,42.667c-0.038,11.948,5.003,23.349,13.867,31.36l-13.312,39.936c-1.862,5.589,1.16,11.629,6.749,13.491 c1.084,0.361,2.22,0.546,3.363,0.547h64c5.891-0.004,10.663-4.784,10.659-10.675c-0.001-1.143-0.185-2.278-0.547-3.363 L284.8,372.693z'/%3E%3C/svg%3E");
-          background-size: 80% 80%;
-          background-repeat: no-repeat;
-          background-position: center center;
-        }
-        input:focus {
-          outline: unset;
         }
         label:focus-within,
         label:active {
@@ -203,14 +193,27 @@ export default function Cookies() {
           outline-width: 2px;
           outline-color: #b50000;
         }
-        input:checked:before {
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 0c-82.436.094-149.239 66.898-149.333 149.333v96c0 5.891 4.776 10.667 10.667 10.667S128 251.224 128 245.333h21.333c0 5.891 4.776 10.667 10.667 10.667s10.667-4.776 10.667-10.667v-96C170.667 102.205 208.872 64 256 64s85.333 38.205 85.333 85.333v53.333c0 5.891 4.776 10.667 10.667 10.667h42.667c5.891 0 10.667-4.776 10.667-10.667v-53.333C405.239 66.898 338.436.094 256 0z' fill='%23455a64'/%3E%3Cpath d='M394.667 234.667H117.333c-17.673 0-32 14.327-32 32v192c0 29.455 23.878 53.333 53.333 53.333h234.667c29.455 0 53.333-23.878 53.333-53.333v-192c.001-17.673-14.326-32-31.999-32z' fill='%23ffc107'/%3E%3Cpath d='M284.8 372.693a42.089 42.089 0 0013.867-31.36c0-23.564-19.103-42.667-42.667-42.667s-42.667 19.103-42.667 42.667a42.089 42.089 0 0013.867 31.36l-13.312 39.936c-1.862 5.589 1.16 11.629 6.749 13.491 1.084.361 2.22.546 3.363.547h64c5.891-.004 10.663-4.784 10.659-10.675a10.652 10.652 0 00-.547-3.363L284.8 372.693z' fill='%23455a64'/%3E%3C/svg%3E");
-          transform: translateX(29px);
+        label:before {
+          position: absolute;
+          display: block;
+          content: "";
+          background-image: ${!acceptedcookies
+            ? "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 0c-82.436.094-149.239 66.898-149.333 149.333v96c0 5.891 4.776 10.667 10.667 10.667S128 251.224 128 245.333h21.333c0 5.891 4.776 10.667 10.667 10.667s10.667-4.776 10.667-10.667v-96C170.667 102.205 208.872 64 256 64s85.333 38.205 85.333 85.333v53.333c0 5.891 4.776 10.667 10.667 10.667h42.667c5.891 0 10.667-4.776 10.667-10.667v-53.333C405.239 66.898 338.436.094 256 0z' fill='%23455a64'/%3E%3Cpath d='M394.667 234.667H117.333c-17.673 0-32 14.327-32 32v192c0 29.455 23.878 53.333 53.333 53.333h234.667c29.455 0 53.333-23.878 53.333-53.333v-192c.001-17.673-14.326-32-31.999-32z' fill='%23ffc107'/%3E%3Cpath d='M284.8 372.693a42.089 42.089 0 0013.867-31.36c0-23.564-19.103-42.667-42.667-42.667s-42.667 19.103-42.667 42.667a42.089 42.089 0 0013.867 31.36l-13.312 39.936c-1.862 5.589 1.16 11.629 6.749 13.491 1.084.361 2.22.546 3.363.547h64c5.891-.004 10.663-4.784 10.659-10.675a10.652 10.652 0 00-.547-3.363L284.8 372.693z' fill='%23455a64'/%3E%3C/svg%3E\")"
+            : "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cpath style='fill:%23455A64;' d='M256,0c-82.436,0.094-149.239,66.898-149.333,149.333v96c0,5.891,4.776,10.667,10.667,10.667 S128,251.224,128,245.333h21.333c0,5.891,4.776,10.667,10.667,10.667c5.891,0,10.667-4.776,10.667-10.667v-96 C170.667,102.205,208.872,64,256,64s85.333,38.205,85.333 c5.891,0,10.667-4.776,10.667-10.667v-53.333C405.239,66.898,338.436,0.094,256,0z'/%3E%3Cpath style='fill:%23FFC107;' d='M394.667,234.667H117.333c-17.673,0-32,14.327-32,32v192c0,29.455,23.878,53.333,53.333,53.333 h234.667c29.455,0,53.333-23.878,53.333-53.333v-192C426.667,248.994,412.34,234.667,394.667,234.667z'/%3E%3Cpath style='fill:%23455A64;' d='M284.8,372.693c8.864-8.011,13.905-19.412,13.867-31.36c0-23.564-19.103-42.667-42.667-42.667 s-42.667,19.103-42.667,42.667c-0.038,11.948,5.003,23.349,13.867,31.36l-13.312,39.936c-1.862,5.589,1.16,11.629,6.749,13.491 c1.084,0.361,2.22,0.546,3.363,0.547h64c5.891-0.004,10.663-4.784,10.659-10.675c-0.001-1.143-0.185-2.278-0.547-3.363 L284.8,372.693z'/%3E%3C/svg%3E\")"};
+          background-position: center center;
           background-size: 80% 80%;
           background-repeat: no-repeat;
-          background-position: center center;
+          transform: translateX(${!acceptedcookies ? "31px" : "0"});
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          background-color: ${darkMode ? colors.accents2 : "transparent"};
+          cursor: pointer;
+          transition: 300ms;
+          will-change: auto;
+          user-select: none;
+          top: 1px;
         }
-
         main :global(h1) {
           text-align: center;
           margin: 0 0 1rem 0;
