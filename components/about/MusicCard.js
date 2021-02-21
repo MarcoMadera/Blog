@@ -1,7 +1,9 @@
-import { colors } from "../styles/theme";
+import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
-import useDarkMode from "../hooks/useDarkMode";
-export default function MusicCard({ artist, cover, songUrl, title }) {
+import useDarkMode from "../../hooks/useDarkMode";
+import { memo } from "react";
+
+function MusicCard({ artist, cover, songUrl, title }) {
   const { darkMode } = useDarkMode();
   return (
     <article>
@@ -67,6 +69,8 @@ export default function MusicCard({ artist, cover, songUrl, title }) {
     </article>
   );
 }
+
+export default memo(MusicCard, (pre, next) => pre.songUrl === next.songUrl);
 
 MusicCard.propTypes = {
   artist: PropTypes.string,

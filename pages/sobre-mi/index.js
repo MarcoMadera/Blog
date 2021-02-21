@@ -1,67 +1,21 @@
-import { A, ALink, H1, H2, H3, Hr, P } from "../../components/tags";
+import { A, ALink, H1, H2, H3, P } from "../../components/tags";
 import AugmentedReallity from "../../components/icons/AugmentedReallity";
 import Book from "../../components/icons/Book";
 import Chess from "../../components/icons/Chess";
 import CSharp from "../../components/icons/CSharp";
-import { colors } from "../../styles/theme";
 import Code from "../../components/icons/Code";
 import Email from "../../components/icons/Email";
 import Film from "../../components/icons/Film";
 import Java from "../../components/icons/Java";
 import JavaScript from "../../components/icons/JavaScript";
 import Music from "../../components/icons/Music";
-import MusicCard from "../../components/MusicCard";
 import { numberBetween } from "../../utils/helpers";
 import PropTypes from "prop-types";
 import Seo from "../../components/Seo";
 import { siteMetadata } from "../../site.config";
-import Spotify from "../../components/icons/Spotify";
 import { useCallback, useEffect, useState } from "react";
-
-function MusicHeader({ artist, cover, header, songUrl, title }) {
-  return (
-    <>
-      <header>
-        <h2>{header}</h2>
-        <a
-          href="https://open.spotify.com/user/12133024755"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Perfil de spotify"
-        >
-          <Spotify width="26" height="26" fill={colors.spotify} />
-        </a>
-      </header>
-      <MusicCard
-        title={title}
-        cover={cover}
-        artist={artist}
-        songUrl={songUrl}
-      />
-      <Hr />
-      <style jsx>{`
-        a {
-          display: inline-flex;
-        }
-        h2 {
-          font-size: 1em;
-          font-weight: 600;
-          margin: 0;
-        }
-        header {
-          align-items: center;
-          display: flex;
-          justify-content: space-between;
-          margin-top: 60px;
-          margin-bottom: 16px;
-        }
-        header ~ :global(hr) {
-          margin: 0.8em 0 0.7em 0;
-        }
-      `}</style>
-    </>
-  );
-}
+import TrackList from "../../components/about/TrackList";
+import { aboutStyles } from "../../components/about/AboutStyles";
 
 function ThingILike({ children, href, title }) {
   return (
@@ -77,13 +31,13 @@ function ThingILike({ children, href, title }) {
       <P>{children}</P>
       <style jsx>{`
         a {
-          color: inherit !important;
-          text-decoration: none !important;
+          color: inherit;
+          text-decoration: none;
         }
         a:focus,
         a:hover {
-          color: inherit !important;
-          text-decoration: underline !important;
+          color: inherit;
+          text-decoration: underline;
         }
         a :global(h3) {
           display: inline;
@@ -259,205 +213,35 @@ export default function About({
         </div>
       </section>
       <aside>
-        {Object.keys(newNowPlaying).length > 0 && (
-          <MusicHeader
-            artist={newNowPlaying.artist}
-            cover={newNowPlaying.cover}
-            header={
-              newNowPlaying.listening ? "Escuchando ahora" : "Último escuchado"
-            }
-            songUrl={newNowPlaying.songUrl}
-            title={newNowPlaying.title}
-          />
-        )}
-        {topTracks.length > 0 && (
-          <>
-            <h2>Mi top 10 de canciones</h2>
-            {topTracks.map(({ title, artist, songUrl, cover }) => (
-              <MusicCard
-                artist={artist}
-                cover={cover}
-                key={songUrl}
-                songUrl={songUrl}
-                title={title}
-              />
-            ))}
-          </>
-        )}
+        <TrackList newNowPlaying={newNowPlaying} topTracks={topTracks} />
       </aside>
-      <style global jsx>{`
-        main > aside:nth-of-type(1) > svg {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          margin-bottom: 60px;
-        }
-        main > aside:nth-of-type(1) > svg:hover {
-          animation: rotate-center 250ms ease-in-out 2 alternate both;
-        }
-        @keyframes rotate-center {
-          0% {
-            transform: rotate(0);
-          }
-          50% {
-            transform: rotate(-15deg);
-          }
-          100% {
-            transform: rotate(15deg);
-          }
-        }
-        main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-          margin-bottom: 120px;
-        }
-        @media screen and (min-width: 1024px) and (max-width: 1050px) {
-          main > aside:nth-of-type(1) > svg {
-            margin-bottom: 90px;
-          }
-          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 230px;
-          }
-        }
-        @media screen and (min-width: 1050px) and (max-width: 1070px) {
-          main > aside:nth-of-type(1) > svg {
-            margin-bottom: 95px;
-          }
-          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 170px;
-          }
-        }
-        @media screen and (min-width: 1070px) and (max-width: 1120px) {
-          main > aside:nth-of-type(1) > svg {
-            margin-bottom: 70px;
-          }
-          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 240px;
-          }
-        }
-        @media screen and (min-width: 1120px) and (max-width: 1165px) {
-          main > aside:nth-of-type(1) > svg {
-            margin-bottom: 60px;
-          }
-          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 220px;
-          }
-        }
-        @media screen and (min-width: 1165px) and (max-width: 1220px) {
-          main > aside:nth-of-type(1) > svg {
-            margin-bottom: 60px;
-          }
-          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 190px;
-          }
-        }
-        @media screen and (min-width: 1220px) and (max-width: 1280px) {
-          main > aside:nth-of-type(1) > svg {
-            margin-bottom: 60px;
-          }
-          main > aside:nth-of-type(1) > svg:nth-of-type(5) {
-            margin-bottom: 150px;
-          }
-        }
-        @media print, screen and (min-width: 0px) and (max-width: 1024px) {
-          main > aside:nth-of-type(1) > svg {
-            display: inline-flex !important;
-            margin-bottom: 0 !important;
-            margin-left: 5px !important;
-            flex-wrap: wrap !important;
-          }
-          main > aside:nth-of-type(1) {
-            order: 3;
-            margin: 0 auto;
-            text-align: center;
-          }
-          main > section {
-            order: 1;
-          }
-          main > aside:nth-of-type(2) {
-            order: 2;
-          }
-        }
-      `}</style>
-      <style jsx>{`
-        aside h2 {
-          font-size: 1em;
-          font-weight: 600;
-          margin: 0 0 0.6em 0;
-        }
-        aside:nth-of-type(2) {
-          box-sizing: border-box;
-          padding: 0 5px;
-        }
-        button {
-          background: unset;
-          border: none;
-          cursor: pointer;
-          display: inline-flex;
-          padding: 0;
-          vertical-align: bottom;
-        }
-        main {
-          display: grid;
-          grid-gap: 2em;
-          grid-template-columns: 240px minmax(0px, 710px) 240px;
-          justify-content: center;
-          margin-bottom: 50px;
-          min-height: calc(100vh - 160px);
-          padding: 0 20px;
-        }
-        main :global(h1) {
-          text-align: center;
-        }
-        main > aside:nth-of-type(1) {
-          padding-top: 75px;
-        }
-        section :global(p) {
-          text-align: justify;
-        }
-        video {
-          display: block;
-          margin: 30px auto 0 auto;
-        }
-        @media screen and (min-width: 0px) and (max-width: 876px) {
-          main {
-            grid-template-columns: auto;
-          }
-        }
-        @media screen and (min-width: 876px) and (max-width: 1024px) {
-          main {
-            grid-template-columns: auto 240px;
-          }
-        }
-      `}</style>
+      <style jsx>{aboutStyles}</style>
     </main>
   );
 }
 
 export async function getServerSideProps() {
-  let nowPlaying;
-  let topTracks;
-  let recentlyPlayed;
-  Promise.all([
-    (nowPlaying = await fetch(`${siteMetadata.siteUrl}/api/now-playing`).then(
-      (res) => {
-        if (res.status !== 200) return;
-        return res.json();
-      }
-    )),
-    (topTracks = await fetch(`${siteMetadata.siteUrl}/api/top-tracks`).then(
-      (res) => {
-        if (res.status !== 200) return;
-        return res.json();
-      }
-    )),
-    (recentlyPlayed = await fetch(
-      `${siteMetadata.siteUrl}/api/recently-played`
-    ).then((res) => {
+  const nowPlaying = await fetch(
+    `${siteMetadata.siteUrl}/api/now-playing`
+  ).then((res) => {
+    if (res.status !== 200) return;
+    return res.json();
+  });
+  const topTracks = await fetch(`${siteMetadata.siteUrl}/api/top-tracks`).then(
+    (res) => {
       if (res.status !== 200) return;
       return res.json();
-    })),
-  ]);
+    }
+  );
+  const recentlyPlayed = await fetch(
+    `${siteMetadata.siteUrl}/api/recently-played`
+  ).then((res) => {
+    if (res.status !== 200) return;
+    return res.json();
+  });
+  const res = await Promise.all([nowPlaying, topTracks, recentlyPlayed]);
   return {
-    props: { nowPlaying, topTracks, recentlyPlayed },
+    props: { nowPlaying: res[0], topTracks: res[1], recentlyPlayed: res[2] },
   };
 }
 
@@ -465,14 +249,6 @@ About.propTypes = {
   nowPlaying: PropTypes.object,
   topTracks: PropTypes.array,
   recentlyPlayed: PropTypes.object,
-};
-
-MusicHeader.propTypes = {
-  header: PropTypes.string,
-  title: PropTypes.string,
-  cover: PropTypes.string,
-  artist: PropTypes.string,
-  songUrl: PropTypes.string,
 };
 
 ThingILike.propTypes = {

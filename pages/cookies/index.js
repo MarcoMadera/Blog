@@ -160,6 +160,7 @@ export default function Cookies() {
         div {
           display: grid;
           grid-template-columns: 1fr auto;
+          grid-gap: 20px;
         }
         input {
           clip: rect(0, 0, 0, 0);
@@ -174,7 +175,6 @@ export default function Cookies() {
           left: 0;
         }
         label {
-          margin-left: 20px;
           display: inline-block;
           position: relative;
           width: 55px;
