@@ -15,7 +15,7 @@ import Seo from "../../components/Seo";
 import { siteMetadata } from "../../site.config";
 import { useCallback, useEffect, useState } from "react";
 import TrackList from "../../components/about/TrackList";
-import { aboutStyles } from "../../components/about/AboutStyles";
+import { aboutStyles } from "../../components/about/aboutStyles";
 
 function ThingILike({ children, href, title }) {
   return (
