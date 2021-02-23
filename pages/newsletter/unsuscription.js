@@ -32,7 +32,7 @@ const unsuscription = () => {
           }
           main {
             margin: 0 30px;
-            min-height: calc(100vh - 160px);
+            min-height: calc(100vh - 257px);
           }
           @media screen and (min-width: 500px) {
             main {

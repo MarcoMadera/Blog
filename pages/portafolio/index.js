@@ -150,7 +150,7 @@ const Portfolio = () => {
           padding: 0 20px;
           margin: 0 auto;
           max-width: 1300px;
-          min-height: calc(100vh - 160px);
+          min-height: calc(100vh - 257px);
         }
         div {
           padding: 30px;

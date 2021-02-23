@@ -63,7 +63,7 @@ export default function TestRandomNumbers() {
         main {
           margin: 0 auto;
           max-width: 1300px;
-          min-height: calc(100vh - 160px);
+          min-height: calc(100vh - 257px);
           padding: 0 20px;
         }
         main :global(h1) {

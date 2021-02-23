@@ -84,7 +84,7 @@ export default function Home({ posts = [], tags = [], pages = [] }) {
           grid-template-columns: 240px minmax(0px, 710px) 240px;
           justify-content: center;
           padding: 0 20px 50px 20px;
-          min-height: calc(100vh - 160px);
+          min-height: calc(100vh - 257px);
         }
         nav {
           display: flex;

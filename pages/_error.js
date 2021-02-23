@@ -13,7 +13,7 @@ export default function Error({ statusCode }) {
       </p>
       <style jsx>{`
         main {
-          height: calc(100vh - 160px);
+          height: calc(100vh - 257px);
           text-align: center;
         }
         h1 {

@@ -3,6 +3,9 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import { siteMetadata } from "../site.config";
 import useDarkMode from "../hooks/useDarkMode";
+import Twitter from "./icons/Twitter";
+import LinkedIn from "./icons/LinkedIn";
+import Github from "./icons/Github";
 
 function Anchor({ href, children }) {
   return (
@@ -17,32 +20,128 @@ function Footer() {
 
   return (
     <footer>
-      <Link href="/newsletter">
-        <a>Newsletter</a>
-      </Link>
-      <Anchor href="https://marcomadera.github.io/">Sitio alternativo</Anchor>
-      <Anchor href={`${siteMetadata.siteUrl}/rss.xml`}>RSS</Anchor>
-      <Anchor href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
-        Licencia
-      </Anchor>
-      <span>Marco Madera &copy; 2020 - 2021</span>
+      <section>
+        <div className="footer_section">
+          <h4>Navegación</h4>
+          <Link href="/">
+            <a>Inicio</a>
+          </Link>
+          <Link href="/portafolio">
+            <a>Portafolio</a>
+          </Link>
+          <Link href="/sobre-mi">
+            <a>Sobre mí</a>
+          </Link>
+          <Link href="/newsletter">
+            <a>Newsletter</a>
+          </Link>
+        </div>
+        <div className="footer_section">
+          <h4>Legal</h4>
+          <Link href="/cookies">
+            <a>Política de cookies</a>
+          </Link>
+          <Link href="/privacidad">
+            <a>Privacidad</a>
+          </Link>
+          <Anchor href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+            Licencia
+          </Anchor>
+        </div>
+        <div className="footer_section">
+          <h4>Enlaces externos</h4>
+          <Anchor href="https://blog.marcomadera.com/">Blog</Anchor>
+          <Anchor href="https://github.com/MarcoMadera/Blog">
+            Código fuente
+          </Anchor>
+          <Anchor href="https://marcomadera.github.io/">
+            Sitio alternativo
+          </Anchor>
+          <Anchor href={`${siteMetadata.siteUrl}/rss.xml`}>RSS</Anchor>
+        </div>
+        <div className="footer_section ">
+          <h4>Social</h4>
+          <div className="footer_social">
+            <Anchor href="https://twitter.com/madera_marco">
+              <Twitter
+                width={28}
+                height={28}
+                fill={darkMode ? colors.dark_primary : colors.primary}
+              />
+            </Anchor>
+            <Anchor href="https://www.linkedin.com/in/marcomadera">
+              <LinkedIn
+                width={28}
+                height={28}
+                fill={darkMode ? colors.dark_primary : colors.primary}
+              />
+            </Anchor>
+            <Anchor href="https://github.com/MarcoMadera">
+              <Github
+                width={28}
+                height={28}
+                fill={darkMode ? colors.dark_primary : colors.primary}
+              />
+            </Anchor>
+          </div>
+          <div>
+            <span>Marco Madera &copy; 2020 - 2021</span>
+          </div>
+        </div>
+      </section>
       <style jsx>{`
+        section {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 auto;
+          grid-gap: 30px;
+          max-width: 1000px;
+          justify-content: space-between;
+        }
+        .footer_section :global(a) {
+          display: block;
+          width: max-content;
+          margin: 5px 0;
+          color: inherit;
+          text-decoration: none;
+        }
+        .footer_social {
+          display: flex;
+          column-gap: 20px;
+        }
+        .footer_social :global(a) {
+          display: inline-flex;
+        }
+        .footer_social :global(a:hover svg),
+        .footer_social :global(a:focus svg) {
+          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
         footer {
           align-items: center;
           background: ${darkMode ? colors.dark_accents3 : colors.accents3};
-          display: flex;
           flex-wrap: wrap;
           justify-content: center;
           min-height: 80px;
-          text-align: center;
-        }
-        footer :global(a) {
-          color: inherit;
-          margin: 0 10px;
-          text-decoration: none;
+          padding: 10px 20px;
         }
         span {
           display: inline-flex;
+        }
+        @media screen and (min-width: 0px) and (max-width: 500px) {
+          section {
+            display: block;
+            text-align: center;
+          }
+          .footer_section :global(a) {
+            margin: 10px auto;
+          }
+          .footer_social {
+            justify-content: center;
+            margin-bottom: 20px;
+          }
+          .footer_social :global(a) {
+            margin: 0 5px;
+          }
         }
       `}</style>
     </footer>

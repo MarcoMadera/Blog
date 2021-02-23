@@ -12,7 +12,7 @@ export default function Custom404() {
           font-size: 100px;
         }
         main {
-          height: calc(100vh - 160px);
+          height: calc(100vh - 257px);
           text-align: center;
         }
         p {

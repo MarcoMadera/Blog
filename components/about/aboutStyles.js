@@ -7,7 +7,7 @@ export const aboutStyles = css`
     grid-template-columns: 240px minmax(0px, 710px) 240px;
     justify-content: center;
     margin-bottom: 50px;
-    min-height: calc(100vh - 160px);
+    min-height: calc(100vh - 257px);
     padding: 0 20px;
   }
   aside:nth-of-type(1) {
