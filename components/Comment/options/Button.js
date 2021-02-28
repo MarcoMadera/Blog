@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
+import useNotification from "../../../hooks/useNotification";
 
 export default function Button({
   title,
@@ -13,6 +14,7 @@ export default function Button({
   openMark,
   closeMark,
 }) {
+  const { setShowNotification } = useNotification();
   function calculateCaret(initial, textbetweenTag) {
     if (mark) {
       const caret = initial ? initial + mark.length + 1 : mark.length;
@@ -87,6 +89,7 @@ export default function Button({
     const comment = commentText.current.value;
     if (comment.trim().length > 800) {
       setInfo("El comentario tiene que ser más corto");
+      setShowNotification(true);
       return;
     }
     const currentPos = commentText.current.selectionStart;

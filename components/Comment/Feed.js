@@ -5,6 +5,7 @@ import MarkDown from "../Markdown/index";
 import { instructions, renderers } from "../Markdown/instructions/comments";
 import { database } from "../../firebase/client";
 import { updateCommentsList } from "./form/index";
+import useNotification from "../../hooks/useNotification";
 export default function Feed({
   allComments,
   user,
@@ -12,13 +13,17 @@ export default function Feed({
   slug,
   setAllComments,
 }) {
+  const { setShowNotification } = useNotification();
   async function handleRemove(e, commentId) {
     e.preventDefault();
     setInfo("");
     database
       .ref(`comments/${commentId}`)
       .remove()
-      .catch(() => setInfo("Error al eliminar el comentario"));
+      .catch(() => {
+        setInfo("Error al eliminar el comentario");
+        setShowNotification(true);
+      });
     updateCommentsList(slug, setAllComments, setInfo);
     setInfo("");
   }

@@ -6,7 +6,13 @@ import PropTypes from "prop-types";
 import TextArea from "./TextArea";
 import Options from "../options";
 import Preview from "./Preview";
-export function updateCommentsList(slug, setAllComments, setInfo) {
+import useNotification from "../../../hooks/useNotification";
+export function updateCommentsList(
+  slug,
+  setAllComments,
+  setInfo,
+  setShowNotification
+) {
   database
     .ref("comments")
     .orderByChild("post")
@@ -19,7 +25,10 @@ export function updateCommentsList(slug, setAllComments, setInfo) {
       });
       setAllComments(allComments);
     })
-    .catch(() => setInfo("Error al actualizar los comentarios"));
+    .catch(() => {
+      setInfo("Error al actualizar los comentarios");
+      setShowNotification(true);
+    });
 }
 
 export default function Form({
@@ -40,21 +49,25 @@ export default function Form({
   const [currentCaret, setCurrentCaret] = useState({ start: 0, end: 0 });
   const commentText = useRef();
   const [drag, setDrag] = useState("");
+  const { setShowNotification } = useNotification();
 
   useEffect(() => {
     setInfo("");
-    updateCommentsList(slug, setAllComments, setInfo);
-  }, [slug, setAllComments, setInfo]);
+    updateCommentsList(slug, setAllComments, setInfo, setShowNotification);
+  }, [slug, setAllComments, setInfo, setShowNotification]);
 
   useEffect(() => {
     if (task) {
       let onProgress = (snapshot) => {
         setImgURL(null);
         const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setShowNotification(true);
         setInfo(`Cargando ${Math.round(percent * 100) / 100}%`);
+        setShowNotification(true);
       };
       let onError = () => {
         setInfo("Ha ocurrido un error al intentar subir la imagen");
+        setShowNotification(true);
       };
       let onComplete = () => {
         task.snapshot.ref.getDownloadURL().then(setImgURL);
@@ -62,7 +75,7 @@ export default function Form({
       };
       task.on("state_changed", onProgress, onError, onComplete);
     }
-  }, [task, setInfo]);
+  }, [task, setInfo, setShowNotification]);
 
   // Set the cursor position after select one modified text option
   useEffect(() => {
@@ -84,10 +97,12 @@ export default function Form({
     setInfo("");
     if (!user) {
       setInfo("Necesitas identificarte para enviar un comentario");
+      setShowNotification(true);
       return;
     }
     if (comment.trim().length < 10) {
       setInfo("Escribe al menos 10 caracteres");
+      setShowNotification(true);
       return;
     }
     const commentsRef = database.ref("comments");
@@ -106,7 +121,10 @@ export default function Form({
         uid: user.uid,
         commentId: commentId,
       })
-      .catch(() => setInfo("Error al publicar el comentario"));
+      .catch(() => {
+        setInfo("Error al publicar el comentario");
+        setShowNotification(true);
+      });
     updateCommentsList(slug, setAllComments, setInfo);
     setUpdateComments(false);
     setImgURL(null);
@@ -118,10 +136,12 @@ export default function Form({
     setInfo("");
     if (user === null) {
       setInfo("Necesitas identificarte para enviar una imagen");
+      setShowNotification(true);
       return;
     }
     if (!image?.type.startsWith("image")) {
       setInfo("El archivo tiene que ser de tipo imagen");
+      setShowNotification(true);
       return;
     }
     setTask(uploadImage(image, slug));

@@ -3,13 +3,25 @@ import { H1, H2, H3, A, Ul, Li, P } from "../../components/tags";
 import useCookies from "../../hooks/useCookies";
 import { colors } from "../../styles/theme";
 import useDarkMode from "../../hooks/useDarkMode";
+import Notification from "../../components/Notification";
+import useNotification from "../../hooks/useNotification";
 
 export default function Cookies() {
   const { darkMode } = useDarkMode();
-  const { acceptedcookies, toggleCookies } = useCookies();
+  const { acceptedcookies, toggleAceptedCookies } = useCookies();
+  const { setShowNotification } = useNotification();
+
+  const handleClick = () => {
+    setShowNotification(true);
+    toggleAceptedCookies();
+  };
+
   return (
     <main id="main">
       <Seo title={`Política de cookies ${acceptedcookies ? "🔓" : "🔒"}`} />
+      <Notification variant="info">
+        {`Cookies ${acceptedcookies ? "activadas" : "desactivadas"}`}
+      </Notification>
       <H1>Política de cookies</H1>
       <div>
         <span>
@@ -22,7 +34,7 @@ export default function Cookies() {
         >
           <input
             type="checkbox"
-            onClick={() => toggleCookies()}
+            onClick={handleClick}
             defaultChecked={!acceptedcookies}
           />
         </label>

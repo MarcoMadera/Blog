@@ -7,7 +7,7 @@ import useCookies from "../hooks/useCookies";
 export default function CookiesModal() {
   const [targetNode, setTargetNode] = useState();
   const { darkMode } = useDarkMode();
-  const { setAcceptedCookies } = useCookies();
+  const { setAcceptedCookies, track } = useCookies();
   useEffect(() => {
     setTargetNode(document.querySelector("#cookiesDialog"));
   }, []);
@@ -17,7 +17,7 @@ export default function CookiesModal() {
 
   function handleClick(res) {
     if (res === true) {
-      window.track("pageview");
+      track("pageview");
       localStorage.setItem("cookiesAccepted", "true");
       return setAcceptedCookies(true);
     } else {

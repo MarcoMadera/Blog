@@ -7,9 +7,9 @@ import Twitter from "./icons/Twitter";
 import LinkedIn from "./icons/LinkedIn";
 import Github from "./icons/Github";
 
-function Anchor({ href, children }) {
+function Anchor({ href, children, ...props }) {
   return (
-    <a href={href} rel="noopener noreferrer" target="_blank">
+    <a href={href} rel="noopener noreferrer" target="_blank" {...props}>
       {children}
     </a>
   );
@@ -62,21 +62,30 @@ function Footer() {
         <div className="footer_section ">
           <h4>Social</h4>
           <div className="footer_social">
-            <Anchor href="https://twitter.com/madera_marco">
+            <Anchor
+              href="https://twitter.com/madera_marco"
+              aria-label="Visitar la página de Twitter"
+            >
               <Twitter
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
             </Anchor>
-            <Anchor href="https://www.linkedin.com/in/marcomadera">
+            <Anchor
+              href="https://www.linkedin.com/in/marcomadera"
+              aria-label="Visitar la página de LinkedIn"
+            >
               <LinkedIn
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
             </Anchor>
-            <Anchor href="https://github.com/MarcoMadera">
+            <Anchor
+              href="https://github.com/MarcoMadera"
+              aria-label="Visitar la página de Github"
+            >
               <Github
                 width={28}
                 height={28}

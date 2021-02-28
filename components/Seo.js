@@ -33,6 +33,7 @@ export default function Seo({
       />
       <meta property="og:locale" content="es-MX" />
       <meta name="robots" content="index,follow" />
+      <meta name="monetization" content="$ilp.uphold.com/wjQdnNyGYBgW" />
       <meta
         name="theme-color"
         content={darkMode ? colors.dark_background : colors.background}
@@ -85,7 +86,6 @@ export default function Seo({
       ) : (
         <meta property="og:type" content="website" />
       )}
-
       <meta
         property="og:site_name"
         content={`${siteMetadata.title}: ${siteMetadata.description}`}

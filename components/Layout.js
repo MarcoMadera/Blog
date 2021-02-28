@@ -9,7 +9,7 @@ import CookiesModal from "./CookiesModal";
 import useCookies from "../hooks/useCookies";
 export default function Layout({ children }) {
   const { darkMode, setDarkMode } = useDarkMode();
-  const { acceptedcookies, setAcceptedCookies } = useCookies();
+  const { acceptedcookies, setAcceptedCookies, track } = useCookies();
   const router = useRouter();
 
   useEffect(() => {
@@ -20,19 +20,19 @@ export default function Layout({ children }) {
     }
 
     if (localStorage.getItem("cookiesAccepted") === "true") {
-      window.track("pageview");
+      track("pageview");
       setAcceptedCookies(true);
     }
     if (localStorage.getItem("cookiesAccepted") === "false") {
       setAcceptedCookies(false);
     }
-  }, [setAcceptedCookies, setDarkMode]);
+  }, [setAcceptedCookies, setDarkMode, track]);
 
   useEffect(() => {
     // update page url minimal google analytics
     const handleRouteChange = () => {
       if (acceptedcookies === true) {
-        window.track("pageview");
+        track("pageview");
       }
     };
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -48,7 +48,7 @@ export default function Layout({ children }) {
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events, acceptedcookies]);
+  }, [router.events, acceptedcookies, track]);
 
   return (
     <>

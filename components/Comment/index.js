@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { onAuthStateChanged, logOut } from "../../firebase/client";
 import Feed from "./Feed";
 import Form from "./form/index";
+import Notification from "../Notification";
+import useNotification from "../../hooks/useNotification";
 
 export default function Comments({ slug }) {
   const [allComments, setAllComments] = useState([]);
@@ -11,6 +13,8 @@ export default function Comments({ slug }) {
   const [user, setUser] = useState(undefined);
   const [info, setInfo] = useState("");
   const [preview, setPreview] = useState(false);
+  const { showNotification, setShowNotification } = useNotification();
+
   useEffect(() => {
     onAuthStateChanged(setUser);
   }, []);
@@ -18,10 +22,14 @@ export default function Comments({ slug }) {
   function handleLogOut() {
     logOut()
       .then(setUser)
-      .catch(() => setInfo("Ha ocurrido un error al cerrar sesión"));
+      .catch(() => {
+        setInfo("Ha ocurrido un error al cerrar sesión");
+        setShowNotification(true);
+      });
   }
   return (
     <section>
+      {showNotification && <Notification variant="info">{info}</Notification>}
       <label htmlFor="Comment">
         <H2>Comentarios</H2>
       </label>

@@ -2,8 +2,10 @@ import Button from "./Button";
 import { Github, Twitter } from "../icons";
 import PropTypes from "prop-types";
 import { loginWithGithub, loginWithTwitter } from "../../../firebase/client";
+import useNotification from "../../../hooks/useNotification";
 
 export default function LoginButtons({ setInfo, setUser }) {
+  const { setShowNotification } = useNotification();
   function withGithub(e) {
     e.preventDefault();
     loginWithGithub()
@@ -12,6 +14,7 @@ export default function LoginButtons({ setInfo, setUser }) {
         err.code === "auth/account-exists-with-different-credential"
           ? setInfo("Ya existe una cuenta asociada al mismo email")
           : setInfo("Ha ocurrido un error al iniciar sesión");
+        setShowNotification(true);
       });
     setInfo("");
   }
@@ -23,6 +26,7 @@ export default function LoginButtons({ setInfo, setUser }) {
         err.code === "auth/account-exists-with-different-credential"
           ? setInfo("Ya existe una cuenta asociada al mismo email")
           : setInfo("Ha ocurrido un error al iniciar sesión");
+        setShowNotification(true);
       });
     setInfo("");
   }

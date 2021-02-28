@@ -10,8 +10,11 @@ export default class MyDocument extends Document {
         <Head />
         <body>
           <Main />
+          <div id="notification" />
           <div id="cookiesDialog" />
-          <NextScript />
+          <div>
+            <NextScript />
+          </div>
         </body>
       </Html>
     );
