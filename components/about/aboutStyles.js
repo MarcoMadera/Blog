@@ -60,12 +60,12 @@ export const aboutStyles = css`
       grid-template-columns: auto;
     }
   }
-  @media screen and (min-width: 876px) and (max-width: 1024px) {
+  @media screen and (min-width: 877px) and (max-width: 1024px) {
     main {
       grid-template-columns: auto 240px;
     }
   }
-  @media screen and (min-width: 1024px) and (max-width: 1050px) {
+  @media screen and (min-width: 1025px) and (max-width: 1050px) {
     aside:nth-of-type(1) > :global(svg) {
       margin-bottom: 90px;
     }
@@ -73,7 +73,7 @@ export const aboutStyles = css`
       margin-bottom: 230px;
     }
   }
-  @media screen and (min-width: 1050px) and (max-width: 1070px) {
+  @media screen and (min-width: 1051px) and (max-width: 1070px) {
     aside:nth-of-type(1) > :global(svg) {
       margin-bottom: 95px;
     }
@@ -81,7 +81,7 @@ export const aboutStyles = css`
       margin-bottom: 170px;
     }
   }
-  @media screen and (min-width: 1070px) and (max-width: 1120px) {
+  @media screen and (min-width: 1071px) and (max-width: 1120px) {
     aside:nth-of-type(1) > :global(svg) {
       margin-bottom: 70px;
     }
@@ -89,7 +89,7 @@ export const aboutStyles = css`
       margin-bottom: 240px;
     }
   }
-  @media screen and (min-width: 1120px) and (max-width: 1165px) {
+  @media screen and (min-width: 1121px) and (max-width: 1165px) {
     aside:nth-of-type(1) > :global(svg) {
       margin-bottom: 60px;
     }
@@ -97,7 +97,7 @@ export const aboutStyles = css`
       margin-bottom: 220px;
     }
   }
-  @media screen and (min-width: 1165px) and (max-width: 1220px) {
+  @media screen and (min-width: 1166px) and (max-width: 1220px) {
     aside:nth-of-type(1) > :global(svg) {
       margin-bottom: 60px;
     }
@@ -105,7 +105,7 @@ export const aboutStyles = css`
       margin-bottom: 190px;
     }
   }
-  @media screen and (min-width: 1220px) and (max-width: 1280px) {
+  @media screen and (min-width: 1221px) and (max-width: 1280px) {
     aside:nth-of-type(1) > :global(svg) {
       margin-bottom: 60px;
     }
@@ -113,7 +113,7 @@ export const aboutStyles = css`
       margin-bottom: 150px;
     }
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1281px) {
     aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
       margin-bottom: 120px;
     }
