@@ -22,6 +22,7 @@ module.exports = {
       facebook: "marco.mad.lop",
     },
     postsPerPage: 4,
+    commentsPerPost: 5,
   },
   imageCloudProvider: "https://res.cloudinary.com/marcomadera/image/upload",
 };

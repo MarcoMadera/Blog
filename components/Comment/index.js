@@ -14,6 +14,7 @@ export default function Comments({ slug }) {
   const [info, setInfo] = useState("");
   const [preview, setPreview] = useState(false);
   const { showNotification, setShowNotification } = useNotification();
+  const [timesLoadedComments, setTimesLoadedComments] = useState(1);
 
   useEffect(() => {
     onAuthStateChanged(setUser);
@@ -61,6 +62,7 @@ export default function Comments({ slug }) {
         info={info}
         setInfo={setInfo}
         preview={preview}
+        timesLoadedComments={timesLoadedComments}
       />
       <Feed
         allComments={allComments}
@@ -68,6 +70,8 @@ export default function Comments({ slug }) {
         setInfo={setInfo}
         slug={slug}
         setAllComments={setAllComments}
+        timesLoadedComments={timesLoadedComments}
+        setTimesLoadedComments={setTimesLoadedComments}
       />
       <style jsx>{`
         .controls {

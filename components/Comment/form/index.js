@@ -7,17 +7,20 @@ import TextArea from "./TextArea";
 import Options from "../options";
 import Preview from "./Preview";
 import useNotification from "../../../hooks/useNotification";
+import { siteMetadata } from "../../../site.config";
+
 export function updateCommentsList(
   slug,
   setAllComments,
   setInfo,
-  setShowNotification
+  setShowNotification,
+  limit
 ) {
   database
-    .ref("comments")
+    .ref(`post/${slug}`)
     .orderByChild("post")
     .equalTo(slug)
-    .limitToLast(10)
+    .limitToLast(limit || siteMetadata.commentsPerPost)
     .once("value", (snapshot) => {
       let allComments = [];
       snapshot.forEach((snap) => {
@@ -41,6 +44,7 @@ export default function Form({
   updateComments,
   setUpdateComments,
   preview,
+  timesLoadedComments,
 }) {
   const [selectTextArea, setSelectTextArea] = useState(false);
   const [imgURL, setImgURL] = useState(null);
@@ -50,7 +54,6 @@ export default function Form({
   const commentText = useRef();
   const [drag, setDrag] = useState("");
   const { setShowNotification } = useNotification();
-
   useEffect(() => {
     setInfo("");
     updateCommentsList(slug, setAllComments, setInfo, setShowNotification);
@@ -105,7 +108,7 @@ export default function Form({
       setShowNotification(true);
       return;
     }
-    const commentsRef = database.ref("comments");
+    const commentsRef = database.ref(`post/${slug}`);
     const newPostRef = commentsRef.push();
     const commentId = (await newPostRef).key.toString();
     setUpdateComments(true);
@@ -125,7 +128,13 @@ export default function Form({
         setInfo("Error al publicar el comentario");
         setShowNotification(true);
       });
-    updateCommentsList(slug, setAllComments, setInfo);
+    updateCommentsList(
+      slug,
+      setAllComments,
+      setInfo,
+      setShowNotification,
+      siteMetadata.commentsPerPost * timesLoadedComments
+    );
     setUpdateComments(false);
     setImgURL(null);
     setComment("");
@@ -214,4 +223,5 @@ Form.propTypes = {
   preview: PropTypes.bool,
   updateComments: PropTypes.bool,
   setUpdateComments: PropTypes.func,
+  timesLoadedComments: PropTypes.number,
 };

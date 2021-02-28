@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState, createContext } from "react";
-const NotificationContext = createContext({ showNotification: false });
+const NotificationContext = createContext({
+  showNotification: false,
+  setShowNotification: () => {},
+});
 
 export function NotificationContextProvider({ children }) {
   const [showNotification, setShowNotification] = useState(false);

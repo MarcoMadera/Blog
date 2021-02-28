@@ -45,8 +45,8 @@ export function logOut() {
   return firebase.auth().signOut();
 }
 
-export const uploadImage = (file, from) => {
-  const ref = firebase.storage().ref(`images/${from}/${uuidv4()}-${file.name}`);
+export const uploadImage = (file, post) => {
+  const ref = firebase.storage().ref(`${post}/images/${uuidv4()}-${file.name}`);
   const task = ref.put(file);
   return task;
 };
