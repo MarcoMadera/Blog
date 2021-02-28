@@ -135,7 +135,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
             : "0 auto"};
           overflow: hidden;
           padding: 0;
-          max-width: 100%;
+          max-width: fit-content;
         }
         details[open] {
           padding: 0;
