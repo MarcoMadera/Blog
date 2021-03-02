@@ -1,20 +1,23 @@
 /* eslint-disable react/prop-types */
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
+import useComments from "../../../hooks/useComments";
 import useNotification from "../../../hooks/useNotification";
 
 export default function Button({
   title,
-  commentText,
+  textAreaRef,
   setCurrentCaret,
-  setComment,
   children,
   type,
-  setInfo,
   mark,
   openMark,
   closeMark,
 }) {
-  const { setShowNotification } = useNotification();
+  const { setNotification } = useNotification();
+  const router = useRouter();
+  const slug = router.query.slug;
+  const { setComment } = useComments(slug);
   function calculateCaret(initial, textbetweenTag) {
     if (mark) {
       const caret = initial ? initial + mark.length + 1 : mark.length;
@@ -86,28 +89,30 @@ export default function Button({
 
   function modifiedTextWithTag(e) {
     e.preventDefault();
-    const comment = commentText.current.value;
+    const comment = textAreaRef.current.value;
     if (comment.trim().length > 800) {
-      setInfo("El comentario tiene que ser más corto");
-      setShowNotification(true);
+      setNotification({
+        variant: "info",
+        message: "El comentario tiene que ser más corto",
+      });
       return;
     }
-    const currentPos = commentText.current.selectionStart;
-    const lastPos = commentText.current.selectionEnd;
-    const textbetweenTag = commentText.current.value.substring(
+    const currentPos = textAreaRef.current.selectionStart;
+    const lastPos = textAreaRef.current.selectionEnd;
+    const textbetweenTag = textAreaRef.current.value.substring(
       currentPos,
       lastPos
     );
-    const commentBefore = commentText.current.value.slice(0, currentPos);
-    const commentAfter = commentText.current.value.slice(
+    const commentBefore = textAreaRef.current.value.slice(0, currentPos);
+    const commentAfter = textAreaRef.current.value.slice(
       lastPos,
-      commentText.current.value.lenght
+      textAreaRef.current.value.lenght
     );
     setCurrentCaret(calculateCaret(commentBefore.length, textbetweenTag));
 
     const text = newComment(commentBefore, textbetweenTag, commentAfter);
     setComment(text);
-    commentText.current.focus();
+    textAreaRef.current.focus();
   }
   return (
     <button onClick={(e) => modifiedTextWithTag(e)} title={title}>
@@ -147,9 +152,7 @@ Button.propTypes = {
   title: PropTypes.string,
   tagName: PropTypes.string,
   type: PropTypes.string,
-  commentText: PropTypes.object,
+  textAreaRef: PropTypes.object,
   setCurrentCaret: PropTypes.func,
-  setComment: PropTypes.func,
-  setInfo: PropTypes.func,
   children: PropTypes.node,
 };

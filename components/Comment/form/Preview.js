@@ -2,9 +2,11 @@ import MarkDown from "../../Markdown";
 import { instructions, renderers } from "../../Markdown/instructions/comments";
 import PropTypes from "prop-types";
 import { Markdown as MarkDownIcon } from "../icons";
-import { A } from "../../tags";
+import { A, Img } from "../../tags";
+import useComments from "../../../hooks/useComments";
 
-export default function Preview({ comment }) {
+export default function Preview() {
+  const { comment, imgURL } = useComments();
   return (
     <section>
       <div>
@@ -14,6 +16,7 @@ export default function Preview({ comment }) {
           renderers={renderers}
           escapeHtml={true}
         />
+        {imgURL ? <Img src={imgURL} /> : null}
       </div>
       <A
         href="https://commonmark.org/help/"

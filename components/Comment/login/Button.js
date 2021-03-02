@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
+import useUser from "../../../hooks/useUser";
 
-export default function Button({ children, handleLogin }) {
+export default function Button({ children, loginMethod }) {
+  const { loginUser } = useUser();
   return (
-    <button onClick={handleLogin}>
+    <button onClick={() => loginUser(loginMethod)}>
       {children}
       <style jsx>{`
         button {
@@ -31,5 +33,5 @@ export default function Button({ children, handleLogin }) {
 
 Button.propTypes = {
   children: PropTypes.node,
-  handleLogin: PropTypes.func,
+  loginMethod: PropTypes.string,
 };

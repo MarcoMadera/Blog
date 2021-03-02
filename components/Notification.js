@@ -4,11 +4,12 @@ import { colors } from "../styles/theme";
 import useDarkMode from "../hooks/useDarkMode";
 import { Info } from "../components/Comment/icons/index";
 import useNotification from "../hooks/useNotification";
+import Error from "./Comment/icons/Error";
 
-export default function Notification({ variant, children }) {
+export default function Notification() {
   const [targetNode, setTargetNode] = useState();
   const { darkMode } = useDarkMode();
-  const { showNotification, setShowNotification } = useNotification();
+  const { notification, setNotification } = useNotification();
 
   useEffect(() => {
     setTargetNode(document.querySelector("#notification"));
@@ -17,21 +18,26 @@ export default function Notification({ variant, children }) {
   if (targetNode === undefined) {
     return null;
   }
-  if (showNotification) {
+  if (notification?.message) {
     return createPortal(
       <section>
         <div>
           <button
             aria-label="Eliminar notificación"
             onClick={() => {
-              setShowNotification(false);
+              setNotification({ variant: "info", message: "" });
             }}
           >
             x
           </button>
           <p>
-            {variant === "info" && <Info width={20} height={20} />}
-            {children}
+            {notification?.variant === "info" && (
+              <Info width={20} height={20} />
+            )}
+            {notification?.variant === "error" && (
+              <Error width={20} height={20} />
+            )}
+            {notification?.message}
           </p>
         </div>
         <style jsx>{`
@@ -68,7 +74,9 @@ export default function Notification({ variant, children }) {
               transform: translateY(0);
             }
             100% {
-              transform: translateY(${showNotification ? "10px" : "-500px"});
+              transform: translateY(
+                ${notification.message ? "10px" : "-500px"}
+              );
             }
           }
           button {

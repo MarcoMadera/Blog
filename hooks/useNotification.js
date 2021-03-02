@@ -3,20 +3,22 @@ import { useContext } from "react";
 import NotificationContext from "../context/NotificationContext";
 
 export default function useNotification(time = 10000) {
-  const { showNotification, setShowNotification } = useContext(
-    NotificationContext
-  );
+  const { notification, setNotification } = useContext(NotificationContext);
+
   useEffect(() => {
-    const displayTime = setTimeout(() => {
-      setShowNotification(false);
-    }, time);
-    return () => {
-      clearTimeout(displayTime);
-    };
-  }, [showNotification, setShowNotification, time]);
+    if (notification.message) {
+      const displayTime = setTimeout(() => {
+        setNotification({ variant: "info", message: "" });
+      }, time);
+      return () => {
+        clearTimeout(displayTime);
+      };
+    }
+    return;
+  }, [notification, setNotification, time]);
 
   return {
-    showNotification,
-    setShowNotification,
+    notification,
+    setNotification,
   };
 }

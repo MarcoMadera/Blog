@@ -13,20 +13,22 @@ import LoginButtons from "../login";
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../../hooks/useDarkMode";
+import useComments from "../../../hooks/useComments";
+import useUser from "../../../hooks/useUser";
 
 export default function Options({
-  user,
-  handleDrop,
-  handleSubmit,
-  submitComment,
-  commentText,
+  textAreaRef,
   setCurrentCaret,
-  setComment,
-  setInfo,
-  setUser,
   selectTextArea,
 }) {
   const { darkMode } = useDarkMode();
+  const {
+    createComment,
+    comment,
+    isSubmittingComment,
+    sendFile,
+  } = useComments();
+  const { user } = useUser();
   const options = [
     { name: "Título", type: "header", mark: "# ", children: "T" },
     { name: "Negrita", openMark: "**", closeMark: "**", children: "B" },
@@ -74,6 +76,11 @@ export default function Options({
     },
   ];
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await createComment(comment);
+  }
+
   return (
     <div className="hiddenOptions">
       <div className="options__container">
@@ -84,12 +91,10 @@ export default function Options({
                 <Button
                   key={name}
                   title={name}
-                  commentText={commentText}
+                  textAreaRef={textAreaRef}
                   setCurrentCaret={setCurrentCaret}
-                  setComment={setComment}
                   openMark={openMark}
                   closeMark={closeMark}
-                  setInfo={setInfo}
                   type={type}
                   mark={mark}
                 >
@@ -111,7 +116,7 @@ export default function Options({
               accept="image/png, image/jpeg, image/webp"
               onChange={(e) => {
                 e.preventDefault();
-                handleDrop(e.target.files[0]);
+                sendFile(e.target.files);
               }}
             />
           </label>
@@ -120,10 +125,10 @@ export default function Options({
           type="submit"
           value="Enviar comentario"
           onClick={(e) => handleSubmit(e)}
-          disabled={submitComment}
+          disabled={isSubmittingComment}
         />
       </div>
-      {!user && <LoginButtons setInfo={setInfo} setUser={setUser} />}
+      {!user && <LoginButtons />}
       <style jsx>{`
         .hiddenOptions {
           visibility: ${selectTextArea ? "visible" : "hidden"};
@@ -208,13 +213,11 @@ export default function Options({
 
 Options.propTypes = {
   user: PropTypes.object,
-  handleDrop: PropTypes.func,
-  handleSubmit: PropTypes.func,
+  sendFile: PropTypes.func,
   submitComment: PropTypes.bool,
-  commentText: PropTypes.object,
+  textAreaRef: PropTypes.object,
   setCurrentCaret: PropTypes.func,
   setComment: PropTypes.func,
-  setInfo: PropTypes.func,
   setUser: PropTypes.func,
   selectTextArea: PropTypes.bool,
 };

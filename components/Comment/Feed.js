@@ -1,66 +1,36 @@
 import { Img } from "../tags";
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import MarkDown from "../Markdown/index";
 import { instructions, renderers } from "../Markdown/instructions/comments";
-import { database } from "../../firebase/client";
-import { updateCommentsList } from "./form/index";
-import useNotification from "../../hooks/useNotification";
 import useDarkMode from "../../hooks/useDarkMode";
 import { colors } from "../../styles/theme";
 import { siteMetadata } from "../../site.config";
-export default function Feed({
-  allComments,
-  user,
-  setInfo,
-  slug,
-  setAllComments,
-  timesLoadedComments,
-  setTimesLoadedComments,
-}) {
-  const { setShowNotification } = useNotification();
-  const [commentCount, setCommentCount] = useState(0);
+import useComments from "../../hooks/useComments";
+import useUser from "../../hooks/useUser";
+export default function Feed() {
   const darkMode = useDarkMode();
-  async function handleRemove(e, commentId) {
+  const {
+    removeComment,
+    updateCommentsList,
+    timesLoadedComments,
+    setTimesLoadedComments,
+    allComments,
+    commentCount,
+  } = useComments();
+  const { user } = useUser();
+
+  function handleRemove(e, commentId) {
     e.preventDefault();
-    setInfo("");
-    database
-      .ref(`post/${slug}/${commentId}`)
-      .remove()
-      .catch(() => {
-        setInfo("Error al eliminar el comentario");
-        setShowNotification(true);
-      });
-    updateCommentsList(
-      slug,
-      setAllComments,
-      setInfo,
-      setShowNotification,
-      siteMetadata.commentsPerPost * timesLoadedComments
-    );
-    setInfo("");
+    removeComment(commentId);
+    updateCommentsList();
   }
-  useEffect(() => {
-    database
-      .ref(`post/${slug}`)
-      .once("value")
-      .then((snapshot) => {
-        setCommentCount(snapshot.numChildren());
-      });
-  }, [slug, allComments]);
+
   function loadMoreComments() {
     setTimesLoadedComments((val) => val + 1);
-    updateCommentsList(
-      slug,
-      setAllComments,
-      setInfo,
-      setShowNotification,
-      siteMetadata.commentsPerPost * (timesLoadedComments + 1)
-    );
+    updateCommentsList();
   }
   return (
     <>
-      {allComments.length ? (
+      {allComments.length > 0 ? (
         <ul>
           {allComments.map(
             ({ commentId, avatar, username, comment, date, img, uid }) => (
@@ -162,9 +132,7 @@ export default function Feed({
             }
           `}</style>
         </ul>
-      ) : (
-        ""
-      )}
+      ) : null}
       {commentCount > siteMetadata.commentsPerPost * timesLoadedComments ? (
         <div>
           <button onClick={loadMoreComments}>Ver más comentarios</button>
@@ -188,12 +156,3 @@ export default function Feed({
     </>
   );
 }
-Feed.propTypes = {
-  allComments: PropTypes.array,
-  user: PropTypes.object,
-  slug: PropTypes.string,
-  setInfo: PropTypes.func,
-  setAllComments: PropTypes.func,
-  setTimesLoadedComments: PropTypes.func,
-  timesLoadedComments: PropTypes.number,
-};

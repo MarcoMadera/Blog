@@ -1,36 +1,29 @@
 import { H2 } from "../tags";
-import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
-import { onAuthStateChanged, logOut } from "../../firebase/client";
+import React, { useEffect, useState } from "react";
 import Feed from "./Feed";
 import Form from "./form/index";
-import Notification from "../Notification";
-import useNotification from "../../hooks/useNotification";
+import useUser from "../../hooks/useUser";
+import useComments from "../../hooks/useComments";
+import PropTypes from "prop-types";
+import { onAuthStateChanged } from "../../firebase/client";
 
 export default function Comments({ slug }) {
-  const [allComments, setAllComments] = useState([]);
-  const [updateComments, setUpdateComments] = useState(false);
-  const [user, setUser] = useState(undefined);
-  const [info, setInfo] = useState("");
   const [preview, setPreview] = useState(false);
-  const { showNotification, setShowNotification } = useNotification();
-  const [timesLoadedComments, setTimesLoadedComments] = useState(1);
+  const { user, logOutUser, setUser } = useUser();
+  const { updateCommentsList } = useComments();
 
+  // update comments every time the slug changes
+  useEffect(() => {
+    updateCommentsList();
+  }, [slug, updateCommentsList]);
+
+  // Detect user and log in
   useEffect(() => {
     onAuthStateChanged(setUser);
-  }, []);
+  }, [setUser]);
 
-  function handleLogOut() {
-    logOut()
-      .then(setUser)
-      .catch(() => {
-        setInfo("Ha ocurrido un error al cerrar sesión");
-        setShowNotification(true);
-      });
-  }
   return (
     <section>
-      {showNotification && <Notification variant="info">{info}</Notification>}
       <label htmlFor="Comment">
         <H2>Comentarios</H2>
       </label>
@@ -38,7 +31,7 @@ export default function Comments({ slug }) {
         {user ? (
           <div>
             <span>Sesión iniciada como {user.username} </span>
-            <button onClick={handleLogOut}>(cerrar sesión)</button>
+            <button onClick={logOutUser}>(cerrar sesión)</button>
           </div>
         ) : (
           <span></span>
@@ -52,27 +45,8 @@ export default function Comments({ slug }) {
           {preview ? "Editor" : "Vista previa"}
         </button>
       </div>
-      <Form
-        slug={slug}
-        user={user}
-        setUser={setUser}
-        setAllComments={setAllComments}
-        updateComments={updateComments}
-        setUpdateComments={setUpdateComments}
-        info={info}
-        setInfo={setInfo}
-        preview={preview}
-        timesLoadedComments={timesLoadedComments}
-      />
-      <Feed
-        allComments={allComments}
-        user={user}
-        setInfo={setInfo}
-        slug={slug}
-        setAllComments={setAllComments}
-        timesLoadedComments={timesLoadedComments}
-        setTimesLoadedComments={setTimesLoadedComments}
-      />
+      <Form preview={preview} />
+      <Feed />
       <style jsx>{`
         .controls {
           display: inline-flex;

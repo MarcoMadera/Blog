@@ -1,42 +1,14 @@
 import Button from "./Button";
 import { Github, Twitter } from "../icons";
-import PropTypes from "prop-types";
-import { loginWithGithub, loginWithTwitter } from "../../../firebase/client";
-import useNotification from "../../../hooks/useNotification";
 
-export default function LoginButtons({ setInfo, setUser }) {
-  const { setShowNotification } = useNotification();
-  function withGithub(e) {
-    e.preventDefault();
-    loginWithGithub()
-      .then(setUser)
-      .catch((err) => {
-        err.code === "auth/account-exists-with-different-credential"
-          ? setInfo("Ya existe una cuenta asociada al mismo email")
-          : setInfo("Ha ocurrido un error al iniciar sesión");
-        setShowNotification(true);
-      });
-    setInfo("");
-  }
-  function withTwitter(e) {
-    e.preventDefault();
-    loginWithTwitter()
-      .then(setUser)
-      .catch((err) => {
-        err.code === "auth/account-exists-with-different-credential"
-          ? setInfo("Ya existe una cuenta asociada al mismo email")
-          : setInfo("Ha ocurrido un error al iniciar sesión");
-        setShowNotification(true);
-      });
-    setInfo("");
-  }
+export default function LoginButtons() {
   return (
     <div>
-      <Button handleLogin={withGithub}>
+      <Button loginMethod="github">
         <Github width={20} height={20} />
         Identificarse con Github
       </Button>
-      <Button handleLogin={withTwitter}>
+      <Button loginMethod="twitter">
         <Twitter width={20} height={20} />
         Identificarse con Twitter
       </Button>
@@ -58,7 +30,3 @@ export default function LoginButtons({ setInfo, setUser }) {
     </div>
   );
 }
-LoginButtons.propTypes = {
-  setUser: PropTypes.func,
-  setInfo: PropTypes.func,
-};

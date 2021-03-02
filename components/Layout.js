@@ -7,6 +7,7 @@ import { colors } from "../styles/theme";
 import useDarkMode from "../hooks/useDarkMode";
 import CookiesModal from "./CookiesModal";
 import useCookies from "../hooks/useCookies";
+import Notification from "./Notification";
 export default function Layout({ children }) {
   const { darkMode, setDarkMode } = useDarkMode();
   const { acceptedcookies, setAcceptedCookies, track } = useCookies();
@@ -53,6 +54,7 @@ export default function Layout({ children }) {
   return (
     <>
       <a href="#main">Saltar al contenido</a>
+      <Notification />
       <Navbar />
       {children}
       <Footer />

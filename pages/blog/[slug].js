@@ -21,6 +21,8 @@ import {
   instructions,
 } from "../../components/Markdown/instructions/posts/";
 import useDarkMode from "../../hooks/useDarkMode";
+import { UserContextProvider } from "../../context/UserContext";
+import { CommentsContextProvider } from "../../context/CommentsContext";
 export default function Post({
   title,
   description,
@@ -131,7 +133,11 @@ export default function Post({
             <div />
           )}
         </nav>
-        <Comments slug={slug} />
+        <UserContextProvider>
+          <CommentsContextProvider>
+            <Comments slug={slug} />
+          </CommentsContextProvider>
+        </UserContextProvider>
       </article>
       <aside>
         <AllTags tags={tags} title="Etiquetas del artículo" />

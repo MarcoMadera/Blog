@@ -1,26 +1,13 @@
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../../hooks/useDarkMode";
+import { useState } from "react";
+import useComments from "../../../hooks/useComments";
 
-export default function TextArea({
-  setComment,
-  setSelectTextArea,
-  comment,
-  commentText,
-  handleDrop,
-  setDrag,
-  drag,
-}) {
+export default function TextArea({ setSelectTextArea, textAreaRef }) {
   const { darkMode } = useDarkMode();
-
-  function handleDragEnter(e) {
-    e.preventDefault();
-    setDrag("Enter");
-  }
-  function handleDragLeave(e) {
-    e.preventDefault();
-    setDrag("Leave");
-  }
+  const [drag, setDrag] = useState("");
+  const { comment, setComment, sendFile } = useComments();
 
   return (
     <>
@@ -30,14 +17,21 @@ export default function TextArea({
         placeholder="Escribe tu comentario"
         onChange={(e) => setComment(e.target.value)}
         onFocus={() => setSelectTextArea(true)}
-        onDragEnter={handleDragEnter}
-        onDragLeave={handleDragLeave}
+        onDragEnter={(e) => {
+          e.preventDefault();
+          setDrag("Enter");
+        }}
+        onDragLeave={(e) => {
+          e.preventDefault();
+          setDrag("Leave");
+        }}
         onDrop={(e) => {
           e.preventDefault();
-          handleDrop(e.dataTransfer.files[0]);
+          setDrag("Drop");
+          sendFile(e.dataTransfer.files);
         }}
         value={comment}
-        ref={commentText}
+        ref={textAreaRef}
       ></textarea>
       <style jsx>{`
         textarea {
@@ -96,8 +90,8 @@ TextArea.propTypes = {
   setComment: PropTypes.func,
   setSelectTextArea: PropTypes.func,
   comment: PropTypes.string,
-  commentText: PropTypes.object,
-  handleDrop: PropTypes.func,
+  textAreaRef: PropTypes.object,
+  sendFile: PropTypes.func,
   setDrag: PropTypes.func,
   drag: PropTypes.string,
 };

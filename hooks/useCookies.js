@@ -24,7 +24,7 @@ export default function useCookies() {
     document.cookie = `${name}=${value}; max-age=${age}; Path=/;"`;
   }
   function deleteCookie(cookieName) {
-    return (document.cookie = `${cookieName}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;`);
+    return (document.cookie = `${cookieName}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax;`);
   }
   function track(type) {
     if (!getCookie("_ga")) {
