@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import useComments from "../../../hooks/useComments";
@@ -150,9 +149,11 @@ export default function Button({
 }
 Button.propTypes = {
   title: PropTypes.string,
-  tagName: PropTypes.string,
-  type: PropTypes.string,
   textAreaRef: PropTypes.object,
   setCurrentCaret: PropTypes.func,
   children: PropTypes.node,
+  type: PropTypes.string,
+  mark: PropTypes.string,
+  openMark: PropTypes.string,
+  closeMark: PropTypes.string,
 };

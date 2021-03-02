@@ -1,6 +1,5 @@
 import MarkDown from "../../Markdown";
 import { instructions, renderers } from "../../Markdown/instructions/comments";
-import PropTypes from "prop-types";
 import { Markdown as MarkDownIcon } from "../icons";
 import { A, Img } from "../../tags";
 import useComments from "../../../hooks/useComments";
@@ -52,7 +51,3 @@ export default function Preview() {
     </section>
   );
 }
-
-Preview.propTypes = {
-  comment: PropTypes.string,
-};

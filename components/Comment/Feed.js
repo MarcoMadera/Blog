@@ -6,6 +6,7 @@ import { colors } from "../../styles/theme";
 import { siteMetadata } from "../../site.config";
 import useComments from "../../hooks/useComments";
 import useUser from "../../hooks/useUser";
+
 export default function Feed() {
   const darkMode = useDarkMode();
   const {

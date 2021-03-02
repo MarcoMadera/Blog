@@ -4,7 +4,12 @@ import useUser from "../../../hooks/useUser";
 export default function Button({ children, loginMethod }) {
   const { loginUser } = useUser();
   return (
-    <button onClick={() => loginUser(loginMethod)}>
+    <button
+      onClick={(e) => {
+        e.preventDefault();
+        loginUser(loginMethod);
+      }}
+    >
       {children}
       <style jsx>{`
         button {

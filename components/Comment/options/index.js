@@ -212,12 +212,7 @@ export default function Options({
 }
 
 Options.propTypes = {
-  user: PropTypes.object,
-  sendFile: PropTypes.func,
-  submitComment: PropTypes.bool,
   textAreaRef: PropTypes.object,
   setCurrentCaret: PropTypes.func,
-  setComment: PropTypes.func,
-  setUser: PropTypes.func,
   selectTextArea: PropTypes.bool,
 };

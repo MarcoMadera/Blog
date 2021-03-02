@@ -67,9 +67,5 @@ export default function Form({ preview }) {
   );
 }
 Form.propTypes = {
-  slug: PropTypes.string,
-  user: PropTypes.object,
-  setUser: PropTypes.func,
-  setAllComments: PropTypes.func,
   preview: PropTypes.bool,
 };

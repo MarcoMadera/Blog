@@ -87,11 +87,6 @@ export default function TextArea({ setSelectTextArea, textAreaRef }) {
 }
 
 TextArea.propTypes = {
-  setComment: PropTypes.func,
   setSelectTextArea: PropTypes.func,
-  comment: PropTypes.string,
   textAreaRef: PropTypes.object,
-  sendFile: PropTypes.func,
-  setDrag: PropTypes.func,
-  drag: PropTypes.string,
 };
