@@ -1,36 +1,55 @@
 import { useCallback, useContext } from "react";
 import UserContext from "../context/UserContext";
-import { loginWithGithub, loginWithTwitter, logOut } from "../firebase/client";
+import {
+  loginAnonymously,
+  loginWithGithub,
+  loginWithTwitter,
+  logOut,
+  mapUserFromFirebaseAuth,
+} from "../firebase/client";
 import useNotification from "./useNotification";
 
 export default function useUser() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, isLoggedIn } = useContext(UserContext);
   const { setNotification } = useNotification();
 
-  function loginUser(method) {
-    const login = (method) => {
-      if (method === "github") {
-        return loginWithGithub();
-      }
-      if (method === "twitter") {
-        return loginWithTwitter();
-      }
-    };
-    login(method)
-      .then(setUser)
-      .catch((err) => {
-        err.code === "auth/account-exists-with-different-credential"
-          ? setNotification({
-              variant: "info",
-              message: "Ya existe una cuenta asociada al mismo email",
-            })
-          : setNotification({
-              variant: "error",
-              message: "Ha ocurrido un error al iniciar sesión",
-            });
-      });
+  function validateError(err) {
+    err.code === "auth/account-exists-with-different-credential"
+      ? setNotification({
+          variant: "info",
+          message: "Ya existe una cuenta asociada al mismo email",
+        })
+      : setNotification({
+          variant: "error",
+          message: "Ha ocurrido un error al iniciar sesión",
+        });
   }
 
+  async function loginUserWithGithub() {
+    try {
+      const result = await loginWithGithub();
+      return setUser(result);
+    } catch (err) {
+      validateError(err);
+    }
+  }
+  async function loginUserWithTwitter() {
+    try {
+      const result_1 = await loginWithTwitter();
+      return setUser(result_1);
+    } catch (err) {
+      validateError(err);
+    }
+  }
+  async function loginUserAnonymously() {
+    try {
+      const { user: userLoggedIn } = await loginAnonymously();
+      const normalizeUser = mapUserFromFirebaseAuth(userLoggedIn);
+      return setUser(normalizeUser);
+    } catch (err) {
+      validateError(err);
+    }
+  }
   const logOutUser = useCallback(
     () =>
       logOut()
@@ -44,9 +63,12 @@ export default function useUser() {
     [setUser, setNotification]
   );
   return {
-    loginUser,
+    loginUserWithGithub,
+    loginUserWithTwitter,
+    loginUserAnonymously,
     user,
     setUser,
+    isLoggedIn,
     logOutUser,
   };
 }

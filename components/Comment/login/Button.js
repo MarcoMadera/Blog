@@ -1,13 +1,11 @@
 import PropTypes from "prop-types";
-import useUser from "../../../hooks/useUser";
 
 export default function Button({ children, loginMethod }) {
-  const { loginUser } = useUser();
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
-        loginUser(loginMethod);
+        loginMethod();
       }}
     >
       {children}
@@ -38,5 +36,5 @@ export default function Button({ children, loginMethod }) {
 
 Button.propTypes = {
   children: PropTypes.node,
-  loginMethod: PropTypes.string,
+  loginMethod: PropTypes.func,
 };

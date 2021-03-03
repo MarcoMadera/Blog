@@ -1,14 +1,16 @@
 import Button from "./Button";
 import { Github, Twitter } from "../icons";
+import useUser from "../../../hooks/useUser";
 
 export default function LoginButtons() {
+  const { loginUserWithGithub, loginUserWithTwitter } = useUser();
   return (
     <div>
-      <Button loginMethod="github">
+      <Button loginMethod={loginUserWithGithub}>
         <Github width={20} height={20} />
         Identificarse con Github
       </Button>
-      <Button loginMethod="twitter">
+      <Button loginMethod={loginUserWithTwitter}>
         <Twitter width={20} height={20} />
         Identificarse con Twitter
       </Button>

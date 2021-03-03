@@ -7,7 +7,7 @@ import { Img } from "../../tags";
 import useComments from "../../../hooks/useComments";
 import { useRouter } from "next/router";
 
-export default function Form({ preview }) {
+export default function Form({ preview, isValidComment, sendCommentRef }) {
   const [selectTextArea, setSelectTextArea] = useState(false);
   const [currentCaret, setCurrentCaret] = useState({ start: 0, end: 0 });
   const textAreaRef = useRef(null);
@@ -40,9 +40,11 @@ export default function Form({ preview }) {
             textAreaRef={textAreaRef}
           />
           <Options
+            isValidComment={isValidComment}
             textAreaRef={textAreaRef}
             setCurrentCaret={setCurrentCaret}
             selectTextArea={selectTextArea}
+            sendCommentRef={sendCommentRef}
           />
           {imgURL && <Img src={imgURL} alt="" />}
         </form>
@@ -68,4 +70,6 @@ export default function Form({ preview }) {
 }
 Form.propTypes = {
   preview: PropTypes.bool,
+  isValidComment: PropTypes.bool,
+  sendCommentRef: PropTypes.object,
 };

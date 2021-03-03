@@ -20,16 +20,16 @@ const app = !firebase.apps.length
 
 export const database = app.database();
 
-function mapUserFromFirebaseAuth(user) {
+export function mapUserFromFirebaseAuth(user) {
   const { displayName, email, photoURL, uid } = user;
 
   return { avatar: photoURL, username: displayName, email: email, uid };
 }
 
-export function onAuthStateChanged(onChange) {
+export function onAuthStateChanged(setUser) {
   return firebase.auth().onAuthStateChanged((user) => {
     const normalizeUser = user ? mapUserFromFirebaseAuth(user) : null;
-    onChange(normalizeUser);
+    setUser(normalizeUser);
   });
 }
 
@@ -40,6 +40,9 @@ export function loginWithGithub() {
 export function loginWithTwitter() {
   const twitterProvider = new firebase.auth.TwitterAuthProvider();
   return firebase.auth().signInWithPopup(twitterProvider);
+}
+export async function loginAnonymously() {
+  return await firebase.auth().signInAnonymously();
 }
 export function logOut() {
   return firebase.auth().signOut();

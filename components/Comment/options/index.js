@@ -1,85 +1,36 @@
 import Button from "./Button";
-import {
-  Image,
-  Anchor,
-  ImageCloud,
-  BlockCode,
-  BlockQuote,
-  BulletList,
-  CheckList,
-  NumberList,
-} from "../icons";
+import { Image } from "../icons";
+import { options } from "./optionList";
 import LoginButtons from "../login";
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../../hooks/useDarkMode";
 import useComments from "../../../hooks/useComments";
 import useUser from "../../../hooks/useUser";
+import { useEffect } from "react";
 
 export default function Options({
   textAreaRef,
+  sendCommentRef,
   setCurrentCaret,
   selectTextArea,
+  isValidComment,
 }) {
   const { darkMode } = useDarkMode();
   const {
     createComment,
     comment,
     isSubmittingComment,
+    setIsSubmittingComment,
     sendFile,
   } = useComments();
-  const { user } = useUser();
-  const options = [
-    { name: "Título", type: "header", mark: "# ", children: "T" },
-    { name: "Negrita", openMark: "**", closeMark: "**", children: "B" },
-    { name: "Cursiva", openMark: "_", closeMark: "_", children: "I" },
-    { name: "Tachado", openMark: "~~", closeMark: "~~", children: "D" },
-    { name: "Código en línea", openMark: "`", closeMark: "`", children: "<>" },
-    {
-      name: "Bloque acotado",
-      type: "blockquote",
-      mark: "> ",
-      children: <BlockQuote width={13} height={13} />,
-    },
-    {
-      name: "Bloque de código",
-      type: "blockCode",
-      children: <BlockCode width={24} height={24} />,
-    },
-    {
-      name: "Enlace",
-      type: "anchor",
-      children: <Anchor width={17} height={17} />,
-    },
-    {
-      name: "Lista de puntos",
-      type: "bulletList",
-      mark: "- ",
-      children: <BulletList width={20} height={20} />,
-    },
-    {
-      name: "Lista de números",
-      type: "numberList",
-      mark: "1. ",
-      children: <NumberList width={20} height={20} />,
-    },
-    {
-      name: "Lista de tareas",
-      type: "checkList",
-      mark: "- [ ] ",
-      children: <CheckList width={18} height={18} />,
-    },
-    {
-      name: "Imagen por enlace",
-      type: "anchorImage",
-      children: <ImageCloud width={24} height={24} />,
-    },
-  ];
+  const { user, isLoggedIn } = useUser();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    await createComment(comment);
-  }
+  useEffect(() => {
+    if (isLoggedIn && isSubmittingComment && isValidComment) {
+      createComment(comment);
+    }
+  }, [isLoggedIn, comment, createComment, isSubmittingComment, isValidComment]);
 
   return (
     <div className="hiddenOptions">
@@ -124,8 +75,11 @@ export default function Options({
         <input
           type="submit"
           value="Enviar comentario"
-          onClick={(e) => handleSubmit(e)}
-          disabled={isSubmittingComment}
+          ref={sendCommentRef}
+          onClick={(e) => {
+            e.preventDefault();
+            setIsSubmittingComment(true);
+          }}
         />
       </div>
       {!user && <LoginButtons />}
@@ -213,6 +167,8 @@ export default function Options({
 
 Options.propTypes = {
   textAreaRef: PropTypes.object,
+  sendCommentRef: PropTypes.object,
   setCurrentCaret: PropTypes.func,
   selectTextArea: PropTypes.bool,
+  isValidComment: PropTypes.bool,
 };

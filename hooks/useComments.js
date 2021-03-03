@@ -96,53 +96,52 @@ export default function useComments() {
     [setImgURL, setNotification]
   );
 
-  async function createComment(comment) {
-    setNotification({});
-    if (!user) {
-      setNotification({
-        variant: "info",
-        message: "Necesitas identificarte para enviar un comentario",
-      });
-      return;
-    }
-    if (comment.trim().length < 10) {
-      setNotification({
-        variant: "info",
-        message: "Escribe al menos 10 caracteres",
-      });
-      return;
-    }
-    setIsSubmittingComment(true);
-    const commentRef = database.ref(`post/${slug}`);
-    const newcommentRef = commentRef.push();
-    const commentId = (await newcommentRef).key.toString();
-    try {
-      newcommentRef.set({
-        username: user.username,
-        avatar: user.avatar,
-        email: user.email,
-        comment: comment.trim(),
-        img: imgURL,
-        post: slug,
-        uid: user.uid,
-        date: firebase.database.ServerValue.TIMESTAMP,
-        commentId: commentId,
-      });
-      setNotification({
-        variant: "info",
-        message: "Comentario publicado",
-      });
-      setImgURL(null);
-      setComment("");
-      updateCommentsList(timesLoadedComments * siteMetadata.commentsPerPost);
-    } catch {
-      setNotification({
-        variant: "error",
-        message: "Error al publicar el comentario",
-      });
-    }
-    setIsSubmittingComment(false);
-  }
+  const createComment = useCallback(
+    async (comment) => {
+      setIsSubmittingComment(false);
+      try {
+        const commentRef = database.ref(`post/${slug}`);
+        const newcommentRef = commentRef.push();
+        const commentId = (await newcommentRef).key.toString();
+        newcommentRef.set({
+          username: user.username ?? "Anónimo",
+          avatar:
+            user.avatar ??
+            `${siteMetadata.siteUrl}/profile-placeholder_200x200.jpg`,
+          email: user.email ?? null,
+          comment: comment.trim(),
+          img: imgURL,
+          post: slug,
+          uid: user.uid,
+          date: firebase.database.ServerValue.TIMESTAMP,
+          commentId: commentId,
+        });
+        setNotification({
+          variant: "info",
+          message: "Comentario publicado",
+        });
+        setImgURL(null);
+        setComment("");
+        updateCommentsList(timesLoadedComments * siteMetadata.commentsPerPost);
+      } catch {
+        setNotification({
+          variant: "error",
+          message: "Error al publicar el comentario",
+        });
+      }
+    },
+    [
+      imgURL,
+      setComment,
+      setImgURL,
+      setIsSubmittingComment,
+      setNotification,
+      slug,
+      timesLoadedComments,
+      updateCommentsList,
+      user,
+    ]
+  );
 
   function removeComment(commentId) {
     setNotification("");
@@ -191,6 +190,7 @@ export default function useComments() {
     setAllComments,
     setComment,
     isSubmittingComment,
+    setIsSubmittingComment,
     allComments,
     createComment,
     removeComment,

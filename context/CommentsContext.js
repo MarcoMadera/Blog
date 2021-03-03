@@ -15,6 +15,8 @@ const Context = createContext({
   setTask: () => {},
   commentCount: 0,
   setCommentCount: () => {},
+  isValidComment: false,
+  setIsValidComment: () => {},
 });
 
 export function CommentsContextProvider({ children }) {
@@ -25,28 +27,24 @@ export function CommentsContextProvider({ children }) {
   const [commentCount, setCommentCount] = useState(0);
   const [isSubmittingComment, setIsSubmittingComment] = useState(false);
   const [task, setTask] = useState(null);
-  return (
-    <Context.Provider
-      value={{
-        allComments,
-        setAllComments,
-        timesLoadedComments,
-        setTimesLoadedComments,
-        imgURL,
-        setImgURL,
-        comment,
-        setComment,
-        setIsSubmittingComment,
-        isSubmittingComment,
-        task,
-        setTask,
-        commentCount,
-        setCommentCount,
-      }}
-    >
-      {children}
-    </Context.Provider>
-  );
+
+  const value = {
+    allComments,
+    setAllComments,
+    timesLoadedComments,
+    setTimesLoadedComments,
+    imgURL,
+    setImgURL,
+    comment,
+    setComment,
+    setIsSubmittingComment,
+    isSubmittingComment,
+    task,
+    setTask,
+    commentCount,
+    setCommentCount,
+  };
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
 export default Context;
