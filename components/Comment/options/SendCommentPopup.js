@@ -78,6 +78,7 @@ export default function SendCommentPopup({ sendCommentRef }) {
             onClick={(e) => {
               e.preventDefault();
               setIsSubmittingComment(false);
+              sendCommentRef.current.focus();
             }}
           >
             Cancelar
