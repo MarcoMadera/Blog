@@ -1,16 +1,26 @@
 import { useContext } from "react";
 import CookiesContext from "../context/CookiesContext";
+import useNotification from "./useNotification";
 export default function useCookies() {
   const { acceptedcookies, setAcceptedCookies } = useContext(CookiesContext);
+  const { addNotification } = useNotification();
 
   function toggleAceptedCookies() {
     if (acceptedcookies === true) {
       localStorage.setItem("cookiesAccepted", "false");
       deleteCookie("_ga");
+      addNotification({
+        variant: "info",
+        message: "Cookies desactivadas",
+      });
       return setAcceptedCookies(false);
     }
     track("pageview");
     localStorage.setItem("cookiesAccepted", "true");
+    addNotification({
+      variant: "info",
+      message: "Cookies activadas",
+    });
     return setAcceptedCookies(true);
   }
   function getCookie(cookieName) {

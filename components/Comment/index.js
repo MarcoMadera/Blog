@@ -5,13 +5,12 @@ import Form from "./form/index";
 import useUser from "../../hooks/useUser";
 import useComments from "../../hooks/useComments";
 import PropTypes from "prop-types";
-import { onAuthStateChanged } from "../../firebase/client";
 import SendCommentPopup from "./options/SendCommentPopup";
 import useNotification from "../../hooks/useNotification";
 
 export default function Comments({ slug }) {
   const [preview, setPreview] = useState(false);
-  const { user, logOutUser, setUser, isLoggedIn } = useUser();
+  const { user, logOutUser, isLoggedIn } = useUser();
   const {
     comment,
     updateCommentsList,
@@ -19,7 +18,7 @@ export default function Comments({ slug }) {
     setIsSubmittingComment,
   } = useComments();
   const [isValidComment, setIsValidComment] = useState(false);
-  const { setNotification } = useNotification();
+  const { addNotification } = useNotification();
   const sendCommentRef = useRef();
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function Comments({ slug }) {
 
   useEffect(() => {
     if (isSubmittingComment && !isValidComment) {
-      setNotification({
+      addNotification({
         variant: "info",
         message: "Escribe al menos 10 caracteres",
       });
@@ -37,7 +36,7 @@ export default function Comments({ slug }) {
   }, [
     isSubmittingComment,
     isValidComment,
-    setNotification,
+    addNotification,
     setIsSubmittingComment,
   ]);
 
@@ -45,11 +44,6 @@ export default function Comments({ slug }) {
   useEffect(() => {
     updateCommentsList();
   }, [slug, updateCommentsList]);
-
-  // Detect user and log in
-  useEffect(() => {
-    onAuthStateChanged(setUser);
-  }, [setUser]);
 
   return (
     <section>

@@ -5,47 +5,56 @@ import {
   loginWithGithub,
   loginWithTwitter,
   logOut,
-  mapUserFromFirebaseAuth,
 } from "../firebase/client";
 import useNotification from "./useNotification";
 
 export default function useUser() {
   const { user, setUser, isLoggedIn } = useContext(UserContext);
-  const { setNotification } = useNotification();
+  const { addNotification } = useNotification();
 
   function validateError(err) {
     err.code === "auth/account-exists-with-different-credential"
-      ? setNotification({
+      ? addNotification({
           variant: "info",
           message: "Ya existe una cuenta asociada al mismo email",
         })
-      : setNotification({
+      : addNotification({
           variant: "error",
           message: "Ha ocurrido un error al iniciar sesión",
         });
   }
 
-  async function loginUserWithGithub() {
-    try {
-      const result = await loginWithGithub();
-      return setUser(result);
-    } catch (err) {
-      validateError(err);
-    }
+  function loginUserWithGithub() {
+    loginWithGithub()
+      .then(() => {
+        addNotification({
+          variant: "info",
+          message: "Sesión iniciada con Github",
+        });
+      })
+      .catch((err) => {
+        validateError(err);
+      });
   }
-  async function loginUserWithTwitter() {
-    try {
-      const result_1 = await loginWithTwitter();
-      return setUser(result_1);
-    } catch (err) {
-      validateError(err);
-    }
+  function loginUserWithTwitter() {
+    loginWithTwitter()
+      .then(() => {
+        addNotification({
+          variant: "info",
+          message: "Sesión iniciada con Twitter",
+        });
+      })
+      .catch((err) => {
+        validateError(err);
+      });
   }
   async function loginUserAnonymously() {
     try {
-      const { user: userLoggedIn } = await loginAnonymously();
-      const normalizeUser = mapUserFromFirebaseAuth(userLoggedIn);
-      return setUser(normalizeUser);
+      await loginAnonymously();
+      addNotification({
+        variant: "info",
+        message: "Sesión temporal iniciada",
+      });
     } catch (err) {
       validateError(err);
     }
@@ -55,12 +64,12 @@ export default function useUser() {
       logOut()
         .then(setUser)
         .catch(() => {
-          setNotification({
+          addNotification({
             variant: "error",
             message: "Ha ocurrido un error al cerrar sesión",
           });
         }),
-    [setUser, setNotification]
+    [setUser, addNotification]
   );
   return {
     loginUserWithGithub,

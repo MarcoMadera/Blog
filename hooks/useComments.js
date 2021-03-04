@@ -21,7 +21,7 @@ export default function useComments() {
     commentCount,
     setCommentCount,
   } = useContext(CommentsContext);
-  const { setNotification } = useNotification();
+  const { addNotification } = useNotification();
   const { user } = useUser();
   const router = useRouter();
   const slug = router.query.slug;
@@ -41,7 +41,7 @@ export default function useComments() {
         setAllComments(comments);
       })
       .catch(() => {
-        setNotification({
+        addNotification({
           variant: "error",
           message: "Error al actualizar los comentarios",
         });
@@ -58,24 +58,18 @@ export default function useComments() {
     setAllComments,
     timesLoadedComments,
     slug,
-    setNotification,
+    addNotification,
     setCommentCount,
   ]);
 
   const handleTask = useCallback(
     ({ task, isSendingMoreFiles }) => {
       if (task) {
-        let onProgress = (snapshot) => {
+        let onProgress = () => {
           setImgURL(null);
-          const percent =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          setNotification({
-            variant: "info",
-            message: `Cargando ${Math.round(percent * 100) / 100}%`,
-          });
         };
         let onError = () => {
-          setNotification({
+          addNotification({
             variant: "error",
             message: "Ha ocurrido un error al intentar subir la imagen",
           });
@@ -83,7 +77,7 @@ export default function useComments() {
         let onComplete = () => {
           task.snapshot.ref.getDownloadURL().then(setImgURL);
           if (isSendingMoreFiles) {
-            setNotification({
+            addNotification({
               variant: "info",
               message:
                 "Solo se puede subir una imagen por comentario por este medio. Puedes usar la opción de imagen por enlace si prefieres tener más de una.",
@@ -93,7 +87,7 @@ export default function useComments() {
         task.on("state_changed", onProgress, onError, onComplete);
       }
     },
-    [setImgURL, setNotification]
+    [setImgURL, addNotification]
   );
 
   const createComment = useCallback(
@@ -116,15 +110,15 @@ export default function useComments() {
           date: firebase.database.ServerValue.TIMESTAMP,
           commentId: commentId,
         });
-        setNotification({
-          variant: "info",
-          message: "Comentario publicado",
-        });
         setImgURL(null);
         setComment("");
         updateCommentsList(timesLoadedComments * siteMetadata.commentsPerPost);
+        addNotification({
+          variant: "info",
+          message: "Comentario publicado",
+        });
       } catch {
-        setNotification({
+        addNotification({
           variant: "error",
           message: "Error al publicar el comentario",
         });
@@ -135,7 +129,7 @@ export default function useComments() {
       setComment,
       setImgURL,
       setIsSubmittingComment,
-      setNotification,
+      addNotification,
       slug,
       timesLoadedComments,
       updateCommentsList,
@@ -143,40 +137,41 @@ export default function useComments() {
     ]
   );
 
-  function removeComment(commentId) {
-    setNotification("");
-    database
-      .ref(`post/${slug}/${commentId}`)
-      .remove()
-      .then(() => {
-        setNotification({ variant: "info", message: "Comentario eliminado" });
-      })
-      .catch(() => {
-        setNotification("Error al eliminar el comentario");
-      });
-  }
+  const removeComment = useCallback(
+    (commentId) => {
+      database
+        .ref(`post/${slug}/${commentId}`)
+        .remove()
+        .then(() => {
+          addNotification({ variant: "info", message: "Comentario eliminado" });
+        })
+        .catch(() => {
+          addNotification("Error al eliminar el comentario");
+        });
+    },
+    [addNotification, slug]
+  );
 
   function sendFile(files) {
-    setNotification({});
     const isSendingMoreFiles = files.length > 1;
     const image = files[0];
 
     if (user === null) {
-      setNotification({
+      addNotification({
         variant: "info",
         message: "Necesitas identificarte para enviar una imagen",
       });
       return;
     }
     if (image?.size > 3 * 1024 * 1024) {
-      setNotification({
+      addNotification({
         variant: "info",
         message: "El archivo tiene que ser menor de 3mb",
       });
       return;
     }
     if (!image?.type.startsWith("image")) {
-      setNotification({
+      addNotification({
         variant: "info",
         message: "El archivo tiene que ser de tipo imagen",
       });

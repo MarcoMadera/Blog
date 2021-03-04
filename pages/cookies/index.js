@@ -3,18 +3,12 @@ import { H1, H2, H3, A, Ul, Li, P } from "../../components/tags";
 import useCookies from "../../hooks/useCookies";
 import { colors } from "../../styles/theme";
 import useDarkMode from "../../hooks/useDarkMode";
-import useNotification from "../../hooks/useNotification";
 
 export default function Cookies() {
   const { darkMode } = useDarkMode();
   const { acceptedcookies, toggleAceptedCookies } = useCookies();
-  const { setNotification } = useNotification();
   const handleClick = () => {
     toggleAceptedCookies();
-    setNotification({
-      variant: "info",
-      message: `Cookies ${!acceptedcookies ? "activadas" : "desactivadas"}`,
-    });
   };
 
   return (

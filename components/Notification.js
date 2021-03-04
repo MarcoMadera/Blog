@@ -9,37 +9,57 @@ import Error from "./Comment/icons/Error";
 export default function Notification() {
   const [targetNode, setTargetNode] = useState();
   const { darkMode } = useDarkMode();
-  const { notification, setNotification } = useNotification();
+  const {
+    notification,
+    removeNotification,
+    notificationCount,
+  } = useNotification();
 
   useEffect(() => {
     setTargetNode(document.querySelector("#notification"));
   }, []);
 
+  useEffect(() => {
+    notification.forEach((singleNotification) => {
+      if (singleNotification.id === notificationCount) {
+        const displayTime = setTimeout(() => {
+          removeNotification(singleNotification.id);
+        }, 10000);
+        return () => {
+          clearTimeout(displayTime);
+        };
+      }
+    });
+  }, [notification, removeNotification, notificationCount]);
+
   if (targetNode === undefined) {
     return null;
   }
-  if (notification?.message) {
+
+  if (notification.length > 0) {
     return createPortal(
       <section>
-        <div>
-          <button
-            aria-label="Eliminar notificación"
-            onClick={() => {
-              setNotification({ variant: "info", message: "" });
-            }}
-          >
-            x
-          </button>
-          <p>
-            {notification?.variant === "info" && (
-              <Info width={20} height={20} />
-            )}
-            {notification?.variant === "error" && (
-              <Error width={20} height={20} />
-            )}
-            {notification?.message}
-          </p>
-        </div>
+        {notification.map(({ id, variant, message }) => {
+          return (
+            <article key={id}>
+              <div>
+                <button
+                  aria-label="Eliminar notificación"
+                  onClick={() => {
+                    removeNotification(id);
+                  }}
+                >
+                  x
+                </button>
+                <p>
+                  {variant === "info" && <Info width={20} height={20} />}
+                  {variant === "error" && <Error width={20} height={20} />}
+                  {message}
+                </p>
+              </div>
+            </article>
+          );
+        })}
         <style jsx>{`
           div {
             position: relative;
@@ -53,19 +73,26 @@ export default function Notification() {
             grid-gap: 10px;
             overflow-wrap: break-word;
           }
-          section {
-            position: fixed;
-            right: 10px;
-            top: 0px;
+          article {
             background-color: ${darkMode
               ? colors.dark_accents3
               : colors.accents2};
             padding: 10px;
             border: 1px solid #cccccc4d;
             border-radius: 4px;
-            width: calc(100% - 20px);
-            transition: 0.3s ease 0s;
+            width: 100%;
             text-decoration: none;
+          }
+          section {
+            max-width: 400px;
+            width: calc(100% - 20px);
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            right: 10px;
+            top: 0px;
+            transition: 0.3s ease 0s;
             animation: slide-bottom 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)
               both;
           }
@@ -75,7 +102,7 @@ export default function Notification() {
             }
             100% {
               transform: translateY(
-                ${notification.message ? "10px" : "-500px"}
+                ${notification.length > 0 ? "10px" : "-500px"}
               );
             }
           }
@@ -102,7 +129,7 @@ export default function Notification() {
             flex-wrap: wrap;
           }
           @media screen and (min-width: 500px) {
-            section {
+            article {
               max-width: 400px;
             }
           }

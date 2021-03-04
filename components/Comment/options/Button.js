@@ -13,7 +13,7 @@ export default function Button({
   openMark,
   closeMark,
 }) {
-  const { setNotification } = useNotification();
+  const { addNotification } = useNotification();
   const router = useRouter();
   const slug = router.query.slug;
   const { setComment } = useComments(slug);
@@ -90,7 +90,7 @@ export default function Button({
     e.preventDefault();
     const comment = textAreaRef.current.value;
     if (comment.trim().length > 800) {
-      setNotification({
+      addNotification({
         variant: "info",
         message: "El comentario tiene que ser más corto",
       });
