@@ -26,40 +26,37 @@ export default function useComments() {
   const router = useRouter();
   const slug = router.query.slug;
 
-  const updateCommentsList = useCallback(() => {
-    //Update all comments
-    database
-      .ref(`post/${slug}`)
-      .orderByChild("post")
-      .equalTo(slug)
-      .limitToLast(siteMetadata.commentsPerPost * timesLoadedComments)
-      .once("value", (snapshot) => {
-        let comments = [];
-        snapshot.forEach((snap) => {
-          comments.unshift(snap.val());
-        });
-        setAllComments(comments);
-      })
-      .catch(() => {
-        addNotification({
-          variant: "error",
-          message: "Error al actualizar los comentarios",
-        });
-      });
+  const updateCommentCount = useCallback(() => {
+    database.ref(`post/${slug}`).on("value", (snapshot) => {
+      setCommentCount(snapshot.numChildren());
+    });
+  }, [setCommentCount, slug]);
 
-    // Update Comment Count
-    database
-      .ref(`post/${slug}`)
-      .once("value")
-      .then((snapshot) => {
-        setCommentCount(snapshot.numChildren());
+  const realtimeCommentList = useCallback(async () => {
+    try {
+      database
+        .ref(`post/${slug}`)
+        .limitToLast(siteMetadata.commentsPerPost * timesLoadedComments)
+        .on("value", (snapshot) => {
+          let comments = [];
+          snapshot.forEach((snap) => {
+            comments.unshift(snap.val());
+          });
+          setAllComments(comments);
+        });
+      updateCommentCount();
+    } catch {
+      addNotification({
+        variant: "error",
+        message: "Error al actualizar los comentarios",
       });
+    }
   }, [
-    setAllComments,
-    timesLoadedComments,
-    slug,
     addNotification,
-    setCommentCount,
+    setAllComments,
+    slug,
+    timesLoadedComments,
+    updateCommentCount,
   ]);
 
   const handleTask = useCallback(
@@ -112,7 +109,6 @@ export default function useComments() {
         });
         setImgURL(null);
         setComment("");
-        updateCommentsList(timesLoadedComments * siteMetadata.commentsPerPost);
         addNotification({
           variant: "info",
           message: "Comentario publicado",
@@ -131,8 +127,6 @@ export default function useComments() {
       setIsSubmittingComment,
       addNotification,
       slug,
-      timesLoadedComments,
-      updateCommentsList,
       user,
     ]
   );
@@ -181,21 +175,22 @@ export default function useComments() {
   }
 
   return {
-    comment,
-    setAllComments,
-    setComment,
-    isSubmittingComment,
-    setIsSubmittingComment,
-    allComments,
-    createComment,
-    removeComment,
-    updateCommentsList,
-    timesLoadedComments,
-    setTimesLoadedComments,
     slug,
     imgURL,
-    setImgURL,
     sendFile,
+    comment,
+    setImgURL,
+    setComment,
+    allComments,
     commentCount,
+    removeComment,
+    createComment,
+    setAllComments,
+    updateCommentCount,
+    realtimeCommentList,
+    isSubmittingComment,
+    timesLoadedComments,
+    setIsSubmittingComment,
+    setTimesLoadedComments,
   };
 }

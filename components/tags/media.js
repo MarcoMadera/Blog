@@ -24,14 +24,14 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
       src.match(/w_(\d+)/) &&
       src.match(/w_(\d+)/)[1]);
 
-  const layout = width && height ? "intrinsic" : "fill";
+  const layout = width && height ? "intrinsic" : "cover";
 
   return (
     <details>
       <summary
         aria-label="Expandir imagen"
         style={
-          layout === "fill"
+          layout === "cover"
             ? {
                 position: "relative",
                 maxHeight: "380px",
@@ -45,7 +45,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
             alt={alt}
             layout={layout}
             height={(width && height && height) || undefined}
-            objectFit={layout === "fill" && "fill"}
+            objectFit={layout}
             quality={100}
             src={`${src.replace(
               new RegExp(
@@ -114,7 +114,9 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           outline-style: none;
         }
         .imageContainer {
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           height: 100%;
           max-width: calc(100vw - 30px);
           max-height: calc(100vh - 20px);
@@ -153,7 +155,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           position: relative;
           max-width: 100%;
         }
-        summary::-webkit-details-marker {
+        summary::marker {
           display: none;
         }
         summary :global(img) {
@@ -161,6 +163,8 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           cursor: pointer;
           max-height: 100vh;
           max-width: 100%;
+          object-position: ${layout === "cover" ? "top" : "unset"};
+          object-fit: ${layout === "cover" ? "cover" : "unset"};
         }
         :global(details-dialog) {
           box-sizing: border-box;

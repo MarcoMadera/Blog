@@ -3,8 +3,10 @@ import { instructions, renderers } from "../../Markdown/instructions/comments";
 import { Markdown as MarkDownIcon } from "../icons";
 import { A, Img } from "../../tags";
 import useComments from "../../../hooks/useComments";
+import SendCommentButton from "./SendCommentButton";
+import PropTypes from "prop-types";
 
-export default function Preview() {
+export default function Preview({ sendCommentRef }) {
   const { comment, imgURL } = useComments();
   return (
     <section>
@@ -17,17 +19,30 @@ export default function Preview() {
         />
         {imgURL ? <Img src={imgURL} /> : null}
       </div>
-      <A
-        href="https://commonmark.org/help/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <MarkDownIcon width={21} /> Aprende más sobre la sintaxis
-      </A>
+      <div>
+        <A
+          href="https://commonmark.org/help/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <MarkDownIcon width={21} /> Aprende más sobre la sintaxis
+        </A>
+        <SendCommentButton sendCommentRef={sendCommentRef} />
+      </div>
       <style jsx>{`
-        div + :global(a) {
+        section {
+          margin-bottom: 5px;
+        }
+        div:nth-of-type(2) {
+          display: flex;
+          height: 32px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        div:nth-of-type(2) :global(a) {
           display: inline-flex;
           font-size: 14px;
+          align-items: center;
         }
         section :global(a svg) {
           margin-right: 5px;
@@ -35,7 +50,7 @@ export default function Preview() {
         section :global(h3) {
           font-size: 1.4em;
         }
-        div {
+        div:nth-of-type(1) {
           display: inline-block;
           width: 100%;
           border-radius: 4px;
@@ -44,10 +59,14 @@ export default function Preview() {
           margin: 2px 0;
           min-height: 94px;
         }
-        div :global(p) {
+        div:nth-of-type(1) :global(p) {
           margin-top: 0;
         }
       `}</style>
     </section>
   );
 }
+
+Preview.propTypes = {
+  sendCommentRef: PropTypes.object,
+};

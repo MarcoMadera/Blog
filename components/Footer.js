@@ -94,7 +94,7 @@ function Footer() {
             </Anchor>
           </div>
           <div>
-            <span>Marco Madera &copy; 2020 - 2021</span>
+            <span translate="no">Marco Madera &copy; 2020 - 2021</span>
           </div>
         </div>
       </section>

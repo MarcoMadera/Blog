@@ -33,7 +33,11 @@ export default function Bio({ author, profilePhoto, summary, twitter }) {
             Seguir
           </Anchor>
         </Span>
-        Escrito por <strong itemProp="author">{author}</strong> {summary}{" "}
+        Escrito por{" "}
+        <strong itemProp="author" translate="no">
+          {author}
+        </strong>{" "}
+        {summary}{" "}
       </P>
       <style jsx>{`
         div {

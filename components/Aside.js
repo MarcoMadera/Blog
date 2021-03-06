@@ -35,8 +35,9 @@ export default function Aside() {
         <span role="img" aria-label="emoji mano saludando">
           👋
         </span>{" "}
-        Soy Marco, autor del blog. Gracias por pasarte, cualquier cosa me puedes
-        contactar a través de las siguientes redes:
+        Soy <span translate="no">Marco</span>, autor del blog. Gracias por
+        pasarte, cualquier cosa me puedes contactar a través de las siguientes
+        redes:
       </p>
       <Anchor
         href={`https://github.com/${social.gitHub}`}

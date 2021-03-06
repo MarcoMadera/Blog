@@ -1,93 +1,60 @@
 import Button from "./Button";
 import { Image } from "../icons";
 import { options } from "./optionList";
-import LoginButtons from "../login";
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../../hooks/useDarkMode";
 import useComments from "../../../hooks/useComments";
-import useUser from "../../../hooks/useUser";
-import { useEffect } from "react";
+import SendCommentButton from "../form/SendCommentButton";
 
 export default function Options({
   textAreaRef,
   sendCommentRef,
   setCurrentCaret,
   selectTextArea,
-  isValidComment,
 }) {
   const { darkMode } = useDarkMode();
-  const {
-    createComment,
-    comment,
-    isSubmittingComment,
-    setIsSubmittingComment,
-    sendFile,
-  } = useComments();
-  const { user, isLoggedIn } = useUser();
-
-  useEffect(() => {
-    if (isLoggedIn && isSubmittingComment && isValidComment) {
-      createComment(comment);
-    }
-  }, [isLoggedIn, comment, createComment, isSubmittingComment, isValidComment]);
+  const { sendFile } = useComments();
 
   return (
-    <div className="hiddenOptions">
-      <div className="options__container">
-        <div className="options">
-          {options.map(
-            ({ name, openMark, closeMark, children, type, mark }) => {
-              return (
-                <Button
-                  key={name}
-                  title={name}
-                  textAreaRef={textAreaRef}
-                  setCurrentCaret={setCurrentCaret}
-                  openMark={openMark}
-                  closeMark={closeMark}
-                  type={type}
-                  mark={mark}
-                >
-                  {children}
-                </Button>
-              );
-            }
-          )}
-          <label
-            htmlFor="imageInput"
-            className="optionButton"
-            aria-label="Incluir imagen"
-            title="Subir imagen"
-          >
-            <Image width={23} height={23} />
-            <input
-              id="imageInput"
-              type="file"
-              accept="image/png, image/jpeg, image/webp"
-              onChange={(e) => {
-                e.preventDefault();
-                sendFile(e.target.files);
-              }}
-            />
-          </label>
-        </div>
-        <input
-          type="submit"
-          value="Enviar comentario"
-          ref={sendCommentRef}
-          onClick={(e) => {
-            e.preventDefault();
-            setIsSubmittingComment(true);
-          }}
-        />
+    <div className="options__container">
+      <div className="options">
+        {options.map(({ name, openMark, closeMark, children, type, mark }) => {
+          return (
+            <Button
+              key={name}
+              title={name}
+              textAreaRef={textAreaRef}
+              setCurrentCaret={setCurrentCaret}
+              openMark={openMark}
+              closeMark={closeMark}
+              type={type}
+              mark={mark}
+            >
+              {children}
+            </Button>
+          );
+        })}
+        <label
+          htmlFor="imageInput"
+          className="optionButton"
+          aria-label="Incluir imagen"
+          title="Subir imagen"
+        >
+          <Image width={23} height={23} />
+          <input
+            id="imageInput"
+            type="file"
+            accept="image/png, image/jpeg, image/webp"
+            onChange={(e) => {
+              e.preventDefault();
+              sendFile(e.target.files);
+            }}
+          />
+        </label>
       </div>
-      {!user && <LoginButtons />}
+      <SendCommentButton sendCommentRef={sendCommentRef} />
       <style jsx>{`
-        .hiddenOptions {
-          visibility: ${selectTextArea ? "visible" : "hidden"};
-          animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        }
         .options__container {
           display: flex;
           flex-wrap: wrap;
@@ -104,6 +71,8 @@ export default function Options({
           }
         }
         .options {
+          visibility: ${selectTextArea ? "visible" : "hidden"};
+          animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           display: flex;
           flex-wrap: wrap;
           column-gap: 6px;
@@ -132,6 +101,12 @@ export default function Options({
           align-items: center;
           justify-content: center;
         }
+        input:hover,
+        input:focus,
+        label:hover,
+        label:focus {
+          border: 1px solid #cccccca1;
+        }
         label:focus-within,
         label:active {
           outline-style: dashed;
@@ -145,20 +120,6 @@ export default function Options({
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
           font-family: Arial;
           padding: 0.5em;
-        }
-        input[type="submit"] {
-          cursor: pointer;
-        }
-        input[type="submit"]:hover,
-        input[type="submit"]:focus,
-        label:hover,
-        label:focus {
-          border: 1px solid #cccccca1;
-        }
-        @media screen and (max-width: 540px) {
-          input[type="submit"] {
-            width: 100%;
-          }
         }
       `}</style>
     </div>

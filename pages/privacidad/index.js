@@ -6,10 +6,10 @@ export default function Privacy() {
       <Seo title="Política de privacidad" />
       <H1>Política de privacidad</H1>
       <P>
-        Marco Madera te informa sobre su Política de Privacidad respecto del
-        tratamiento y protección de los datos de carácter personal de los
-        usuarios y clientes que puedan ser recabados por la navegación o
-        contratación de servicios a través del sitio Web{" "}
+        <span translate="no">Marco Madera</span> te informa sobre su Política de
+        Privacidad respecto del tratamiento y protección de los datos de
+        carácter personal de los usuarios y clientes que puedan ser recabados
+        por la navegación o contratación de servicios a través del sitio Web{" "}
         <ALink href="/" title="marcomadera.com">
           marcomadera.com
         </ALink>

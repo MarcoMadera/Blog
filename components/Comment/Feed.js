@@ -11,7 +11,6 @@ export default function Feed() {
   const darkMode = useDarkMode();
   const {
     removeComment,
-    updateCommentsList,
     timesLoadedComments,
     setTimesLoadedComments,
     allComments,
@@ -22,12 +21,10 @@ export default function Feed() {
   function handleRemove(e, commentId) {
     e.preventDefault();
     removeComment(commentId);
-    updateCommentsList();
   }
 
   function loadMoreComments() {
     setTimesLoadedComments((val) => val + 1);
-    updateCommentsList();
   }
   return (
     <>
@@ -80,7 +77,7 @@ export default function Feed() {
               break-after: avoid;
             }
             ul {
-              margin: 5px 0;
+              margin: 20px 0;
             }
             div {
               grid-area: comment;

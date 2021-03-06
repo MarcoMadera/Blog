@@ -42,7 +42,7 @@ function Logo() {
           height="40"
         />
       </picture>
-      <span>Marco Madera</span>
+      <span translate="no">Marco Madera</span>
     </>
   );
 }

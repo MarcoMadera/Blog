@@ -1,8 +1,9 @@
 import Button from "./Button";
 import { Github, Twitter } from "../icons";
 import useUser from "../../../hooks/useUser";
+import PropTypes from "prop-types";
 
-export default function LoginButtons() {
+export default function LoginButtons({ selectTextArea }) {
   const { loginUserWithGithub, loginUserWithTwitter } = useUser();
   return (
     <div>
@@ -16,7 +17,8 @@ export default function LoginButtons() {
       </Button>
       <style jsx>{`
         div {
-          margin-top: 10px;
+          visibility: ${selectTextArea ? "visible" : "hidden"};
+          animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           display: flex;
           flex-wrap: wrap;
           column-gap: 6px;
@@ -28,7 +30,19 @@ export default function LoginButtons() {
         div :global(:nth-of-type(2)) {
           background: #55acee;
         }
+        @keyframes slide-bottom {
+          0% {
+            transform: translateY(-10px);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
       `}</style>
     </div>
   );
 }
+
+LoginButtons.propTypes = {
+  selectTextArea: PropTypes.bool,
+};

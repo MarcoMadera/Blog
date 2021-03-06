@@ -104,9 +104,10 @@ export default function About({
         <div>
           <H1>Sobre mí</H1>
           <P>
-            ¡Hola! Mi nombre es Marco Madera tengo 24 años, soy programador web
-            frontend por afición y entusiasta de las tecnologías web que cada
-            día me gustan más: JavaScript, Node.js, React, etc.
+            ¡Hola! Mi nombre es <span translate="no">Marco Madera</span> tengo
+            24 años, soy programador web frontend por afición y entusiasta de
+            las tecnologías web que cada día me gustan más: JavaScript, Node.js,
+            React, etc.
           </P>
           <P>
             Estoy en constante proceso de aprendizaje sobre las nuevas

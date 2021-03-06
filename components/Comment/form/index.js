@@ -6,22 +6,17 @@ import Preview from "./Preview";
 import { Img } from "../../tags";
 import useComments from "../../../hooks/useComments";
 import { useRouter } from "next/router";
+import useUser from "../../../hooks/useUser";
+import LoginButtons from "../login/index";
 
 export default function Form({ preview, isValidComment, sendCommentRef }) {
   const [selectTextArea, setSelectTextArea] = useState(false);
   const [currentCaret, setCurrentCaret] = useState({ start: 0, end: 0 });
   const textAreaRef = useRef(null);
-  const { imgURL, comment } = useComments();
+  const { imgURL } = useComments();
+  const { user } = useUser();
   const router = useRouter();
   const slug = router.query.slug;
-
-  // Set the cursor position after select one modified text option
-  useEffect(() => {
-    if (textAreaRef) {
-      textAreaRef.current.selectionEnd = currentCaret.end;
-      textAreaRef.current.selectionStart = currentCaret.start;
-    }
-  }, [currentCaret]);
 
   // Hide the options everytime the slug blog changes
   // it should also be included here to remove the image or message if added one and change page instead of submit
@@ -32,12 +27,13 @@ export default function Form({ preview, isValidComment, sendCommentRef }) {
   return (
     <>
       {preview ? (
-        <Preview comment={comment} />
+        <Preview sendCommentRef={sendCommentRef} />
       ) : (
         <form>
           <TextArea
             setSelectTextArea={setSelectTextArea}
             textAreaRef={textAreaRef}
+            currentCaret={currentCaret}
           />
           <Options
             isValidComment={isValidComment}
@@ -49,12 +45,13 @@ export default function Form({ preview, isValidComment, sendCommentRef }) {
           {imgURL && <Img src={imgURL} alt="" />}
         </form>
       )}
+      {!user && <LoginButtons selectTextArea={selectTextArea} />}
       <style jsx>{`
         form {
           width: 100%;
-          margin-bottom: 15px;
+          margin-bottom: 5px;
         }
-        form :global(.hiddenOptions + details) {
+        form :global(details) {
           margin-top: 20px;
         }
         p {

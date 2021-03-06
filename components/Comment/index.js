@@ -7,19 +7,22 @@ import useComments from "../../hooks/useComments";
 import PropTypes from "prop-types";
 import SendCommentPopup from "./options/SendCommentPopup";
 import useNotification from "../../hooks/useNotification";
-
+import { colors } from "../../styles/theme";
+import useDarkMode from "../../hooks/useDarkMode";
 export default function Comments({ slug }) {
   const [preview, setPreview] = useState(false);
   const { user, logOutUser, isLoggedIn } = useUser();
   const {
     comment,
-    updateCommentsList,
+    realtimeCommentList,
     isSubmittingComment,
     setIsSubmittingComment,
+    createComment,
   } = useComments();
   const [isValidComment, setIsValidComment] = useState(false);
   const { addNotification } = useNotification();
   const sendCommentRef = useRef();
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
     setIsValidComment(!(comment.trim().length < 10));
@@ -42,8 +45,14 @@ export default function Comments({ slug }) {
 
   // update comments every time the slug changes
   useEffect(() => {
-    updateCommentsList();
-  }, [slug, updateCommentsList]);
+    realtimeCommentList();
+  }, [slug, realtimeCommentList]);
+
+  useEffect(() => {
+    if (isLoggedIn && isSubmittingComment && isValidComment) {
+      createComment(comment);
+    }
+  }, [isLoggedIn, comment, createComment, isSubmittingComment, isValidComment]);
 
   return (
     <section>
@@ -85,6 +94,9 @@ export default function Comments({ slug }) {
           align-items: flex-end;
           justify-content: space-between;
         }
+        .controls div button:hover {
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
         button {
           border: 0;
           background: transparent;
@@ -97,6 +109,10 @@ export default function Comments({ slug }) {
           border: 1px solid #cccccc4d;
           border-radius: 4px;
           padding: 5px 8px;
+        }
+        button.previewButton:hover,
+        button.previewButton:focus {
+          border: 1px solid #cccccca1;
         }
         label {
           display: table;

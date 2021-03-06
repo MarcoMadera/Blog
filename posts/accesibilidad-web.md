@@ -33,7 +33,7 @@ Una declaración de accesibilidad **demuestra compromiso** y proporciona detalle
 
 2. [Operable](https://www.w3.org/TR/WCAG21/#operable "Operable"): Que toda la **funcionalidad** esté disponible desde el teclado. Que sea navegable, dar el tiempo suficiente para leer en elementos dinámicos y dar opciones de tiempo.
 
-3. [Comprensible](https://www.w3.org/TR/WCAG21/#understandable "Comprensible"): Ser legible, tamaños contrastes de textos, hacer la página predecible, tener **instrucciones claras**.
+3. [Comprensible](https://www.w3.org/TR/WCAG21/#understandable "Comprensible"): Ser legible, tamaños y contrastes de textos adecuados, hacer la página predecible, tener **instrucciones claras**.
 
 4. [Robusto](https://www.w3.org/TR/WCAG21/#robust "Robusto"): Mantener **compatibilidad** con las aplicaciones de usuario actuales y futuras, navegadores y dispositivos, incluyendo las tecnologías asistivas y tener un buen performance.
 
@@ -81,13 +81,15 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 </body>
 ```
 
-### Uso de texto alternativo en imágenes
+## Imágenes
 
-Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la **descripción**.
+Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al momento de encontrarse con alguna imagen, leer el contenido de este atributo que será tomada como una **descripción**. También se mostrará este texto si es dado caso que la imagen no se encuentre disponible.
 
 ```html
 <img src ="img src" alt="texto mostrar en caso que no esté disponible la imagen">
 ```
+
+Otro aprovechamiento de accesibilidad con las imágenes puede ser tal y como se usa en este sitio web, al darle clic a una imagen se muestra una de mayor tamaño.
 
 ### Uso de scope en tablas
 
@@ -147,9 +149,9 @@ Podemos utilizar las herramientas de Google Chrome DevTools para ver el contrast
 
 ### Focus
 
-El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
+El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado, <kbd>tab</kbd> para avanzar y <kbd>shift</kbd>+<kbd>tab</kbd> para retroceder, es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
 
-<style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;outline:1px solid #da0000;border:2px solid transparent;}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
+<style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
 
 ### Skip Links
 

@@ -1,13 +1,25 @@
 import { colors } from "../../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../../hooks/useDarkMode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useComments from "../../../hooks/useComments";
 
-export default function TextArea({ setSelectTextArea, textAreaRef }) {
+export default function TextArea({
+  setSelectTextArea,
+  textAreaRef,
+  currentCaret,
+}) {
   const { darkMode } = useDarkMode();
   const [drag, setDrag] = useState("");
   const { comment, setComment, sendFile } = useComments();
+
+  // Set the cursor position after select one modified text option
+  useEffect(() => {
+    if (textAreaRef) {
+      textAreaRef.current.selectionEnd = currentCaret.end;
+      textAreaRef.current.selectionStart = currentCaret.start;
+    }
+  }, [currentCaret, textAreaRef]);
 
   return (
     <>
@@ -89,4 +101,5 @@ export default function TextArea({ setSelectTextArea, textAreaRef }) {
 TextArea.propTypes = {
   setSelectTextArea: PropTypes.func,
   textAreaRef: PropTypes.object,
+  currentCaret: PropTypes.object,
 };
