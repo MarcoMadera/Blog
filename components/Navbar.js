@@ -36,13 +36,16 @@ function Logo() {
           media="(max-width: 876px)"
         />
         <img
+          aria-hidden="true"
           src="/favicon-48x48.png"
           alt="Logo patrón de desbloqueo en forma de M"
           width="40"
           height="40"
         />
       </picture>
-      <span translate="no">Marco Madera</span>
+      <span aria-hidden="true" translate="no">
+        Marco Madera
+      </span>
     </>
   );
 }
@@ -56,7 +59,11 @@ export default function Navbar() {
 
   return (
     <header>
-      <Anchor href="/" label="Ir a la página principal" className="logo">
+      <Anchor
+        href="/"
+        label="Logo Marco Madera, ir a la página principal"
+        className="logo"
+      >
         <Logo />
       </Anchor>
       <Nav>
@@ -66,9 +73,14 @@ export default function Navbar() {
           aria-label={`Cambiar al tema ${darkMode ? "claro" : "oscuro"}`}
         >
           {darkMode ? (
-            <Moon width={16} height={16} fill="rgb(250, 250, 250)" />
+            <Moon
+              aria-hidden="true"
+              width={16}
+              height={16}
+              fill="rgb(250, 250, 250)"
+            />
           ) : (
-            <Sun width={16} height={16} />
+            <Sun aria-hidden="true" width={16} height={16} />
           )}
         </button>
         <Anchor href="/portafolio" label="Ir al portafolio">

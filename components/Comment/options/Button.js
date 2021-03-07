@@ -115,7 +115,7 @@ export default function Button({
   }
   return (
     <button onClick={(e) => modifiedTextWithTag(e)} title={title}>
-      {children}
+      <span aria-hidden="true">{children}</span>
       <style jsx>{`
         button {
           align-items: center;

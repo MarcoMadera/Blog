@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
         <Head />
         <body>
           <Main />
-          <div id="general" />
+          <div id="global" />
           <div id="notification" />
           <div id="cookiesDialog" />
           <div>

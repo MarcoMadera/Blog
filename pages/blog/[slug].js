@@ -75,7 +75,9 @@ export default function Post({
         itemType="http://schema.org/Article"
       >
         <header>
-          <H1 itemProp="headline name">{title}</H1>
+          <H1 itemProp="headline name" id="articleTitle">
+            {title}
+          </H1>
           <p>
             <time
               itemProp="datePublished"
@@ -86,7 +88,7 @@ export default function Post({
           </p>
         </header>
         <TableOfContents content={h2s} />
-        <div itemProp="articlebody">
+        <div itemProp="articlebody" aria-labelledby="articleTitle">
           <Tweets.Provider value={tweets}>
             <MarkDown
               source={content}

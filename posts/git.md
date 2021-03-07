@@ -267,7 +267,7 @@ Si ya hicimos commit y olvidamos **añadir un archivo o enmendar algún cambio**
 <span class="purple">git</span> <span class="blue">git commit --amend</span>
 </code></pre>
 
-Git mantiene un *log* de dónde el `HEAD` y sus referencias han estado. Lo podemos ver con el comando `git reflog` y mostrar más al respecto con `git show HEAD@{<número o referencia en días>}`
+Git mantiene un *log* de dónde el `HEAD` y sus referencias han estado. Lo podemos ver con el comando `git reflog` y mostrar más a detalle la acción que se relizó en esa referecnai con el comando `git show HEAD@{<número o referencia en días>}`.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">reflog</span>
 <span class="yellow">2673d2d (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span> HEAD@{0}: merge newbranch: Merge made by the <span class="green">'recursive'</span> strategy.

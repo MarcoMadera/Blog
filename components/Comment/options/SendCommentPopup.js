@@ -42,7 +42,7 @@ export default function SendCommentPopup({ sendCommentRef }) {
   );
 
   useEffect(() => {
-    setTargetNode(document.querySelector("#general"));
+    setTargetNode(document.querySelector("#global"));
     document.addEventListener("keydown", onPressKey, false);
 
     return () => {
@@ -54,7 +54,7 @@ export default function SendCommentPopup({ sendCommentRef }) {
     return null;
   }
   return createPortal(
-    <div className="popupConfirm" role="dialog" aria-modal="true">
+    <div className="popupConfirm">
       <div
         className="overlay"
         onClick={() => setIsSubmittingComment(false)}
@@ -63,9 +63,17 @@ export default function SendCommentPopup({ sendCommentRef }) {
         role="switch"
         tabIndex="0"
       ></div>
-      <div className="popupContainer">
-        <h3>¿Estás seguro de publicar un comentario de forma anónima?</h3>
-        <p>
+      <div
+        className="popupContainer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="globalModalTitle"
+        aria-describedby="globalModaldesc"
+      >
+        <h3 id="globalModalTitle">
+          ¿Estás seguro de publicar un comentario de forma anónima?
+        </h3>
+        <p id="globalModaldesc">
           Al realizar esta acción las personas no te podrán identificar, no
           podrás eliminar el comentario en un futuro y el comentario puede ser
           eliminado sin previo aviso. Para evitar lo anterior identifícate con
