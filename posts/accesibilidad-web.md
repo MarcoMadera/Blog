@@ -83,7 +83,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 
 ## Imágenes
 
-Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al momento de encontrarse con alguna imagen, leer el contenido de este atributo que será tomada como una **descripción**. También se mostrará este texto si es dado caso que la imagen no se encuentre disponible.
+Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al momento de encontrarse con alguna imagen. Los que hace es leer el contenido de este atributo que será presentada al usuario como una **descripción**. También se mostrará este texto si es dado caso que la imagen no se encuentre disponible.
 
 ```html
 <img src ="img src" alt="texto mostrar en caso que no esté disponible la imagen">
@@ -152,6 +152,8 @@ Podemos utilizar las herramientas de Google Chrome DevTools para ver el contrast
 El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado, <kbd>tab</kbd> para avanzar y <kbd>shift</kbd>+<kbd>tab</kbd> para retroceder, es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
 
 <style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
+
+En este caso tal como sucede en todos los elementos interactivos de este sitio web se rodea el elemento con un delineado para dar a entender que se está seleccionando este elemento.
 
 ### Skip Links
 

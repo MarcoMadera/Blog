@@ -260,7 +260,7 @@ Si no quieres escribir el comando completo cada vez, puedes fácilmente configur
 <span class="purple">git</span> <span class="blue">git config --global alias.slog <span class="green">"log --pretty=format:'%h | %cn | %cr | %s'"</span></span>
 </code></pre>
 
-Si ya hicimos commit y olvidamos **añadir un archivo o enmendar algún cambio** podemos hacerlo con el comando `git commit --amend`. Igualmente si nos equivocamos en la descripción de nuestro commit lo podemos arreglar con el mismo comando si lo invocamos inmediatamente después de haber ocurrido el error.
+Si ya hicimos commit y olvidamos **añadir un archivo o enmendar algún cambio** podemos hacerlo con el comando `git commit --amend --no-edit`. Igualmente si nos equivocamos en la descripción de nuestro commit lo podemos arreglar con el mismo comando `git commit --amend` si lo invocamos después de haber ocurrido el error.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m <span class="green">"&lt;mensaje&gt;"</span></span>
 <span class="purple">git</span> <span class="blue">add &lt;archivo&gt;</span>

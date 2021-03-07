@@ -39,7 +39,9 @@ export function Pre({ children, ...atrribs }) {
   const { darkMode } = useDarkMode();
   return (
     <div>
-      <pre {...atrribs}>{children}</pre>
+      <pre tabIndex="-1" {...atrribs}>
+        {children}
+      </pre>
       <style jsx>{`
         div {
           margin: 20px 0;
