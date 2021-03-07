@@ -103,8 +103,11 @@ const NewsletterPage = () => {
           width: 100%;
           display: block;
           border-radius: 4px;
-          border: 1px solid ${colors.accents1};
+          border: 1px solid #cccccc4d;
           padding: 10px 15px;
+        }
+        main :global(input:hover) {
+          border: 1px solid ${colors.accents2};
         }
         main :global(input:focus) {
           border: 1px solid

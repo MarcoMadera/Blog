@@ -113,6 +113,25 @@ function Footer() {
           margin: 5px 0;
           color: inherit;
           text-decoration: none;
+          position: relative;
+        }
+        .footer_section > :global(a:after) {
+          background: none repeat scroll 0 0 transparent;
+          bottom: -1px;
+          content: "";
+          display: block;
+          height: 2px;
+          left: 50%;
+          position: absolute;
+          background: ${darkMode ? colors.dark_secondary : colors.secondary};
+          transition: width 0.15s ease 0s, left 0.1s ease 0s;
+          width: 0;
+          margin-top: 15px;
+        }
+        .footer_section > :global(a:hover:after),
+        .footer_section > :global(a:focus:after) {
+          width: 100%;
+          left: 0;
         }
         .footer_social {
           display: flex;

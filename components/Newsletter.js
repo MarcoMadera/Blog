@@ -93,7 +93,7 @@ function Newsletter() {
         }
         form :global(input) {
           border: 1px solid
-            ${email.error && email.submitted ? "red" : colors.accents1};
+            ${email.error && email.submitted ? "red" : "#cccccc4d"};
           margin-bottom: 30px;
           outline: unset;
           padding: 6px 8px;
@@ -105,6 +105,9 @@ function Newsletter() {
         form :global(input:focus) {
           border: 1px solid
             ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+        form :global(input:hover) {
+          border: 1px solid ${colors.accents2};
         }
         @media print {
           form {

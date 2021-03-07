@@ -84,6 +84,9 @@ export default function BlogFooter({
           padding: 0;
           width: 30px;
         }
+        footer :global(button:hover) {
+          filter: brightness(1.1);
+        }
         footer :global(h2) {
           font-size: 16px;
           margin: 0;

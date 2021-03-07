@@ -77,6 +77,9 @@ export default function TextArea({
           font-family: Arial;
           padding: 4px 8px;
         }
+        textarea:hover {
+          border: 1px solid #656565;
+        }
         textarea:focus {
           outline-style: dashed;
           outline-width: 2px;

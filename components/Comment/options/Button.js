@@ -117,6 +117,9 @@ export default function Button({
     <button onClick={(e) => modifiedTextWithTag(e)} title={title}>
       <span aria-hidden="true">{children}</span>
       <style jsx>{`
+        span {
+          display: inline-flex;
+        }
         button {
           align-items: center;
           background: transparent;
