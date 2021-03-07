@@ -82,7 +82,7 @@ export default function BlogCard({
             ))}
         </div>
         <span>
-          {author} |{" "}
+          <span translate="no">{author}</span> |{" "}
           <time dateTime={new Date(date).toISOString()}>
             {getFormattedDate(date)}
           </time>

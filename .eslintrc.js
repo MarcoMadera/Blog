@@ -21,7 +21,7 @@ module.exports = {
   },
   plugins: ["react", "jsx-a11y", "react-hooks", "prettier"],
   rules: {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": ["error", { endOfLine: "auto" }],
     "jsx-a11y/anchor-is-valid": [
       0,
       {
