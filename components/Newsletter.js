@@ -93,7 +93,11 @@ function Newsletter() {
         }
         form :global(input) {
           border: 1px solid
-            ${email.error && email.submitted ? "red" : "#cccccc4d"};
+            ${email.error && email.submitted
+              ? "red"
+              : darkMode
+              ? "#cccccc4d"
+              : "#ccc"};
           margin-bottom: 30px;
           outline: unset;
           padding: 6px 8px;
@@ -107,7 +111,7 @@ function Newsletter() {
             ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         form :global(input:hover) {
-          border: 1px solid ${colors.accents2};
+          border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
         }
         @media print {
           form {

@@ -103,11 +103,16 @@ const NewsletterPage = () => {
           width: 100%;
           display: block;
           border-radius: 4px;
-          border: 1px solid #cccccc4d;
+          border: 1px solid
+            ${email.error && email.submitted
+              ? "red"
+              : darkMode
+              ? "#cccccc4d"
+              : "#ccc"};
           padding: 10px 15px;
         }
         main :global(input:hover) {
-          border: 1px solid ${colors.accents2};
+          border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
         }
         main :global(input:focus) {
           border: 1px solid
