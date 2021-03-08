@@ -1,4 +1,144 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Comparto mis conocimientos, pensamientos y opiniones sobre la programación]]></description><link>https://marcomadera.com</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 27 Jan 2021 16:53:23 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><webfeeds:icon>https://marcomadera.com/logo.svg</webfeeds:icon><webfeeds:logo>https://marcomadera.com/logo.svg</webfeeds:logo><webfeeds:cover image="https://marcomadera.com/logo512.png"/><webfeeds:related layout="card" target="browser"/><webfeeds:analytics id="UA-177844057-1" engine="GoogleAnalytics"/><item><title><![CDATA[Tipos y objetos en JavaScript]]></title><description><![CDATA[<p>En JavaScript tenemos varios tipos de datos; <em>booleanos</em>, numéricos, los de texto o <em>string</em>, el null que indica que una variable no tiene un valor, <em>undefined</em> que indica que una variable está declarada en memoria, pero su valor aún no ha sido definido y el <em>symbol</em>, el cual fue introducido en la definición de EcmaScript 6. A partir de aquí todo lo demás son objetos, como son los arreglos o <em>arrays</em>, las fechas o incluso objetos que tú mismo declares.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Comparto mis conocimientos, pensamientos y opiniones sobre la programación]]></description><link>https://marcomadera.com</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 08 Mar 2021 21:37:56 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><webfeeds:icon>https://marcomadera.com/logo.svg</webfeeds:icon><webfeeds:logo>https://marcomadera.com/logo.svg</webfeeds:logo><webfeeds:cover image="https://marcomadera.com/logo512.png"/><webfeeds:related layout="card" target="browser"/><webfeeds:analytics id="UA-177844057-1" engine="GoogleAnalytics"/><item><title><![CDATA[Snippets en Visual Studio Code]]></title><description><![CDATA[<p>Al empezar a usar <abbr title="Visual Studio Code">VSCode</abbr> me enteré de los snippets y cree algunos muy buenos, pero por alguna razón no los uso mucho. Recordar los prefijos muy cortos que puse no me ayudó de mucho y creo que ese fue mi punto débil.</p>
+<h2>¿Qué son los snippets?</h2>
+<p>Los snippets son <strong>fragmentos reutilizables de código personalizado</strong> que puedes llamar con un atajo de teclado o con prefijos mientras escribes en el editor.</p>
+<videogif title="Snippet general" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615173210/Blog/Code%20Snippets%20en%20VSCode/generalSnippet_peoxlp.mp4"/>
+<p><abbr title="Visual Studio Code">VSCode</abbr> te sugiere ayuda con <em>IntelliSense</em> al estar escribiendo. Entre ellas se encuentran los snippets que se identifican por un cuadrado, el prefijo utilizado y el titulo del snippet.</p>
+<h2>Scope en los snippets</h2>
+<p>Gracias al scope de los snippets es que <abbr title="Visual Studio Code">VSCode</abbr> sugiere los snippets que puedas usar en el archivo basado en el lenguaje y/o proyecto.</p>
+<ul>
+<li><strong>Scope global</strong>: Es útil porque se pueden <strong>usar todos los snippets que definas independietemente del proyecto y del lenguaje</strong> que usemos. Para definirlo se dirije a abrir las opciones con <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> y buscar <em><code>preferences: Configure<span class="hljs-built_in"> User </span>Snippets &gt; new global snippets file</code></em>, te pedira un nombre del archivo global y creara el archivo <code><span class="hljs-attribute">json</span></code> donde se puede empezar a crear los snippets.</li>
+<li><strong>Scope de lenguaje</strong>: Estos son <strong>snippets basados en el lenguaje</strong> que usemos, este lenguaje se puede cambiar con <kbd>ctrl</kbd>+<kbd>k</kbd> seguido de la tecla <kbd>m</kbd>. Al igual que scope global <em><code>preferences: Configure<span class="hljs-built_in"> User </span>Snippets</code></em> se busca el lenguaje deseado y abrirá el archivo donde se pueden empezar a crearlos.</li>
+<li><strong>Scope de proyecto</strong>: Solo <strong>se pueden usar en un proyecto especifico</strong>. Es útil porque se puede compartir con el proyecto. Al igual en las opciones se busca por <code><span class="hljs-keyword">New</span> Snippets <span class="hljs-keyword">file</span> <span class="hljs-keyword">for</span> <span class="hljs-string">"project name"</span></code> te pedirá el nombre del archivo y crea una carpeta si no existe llamada <code><span class="hljs-title">.vscode</span></code> donde se encuentra el archivo que tenemos que editar.</li>
+</ul>
+<h2>Crear snippets propios</h2>
+<p>Una vez elegido el scope y ya dentro de nuestro archivo podemos crear nuestro primer snippet donde el primer <em>key</em> es el nombre, dentro de este van 3 elementos:</p>
+<ul>
+<li><strong>Prefix</strong>: Es el prefijo con el que llamaremos al snippet. Algunas personas le algo al inicio para identicarlos como por ejemplo <code><span class="hljs-variable">_c</span></code>, pero por gusto personal y facilidad no lo hago.</li>
+<li><strong>Body</strong>: Es el código a usar.</li>
+<li><strong>Description</strong>: (opcional) es la descripción de ayuda que aparecerá al darle en más detalles como se vio al inicio.</li>
+</ul>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"Comment"</span>: {
+    <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"c"</span>,
+    <span class="hljs-attr">"body"</span>: <span class="hljs-string">"$LINE_COMMENT $0 $LINE_COMMENT"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"set a comment"</span>
+  },
+}
+</code></pre>
+<p>El anterior snippet es el ya visto comentario, expliquemos que pasa en el body: Primero tenemos a <code><span class="hljs-meta"><span class="hljs-meta-keyword">$LINE</span>_COMMENT</span></code> esto es una <strong>variable predefinidas por visual studio code</strong>, la sintaxis de variables empieza por el simbolo <code><span class="hljs-symbol">$</span></code> esta variable nos ayuda a poner comentarios sin tener que preocuparnos por el lenguaje ya que algunos ya están soportados. Lo que hace este snippet perfecto para que sea de scope global.</p>
+<p>El simbolo <code><span class="hljs-meta"><span class="hljs-meta-keyword">$0</span></span></code> es muy importante. <strong><code><span class="hljs-meta"><span class="hljs-meta-keyword">$0</span></span></code> indica donde va a acabar siempre la posición cursor</strong> al seguir pulsando <kbd>tab</kbd>. Si este valor es mayor a 0 irá de manera ascendente hasta llegar al final 0.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Orden en body</th>
+<th style="text-align:center">$1</th>
+<th style="text-align:center">$0</th>
+<th style="text-align:center">$3</th>
+<th style="text-align:center">$2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Posición del cursor</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<h3>Variables predefinidas y variables con opciones</h3>
+<p>Para darle un nombre predeterminado a una variable se le agrega <code><span class="hljs-symbol">:nombre</span></code> después del número de variable. Y para crear una variable con opciones, al igual seguido del numero separamos las opciones por comma y las envolvemos dentro de los simbolos <code><span class="hljs-string">||</span></code>.</p>
+<p>En el siguiente ejemplo tenemos dos variables predefinidas y una opcional.</p>
+<ul>
+<li><strong>Variables predefinidas</strong>: <code><span class="hljs-variable">${</span><span class="hljs-number">1</span><span class="hljs-symbol">:document</span>}</code> y <code><span class="hljs-variable">${</span>0<span class="hljs-symbol">:element</span>}</code>.</li>
+<li><strong>Variable opcional</strong>: <code>${<span class="hljs-number">2</span><span class="hljs-params">|querySelector, getElementById, getElementsByClassName, getElementsByTagName|</span>}</code>.</li>
+</ul>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"Get Dom Node"</span>: {
+    <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"getDom"</span>,
+    <span class="hljs-attr">"body"</span>: <span class="hljs-string">"${1:document}.${2|querySelector,getElementById,getElementsByClassName,getElementsByTagName|}(\"${0:element}\");"</span>
+  },
+}
+</code></pre>
+<videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615170791/Blog/Code%20Snippets%20en%20VSCode/snippe-GetDom_u0ywz8.mp4"/>
+<h3>Multiples líneas</h3>
+<p>Por ahora hemos visto snippets de una sola línea, pero el <strong>body también puede ser un array de multiples strings</strong>, donde cada string sería un salto de línea y podemos identarlo con <code><span class="hljs-string">\t</span></code>, si es el caso que queramos usar todo en una sola línea podemos usar el salto de línea de <code><span class="hljs-string">\n</span></code>.</p>
+<videogif title="Snippet de transformación" src="https://res.cloudinary.com/marcomadera/video/upload/f_auto,c_limit,w_650,q_100/v1614922303/Blog/Code%20Snippets%20en%20VSCode/2021-03-04_23-25-01_fqurrx.mp4"/>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"Default Component"</span>: {
+    <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"dc"</span>,
+    <span class="hljs-attr">"body"</span>: [
+      <span class="hljs-string">"const ${TM_FILENAME_BASE} = ($1) =&gt; {"</span>,
+      <span class="hljs-string">"\treturn ("</span>,
+      <span class="hljs-string">"\t\t${0:// body...}"</span>,
+      <span class="hljs-string">"\t);"</span>,
+      <span class="hljs-string">"};"</span>,
+      <span class="hljs-string">""</span>,
+      <span class="hljs-string">"export default ${TM_FILENAME_BASE};"</span>,
+      <span class="hljs-string">""</span>
+    ],
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Arrow function default Component, takes the file name"</span>
+  },
+}
+</code></pre>
+<h3>Transformaciones</h3>
+<p>El siguiente ejemplo contiene un caso común si estás familiarizado con React, crea un fragmento que envuelve al texto con variable predefinida del texto seleccionado.</p>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"Fragment (Wrapper)"</span>: {
+    <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"frag"</span>,
+    <span class="hljs-attr">"body"</span>: <span class="hljs-string">"&lt;&gt;\n\t${TM_SELECTED_TEXT}$0\n&lt;/&gt;"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Wrap the selected content in a fragment"</span>
+  },
+}
+</code></pre>
+<p>Podemos <strong>transformar las variables</strong> ya que aceptan expresiones regulares. En el siguiente ejemplo transforma un <em>arrow function</em> a una <em>verbose function</em>, los pasos para realizarlo son los siguientes:</p>
+<ol>
+<li>Escribe primero la primera línea <code><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>function</code>.</li>
+<li>Toma el nombre del archivo con la variable <code><span class="hljs-attribute">TM_FILENAME_BASE</span></code>.</li>
+<li>Pega el texto seleccionado. Este contiene la expresión regular que hace <em>match</em> con la primera y última línea y las remplaza por un espacio vacio.</li>
+</ol>
+<p>En la parte final es donde se remplaza lo que hace <em>match</em> de regex en <code><span class="hljs-comment">//gm</span></code> <code>/<span class="hljs-tag">&lt;<span class="hljs-name">texto</span> <span class="hljs-attr">a</span> <span class="hljs-attr">remplazar</span>&gt;</span>/gm</code> y g es el contexto global de regex y la m que tomará en cuenta que sea multilínea para poder seleccionar ambas.</p>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"Export default function (Wrapper)"</span>: {
+    <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"df"</span>,
+    <span class="hljs-attr">"body"</span>: [
+      <span class="hljs-string">"export default function ${TM_FILENAME_BASE}() {${TM_SELECTED_TEXT/^(?:(?&lt;![\f\n\r])(?:.*))(?=[\f\n\r])|^.*(?![\f\n\r])$//gm}"</span>
+    ],
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Wrap a component and tranform it in a function component"</span>
+  },
+}
+</code></pre>
+<p>El fragmento y la transformación se verían de la siguiente manera:</p>
+<videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615182704/Blog/Code%20Snippets%20en%20VSCode/defaultFunctionFragment_uevits.mp4"/>
+<h2>Llamar a los snippets</h2>
+<p>Ya hemos visto una forma de llamar a los snippets que es con los prefijos que definimos, pero hay otras formas.</p>
+<p>En las opciones <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> buscamos <em><code><span class="hljs-attribute">insert snippet</span></code></em> y nos dará una lista con los snippets que podemos usar.</p>
+<p>Otra opción que podemos usar con los snippets que más usamos a diario es con <strong>atajos de teclado</strong>. Es una forma un poco más rápida pero con la desventaja de tener menos opciones a la mano y que sean dificil de olvidar si tenemos muchos.</p>
+<p>Estos atajos los podemos definir en el archivo <code><span class="hljs-selector-tag">keybindings</span><span class="hljs-selector-class">.json</span></code>, lo podemos encontrar usando el atajo <kbd>ctrl</kbd>+<kbd>p</kbd> y escribiendo en la barra de busqueda <em>keybindings</em>. En este archivo podemos definir igual un snippet de la siguiente forma:</p>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"key"</span>: <span class="hljs-string">"ctrl+;"</span>,
+  <span class="hljs-attr">"command"</span>: <span class="hljs-string">"editor.action.insertSnippet"</span>,
+  <span class="hljs-attr">"when"</span>: <span class="hljs-string">"editorTextFocus"</span>,
+  <span class="hljs-attr">"args"</span>: {
+    <span class="hljs-attr">"snippet"</span>: <span class="hljs-string">"console.log($0);"</span>
+  }
+}
+</code></pre>
+<p>También podemos referenciar nuestros snippets ya creados de la siguiente forma:</p>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">"key"</span>: <span class="hljs-string">"ctrl+'"</span>,
+  <span class="hljs-attr">"command"</span>: <span class="hljs-string">"editor.action.insertSnippet"</span>,
+  <span class="hljs-attr">"when"</span>: <span class="hljs-string">"editorTextFocus"</span>,
+  <span class="hljs-attr">"args"</span>: {
+    <span class="hljs-attr">"langId"</span>: <span class="hljs-string">"javascriptreact"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Default Component"</span>
+  }
+}
+</code></pre>
+<h2>Conclusión</h2>
+<p>Los snippets nos pueden acelerar a la hora de codear, pueden ser texto simple o código dinámico inluyendo opciones y valores predefinidos. Son de ayuda ya que de esta forma no necesitamos recordar la sintaxis exacta de una porción de código, la guardamos en un snippet y la reutilizamos.</p>
+]]></description><link>https://marcomadera.com/blog/snippets-en-vscode</link><guid isPermaLink="true">https://marcomadera.com/blog/snippets-en-vscode</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 08 Mar 2021 00:00:00 GMT</pubDate><enclosure url="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1615174792/Blog/Code%20Snippets%20en%20VSCode/Vscode_Logo_kw0vrw.png" length="760" type="image/png"/></item><item><title><![CDATA[Tipos y objetos en JavaScript]]></title><description><![CDATA[<p>En JavaScript tenemos varios tipos de datos; <em>booleanos</em>, numéricos, los de texto o <em>string</em>, el null que indica que una variable no tiene un valor, <em>undefined</em> que indica que una variable está declarada en memoria, pero su valor aún no ha sido definido y el <em>symbol</em>, el cual fue introducido en la definición de EcmaScript 6. A partir de aquí todo lo demás son objetos, como son los arreglos o <em>arrays</em>, las fechas o incluso objetos que tú mismo declares.</p>
 <h2>Diferencias entre valores primitivos y objetos</h2>
 <ol>
 <li>Los valores primitivos son inmutables.</li>
@@ -55,7 +195,7 @@ obj === obj2 <span class="hljs-comment">// false</span>
 <p>La coerción sucede cuando tenemos que <strong>convertir un valor de un tipo de dato a otro tipo de dato</strong>. La coerción puede suceder en ciertos escenarios automáticamente debido a que JavaScript es un lenguaje débilmente tipado, por ejemplo:</p>
 <pre><code class="hljs language-javascript"><span class="hljs-literal">true</span> + <span class="hljs-number">5</span> <span class="hljs-comment">// 6</span>
 </code></pre>
-<p>Aquí estamos sumando un número 2 con el valor <code><span class="hljs-literal">null</span></code> y estamos recibiendo un resultado <code><span class="hljs-literal">false</span></code>. ¿Por qué sucede esto? Bueno, sucede porque JavaScript está convirtiendo el valor <code><span class="hljs-literal">true</span></code> a 1 para darle sentido a esta operación. En este caso, el 2 nos retorna un <code><span class="hljs-literal">true</span></code> como <em>booleano</em> y el <code><span class="hljs-literal">null</span></code> como un <code><span class="hljs-literal">false</span></code>. Al no ser iguales recibimos un <code><span class="hljs-literal">false</span></code>.</p>
+<p>Aquí estamos sumando el valor booleano true con el número 5 y estamos recibiendo un resultado de 6. ¿Por qué sucede esto? Bueno, sucede porque JavaScript está convirtiendo el valor <code><span class="hljs-literal">true</span></code> a 1 para darle sentido a esta operación. En este caso, <code><span class="hljs-literal">true</span></code> nos retorna un 1. Al sumarse recibimos un 6.</p>
 <pre><code class="hljs language-javascript">[<span class="hljs-string">"abc"</span>] + <span class="hljs-string">"abc"</span> <span class="hljs-comment">// abcabc</span>
 </code></pre>
 <p>Aquí estamos sumando un arreglo el cual tiene un elemento de una cadena de texto que es <code><span class="hljs-attribute">abc</span></code> con una cadena de texto sin el arreglo, de esta suma recibimos un <code><span class="hljs-attribute">abcabc</span></code>. JavaScript convierte el arreglo a un <em>string</em> automáticamente y al sumar ambas cadenas de texto se concatenan.</p>
@@ -176,7 +316,7 @@ estudiante.decirNombre();
 estudiante.permisos();
 </code></pre>
 <p>Se puede observar las similitudes a los prototipos, se declara la clase, dentro tiene el método constructor donde recibe las propiedades y se declaran los métodos. Ahora al ver la estructura del objeto vemos lo siguiente donde la izquierda es creada en forma de prototipo y la derecha en forma de clase.</p>
-<p><img src="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_630,h_267dpr_auto/v1611633447/Blog/tipos-y-objetos-en-javascript/Proto-vs-Classes_xdvwjy.png" alt="Prototipos vs Classes" /></p>
+<p><img src="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_630,h_267,dpr_auto/v1611633447/Blog/tipos-y-objetos-en-javascript/Proto-vs-Classes_xdvwjy.png" alt="Prototipos vs Classes" /></p>
 <p>Se puede observar que la diferencia es que en el constructor una es de tipo función y la otra dice <code><span class="hljs-class"><span class="hljs-keyword">class</span></span></code>, pero al ver el tipo se puede ver que por detrás la clase es una función.</p>
 <h2>Conclusión</h2>
 <p>Hemos visto el comportamiento de los tipos primitivos y las características de los objetos de JavaScript. Los objetos están por todas partes y los revisamos por encima sin tocar métodos y otros detalles. También vimos la forma tradicional de crear clases y la que fue implementada con ES6.</p>
@@ -380,12 +520,12 @@ Unpacking objects: <span class="darkyellow">100%</span> (<span class="darkyellow
 <span class="purple">git</span> <span class="blue">config --global alias.st <span class="green">"status"</span></span>
 <span class="purple">git</span> <span class="blue">git config --global alias.slog <span class="green">"log --pretty=format:'%h | %cn | %cr | %s'"</span></span>
 </code></pre>
-<p>Si ya hicimos commit y olvidamos <strong>añadir un archivo o enmendar algún cambio</strong> podemos hacerlo con el comando <code>git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend</span></code>. Igualmente si nos equivocamos en la descripción de nuestro commit lo podemos arreglar con el mismo comando si lo invocamos inmediatamente después de haber ocurrido el error.</p>
+<p>Si ya hicimos commit y olvidamos <strong>añadir un archivo o enmendar algún cambio</strong> podemos hacerlo con el comando <code><span class="hljs-comment">git</span> <span class="hljs-comment">commit</span> --<span class="hljs-comment">amend</span> --<span class="hljs-comment">no</span><span class="hljs-literal">-</span><span class="hljs-comment">edit</span></code>. Igualmente si nos equivocamos en la descripción de nuestro commit lo podemos arreglar con el mismo comando <code>git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend</span></code> si lo invocamos después de haber ocurrido el error.</p>
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m <span class="green">"&lt;mensaje&gt;"</span></span>
 <span class="purple">git</span> <span class="blue">add &lt;archivo&gt;</span>
 <span class="purple">git</span> <span class="blue">git commit --amend</span>
 </code></pre>
-<p>Git mantiene un <em>log</em> de dónde el <code><span class="hljs-attribute">HEAD</span></code> y sus referencias han estado. Lo podemos ver con el comando <code>git <span class="hljs-built_in">ref</span>log</code> y mostrar más al respecto con <code>git <span class="hljs-keyword">show</span> <span class="hljs-keyword">HEAD</span>@{&lt;número o referencia en dí<span class="hljs-keyword">as</span>&gt;}</code></p>
+<p>Git mantiene un <em>log</em> de dónde el <code><span class="hljs-attribute">HEAD</span></code> y sus referencias han estado. Lo podemos ver con el comando <code>git <span class="hljs-built_in">ref</span>log</code> y mostrar más a detalle la acción que se relizó en esa referecnai con el comando <code>git <span class="hljs-keyword">show</span> <span class="hljs-keyword">HEAD</span>@{&lt;número o referencia en dí<span class="hljs-keyword">as</span>&gt;}</code>.</p>
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">reflog</span>
 <span class="yellow">2673d2d (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span> HEAD@{0}: merge newbranch: Merge made by the <span class="green">'recursive'</span> strategy.
 <span class="yellow">4e85459</span> HEAD@{1}: checkout: moving from master to master
@@ -1501,7 +1641,7 @@ La etiqueta más utilizada para mostrar imágenes es <code><span class="hljs-sec
 <p><a href="https://www.w3.org/TR/WCAG21/#operable" title="Operable">Operable</a>: Que toda la <strong>funcionalidad</strong> esté disponible desde el teclado. Que sea navegable, dar el tiempo suficiente para leer en elementos dinámicos y dar opciones de tiempo.</p>
 </li>
 <li>
-<p><a href="https://www.w3.org/TR/WCAG21/#understandable" title="Comprensible">Comprensible</a>: Ser legible, tamaños contrastes de textos, hacer la página predecible, tener <strong>instrucciones claras</strong>.</p>
+<p><a href="https://www.w3.org/TR/WCAG21/#understandable" title="Comprensible">Comprensible</a>: Ser legible, tamaños y contrastes de textos adecuados, hacer la página predecible, tener <strong>instrucciones claras</strong>.</p>
 </li>
 <li>
 <p><a href="https://www.w3.org/TR/WCAG21/#robust" title="Robusto">Robusto</a>: Mantener <strong>compatibilidad</strong> con las aplicaciones de usuario actuales y futuras, navegadores y dispositivos, incluyendo las tecnologías asistivas y tener un buen performance.</p>
@@ -1541,10 +1681,11 @@ La etiqueta más utilizada para mostrar imágenes es <code><span class="hljs-sec
   <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 </code></pre>
-<h3>Uso de texto alternativo en imágenes</h3>
-<p>Esto le ayuda a los lectores de pantalla al momento de toparse con imágenes a leer la <strong>descripción</strong>.</p>
+<h2>Imágenes</h2>
+<p>Usar el atributo <code><span class="hljs-attribute">alt</span></code> en las imágenes le ayuda a los lectores de pantalla al momento de encontrarse con alguna imagen. Los que hace es leer el contenido de este atributo que será presentada al usuario como una <strong>descripción</strong>. También se mostrará este texto si es dado caso que la imagen no se encuentre disponible.</p>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span> =<span class="hljs-string">"img src"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"texto mostrar en caso que no esté disponible la imagen"</span>&gt;</span>
 </code></pre>
+<p>Otro aprovechamiento de accesibilidad con las imágenes puede ser tal y como se usa en este sitio web, al darle clic a una imagen se muestra una de mayor tamaño.</p>
 <h3>Uso de scope en tablas</h3>
 <p>El uso del <em>scope</em> ayuda a los lectores de pantalla a seguir el <strong>orden correcto</strong>.</p>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">"1"</span>&gt;</span>
@@ -1591,8 +1732,9 @@ La etiqueta más utilizada para mostrar imágenes es <code><span class="hljs-sec
 <p>Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.</p>
 <p><img src="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_360,h_383,dpr_auto/v1608356304/Blog/3/Accesibilidad3_uybwkk.png" alt="Herramienta de contraste" title="Herramienta de contraste" /></p>
 <h3>Focus</h3>
-<p>El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado (tab y shift+tab) es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.</p>
-<style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;outline:1px solid #da0000;border:2px solid transparent;}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
+<p>El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado, <kbd>tab</kbd> para avanzar y <kbd>shift</kbd>+<kbd>tab</kbd> para retroceder, es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.</p>
+<style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Seleccioname para enforcarme"/></label>
+<p>En este caso tal como sucede en todos los elementos interactivos de este sitio web se rodea el elemento con un delineado para dar a entender que se está seleccionando este elemento.</p>
 <h3>Skip Links</h3>
 <p>Es una <a href="https://www.w3.org/TR/WCAG20-TECHS/G1.html" title="Técnica">técnica</a> que permite <strong>navegar directamente al contenido principal</strong>. El primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.</p>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
