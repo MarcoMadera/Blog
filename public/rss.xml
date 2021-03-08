@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Comparto mis conocimientos, pensamientos y opiniones sobre la programación]]></description><link>https://marcomadera.com</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 08 Mar 2021 21:37:56 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><webfeeds:icon>https://marcomadera.com/logo.svg</webfeeds:icon><webfeeds:logo>https://marcomadera.com/logo.svg</webfeeds:logo><webfeeds:cover image="https://marcomadera.com/logo512.png"/><webfeeds:related layout="card" target="browser"/><webfeeds:analytics id="UA-177844057-1" engine="GoogleAnalytics"/><item><title><![CDATA[Snippets en Visual Studio Code]]></title><description><![CDATA[<p>Al empezar a usar <abbr title="Visual Studio Code">VSCode</abbr> me enteré de los snippets y cree algunos muy buenos, pero por alguna razón no los uso mucho. Recordar los prefijos muy cortos que puse no me ayudó de mucho y creo que ese fue mi punto débil.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0"><channel><title><![CDATA[Marco Madera]]></title><description><![CDATA[Comparto mis conocimientos, pensamientos y opiniones sobre la programación]]></description><link>https://marcomadera.com</link><image><url>https://marcomadera.com/logo512.png</url><title>Marco Madera</title><link>https://marcomadera.com</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 08 Mar 2021 22:25:27 GMT</lastBuildDate><atom:link href="https://marcomadera.com/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[2020 Marco Madera]]></copyright><language><![CDATA[es-MX]]></language><webMaster><![CDATA[me@marcomadera.com (Marco Madera)]]></webMaster><webfeeds:icon>https://marcomadera.com/logo.svg</webfeeds:icon><webfeeds:logo>https://marcomadera.com/logo.svg</webfeeds:logo><webfeeds:cover image="https://marcomadera.com/logo512.png"/><webfeeds:related layout="card" target="browser"/><webfeeds:analytics id="UA-177844057-1" engine="GoogleAnalytics"/><item><title><![CDATA[Snippets en Visual Studio Code]]></title><description><![CDATA[<p>Al empezar a usar <abbr title="Visual Studio Code">VSCode</abbr> me enteré de los <em>snippets</em> y cree algunos muy buenos, pero por alguna razón no los uso mucho. Recordar los prefijos muy cortos que puse no me ayudó de mucho y creo que ese fue mi punto débil.</p>
 <h2>¿Qué son los snippets?</h2>
-<p>Los snippets son <strong>fragmentos reutilizables de código personalizado</strong> que puedes llamar con un atajo de teclado o con prefijos mientras escribes en el editor.</p>
+<p>Los <em>snippets</em> son <strong>fragmentos reutilizables de código personalizado</strong> que puedes llamar con un atajo de teclado o con prefijos mientras escribes en el editor.</p>
 <videogif title="Snippet general" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615173210/Blog/Code%20Snippets%20en%20VSCode/generalSnippet_peoxlp.mp4"/>
-<p><abbr title="Visual Studio Code">VSCode</abbr> te sugiere ayuda con <em>IntelliSense</em> al estar escribiendo. Entre ellas se encuentran los snippets que se identifican por un cuadrado, el prefijo utilizado y el titulo del snippet.</p>
+<p><abbr title="Visual Studio Code">VSCode</abbr> te sugiere ayuda con <em>IntelliSense</em> al estar escribiendo. Entre ellas se encuentran los <em>snippets</em> que se identifican por un cuadrado, el prefijo utilizado y el título del <em>snippet</em>.</p>
 <h2>Scope en los snippets</h2>
-<p>Gracias al scope de los snippets es que <abbr title="Visual Studio Code">VSCode</abbr> sugiere los snippets que puedas usar en el archivo basado en el lenguaje y/o proyecto.</p>
+<p>Gracias al <em>scope</em> de los <em>snippets</em> es que <abbr title="Visual Studio Code">VSCode</abbr> sugiere los <em>snippets</em> que puedas usar en el archivo basado en el lenguaje y/o proyecto.</p>
 <ul>
-<li><strong>Scope global</strong>: Es útil porque se pueden <strong>usar todos los snippets que definas independietemente del proyecto y del lenguaje</strong> que usemos. Para definirlo se dirije a abrir las opciones con <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> y buscar <em><code>preferences: Configure<span class="hljs-built_in"> User </span>Snippets &gt; new global snippets file</code></em>, te pedira un nombre del archivo global y creara el archivo <code><span class="hljs-attribute">json</span></code> donde se puede empezar a crear los snippets.</li>
-<li><strong>Scope de lenguaje</strong>: Estos son <strong>snippets basados en el lenguaje</strong> que usemos, este lenguaje se puede cambiar con <kbd>ctrl</kbd>+<kbd>k</kbd> seguido de la tecla <kbd>m</kbd>. Al igual que scope global <em><code>preferences: Configure<span class="hljs-built_in"> User </span>Snippets</code></em> se busca el lenguaje deseado y abrirá el archivo donde se pueden empezar a crearlos.</li>
-<li><strong>Scope de proyecto</strong>: Solo <strong>se pueden usar en un proyecto especifico</strong>. Es útil porque se puede compartir con el proyecto. Al igual en las opciones se busca por <code><span class="hljs-keyword">New</span> Snippets <span class="hljs-keyword">file</span> <span class="hljs-keyword">for</span> <span class="hljs-string">"project name"</span></code> te pedirá el nombre del archivo y crea una carpeta si no existe llamada <code><span class="hljs-title">.vscode</span></code> donde se encuentra el archivo que tenemos que editar.</li>
+<li><strong>Scope global</strong>: Es útil porque se pueden <strong>usar todos los snippets que definas independietemente del proyecto y del lenguaje</strong> que usemos. Para definirlo se dirije a abrir las opciones con <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> y buscar <em><code>preferences: Configure<span class="hljs-built_in"> User </span>Snippets &gt; new global snippets file</code></em>, te pedira un nombre del archivo global y creará el archivo <code><span class="hljs-attribute">json</span></code> donde se puede empezar a crear los <em>snippets</em>.</li>
+<li><strong>Scope de lenguaje</strong>: Estos son <strong>snippets basados en el lenguaje</strong> que usemos, este lenguaje se puede cambiar con <kbd>ctrl</kbd>+<kbd>k</kbd> seguido de la tecla <kbd>m</kbd>. Al igual que <em>scope</em> global <em><code>preferences: Configure<span class="hljs-built_in"> User </span>Snippets</code></em> se busca el lenguaje deseado y abrirá el archivo donde se pueden empezar a crearlos.</li>
+<li><strong>Scope de proyecto</strong>: Solo <strong>se pueden usar en un proyecto específico</strong>. Es útil porque se puede compartir con el proyecto. Al igual en las opciones se busca por <code><span class="hljs-keyword">New</span> Snippets <span class="hljs-keyword">file</span> <span class="hljs-keyword">for</span> <span class="hljs-string">"project name"</span></code> te pedirá el nombre del archivo y crea una carpeta si no existe llamada <code><span class="hljs-title">.vscode</span></code> donde se encuentra el archivo que tenemos que editar.</li>
 </ul>
 <h2>Crear snippets propios</h2>
-<p>Una vez elegido el scope y ya dentro de nuestro archivo podemos crear nuestro primer snippet donde el primer <em>key</em> es el nombre, dentro de este van 3 elementos:</p>
+<p>Una vez elegido el <em>scope</em> y ya dentro de nuestro archivo podemos crear nuestro primer <em>snippet</em> donde el primer <em>key</em> es el nombre, dentro de este van 3 elementos:</p>
 <ul>
-<li><strong>Prefix</strong>: Es el prefijo con el que llamaremos al snippet. Algunas personas le algo al inicio para identicarlos como por ejemplo <code><span class="hljs-variable">_c</span></code>, pero por gusto personal y facilidad no lo hago.</li>
+<li><strong>Prefix</strong>: Es el prefijo con el que llamaremos al <em>snippet</em>. Algunas personas le algo al inicio para identicarlos como por ejemplo <code><span class="hljs-variable">_c</span></code>, pero por gusto personal y facilidad no lo hago.</li>
 <li><strong>Body</strong>: Es el código a usar.</li>
 <li><strong>Description</strong>: (opcional) es la descripción de ayuda que aparecerá al darle en más detalles como se vio al inicio.</li>
 </ul>
@@ -25,8 +25,8 @@
   },
 }
 </code></pre>
-<p>El anterior snippet es el ya visto comentario, expliquemos que pasa en el body: Primero tenemos a <code><span class="hljs-meta"><span class="hljs-meta-keyword">$LINE</span>_COMMENT</span></code> esto es una <strong>variable predefinidas por visual studio code</strong>, la sintaxis de variables empieza por el simbolo <code><span class="hljs-symbol">$</span></code> esta variable nos ayuda a poner comentarios sin tener que preocuparnos por el lenguaje ya que algunos ya están soportados. Lo que hace este snippet perfecto para que sea de scope global.</p>
-<p>El simbolo <code><span class="hljs-meta"><span class="hljs-meta-keyword">$0</span></span></code> es muy importante. <strong><code><span class="hljs-meta"><span class="hljs-meta-keyword">$0</span></span></code> indica donde va a acabar siempre la posición cursor</strong> al seguir pulsando <kbd>tab</kbd>. Si este valor es mayor a 0 irá de manera ascendente hasta llegar al final 0.</p>
+<p>El anterior <em>snippet</em> es el ya visto comentario, expliquemos que pasa en el body: Primero tenemos a <code><span class="hljs-meta"><span class="hljs-meta-keyword">$LINE</span>_COMMENT</span></code> esto es una <strong>variable predefinida por visual studio code</strong>, la sintaxis de variables empieza por el símbolo <code><span class="hljs-symbol">$</span></code> esta variable nos ayuda a poner comentarios sin tener que preocuparnos por el lenguaje, ya que algunos ya están soportados. Lo que hace este <em>snippet</em> perfecto para que sea de <em>scope</em> global.</p>
+<p>El símbolo <code><span class="hljs-meta"><span class="hljs-meta-keyword">$0</span></span></code> es muy importante. <strong><code><span class="hljs-meta"><span class="hljs-meta-keyword">$0</span></span></code> indica donde va a acabar siempre la posición cursor</strong> al seguir pulsando <kbd>tab</kbd>. Si este valor es mayor a 0 irá de manera ascendente hasta llegar al final 0.</p>
 <table>
 <thead>
 <tr>
@@ -48,7 +48,7 @@
 </tbody>
 </table>
 <h3>Variables predefinidas y variables con opciones</h3>
-<p>Para darle un nombre predeterminado a una variable se le agrega <code><span class="hljs-symbol">:nombre</span></code> después del número de variable. Y para crear una variable con opciones, al igual seguido del numero separamos las opciones por comma y las envolvemos dentro de los simbolos <code><span class="hljs-string">||</span></code>.</p>
+<p>Para darle un nombre predeterminado a una variable se le agrega<code><span class="hljs-symbol">:nombre</span></code> después del número de variable. Y para crear una variable con opciones, al igual seguido del número separamos las opciones por coma y las envolvemos dentro de los símbolos <code><span class="hljs-string">||</span></code>.</p>
 <p>En el siguiente ejemplo tenemos dos variables predefinidas y una opcional.</p>
 <ul>
 <li><strong>Variables predefinidas</strong>: <code><span class="hljs-variable">${</span><span class="hljs-number">1</span><span class="hljs-symbol">:document</span>}</code> y <code><span class="hljs-variable">${</span>0<span class="hljs-symbol">:element</span>}</code>.</li>
@@ -62,9 +62,8 @@
 }
 </code></pre>
 <videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615170791/Blog/Code%20Snippets%20en%20VSCode/snippe-GetDom_u0ywz8.mp4"/>
-<h3>Multiples líneas</h3>
-<p>Por ahora hemos visto snippets de una sola línea, pero el <strong>body también puede ser un array de multiples strings</strong>, donde cada string sería un salto de línea y podemos identarlo con <code><span class="hljs-string">\t</span></code>, si es el caso que queramos usar todo en una sola línea podemos usar el salto de línea de <code><span class="hljs-string">\n</span></code>.</p>
-<videogif title="Snippet de transformación" src="https://res.cloudinary.com/marcomadera/video/upload/f_auto,c_limit,w_650,q_100/v1614922303/Blog/Code%20Snippets%20en%20VSCode/2021-03-04_23-25-01_fqurrx.mp4"/>
+<h3>Múltiples líneas</h3>
+<p>Por ahora hemos visto <em>snippets</em> de una sola línea, pero el <strong>body también puede ser un <code><span class="hljs-keyword">array</span></code> de multiples cadenas de texto</strong>, donde cada cadena de texto sería un salto de línea y podemos identarlo con <code><span class="hljs-string">\t</span></code>, si es el caso que queramos usar todo en una sola línea podemos usar el salto de línea de <code><span class="hljs-string">\n</span></code>.</p>
 <pre><code class="hljs language-json">{
   <span class="hljs-attr">"Default Component"</span>: {
     <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"dc"</span>,
@@ -82,6 +81,7 @@
   },
 }
 </code></pre>
+<videogif title="Snippet de transformación" src="https://res.cloudinary.com/marcomadera/video/upload/f_auto,c_limit,w_650,q_100/v1614922303/Blog/Code%20Snippets%20en%20VSCode/2021-03-04_23-25-01_fqurrx.mp4"/>
 <h3>Transformaciones</h3>
 <p>El siguiente ejemplo contiene un caso común si estás familiarizado con React, crea un fragmento que envuelve al texto con variable predefinida del texto seleccionado.</p>
 <pre><code class="hljs language-json">{
@@ -92,13 +92,13 @@
   },
 }
 </code></pre>
-<p>Podemos <strong>transformar las variables</strong> ya que aceptan expresiones regulares. En el siguiente ejemplo transforma un <em>arrow function</em> a una <em>verbose function</em>, los pasos para realizarlo son los siguientes:</p>
+<p>Podemos <strong>transformar las variables</strong>, ya que aceptan expresiones regulares. En el siguiente ejemplo transforma un <em>arrow function</em> a una <em>verbose function</em>, los pasos para realizarlo son los siguientes:</p>
 <ol>
 <li>Escribe primero la primera línea <code><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>function</code>.</li>
 <li>Toma el nombre del archivo con la variable <code><span class="hljs-attribute">TM_FILENAME_BASE</span></code>.</li>
-<li>Pega el texto seleccionado. Este contiene la expresión regular que hace <em>match</em> con la primera y última línea y las remplaza por un espacio vacio.</li>
+<li>Pega el texto seleccionado. Este contiene la expresión regular que hace <em>match</em> con la primera y última línea y las remplaza por un espacio vacío.</li>
 </ol>
-<p>En la parte final es donde se remplaza lo que hace <em>match</em> de regex en <code><span class="hljs-comment">//gm</span></code> <code>/<span class="hljs-tag">&lt;<span class="hljs-name">texto</span> <span class="hljs-attr">a</span> <span class="hljs-attr">remplazar</span>&gt;</span>/gm</code> y g es el contexto global de regex y la m que tomará en cuenta que sea multilínea para poder seleccionar ambas.</p>
+<p>En la parte final es donde se remplaza lo que hace <em>match</em> de regex en <code><span class="hljs-comment">//gm</span></code> <code>/<span class="hljs-tag">&lt;<span class="hljs-name">texto</span> <span class="hljs-attr">a</span> <span class="hljs-attr">remplazar</span>&gt;</span>/gm</code> y <code><span class="hljs-attribute">g</span></code> es el contexto global de regex y la <code><span class="hljs-attribute">m</span></code> que tomará en cuenta que contenga múltiples líneas para poder seleccionar ambas.</p>
 <pre><code class="hljs language-json">{
   <span class="hljs-attr">"Export default function (Wrapper)"</span>: {
     <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"df"</span>,
@@ -112,10 +112,10 @@
 <p>El fragmento y la transformación se verían de la siguiente manera:</p>
 <videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615182704/Blog/Code%20Snippets%20en%20VSCode/defaultFunctionFragment_uevits.mp4"/>
 <h2>Llamar a los snippets</h2>
-<p>Ya hemos visto una forma de llamar a los snippets que es con los prefijos que definimos, pero hay otras formas.</p>
-<p>En las opciones <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> buscamos <em><code><span class="hljs-attribute">insert snippet</span></code></em> y nos dará una lista con los snippets que podemos usar.</p>
-<p>Otra opción que podemos usar con los snippets que más usamos a diario es con <strong>atajos de teclado</strong>. Es una forma un poco más rápida pero con la desventaja de tener menos opciones a la mano y que sean dificil de olvidar si tenemos muchos.</p>
-<p>Estos atajos los podemos definir en el archivo <code><span class="hljs-selector-tag">keybindings</span><span class="hljs-selector-class">.json</span></code>, lo podemos encontrar usando el atajo <kbd>ctrl</kbd>+<kbd>p</kbd> y escribiendo en la barra de busqueda <em>keybindings</em>. En este archivo podemos definir igual un snippet de la siguiente forma:</p>
+<p>Ya hemos visto una forma de llamar a los <em>snippets</em> que es con los prefijos que definimos, pero hay otras formas.</p>
+<p>En las opciones <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> buscamos <em><code><span class="hljs-attribute">insert snippet</span></code></em> y nos dará una lista con los <em>snippets</em> que podemos usar.</p>
+<p>Otra opción que podemos usar con los <em>snippets</em> que más usamos a diario es con <strong>atajos de teclado</strong>. Es una forma un poco más rápida, pero con la desventaja de tener menos opciones a la mano y que sean difícil de olvidar si tenemos muchos.</p>
+<p>Estos atajos los podemos definir en el archivo <code><span class="hljs-selector-tag">keybindings</span><span class="hljs-selector-class">.json</span></code>, lo podemos encontrar usando el atajo <kbd>ctrl</kbd>+<kbd>p</kbd> y escribiendo en la barra de búsqueda <em>keybindings</em>. En este archivo podemos definir igual un <em>snippet</em> de la siguiente forma:</p>
 <pre><code class="hljs language-json">{
   <span class="hljs-attr">"key"</span>: <span class="hljs-string">"ctrl+;"</span>,
   <span class="hljs-attr">"command"</span>: <span class="hljs-string">"editor.action.insertSnippet"</span>,
@@ -125,7 +125,7 @@
   }
 }
 </code></pre>
-<p>También podemos referenciar nuestros snippets ya creados de la siguiente forma:</p>
+<p>También podemos referenciar nuestros <em>snippets</em> ya creados de la siguiente forma:</p>
 <pre><code class="hljs language-json">{
   <span class="hljs-attr">"key"</span>: <span class="hljs-string">"ctrl+'"</span>,
   <span class="hljs-attr">"command"</span>: <span class="hljs-string">"editor.action.insertSnippet"</span>,
@@ -137,7 +137,7 @@
 }
 </code></pre>
 <h2>Conclusión</h2>
-<p>Los snippets nos pueden acelerar a la hora de codear, pueden ser texto simple o código dinámico inluyendo opciones y valores predefinidos. Son de ayuda ya que de esta forma no necesitamos recordar la sintaxis exacta de una porción de código, la guardamos en un snippet y la reutilizamos.</p>
+<p>Los <em>snippets</em> nos pueden acelerar a la hora de codear, pueden ser texto simple o código dinámico incluyendo opciones y valores predefinidos. Son de ayuda, ya que de esta forma no necesitamos recordar la sintaxis exacta de una porción de código, la guardamos en un <em>snippet</em> y la reutilizamos.</p>
 ]]></description><link>https://marcomadera.com/blog/snippets-en-vscode</link><guid isPermaLink="true">https://marcomadera.com/blog/snippets-en-vscode</guid><dc:creator><![CDATA[Marco Madera]]></dc:creator><pubDate>Mon, 08 Mar 2021 00:00:00 GMT</pubDate><enclosure url="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1615174792/Blog/Code%20Snippets%20en%20VSCode/Vscode_Logo_kw0vrw.png" length="760" type="image/png"/></item><item><title><![CDATA[Tipos y objetos en JavaScript]]></title><description><![CDATA[<p>En JavaScript tenemos varios tipos de datos; <em>booleanos</em>, numéricos, los de texto o <em>string</em>, el null que indica que una variable no tiene un valor, <em>undefined</em> que indica que una variable está declarada en memoria, pero su valor aún no ha sido definido y el <em>symbol</em>, el cual fue introducido en la definición de EcmaScript 6. A partir de aquí todo lo demás son objetos, como son los arreglos o <em>arrays</em>, las fechas o incluso objetos que tú mismo declares.</p>
 <h2>Diferencias entre valores primitivos y objetos</h2>
 <ol>
