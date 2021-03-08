@@ -38,7 +38,7 @@ export default function Notification() {
 
   if (notification.length > 0) {
     return createPortal(
-      <section>
+      <section role="alertdialog" aria-labelledby="alertText">
         {notification.map(({ id, variant, message }) => {
           return (
             <article key={id}>
@@ -51,7 +51,7 @@ export default function Notification() {
                 >
                   x
                 </button>
-                <p>
+                <p id="alertText">
                   {variant === "info" && <Info width={20} height={20} />}
                   {variant === "error" && <Error width={20} height={20} />}
                   {message}

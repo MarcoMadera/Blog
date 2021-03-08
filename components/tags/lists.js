@@ -50,6 +50,7 @@ export function Li({ children, checked = null, ...attribs }) {
           align-items: center;
           list-style-position: outside;
           margin-left: ${checked === null ? "20px" : "0"};
+          margin-top: ${checked === null ? "5px" : "0"};
           text-align: justify;
         }
         input {

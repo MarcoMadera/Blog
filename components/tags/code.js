@@ -23,8 +23,7 @@ export function InlineCode({ classname, children, ...attrbs }) {
             "Liberation Mono", "Courier New", monospace;
           font-size: 14px;
           line-height: 1.8;
-          padding: 0 6px;
-          display: inline-block;
+          padding: 3px 6px;
         }
       `}</style>
     </code>
@@ -71,6 +70,9 @@ export function Pre({ children, ...atrribs }) {
           word-break: normal;
           word-spacing: normal;
           word-wrap: normal;
+        }
+        pre:focus {
+          outline: none;
         }
         pre :global(code) {
           background: none;

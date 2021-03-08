@@ -162,6 +162,15 @@ export default function SendCommentPopup({ sendCommentRef }) {
           border-color: ${darkMode ? colors.dark_secondary : colors.primary};
           color: ${colors.white};
         }
+        button:focus,
+        button:hover {
+          border: 1px solid #cccccca1;
+        }
+        button:nth-of-type(1):hover,
+        button:nth-of-type(1):focus {
+          background: ${darkMode ? colors.dark_tertiary : colors.tertiary};
+          border-color: ${darkMode ? colors.dark_tertiary : colors.tertiary};
+        }
       `}</style>
     </div>,
     targetNode

@@ -78,7 +78,7 @@ export default function TextArea({
           padding: 4px 8px;
         }
         textarea:hover {
-          border: 1px solid #656565;
+          border: 1px solid ${darkMode ? "#656565" : "#cccccca1"};
         }
         textarea:focus {
           outline-style: dashed;
