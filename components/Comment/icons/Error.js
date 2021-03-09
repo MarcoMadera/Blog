@@ -5,6 +5,7 @@ export default function Error(props) {
   const darkMode = useDarkMode();
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" {...props}>
+      <title>Error</title>
       <circle
         cx={25}
         cy={25}

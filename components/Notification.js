@@ -38,42 +38,36 @@ export default function Notification() {
 
   if (notification.length > 0) {
     return createPortal(
-      <section role="alertdialog" aria-labelledby="alertText">
+      <section>
         {notification.map(({ id, variant, message }) => {
           return (
-            <article key={id}>
-              <div>
-                <button
-                  aria-label="Eliminar notificación"
-                  onClick={() => {
-                    removeNotification(id);
-                  }}
-                >
-                  x
-                </button>
-                <p id="alertText">
-                  {variant === "info" && <Info width={20} height={20} />}
-                  {variant === "error" && <Error width={20} height={20} />}
-                  {message}
-                </p>
-              </div>
+            <article key={id} role="alertdialog" aria-labelledby="alertText">
+              {variant === "info" && <Info width={20} height={20} />}
+              {variant === "error" && <Error width={20} height={20} />}
+              <p id="alertText">{message}</p>
+              <button
+                aria-label="Eliminar notificación"
+                onClick={() => {
+                  removeNotification(id);
+                }}
+                aria-hidden={true}
+              >
+                x
+              </button>
             </article>
           );
         })}
         <style jsx>{`
-          div {
-            position: relative;
-          }
           p {
-            display: grid;
             font-size: 14px;
-            margin: 0 20px 0 0;
-            grid-template-columns: 20px minmax(0, 1fr);
             align-items: center;
             grid-gap: 10px;
             overflow-wrap: break-word;
+            margin: 0;
           }
           article {
+            grid-template-columns: 20px minmax(0, 1fr) 20px;
+            display: grid;
             background-color: ${darkMode
               ? colors.dark_accents3
               : colors.accents2};
@@ -82,6 +76,10 @@ export default function Notification() {
             border-radius: 4px;
             width: 100%;
             text-decoration: none;
+            column-gap: 10px;
+          }
+          article > :global(svg) {
+            align-self: center;
           }
           section {
             max-width: 400px;
@@ -107,10 +105,6 @@ export default function Notification() {
             }
           }
           button {
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
             border: none;
             font-family: monospace;
             user-select: none;
@@ -122,11 +116,6 @@ export default function Notification() {
             float: right;
             color: ${darkMode ? colors.dark_textColor : colors.textColor};
             cursor: pointer;
-          }
-          div {
-            display: flex;
-            column-gap: 10px;
-            flex-wrap: wrap;
           }
           @media screen and (min-width: 500px) {
             article {

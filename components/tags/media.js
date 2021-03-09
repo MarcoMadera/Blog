@@ -158,6 +158,12 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
         summary::marker {
           display: none;
         }
+         {
+          /*is deprecated but don't remove until most browsers are updated */
+        }
+        summary::-webkit-details-marker {
+          display: none;
+        }
         summary :global(img) {
           border-radius: 10px;
           cursor: pointer;
