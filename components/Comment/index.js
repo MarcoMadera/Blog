@@ -102,7 +102,7 @@ export default function Comments({ slug }) {
       <Feed />
       <style jsx>{`
         .controls {
-          display: inline-flex;
+          display: flex;
           width: 100%;
           column-gap: 5px;
           align-items: flex-end;
