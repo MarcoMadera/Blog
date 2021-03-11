@@ -12,7 +12,7 @@ export default function Notification() {
   const {
     notification,
     removeNotification,
-    notificationCount,
+    setNotification,
   } = useNotification();
 
   useEffect(() => {
@@ -20,17 +20,26 @@ export default function Notification() {
   }, []);
 
   useEffect(() => {
-    notification.forEach((singleNotification) => {
-      if (singleNotification.id === notificationCount) {
+    notification.forEach(({ id, isTimeOut }) => {
+      if (!isTimeOut) {
         const displayTime = setTimeout(() => {
-          removeNotification(singleNotification.id);
+          removeNotification(id);
         }, 10000);
+        setNotification((arrValue) => {
+          const newValue = arrValue.find((x) => x.id === id);
+          newValue.isTimeOut = true;
+          arrValue.splice(
+            arrValue.findIndex((item) => item.id === id),
+            1
+          );
+          return [...arrValue, newValue];
+        });
         return () => {
           clearTimeout(displayTime);
         };
       }
     });
-  }, [notification, removeNotification, notificationCount]);
+  }, [notification, removeNotification, setNotification]);
 
   if (targetNode === undefined) {
     return null;

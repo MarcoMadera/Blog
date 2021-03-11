@@ -22,6 +22,7 @@ export default function Comments({ slug }) {
   const [isValidComment, setIsValidComment] = useState(false);
   const { addNotification } = useNotification();
   const sendCommentRef = useRef();
+  const textAreaRef = useRef(null);
   const { darkMode } = useDarkMode();
 
   useEffect(() => {
@@ -66,7 +67,19 @@ export default function Comments({ slug }) {
         {isLoggedIn ? (
           <div>
             <span>Sesión iniciada como {user?.username ?? "Anónimo"} </span>
-            <button onClick={logOutUser}>(cerrar sesión)</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                logOutUser();
+                if (textAreaRef.current) {
+                  textAreaRef.current.focus();
+                } else {
+                  sendCommentRef.current.focus();
+                }
+              }}
+            >
+              (cerrar sesión)
+            </button>
           </div>
         ) : (
           <span></span>
@@ -84,6 +97,7 @@ export default function Comments({ slug }) {
         preview={preview}
         isValidComment={isValidComment}
         sendCommentRef={sendCommentRef}
+        textAreaRef={textAreaRef}
       />
       <Feed />
       <style jsx>{`
@@ -94,7 +108,8 @@ export default function Comments({ slug }) {
           align-items: flex-end;
           justify-content: space-between;
         }
-        .controls div button:hover {
+        .controls div button:hover,
+        .controls div button:focus {
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         button {
@@ -115,7 +130,7 @@ export default function Comments({ slug }) {
           border: 1px solid #cccccca1;
         }
         label {
-          display: table;
+          display: inline-block;
         }
         span {
           font-size: 14px;

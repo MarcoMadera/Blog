@@ -3,15 +3,27 @@ import { Github, Twitter } from "../icons";
 import useUser from "../../../hooks/useUser";
 import PropTypes from "prop-types";
 
-export default function LoginButtons({ selectTextArea }) {
+export default function LoginButtons({
+  selectTextArea,
+  textAreaRef,
+  sendCommentRef,
+}) {
   const { loginUserWithGithub, loginUserWithTwitter } = useUser();
   return (
     <div>
-      <Button loginMethod={loginUserWithGithub}>
+      <Button
+        loginMethod={loginUserWithGithub}
+        textAreaRef={textAreaRef}
+        sendCommentRef={sendCommentRef}
+      >
         <Github width={20} height={20} />
         Identificarse con Github
       </Button>
-      <Button loginMethod={loginUserWithTwitter}>
+      <Button
+        loginMethod={loginUserWithTwitter}
+        textAreaRef={textAreaRef}
+        sendCommentRef={sendCommentRef}
+      >
         <Twitter width={20} height={20} />
         Identificarse con Twitter
       </Button>
@@ -45,4 +57,6 @@ export default function LoginButtons({ selectTextArea }) {
 
 LoginButtons.propTypes = {
   selectTextArea: PropTypes.bool,
+  textAreaRef: PropTypes.object,
+  sendCommentRef: PropTypes.object,
 };

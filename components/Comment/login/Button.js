@@ -1,11 +1,21 @@
 import PropTypes from "prop-types";
 
-export default function Button({ children, loginMethod }) {
+export default function Button({
+  children,
+  loginMethod,
+  textAreaRef,
+  sendCommentRef,
+}) {
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
         loginMethod();
+        if (textAreaRef.current) {
+          textAreaRef.current.focus();
+        } else {
+          sendCommentRef.current.focus();
+        }
       }}
     >
       {children}
@@ -37,4 +47,6 @@ export default function Button({ children, loginMethod }) {
 Button.propTypes = {
   children: PropTypes.node,
   loginMethod: PropTypes.func,
+  textAreaRef: PropTypes.object,
+  sendCommentRef: PropTypes.object,
 };

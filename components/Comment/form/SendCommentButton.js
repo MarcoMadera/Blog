@@ -26,6 +26,7 @@ const SendCommentButton = ({ sendCommentRef }) => {
           font-family: Arial;
           padding: 0.5em;
           cursor: pointer;
+          height: 32px;
         }
         input:hover,
         input:focus,

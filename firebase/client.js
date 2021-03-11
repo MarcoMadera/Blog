@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
 import "firebase/auth";
-import { v4 as uuidv4 } from "uuid";
+import { nanoid } from "nanoid";
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -49,7 +49,7 @@ export function logOut() {
 }
 
 export const uploadImage = (file, userId, isSendingMoreFiles) => {
-  const ref = firebase.storage().ref(`user/${userId}/${uuidv4()}-${file.name}`);
+  const ref = firebase.storage().ref(`user/${userId}/${nanoid()}-${file.name}`);
   const task = ref.put(file);
   return { task, isSendingMoreFiles };
 };

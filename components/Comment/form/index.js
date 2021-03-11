@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import TextArea from "./TextArea";
 import Options from "../options";
@@ -9,10 +9,14 @@ import { useRouter } from "next/router";
 import useUser from "../../../hooks/useUser";
 import LoginButtons from "../login/index";
 
-export default function Form({ preview, isValidComment, sendCommentRef }) {
+export default function Form({
+  preview,
+  isValidComment,
+  sendCommentRef,
+  textAreaRef,
+}) {
   const [selectTextArea, setSelectTextArea] = useState(false);
   const [currentCaret, setCurrentCaret] = useState({ start: 0, end: 0 });
-  const textAreaRef = useRef(null);
   const { imgURL } = useComments();
   const { user } = useUser();
   const router = useRouter();
@@ -45,11 +49,17 @@ export default function Form({ preview, isValidComment, sendCommentRef }) {
           {imgURL && <Img src={imgURL} alt="" />}
         </form>
       )}
-      {!user && <LoginButtons selectTextArea={selectTextArea} />}
+      {!user && (
+        <LoginButtons
+          textAreaRef={textAreaRef}
+          selectTextArea={selectTextArea}
+          sendCommentRef={sendCommentRef}
+        />
+      )}
       <style jsx>{`
         form {
           width: 100%;
-          margin-bottom: 5px;
+          margin: 4px 0;
         }
         form :global(details) {
           margin-top: 20px;
@@ -69,4 +79,5 @@ Form.propTypes = {
   preview: PropTypes.bool,
   isValidComment: PropTypes.bool,
   sendCommentRef: PropTypes.object,
+  textAreaRef: PropTypes.object,
 };

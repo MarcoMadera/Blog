@@ -22,7 +22,7 @@ function Footer() {
     <footer>
       <section>
         <div className="footer_section">
-          <h4>Navegación</h4>
+          <strong>Navegación</strong>
           <Link href="/">
             <a>Inicio</a>
           </Link>
@@ -37,7 +37,7 @@ function Footer() {
           </Link>
         </div>
         <div className="footer_section">
-          <h4>Legal</h4>
+          <strong>Legal</strong>
           <Link href="/cookies">
             <a>Política de cookies</a>
           </Link>
@@ -49,7 +49,7 @@ function Footer() {
           </Anchor>
         </div>
         <div className="footer_section">
-          <h4>Enlaces externos</h4>
+          <strong>Enlaces externos</strong>
           <Anchor href="https://blog.marcomadera.com/">Blog</Anchor>
           <Anchor href="https://github.com/MarcoMadera/Blog">
             Código fuente
@@ -60,7 +60,7 @@ function Footer() {
           <Anchor href={`${siteMetadata.siteUrl}/rss.xml`}>RSS</Anchor>
         </div>
         <div className="footer_section ">
-          <h4>Social</h4>
+          <strong>Social</strong>
           <div className="footer_social">
             <Anchor
               href="https://twitter.com/madera_marco"
@@ -99,6 +99,10 @@ function Footer() {
         </div>
       </section>
       <style jsx>{`
+        strong {
+          display: block;
+          margin: 1em 0;
+        }
         section {
           display: flex;
           flex-wrap: wrap;

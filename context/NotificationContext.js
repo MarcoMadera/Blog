@@ -3,13 +3,10 @@ import { useState, createContext, useCallback } from "react";
 const NotificationContext = createContext({
   notification: [],
   setNotification: () => {},
-  notificationCount: 0,
-  setNotificationCount: () => {},
 });
 
 export function NotificationContextProvider({ children }) {
   const [notification, setNotification] = useState([]);
-  const [notificationCount, setNotificationCount] = useState(0);
 
   const removeNotification = useCallback(
     (notificationId) => {
@@ -30,8 +27,6 @@ export function NotificationContextProvider({ children }) {
       value={{
         notification,
         setNotification,
-        notificationCount,
-        setNotificationCount,
         removeNotification,
       }}
     >

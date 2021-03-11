@@ -1,14 +1,11 @@
 import { useCallback, useContext } from "react";
 import NotificationContext from "../context/NotificationContext";
+import { nanoid } from "nanoid";
 
 export default function useNotification() {
-  const {
-    notification,
-    setNotification,
-    notificationCount,
-    setNotificationCount,
-    removeNotification,
-  } = useContext(NotificationContext);
+  const { notification, setNotification, removeNotification } = useContext(
+    NotificationContext
+  );
 
   const addNotification = useCallback(
     (newNotification) => {
@@ -16,14 +13,13 @@ export default function useNotification() {
         return [
           ...value,
           {
-            id: notificationCount + 1,
+            id: nanoid(),
             ...newNotification,
           },
         ];
       });
-      setNotificationCount((val) => val + 1);
     },
-    [notificationCount, setNotification, setNotificationCount]
+    [setNotification]
   );
 
   return {
@@ -31,6 +27,5 @@ export default function useNotification() {
     setNotification,
     addNotification,
     removeNotification,
-    notificationCount,
   };
 }

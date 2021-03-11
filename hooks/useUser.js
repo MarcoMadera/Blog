@@ -63,6 +63,12 @@ export default function useUser() {
     () =>
       logOut()
         .then(setUser)
+        .then(() => {
+          addNotification({
+            variant: "info",
+            message: "Sesión cerrada",
+          });
+        })
         .catch(() => {
           addNotification({
             variant: "error",

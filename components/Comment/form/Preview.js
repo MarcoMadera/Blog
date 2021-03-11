@@ -1,24 +1,26 @@
-import MarkDown from "../../Markdown";
-import { instructions, renderers } from "../../Markdown/instructions/comments";
 import { Markdown as MarkDownIcon } from "../icons";
-import { A, Img } from "../../tags";
+import { A } from "../../tags";
 import useComments from "../../../hooks/useComments";
 import SendCommentButton from "./SendCommentButton";
 import PropTypes from "prop-types";
+import CommentFeed from "../CommentFeed";
+import useUser from "../../../hooks/useUser";
+import { siteMetadata } from "../../../site.config";
 
 export default function Preview({ sendCommentRef }) {
   const { comment, imgURL } = useComments();
+  const { user } = useUser();
   return (
     <section>
-      <div>
-        <MarkDown
-          source={comment}
-          instructions={instructions}
-          renderers={renderers}
-          escapeHtml={true}
-        />
-        {imgURL ? <Img src={imgURL} /> : null}
-      </div>
+      <CommentFeed
+        avatar={
+          user?.avatar ??
+          `${siteMetadata.siteUrl}/profile-placeholder_200x200.jpg`
+        }
+        username={user?.username ?? "Anónimo"}
+        comment={comment}
+        img={imgURL ? imgURL : null}
+      />
       <div>
         <A
           href="https://commonmark.org/help/"
@@ -31,17 +33,21 @@ export default function Preview({ sendCommentRef }) {
       </div>
       <style jsx>{`
         section {
-          margin-bottom: 5px;
-        }
-        div:nth-of-type(2) {
+          margin: 4px 0;
+          row-gap: 3px;
           display: flex;
-          height: 32px;
+          flex-direction: column;
+        }
+        div {
+          display: flex;
           flex-wrap: wrap;
+          align-items: center;
           justify-content: space-between;
         }
-        div:nth-of-type(2) :global(a) {
+        div :global(a) {
           display: inline-flex;
           font-size: 14px;
+          height: max-content;
           align-items: center;
         }
         section :global(a svg) {
@@ -49,18 +55,6 @@ export default function Preview({ sendCommentRef }) {
         }
         section :global(h3) {
           font-size: 1.4em;
-        }
-        div:nth-of-type(1) {
-          display: inline-block;
-          width: 100%;
-          border-radius: 4px;
-          border: 1px solid #cccccc4d;
-          padding: 5px 10px;
-          margin: 2px 0;
-          min-height: 94px;
-        }
-        div:nth-of-type(1) :global(p) {
-          margin-top: 0;
         }
       `}</style>
     </section>
