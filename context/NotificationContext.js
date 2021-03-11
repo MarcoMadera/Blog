@@ -12,11 +12,7 @@ export function NotificationContextProvider({ children }) {
     (notificationId) => {
       setNotification((value) => {
         const newValue = [...value];
-        newValue.splice(
-          newValue.findIndex((item) => item.id === notificationId),
-          1
-        );
-        return newValue;
+        return newValue.filter((item) => item.id !== notificationId);
       });
     },
     [setNotification]

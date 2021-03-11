@@ -26,7 +26,7 @@ export default function Notification() {
           removeNotification(id);
         }, 10000);
         setNotification((arrValue) => {
-          const newValue = arrValue.find((x) => x.id === id);
+          const newValue = arrValue.find((noti) => noti.id === id);
           newValue.isTimeOut = true;
           arrValue.splice(
             arrValue.findIndex((item) => item.id === id),
