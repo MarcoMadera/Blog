@@ -56,6 +56,9 @@ export default function CookiesModal() {
           font-size: 14px;
           margin: 0;
         }
+        p :global(a) {
+          color: #ff2020;
+        }
         section {
           position: fixed;
           right: 10px;

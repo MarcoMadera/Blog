@@ -12,7 +12,7 @@ export default function TweetHeader({ tweet }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src={avatar} alt={tweet.name} />
+        <img width={49} height={49} src={avatar} alt={tweet.name} />
       </a>
       <a
         href={url}
