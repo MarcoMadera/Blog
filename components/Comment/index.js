@@ -1,14 +1,30 @@
 import { H2 } from "../tags";
 import React, { useEffect, useRef, useState } from "react";
-import Feed from "./Feed";
 import Form from "./form/index";
 import useUser from "../../hooks/useUser";
 import useComments from "../../hooks/useComments";
 import PropTypes from "prop-types";
-import SendCommentPopup from "./options/SendCommentPopup";
 import useNotification from "../../hooks/useNotification";
 import { colors } from "../../styles/theme";
 import useDarkMode from "../../hooks/useDarkMode";
+import { siteMetadata } from "../../site.config";
+import dynamic from "next/dynamic";
+const Feed = dynamic(() => import("./Feed"), {
+  ssr: false,
+  loading: function Loading() {
+    return <p>Cargando...</p>;
+  },
+});
+const LoadMoreCommentsButton = dynamic(
+  () => import("./LoadMoreCommentsButton"),
+  {
+    ssr: false,
+  }
+);
+const SendCommentPopup = dynamic(() => import("./options/SendCommentPopup"), {
+  ssr: false,
+});
+
 export default function Comments({ slug }) {
   const [preview, setPreview] = useState(false);
   const { user, logOutUser, isLoggedIn } = useUser();
@@ -18,6 +34,9 @@ export default function Comments({ slug }) {
     isSubmittingComment,
     setIsSubmittingComment,
     createComment,
+    allComments,
+    commentCount,
+    timesLoadedComments,
   } = useComments();
   const [isValidComment, setIsValidComment] = useState(false);
   const { addNotification } = useNotification();
@@ -99,7 +118,14 @@ export default function Comments({ slug }) {
         sendCommentRef={sendCommentRef}
         textAreaRef={textAreaRef}
       />
-      <Feed />
+      {allComments.length > 0 ? (
+        <>
+          <Feed />
+          {commentCount > siteMetadata.commentsPerPost * timesLoadedComments ? (
+            <LoadMoreCommentsButton />
+          ) : null}
+        </>
+      ) : null}
       <style jsx>{`
         .controls {
           display: flex;

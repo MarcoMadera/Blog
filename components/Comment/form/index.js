@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import TextArea from "./TextArea";
 import Options from "../options";
-import Preview from "./Preview";
 import { Img } from "../../tags";
 import useComments from "../../../hooks/useComments";
 import { useRouter } from "next/router";
 import useUser from "../../../hooks/useUser";
 import LoginButtons from "../login/index";
+import dynamic from "next/dynamic";
+
+const Preview = dynamic(() => import("./Preview"), {
+  ssr: false,
+  loading: function Loading() {
+    return <p>Cargando...</p>;
+  },
+});
 
 export default function Form({
   preview,

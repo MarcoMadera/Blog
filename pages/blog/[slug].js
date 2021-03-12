@@ -14,7 +14,6 @@ import { getFormattedDate } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
 import { imageCloudProvider } from "../../site.config";
 import getTweets from "../../lib/get-tweets";
-import { Tweets } from "../../lib/tweets";
 import { H1, ALink, Hr } from "../../components/tags";
 import {
   renderers,
@@ -23,6 +22,7 @@ import {
 import useDarkMode from "../../hooks/useDarkMode";
 import { UserContextProvider } from "../../context/UserContext";
 import { CommentsContextProvider } from "../../context/CommentsContext";
+import { TweetsContextProvider } from "../../context/TweetsContext";
 export default function Post({
   title,
   description,
@@ -89,14 +89,14 @@ export default function Post({
         </header>
         <TableOfContents content={h2s} />
         <div itemProp="articlebody" aria-labelledby="articleTitle">
-          <Tweets.Provider value={tweets}>
+          <TweetsContextProvider tweets={tweets}>
             <MarkDown
               source={content}
               instructions={instructions}
               renderers={renderers}
               escapeHtml={false}
             />
-          </Tweets.Provider>
+          </TweetsContextProvider>
         </div>
         <Hr />
         <BlogFooter

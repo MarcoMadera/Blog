@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useTweet } from "../lib/tweets";
+import useTweet from "../hooks/useTweet";
 import Node from "../static-tweet/node";
 import components from "../static-tweet/components/";
 
