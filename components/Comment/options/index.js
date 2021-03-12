@@ -75,8 +75,6 @@ export default function Options({
           animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           display: flex;
           flex-wrap: wrap;
-          column-gap: 6px;
-          row-gap: 5px;
         }
         input[type="file"] {
           clip: rect(0, 0, 0, 0);

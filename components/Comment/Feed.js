@@ -8,16 +8,17 @@ export default function Feed() {
     <ul>
       {allComments.map(
         ({ commentId, avatar, username, comment, date, img, uid }) => (
-          <CommentFeed
-            key={commentId}
-            commentId={commentId}
-            avatar={avatar}
-            username={username}
-            comment={comment}
-            date={date}
-            img={img}
-            uid={uid}
-          />
+          <li key={commentId}>
+            <CommentFeed
+              commentId={commentId}
+              avatar={avatar}
+              username={username}
+              comment={comment}
+              date={date}
+              img={img}
+              uid={uid}
+            />
+          </li>
         )
       )}
       <style jsx>{`
@@ -25,7 +26,10 @@ export default function Feed() {
           margin: 20px 0;
           display: flex;
           flex-direction: column;
-          row-gap: 10px;
+        }
+        li {
+          list-style: none;
+          margin-bottom: 10px;
         }
       `}</style>
     </ul>

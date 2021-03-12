@@ -130,6 +130,7 @@ export default function Button({
           display: inline-flex;
           height: 32px;
           width: 32px;
+          margin: 0 6px 5px 0;
           justify-content: center;
           font-style: ${title === "Cursiva" ? "italic" : "unset"};
           font-weight: ${title === "Negrita" ? "bold" : "unset"};

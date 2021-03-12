@@ -10,7 +10,7 @@ import RecommendedPosts from "../../components/RecommendedPosts";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
 import { colors } from "../../styles/theme";
-import { getFormattedDate } from "../../utils/helpers";
+import { getFormattedDate, insertTextBetween } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
 import { imageCloudProvider } from "../../site.config";
 import getTweets from "../../lib/get-tweets";
@@ -53,14 +53,9 @@ export default function Post({
         description={description}
         cover={
           cover.startsWith(imageCloudProvider)
-            ? cover.replace(
-                new RegExp(
-                  `(?<=${imageCloudProvider.replace(
-                    /[.*+?^${}()|/[\]\\]/g,
-                    "\\$&"
-                  )})`,
-                  "g"
-                ),
+            ? insertTextBetween(
+                cover,
+                imageCloudProvider.length,
                 "/q_auto,f_auto,c_scale,w_760"
               )
             : cover

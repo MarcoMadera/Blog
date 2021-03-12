@@ -34,3 +34,7 @@ export function numberBetween(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function insertTextBetween(str, index, value) {
+  return str.substr(0, index) + value + str.substr(index);
+}

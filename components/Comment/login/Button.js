@@ -28,6 +28,7 @@ export default function Button({
           align-items: center;
           border-radius: 4px;
           color: #fff;
+          margin: 0 6px 5px 0;
           border: 0;
           background: transparent;
           cursor: pointer;

@@ -3,6 +3,7 @@ import { colors } from "../styles/theme";
 import { imageCloudProvider } from "../site.config";
 import PropTypes from "prop-types";
 import useDarkMode from "../hooks/useDarkMode";
+import { insertTextBetween } from "../utils/helpers";
 
 function Div({ children }) {
   return <div>{children}</div>;
@@ -37,14 +38,9 @@ export default function RecommendedPosts({
                     <img
                       src={
                         cover.startsWith(imageCloudProvider)
-                          ? cover.replace(
-                              new RegExp(
-                                `(?<=${imageCloudProvider.replace(
-                                  /[.*+?^${}()|/[\]\\]/g,
-                                  "\\$&"
-                                )})`,
-                                "g"
-                              ),
+                          ? insertTextBetween(
+                              cover,
+                              imageCloudProvider.length,
                               "/q_auto,f_auto,c_scale,h_40,w_40"
                             )
                           : cover

@@ -4,7 +4,7 @@ import slugify from "react-slugify";
 import { getFormattedDate } from "../utils/helpers";
 import { imageCloudProvider } from "../site.config";
 import useDarkMode from "../hooks/useDarkMode";
-
+import { insertTextBetween } from "../utils/helpers";
 export default function BlogCard({
   author,
   cover,
@@ -32,14 +32,9 @@ export default function BlogCard({
                 media="(max-width: 876px)"
                 srcSet={
                   cover.startsWith(imageCloudProvider)
-                    ? cover.replace(
-                        new RegExp(
-                          `(?<=${imageCloudProvider.replace(
-                            /[.*+?^${}()|/[\]\\]/g,
-                            "\\$&"
-                          )})`,
-                          "g"
-                        ),
+                    ? insertTextBetween(
+                        cover,
+                        imageCloudProvider.length,
                         "/q_auto,f_auto,c_scale,h_300,w_300"
                       )
                     : cover
@@ -50,17 +45,22 @@ export default function BlogCard({
                 height="100"
                 srcSet={
                   cover.startsWith(imageCloudProvider)
-                    ? cover.replace(
-                        new RegExp(
-                          `(?<=${imageCloudProvider.replace(
-                            /[.*+?^${}()|/[\]\\]/g,
-                            "\\$&"
-                          )})`,
-                          "g"
-                        ),
+                    ? insertTextBetween(
+                        cover,
+                        imageCloudProvider.length,
                         "/q_auto,f_auto,c_scale,h_100,w_100"
                       )
-                    : cover
+                    : // cover.replace(
+                      //     new RegExp(
+                      //       `(?<=${imageCloudProvider.replace(
+                      //         /[.*+?^${}()|/[\]\\]/g,
+                      //         "\\$&"
+                      //       )})`,
+                      //       "g"
+                      //     ),
+                      //     "/q_auto,f_auto,c_scale,h_100,w_100"
+                      //   )
+                      cover
                 }
                 width="100"
               />

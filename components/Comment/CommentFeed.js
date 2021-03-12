@@ -22,33 +22,31 @@ const CommentFeed = ({
     removeComment(commentId);
   }
   return (
-    <li>
-      <article>
-        <header>
-          <b>{username}</b>
-          <i>
-            {new Date(date ?? Date()).toLocaleDateString("es-MX", {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </i>
-          {user?.uid === uid && commentId ? (
-            <button onClick={(e) => handleRemove(e, commentId)}>
-              Eliminar comentario
-            </button>
-          ) : null}
-        </header>
-        <img src={avatar} alt={username} title={username} />
-        <div>
-          <Markdown
-            source={comment}
-            instructions={instructions}
-            renderers={renderers}
-            escapeHtml={true}
-          />
-          {img && <Img src={img} alt="" />}
-        </div>
-      </article>
+    <article>
+      <header>
+        <b>{username}</b>
+        <i>
+          {new Date(date ?? Date()).toLocaleDateString("es-MX", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </i>
+        {user?.uid === uid && commentId ? (
+          <button onClick={(e) => handleRemove(e, commentId)}>
+            Eliminar comentario
+          </button>
+        ) : null}
+      </header>
+      <img src={avatar} alt={username} title={username} />
+      <div>
+        <Markdown
+          source={comment}
+          instructions={instructions}
+          renderers={renderers}
+          escapeHtml={true}
+        />
+        {img && <Img src={img} alt="" />}
+      </div>
       <style jsx>{`
         div {
           grid-area: comment;
@@ -84,9 +82,7 @@ const CommentFeed = ({
         div :global(ul) {
           margin: 0;
         }
-        li {
-          list-style: none;
-        }
+
         article {
           display: grid;
           grid-template-columns: 70px minmax(0, 1fr);
@@ -112,7 +108,7 @@ const CommentFeed = ({
           break-after: avoid;
         }
       `}</style>
-    </li>
+    </article>
   );
 };
 

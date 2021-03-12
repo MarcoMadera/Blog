@@ -34,9 +34,11 @@ export default function Preview({ sendCommentRef }) {
       <style jsx>{`
         section {
           margin: 4px 0;
-          row-gap: 3px;
           display: flex;
           flex-direction: column;
+        }
+        section :global(article) {
+          margin-bottom: 4px;
         }
         div {
           display: flex;

@@ -57,7 +57,7 @@ export default function CookiesModal() {
           margin: 0;
         }
         p :global(a) {
-          color: #ff2020;
+          color: ${darkMode ? "#ff2020" : colors.primary};
         }
         section {
           position: fixed;

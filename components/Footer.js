@@ -139,9 +139,9 @@ function Footer() {
         }
         .footer_social {
           display: flex;
-          column-gap: 20px;
         }
         .footer_social :global(a) {
+          margin-right: 20px;
           display: inline-flex;
         }
         .footer_social :global(a:hover svg),
