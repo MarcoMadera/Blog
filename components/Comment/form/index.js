@@ -8,11 +8,11 @@ import { useRouter } from "next/router";
 import useUser from "../../../hooks/useUser";
 import LoginButtons from "../login/index";
 import dynamic from "next/dynamic";
-
+import Loader from "./Loader";
 const Preview = dynamic(() => import("./Preview"), {
   ssr: false,
   loading: function Loading() {
-    return <p>Cargando...</p>;
+    return <Loader />;
   },
 });
 
