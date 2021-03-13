@@ -59,8 +59,6 @@ export default function Options({
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          column-gap: 6px;
-          row-gap: 5px;
         }
         @keyframes slide-bottom {
           0% {

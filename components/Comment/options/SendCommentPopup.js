@@ -146,7 +146,6 @@ export default function SendCommentPopup({ sendCommentRef }) {
           margin-top: 10px;
           justify-content: flex-end;
           flex-wrap: wrap;
-          column-gap: 10px;
         }
         button {
           padding: 6px 8px;
@@ -158,6 +157,7 @@ export default function SendCommentPopup({ sendCommentRef }) {
           color: inherit;
         }
         button:nth-of-type(1) {
+          margin-right: 10px;
           background: ${darkMode ? colors.dark_secondary : colors.primary};
           border-color: ${darkMode ? colors.dark_secondary : colors.primary};
           color: ${colors.white};

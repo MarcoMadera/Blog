@@ -130,9 +130,11 @@ export default function Comments({ slug }) {
         .controls {
           display: flex;
           width: 100%;
-          column-gap: 5px;
           align-items: flex-end;
           justify-content: space-between;
+        }
+        .controls div {
+          margin-right: 5px;
         }
         .controls div button:hover,
         .controls div button:focus {

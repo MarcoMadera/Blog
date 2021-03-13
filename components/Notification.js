@@ -51,18 +51,21 @@ export default function Notification() {
         {notification.map(({ id, variant, message }) => {
           return (
             <article key={id} role="alertdialog" aria-labelledby="alertText">
-              {variant === "info" && <Info width={20} height={20} />}
-              {variant === "error" && <Error width={20} height={20} />}
-              <p id="alertText">{message}</p>
-              <button
-                aria-label="Eliminar notificación"
-                onClick={() => {
-                  removeNotification(id);
-                }}
-                aria-hidden={true}
-              >
-                x
-              </button>
+              <div>
+                {variant === "info" && <Info width={20} height={20} />}
+                {variant === "error" && <Error width={20} height={20} />}
+                <p id="alertText">{message}</p>
+                <button
+                  aria-label="Eliminar notificación"
+                  onClick={() => {
+                    removeNotification(id);
+                  }}
+                  aria-hidden={true}
+                >
+                  x
+                </button>
+              </div>
+              <span></span>
             </article>
           );
         })}
@@ -72,22 +75,40 @@ export default function Notification() {
             align-items: center;
             grid-gap: 10px;
             overflow-wrap: break-word;
-            margin: 0;
+            margin: 0 10px;
           }
-          article {
+          span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            border-radius: 4px;
+            background: ${darkMode ? colors.dark_tertiary : colors.primary};
+            animation: shrink 10050ms linear;
+          }
+          @keyframes shrink {
+            from {
+              width: 100%;
+            }
+            to {
+              width: 0%;
+            }
+          }
+          div {
             grid-template-columns: 20px minmax(0, 1fr) 20px;
             display: grid;
+            padding: 10px 10px 8px 10px;
+          }
+          article {
             background-color: ${darkMode
               ? colors.dark_accents3
               : colors.accents2};
-            padding: 10px;
             border: 1px solid #cccccc4d;
             border-radius: 4px;
             width: 100%;
             text-decoration: none;
-            column-gap: 10px;
+            margin-bottom: 10px;
           }
-          article > :global(svg) {
+          div > :global(svg) {
             align-self: center;
           }
           section {
@@ -96,7 +117,6 @@ export default function Notification() {
             position: fixed;
             display: flex;
             flex-direction: column;
-            row-gap: 10px;
             right: 10px;
             top: 0px;
             transition: 0.3s ease 0s;
@@ -127,7 +147,7 @@ export default function Notification() {
             cursor: pointer;
           }
           @media screen and (min-width: 500px) {
-            article {
+            div {
               max-width: 400px;
             }
           }

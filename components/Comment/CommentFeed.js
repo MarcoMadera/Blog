@@ -75,9 +75,11 @@ const CommentFeed = ({
           display: flex;
           flex-wrap: wrap;
           grid-area: username;
-          column-gap: 10px;
           align-items: baseline;
           margin-left: 10px;
+        }
+        header > * {
+          margin-right: 10px;
         }
         div :global(ul) {
           margin: 0;

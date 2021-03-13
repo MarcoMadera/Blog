@@ -74,11 +74,11 @@ export default function CookiesModal() {
         div {
           display: flex;
           justify-content: flex-end;
-          column-gap: 10px;
           flex-wrap: wrap;
         }
         button {
           padding: 6px 8px;
+          margin-right: 10px;
           font-weight: 400;
           background: transparent;
           border-radius: 5px;
@@ -87,6 +87,7 @@ export default function CookiesModal() {
           color: inherit;
         }
         button:nth-of-type(2) {
+          margin: 0;
           background: ${darkMode ? colors.dark_secondary : colors.primary};
           border-color: ${darkMode ? colors.dark_secondary : colors.primary};
           color: ${colors.white};
