@@ -8,17 +8,17 @@ const SendCommentButton = ({ sendCommentRef }) => {
   const { darkMode } = useDarkMode();
   return (
     <>
-      <input
-        type="submit"
-        value="Enviar comentario"
+      <button
         ref={sendCommentRef}
         onClick={(e) => {
           e.preventDefault();
           setIsSubmittingComment(true);
         }}
-      />
+      >
+        Enviar comentario
+      </button>
       <style jsx>{`
-        input {
+        button {
           background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid #cccccc4d;
           border-radius: 4px;
@@ -28,14 +28,14 @@ const SendCommentButton = ({ sendCommentRef }) => {
           cursor: pointer;
           height: 32px;
         }
-        input:hover,
-        input:focus,
+        button:hover,
+        button:focus,
         label:hover,
         label:focus {
           border: 1px solid #cccccca1;
         }
         @media screen and (max-width: 540px) {
-          input[type="submit"] {
+          button {
             width: 100%;
           }
         }

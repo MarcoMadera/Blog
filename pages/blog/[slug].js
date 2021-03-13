@@ -182,6 +182,10 @@ export default function Post({
           grid-area: header;
         }
         nav :global(a) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
           border: 3px solid
             ${darkMode ? colors.dark_secondary : colors.secondary};
           padding: 7px 10px;
