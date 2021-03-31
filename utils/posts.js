@@ -1,12 +1,12 @@
-import matter from "gray-matter";
-import { readdirSync, readFileSync } from "fs";
-import slugify from "react-slugify";
-import { join } from "path";
-import { siteMetadata as metaData } from "../site.config";
+const matter = require("gray-matter");
+const fs = require("fs");
+const slugify = require("react-slugify").default;
+const path = require("path");
+const metaData = require("../site.config").siteMetadata;
 
 function getPostsFiles() {
   // Get all posts Files located in `posts`
-  const postsFiles = readdirSync(`${process.cwd()}/posts`).map((file) => ({
+  const postsFiles = fs.readdirSync(`${process.cwd()}/posts`).map((file) => ({
     filename: `${file}`,
   }));
   return postsFiles;
@@ -17,7 +17,7 @@ function getSortedPostsData() {
   const posts = postsFiles
     .map(({ filename }) => {
       // Get raw content from file
-      const markdownWithMetadata = readFileSync(`posts/${filename}`);
+      const markdownWithMetadata = fs.readFileSync(`posts/${filename}`);
 
       // Parse markdown, get frontmatter data
       const { data } = matter(markdownWithMetadata);
@@ -45,9 +45,9 @@ function getTagsSlugs() {
 
 function getPostBySlug(slug) {
   const posts = getSortedPostsData();
-  const markdownWithMetadata = readFileSync(
-    join("posts", slug + ".md")
-  ).toString();
+  const markdownWithMetadata = fs
+    .readFileSync(path.join("posts", slug + ".md"))
+    .toString();
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
 
   const { data, content } = matter(markdownWithMetadata);
@@ -128,7 +128,7 @@ function getTagData(slug) {
   };
 }
 
-export {
+module.exports = {
   getSortedPostsData,
   getPostsFiles,
   getTagsSlugs,

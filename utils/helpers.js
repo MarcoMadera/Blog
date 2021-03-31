@@ -1,9 +1,3 @@
-import { siteMetadata } from "../site.config";
-
-export function getSiteMetaData() {
-  return siteMetadata;
-}
-
 const months = {
   0: "ene.",
   1: "feb.",
