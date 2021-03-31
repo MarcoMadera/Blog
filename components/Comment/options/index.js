@@ -59,6 +59,14 @@ export default function Options({
           visibility: ${selectTextArea ? "visible" : "hidden"};
           animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
+        @keyframes slide-bottom {
+          0% {
+            transform: translateY(-10px);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
         input {
           background: ${darkMode ? colors.dark_background : colors.background};
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
@@ -69,14 +77,6 @@ export default function Options({
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-        }
-        @keyframes slide-bottom {
-          0% {
-            transform: translateY(-10px);
-          }
-          100% {
-            transform: translateY(0);
-          }
         }
         .options {
           display: flex;

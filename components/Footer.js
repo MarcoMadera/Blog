@@ -132,7 +132,6 @@ function Footer() {
           position: relative;
         }
         .footer_section > :global(a:after) {
-          background: none repeat scroll 0 0 transparent;
           bottom: -1px;
           content: "";
           display: block;

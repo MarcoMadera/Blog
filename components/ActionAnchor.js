@@ -20,8 +20,9 @@ export default function ActionAnchor({ children, href, ...attribs }) {
       `}</style>
       <style jsx>{`
         a {
+          border-width: 1px;
+          border-style: solid;
           border-radius: 28px;
-          border: 1px solid transparent;
           color: ${colors.white};
           cursor: pointer;
           display: inline-block;

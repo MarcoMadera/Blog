@@ -18,7 +18,8 @@ export default function ActionButton({ children, ...attribs }) {
       `}</style>
       <style jsx>{`
         button {
-          border: 1px solid;
+          border-width: 1px;
+          border-style: solid;
           border-radius: 28px;
           color: ${colors.white};
           cursor: pointer;
