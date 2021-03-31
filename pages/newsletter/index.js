@@ -89,6 +89,23 @@ const NewsletterPage = () => {
         </form>
       </div>
       <style jsx>{`
+        main :global(input:hover) {
+          border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
+        }
+        main :global(input:focus) {
+          border: 1px solid
+            ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+        main :global(input) {
+          border: 1px solid
+            ${email.error && email.submitted
+              ? "red"
+              : darkMode
+              ? "#cccccc4d"
+              : "#ccc"};
+        }
+      `}</style>
+      <style jsx>{`
         div {
           text-align: center;
         }
@@ -103,21 +120,9 @@ const NewsletterPage = () => {
           width: 100%;
           display: block;
           border-radius: 4px;
-          border: 1px solid
-            ${email.error && email.submitted
-              ? "red"
-              : darkMode
-              ? "#cccccc4d"
-              : "#ccc"};
           padding: 10px 15px;
         }
-        main :global(input:hover) {
-          border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
-        }
-        main :global(input:focus) {
-          border: 1px solid
-            ${darkMode ? colors.dark_secondary : colors.secondary};
-        }
+
         main :global(button) {
           width: 100%;
         }

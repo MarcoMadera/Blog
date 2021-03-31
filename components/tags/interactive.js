@@ -9,15 +9,8 @@ export function Details({ children }) {
     <details>
       {children}
       <style jsx>{`
-        :global(summary) {
-          font-weight: bold;
-          margin: -0.5em -0.5em 0;
-          padding: 0.5em;
-        }
         details {
           border: 1px solid ${colors.accents1};
-          border-radius: 4px;
-          padding: 0.5em 0.5em 0;
         }
         details > summary::marker {
           color: ${darkMode ? colors.dark_primary : colors.primary};
@@ -25,11 +18,25 @@ export function Details({ children }) {
         details > summary::-webkit-details-marker {
           color: ${darkMode ? colors.dark_primary : colors.primary};
         }
+        details[open] summary {
+          border-bottom: 1px solid ${colors.accents1};
+        }
+      `}</style>
+      <style jsx>{`
+        :global(summary) {
+          font-weight: bold;
+          margin: -0.5em -0.5em 0;
+          padding: 0.5em;
+        }
+        details {
+          border-radius: 4px;
+          padding: 0.5em 0.5em 0;
+        }
+
         details[open] {
           padding: 0.5em;
         }
         details[open] summary {
-          border-bottom: 1px solid ${colors.accents1};
           margin-bottom: 0.5em;
         }
       `}</style>
@@ -46,8 +53,12 @@ export function Select({ children, name }) {
         select {
           background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid ${colors.accents1};
-          border-radius: 4px;
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
+        }
+      `}</style>
+      <style jsx>{`
+        select {
+          border-radius: 4px;
           padding: 0.5em;
         }
       `}</style>

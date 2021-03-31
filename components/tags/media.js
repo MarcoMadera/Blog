@@ -105,6 +105,23 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
       </details-dialog>
       <LoadDetailsDialog />
       <style jsx>{`
+        summary :global(img) {
+          object-position: ${layout === "cover" ? "top" : "unset"};
+          object-fit: ${layout === "cover" ? "cover" : "unset"};
+        }
+        details {
+          float: ${alt.includes("a la derecha")
+            ? "right"
+            : alt.includes("a la izquierda")
+            ? "left"
+            : "none"};
+          margin: ${alt.includes("a la derecha") ||
+          alt.includes("a la izquierda")
+            ? "10px"
+            : "0 auto"};
+        }
+      `}</style>
+      <style jsx>{`
         div :global(img) {
           max-height: calc(100vh - 10vh);
           max-width: calc(100vw - 3rem);
@@ -126,15 +143,6 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
         details {
           border: unset;
           display: block;
-          float: ${alt.includes("a la derecha")
-            ? "right"
-            : alt.includes("a la izquierda")
-            ? "left"
-            : "none"};
-          margin: ${alt.includes("a la derecha") ||
-          alt.includes("a la izquierda")
-            ? "10px"
-            : "0 auto"};
           overflow: hidden;
           padding: 0;
           max-width: fit-content;
@@ -169,8 +177,6 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           cursor: pointer;
           max-height: 100vh;
           max-width: 100%;
-          object-position: ${layout === "cover" ? "top" : "unset"};
-          object-fit: ${layout === "cover" ? "cover" : "unset"};
         }
         :global(details-dialog) {
           box-sizing: border-box;
@@ -221,9 +227,13 @@ export function Video({ src, dark, light, title, ...attribs }) {
       Tu navegador no soporta videos
       <style jsx>{`
         video {
+          filter: ${darkMode ? "none" : "brightness(110%)"};
+        }
+      `}</style>
+      <style jsx>{`
+        video {
           display: block;
           clip-path: inset(0% 0% 0% 0% round 10px);
-          filter: ${darkMode ? "none" : "brightness(110%)"};
           margin: auto;
           max-width: 99%;
         }

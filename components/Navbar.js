@@ -11,17 +11,15 @@ function Anchor({ label, href, children, ...attribs }) {
 
   return (
     <Link href={href}>
-      <a
-        aria-label={label}
-        {...attribs}
-        style={{
-          textDecoration:
-            router.route === href && router.route !== "/"
-              ? "underline"
-              : undefined,
-        }}
-      >
+      <a aria-label={label} {...attribs}>
         {children}
+        <style jsx>{`
+          a {
+            text-decoration: ${router.route === href && router.route !== "/"
+              ? "underline"
+              : "none"};
+          }
+        `}</style>
       </a>
     </Link>
   );
@@ -125,6 +123,12 @@ export default function Navbar() {
         }
       `}</style>
       <style jsx>{`
+        header :global(nav a:hover),
+        header :global(nav a:focus) {
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+      `}</style>
+      <style jsx>{`
         button {
           background-color: transparent;
           border: none;
@@ -164,7 +168,6 @@ export default function Navbar() {
         header :global(nav a:focus) {
           animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
             both;
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         header :global(picture) {
           display: inline-flex;

@@ -51,8 +51,12 @@ export function Input({ type, ...attribs }) {
         input {
           background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid ${colors.accents1};
-          border-radius: 4px;
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
+        }
+      `}</style>
+      <style jsx>{`
+        input {
+          border-radius: 4px;
           font-family: Arial;
           padding: 0.5em;
         }

@@ -75,19 +75,11 @@ export default function BlogCard({
         </span>
       </footer>
       <style jsx>{`
-        a {
-          display: inline-flex;
-          box-sizing: border-box;
-          text-decoration: none;
-          color: inherit;
-        }
         article {
-          border-radius: 5px;
           box-shadow: ${darkMode
               ? "rgba(255,255,255,0.2)"
               : "rgba(0, 0, 0, 0.2)"}
             0px 0px 2px 0px;
-          margin-bottom: 1rem;
         }
         article:hover,
         article:focus-within {
@@ -96,6 +88,19 @@ export default function BlogCard({
               : "rgba(0, 0, 0, 0.3)"}
             0px 0px 2px 0px;
         }
+      `}</style>
+      <style jsx>{`
+        a {
+          display: inline-flex;
+          box-sizing: border-box;
+          text-decoration: none;
+          color: inherit;
+        }
+        article {
+          border-radius: 5px;
+          margin-bottom: 1rem;
+        }
+
         div > a {
           margin-right: 5px;
         }

@@ -59,11 +59,19 @@ export default function Aside() {
       </Anchor>
       <style jsx>{`
         aside {
-          border-radius: 12px;
-          box-shadow: ${
-            darkMode ? "rgba(255,255,255,0.2)" : "rgba(0, 0, 0, 0.2)"
-          }
+          box-shadow: ${darkMode
+              ? "rgba(255,255,255,0.2)"
+              : "rgba(0, 0, 0, 0.2)"}
             0px 0px 2px 0px;
+        }
+        aside :global(a:hover svg),
+        aside :global(a:focus svg) {
+          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+      `}</style>
+      <style jsx>{`
+        aside {
+          border-radius: 12px;
           height: 300px;
           margin-top: 40px;
           padding: 20px;
@@ -75,10 +83,7 @@ export default function Aside() {
           box-sizing: border-box;
           margin: 0 10px;
         }
-        aside :global(a:hover svg),
-        aside :global(a:focus svg) {
-          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
-        }
+        
         img {
           clip-path: circle(50% at 50% 50%);
           height: 80px;

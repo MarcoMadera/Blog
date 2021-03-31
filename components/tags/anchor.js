@@ -2,7 +2,18 @@ import { colors } from "../../styles/theme";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import useDarkMode from "../../hooks/useDarkMode";
+import css from "styled-jsx/css";
 
+export const anchorStyle = css`
+  a {
+    display: inline;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+`;
 export function A({ classname, children, href, title, ...attribs }) {
   const { darkMode } = useDarkMode();
 
@@ -17,15 +28,13 @@ export function A({ classname, children, href, title, ...attribs }) {
       <style jsx>{`
         a {
           color: ${darkMode ? colors.dark_primary : colors.primary};
-          display: inline;
-          text-decoration: none;
         }
         a:hover,
         a:focus {
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
-          text-decoration: underline;
         }
       `}</style>
+      <style jsx>{anchorStyle}</style>
     </a>
   );
 }
@@ -47,15 +56,13 @@ export function ALink({ classname, children, href, title, ...attribs }) {
       <style jsx>{`
         a {
           color: ${darkMode ? colors.dark_primary : colors.primary};
-          display: inline;
-          text-decoration: none;
         }
         a:focus,
         a:hover {
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
-          text-decoration: underline;
         }
       `}</style>
+      <style jsx>{anchorStyle}</style>
     </>
   );
 }

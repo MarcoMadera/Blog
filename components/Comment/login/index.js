@@ -30,6 +30,10 @@ export default function LoginButtons({
       <style jsx>{`
         div {
           visibility: ${selectTextArea ? "visible" : "hidden"};
+        }
+      `}</style>
+      <style jsx>{`
+        div {
           animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           display: flex;
           flex-wrap: wrap;

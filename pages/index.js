@@ -55,9 +55,23 @@ export default function Home({ posts = [], tags = [], pages = [] }) {
       </aside>
       <style jsx>{`
         a {
+          color: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+        nav :global(.pagination:hover) {
+          color: ${darkMode
+            ? colors.dark_secondary
+            : colors.secondary} !important;
+        }
+        nav :global(.currentPage) {
+          background-color: ${darkMode
+            ? colors.dark_primary
+            : colors.primary} !important;
+        }
+      `}</style>
+      <style jsx>{`
+        a {
           align-items: center;
           border-radius: 50% !important;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
           display: flex;
           font-weight: 600;
           height: 31px;
@@ -88,16 +102,8 @@ export default function Home({ posts = [], tags = [], pages = [] }) {
           justify-content: center;
         }
         nav :global(.currentPage) {
-          background-color: ${darkMode
-            ? colors.dark_primary
-            : colors.primary} !important;
           border-radius: 50% !important;
           color: ${colors.background} !important;
-        }
-        nav :global(.pagination:hover) {
-          color: ${darkMode
-            ? colors.dark_secondary
-            : colors.secondary} !important;
         }
         ol {
           list-style: none;

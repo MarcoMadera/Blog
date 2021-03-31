@@ -113,32 +113,42 @@ export function Progress({ value, ...attribs }) {
       {value}
       <style jsx>{`
         progress {
+          border: 1px solid ${colors.accents1};
+          color: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+        progress:before {
+          background: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+        progress::-moz-progress-bar {
+          background: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+        progress::-webkit-progress-value {
+          background: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+      `}</style>
+      <style jsx>{`
+        progress {
           appearance: none;
           -moz-appearance: none;
           -webkit-appearance: none;
           background: unset;
           background-size: auto;
-          border: 1px solid ${colors.accents1};
           border-radius: 20px;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
           width: 100%;
         }
         progress:after {
           background-image: none;
         }
         progress:before {
-          background: ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 20px;
         }
         progress::-moz-progress-bar {
-          background: ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 20px;
         }
         progress::-webkit-progress-bar {
           background: unset;
         }
         progress::-webkit-progress-value {
-          background: ${darkMode ? colors.dark_primary : colors.primary};
           border-radius: 20px;
         }
       `}</style>

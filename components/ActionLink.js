@@ -12,12 +12,16 @@ export default function ActionLink({ children, href }) {
         <a className="actionLink">{children}</a>
       </Link>
       <style jsx>{`
-        a {
+        button {
           background-color: ${darkMode
             ? colors.dark_secondary
             : colors.primary};
-          border: 1px solid transparent;
           border-color: ${darkMode ? colors.dark_secondary : colors.primary};
+        }
+      `}</style>
+      <style jsx>{`
+        a {
+          border: 1px solid transparent;
           border-radius: 28px;
           color: ${colors.white};
           cursor: pointer;

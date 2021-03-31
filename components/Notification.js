@@ -71,6 +71,19 @@ export default function Notification() {
           );
         })}
         <style jsx>{`
+          span {
+            background: ${darkMode ? colors.dark_tertiary : colors.primary};
+          }
+          article {
+            background-color: ${darkMode
+              ? colors.dark_accents3
+              : colors.accents2};
+          }
+          button {
+            color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          }
+        `}</style>
+        <style jsx>{`
           p {
             font-size: 14px;
             align-items: center;
@@ -83,7 +96,6 @@ export default function Notification() {
             width: 100%;
             height: 2px;
             border-radius: 4px;
-            background: ${darkMode ? colors.dark_tertiary : colors.primary};
             animation: shrink 10050ms linear;
           }
           @keyframes shrink {
@@ -100,9 +112,6 @@ export default function Notification() {
             padding: 10px 10px 8px 10px;
           }
           article {
-            background-color: ${darkMode
-              ? colors.dark_accents3
-              : colors.accents2};
             border: 1px solid #cccccc4d;
             border-radius: 4px;
             width: 100%;
@@ -144,7 +153,6 @@ export default function Notification() {
             height: 16px;
             background: none;
             float: right;
-            color: ${darkMode ? colors.dark_textColor : colors.textColor};
             cursor: pointer;
           }
           @media screen and (min-width: 500px) {

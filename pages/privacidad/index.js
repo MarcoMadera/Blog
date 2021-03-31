@@ -267,21 +267,49 @@ export default function Privacy() {
         </Li>
       </Ul>
       <H2>Destinatarios de datos personales</H2>
-      <P>
-        Buttondown, LLC , con domicilio en EEUU.
-        <br />
-        Encontrarás más información en:{" "}
-        <A
-          href="https://buttondown.email/"
-          target="_blank"
-          rel="noopener noreferer"
-        >
-          ButtonDown
-        </A>
-        <br />
-        Buttondown, LLC trata los datos con la finalidad de prestar sus
-        servicios de email el Titulareting al Titular.
-      </P>
+      <Ul>
+        <Li>
+          Buttondown, LLC , con domicilio en EEUU.
+          <br />
+          Encontrarás más información en:{" "}
+          <A
+            href="https://buttondown.email/"
+            target="_blank"
+            rel="noopener noreferer"
+          >
+            ButtonDown
+          </A>
+          <br />
+          Buttondown, LLC trata los datos con la finalidad de prestar sus
+          servicios de email el Titulareting al Titular.
+        </Li>
+        <Li>
+          Firebase, Google LLC , con domicilio en EEUU.
+          <br />
+          Firebase es un Backend-as-a-Service (BaaS), es el servicio que usamos
+          para autentificación y almacenamiento en la nube para los comentarios.
+          <Ul>
+            <Li>
+              <A
+                href="https://firebase.google.com/support/privacy/"
+                target="_blank"
+                rel="noopener noreferer"
+              >
+                Política de privacidad de Firebase
+              </A>
+            </Li>
+            <Li>
+              <A
+                href="https://firebase.google.com/support/privacy#firebase_support_for_gdpr_and_ccpa"
+                target="_blank"
+                rel="noopener noreferer"
+              >
+                Firebase GDPR, CCPA
+              </A>
+            </Li>
+          </Ul>
+        </Li>
+      </Ul>
       <H2>Navegación Web</H2>
       <P>
         Al navegar por{" "}

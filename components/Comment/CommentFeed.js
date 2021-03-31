@@ -84,7 +84,6 @@ const CommentFeed = ({
         div :global(ul) {
           margin: 0;
         }
-
         article {
           display: grid;
           grid-template-columns: 70px minmax(0, 1fr);

@@ -117,6 +117,18 @@ export default function Button({
     <button onClick={(e) => modifiedTextWithTag(e)} title={title}>
       <span aria-hidden="true">{children}</span>
       <style jsx>{`
+        button {
+          font-style: ${title === "Cursiva" ? "italic" : "unset"};
+          font-weight: ${title === "Negrita" ? "bold" : "unset"};
+          font-size: ${title === "Título" ? "16px" : "13.333px"};
+          text-decoration: ${title === "Subrayado"
+            ? "underline"
+            : title === "Tachado"
+            ? "line-through"
+            : "unset"};
+        }
+      `}</style>
+      <style jsx>{`
         span {
           display: inline-flex;
         }
@@ -132,16 +144,8 @@ export default function Button({
           width: 32px;
           margin: 0 6px 5px 0;
           justify-content: center;
-          font-style: ${title === "Cursiva" ? "italic" : "unset"};
-          font-weight: ${title === "Negrita" ? "bold" : "unset"};
-          font-size: ${title === "Título" ? "16px" : "13.333px"};
           padding: 3px;
           position: relative;
-          text-decoration: ${title === "Subrayado"
-            ? "underline"
-            : title === "Tachado"
-            ? "line-through"
-            : "unset"};
         }
         button:focus,
         button:hover {

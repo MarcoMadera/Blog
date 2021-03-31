@@ -27,19 +27,23 @@ function MusicCard({ artist, cover, songUrl, title }) {
       </a>
       <style jsx>{`
         a {
-          align-items: center;
           border: 1px solid ${colors.accents1};
+        }
+        a:hover,
+        a:focus-within {
+          box-shadow: 0px 0px 4px 0px
+            ${darkMode ? "rgba(200, 200, 200, 0.30)" : "rgba(84, 84, 84, 0.15)"};
+        }
+      `}</style>
+      <style jsx>{`
+        a {
+          align-items: center;
           border-radius: 3px;
           color: inherit;
           display: flex;
           margin-bottom: 10px;
           padding: 5px;
           text-decoration: none;
-        }
-        a:hover,
-        a:focus-within {
-          box-shadow: 0px 0px 4px 0px
-            ${darkMode ? "rgba(200, 200, 200, 0.30)" : "rgba(84, 84, 84, 0.15)"};
         }
         div {
           max-width: calc(100vw - 120px);

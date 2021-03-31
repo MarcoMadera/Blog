@@ -99,6 +99,18 @@ function Footer() {
         </div>
       </section>
       <style jsx>{`
+        .footer_social :global(a:hover svg),
+        .footer_social :global(a:focus svg) {
+          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+        footer {
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+        }
+        .footer_section > :global(a:after) {
+          background: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+      `}</style>
+      <style jsx>{`
         strong {
           display: block;
           margin: 1em 0;
@@ -127,7 +139,6 @@ function Footer() {
           height: 2px;
           left: 50%;
           position: absolute;
-          background: ${darkMode ? colors.dark_secondary : colors.secondary};
           transition: width 0.15s ease 0s, left 0.1s ease 0s;
           width: 0;
           margin-top: 15px;
@@ -144,13 +155,8 @@ function Footer() {
           margin-right: 20px;
           display: inline-flex;
         }
-        .footer_social :global(a:hover svg),
-        .footer_social :global(a:focus svg) {
-          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
-        }
         footer {
           align-items: center;
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
           flex-wrap: wrap;
           justify-content: center;
           min-height: 80px;

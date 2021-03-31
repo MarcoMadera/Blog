@@ -71,6 +71,25 @@ function Newsletter() {
       <style jsx>{`
         form {
           border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
+        }
+        form :global(input) {
+          border: 1px solid
+            ${email.error && email.submitted
+              ? "red"
+              : darkMode
+              ? "#cccccc4d"
+              : "#ccc"};
+        }
+        form :global(input:focus) {
+          border: 1px solid
+            ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+        form :global(input:hover) {
+          border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
+        }
+      `}</style>
+      <style jsx>{`
+        form {
           border-radius: 4px;
           height: fit-content;
           margin-bottom: 50px;
@@ -92,12 +111,6 @@ function Newsletter() {
           margin: 1em 0;
         }
         form :global(input) {
-          border: 1px solid
-            ${email.error && email.submitted
-              ? "red"
-              : darkMode
-              ? "#cccccc4d"
-              : "#ccc"};
           margin-bottom: 30px;
           outline: unset;
           padding: 6px 8px;
@@ -106,13 +119,7 @@ function Newsletter() {
         form :global(button) {
           width: 100%;
         }
-        form :global(input:focus) {
-          border: 1px solid
-            ${darkMode ? colors.dark_secondary : colors.secondary};
-        }
-        form :global(input:hover) {
-          border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
-        }
+
         @media print {
           form {
             display: none;

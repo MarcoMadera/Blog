@@ -18,6 +18,10 @@ export function InlineCode({ classname, children, ...attrbs }) {
       <style jsx>{`
         code {
           background: ${darkMode ? colors.dark_accents4 : colors.accents4};
+        }
+      `}</style>
+      <style jsx>{`
+        code {
           border-radius: 6px;
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
             "Liberation Mono", "Courier New", monospace;
@@ -42,6 +46,18 @@ export function Pre({ children, ...atrribs }) {
         {children}
       </pre>
       <style jsx>{`
+        pre {
+          background: ${darkMode ? colors.dark_background : colors.background};
+          color: ${darkMode ? colors.dark_textColor : colors.dark_accents5};
+        }
+        pre :global(code[data-lang]:before) {
+          background: ${darkMode ? colors.dark_background : colors.background};
+          color: ${darkMode
+            ? "rgba(255, 255, 255, 0.7)"
+            : "rgba(0, 0, 0, 0.7)"};
+        }
+      `}</style>
+      <style jsx>{`
         div {
           margin: 20px 0;
           position: relative;
@@ -53,10 +69,8 @@ export function Pre({ children, ...atrribs }) {
             "Liberation Mono", "Courier New", monospace;
         }
         pre {
-          background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid #ccc;
           border-radius: 10px;
-          color: ${darkMode ? colors.dark_textColor : colors.dark_accents5};
           display: block;
           font-size: 14px;
           hyphens: none;
@@ -94,12 +108,8 @@ export function Pre({ children, ...atrribs }) {
           background: transparent;
         }
         pre :global(code[data-lang]:before) {
-          background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid #ccc;
           border-radius: 4px;
-          color: ${darkMode
-            ? "rgba(255, 255, 255, 0.7)"
-            : "rgba(0, 0, 0, 0.7)"};
           content: attr(data-lang);
           font-size: 12px;
           padding: 2px 8px;
@@ -123,6 +133,10 @@ function LeftLinesNumbers({ lineNumbers }) {
       <style jsx>{`
         code {
           color: ${darkMode ? colors.dark_codeTextColor : colors.codeTextColor};
+        }
+      `}</style>
+      <style jsx>{`
+        code {
           float: left;
           font-size: 14px;
           margin-right: 10px;

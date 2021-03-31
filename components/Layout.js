@@ -82,23 +82,19 @@ export default function Layout({ children }) {
       ) : (
         ""
       )}
-      <style global jsx>{`
-        body {
+      <style jsx>{`
+        :global(body) {
           background: ${darkMode ? colors.dark_background : colors.background};
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
         }
-        @media print {
-          body {
-            color: ${colors.black};
-            background: ${colors.white};
-          }
-        }
-      `}</style>
-      <style jsx>{`
         a {
           background-color: ${darkMode
             ? colors.dark_accents2
             : colors.accents2};
+        }
+      `}</style>
+      <style jsx>{`
+        a {
           box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
           color: inherit;
           display: block;
@@ -119,6 +115,10 @@ export default function Layout({ children }) {
         @media print {
           a {
             display: none;
+          }
+          :global(body) {
+            color: ${colors.black};
+            background: ${colors.white};
           }
         }
       `}</style>

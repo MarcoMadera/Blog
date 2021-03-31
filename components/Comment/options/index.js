@@ -55,6 +55,16 @@ export default function Options({
       </div>
       <SendCommentButton sendCommentRef={sendCommentRef} />
       <style jsx>{`
+        .options {
+          visibility: ${selectTextArea ? "visible" : "hidden"};
+          animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+        input {
+          background: ${darkMode ? colors.dark_background : colors.background};
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+        }
+      `}</style>
+      <style jsx>{`
         .options__container {
           display: flex;
           flex-wrap: wrap;
@@ -69,8 +79,6 @@ export default function Options({
           }
         }
         .options {
-          visibility: ${selectTextArea ? "visible" : "hidden"};
-          animation: slide-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           display: flex;
           flex-wrap: wrap;
         }
@@ -110,10 +118,8 @@ export default function Options({
           outline-color: #b50000;
         }
         input {
-          background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid #cccccc4d;
           border-radius: 4px;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
           font-family: Arial;
           padding: 0.5em;
         }

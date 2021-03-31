@@ -52,20 +52,36 @@ export default function CookiesModal() {
         </button>
       </div>
       <style jsx>{`
-        p {
-          font-size: 14px;
-          margin: 0;
-        }
         p :global(a) {
           color: ${darkMode ? "#ff2020" : colors.primary};
         }
         section {
-          position: fixed;
-          right: 10px;
-          bottom: 10px;
           background-color: ${darkMode
             ? colors.dark_accents3
             : colors.accents2};
+        }
+        button:nth-of-type(2) {
+          margin: 0;
+          background: ${darkMode ? colors.dark_secondary : colors.primary};
+          border-color: ${darkMode ? colors.dark_secondary : colors.primary};
+          color: ${colors.white};
+        }
+        button:nth-of-type(2):hover,
+        button:nth-of-type(2):focus {
+          text-decoration: none;
+          background-color: ${colors.dark_tertiary};
+        }
+      `}</style>
+      <style jsx>{`
+        p {
+          font-size: 14px;
+          margin: 0;
+        }
+
+        section {
+          position: fixed;
+          right: 10px;
+          bottom: 10px;
           padding: 10px;
           border: 1px solid #cccccc4d;
           border-radius: 4px;
@@ -88,9 +104,6 @@ export default function CookiesModal() {
         }
         button:nth-of-type(2) {
           margin: 0;
-          background: ${darkMode ? colors.dark_secondary : colors.primary};
-          border-color: ${darkMode ? colors.dark_secondary : colors.primary};
-          color: ${colors.white};
         }
         button:hover {
           text-decoration: underline;
@@ -98,7 +111,6 @@ export default function CookiesModal() {
         button:nth-of-type(2):hover,
         button:nth-of-type(2):focus {
           text-decoration: none;
-          background-color: ${colors.dark_tertiary};
         }
         @media screen and (min-width: 500px) {
           section {

@@ -20,9 +20,13 @@ const SendCommentButton = ({ sendCommentRef }) => {
       <style jsx>{`
         button {
           background: ${darkMode ? colors.dark_background : colors.background};
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+        }
+      `}</style>
+      <style jsx>{`
+        button {
           border: 1px solid #cccccc4d;
           border-radius: 4px;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
           font-family: Arial;
           padding: 0.5em;
           cursor: pointer;

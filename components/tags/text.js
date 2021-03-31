@@ -9,12 +9,16 @@ export function Abbr({ children, ...attribs }) {
     <abbr {...attribs}>
       {children}
       <style jsx>{`
+        abbr:after {
+          border-color: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+      `}</style>
+      <style jsx>{`
         abbr {
           position: relative;
           text-decoration: none;
         }
         abbr:after {
-          border-color: ${darkMode ? colors.dark_primary : colors.primary};
           border-style: dashed;
           border-width: 0 0 2px;
           bottom: 0px;
@@ -45,6 +49,10 @@ export function Blockquote({ children }) {
         blockquote {
           border-left: 5px solid
             ${darkMode ? colors.dark_primary : colors.primary};
+        }
+      `}</style>
+      <style jsx>{`
+        blockquote {
           margin-left: 30px;
           margin-right: 30px;
           padding-left: 10px;
@@ -67,9 +75,13 @@ export function Dialog({ children, ...attr }) {
       {children}
       <style jsx>{`
         dialog {
-          background: ${darkMode ? colors.dark_background : colors.background};
           border-color: ${colors.primary};
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          background: ${darkMode ? colors.dark_background : colors.background};
+        }
+      `}</style>
+      <style jsx>{`
+        dialog {
           margin: 0 auto;
           padding: 10px;
         }

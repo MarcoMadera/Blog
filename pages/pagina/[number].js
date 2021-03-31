@@ -69,6 +69,21 @@ export default function Page({
         <Newsletter />
       </aside>
       <style jsx>{`
+        a {
+          color: ${darkMode ? colors.dark_primary : colors.primary};
+        }
+        :global(.pagination:hover) {
+          color: ${darkMode
+            ? colors.dark_secondary
+            : colors.secondary} !important;
+        }
+        :global(.currentPage) {
+          background-color: ${darkMode
+            ? colors.dark_primary
+            : colors.primary} !important;
+        }
+      `}</style>
+      <style jsx>{`
         h1 {
           font-size: 1rem;
           margin: 0.83em 0;
@@ -92,7 +107,7 @@ export default function Page({
           justify-content: center;
           line-height: 1;
           margin: 0 5px;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
+
           font-weight: 600;
           padding: 5px 12px;
           width: 31px;
@@ -112,19 +127,9 @@ export default function Page({
             grid-template-columns: auto;
           }
         }
-      `}</style>
-      <style global jsx>{`
-        .currentPage {
+        :global(.currentPage) {
           border-radius: 50% !important;
-          background-color: ${darkMode
-            ? colors.dark_primary
-            : colors.primary} !important;
           color: ${colors.background} !important;
-        }
-        .pagination:hover {
-          color: ${darkMode
-            ? colors.dark_secondary
-            : colors.secondary} !important;
         }
       `}</style>
     </main>

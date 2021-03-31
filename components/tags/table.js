@@ -41,11 +41,15 @@ export function Td({ align, children, colspan, ...attribs }) {
       {children}
       <style jsx>{`
         td {
+          text-align: ${align ?? "center"};
+        }
+      `}</style>
+      <style jsx>{`
+        td {
           border: 1px solid #aaa;
           empty-cells: hide;
           font-weight: normal;
           padding: 5px 11px;
-          text-align: ${align ?? "center"};
         }
       `}</style>
     </td>

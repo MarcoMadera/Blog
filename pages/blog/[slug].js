@@ -135,6 +135,12 @@ export default function Post({
         <Newsletter />
       </aside>
       <style jsx>{`
+        nav :global(a) {
+          border: 3px solid
+            ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+      `}</style>
+      <style jsx>{`
         main {
           padding: 0 20px;
           margin: 10px auto 50px auto;
@@ -176,8 +182,6 @@ export default function Post({
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          border: 3px solid
-            ${darkMode ? colors.dark_secondary : colors.secondary};
           padding: 7px 10px;
           font-size: 14px;
           text-align: center;

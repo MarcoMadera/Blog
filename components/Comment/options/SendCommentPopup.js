@@ -104,6 +104,24 @@ export default function SendCommentPopup({ sendCommentRef }) {
         </div>
       </div>
       <style jsx>{`
+        .popupContainer {
+          background-color: ${darkMode
+            ? colors.dark_accents3
+            : colors.accents2};
+        }
+        button:nth-of-type(1) {
+          background: ${darkMode ? colors.dark_secondary : colors.primary};
+          border-color: ${darkMode ? colors.dark_secondary : colors.primary};
+          color: ${colors.white};
+        }
+
+        button:nth-of-type(1):hover,
+        button:nth-of-type(1):focus {
+          background: ${darkMode ? colors.dark_tertiary : colors.tertiary};
+          border-color: ${darkMode ? colors.dark_tertiary : colors.tertiary};
+        }
+      `}</style>
+      <style jsx>{`
         h3 {
           margin: 0 0 10px 0;
         }
@@ -131,9 +149,6 @@ export default function SendCommentPopup({ sendCommentRef }) {
           width: calc(100% - 20px);
           max-width: 500px;
           padding: 10px;
-          background-color: ${darkMode
-            ? colors.dark_accents3
-            : colors.accents2};
           border: 1px solid #cccccc4d;
           border-radius: 4px;
         }
@@ -158,18 +173,10 @@ export default function SendCommentPopup({ sendCommentRef }) {
         }
         button:nth-of-type(1) {
           margin-right: 10px;
-          background: ${darkMode ? colors.dark_secondary : colors.primary};
-          border-color: ${darkMode ? colors.dark_secondary : colors.primary};
-          color: ${colors.white};
         }
         button:focus,
         button:hover {
           border: 1px solid #cccccca1;
-        }
-        button:nth-of-type(1):hover,
-        button:nth-of-type(1):focus {
-          background: ${darkMode ? colors.dark_tertiary : colors.tertiary};
-          border-color: ${darkMode ? colors.dark_tertiary : colors.tertiary};
         }
       `}</style>
     </div>,

@@ -13,8 +13,12 @@ export default function ActionButton({ children, ...attribs }) {
           background-color: ${darkMode
             ? colors.dark_secondary
             : colors.primary};
-          border: 1px solid;
           border-color: ${darkMode ? colors.dark_secondary : colors.primary};
+        }
+      `}</style>
+      <style jsx>{`
+        button {
+          border: 1px solid;
           border-radius: 28px;
           color: ${colors.white};
           cursor: pointer;

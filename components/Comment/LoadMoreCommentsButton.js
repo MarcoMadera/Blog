@@ -14,6 +14,11 @@ export default function LoadMoreCommentsButton() {
       >
         Ver más comentarios
       </button>
+      <style jsx>{`
+        button {
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+        }
+      `}</style>
       <style jsx>
         {`
           div {
@@ -25,7 +30,6 @@ export default function LoadMoreCommentsButton() {
             padding: 6px 8px;
             width: 100%;
             background: none;
-            color: ${darkMode ? colors.dark_textColor : colors.textColor};
             cursor: pointer;
             border-radius: 4px;
           }

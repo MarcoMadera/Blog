@@ -28,9 +28,22 @@ export default function App({ Component, pageProps }) {
               href="https://www.google-analytics.com"
             />
             <link
+              rel="preconnect dns-prefetch"
+              href="https://www.google-analytics.com"
+            />
+            <link
+              rel="preconnect dns-prefetch"
+              href="https://res.cloudinary.com"
+            />
+            <link
+              rel="preload"
+              as="image"
+              href="https://midu.dev//favicon-48x48.png"
+            />
+            <link
               rel="manifest"
               href={`${siteMetadata.siteUrl}/manifest.json`}
-            ></link>
+            />
             <link
               rel="icon"
               type="image/png"

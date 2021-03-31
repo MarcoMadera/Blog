@@ -127,6 +127,12 @@ export default function Comments({ slug }) {
         </>
       ) : null}
       <style jsx>{`
+        .controls div button:hover,
+        .controls div button:focus {
+          color: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+      `}</style>
+      <style jsx>{`
         .controls {
           display: flex;
           width: 100%;
@@ -135,10 +141,6 @@ export default function Comments({ slug }) {
         }
         .controls div {
           margin-right: 5px;
-        }
-        .controls div button:hover,
-        .controls div button:focus {
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
         button {
           border: 0;

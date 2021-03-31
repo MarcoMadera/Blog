@@ -15,9 +15,13 @@ export default function ActionAnchor({ children, href, ...attribs }) {
           background-color: ${darkMode
             ? colors.dark_secondary
             : colors.primary};
-          border: 1px solid transparent;
           border-color: ${darkMode ? colors.dark_secondary : colors.primary};
+        }
+      `}</style>
+      <style jsx>{`
+        a {
           border-radius: 28px;
+          border: 1px solid transparent;
           color: ${colors.white};
           cursor: pointer;
           display: inline-block;
