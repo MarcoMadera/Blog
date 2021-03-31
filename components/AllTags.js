@@ -17,9 +17,8 @@ export default function AllTags({ tags, title = "Todas las etiquetas" }) {
       <Div>
         {tags.map((tag) => (
           <ALink
-            as={`/blog/etiqueta/${slugify(tag)}/`}
             aria-label={`etiqueta ${tag}`}
-            href={"/blog/etiqueta/[tag]/"}
+            href={`/blog/etiqueta/${slugify(tag)}/`}
             key={tag}
             title=""
           >

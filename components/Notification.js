@@ -21,23 +21,24 @@ export default function Notification() {
 
   useEffect(() => {
     notification.forEach(({ id, isTimeOut }) => {
-      if (!isTimeOut) {
-        const displayTime = setTimeout(() => {
-          removeNotification(id);
-        }, 10000);
-        setNotification((arrValue) => {
-          const newValue = arrValue.find((noti) => noti.id === id);
-          newValue.isTimeOut = true;
-          arrValue.splice(
-            arrValue.findIndex((item) => item.id === id),
-            1
-          );
-          return [...arrValue, newValue];
-        });
-        return () => {
-          clearTimeout(displayTime);
-        };
+      if (isTimeOut) {
+        return;
       }
+      const displayTime = setTimeout(() => {
+        removeNotification(id);
+      }, 10000);
+      setNotification((arrValue) => {
+        const newValue = arrValue.find((noti) => noti.id === id);
+        newValue.isTimeOut = true;
+        arrValue.splice(
+          arrValue.findIndex((item) => item.id === id),
+          1
+        );
+        return [...arrValue, newValue];
+      });
+      return () => {
+        clearTimeout(displayTime);
+      };
     });
   }, [notification, removeNotification, setNotification]);
 

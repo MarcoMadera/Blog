@@ -222,27 +222,55 @@ export default function About({
 }
 
 export async function getServerSideProps() {
-  const nowPlaying = await fetch(
-    `${siteMetadata.siteUrl}/api/now-playing`
-  ).then((res) => {
-    if (res.status !== 200) return;
-    return res.json();
-  });
-  const topTracks = await fetch(`${siteMetadata.siteUrl}/api/top-tracks`).then(
-    (res) => {
-      if (res.status !== 200) return;
+  const nowPlaying = await fetch(`${siteMetadata.siteUrl}/api/now-playing`)
+    .then((res) => {
+      if (!res.ok) {
+        throw Error(res.statusText);
+      }
+      if (res.status !== 200) return {};
       return res.json();
-    }
-  );
+    })
+    .catch((err) => {
+      console.error(err);
+      return {};
+    });
+  const topTracks = await fetch(`${siteMetadata.siteUrl}/api/top-tracks`)
+    .then((res) => {
+      if (!res.ok) {
+        throw Error(res.statusText);
+      }
+      if (res.status !== 200) return [];
+      return res.json();
+    })
+    .catch((err) => {
+      console.error(err);
+      return [];
+    });
   const recentlyPlayed = await fetch(
     `${siteMetadata.siteUrl}/api/recently-played`
-  ).then((res) => {
-    if (res.status !== 200) return;
-    return res.json();
-  });
-  const res = await Promise.all([nowPlaying, topTracks, recentlyPlayed]);
+  )
+    .then((res) => {
+      if (!res.ok) {
+        throw Error(res.statusText);
+      }
+      if (res.status !== 200) return {};
+      return res.json();
+    })
+    .catch((err) => {
+      console.error(err);
+      return {};
+    });
+  const [nowPlayingRes, topTracksRes, recentlyPlayedRes] = await Promise.all([
+    nowPlaying,
+    topTracks,
+    recentlyPlayed,
+  ]);
   return {
-    props: { nowPlaying: res[0], topTracks: res[1], recentlyPlayed: res[2] },
+    props: {
+      nowPlaying: nowPlayingRes,
+      topTracks: topTracksRes,
+      recentlyPlayed: recentlyPlayedRes,
+    },
   };
 }
 

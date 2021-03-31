@@ -18,7 +18,7 @@ export default function BlogCard({
 
   return (
     <article>
-      <Link href={"/blog/[slug]/"} as={`/blog/${slug}/`}>
+      <Link href={`/blog/${slug}/`}>
         <a aria-label={`post ${title}`}>
           <header>
             <div>
@@ -50,17 +50,7 @@ export default function BlogCard({
                         imageCloudProvider.length,
                         "/q_auto,f_auto,c_scale,h_100,w_100"
                       )
-                    : // cover.replace(
-                      //     new RegExp(
-                      //       `(?<=${imageCloudProvider.replace(
-                      //         /[.*+?^${}()|/[\]\\]/g,
-                      //         "\\$&"
-                      //       )})`,
-                      //       "g"
-                      //     ),
-                      //     "/q_auto,f_auto,c_scale,h_100,w_100"
-                      //   )
-                      cover
+                    : cover
                 }
                 width="100"
               />
@@ -72,11 +62,7 @@ export default function BlogCard({
         <div>
           {tags.length &&
             tags.map((tag) => (
-              <Link
-                as={`/blog/etiqueta/${slugify(tag)}/`}
-                href={"/blog/etiqueta/[tag]/"}
-                key={tag}
-              >
+              <Link href={`/blog/etiqueta/${slugify(tag)}/`} key={tag}>
                 <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
               </Link>
             ))}

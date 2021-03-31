@@ -30,21 +30,14 @@ export function A({ classname, children, href, title, ...attribs }) {
   );
 }
 
-export function ALink({
-  as: asref,
-  classname,
-  children,
-  href,
-  title,
-  ...attribs
-}) {
+export function ALink({ classname, children, href, title, ...attribs }) {
   const { darkMode } = useDarkMode();
 
   return (
     <>
-      <Link href={href} as={asref}>
+      <Link href={href}>
         <a
-          title={title === "" ? undefined : title ?? (asref || href)}
+          title={title === "" ? undefined : title ?? href}
           {...attribs}
           className={classname}
         >

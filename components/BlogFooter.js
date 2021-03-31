@@ -45,7 +45,7 @@ export default function BlogFooter({
         <Heading>Comparte el artículo</Heading>
         <Button
           network="Twitter"
-          url={`https://twitter.com/share?url=${siteMetadata.siteUrl}/${slug}&text=${title}`}
+          url={`https://twitter.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${title}`}
         >
           <TwitterShare width={30} height={30} />
         </Button>

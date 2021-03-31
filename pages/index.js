@@ -28,10 +28,7 @@ export default function Home({ posts = [], tags = [], pages = [] }) {
             {pages.map((pageNumber, i) => {
               return (
                 <li key={pageNumber}>
-                  <Link
-                    href={i === 0 ? "/" : "/pagina/[id]/"}
-                    as={i === 0 ? undefined : `/pagina/${pageNumber}`}
-                  >
+                  <Link href={i === 0 ? "/" : `/pagina/${pageNumber}`}>
                     <a
                       className={
                         pageNumber === 1 ? "currentPage" : "pagination"

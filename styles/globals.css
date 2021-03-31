@@ -18,6 +18,11 @@ html {
   outline-width: 2px;
   outline-color: #b50000;
 }
+h1:focus,
+body:focus,
+main:focus {
+  outline: none;
+}
 *::selection {
   background-color: #d32f2fe1;
   color: #fff;

@@ -19,17 +19,36 @@ const months = {
   11: "dic.",
 };
 
-export function getFormattedDate(d) {
-  const date = new Date(d);
-  const month = months[date.getUTCMonth()];
-  return `${date.getUTCDate()} ${month} ${date.getUTCFullYear()}`;
+/**
+ * Get the formatted date
+ * @param {date} date a date
+ * @returns formatted date in form 20 may 2020
+ */
+export function getFormattedDate(date) {
+  const d = new Date(date);
+  const month = months[d.getUTCMonth()];
+  return `${d.getUTCDate()} ${month} ${d.getUTCFullYear()}`;
 }
 
+/**
+ * Format a number with commas
+ * @param {number} n 928392382
+ * @returns {string} string 928,392,382
+ */
 export function formatNumber(n) {
-  return n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  return n?.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
+/**
+ * Return a number between two numbers
+ * @param {number} min 10
+ * @param {number} max 20
+ * @returns {number} 14
+ */
 export function numberBetween(min, max) {
+  if (isNaN(min) || isNaN(max)) {
+    return false;
+  }
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;

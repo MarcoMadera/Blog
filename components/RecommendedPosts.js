@@ -29,12 +29,7 @@ export default function RecommendedPosts({
               return (
                 slug !== currentPost &&
                 i <= 6 && (
-                  <ALink
-                    key={slug}
-                    title={title}
-                    href={"/blog/[slug]/"}
-                    as={`/blog/${slug}/`}
-                  >
+                  <ALink key={slug} title={title} href={`/blog/${slug}/`}>
                     <img
                       src={
                         cover.startsWith(imageCloudProvider)

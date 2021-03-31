@@ -37,10 +37,7 @@ export default function Page({
             {pages.map((pageNumber, i) => {
               return (
                 <li key={pageNumber}>
-                  <Link
-                    href={i === 0 ? "/" : "/pagina/[id]/"}
-                    as={i === 0 ? undefined : `/pagina/${pageNumber}`}
-                  >
+                  <Link href={i === 0 ? "/" : `/pagina/${pageNumber}`}>
                     <a
                       className={
                         currentPage === pageNumber.toString()
