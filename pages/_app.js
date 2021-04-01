@@ -29,16 +29,12 @@ export default function App({ Component, pageProps }) {
             />
             <link
               rel="preconnect dns-prefetch"
-              href="https://www.google-analytics.com"
-            />
-            <link
-              rel="preconnect dns-prefetch"
               href="https://res.cloudinary.com"
             />
             <link
               rel="preload"
               as="image"
-              href="https://midu.dev//favicon-48x48.png"
+              href="https://marcomadera.com/favicon-48x48.png"
             />
             <link
               rel="manifest"
