@@ -1,7 +1,6 @@
 import { getPostBySlug, getPostsSlugs } from "../../utils/posts";
 import Seo from "../../components/Seo";
 import MarkDown from "../../components/Markdown/index";
-import toc from "markdown-toc-unlazy";
 import TableOfContents from "../../components/TableOfContents";
 import Comments from "../../components/Comment";
 import Newsletter from "../../components/Newsletter";
@@ -39,13 +38,9 @@ export default function Post({
   summary,
   slug,
   tweets,
+  h2s,
 }) {
   const { darkMode } = useDarkMode();
-  const h2s = toc(content)
-    .json.filter(({ lvl }) => lvl === 2)
-    .map(({ content }) => {
-      return content;
-    });
   return (
     <main>
       <Seo
@@ -266,6 +261,7 @@ export async function getStaticProps({ params: { slug } }) {
 
 Post.propTypes = {
   slug: PropTypes.string,
+  h2s: PropTypes.array,
   title: PropTypes.string,
   description: PropTypes.string,
   date: PropTypes.string,

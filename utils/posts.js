@@ -3,6 +3,7 @@ const fs = require("fs");
 const slugify = require("react-slugify").default;
 const path = require("path");
 const metaData = require("../site.config").siteMetadata;
+const toc = require("markdown-toc-unlazy");
 
 function getPostsFiles() {
   // Get all posts Files located in `posts`
@@ -57,6 +58,11 @@ function getPostBySlug(slug) {
     .map(({ title, cover, slug }) => {
       return { title, cover, slug };
     });
+  const h2s = toc(content)
+    .json.filter(({ lvl }) => lvl === 2)
+    .map(({ content }) => {
+      return content;
+    });
 
   return {
     ...data,
@@ -80,6 +86,7 @@ function getPostBySlug(slug) {
       : null,
     recommendedPosts,
     slug,
+    h2s,
   };
 }
 

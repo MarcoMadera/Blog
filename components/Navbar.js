@@ -148,7 +148,6 @@ export default function Navbar() {
         header :global(a),
         header :global(nav a) {
           color: inherit;
-          text-decoration: none;
         }
         header :global(img) {
           height: 40px;
