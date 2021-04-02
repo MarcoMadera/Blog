@@ -1,44 +1,66 @@
 import Seo from "../../components/Seo";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { colors } from "../../styles/theme";
 import { H1, Input, A } from "../../components/tags";
 import useDarkMode from "../../hooks/useDarkMode";
 import ActionButton from "../../components/ActionButton";
+import useNotification from "../../hooks/useNotification";
+import { useRouter } from "next/router";
+
 const NewsletterPage = () => {
+  const router = useRouter();
   const { darkMode } = useDarkMode();
-  const [email, setEmail] = useState({
-    value: "",
-    error: false,
-    submitted: false,
-  });
-
-  const handleChange = (event) => {
-    const res = event.target.value;
-    setEmail({
-      value: res,
-      error: !emailRegex.test(res),
-      submitted: false,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    setEmail({
-      ...email,
-      submitted: true,
-    });
-    if (email.error === true || email.value === "") {
-      event.preventDefault();
-    }
-  };
-
-  const emailRegex = RegExp(
+  const { addNotification } = useNotification();
+  const formRef = useRef(null);
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const isValidEmail = RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
-
-  let outline = { outline: "unset" };
-  if (email.error && email.submitted) {
-    outline = { border: "1px solid red" };
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!isValidEmail.test(email)) {
+      addNotification({
+        variant: "error",
+        message: "Por favor inserta un correo electrónico válido",
+      });
+      return;
+    }
+    setError(false);
+    const data = new FormData(formRef.current);
+    fetch("https://buttondown.email/api/emails/embed-subscribe/MarcoMadera", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          addNotification({
+            variant: "error",
+            message: "Por favor inserta un correo electrónico válido",
+          });
+          throw Error(res.statusText);
+        }
+        if (!res.ok) {
+          addNotification({
+            variant: "error",
+            message: "Algo salió mal",
+          });
+          throw Error(res.statusText);
+        }
+      })
+      .then(() => {
+        setError(false);
+        addNotification({
+          variant: "info",
+          message:
+            "Revisa tu bandeja de entrada, recibirás un correo electrónico de confirmación",
+        });
+        router.push("/newsletter/suscription");
+      })
+      .catch(() => {
+        setError(true);
+      });
+  };
   return (
     <main id="main">
       <Seo title="Newsletter 📬 | Marco Madera" />
@@ -68,6 +90,7 @@ const NewsletterPage = () => {
           action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
           method="post"
           target="_blank"
+          ref={formRef}
           onSubmit={handleSubmit}
           noValidate
         >
@@ -76,19 +99,20 @@ const NewsletterPage = () => {
             name="email"
             id="bd-email"
             placeholder="Correo electrónico*"
-            onChange={handleChange}
-            style={outline}
+            onChange={(e) => {
+              setError(false);
+              setEmail(e.target.value);
+            }}
           ></Input>
-          <ActionButton>Suscríbete</ActionButton>
-          {(email.error || email.value === "") && email.submitted ? (
-            <p>Por favor inserta un correo válido</p>
-          ) : (
-            !email.error &&
-            email.submitted && <p>Recibirás un correo de confirmación</p>
-          )}
+          <ActionButton>
+            {!email.error && email.submitted ? "Suscríbete 🎉" : "Suscríbete"}
+          </ActionButton>
         </form>
       </div>
       <style jsx>{`
+        main :global(input) {
+          border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
+        }
         main :global(input:hover) {
           border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
         }

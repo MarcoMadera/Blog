@@ -2,8 +2,10 @@ import ActionButton from "./ActionButton";
 import { colors } from "../styles/theme";
 import { Input } from "./tags";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useDarkMode from "../hooks/useDarkMode";
+import useNotification from "../hooks/useNotification";
+import { useRouter } from "next/router";
 
 function Label({ children }) {
   return <label htmlFor="bd-email">{children}</label>;
@@ -13,42 +15,67 @@ function P({ children }) {
   return <p>{children}</p>;
 }
 
-function Newsletter() {
-  const [email, setEmail] = useState({
-    value: "",
-    error: false,
-    submitted: false,
-  });
-
-  const handleChange = (event) => {
-    const res = event.target.value;
-    setEmail({
-      value: res,
-      error: !emailRegex.test(res),
-      submitted: false,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    setEmail({
-      ...email,
-      submitted: true,
-    });
-    if (email.error === true || email.value === "") {
-      event.preventDefault();
-    }
-  };
-
-  const emailRegex = RegExp(
+export default function Newsletter() {
+  const router = useRouter();
+  const { darkMode } = useDarkMode();
+  const { addNotification } = useNotification();
+  const formRef = useRef(null);
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const isValidEmail = RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!isValidEmail.test(email)) {
+      addNotification({
+        variant: "error",
+        message: "Por favor inserta un correo electrónico válido",
+      });
+      return;
+    }
+    setError(false);
+    const data = new FormData(formRef.current);
+    fetch("https://buttondown.email/api/emails/embed-subscribe/MarcoMadera", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          addNotification({
+            variant: "error",
+            message: "Por favor inserta un correo electrónico válido",
+          });
+          throw Error(res.statusText);
+        }
+        if (!res.ok) {
+          addNotification({
+            variant: "error",
+            message: "Algo salió mal",
+          });
+          throw Error(res.statusText);
+        }
+      })
+      .then(() => {
+        setError(false);
+        addNotification({
+          variant: "info",
+          message:
+            "Revisa tu bandeja de entrada, recibirás un correo electrónico de confirmación",
+        });
+        router.push("/newsletter/suscription");
+      })
+      .catch(() => {
+        setError(true);
+      });
+  };
 
-  const { darkMode } = useDarkMode();
   return (
     <form
       action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
       method="post"
       target="_blank"
+      ref={formRef}
       onSubmit={handleSubmit}
       noValidate
     >
@@ -59,26 +86,18 @@ function Newsletter() {
         name="email"
         id="bd-email"
         placeholder="Correo electrónico*"
-        onChange={handleChange}
+        onChange={(e) => {
+          setError(false);
+          setEmail(e.target.value);
+        }}
       />
       <ActionButton>Suscríbete</ActionButton>
-      {(email.error || email.value === "") && email.submitted ? (
-        <P>Por favor inserta un correo válido</P>
-      ) : (
-        !email.error &&
-        email.submitted && <P>Recibirás un correo de confirmación</P>
-      )}
       <style jsx>{`
         form {
           border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
         }
         form :global(input) {
-          border: 1px solid
-            ${email.error && email.submitted
-              ? "red"
-              : darkMode
-              ? "#cccccc4d"
-              : "#ccc"};
+          border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
         }
         form :global(input:focus) {
           border: 1px solid
@@ -136,5 +155,3 @@ Label.propTypes = {
 P.propTypes = {
   children: PropTypes.node,
 };
-
-export default Newsletter;
