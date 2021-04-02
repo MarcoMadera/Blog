@@ -104,9 +104,7 @@ const NewsletterPage = () => {
               setEmail(e.target.value);
             }}
           ></Input>
-          <ActionButton>
-            {!email.error && email.submitted ? "Suscríbete 🎉" : "Suscríbete"}
-          </ActionButton>
+          <ActionButton>Suscríbete</ActionButton>
         </form>
       </div>
       <style jsx>{`
