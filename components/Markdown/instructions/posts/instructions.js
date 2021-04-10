@@ -25,7 +25,7 @@ import Colors from "../../../Colors";
 import HtmlToReact from "html-to-react";
 import React from "react";
 import Head from "next/head";
-import Tweet from "../../../tweet";
+import Tweet from "../../../Tweet";
 import useDarkMode from "../../../../hooks/useDarkMode";
 
 /* eslint-disable react/prop-types */
@@ -229,7 +229,7 @@ export const instructions = {
     {
       shouldProcessNode: ({ type, name }) => type === "tag" && name === "tweet",
       processNode: function TweetNode({ attribs }) {
-        return <Tweet id={attribs.id} />;
+        return <Tweet id={attribs.id} caption={attribs.caption} />;
       },
     },
     {

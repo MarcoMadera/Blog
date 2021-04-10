@@ -4,12 +4,9 @@ import { imageCloudProvider } from "../../site.config";
 import PropTypes from "prop-types";
 import useDarkMode from "../../hooks/useDarkMode";
 
-const LoadDetailsDialog = dynamic(
-  () => import("../../static-tweet/components/twitter-layout/details-dialog"),
-  {
-    ssr: false,
-  }
-);
+const LoadDetailsDialog = dynamic(() => import("./details-dialog"), {
+  ssr: false,
+});
 
 export function Img({ src, alt = "", title, width: w, height: h }) {
   const height =

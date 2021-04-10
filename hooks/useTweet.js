@@ -10,5 +10,5 @@ export default function useTweet(id) {
     return { ignore: true };
   }
 
-  return { ast: tweets ? tweets[id] : undefined };
+  return { data: tweets ? tweets[id] : undefined };
 }

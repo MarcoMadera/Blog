@@ -1,10 +1,12 @@
-import { formatNumber } from "../../../utils/helpers";
-import { tweets } from "../../../styles/theme";
-export default function TweetAction({ tweet }) {
-  const userUrl = `https://twitter.com/${tweet.username}`;
-  const tweetUrl = `${userUrl}/status/${tweet.id}`;
-  const count = tweet.replies + tweet.retweets;
-  const isConversation = tweet.ctaType === "conversation" || count > 4;
+import { formatNumber } from "../../utils/helpers";
+import { tweets } from "../../styles/theme";
+import PropTypes from "prop-types";
+
+export default function TweetAction({ name, username, tweetId, metrics }) {
+  const userUrl = `https://twitter.com/${username}`;
+  const tweetUrl = `${userUrl}/status/${tweetId}`;
+  const count = metrics.reply_count + metrics.retweet_count;
+  const isConversation = count > 4;
 
   return (
     <>
@@ -17,20 +19,19 @@ export default function TweetAction({ tweet }) {
         >
           <div className="icon icon-reply" />
           <span className="text">
-            {count ? formatNumber(count) : tweet.ctaCount} personas están
-            hablando de esto
+            {count && formatNumber(count)} personas están hablando de esto
           </span>
           <div className="icon icon-chevron" />
         </a>
       ) : (
         <a
           href={userUrl}
-          title={`Ver el perfil de ${tweet.name} en Twitter`}
+          title={`Ver el perfil de ${name} en Twitter`}
           target="_blank"
           rel="noopener noreferrer"
         >
           <div className="icon icon-profile" />
-          <span className="text">Ver otros tweets de {tweet.name}</span>
+          <span className="text">Ver otros tweets de {name}</span>
           <div className="icon icon-chevron" />
         </a>
       )}
@@ -73,3 +74,10 @@ export default function TweetAction({ tweet }) {
     </>
   );
 }
+
+TweetAction.propTypes = {
+  name: PropTypes.string,
+  username: PropTypes.string,
+  tweetId: PropTypes.string,
+  metrics: PropTypes.object,
+};

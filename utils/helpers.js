@@ -1,17 +1,33 @@
 const months = {
-  0: "ene.",
-  1: "feb.",
-  2: "mar.",
-  3: "abr.",
-  4: "may.",
-  5: "jun.",
-  6: "jul.",
-  7: "ago.",
-  8: "sep.",
-  9: "oct.",
-  10: "nov.",
-  11: "dic.",
+  0: "ene",
+  1: "feb",
+  2: "mar",
+  3: "abr",
+  4: "may",
+  5: "jun",
+  6: "jul",
+  7: "ago",
+  8: "sep",
+  9: "oct",
+  10: "nov",
+  11: "dic",
 };
+
+/**
+ *
+ * @param {date} date
+ * @returns string 08:24 AM
+ */
+function formatAMPM(date) {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  const strTime = `${hours}:${minutes} ${ampm}`;
+  return strTime;
+}
 
 /**
  * Get the formatted date
@@ -21,7 +37,19 @@ const months = {
 export function getFormattedDate(date) {
   const d = new Date(date);
   const month = months[d.getUTCMonth()];
-  return `${d.getUTCDate()} ${month} ${d.getUTCFullYear()}`;
+  return `${d.getUTCDate()} ${month}. ${d.getUTCFullYear()}`;
+}
+/**
+ * Get the formatted date
+ * @param {date} date a date
+ * @returns formatted date in form 20 may 2020
+ */
+export function getTwitterFormattedDate(d) {
+  const date = new Date(d);
+  const month = months[date.getMonth()];
+  return `${formatAMPM(
+    date
+  )} - ${month} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
 /**

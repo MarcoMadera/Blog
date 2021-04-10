@@ -12,7 +12,7 @@ import { colors } from "../../styles/theme";
 import { getFormattedDate, insertTextBetween } from "../../utils/helpers";
 import { blogStyles } from "../../styles/blogStyles";
 import { imageCloudProvider } from "../../site.config";
-import getTweets from "../../lib/get-tweets";
+import getTweets from "../../lib/twitter";
 import { H1, ALink, Hr } from "../../components/tags";
 import {
   renderers,

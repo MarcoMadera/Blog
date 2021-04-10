@@ -42,13 +42,13 @@ export const tweets = {
 
   bgColor: "#fff",
   linkColor: "#1b95e0",
-  pollBarColor: "#0c00ff",
+  pollBarColor: "#de2323",
   inlineCodeColor: "#be00ff",
   codeColor: "#9efeff",
   codeBgColor: "#1e1e3f",
 
   textMargin: "1.25rem 0",
-  containerMargin: "1.5rem 0",
+  containerMargin: "0",
   pollMargin: "1.5rem 1rem",
   headingMarginTop: "3.5rem",
   headingMarginBottom: "2rem",
@@ -63,4 +63,5 @@ export const tweets = {
   tweetLinkColorHover: "#3b94d9",
   tweetColorGray: "#697882",
   tweetColorRed: "#e02460",
+  tweetColorGreen: "#169B56",
 };
