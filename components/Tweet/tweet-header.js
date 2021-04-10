@@ -7,9 +7,11 @@ export default function TweetHeader({
   username,
   profile_image_url,
   verified,
+  tweetId,
 }) {
   const { darkMode } = useDarkMode();
   const url = `https://twitter.com/${username}`;
+  const tweetUrl = `https://twitter.com/${username}/status/${tweetId}`;
   return (
     <div className="header">
       <a
@@ -18,7 +20,13 @@ export default function TweetHeader({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img width={48} height={48} src={profile_image_url} alt={name} />
+        <img
+          width={48}
+          height={48}
+          src={profile_image_url}
+          alt={name}
+          title={name}
+        />
       </a>
       <a
         href={url}
@@ -27,20 +35,35 @@ export default function TweetHeader({
         rel="noopener noreferrer"
       >
         <span className="name" title={name}>
-          {name} {verified ? <span className="verified"></span> : null}
+          {name}{" "}
+          {verified ? (
+            <span className="verified" title="Cuenta verificada"></span>
+          ) : null}
         </span>
         <span className="username" title={`@${username}`}>
           @{username}
         </span>
       </a>
-      <a href={url} className="brand" target="_blank" rel="noopener noreferrer">
+      <a
+        href={tweetUrl}
+        className="brand"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div className="icon-twitter" title="Ver en Twitter" role="img" />
       </a>
 
       <style jsx>{`
         .header {
           display: flex;
-          padding-bottom: 10px;
+          padding: 3px 3px 10px 3px;
+          -webkit-box-orient: vertical;
+          margin: 0px;
+          overflow: hidden;
+          text-align: left;
+          text-overflow: ellipsis;
+          white-space: unset;
+          -webkit-line-clamp: 1;
         }
         .verified {
           background-image: ${darkMode
@@ -57,6 +80,8 @@ export default function TweetHeader({
         .avatar {
           height: 48px;
           width: 48px;
+          min-width: 48px;
+          min-height: 48px;
           margin-right: 0.625rem;
         }
         .avatar > img {
@@ -95,6 +120,7 @@ export default function TweetHeader({
         }
         .brand {
           margin-left: auto;
+          height: fit-content;
         }
         .icon-twitter {
           width: 25px;
@@ -111,4 +137,5 @@ TweetHeader.propTypes = {
   username: PropTypes.string,
   profile_image_url: PropTypes.string,
   verified: PropTypes.bool,
+  tweetId: PropTypes.string,
 };

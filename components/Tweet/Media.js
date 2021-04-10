@@ -2,7 +2,7 @@ import { tweets } from "../../styles/theme";
 import { Img } from "../tags";
 import PropTypes from "prop-types";
 
-export function Media({ data }) {
+export function Media({ data, quoted }) {
   return (
     <section>
       <div className="mediacontainer">
@@ -18,7 +18,7 @@ export function Media({ data }) {
       </div>
       <style jsx>{`
         section {
-          border-radius: 10px;
+          border-radius: ${quoted ? "0 0 10px 10px" : "10px"};
           overflow: hidden;
           margin-top: 10px;
         }
@@ -34,6 +34,7 @@ export function Media({ data }) {
         .mediacontainer :global(details summary img) {
           border-radius: 0;
           width: 100%;
+          min-height: 200px;
         }
         .mediacontainer :global(details:nth-of-type(3)) {
           grid-column-end: ${data.length === 3 ? "span 2" : "unset"};
@@ -45,4 +46,5 @@ export function Media({ data }) {
 
 Media.propTypes = {
   data: PropTypes.array,
+  quoted: PropTypes.bool,
 };
