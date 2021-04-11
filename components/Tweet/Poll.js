@@ -1,10 +1,12 @@
 import { Fragment } from "react";
 import { tweets } from "../../styles/theme";
 import PropTypes from "prop-types";
+import useDarkMode from "../../hooks/useDarkMode";
 
 // Note: Poll data is most likely cached, so ongoing polls will not be updated
 // until a revalidation happens
 export const Poll = ({ data }) => {
+  const { darkMode } = useDarkMode();
   const votesCount = data.options.reduce(
     (count, option) => count + option.votes,
     0
@@ -61,7 +63,7 @@ export const Poll = ({ data }) => {
         }
         hr {
           border: 0;
-          border-top: 1px solid ${tweets.accents2};
+          border-top: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
           margin: 1rem 0 0.5rem 0;
         }
         .footer {
