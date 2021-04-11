@@ -49,12 +49,14 @@ export function Pre({ children, ...atrribs }) {
         pre {
           background: ${darkMode ? colors.dark_background : colors.background};
           color: ${darkMode ? colors.dark_textColor : colors.dark_accents5};
+          border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
         }
         pre :global(code[data-lang]:before) {
           background: ${darkMode ? colors.dark_background : colors.background};
           color: ${darkMode
             ? "rgba(255, 255, 255, 0.7)"
             : "rgba(0, 0, 0, 0.7)"};
+          border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
         }
       `}</style>
       <style jsx>{`
@@ -69,7 +71,6 @@ export function Pre({ children, ...atrribs }) {
             "Liberation Mono", "Courier New", monospace;
         }
         pre {
-          border: 1px solid #ccc;
           border-radius: 10px;
           display: block;
           font-size: 14px;
@@ -108,7 +109,6 @@ export function Pre({ children, ...atrribs }) {
           background: transparent;
         }
         pre :global(code[data-lang]:before) {
-          border: 1px solid #ccc;
           border-radius: 4px;
           content: attr(data-lang);
           font-size: 12px;

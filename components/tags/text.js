@@ -91,12 +91,13 @@ export function Dialog({ children, ...attr }) {
 }
 
 export function Hr({ ...attr }) {
+  const { darkMode } = useDarkMode();
   return (
     <>
       <hr {...attr} />
       <style jsx>{`
         hr {
-          border: 1px solid #ccc;
+          border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
           border-bottom: 0px;
           border-left: 0px;
           border-right: 0px;

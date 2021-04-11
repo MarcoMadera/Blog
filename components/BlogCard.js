@@ -41,7 +41,7 @@ export default function BlogCard({
                 }
               />
               <img
-                alt={`Portada del blog ${title}`}
+                alt={tags.join(", ")}
                 height="100"
                 srcSet={
                   cover.startsWith(imageCloudProvider)
