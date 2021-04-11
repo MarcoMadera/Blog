@@ -94,13 +94,13 @@ export default function Tweet({ id, caption }) {
 
         div.tweet {
           overflow: hidden;
-          border: ${tweets.tweetBorder};
+          border: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
           border-radius: 15px;
           margin: ${tweets.containerMargin};
         }
         @media (any-hover: hover) {
           div.tweet:hover {
-            border: ${tweets.tweetBorderHover};
+            border: ${darkMode ? "1px solid #536673" : tweets.tweetBorderHover};
           }
         }
         div.tweet > div {

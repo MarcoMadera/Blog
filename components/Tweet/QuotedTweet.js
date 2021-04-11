@@ -27,7 +27,7 @@ export default function QuotedTweet({ data }) {
                 {data.user[0].name}
               </span>
               {data.user[0].verified ? (
-                <span title="Verificado" className="verified"></span>
+                <span title="Cuenta verificada" className="verified"></span>
               ) : null}
               <span className="username" title={`@${data.user[0].username}`}>
                 @{data.user[0].username} &middot;{" "}
@@ -63,8 +63,8 @@ export default function QuotedTweet({ data }) {
           margin: 1rem auto;
         }
         .tweet :global(.twemoji) {
-          height: 16px;
-          width: 16px;
+          height: 14px;
+          width: 14px;
         }
         .infoContainer {
           display: -webkit-box;
@@ -87,10 +87,14 @@ export default function QuotedTweet({ data }) {
           color: inherit;
           text-decoration: none;
           margin-bottom: 5px;
+          width: fit-content;
         }
         @media (any-hover: hover) {
           a.header:hover .name {
             color: ${tweets.tweetLinkColorHover};
+          }
+          div.tweet:hover {
+            border: ${darkMode ? "1px solid #536673" : tweets.tweetBorderHover};
           }
         }
         a.header img {
@@ -118,19 +122,13 @@ export default function QuotedTweet({ data }) {
         }
         div.tweet {
           overflow: hidden;
-          border: ${tweets.tweetBorder};
+          border: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
           border-radius: 15px;
           margin: ${tweets.containerMargin};
         }
         div.tweet > div {
           position: relative;
           padding: 10px 15px 5px 15px;
-        }
-        div.tweet {
-          overflow: hidden;
-          border: ${tweets.tweetBorder};
-          border-radius: 15px;
-          margin: ${tweets.containerMargin};
         }
         div.tweet div p {
           text-align: left;

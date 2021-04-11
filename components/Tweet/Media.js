@@ -30,6 +30,7 @@ export function Media({ data, quoted }) {
         }
         .mediacontainer :global(details) {
           max-height: ${data.length > 2 ? "200px" : "400px"};
+          min-width: 100%;
         }
         .mediacontainer :global(details summary img) {
           border-radius: 0;
