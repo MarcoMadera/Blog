@@ -83,6 +83,9 @@ export default function Layout({ children }) {
         ""
       )}
       <style jsx>{`
+        :global(html) {
+          color-scheme: ${darkMode ? "dark" : "light"};
+        }
         :global(body) {
           background: ${darkMode ? colors.dark_background : colors.background};
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
