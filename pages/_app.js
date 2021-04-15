@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
             <link
               rel="preload"
               as="image"
-              href="https://marcomadera.com/favicon-48x48.png"
+              href={`${siteMetadata.siteUrl}/favicon-48x48.png`}
             />
             <link
               rel="manifest"

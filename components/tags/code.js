@@ -28,6 +28,7 @@ export function InlineCode({ classname, children, ...attrbs }) {
           font-size: 14px;
           line-height: 1.8;
           padding: 3px 6px;
+          overflow-wrap: break-word;
         }
       `}</style>
     </code>

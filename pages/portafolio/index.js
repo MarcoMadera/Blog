@@ -76,7 +76,7 @@ const Portfolio = () => {
       <Seo title="Portafolio 💼 | Marco Madera" />
       <H1>Portafolio</H1>
       <Article
-        title="Retos frontend"
+        title="Maquetación frontend"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1610994328/Potfolio/challenges/1_h7zddv.jpg"
       >
         <P>
@@ -95,6 +95,25 @@ const Portfolio = () => {
           proporcionada.
         </P>
         <ActionLink href="/portafolio/retos-frontend">Detalles</ActionLink>
+      </Article>
+      <Article
+        title="Rindu, limpiador de spotify playlists"
+        img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1618517767/Potfolio/Rindu/spotify-playlists-cleaner.vercel.app__sj4ozo.png"
+      >
+        <P>
+          Ya sea que tengas un bot para crear playlists y agregue canciones
+          repetidas, o por algún error se guardaron como tracks nulos,{" "}
+          <A
+            href="https://spotify-playlists-cleaner.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Rindu
+          </A>{" "}
+          remueve esos tracks duplicados y nulos de tus playlists dejando uno de
+          cada tipo.
+        </P>
+        <ActionLink href="/portafolio/rindu">Detalles</ActionLink>
       </Article>
       <Article
         title="Tests para números aleatorios"

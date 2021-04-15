@@ -5,8 +5,14 @@ import { Media } from "./Media";
 import { Poll } from "./Poll";
 import { getQuotedTwitterFormattedDate } from "../../utils/helpers";
 import PropTypes from "prop-types";
+import useMounted from "../../hooks/useMounted";
 export default function QuotedTweet({ data }) {
   const { darkMode } = useDarkMode();
+  const mounted = useMounted();
+  const createdAt =
+    typeof window !== "undefined" && mounted
+      ? new Date(data.tweet.created_at)
+      : null;
   return (
     <blockquote className="container">
       <div className="tweet">
@@ -32,10 +38,8 @@ export default function QuotedTweet({ data }) {
               <span className="username" title={`@${data.user[0].username}`}>
                 @{data.user[0].username} &middot;{" "}
                 <time
-                  dateTime={new Date(data.tweet.created_at).toISOString()}
-                  title={`Publicado: ${new Date(
-                    data.tweet.created_at
-                  ).toLocaleDateString("es", {
+                  dateTime={createdAt?.toISOString()}
+                  title={`Publicado: ${createdAt?.toLocaleDateString("es", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",

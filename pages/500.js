@@ -1,6 +1,6 @@
 import Seo from "../components/Seo";
 
-export default function Custom404() {
+export default function Custom500() {
   return (
     <main id="main">
       <Seo title="😫 500 - Servidor? | Marco Madera" />
