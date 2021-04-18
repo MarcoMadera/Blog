@@ -27,6 +27,7 @@ import React from "react";
 import Head from "next/head";
 import Tweet from "../../../Tweet";
 import useDarkMode from "../../../../hooks/useDarkMode";
+import Font from "../../../Font";
 
 /* eslint-disable react/prop-types */
 const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
@@ -50,6 +51,13 @@ export const instructions = {
             playsInline
           />
         );
+      },
+    },
+    {
+      shouldProcessNode: ({ type, name }) =>
+        type === "tag" && name === "usefont",
+      processNode: function TableNode({ attribs }) {
+        return <Font src={attribs.src} name={attribs.name} />;
       },
     },
     {
