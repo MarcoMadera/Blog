@@ -37,7 +37,7 @@ function Color({ type, ...attribs }) {
   );
 }
 
-export function Input({ type, ...attribs }) {
+export function Input({ type, node, ...attribs }) {
   const { darkMode } = useDarkMode();
 
   if (type === "color") {

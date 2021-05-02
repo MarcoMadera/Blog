@@ -66,10 +66,6 @@ export default function QuotedTweet({ data }) {
           border-radius: 15px;
           margin: 1rem auto;
         }
-        .tweet :global(.twemoji) {
-          height: 14px;
-          width: 14px;
-        }
         .infoContainer {
           display: -webkit-box;
           -webkit-box-orient: vertical;

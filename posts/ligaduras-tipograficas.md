@@ -27,7 +27,7 @@ Estas son ligaduras para **mejorar la legibilidad del texto**, entre las más co
 
 Estás ligaduras son más estéticas, tienen el propósito de **lucir bien**, entrelazan los caracteres para que tengan un mejor diseño.
 
-<videogif title="Ligaduras Discrecionales" light="https://res.cloudinary.com/marcomadera/video/upload/v1608396895/Blog/2/discrecional_rph5i3.mp4" dark="https://res.cloudinary.com/marcomadera/video/upload/v1608396895/Blog/2/discrecional-dark_bpsbiq.mp4"/>
+<videogif title="Ligaduras Discrecionales" light="https://res.cloudinary.com/marcomadera/video/upload/v1608396895/Blog/2/discrecional_rph5i3.mp4" dark="https://res.cloudinary.com/marcomadera/video/upload/v1608396895/Blog/2/discrecional-dark_bpsbiq.mp4"></videogif>
 
 ## Ligaduras históricas
 
@@ -41,7 +41,7 @@ Una de las ligaduras más famosas y utilizadas actualmente de este sistema es el
 
 En el alfabeto árabe los caracteres no tienen una forma fija. Cada letra se escribe con variantes diferentes según su entorno lo que denota su envejecimiento al idioma arameo nabatea.
 
-<videogif title="Ligaduras Arabes" light="https://res.cloudinary.com/marcomadera/video/upload/v1608401250/Blog/2/LigaduraArabe_zy8vgw.mp4" dark="https://res.cloudinary.com/marcomadera/video/upload/v1608401250/Blog/2/LigaduraArabe-dark_eo2n45.mp4"/>
+<videogif title="Ligaduras Arabes" light="https://res.cloudinary.com/marcomadera/video/upload/v1608401250/Blog/2/LigaduraArabe_zy8vgw.mp4" dark="https://res.cloudinary.com/marcomadera/video/upload/v1608401250/Blog/2/LigaduraArabe-dark_eo2n45.mp4"></videogif>
 
 ---
 
@@ -76,7 +76,7 @@ En settings.json agrega lo siguiente en el caso de Fira Code.
 
 Guarda los cambios y listo, eso es todo, ya puedes usar la fuente seleccionada, si no es el caso probablemente sea necesario reiniciar el editor.
 
-<videogif title="Ligaduras VSCode" src="https://res.cloudinary.com/marcomadera/video/upload/v1602518458/Blog/2/129384-438538-4342382_enackk.mp4"/>
+<videogif title="Ligaduras VSCode" src="https://res.cloudinary.com/marcomadera/video/upload/v1602518458/Blog/2/129384-438538-4342382_enackk.mp4"></videogif>
 
 ---
 

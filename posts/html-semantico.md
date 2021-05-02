@@ -215,7 +215,7 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 
 `<Figure>` es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta `<figcaption>` que es la leyenda del contenido.
 
-<figure><img style="border-radius:10px;" src="https://res.cloudinary.com/marcomadera/image/upload/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura" width="200" height="200"><figcaption>Imagen Aleatoria</figcaption></figure>
+<figure><img style="border-radius:10px;" src="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura" width="200" height="200"><figcaption>Imagen Aleatoria</figcaption></figure>
 
 ```html
 <figure>

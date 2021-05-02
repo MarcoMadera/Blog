@@ -15,7 +15,7 @@ Al empezar a usar <abbr title="Visual Studio Code">VSCode</abbr> me enteré de l
 
 Los *snippets* son **fragmentos reutilizables de código personalizado** que puedes llamar con un atajo de teclado o con prefijos mientras escribes en el editor.
 
-<videogif title="Snippet general" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615173210/Blog/Code%20Snippets%20en%20VSCode/generalSnippet_peoxlp.mp4"/>
+<videogif title="Snippet general" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615173210/Blog/Code%20Snippets%20en%20VSCode/generalSnippet_peoxlp.mp4"></videogif>
 
 <abbr title="Visual Studio Code">VSCode</abbr> te sugiere ayuda con *IntelliSense* al estar escribiendo. Entre ellas se encuentran los *snippets* que se identifican por un cuadrado, el prefijo utilizado y el título del *snippet*.
 
@@ -71,7 +71,7 @@ En el siguiente ejemplo tenemos dos variables predefinidas y una opcional.
 }
 ```
 
-<videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615170791/Blog/Code%20Snippets%20en%20VSCode/snippe-GetDom_u0ywz8.mp4"/>
+<videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615170791/Blog/Code%20Snippets%20en%20VSCode/snippe-GetDom_u0ywz8.mp4"></videogif>
 
 ### Múltiples líneas
 
@@ -96,7 +96,7 @@ Por ahora hemos visto *snippets* de una sola línea, pero el **body también pue
 }
 ```
 
-<videogif title="Snippet de transformación" src="https://res.cloudinary.com/marcomadera/video/upload/f_auto,c_limit,w_650,q_100/v1614922303/Blog/Code%20Snippets%20en%20VSCode/2021-03-04_23-25-01_fqurrx.mp4"/>
+<videogif title="Snippet de transformación" src="https://res.cloudinary.com/marcomadera/video/upload/f_auto,c_limit,w_650,q_100/v1614922303/Blog/Code%20Snippets%20en%20VSCode/2021-03-04_23-25-01_fqurrx.mp4"></videogif>
 
 ### Transformaciones
 
@@ -134,7 +134,7 @@ En la parte final es donde se remplaza lo que hace *match* de regex en `//gm` `/
 
 El fragmento y la transformación se verían de la siguiente manera:
 
-<videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615182704/Blog/Code%20Snippets%20en%20VSCode/defaultFunctionFragment_uevits.mp4"/>
+<videogif title="Snippet de opciones" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615182704/Blog/Code%20Snippets%20en%20VSCode/defaultFunctionFragment_uevits.mp4"></videogif>
 
 ## Llamar a los snippets
 

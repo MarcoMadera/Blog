@@ -25,7 +25,7 @@ La validación de datos es el paso que verifica las entradas de usuario. En este
 
 Si no se hace correctamente este paso se pueden tener datos corruptos. Por ejemplo en tu lista de canciones favoritas de Spotify puede que tengas datos nulos o tener un usuario de Twitter sin nombre de usuario como es el siguiente caso.
 
-<tweet id="1379691085514047490"/>
+<tweet id="1379691085514047490"></tweet>
 
 Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al *frontend* puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
 
@@ -65,7 +65,7 @@ Un ejemplo no persistente sería si al tener un buscador no validar la query, pe
 
 El siguiente ejemplo de crear un tweet que se hace retweet cada vez que aparece en pantalla, sería persistente en cuanto aparezca en el *feed* de una persona haría retweet por si solo.
 
-<youtube id="zv0kZKC6GAM"/>
+<youtube id="zv0kZKC6GAM"></youtube>
 
 ## XML External Entity (XXE)
 
@@ -77,7 +77,7 @@ En el sitio *secrets of app security* hay un ejemplo claro de un ataque con saml
 
 Puede que recuerdes el mensaje del punto negro de WhatsApp y iMessage. Este es un ataque de este tipo que tenía oculto múltiples entidades `&lrm;` que cambian la dirección del texto y que el procesador de xml no podía soportar. Otro ataque similar a este es el llamado [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack) que usa entidades `&lol;`.
 
-<tweet id="994230605859651584" caption="El mensaje contenía multiples entidades de dirección del texto &lrm, que sobrecargaban la memoría y hacía que la app dejará de responder" />
+<tweet id="994230605859651584" caption="El mensaje contenía multiples entidades de dirección del texto &lrm, que sobrecargaban la memoría y hacía que la app dejará de responder" ></tweet>
 
 ## Server-side request forgery (SSRF)
 
@@ -85,7 +85,7 @@ En este tipo de ataque el atacador abusa de la funcionalidad del servidor para u
 
 En una situación normal el *frontend* de una tienda puede hacer llamadas al servidor para saber si un producto está disponible `http://storeapi.api/product/check`, el atacante hace peticiones al servidor modificando ese *endpoint*, por ejemplo al mismo `http://localhost/admin` abusando de la confianza.
 
-<videogif title="Server Request" src="https://res.cloudinary.com/marcomadera/video/upload/v1618513408/Blog/seguridad-web/server_clic_twfhas.mp4"/>
+<videogif title="Server Request" src="https://res.cloudinary.com/marcomadera/video/upload/v1618513408/Blog/seguridad-web/server_clic_twfhas.mp4"></videogif>
 
 ## Inyección de comandos
 
@@ -115,7 +115,7 @@ Estos ataques son comunes por su facilidad de explotar. Existen servicios como G
 
 Esta explotación es para un obtener acceso no autorizado a información o servicios regularmente teniendo acceso a las cookies y robándolas para así autenticarse.
 
-<youtube id="UR_i5XSAKrg" />
+<youtube id="UR_i5XSAKrg" ></tweet>
 
 ## Filtración de datos
 
@@ -129,7 +129,7 @@ Así como en esta vulnerabilidad mis datos se han visto comprometidos en otras 6
 
 Otra filtración reciente fue sobre el funcionamiento del navegador de Brave en modo privado con Tor. El funcionamiento es que oculta tu identidad al navegar, pero el navegador enviaba las direcciones que visitabas al proveedor DNS en lugar de enviarlo a los servidores de Tor.
 
-<tweet id="1362737949872431108" />
+<tweet id="1362737949872431108" ></tweet>
 
 ## Programas de recompensas
 
@@ -139,7 +139,7 @@ Algunas empresas tienen programas de recompensas para quienes encuentren vulnera
 - [Facebook](https://www.facebook.com/whitehat)
 - [Google](https://www.google.com/about/appsecurity/reward-program/)
 
-<tweet id="1366767274720329729" />
+<tweet id="1366767274720329729" ></tweet>
 
 ## Conclusión
 

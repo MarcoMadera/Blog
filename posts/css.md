@@ -28,7 +28,7 @@ En Línea
 </p>
 ```
 
-<p style="color: #fff; width: max-content;padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
+<p style="color: #fff;width: max-content;padding: 5px 10px;margin: auto;border-radius: 10px;background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
 En Línea
 </p>
 
@@ -534,7 +534,7 @@ Los siguientes prefijos son los más comunes:
 
 Soporte para la propiedad `hyphens` en distintos navegadores:
 
-<iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" title="Can I Use Hyphens" frameborder="0" width="100%" height="450"></iframe>
+<iframe src="https://caniuse.bitsofco.de/embed/index.html?feat=css-hyphens&periods=future_1,current,past_1,past_2&accessible-colours=false&image-base=none" title="Can I Use Hyphens" frameborder="0" width="100%" height="411"></iframe>
 
 ## Conclusión
 

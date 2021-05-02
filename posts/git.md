@@ -10,11 +10,11 @@ tags:
 
 En mis inicios programando siempre escuchaba algo sobre el control de versiones, era algo que veía un poco complicado y donde no me quería meter porque estaba más enfocado en aprender otras cosas. Lo simplificaba como en qué estado se encuentra mi proyecto y usar versión *alpha*, *beta*, v1.0.0... Lo que ahora veo como una etiqueta que no se altera. Esto me llevó a realizar cambios sin justificación y a perder mucho trabajo que no guardé.
 
-<tweet id="1342099157398544385">
+<tweet id="1342099157398544385"></tweet>
 
 En algún momento al conocer Git me sentí igual que Flavio y por los recuerdos me dio a escribir sobre Git para no olvidar de que vale la pena saber más de unos comandos.
 
-<colors red blue green yellow lightblue purple darkyellow>
+<colors red blue green yellow lightblue purple darkyellow></colors>
 
 ## ¿Qué es el control de versiones de Git?
 

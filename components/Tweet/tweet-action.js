@@ -47,10 +47,6 @@ export default function TweetAction({ name, username, tweetId, metrics }) {
           text-decoration: none;
           border-top: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
         }
-        a .text :global(.twemoji) {
-          height: 14px;
-          width: 14px;
-        }
         @media (any-hover: hover) {
           a:hover {
             color: ${tweets.tweetLinkColorHover};

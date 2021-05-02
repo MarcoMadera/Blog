@@ -5,7 +5,6 @@ import useDarkMode from "../../hooks/useDarkMode";
 import TweetHeader from "./tweet-header";
 import TweetInfo from "./tweet-info";
 import TweetAction from "./tweet-action";
-import Twemoji from "react-twemoji";
 import { Poll } from "./Poll";
 import { Media } from "./Media";
 import { formatTweetText } from "./formatTweetText";
@@ -26,45 +25,43 @@ export default function Tweet({ id, caption }) {
   return (
     <div className="container">
       {data && (
-        <Twemoji options={{ className: "twemoji" }}>
-          <div className="tweet">
-            <div>
-              <TweetHeader
-                name={user.name}
-                username={user.username}
-                verified={user.verified}
-                profile_image_url={user.profile_image_url}
-                tweetId={data.tweet.id}
-              />
-              <section>
-                <p>
-                  {formatTweetText(
-                    data.tweet.text,
-                    data.tweet.entities,
-                    quotedTweetUrl
-                  )}
-                </p>
-                {data.polls ? <Poll data={data.polls} /> : null}
-                {data.media ? <Media data={data.media} /> : null}
-                {data.quotedTweet ? (
-                  <QuotedTweet data={data.quotedTweet} />
-                ) : null}
-                <TweetInfo
-                  username={user.username}
-                  tweetId={data.tweet.id}
-                  metrics={data.tweet.public_metrics}
-                  created_at={data.tweet.created_at}
-                />
-              </section>
-            </div>
-            <TweetAction
+        <div className="tweet">
+          <div>
+            <TweetHeader
               name={user.name}
               username={user.username}
+              verified={user.verified}
+              profile_image_url={user.profile_image_url}
               tweetId={data.tweet.id}
-              metrics={data.tweet.public_metrics}
             />
+            <section>
+              <p>
+                {formatTweetText(
+                  data.tweet.text,
+                  data.tweet.entities,
+                  quotedTweetUrl
+                )}
+              </p>
+              {data.polls ? <Poll data={data.polls} /> : null}
+              {data.media ? <Media data={data.media} /> : null}
+              {data.quotedTweet ? (
+                <QuotedTweet data={data.quotedTweet} />
+              ) : null}
+              <TweetInfo
+                username={user.username}
+                tweetId={data.tweet.id}
+                metrics={data.tweet.public_metrics}
+                created_at={data.tweet.created_at}
+              />
+            </section>
           </div>
-        </Twemoji>
+          <TweetAction
+            name={user.name}
+            username={user.username}
+            tweetId={data.tweet.id}
+            metrics={data.tweet.public_metrics}
+          />
+        </div>
       )}
       {caption != null ? <p className="caption">{caption}</p> : null}
       <style jsx>{`
@@ -76,12 +73,6 @@ export default function Tweet({ id, caption }) {
         }
         section {
           padding: 0 3px;
-        }
-        .tweet :global(.twemoji) {
-          height: 18px;
-          width: 18px;
-          margin: 0 2px;
-          vertical-align: -3px;
         }
         div p.caption {
           font-size: 14px;

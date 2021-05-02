@@ -30,6 +30,7 @@ La uniformidad en el caso de los números aleatorios, significa que en un rango 
 <style>.graficaUniformeImg{display:block;margin: auto;max-width: 99%;clip-path: inset(0% round 10px);}</style>
 
 <image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_346,dpr_auto/v1608331325/Blog/1/Graph1_iiqyqc.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_345,dpr_auto/v1608335119/Blog/1/Graph1-dark_r9zxe8.png" alt="Gráfica uniforme">
+
 Gráfica completamente uniforme
 
 Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<sup>2</sup>:

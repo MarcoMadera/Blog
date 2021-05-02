@@ -19,7 +19,7 @@ export function Ul({ attribs, children, depth }) {
       {children}
       <style jsx>{`
         ul {
-          margin: ${depth > 0 ? `0 0 0 ${20 * depth}px` : "1em 0"};
+          margin: ${depth > 0 ? "0 0 0 20px" : "1em 0"};
         }
       `}</style>
     </ul>
@@ -42,9 +42,9 @@ export function Li({ children, checked = null, ...attribs }) {
       {children}
       <style jsx>{`
         li {
-          display: ${checked === null ? "list-item" : "flex"};
           margin-left: ${checked === null ? "20px" : "0"};
           margin-top: ${checked === null ? "5px" : "0"};
+          list-style-type: ${checked === null ? "revert" : "none"};
         }
         label {
           background-color: ${checked === true ? "#ce3a3a" : "unset"};

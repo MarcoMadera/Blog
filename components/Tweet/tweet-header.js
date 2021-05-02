@@ -65,10 +65,6 @@ export default function TweetHeader({
           white-space: unset;
           -webkit-line-clamp: 1;
         }
-        .header .name :global(.twemoji) {
-          height: 16px;
-          width: 16px;
-        }
         .verified {
           background-image: ${darkMode
             ? `url(

@@ -11,7 +11,6 @@ import useDarkMode from "../../hooks/useDarkMode";
 
 export function InlineCode({ classname, children, ...attrbs }) {
   const { darkMode } = useDarkMode();
-
   return (
     <code className={classname} {...attrbs}>
       {children}
@@ -189,13 +188,15 @@ const customClasses = {
   variable: "t",
 };
 
-export function CodeBlock({ language, value = "" }) {
+export function CodeBlock({ language, value = "", mdCode }) {
   const { darkMode } = useDarkMode();
-
-  const lineNumbers = Array.from(
-    { length: (value.match(/\n/g) || "").length + 1 },
-    (_, i) => i + 1
-  );
+  const lineNumbers =
+    typeof value[0] === "object"
+      ? []
+      : Array.from(
+          { length: (value[0]?.match(/\n/g) || "").length },
+          (_, i) => i + 1
+        );
 
   const style = darkMode
     ? codeStyles.dark[`${language}`] ?? undefined
@@ -237,11 +238,17 @@ export function CodeBlock({ language, value = "" }) {
       },
     });
 
-  const file = processor.processSync(`~~~${language}\n${value}\n~~~`);
+  const file = processor.processSync(`~~~${language}\n${value}~~~`);
 
   return (
     <>
-      {file.contents.props.children}
+      {mdCode ? (
+        file.result
+      ) : (
+        <Pre>
+          <code data-lang={language}>{value}</code>
+        </Pre>
+      )}
       {style && (
         <style global jsx>
           {style}
@@ -256,7 +263,8 @@ CodeBlock.propTypes = {
   children: PropTypes.node,
   language: PropTypes.string,
   meta: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.array,
+  mdCode: PropTypes.bool,
 };
 InlineCode.propTypes = {
   classname: PropTypes.string,

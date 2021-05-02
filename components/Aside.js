@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import Github from "./icons/Github";
 import LinkedIn from "./icons/LinkedIn";
 import Twitter from "./icons/Twitter";
@@ -5,7 +6,7 @@ import { siteMetadata } from "../site.config";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../hooks/useDarkMode";
-
+import EmojisWrapper from "./EmojisWrapper";
 function Anchor({ children, href, label }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
@@ -30,15 +31,13 @@ export default function Aside() {
           height="80"
         />
       </picture>
-      <p>
-        ¡Hola!{" "}
-        <span role="img" aria-label="emoji mano saludando">
-          👋
-        </span>{" "}
-        Soy <span translate="no">Marco</span>, autor del blog. Gracias por
-        pasarte, cualquier cosa me puedes contactar a través de las siguientes
-        redes:
-      </p>
+      <EmojisWrapper options={{ className: "twemoji" }}>
+        <p>
+          ¡Hola! 👋 Soy <span translate="no">Marco</span>, autor del blog.
+          Gracias por pasarte, cualquier cosa me puedes contactar a través de
+          las siguientes redes:
+        </p>
+      </EmojisWrapper>
       <Anchor
         href={`https://github.com/${social.gitHub}`}
         label="Página de Github"
@@ -70,6 +69,11 @@ export default function Aside() {
         }
       `}</style>
       <style jsx>{`
+        aside :global(.twemoji) {
+          height: 1.1em;
+          margin: 0 2px;
+          vertical-align: -3px;
+        }
         aside {
           border-radius: 12px;
           height: 300px;

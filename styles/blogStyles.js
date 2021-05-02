@@ -6,9 +6,6 @@ export const blogStyles = css.global`
     pre {
       text-shadow: none !important;
     }
-    iframe[title="FastComments"] {
-      display: none !important;
-    }
   }
   .blog caption {
     padding: 8px;
@@ -16,7 +13,8 @@ export const blogStyles = css.global`
   }
   .blog figure {
     margin: 0 auto;
-    display: block;
+    display: grid;
+    grid-gap: 4px;
     width: fit-content;
   }
   .blog iframe {
