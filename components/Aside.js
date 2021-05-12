@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
 import Github from "./icons/Github";
 import LinkedIn from "./icons/LinkedIn";
 import Twitter from "./icons/Twitter";
@@ -6,7 +5,6 @@ import { siteMetadata } from "../site.config";
 import { colors } from "../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../hooks/useDarkMode";
-import EmojisWrapper from "./EmojisWrapper";
 function Anchor({ children, href, label }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
@@ -31,13 +29,18 @@ export default function Aside() {
           height="80"
         />
       </picture>
-      <EmojisWrapper options={{ className: "twemoji" }}>
-        <p>
-          ¡Hola! 👋 Soy <span translate="no">Marco</span>, autor del blog.
-          Gracias por pasarte, cualquier cosa me puedes contactar a través de
-          las siguientes redes:
-        </p>
-      </EmojisWrapper>
+      <p>
+        ¡Hola!{" "}
+        <img
+          draggable="false"
+          className="twemoji"
+          alt="👋"
+          src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f44b.png"
+        />{" "}
+        Soy <span translate="no">Marco</span>, autor del blog. Gracias por
+        pasarte, cualquier cosa me puedes contactar a través de las siguientes
+        redes:
+      </p>
       <Anchor
         href={`https://github.com/${social.gitHub}`}
         label="Página de Github"
@@ -88,7 +91,7 @@ export default function Aside() {
           margin: 0 10px;
         }
         
-        img {
+        img[alt="Marco Madera"] {
           clip-path: circle(50% at 50% 50%);
           height: 80px;
           width: 80px;

@@ -33,8 +33,8 @@ The minimum required scopes are 'repo' and 'read:org'.
 <span class="green">?</span> Paste your authentication token: ****************************************
 <span class="green">?</span> Choose default git protocol <span class="blue">SSH</span>
 - gh config set -h github.com git_protocol ssh
-<span class="green">&#9745;</span> Configured git protocol
-<span class="green">&#9745;</span> Logged in as MarcoMadera</code></pre>
+<span class="green">✓</span> Configured git protocol
+<span class="green">✓</span> Logged in as MarcoMadera</code></pre>
 
 Otros subcomandos que también se pueden usar con `gh auth`:
 
@@ -66,10 +66,10 @@ Para **crear repositorios** tenemos el comando `gh repo create` seguido del nomb
 <pre><code data-lang="CLI">C:\Users\marco\repositorios>gh repo create github-cli
 <span class="green">?</span> Visibility <span class="blue">Private</span>
 <span class="green">?</span> This will create 'github-cli' in your current directory. Continue? <span class="blue">Yes</span>
-<span class="green">&#9745;</span> Created repository MarcoMadera/github-cli on GitHub
+<span class="green">✓</span> Created repository MarcoMadera/github-cli on GitHub
 <span class="green">?</span> Create a local project directory for MarcoMadera/github-cli <span class="blue">Yes</span>
 Initialized empty Git repository in C:/Users/marco/repositorios/github-cli/.git/
-<span class="green">&#9745;</span> Initialized repository in './github-cli/'
+<span class="green">✓</span> Initialized repository in './github-cli/'
 
 C:\Users\marco\repositorios>cd github-cli
 
@@ -262,7 +262,7 @@ Para **crear un alias** se hace con el comando `gh alias set` seguido del nombre
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios>gh alias set cr "repo create"
 - Adding alias for cr: <span style="font-weight:600;">repo create</span>
-<span class="green">&#9745;</span> Added alias.
+<span class="green">✓</span> Added alias.
 
 C:\Users\marco\repositorios\github-cli>gh alias list
 co: pr checkout

@@ -137,6 +137,9 @@ const NewsletterPage = () => {
         main :global(h1) {
           margin-bottom: 0.67em;
         }
+        form {
+          margin-bottom: 20px;
+        }
         main :global(input) {
           margin: 0 auto 40px auto;
           width: 100%;

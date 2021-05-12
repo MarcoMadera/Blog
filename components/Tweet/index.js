@@ -15,7 +15,7 @@ export default function Tweet({ id, caption }) {
   const user = Array.isArray(data?.user) ? data?.user[0] : null;
   const { darkMode } = useDarkMode();
   // Happens when `getStaticProps` is traversing the tree to collect the tweet ids
-  if (!user) {
+  if (!user || data?.ignore) {
     return null;
   }
   const quotedTweetUrl = data.quotedTweet

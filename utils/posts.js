@@ -4,7 +4,7 @@ const slugify = require("react-slugify").default;
 const path = require("path");
 const metaData = require("../site.config").siteMetadata;
 const toc = require("markdown-toc-unlazy");
-
+const twemoji = require("twemoji");
 function getPostsFiles() {
   // Get all posts Files located in `posts`
   const postsFiles = fs.readdirSync(`${process.cwd()}/posts`).map((file) => ({
@@ -67,7 +67,7 @@ function getPostBySlug(slug) {
   return {
     ...data,
     date: data.date.toString(),
-    content,
+    content: twemoji.parse(content, { className: "twemoji" }),
     author: data.author ?? metaData.author.name,
     profilePhoto: data.profilePhoto ?? metaData.author.image,
     twitter: data.twitter ?? metaData.social.twitter,

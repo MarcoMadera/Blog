@@ -2,13 +2,15 @@ import { formatNumber } from "../../utils/helpers";
 import { tweets } from "../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../hooks/useDarkMode";
-
+import twemoji from "twemoji";
+import HtmlToReact from "html-to-react";
 export default function TweetAction({ name, username, tweetId, metrics }) {
   const userUrl = `https://twitter.com/${username}`;
   const tweetUrl = `${userUrl}/status/${tweetId}`;
   const count = metrics.reply_count + metrics.retweet_count;
   const isConversation = count > 4;
   const { darkMode } = useDarkMode();
+  const htmlToReactParser = HtmlToReact.Parser();
   return (
     <>
       {isConversation ? (
@@ -32,7 +34,12 @@ export default function TweetAction({ name, username, tweetId, metrics }) {
           rel="noopener noreferrer"
         >
           <div className="icon icon-profile" />
-          <span className="text">Ver otros tweets de {name}</span>
+          <span className="text">
+            Ver otros tweets de{" "}
+            {htmlToReactParser.parse(
+              twemoji.parse(name, { className: "twemoji" })
+            )}
+          </span>
           <div className="icon icon-chevron" />
         </a>
       )}

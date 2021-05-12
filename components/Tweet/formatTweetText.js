@@ -1,7 +1,9 @@
 import reactStringReplace from "react-string-replace";
 import { TwitterLink } from "./TwitterLink";
-
+import twemoji from "twemoji";
+import HtmlToReact from "html-to-react";
 export function formatTweetText(text, entities, quotedTweetUrl) {
+  const htmlToReactParser = HtmlToReact.Parser();
   let replacedText;
   const urls = entities?.urls?.map(({ url, display_url, expanded_url }) => ({
     url,
@@ -9,19 +11,27 @@ export function formatTweetText(text, entities, quotedTweetUrl) {
     expanded_url,
   }));
 
-  // Match URLs
-  replacedText = reactStringReplace(text, /(https?:\/\/\S+)/g, (match, i) => {
-    const urlToDisplay = urls.find(({ url }) => url === match);
+  replacedText = htmlToReactParser.parse(
+    twemoji.parse(text, { className: "twemoji" })
+  );
 
-    return (
-      <TwitterLink key={match + i} href={match}>
-        {urlToDisplay.display_url.startsWith("pic.twitter.com") ||
-        urlToDisplay.expanded_url === quotedTweetUrl
-          ? null
-          : urlToDisplay.display_url}
-      </TwitterLink>
-    );
-  });
+  // Match URLs
+  replacedText = reactStringReplace(
+    replacedText,
+    /(https?:\/\/\S+)/g,
+    (match, i) => {
+      const urlToDisplay = urls.find(({ url }) => url === match);
+
+      return (
+        <TwitterLink key={match + i} href={match}>
+          {urlToDisplay?.display_url.startsWith("pic.twitter.com") ||
+          urlToDisplay?.expanded_url === quotedTweetUrl
+            ? null
+            : urlToDisplay.display_url}
+        </TwitterLink>
+      );
+    }
+  );
 
   // Match @-mentions
   replacedText = reactStringReplace(replacedText, /@(\w+)/g, (match, i) => (
@@ -51,5 +61,6 @@ export function formatTweetText(text, entities, quotedTweetUrl) {
       {match}
     </TwitterLink>
   ));
+
   return replacedText;
 }

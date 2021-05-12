@@ -1,7 +1,8 @@
 import { tweets } from "../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../hooks/useDarkMode";
-
+import twemoji from "twemoji";
+import HtmlToReact from "html-to-react";
 export default function TweetHeader({
   name,
   username,
@@ -12,6 +13,7 @@ export default function TweetHeader({
   const { darkMode } = useDarkMode();
   const url = `https://twitter.com/${username}`;
   const tweetUrl = `https://twitter.com/${username}/status/${tweetId}`;
+  const htmlToReactParser = HtmlToReact.Parser();
   return (
     <div className="header">
       <a
@@ -35,7 +37,9 @@ export default function TweetHeader({
         rel="noopener noreferrer"
       >
         <span className="name" title={name}>
-          {name}{" "}
+          {htmlToReactParser.parse(
+            twemoji.parse(name, { className: "twemoji" })
+          )}{" "}
           {verified ? (
             <span className="verified" title="Cuenta verificada"></span>
           ) : null}

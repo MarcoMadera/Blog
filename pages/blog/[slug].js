@@ -5,7 +5,6 @@ import TableOfContents from "../../components/TableOfContents";
 import Comments from "../../components/Comment";
 import Newsletter from "../../components/Newsletter";
 import AllTags from "../../components/AllTags";
-import EmojisWrapper from "../../components/EmojisWrapper";
 import RecommendedPosts from "../../components/RecommendedPosts";
 import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
@@ -55,66 +54,64 @@ export default function Post({
         author={author}
         date={date}
       />
-      <EmojisWrapper options={{ className: "twemoji" }}>
-        <article
-          className="blog"
-          id="main"
-          itemScope
-          itemType="http://schema.org/Article"
-        >
-          <header>
-            <H1 itemProp="headline name" id="articleTitle">
-              {title}
-            </H1>
-            <p>
-              <time
-                itemProp="datePublished"
-                dateTime={new Date(date).toISOString()}
-              >
-                {getFormattedDate(date)}
-              </time>
-            </p>
-          </header>
-          <TableOfContents content={h2s} />
-          <div itemProp="articlebody" aria-labelledby="articleTitle">
-            <TweetsContextProvider tweets={tweets}>
-              <MarkDown source={content} html={true} />
-            </TweetsContextProvider>
-          </div>
-          <Hr />
-          <BlogFooter
-            slug={slug}
-            title={title}
-            profilePhoto={profilePhoto}
-            twitter={twitter}
-            author={author}
-            summary={summary}
-          />
-          <nav>
-            {previousPost ? (
-              <ALink title="" href={`/blog/${previousPost.slug}`} rel="prev">
-                <p>← Artículo anterior</p>
-                {previousPost.title}
-              </ALink>
-            ) : (
-              <div />
-            )}
-            {nextPost ? (
-              <ALink title="" href={`/blog/${nextPost.slug}`} rel="next">
-                <p>Siguiente artículo →</p>
-                {nextPost.title}
-              </ALink>
-            ) : (
-              <div />
-            )}
-          </nav>
-          <UserContextProvider>
-            <CommentsContextProvider>
-              <Comments slug={slug} />
-            </CommentsContextProvider>
-          </UserContextProvider>
-        </article>
-      </EmojisWrapper>
+      <article
+        className="blog"
+        id="main"
+        itemScope
+        itemType="http://schema.org/Article"
+      >
+        <header>
+          <H1 itemProp="headline name" id="articleTitle">
+            {title}
+          </H1>
+          <p>
+            <time
+              itemProp="datePublished"
+              dateTime={new Date(date).toISOString()}
+            >
+              {getFormattedDate(date)}
+            </time>
+          </p>
+        </header>
+        <TableOfContents content={h2s} />
+        <div itemProp="articlebody" aria-labelledby="articleTitle">
+          <TweetsContextProvider tweets={tweets}>
+            <MarkDown source={content} html={true} />
+          </TweetsContextProvider>
+        </div>
+        <Hr />
+        <BlogFooter
+          slug={slug}
+          title={title}
+          profilePhoto={profilePhoto}
+          twitter={twitter}
+          author={author}
+          summary={summary}
+        />
+        <nav>
+          {previousPost ? (
+            <ALink title="" href={`/blog/${previousPost.slug}`} rel="prev">
+              <p>← Artículo anterior</p>
+              {previousPost.title}
+            </ALink>
+          ) : (
+            <div />
+          )}
+          {nextPost ? (
+            <ALink title="" href={`/blog/${nextPost.slug}`} rel="next">
+              <p>Siguiente artículo →</p>
+              {nextPost.title}
+            </ALink>
+          ) : (
+            <div />
+          )}
+        </nav>
+        <UserContextProvider>
+          <CommentsContextProvider>
+            <Comments slug={slug} />
+          </CommentsContextProvider>
+        </UserContextProvider>
+      </article>
       <aside>
         <AllTags tags={tags} title="Etiquetas del artículo" />
         <RecommendedPosts

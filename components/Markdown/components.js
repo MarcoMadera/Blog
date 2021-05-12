@@ -164,6 +164,10 @@ export const components = {
   },
   img: function ImageMD(props) {
     const { darkMode } = useDarkMode();
+    if (props.className === "twemoji") {
+      // eslint-disable-next-line jsx-a11y/alt-text
+      return <img {...props.node.properties} />;
+    }
     return <Img src={darkMode ? props.dark : props.light} {...props} />;
   },
   actionanchor: function ActionAnchorNode({ node, children }) {

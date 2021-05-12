@@ -1,27 +1,31 @@
-import EmojisWrapper from "../../components/EmojisWrapper";
 import Seo from "../../components/Seo";
-import { H1 } from "../../components/tags";
+import { H1, Video } from "../../components/tags";
 
 const unsuscription = () => {
   return (
     <>
       <main id="main">
         <Seo title="Te has desuscrito 😢 | Marco Madera" />
-        <EmojisWrapper options={{ className: "twemoji" }}>
-          <section>
-            {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
-            <H1>¡Te has desuscrito del Newsletter! 😢</H1>
-            <p>Ya no recibirás más emails por mi parte, gracias por leer.</p>
-            <video
-              loop
-              autoPlay
-              playsInline
-              muted
-              src="https://res.cloudinary.com/marcomadera/video/upload/v1602532720/Newsletter/12912-323943-434566767_ashg4k.mp4"
-              title="Adios vaquero"
+        <section>
+          <H1>
+            ¡Te has desuscrito del Newsletter!{" "}
+            <img
+              draggable="false"
+              className="twemoji"
+              alt="😢"
+              src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f622.png"
             />
-          </section>
-        </EmojisWrapper>
+          </H1>
+          <p>Ya no recibirás más emails por mi parte, gracias por leer.</p>
+          <Video
+            loop
+            autoPlay
+            playsInline
+            muted
+            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532720/Newsletter/12912-323943-434566767_ashg4k.mp4"
+            title="Adios vaquero"
+          />
+        </section>
         <style jsx>{`
           section {
             text-align: center;

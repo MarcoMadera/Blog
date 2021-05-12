@@ -1,30 +1,34 @@
-import EmojisWrapper from "../../components/EmojisWrapper";
 import Seo from "../../components/Seo";
-import { H1 } from "../../components/tags";
+import { H1, Video } from "../../components/tags";
 
 const suscription = () => {
   return (
     <>
       <main id="main">
         <Seo title="Suscripción exitosa! 🎉| Marco Madera" />
-        <EmojisWrapper options={{ className: "twemoji" }}>
-          <section>
-            {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
-            <H1>¡Ya casi estás suscrito al Newsletter! 🎉</H1>
-            <p>
-              Te envié un correo de confirmación, da clic en él y completarás el
-              proceso.
-            </p>
-            <video
-              loop
-              autoPlay
-              playsInline
-              muted
-              src="https://res.cloudinary.com/marcomadera/video/upload/v1602532672/Newsletter/312o32-3123192-434923432_pv6toa.mp4"
-              title="Aplausos"
+        <section>
+          <H1>
+            ¡Ya casi estás suscrito al Newsletter!{" "}
+            <img
+              draggable="false"
+              className="twemoji"
+              alt="🎉"
+              src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f389.png"
             />
-          </section>
-        </EmojisWrapper>
+          </H1>
+          <p>
+            Te envié un correo de confirmación, da clic en él y completarás el
+            proceso.
+          </p>
+          <Video
+            loop
+            autoPlay
+            playsInline
+            muted
+            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532672/Newsletter/312o32-3123192-434923432_pv6toa.mp4"
+            title="Aplausos"
+          />
+        </section>
         <style jsx>{`
           main :global(.twemoji) {
             height: 1.1em;
