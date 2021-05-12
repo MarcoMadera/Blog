@@ -84,7 +84,6 @@ export default function Tweet({ id, caption }) {
         }
 
         div.tweet {
-          overflow: hidden;
           border: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
           border-radius: 15px;
           margin: ${tweets.containerMargin};

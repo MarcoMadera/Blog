@@ -27,7 +27,7 @@ Si no se hace correctamente este paso se pueden tener datos corruptos. Por ejemp
 
 <tweet id="1379691085514047490"></tweet>
 
-Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al *frontend* puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
+Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al *frontend* puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
 
 ```json
 {
