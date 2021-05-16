@@ -14,6 +14,8 @@ const unsuscription = () => {
               className="twemoji"
               alt="😢"
               src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f622.png"
+              width="35"
+              height="35"
             />
           </H1>
           <p>Ya no recibirás más emails por mi parte, gracias por leer.</p>

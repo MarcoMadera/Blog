@@ -5,6 +5,7 @@ const path = require("path");
 const metaData = require("../site.config").siteMetadata;
 const toc = require("markdown-toc-unlazy");
 const twemoji = require("twemoji");
+const readingTime = require("reading-time");
 function getPostsFiles() {
   // Get all posts Files located in `posts`
   const postsFiles = fs.readdirSync(`${process.cwd()}/posts`).map((file) => ({
@@ -21,11 +22,12 @@ function getSortedPostsData() {
       const markdownWithMetadata = fs.readFileSync(`posts/${filename}`);
 
       // Parse markdown, get frontmatter data
-      const { data } = matter(markdownWithMetadata);
+      const { data, content } = matter(markdownWithMetadata);
 
       const slug = filename.replace(".md", "");
       return {
         ...data,
+        readingTimeInMinutes: Math.ceil(readingTime(content).minutes),
         date: data.date.toString(),
         slug: slug,
       };
@@ -72,6 +74,7 @@ function getPostBySlug(slug) {
     profilePhoto: data.profilePhoto ?? metaData.author.image,
     twitter: data.twitter ?? metaData.social.twitter,
     summary: data.summary ?? metaData.author.summary,
+    readingTimeInMinutes: Math.ceil(readingTime(content).minutes),
     previousPost: posts[postIndex + 1]
       ? {
           title: posts[postIndex + 1].title,

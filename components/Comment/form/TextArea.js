@@ -90,6 +90,7 @@ export default function TextArea({
           border-radius: 4px;
           font-family: Arial;
           padding: 4px 8px;
+          margin-bottom: 4px;
         }
 
         textarea:focus {

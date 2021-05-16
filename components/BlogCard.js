@@ -13,6 +13,7 @@ export default function BlogCard({
   slug,
   title,
   tags,
+  readingTimeInMinutes,
 }) {
   const { darkMode } = useDarkMode();
 
@@ -67,12 +68,13 @@ export default function BlogCard({
               </Link>
             ))}
         </div>
-        <span>
-          <span translate="no">{author}</span> |{" "}
+        <section>
+          <span translate="no">{author} &middot;&nbsp;</span>
           <time dateTime={new Date(date).toISOString()}>
-            {getFormattedDate(date)}
+            {getFormattedDate(date)}&nbsp;&middot;&nbsp;
           </time>
-        </span>
+          <span>{`${readingTimeInMinutes} min. de lectura`}</span>
+        </section>
       </footer>
       <style jsx>{`
         article {
@@ -90,6 +92,10 @@ export default function BlogCard({
         }
       `}</style>
       <style jsx>{`
+        section {
+          display: flex;
+          flex-wrap: wrap;
+        }
         a {
           display: inline-flex;
           box-sizing: border-box;
@@ -154,4 +160,5 @@ BlogCard.propTypes = {
   slug: PropTypes.string,
   tags: PropTypes.array,
   title: PropTypes.string,
+  readingTimeInMinutes: PropTypes.number,
 };

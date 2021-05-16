@@ -111,6 +111,7 @@ export default function Layout({ children }) {
           text-decoration: none;
           top: -280px;
           width: fit-content;
+          z-index: 9999;
         }
         a:focus {
           transform: translateY(300px);

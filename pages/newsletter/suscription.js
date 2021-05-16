@@ -14,6 +14,8 @@ const suscription = () => {
               className="twemoji"
               alt="🎉"
               src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f389.png"
+              width="35"
+              height="35"
             />
           </H1>
           <p>

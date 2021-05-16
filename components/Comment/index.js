@@ -142,6 +142,9 @@ export default function Comments({ slug }) {
         .controls div {
           margin-right: 5px;
         }
+        label :global(h2) {
+          margin: 0;
+        }
         button {
           border: 0;
           background: transparent;

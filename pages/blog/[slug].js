@@ -35,6 +35,7 @@ export default function Post({
   slug,
   tweets,
   h2s,
+  readingTimeInMinutes,
 }) {
   const { darkMode } = useDarkMode();
   return (
@@ -70,7 +71,8 @@ export default function Post({
               dateTime={new Date(date).toISOString()}
             >
               {getFormattedDate(date)}
-            </time>
+            </time>{" "}
+            &middot;{` ${readingTimeInMinutes} minutos de lectura `}
           </p>
         </header>
         <TableOfContents content={h2s} />
@@ -142,9 +144,6 @@ export default function Post({
         article > :global(hr) {
           grid-area: hr;
         }
-        header :global(h1) {
-          margin-right: 10px;
-        }
         div[itemProp="articlebody"] :global(p) {
           text-align: justify;
           line-height: 1.6;
@@ -153,20 +152,24 @@ export default function Post({
         div[itemProp="articlebody"] :global(h3) {
           font-weight: 600;
         }
-        nav,
-        main header {
+        nav {
+          grid-area: nav;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-        }
-        nav {
-          grid-area: nav;
-          flex-wrap: wrap;
           margin-bottom: 40px;
         }
         main header {
-          align-items: center;
           grid-area: header;
+        }
+        header :global(h1) {
+          margin: 0 0 0.5em 0;
+          font-weight: 700;
+        }
+        header p {
+          margin: 0;
+          font-size: 14px;
+          color: #929292;
         }
         nav :global(a) {
           display: flex;
@@ -179,28 +182,23 @@ export default function Post({
           align-self: stretch;
           width: 220px;
         }
-        p {
+        nav p {
           font-size: 16px;
-          text-align: center !important;
+          text-align: center;
           margin: 0;
         }
-        @media screen and (min-width: 0px) and (max-width: 370px) {
+        @media screen and (min-width: 0px) and (max-width: 400px) {
           nav :global(a) {
             width: 100%;
             margin-bottom: 30px;
           }
         }
-        @media screen and (min-width: 370px) and (max-width: 400px) {
-          nav :global(a) {
-            max-width: 165px;
-          }
-        }
-        @media screen and (min-width: 400px) and (max-width: 500px) {
+        @media screen and (min-width: 400px) and (max-width: 525px) {
           nav :global(a) {
             width: 170px;
           }
         }
-        @media screen and (min-width: 500px) and (max-width: 875px) {
+        @media screen and (min-width: 525px) and (max-width: 875px) {
           nav :global(a) {
             width: 230px;
           }
@@ -272,4 +270,5 @@ Post.propTypes = {
   profilePhoto: PropTypes.string,
   twitter: PropTypes.string,
   summary: PropTypes.string,
+  readingTimeInMinutes: PropTypes.number,
 };

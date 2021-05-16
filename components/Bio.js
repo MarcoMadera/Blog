@@ -24,15 +24,15 @@ function Img({ alt, height, src, width }) {
 export default function Bio({ author, profilePhoto, summary, twitter }) {
   return (
     <div>
+      <Span>
+        <Img src={profilePhoto} alt={author} width="40" height="40" />
+        <Anchor
+          href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${twitter}&tw_p=followbutton`}
+        >
+          Seguir
+        </Anchor>
+      </Span>
       <P>
-        <Span>
-          <Img src={profilePhoto} alt={author} width="40" height="40" />
-          <Anchor
-            href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${twitter}&tw_p=followbutton`}
-          >
-            Seguir
-          </Anchor>
-        </Span>
         Escrito por{" "}
         <strong itemProp="author" translate="no">
           {author}
@@ -42,9 +42,9 @@ export default function Bio({ author, profilePhoto, summary, twitter }) {
       <style jsx>{`
         div {
           align-items: center;
-          display: flex;
-          flex-wrap: wrap;
-          margin-bottom: 10px;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          margin-top: 10px;
         }
         div :global(a) {
           background-color: ${colors.twitter};
@@ -88,7 +88,7 @@ export default function Bio({ author, profilePhoto, summary, twitter }) {
           transform: scale(1.1);
         }
         div :global(p) {
-          margin-top: 0;
+          margin: 0;
         }
         div :global(span) {
           display: inline-flex;

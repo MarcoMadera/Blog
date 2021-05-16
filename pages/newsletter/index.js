@@ -27,29 +27,27 @@ const NewsletterPage = () => {
       return;
     }
     setError(false);
-    const data = new FormData(formRef.current);
-    fetch("https://buttondown.email/api/emails/embed-subscribe/MarcoMadera", {
+    fetch("/api/subscribe", {
       method: "POST",
-      body: data,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+      }),
     })
       .then((res) => {
-        if (res.status === 400) {
-          addNotification({
-            variant: "error",
-            message: "Por favor inserta un correo electrónico válido",
-          });
-          throw Error(res.statusText);
-        }
-        if (!res.ok) {
-          addNotification({
-            variant: "error",
-            message: "Algo salió mal",
-          });
-          throw Error(res.statusText);
-        }
+        return res.json();
       })
-      .then(() => {
-        setError(false);
+      .then(({ error }) => {
+        if (error) {
+          setError(true);
+          addNotification({
+            variant: "error",
+            message: error,
+          });
+          return;
+        }
         addNotification({
           variant: "info",
           message:
@@ -59,6 +57,10 @@ const NewsletterPage = () => {
       })
       .catch(() => {
         setError(true);
+        addNotification({
+          variant: "error",
+          message: "Ha ocurrido un error",
+        });
       });
   };
   return (
@@ -86,24 +88,19 @@ const NewsletterPage = () => {
           para enviarte los artículos más recientes, no usaré tu correo
           electrónico para otro objetivo, no te enviaré nada de spam.
         </p>
-        <form
-          action="https://buttondown.email/api/emails/embed-subscribe/MarcoMadera"
-          method="post"
-          target="_blank"
-          ref={formRef}
-          onSubmit={handleSubmit}
-          noValidate
-        >
+        <form ref={formRef} onSubmit={handleSubmit} noValidate>
           <Input
             type="email"
             name="email"
             id="bd-email"
+            autoComplete="email"
+            aria-label="Correo electrónico para el newsletter"
             placeholder="Correo electrónico*"
             onChange={(e) => {
               setError(false);
               setEmail(e.target.value);
             }}
-          ></Input>
+          />
           <ActionButton>Suscríbete</ActionButton>
         </form>
       </div>

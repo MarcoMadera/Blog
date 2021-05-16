@@ -67,6 +67,7 @@ export default function Form({
         form {
           width: 100%;
           margin: 4px 0;
+          display: grid;
         }
         form :global(details) {
           margin-top: 20px;

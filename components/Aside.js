@@ -36,6 +36,8 @@ export default function Aside() {
           className="twemoji"
           alt="👋"
           src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f44b.png"
+          width="18"
+          height="18"
         />{" "}
         Soy <span translate="no">Marco</span>, autor del blog. Gracias por
         pasarte, cualquier cosa me puedes contactar a través de las siguientes
