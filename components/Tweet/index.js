@@ -99,7 +99,7 @@ export default function Tweet({ id, caption }) {
         }
         div.tweet :global(.icon) {
           display: inline-block;
-          height: 20px;
+          height: 18px;
           vertical-align: text-bottom;
           background-size: contain;
           background-repeat: no-repeat;

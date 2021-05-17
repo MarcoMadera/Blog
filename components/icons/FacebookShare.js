@@ -3,9 +3,10 @@ export default function FacebookShare(props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 112.196 112.196"
+      focusable="false"
+      aria-hidden="true"
       {...props}
     >
-      <title>Compartir en Facebook</title>
       <circle cx="56.098" cy="56.098" r="56.098" fill="#3b5998"></circle>
       <path
         fill="#fff"

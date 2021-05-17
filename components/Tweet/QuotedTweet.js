@@ -121,7 +121,6 @@ export default function QuotedTweet({ data }) {
           background-repeat: no-repeat;
         }
         div.tweet {
-          overflow: hidden;
           border: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
           border-radius: 15px;
           margin: ${tweets.containerMargin};

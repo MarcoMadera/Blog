@@ -73,7 +73,10 @@ export default function BlogFooter({
           </Button>
         </div>
         <p>
-          As bisto une rata ?{" "}
+          {/* Esta línea está "mal escrita" a propósito en modo irónico.*/}
+          <span translate="no" data-nosnippet>
+            As bisto une rata ?
+          </span>{" "}
           <A
             href={`https://github.com/MarcoMadera/Blog/edit/master/posts/${slug}.md`}
             target="_blank"
@@ -123,6 +126,7 @@ export default function BlogFooter({
         @media screen and (max-width: 528px) {
           footer :global(section div) {
             display: block;
+            margin-top: 15px;
           }
           footer :global(section div button:nth-of-type(1)) {
             margin-left: -10px;

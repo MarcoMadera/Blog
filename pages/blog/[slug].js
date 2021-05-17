@@ -18,6 +18,7 @@ import useDarkMode from "../../hooks/useDarkMode";
 import { UserContextProvider } from "../../context/UserContext";
 import { CommentsContextProvider } from "../../context/CommentsContext";
 import { TweetsContextProvider } from "../../context/TweetsContext";
+import { useEffect } from "react";
 export default function Post({
   title,
   description,
@@ -38,6 +39,13 @@ export default function Post({
   readingTimeInMinutes,
 }) {
   const { darkMode } = useDarkMode();
+
+  useEffect(() => {
+    fetch(`/api/views/${slug}`, {
+      method: "POST",
+    });
+  }, [slug]);
+
   return (
     <main>
       <Seo

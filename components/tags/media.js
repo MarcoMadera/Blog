@@ -76,7 +76,8 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
                 layout="fill"
                 loading="lazy"
                 objectFit="scale-down"
-                src={`${src.replace(
+                unoptimized={true}
+                src={`${imageCloudProvider}/${src.replace(
                   new RegExp(
                     `${imageCloudProvider.replace(
                       /[.*+?^${}()|/[\]\\]/g,

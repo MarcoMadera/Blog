@@ -22,6 +22,11 @@ export function Media({ data, quoted }) {
           overflow: hidden;
           margin-top: 10px;
         }
+        section:focus-within {
+          outline-style: dashed;
+          outline-width: 3px;
+          outline-color: #b50000;
+        }
         .mediacontainer {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
@@ -31,6 +36,9 @@ export function Media({ data, quoted }) {
         .mediacontainer :global(details) {
           max-height: ${data.length > 2 ? "200px" : "400px"};
           min-width: 100%;
+        }
+        .mediacontainer :global(details summary) {
+          height: 100%;
         }
         .mediacontainer :global(details summary img) {
           border-radius: 0;

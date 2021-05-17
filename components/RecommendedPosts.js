@@ -44,7 +44,7 @@ export default function RecommendedPosts({
                       width="40"
                       height="40"
                     />
-                    {title}
+                    <p>{title}</p>
                   </ALink>
                 )
               );
@@ -67,6 +67,15 @@ export default function RecommendedPosts({
           margin: 0;
           padding: 3px;
         }
+        p {
+          margin: 0;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          text-overflow: ellipsis;
+          white-space: unset;
+        }
         div :global(a:focus),
         div :global(a:hover) {
           border-radius: 3px;
@@ -86,6 +95,11 @@ export default function RecommendedPosts({
           height: 40px;
           margin-right: 5px;
           width: 40px;
+        }
+        @media screen and (max-width: 400px) {
+          div :global(div) {
+            display: block;
+          }
         }
         @media screen and (max-width: 876px) {
           div :global(a) {

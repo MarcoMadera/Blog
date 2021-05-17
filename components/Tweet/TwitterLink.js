@@ -17,6 +17,7 @@ export const TwitterLink = ({ href, title, type, children }) => {
         a {
           color: ${tweets.linkColor};
           text-decoration: none;
+          line-break: anywhere;
         }
         a:hover,
         a:focus {

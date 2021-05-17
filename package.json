@@ -27,6 +27,7 @@
     "@github/details-dialog-element": "^3.1.2",
     "@mapbox/rehype-prism": "^0.6.0",
     "firebase": "^8.4.3",
+    "firebase-admin": "^9.8.0",
     "gray-matter": "^4.0.3",
     "html-to-react": "^1.4.5",
     "markdown-toc-unlazy": "^1.0.1",
