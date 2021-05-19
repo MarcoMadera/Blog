@@ -6,8 +6,14 @@ import Js from "../../components/icons/JS";
 import Html5 from "../../components/icons/Html5";
 import Css from "../../components/icons/Css";
 import Vba from "../../components/icons/Vba";
+import { useEffect } from "react";
 
 function Article({ title, img, children }) {
+  useEffect(() => {
+    fetch("/api/views/portafolio-sre", {
+      method: "POST",
+    });
+  }, []);
   return (
     <>
       <article>

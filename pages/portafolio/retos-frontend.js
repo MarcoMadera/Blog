@@ -6,6 +6,7 @@ import Css from "../../components/icons/Css";
 import Html5 from "../../components/icons/Html5";
 import ReactIcon from "../../components/icons/React";
 import Svelte from "../../components/icons/Svelte";
+import { useEffect } from "react";
 
 const Challenge = ({
   title,
@@ -73,7 +74,12 @@ const Challenge = ({
   );
 };
 
-function challenges() {
+export default function Challenges() {
+  useEffect(() => {
+    fetch("/api/views/portafolio-retos-frontend", {
+      method: "POST",
+    });
+  }, []);
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Retos Frontend" />
@@ -290,5 +296,3 @@ Challenge.propTypes = {
   children: PropTypes.node,
   level: PropTypes.string,
 };
-
-export default challenges;

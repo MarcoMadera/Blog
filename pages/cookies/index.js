@@ -3,6 +3,7 @@ import { H1, H2, H3, A, Ul, Li, P, Table, Th, Td } from "../../components/tags";
 import useCookies from "../../hooks/useCookies";
 import { colors } from "../../styles/theme";
 import useDarkMode from "../../hooks/useDarkMode";
+import { useEffect } from "react";
 
 export default function Cookies() {
   const { darkMode } = useDarkMode();
@@ -10,6 +11,11 @@ export default function Cookies() {
   const handleClick = () => {
     toggleAceptedCookies();
   };
+  useEffect(() => {
+    fetch("/api/views/page-cookies", {
+      method: "POST",
+    });
+  }, []);
 
   return (
     <main id="main">

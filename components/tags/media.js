@@ -13,13 +13,15 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
     h ||
     (src.startsWith(imageCloudProvider) &&
       src.match(/h_(\d+)/) &&
-      src.match(/h_(\d+)/)[1]);
+      src.match(/h_(\d+)/)[1]) ||
+    undefined;
 
   const width =
     w ||
     (src.startsWith(imageCloudProvider) &&
       src.match(/w_(\d+)/) &&
-      src.match(/w_(\d+)/)[1]);
+      src.match(/w_(\d+)/)[1]) ||
+    undefined;
 
   const layout = width && height ? "intrinsic" : "cover";
 
@@ -41,7 +43,8 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           <Image
             alt={alt}
             layout={layout}
-            height={(width && height && height) || undefined}
+            height={width && height ? height : undefined}
+            width={width && height ? width : undefined}
             objectFit={layout}
             quality={100}
             src={`${src.replace(
@@ -55,14 +58,13 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
               ""
             )}`}
             title={title || alt}
-            width={(width && height && width) || undefined}
           />
         ) : (
           <img
             alt={alt}
-            height={height ? height : undefined}
             src={src}
             title={title || alt}
+            height={height ? height : undefined}
             width={width ? width : undefined}
           />
         )}
@@ -76,8 +78,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
                 layout="fill"
                 loading="lazy"
                 objectFit="scale-down"
-                unoptimized={true}
-                src={`${imageCloudProvider}/${src.replace(
+                src={`${src.replace(
                   new RegExp(
                     `${imageCloudProvider.replace(
                       /[.*+?^${}()|/[\]\\]/g,
@@ -92,9 +93,9 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
             ) : (
               <img
                 alt={alt}
-                height={height ? height : undefined}
                 src={src}
                 width={width ? width : undefined}
+                height={height ? height : undefined}
                 title={title || alt}
               />
             )}
@@ -161,13 +162,13 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           position: relative;
           max-width: 100%;
         }
-        summary::marker {
-          display: none;
-        }
          {
           /*is deprecated but don't remove until most browsers are updated */
         }
         summary::-webkit-details-marker {
+          display: none;
+        }
+        summary::marker {
           display: none;
         }
         summary :global(img) {

@@ -41,7 +41,7 @@ const CommentFeed = ({
         <img src={avatar} alt={username} title={username} />
         <div>
           <Markdown source={comment} />
-          {img && <Img src={img} alt="" />}
+          {img && <Img src={img} alt="" unoptimized={true} />}
         </div>
         <style jsx>{`
           div {

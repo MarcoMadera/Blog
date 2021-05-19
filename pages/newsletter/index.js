@@ -1,5 +1,5 @@
 import Seo from "../../components/Seo";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { colors } from "../../styles/theme";
 import { H1, Input, A } from "../../components/tags";
 import useDarkMode from "../../hooks/useDarkMode";
@@ -17,6 +17,11 @@ const NewsletterPage = () => {
   const isValidEmail = RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
+  useEffect(() => {
+    fetch("/api/views/newsletterpage", {
+      method: "POST",
+    });
+  }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!isValidEmail.test(email)) {

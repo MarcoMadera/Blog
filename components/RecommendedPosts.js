@@ -40,7 +40,7 @@ export default function RecommendedPosts({
                             )
                           : cover
                       }
-                      alt={`${title} cover`}
+                      alt={title}
                       width="40"
                       height="40"
                     />
@@ -68,13 +68,13 @@ export default function RecommendedPosts({
           padding: 3px;
         }
         p {
-          margin: 0;
           overflow: hidden;
           -webkit-box-orient: vertical;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           text-overflow: ellipsis;
           white-space: unset;
+          margin: 0 0 0 5px;
         }
         div :global(a:focus),
         div :global(a:hover) {
@@ -93,7 +93,6 @@ export default function RecommendedPosts({
         div :global(img) {
           clip-path: inset(0% 0% 0% 0% round 10px);
           height: 40px;
-          margin-right: 5px;
           width: 40px;
         }
         @media screen and (max-width: 400px) {

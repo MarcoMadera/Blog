@@ -3,8 +3,14 @@ import { ALink, H1, H2, Img, P } from "../../components/tags";
 import ChartJs from "../../components/icons/ChartJs";
 import ReactIcon from "../../components/icons/React";
 import Seo from "../../components/Seo";
+import { useEffect } from "react";
 
 export default function TestRandomNumbers() {
+  useEffect(() => {
+    fetch("/api/views/portafolio-random-numbers", {
+      method: "POST",
+    });
+  }, []);
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Números Pseudo Aleatorios" />

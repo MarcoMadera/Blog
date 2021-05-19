@@ -86,6 +86,12 @@ export default function About({
     return () => clearInterval(updateNowPlaying);
   }, [reqNowPlaying]);
 
+  useEffect(() => {
+    fetch("/api/views/page-sobre-mi", {
+      method: "POST",
+    });
+  }, []);
+
   return (
     <main>
       <Seo title="Sobre mí | Marco Madera" />

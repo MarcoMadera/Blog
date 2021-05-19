@@ -2,6 +2,7 @@ import Seo from "../../components/Seo";
 import ActionLink from "../../components/ActionLink";
 import { H1, H2, P, A, Img, ALink } from "../../components/tags";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
 const Article = ({ img, title, children }) => {
   return (
@@ -71,6 +72,11 @@ const Article = ({ img, title, children }) => {
 };
 
 const Portfolio = () => {
+  useEffect(() => {
+    fetch("/api/views/page-portafolio", {
+      method: "POST",
+    });
+  }, []);
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Marco Madera" />

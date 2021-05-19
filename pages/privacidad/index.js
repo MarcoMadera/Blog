@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 import Seo from "../../components/Seo";
 import { A, H1, H2, P, ALink, Ul, Li } from "../../components/tags";
 export default function Privacy() {
+  useEffect(() => {
+    fetch("/api/views/page-privacidad", {
+      method: "POST",
+    });
+  }, []);
   return (
     <main id="main">
       <Seo title="Política de privacidad" />

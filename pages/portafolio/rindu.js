@@ -1,8 +1,14 @@
 import ActionAnchor from "../../components/ActionAnchor";
 import { Ul, Li, H1, H2, Img, P, Video, H3 } from "../../components/tags";
 import Seo from "../../components/Seo";
+import { useEffect } from "react";
 
 export default function TestRandomNumbers() {
+  useEffect(() => {
+    fetch("/api/views/portafolio-rindu", {
+      method: "POST",
+    });
+  }, []);
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Rindu" />
