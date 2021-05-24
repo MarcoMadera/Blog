@@ -27,6 +27,8 @@ Si no se hace correctamente este paso se pueden tener datos corruptos. Por ejemp
 
 <tweet id="1379691085514047490"></tweet>
 
+<tweet id="1396196807173099524" caption="[Actualización: 22 Mayo 21] A partir de está fecha se le asignó un nombre de usuario, lo cual ya pasaba en las aplicaciones móbiles cambiando cada cierto tiempo."></tweet>
+
 Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al *frontend* puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
 
 ```json

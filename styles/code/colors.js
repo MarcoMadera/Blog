@@ -12,7 +12,9 @@ export const colors = {
   orange: "#ee5c18",
   black: "#24292e",
   yellow: "#707c2e",
+  textcolor: "#000",
 
+  dark_textcolor: "#c9d1d9",
   dark_red: "#ff4e4a",
   dark_purple: "#aa5dff",
   dark_lightpurple: "#8b8bf7",

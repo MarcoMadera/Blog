@@ -107,7 +107,7 @@ export const components = {
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        style={{ maxWidth: 100 + "%" }}
+        style={{ maxWidth: 100 + "%", margin: "auto", display: "block" }}
       ></iframe>
     );
   },
@@ -115,7 +115,12 @@ export const components = {
     return <Input {...props} />;
   },
   tweet: function TweetNode({ node }) {
-    return <Tweet id={node.properties.id} caption={node.properties.caption} />;
+    return (
+      <Tweet
+        id={node.properties.id}
+        caption={node.properties.caption || node.children[0]}
+      />
+    );
   },
   pre: function PreNode({ children }) {
     return <>{children}</>;
@@ -162,18 +167,42 @@ export const components = {
       </Li>
     );
   },
-  img: function ImageMD(props) {
+  img: function ImageMD({ node }) {
     const { darkMode } = useDarkMode();
-    if (props.className === "twemoji") {
+    if (node.className === "twemoji") {
       // eslint-disable-next-line jsx-a11y/alt-text
-      return <img {...props.node.properties} />;
+      return <img {...node.properties} />;
     }
-    return <Img src={darkMode ? props.dark : props.light} {...props} />;
+    if (node.properties.caption) {
+      return (
+        <figure>
+          <Img
+            src={darkMode ? node.properties.dark : node.properties.light}
+            {...node.properties}
+          />
+          <figcaption>{node.properties.caption}</figcaption>
+          <style jsx>{`
+            figcaption {
+              font-size: 14px;
+              text-align: center;
+              margin: 10px 10% 20px;
+            }
+          `}</style>
+        </figure>
+      );
+    }
+
+    return (
+      <Img
+        src={darkMode ? node.properties.dark : node.properties.light}
+        {...node.properties}
+      />
+    );
   },
   actionanchor: function ActionAnchorNode({ node, children }) {
     return <ActionAnchor {...node.properties}>{children}</ActionAnchor>;
   },
-  actionbutton: function ActionAnchorNode({ node, children }) {
+  actionbutton: function ActionButtonNode({ node, children }) {
     return <ActionButton {...node.properties}>{children}</ActionButton>;
   },
   details: function DetailsMd({ children }) {
@@ -205,10 +234,10 @@ export const components = {
       </Th>
     );
   },
-  h1: function HeadingMd({ children }) {
+  h1: function Heading1Md({ children }) {
     return <H2>{children}</H2>;
   },
-  h2: function HeadingMd({ children }) {
+  h2: function Heading2Md({ children }) {
     return <H2 id={slugify(children)}>{children}</H2>;
   },
 };

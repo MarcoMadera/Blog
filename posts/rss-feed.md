@@ -26,17 +26,11 @@ Primero lo que se necesita es que la página deseada tenga implementada la funci
 - [Feedly](https://feedly.com/ "Feedly")
 - [Inoreader](https://www.inoreader.com/ "Inoreader")
 
-<image title="Suscription Feedly" light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_260,dpr_auto/v1608404341/Blog/4/Feedly_r2qhyn.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_260,dpr_auto/v1608404341/Blog/4/Feedly-Dark_cmpfyk.png">
+<img title="Suscription Feedly" light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_260,dpr_auto/v1608404341/Blog/4/Feedly_r2qhyn.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_260,dpr_auto/v1608404341/Blog/4/Feedly-Dark_cmpfyk.png" caption="En este caso solo necesité de la dirección del sitio para que lo detectara automáticamente.">
 
-&nbsp; &nbsp;👆 En este caso solo necesité de la dirección del sitio para que lo detectara automáticamente.
+<img title="Suscription Feedly" light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_313,dpr_auto/v1608405004/Blog/4/Feed_nxhgwx.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_309,dpr_auto/v1608405004/Blog/4/Feed-dark_rvsujs.png" caption="Vista de revista. Puedes marcar los que ya has leído para que te aparezcan los últimos, guardarlos para leerlos después y muchas otras funcionalidades que te proporciona esta herramienta.">
 
-<image title="Suscription Feedly" light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_313,dpr_auto/v1608405004/Blog/4/Feed_nxhgwx.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_309,dpr_auto/v1608405004/Blog/4/Feed-dark_rvsujs.png">
-
-Vista de revista. Puedes marcar los que ya has leído para que te aparezcan los últimos, guardarlos para leerlos después y muchas otras funcionalidades que te proporciona esta herramienta.
-
-![Modo lectura Feedreader](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_342,dpr_auto/v1607482981/Blog/RSS-Feed/Feedreader_kkrozu.png "Modo lectura Feedreader")
-
-Ahora con Feedreader en modo lectura
+<img title="Modo lectura Feedreader" src="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_342,dpr_auto/v1607482981/Blog/RSS-Feed/Feedreader_kkrozu.png" caption="Feedreader en modo lectura">
 
 ---
 

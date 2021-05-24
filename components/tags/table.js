@@ -13,6 +13,10 @@ export function Table({ children, ...attribs }) {
           overflow: auto;
           width: max-content;
         }
+        table :global(caption) {
+          padding: 8px;
+          caption-side: bottom;
+        }
       `}</style>
     </table>
   );

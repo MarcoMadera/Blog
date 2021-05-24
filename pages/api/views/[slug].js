@@ -1,4 +1,4 @@
-import { database } from "../../../firebase/admin";
+import { database } from "../../../lib/firebase/admin";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {

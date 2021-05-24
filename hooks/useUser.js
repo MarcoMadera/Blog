@@ -5,7 +5,7 @@ import {
   loginWithGithub,
   loginWithTwitter,
   logOut,
-} from "../firebase/client";
+} from "../lib/firebase/client";
 import useNotification from "./useNotification";
 
 export default function useUser() {

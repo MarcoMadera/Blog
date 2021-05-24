@@ -10,7 +10,6 @@ import PropTypes from "prop-types";
 import BlogFooter from "../../components/BlogFooter";
 import { colors } from "../../styles/theme";
 import { getFormattedDate, insertTextBetween } from "../../utils/helpers";
-import { blogStyles } from "../../styles/blogStyles";
 import { imageCloudProvider } from "../../site.config";
 import getTweets from "../../lib/twitter";
 import { H1, ALink, Hr } from "../../components/tags";
@@ -239,9 +238,6 @@ export default function Post({
           }
         }
       `}</style>
-      <style global jsx>
-        {blogStyles}
-      </style>
     </main>
   );
 }

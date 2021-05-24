@@ -215,7 +215,7 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 
 `<Figure>` es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta `<figcaption>` que es la leyenda del contenido.
 
-<figure><img style="border-radius:10px;" src="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura" width="200" height="200"><figcaption>Imagen Aleatoria</figcaption></figure>
+<img src="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura" caption="Imagen Aleatoria">
 
 ```html
 <figure>
@@ -402,9 +402,11 @@ También nos podemos poner más creativos y usar distintas combinaciones con dif
 
 Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y encabezados.
 
+<colors textcolor></colors>
+
 <style>table{color: #fff;}col{background-color:#133163;}col[span="1"]{background-color:#293882;}col[span="2"]{background-color:#42461c;}td[colspan="2"] {background-color:#1c7f3d;}</style>
 
-<table><caption>Precio de cosas</caption><colgroup><col span="0"><col span="1"><col span="2"></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2">$336</td></tr></tfoot></table>
+<table><caption class="textcolor">Precio de cosas</caption><colgroup><col span="0"><col span="1"><col span="2"></colgroup><thead><tr><th>Nombre</th><th>Precio</th><th>IVA</th></tr></thead><tbody><tr><td>Elemento 1</td><td>100</td><td>12</td></tr><tr><td>Elemento 2</td><td>200</td><td>24</td></tr></tbody><tfoot><tr><td>Total</td><td colspan="2">$336</td></tr></tfoot></table>
 
 ```html
 <table>

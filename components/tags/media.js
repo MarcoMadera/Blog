@@ -9,6 +9,9 @@ const LoadDetailsDialog = dynamic(() => import("./details-dialog"), {
 });
 
 export function Img({ src, alt = "", title, width: w, height: h }) {
+  if (!src) {
+    return null;
+  }
   const height =
     h ||
     (src.startsWith(imageCloudProvider) &&
