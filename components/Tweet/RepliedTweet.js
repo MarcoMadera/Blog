@@ -12,7 +12,7 @@ import useMounted from "../../hooks/useMounted";
 export default function RepliedTweet({ data }) {
   const { darkMode } = useDarkMode();
   const mounted = useMounted();
-  const replyUrl = `https://twitter.com/intent/like?in_reply_to=${data.tweet.id}`;
+  const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${data.tweet.id}`;
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${data.tweet.id}`;
   const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${data.tweet.id}`;
   const userprofile = `https://twitter.com/${data.user[0].username}`;

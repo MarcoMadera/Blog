@@ -33,6 +33,7 @@ export default function Tweet({ id, caption }) {
             className="brand"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Ver en Twitter"
           >
             <div className="icon-twitter" title="Ver en Twitter" role="img" />
           </a>
