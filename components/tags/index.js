@@ -8,3 +8,4 @@ export { Li, Ol, Ul } from "./lists";
 export { Img, Video } from "./media";
 export { Table, Th, Td } from "./table";
 export { Abbr, Blockquote, Dialog, Hr, Kbd, P } from "./text";
+export { Youtube } from "./embeds";

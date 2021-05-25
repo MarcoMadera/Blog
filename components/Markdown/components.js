@@ -22,6 +22,7 @@ import {
   Dialog,
   Select,
   Video,
+  Youtube,
 } from "../tags";
 import slugify from "react-slugify";
 import useDarkMode from "../../hooks/useDarkMode";
@@ -99,25 +100,21 @@ export const components = {
   },
   youtube: function YoutubeVideoNode({ node }) {
     return (
-      <iframe
-        width="560"
-        height="315"
-        src={`https://www.youtube-nocookie.com/embed/${node.properties.id}`}
-        title={node.properties.title}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        style={{ maxWidth: 100 + "%", margin: "auto", display: "block" }}
-      ></iframe>
+      <Youtube
+        id={node.properties.id}
+        caption={node.properties.caption || node.children[0]}
+      />
     );
   },
   input: function InputNode(props) {
     return <Input {...props} />;
   },
   tweet: function TweetNode({ node }) {
+    const includeConversation = node.properties.includeconversation !== "false";
     return (
       <Tweet
         id={node.properties.id}
+        includeConversation={includeConversation}
         caption={node.properties.caption || node.children[0]}
       />
     );

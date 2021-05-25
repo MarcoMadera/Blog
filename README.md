@@ -2,11 +2,11 @@
 
 Blog Site: <https://marcomadera.com>
 
-## Want to Contribute?
+## **Want to Contribute?**
 
 Thank you for your interest in contributing to the blog site. Submit an issue in the Issues section for reporting/fixing bugs/typos and to request new features.
 
-### Creating a new post
+## **Creating a new post**
 
 To create a new post, create a markdown file (.md) in the `/posts` directory. Make sure the metadata syntax at the start of your new blog follows the pattern given below:
 
@@ -28,14 +28,126 @@ tags:
 Blog content goes here following the markdown syntax.
 ```
 
-### Embed
+## **Embed Elements**
 
-To embed videos from youtube or tweets are available with the following tags
+To embed videos from youtube use the youtube tag.
 
 ```html
 <!-- https://www.youtube.com/watch?v=xcJtL7QggTI id=xcJtL7QggTI -->
-<youtube id="video Id" title="Video Title">
-
-<!-- https://twitter.com/Twitter/status/1323314485705297926 id=1323314485705297926 -->
-<tweet id="Tweet Id">
+<youtube id="video Id" title="Video Title" caption="string"></youtube>
 ```
+
+**`Properties`**
+
+- `id` (string)
+- `title` (string?)
+- `caption` (string?)
+
+To include Tweets in your post use:
+
+```html
+<!-- https://twitter.com/Twitter/status/1323314485705297926 id=1323314485705297926 -->
+<tweet id="Tweet Id" includeconversation="false" caption="string"></tweet>
+```
+
+**`Properties`**
+
+- `id` (string)
+- `includeconversation` ("false" | "true") optional\
+  By default show the full conversation as a thread, setting to `"false"` will show a single tweet.
+- `caption` (string?)
+
+The optional property `includeconversation` is set to `true` by default
+
+## **Custom Tags**
+
+In addition to everything that is already included with Markdown
+
+### **Images**
+
+In Markdown, images work this way `![text](src)` there's not much play, but if you want to have the alternative text and the title separately, use the same structure as html, this way you can also add a `caption`.
+
+```html
+<img src="" alt="" tile="" caption="" light="" dark="">
+```
+
+**`Properties`**
+
+- `src` (string)
+- `alt` (string?)
+- `title` (string?)
+- `caption` (string?)
+- `light` (string?)\
+  Is the img src that will be use when the theme page is light
+- `dark` (string?)\
+  Is the img src will be use when the theme page is dark
+
+⚡ This tag does not replace the Markdown form.
+
+### **Gifs**
+
+Sometimes videos are better than actual gif to get the same behaviour as a gif use the tag `videogif`
+
+```html
+<videogif src="" light="" dark="" title=""></videogif>
+```
+
+**`Properties`**
+
+- `src` (string)
+- `title` (string?)
+- `light` (string?)\
+  Is the video src that will be use when the theme page is light
+- `dark` (string?)\
+  Is the video src will be use when the theme page is dark
+
+⚡ This tag does not replace the Markdown form.
+
+### **Text Font/Colors**
+
+You can change the font of your texts with the tag usefont:
+
+Go to the page <https://fonts.google.com> and choose a font
+
+```html
+<usefont src="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap"></usefont>
+
+<p style="font-family:Odibee Sans">Font families</p>
+```
+
+**`Properties`**
+
+- `src` (string)
+- `name` (string?)\
+  Use the property `name` when you have the `.woff` font to set the font name
+
+⚡ This only accept fonts from <https://fonts.gstatic.com> and <https://fonts.googleapis.com>
+
+Make your text colorful with the predefined colors suitable for light mode and dark mode. The tag `colors` will make available the colors included as a class in the page.
+
+```html
+<colors red blue green yellow lightblue purple darkyellow></colors>
+
+Without color
+
+With <p class="green">color</p>
+```
+
+Available colors:
+
+- red
+- purple
+- lightpurple
+- blue
+- lightblue
+- gray
+- darkgray
+- darkyellow
+- darkpink
+- green
+- orange
+- black
+- yellow
+- textcolor
+
+For more examples you can explore the `posts` folder.

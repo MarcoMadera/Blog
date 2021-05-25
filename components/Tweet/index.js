@@ -11,8 +11,8 @@ import { formatTweetText } from "./formatTweetText";
 import QuotedTweet from "./QuotedTweet";
 import RepliedTweet from "./RepliedTweet";
 
-export default function Tweet({ id, caption }) {
-  const { data } = useTweet(id);
+export default function Tweet({ id, caption, includeConversation }) {
+  const { data } = useTweet(id, includeConversation);
   const user = Array.isArray(data?.user) ? data?.user[0] : null;
   const { darkMode } = useDarkMode();
   // Happens when `getStaticProps` is traversing the tree to collect the tweet ids
@@ -120,7 +120,10 @@ export default function Tweet({ id, caption }) {
         }
         div.tweet > div {
           position: relative;
-          padding: 7px 12px 5px 12px;
+          padding: ${data.repliedTweet
+            ? "0px 12px 5px 12px"
+            : "7px 12px 5px 12px"};
+          margin-top: ${data.repliedTweet ? "-3px" : "0px"};
         }
         div.tweet :global(.icon) {
           display: inline-block;

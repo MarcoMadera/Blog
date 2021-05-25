@@ -9,6 +9,7 @@ import {
 } from "../../utils/helpers";
 import PropTypes from "prop-types";
 import useMounted from "../../hooks/useMounted";
+import QuotedTweet from "./QuotedTweet";
 export default function RepliedTweet({ data }) {
   const { darkMode } = useDarkMode();
   const mounted = useMounted();
@@ -22,6 +23,7 @@ export default function RepliedTweet({ data }) {
       : null;
   return (
     <blockquote className="container">
+      {data.repliedTweet ? <RepliedTweet data={data.repliedTweet} /> : null}
       <div className="tweet">
         <div>
           <a
@@ -77,6 +79,7 @@ export default function RepliedTweet({ data }) {
           <p>{formatTweetText(data.tweet.text, data.tweet.entities)}</p>
           {data.polls ? <Poll data={data.polls} /> : null}
           {data.media ? <Media data={data.media} quoted={true} /> : null}
+          {data.quotedTweet ? <QuotedTweet data={data.quotedTweet} /> : null}
           <div className="info">
             <a
               className="reply_count"
@@ -285,6 +288,7 @@ export default function RepliedTweet({ data }) {
           justify-content: space-between;
           width: 100%;
           padding: 0 15px;
+          margin-bottom: 10px;
         }
         .repliedTweet {
           position: relative;
