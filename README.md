@@ -30,20 +30,7 @@ Blog content goes here following the markdown syntax.
 
 ## **Embed Elements**
 
-To embed videos from youtube use the youtube tag.
-
-```html
-<!-- https://www.youtube.com/watch?v=xcJtL7QggTI id=xcJtL7QggTI -->
-<youtube id="video Id" title="Video Title" caption="string"></youtube>
-```
-
-**`Properties`**
-
-- `id` (string)
-- `title` (string?)
-- `caption` (string?)
-
-To include Tweets in your post use:
+To include Tweets in your post use the `tweet` tag:
 
 ```html
 <!-- https://twitter.com/Twitter/status/1323314485705297926 id=1323314485705297926 -->
@@ -58,6 +45,19 @@ To include Tweets in your post use:
 - `caption` (string?)
 
 The optional property `includeconversation` is set to `true` by default
+
+To embed videos from youtube use the youtube tag.
+
+```html
+<!-- https://www.youtube.com/watch?v=xcJtL7QggTI id=xcJtL7QggTI -->
+<youtube id="video Id" title="Video Title" caption="string"></youtube>
+```
+
+**`Properties`**
+
+- `id` (string)
+- `title` (string?)
+- `caption` (string?)
 
 ## **Custom Tags**
 

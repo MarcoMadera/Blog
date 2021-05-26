@@ -29,7 +29,7 @@ export default function AllTags({ tags, title = "Todas las etiquetas" }) {
       <style jsx>{`
         section :global(a) {
           margin: 0 0 3px 0;
-          width: min-content;
+          width: fit-content;
         }
         section :global(div) {
           display: grid;

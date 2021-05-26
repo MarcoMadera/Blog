@@ -166,7 +166,7 @@ export const components = {
   },
   img: function ImageMD({ node }) {
     const { darkMode } = useDarkMode();
-    if (node.className === "twemoji") {
+    if (node.properties?.className?.includes("twemoji")) {
       // eslint-disable-next-line jsx-a11y/alt-text
       return <img {...node.properties} />;
     }

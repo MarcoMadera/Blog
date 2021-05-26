@@ -132,8 +132,8 @@ module.exports = {
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com;
-  child-src *.youtube-nocookie.com *.google.com *.twitter.com *.bitsofco.de;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.google.com *.youtube.com *.firebaseio.com *.twitter.com;
+  child-src *.youtube-nocookie.com *.google.com *.twitter.com *.bitsofco.de *.firebaseio.com *.firebaseapp.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;
   media-src 'self' *.cloudinary.com;
