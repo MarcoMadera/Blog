@@ -11,12 +11,12 @@ import { formatTweetText } from "./formatTweetText";
 import QuotedTweet from "./QuotedTweet";
 import RepliedTweet from "./RepliedTweet";
 
-export default function Tweet({ id, caption, includeConversation }) {
-  const { data } = useTweet(id, includeConversation);
+export default function Tweet({ id, caption, hideConversation }) {
+  const { data, ignore } = useTweet(id, hideConversation);
   const user = Array.isArray(data?.user) ? data?.user[0] : null;
   const { darkMode } = useDarkMode();
   // Happens when `getStaticProps` is traversing the tree to collect the tweet ids
-  if (!user || data?.ignore) {
+  if (!user || ignore) {
     return null;
   }
   const quotedTweetUrl = data.quotedTweet

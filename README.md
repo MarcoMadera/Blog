@@ -34,14 +34,15 @@ To include Tweets in your post use the `tweet` tag:
 
 ```html
 <!-- https://twitter.com/Twitter/status/1323314485705297926 id=1323314485705297926 -->
-<tweet id="Tweet Id" includeconversation="false" caption="string"></tweet>
+<tweet id="Tweet Id" hideConversation=false caption="string"></tweet>
 ```
 
 **`Properties`**
 
 - `id` (string)
-- `includeconversation` ("false" | "true") optional\
-  By default show the full conversation as a thread, setting to `"false"` will show a single tweet.
+- `hideConversation` ?boolean, default: false\
+  When false it shows the full conversation as a thread\
+  When true a single tweet is displayed.
 - `caption` (string?)
 
 The optional property `includeconversation` is set to `true` by default

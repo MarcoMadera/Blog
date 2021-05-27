@@ -110,11 +110,12 @@ export const components = {
     return <Input {...props} />;
   },
   tweet: function TweetNode({ node }) {
-    const includeConversation = node.properties.includeconversation !== "false";
+    const hprop = node.properties.hideconversation;
+    const hideConversation = hprop === undefined ? false : hprop !== "false";
     return (
       <Tweet
         id={node.properties.id}
-        includeConversation={includeConversation}
+        hideConversation={hideConversation}
         caption={node.properties.caption || node.children[0]}
       />
     );
