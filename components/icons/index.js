@@ -12,7 +12,7 @@ export { FacebookShare } from "./FacebookShare";
 export { Film } from "./Film";
 export { GithubSquare } from "./GithubSquare";
 export { Html5 } from "./Html5";
-export { info } from "./info";
+export { Info } from "./Info";
 export { Java } from "./Java";
 export { JavaScript } from "./JavaScript";
 export { Js } from "./Js";
