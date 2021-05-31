@@ -1,138 +1,12 @@
 import { getPostsPagesPaths, getHomeDataFromPage } from "../../utils/posts";
-import PropTypes from "prop-types";
-import Aside from "../../components/Aside";
-import Seo from "../../components/Seo";
-import Newsletter from "../../components/Newsletter";
-import AllTags from "../../components/AllTags";
-import BlogCard from "../../components/BlogCard";
-import Custom404 from "../404";
-import { colors } from "../../styles/theme";
-import Link from "next/link";
-import { siteMetadata } from "../../site.config";
-import useDarkMode from "../../hooks/useDarkMode";
+import HomeLayout from "../../layouts/Home";
 
-export default function Page({
-  posts = [],
-  pages = [],
-  tags = [],
-  currentPage,
-}) {
-  const { darkMode } = useDarkMode();
-
+export default function Page(data) {
   return (
-    <main id="main">
-      <Seo
-        title={`Marco Madera 📝 | Página ${currentPage}`}
-        canonical={siteMetadata.siteUrl}
-      />
-      <Aside />
-      <section>
-        <h1>Últimos artículos</h1>
-        {posts.map((data) => (
-          <BlogCard {...data} key={data.slug} />
-        ))}
-        {posts.length <= 0 && <Custom404 />}
-        <nav aria-label="Paginación">
-          <ol>
-            {pages.map((pageNumber, i) => {
-              return (
-                <li key={pageNumber}>
-                  <Link href={i === 0 ? "/" : `/pagina/${pageNumber}`}>
-                    <a
-                      className={
-                        currentPage === pageNumber.toString()
-                          ? "currentPage"
-                          : "pagination"
-                      }
-                      aria-label={
-                        currentPage === pageNumber.toString()
-                          ? "Página actual"
-                          : `Ir a la página ${pageNumber}`
-                      }
-                      aria-current={
-                        currentPage === pageNumber.toString()
-                          ? "true"
-                          : undefined
-                      }
-                    >
-                      {pageNumber}
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ol>
-        </nav>
-      </section>
-      <aside>
-        <AllTags tags={tags} />
-        <Newsletter />
-      </aside>
-      <style jsx>{`
-        a {
-          color: ${darkMode ? colors.dark_primary : colors.primary};
-        }
-        :global(.pagination:hover) {
-          color: ${darkMode
-            ? colors.dark_secondary
-            : colors.secondary} !important;
-        }
-        :global(.currentPage) {
-          background-color: ${darkMode
-            ? colors.dark_primary
-            : colors.primary} !important;
-        }
-      `}</style>
-      <style jsx>{`
-        h1 {
-          font-size: 1rem;
-          margin: 0.83em 0;
-        }
-        nav {
-          display: flex;
-          justify-content: center;
-        }
-        ol {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-
-        li {
-          display: inline-block;
-        }
-        a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          line-height: 1;
-          margin: 0 5px;
-
-          font-weight: 600;
-          padding: 5px 12px;
-          width: 31px;
-          height: 31px;
-          border-radius: 50% !important;
-          text-decoration: none;
-        }
-        main {
-          display: grid;
-          grid-template-columns: 240px minmax(0px, 710px) 240px;
-          grid-gap: 2em;
-          justify-content: center;
-          padding: 0 20px 50px 20px;
-        }
-        @media screen and (min-width: 0px) and (max-width: 876px) {
-          main {
-            grid-template-columns: auto;
-          }
-        }
-        :global(.currentPage) {
-          border-radius: 50% !important;
-          color: ${colors.background} !important;
-        }
-      `}</style>
-    </main>
+    <HomeLayout
+      title={`Marco Madera 📝 | Página ${data.currentPage}`}
+      {...data}
+    />
   );
 }
 
@@ -146,12 +20,5 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { number } }) {
   const { posts, pages, tags } = getHomeDataFromPage(number);
-  return { props: { posts, tags, pages, currentPage: number } };
+  return { props: { posts, tags, pages, currentPage: Number(number) } };
 }
-
-Page.propTypes = {
-  posts: PropTypes.array,
-  pages: PropTypes.array,
-  currentPage: PropTypes.string,
-  tags: PropTypes.array,
-};

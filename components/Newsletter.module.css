@@ -1,0 +1,35 @@
+.form {
+  border-radius: 4px;
+  height: fit-content;
+  margin-bottom: 50px;
+  margin-top: 40px;
+  padding: 20px;
+  position: sticky;
+  text-align: center;
+  top: 10px;
+  width: 100%;
+}
+.form label {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 30px 0;
+}
+.form p {
+  font-size: 15px;
+  text-align: center;
+  margin: 1em 0;
+}
+.form input {
+  margin-bottom: 30px;
+  outline: unset;
+  width: 100%;
+}
+.form button {
+  width: 100%;
+}
+
+@media print {
+  .form {
+    display: none;
+  }
+}

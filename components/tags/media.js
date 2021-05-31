@@ -3,7 +3,7 @@ import Image from "next/image";
 import { imageCloudProvider } from "../../site.config";
 import PropTypes from "prop-types";
 import useDarkMode from "../../hooks/useDarkMode";
-
+import styles from "./media.module.css";
 const LoadDetailsDialog = dynamic(() => import("./details-dialog"), {
   ssr: false,
 });
@@ -29,7 +29,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
   const layout = width && height ? "intrinsic" : "cover";
 
   return (
-    <details>
+    <details className={styles.details}>
       <summary
         aria-label="Expandir imagen"
         style={
@@ -74,7 +74,7 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
       </summary>
       <details-dialog>
         <div className="bg" data-close-dialog>
-          <div className="imageContainer">
+          <div className={styles.imageContainer}>
             {src.startsWith(imageCloudProvider) ? (
               <Image
                 alt={alt}
@@ -123,99 +123,6 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
             : "0 auto"};
         }
       `}</style>
-      <style jsx>{`
-        div :global(img) {
-          max-height: calc(100vh - 10vh);
-          max-width: calc(100vw - 3rem);
-        }
-        details *:focus {
-          outline: none;
-          outline-style: none;
-        }
-        .imageContainer {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          max-width: calc(100vw - 30px);
-          max-height: calc(100vh - 20px);
-          position: relative;
-          width: 100%;
-        }
-        details {
-          border: unset;
-          display: block;
-          overflow: hidden;
-          padding: 0;
-          max-width: fit-content;
-        }
-        details[open] {
-          padding: 0;
-        }
-        details[open] summary {
-          border: unset;
-        }
-        summary {
-          border: unset;
-          display: flex;
-          justify-content: center;
-          list-style: none;
-          margin: 0 auto;
-          padding: 0;
-          position: relative;
-          max-width: 100%;
-        }
-         {
-          /*is deprecated but don't remove until most browsers are updated */
-        }
-        summary::-webkit-details-marker {
-          display: none;
-        }
-        summary::marker {
-          display: none;
-        }
-        summary :global(img) {
-          border-radius: 10px;
-          cursor: pointer;
-          max-height: 100vh;
-          max-width: 100%;
-        }
-        :global(details-dialog) {
-          box-sizing: border-box;
-          height: 100vh;
-          left: 50%;
-          position: fixed;
-          transform: translateX(-50%);
-          text-align: center;
-          top: 0;
-          width: 100vw;
-          z-index: 999;
-        }
-        details[open] :global(details-dialog) > .bg {
-          align-items: center;
-          background: rgba(0, 0, 0, 0.3);
-          bottom: 0;
-          display: flex;
-          justify-content: center;
-          left: 0;
-          padding: 5vh 1.5rem;
-          position: fixed;
-          right: 0;
-          top: 0;
-          z-index: -1;
-        }
-        details:focus-within,
-        details:active {
-          outline-style: dashed;
-          outline-width: 2px;
-          outline-color: #b50000;
-        }
-        @media screen and (max-width: 450px) {
-          :global(details-dialog) {
-            padding: 5vh 1rem;
-          }
-        }
-      `}</style>
     </details>
   );
 }
@@ -225,19 +132,16 @@ export function Video({ src, dark, light, title, ...attribs }) {
 
   return (
     // eslint-disable-next-line jsx-a11y/media-has-caption
-    <video src={src ?? (darkMode ? dark : light)} title={title} {...attribs}>
+    <video
+      src={src ?? (darkMode ? dark : light)}
+      title={title}
+      className={styles.video}
+      {...attribs}
+    >
       Tu navegador no soporta videos
       <style jsx>{`
         video {
           filter: ${darkMode ? "none" : "brightness(110%)"};
-        }
-      `}</style>
-      <style jsx>{`
-        video {
-          display: block;
-          clip-path: inset(0% 0% 0% 0% round 10px);
-          margin: auto;
-          max-width: 99%;
         }
       `}</style>
     </video>

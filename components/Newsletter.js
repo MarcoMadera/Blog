@@ -1,19 +1,11 @@
 import ActionButton from "./ActionButton";
 import { colors } from "../styles/theme";
 import { Input } from "./tags";
-import PropTypes from "prop-types";
 import { useRef, useState } from "react";
 import useDarkMode from "../hooks/useDarkMode";
 import useNotification from "../hooks/useNotification";
 import { useRouter } from "next/router";
-
-function Label({ children }) {
-  return <label htmlFor="bd-email">{children}</label>;
-}
-
-function P({ children }) {
-  return <p>{children}</p>;
-}
+import styles from "./Newsletter.module.css";
 
 export default function Newsletter() {
   const router = useRouter();
@@ -73,9 +65,14 @@ export default function Newsletter() {
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} noValidate>
-      <Label>¡Suscríbete al Newsletter!</Label>
-      <P>Recibirás actualizaciones del blog con temas de programación</P>
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      noValidate
+      className={styles.form}
+    >
+      <label htmlFor="bd-email">¡Suscríbete al Newsletter!</label>
+      <p>Recibirás actualizaciones del blog con temas de programación</p>
       <Input
         type="email"
         name="email"
@@ -104,51 +101,6 @@ export default function Newsletter() {
           border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
         }
       `}</style>
-      <style jsx>{`
-        form {
-          border-radius: 4px;
-          height: fit-content;
-          margin-bottom: 50px;
-          margin-top: 40px;
-          padding: 20px;
-          position: sticky;
-          text-align: center;
-          top: 10px;
-          width: 100%;
-        }
-        form :global(label) {
-          font-size: 18px;
-          font-weight: 600;
-          margin: 30px 0;
-        }
-        form :global(p) {
-          font-size: 15px;
-          text-align: center;
-          margin: 1em 0;
-        }
-        form :global(input) {
-          margin-bottom: 30px;
-          outline: unset;
-          padding: 6px 8px;
-          width: 100%;
-        }
-        form :global(button) {
-          width: 100%;
-        }
-
-        @media print {
-          form {
-            display: none;
-          }
-        }
-      `}</style>
     </form>
   );
 }
-
-Label.propTypes = {
-  children: PropTypes.node,
-};
-P.propTypes = {
-  children: PropTypes.node,
-};

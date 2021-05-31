@@ -1,12 +1,12 @@
 import { colors } from "../../styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "../../hooks/useDarkMode";
-
+import styles from "./interactive.module.css";
 export function Details({ children }) {
   const { darkMode } = useDarkMode();
 
   return (
-    <details>
+    <details className={styles.details}>
       {children}
       <style jsx>{`
         details {
@@ -22,24 +22,6 @@ export function Details({ children }) {
           border-bottom: 1px solid ${colors.accents1};
         }
       `}</style>
-      <style jsx>{`
-        :global(summary) {
-          font-weight: bold;
-          margin: -0.5em -0.5em 0;
-          padding: 0.5em;
-        }
-        details {
-          border-radius: 4px;
-          padding: 0.5em 0.5em 0;
-        }
-
-        details[open] {
-          padding: 0.5em;
-        }
-        details[open] summary {
-          margin-bottom: 0.5em;
-        }
-      `}</style>
     </details>
   );
 }
@@ -47,19 +29,13 @@ export function Select({ children, name }) {
   const { darkMode } = useDarkMode();
 
   return (
-    <select name={name}>
+    <select name={name} className={styles.select}>
       {children}
       <style jsx>{`
         select {
           background: ${darkMode ? colors.dark_background : colors.background};
           border: 1px solid ${colors.accents1};
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
-        }
-      `}</style>
-      <style jsx>{`
-        select {
-          border-radius: 4px;
-          padding: 0.5em;
         }
       `}</style>
     </select>

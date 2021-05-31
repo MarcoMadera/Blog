@@ -1,14 +1,11 @@
 import Bio from "./Bio";
-import FacebookShare from "./icons/FacebookShare";
-import LinkedInShare from "./icons/LinkedInShare";
+import FacebookShare from "components/icons/FacebookShare";
+import LinkedInShare from "components/icons/LinkedInShare";
 import PropTypes from "prop-types";
-import { siteMetadata } from "../site.config";
-import TwitterShare from "./icons/TwitterShare";
-import { A } from "./tags";
-
-function Section({ children }) {
-  return <section>{children}</section>;
-}
+import { siteMetadata } from "site.config";
+import TwitterShare from "components/icons/TwitterShare";
+import { A } from "components/tags";
+import styles from "./BlogFooter.module.css";
 
 function Button({ url, network, children }) {
   return (
@@ -28,10 +25,6 @@ function Button({ url, network, children }) {
   );
 }
 
-function Heading({ children }) {
-  return <h2>{children}</h2>;
-}
-
 export default function BlogFooter({
   author,
   profilePhoto,
@@ -41,16 +34,16 @@ export default function BlogFooter({
   twitter,
 }) {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <Bio
         author={author}
         profilePhoto={profilePhoto}
         summary={summary}
         twitter={twitter}
       />
-      <Section>
+      <section>
         <div>
-          <Heading>Comparte el artículo</Heading>
+          <h2>Comparte el artículo</h2>
           <Button
             network="Twitter"
             url={`https://twitter.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${title}`}
@@ -72,7 +65,7 @@ export default function BlogFooter({
             <LinkedInShare width={30} height={30} />
           </Button>
         </div>
-        <p>
+        <p className={styles.p}>
           {/* Esta línea está "mal escrita" a propósito en modo irónico.*/}
           <span translate="no" data-nosnippet>
             As bisto une rata ?
@@ -86,64 +79,7 @@ export default function BlogFooter({
             Edita el artículo
           </A>
         </p>
-      </Section>
-      <style jsx>{`
-        div {
-          display: flex;
-          align-items: center;
-        }
-        p {
-          margin: 0;
-          font-size: 14px;
-        }
-        footer {
-          grid-area: footer;
-          margin-bottom: 20px;
-        }
-        footer :global(button) {
-          background: none;
-          border: none;
-          box-sizing: content-box;
-          cursor: pointer;
-          height: 30px;
-          margin: 9px;
-          padding: 0;
-          width: 30px;
-        }
-        footer :global(button:hover) {
-          filter: brightness(1.1);
-        }
-        footer :global(h2) {
-          font-size: 16px;
-          margin: 0;
-        }
-        footer :global(section) {
-          align-items: center;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-        }
-        @media screen and (max-width: 528px) {
-          footer :global(section div) {
-            display: block;
-            margin-top: 15px;
-          }
-          footer :global(section div button:nth-of-type(1)) {
-            margin-left: -10px;
-          }
-        }
-        @media screen and (max-width: 876px) {
-          footer :global(button) {
-            margin: 0px;
-            padding: 9px;
-          }
-        }
-        @media print {
-          footer {
-            display: none;
-          }
-        }
-      `}</style>
+      </section>
     </footer>
   );
 }
@@ -160,10 +96,4 @@ Button.propTypes = {
   children: PropTypes.node,
   network: PropTypes.string,
   url: PropTypes.string,
-};
-Heading.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-Section.propTypes = {
-  children: PropTypes.node.isRequired,
 };

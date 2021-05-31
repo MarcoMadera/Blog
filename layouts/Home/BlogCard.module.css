@@ -1,0 +1,55 @@
+.article {
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+.article section {
+  display: flex;
+  flex-wrap: wrap;
+}
+.article a {
+  display: inline-flex;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+.article div > a {
+  margin-right: 5px;
+}
+.article footer {
+  padding: 0 1rem 0.4rem;
+}
+.article footer a:hover,
+.article p:hover span {
+  text-decoration: underline;
+}
+.article h2 {
+  margin: 0;
+  font-size: 1.17em;
+  font-weight: 600;
+}
+.article h2:hover {
+  text-decoration: underline;
+}
+.article header {
+  display: grid;
+  grid-template-columns: 100fr 1fr;
+  padding: 0.5rem 1rem 0 1rem;
+}
+.article header div {
+  width: 760px;
+  width: auto;
+  padding-right: 1rem;
+}
+.article img {
+  width: 100px;
+  height: 100px;
+  clip-path: inset(0% 0% 0% 0% round 10px);
+}
+.article p {
+  margin: 0;
+  text-align: justify;
+}
+.article picture {
+  display: inline-flex;
+}

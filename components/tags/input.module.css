@@ -1,0 +1,23 @@
+.input {
+  border-radius: 4px;
+  font-family: Arial;
+  padding: 0.5em;
+}
+.inputColor {
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  height: 40px;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  width: 40px;
+}
+.inputColor[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.inputColor[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 100%;
+}

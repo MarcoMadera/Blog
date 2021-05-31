@@ -1,0 +1,8 @@
+.a {
+  display: inline;
+  text-decoration: none;
+}
+.a:hover,
+.a:focus {
+  text-decoration: underline;
+}

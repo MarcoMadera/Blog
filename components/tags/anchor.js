@@ -1,25 +1,14 @@
-import { colors } from "../../styles/theme";
+import { colors } from "styles/theme";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import useDarkMode from "../../hooks/useDarkMode";
-import css from "styled-jsx/css";
-
-export const anchorStyle = css`
-  a {
-    display: inline;
-    text-decoration: none;
-  }
-  a:hover,
-  a:focus {
-    text-decoration: underline;
-  }
-`;
+import useDarkMode from "hooks/useDarkMode";
+import styles from "./anchor.module.css";
 export function A({ classname, children, href, title, ...attribs }) {
   const { darkMode } = useDarkMode();
 
   return (
     <a
-      className={classname}
+      className={`${classname ? `${`${classname} ${styles.a}`}` : styles.a} `}
       href={href}
       title={title === "" ? undefined : title ?? href}
       {...attribs}
@@ -34,7 +23,6 @@ export function A({ classname, children, href, title, ...attribs }) {
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
       `}</style>
-      <style jsx>{anchorStyle}</style>
     </a>
   );
 }
@@ -48,7 +36,9 @@ export function ALink({ classname, children, href, title, ...attribs }) {
         <a
           title={title === "" ? undefined : title ?? href}
           {...attribs}
-          className={classname}
+          className={`${
+            classname ? `${`${classname} ${styles.a}`}` : styles.a
+          } `}
         >
           {children}
         </a>
@@ -62,7 +52,6 @@ export function ALink({ classname, children, href, title, ...attribs }) {
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
       `}</style>
-      <style jsx>{anchorStyle}</style>
     </>
   );
 }
