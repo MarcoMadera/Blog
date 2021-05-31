@@ -1,15 +1,13 @@
-import useDarkMode from "../../hooks/useDarkMode";
-import { colors, tweets } from "../../styles/theme";
+import useDarkMode from "hooks/useDarkMode";
+import { colors, tweets } from "styles/theme";
 import { formatTweetText } from "./formatTweetText";
 import { Media } from "./Media";
 import { Poll } from "./Poll";
-import {
-  formatNumber,
-  getQuotedTwitterFormattedDate,
-} from "../../utils/helpers";
+import { formatNumber, getQuotedTwitterFormattedDate } from "utils/helpers";
 import PropTypes from "prop-types";
-import useMounted from "../../hooks/useMounted";
+import useMounted from "hooks/useMounted";
 import QuotedTweet from "./QuotedTweet";
+
 export default function RepliedTweet({ data }) {
   const { darkMode } = useDarkMode();
   const mounted = useMounted();

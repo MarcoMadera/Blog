@@ -1,7 +1,7 @@
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import propTypes from "prop-types";
-import useDarkMode from "../../hooks/useDarkMode";
-import { colors } from "../../styles/theme";
+import useDarkMode from "hooks/useDarkMode";
+import { colors } from "styles/theme";
 export function Youtube({ id, title, caption }) {
   const { darkMode } = useDarkMode();
   return (

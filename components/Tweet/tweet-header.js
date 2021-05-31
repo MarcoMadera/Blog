@@ -1,8 +1,9 @@
-import { tweets } from "../../styles/theme";
+import { tweets } from "styles/theme";
 import PropTypes from "prop-types";
-import useDarkMode from "../../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
+
 export default function TweetHeader({
   name,
   username,
@@ -12,6 +13,7 @@ export default function TweetHeader({
   const { darkMode } = useDarkMode();
   const url = `https://twitter.com/${username}`;
   const htmlToReactParser = HtmlToReact.Parser();
+
   return (
     <div className="header">
       <a

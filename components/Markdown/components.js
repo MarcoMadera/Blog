@@ -25,7 +25,7 @@ import {
   Youtube,
 } from "../tags";
 import slugify from "react-slugify";
-import useDarkMode from "../../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 import Tweet from "../Tweet";
 import Colors from "../Colors";
 import Font from "../Font";

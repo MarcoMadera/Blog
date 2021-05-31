@@ -1,7 +1,7 @@
-import { colors } from "../../styles/theme";
-import useDarkMode from "../../hooks/useDarkMode";
+import { colors } from "styles/theme";
+import useDarkMode from "hooks/useDarkMode";
 
-export default function CSharp(props) {
+export function CSharp(props) {
   const { darkMode } = useDarkMode();
 
   return (

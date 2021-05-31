@@ -1,11 +1,12 @@
-import useDarkMode from "../../hooks/useDarkMode";
-import { colors, tweets } from "../../styles/theme";
+import useDarkMode from "hooks/useDarkMode";
+import { colors, tweets } from "styles/theme";
 import { formatTweetText } from "./formatTweetText";
 import { Media } from "./Media";
 import { Poll } from "./Poll";
-import { getQuotedTwitterFormattedDate } from "../../utils/helpers";
+import { getQuotedTwitterFormattedDate } from "utils/helpers";
 import PropTypes from "prop-types";
-import useMounted from "../../hooks/useMounted";
+import useMounted from "hooks/useMounted";
+
 export default function QuotedTweet({ data }) {
   const { darkMode } = useDarkMode();
   const mounted = useMounted();
@@ -13,6 +14,7 @@ export default function QuotedTweet({ data }) {
     typeof window !== "undefined" && mounted
       ? new Date(data.tweet.created_at)
       : null;
+
   return (
     <blockquote className="container">
       <div className="tweet">

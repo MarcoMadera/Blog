@@ -1,4 +1,4 @@
-import { tweets } from "../../styles/theme";
+import { tweets } from "styles/theme";
 import { Img } from "../tags";
 import PropTypes from "prop-types";
 

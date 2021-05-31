@@ -1,11 +1,7 @@
-import Seo from "../../components/Seo";
+import Seo from "components/Seo";
 import PropTypes from "prop-types";
-import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "../../components/tags";
-import ExcelIcon from "../../components/icons/Excel";
-import Js from "../../components/icons/JS";
-import Html5 from "../../components/icons/Html5";
-import Css from "../../components/icons/Css";
-import Vba from "../../components/icons/Vba";
+import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "components/tags";
+import { Excel, Js, Html5, Css, Vba } from "components/icons";
 import { useEffect } from "react";
 
 function Article({ title, img, children }) {
@@ -106,7 +102,7 @@ export default function sreExcel() {
             <Li>Hacer comparaciones.</Li>
           </Ul>
         </P>
-        <ExcelIcon width={50} height={50} />
+        <Excel width={50} height={50} />
       </Article>
       <Article
         title="Proceso de registro"

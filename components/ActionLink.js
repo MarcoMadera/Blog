@@ -1,7 +1,7 @@
-import { colors } from "../styles/theme";
+import { colors } from "styles/theme";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import useDarkMode from "../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 
 export default function ActionLink({ children, href }) {
   const { darkMode } = useDarkMode();

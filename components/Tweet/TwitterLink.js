@@ -1,10 +1,11 @@
-import { tweets } from "../../styles/theme";
+import { tweets } from "styles/theme";
 import PropTypes from "prop-types";
 
 export const TwitterLink = ({ href, title, type, children }) => {
   if (!children) {
     return null;
   }
+
   return (
     <a
       href={href}

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Seo from "../../components/Seo";
-import { A, H1, H2, P, ALink, Ul, Li } from "../../components/tags";
+import Seo from "components/Seo";
+import { A, H1, H2, P, ALink, Ul, Li } from "components/tags";
 export default function Privacy() {
   useEffect(() => {
     fetch("/api/views/page-privacidad", {

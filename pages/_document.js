@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript, Html } from "next/document";
-import { siteMetadata } from "../site.config";
+import { siteMetadata } from "site.config";
 
 export default class MyDocument extends Document {
   render() {

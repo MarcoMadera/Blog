@@ -1,9 +1,9 @@
 import { ALink } from "./tags";
 import ReactDOM from "react-dom";
 import { useEffect, useState } from "react";
-import { colors } from "../styles/theme";
-import useDarkMode from "../hooks/useDarkMode";
-import useCookies from "../hooks/useCookies";
+import { colors } from "styles/theme";
+import useDarkMode from "hooks/useDarkMode";
+import useCookies from "hooks/useCookies";
 export default function CookiesModal() {
   const [targetNode, setTargetNode] = useState();
   const { darkMode } = useDarkMode();

@@ -1,4 +1,4 @@
-import Seo from "../components/Seo";
+import Seo from "components/Seo";
 import PropTypes from "prop-types";
 
 export default function Error({ statusCode }) {

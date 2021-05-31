@@ -1,8 +1,7 @@
-import ActionAnchor from "../../components/ActionAnchor";
-import { ALink, H1, H2, Img, P } from "../../components/tags";
-import ChartJs from "../../components/icons/ChartJs";
-import ReactIcon from "../../components/icons/React";
-import Seo from "../../components/Seo";
+import ActionAnchor from "components/ActionAnchor";
+import { ALink, H1, H2, Img, P } from "components/tags";
+import { ChartJs, ReactIcon } from "components/icons";
+import Seo from "components/Seo";
 import { useEffect } from "react";
 
 export default function TestRandomNumbers() {

@@ -1,11 +1,10 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
-import { getFormattedDate } from "../../utils/helpers";
-import { imageCloudProvider } from "../../site.config";
-import useDarkMode from "../../hooks/useDarkMode";
-import { insertTextBetween } from "../../utils/helpers";
-import styles from "./BlogCard.module.css";
+import { getFormattedDate } from "utils/helpers";
+import { imageCloudProvider } from "site.config";
+import useDarkMode from "hooks/useDarkMode";
+import { insertTextBetween } from "utils/helpers";
 export default function BlogCard({
   author,
   cover,
@@ -19,7 +18,7 @@ export default function BlogCard({
   const { darkMode } = useDarkMode();
 
   return (
-    <article className={styles.article}>
+    <article>
       <Link href={`/blog/${slug}/`}>
         <a aria-label={`post ${title}`}>
           <header>
@@ -90,6 +89,62 @@ export default function BlogCard({
               ? "rgba(255,255,255,0.3)"
               : "rgba(0, 0, 0, 0.3)"}
             0px 0px 2px 0px;
+        }
+      `}</style>
+      <style jsx>{`
+        section {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        a {
+          display: inline-flex;
+          box-sizing: border-box;
+          text-decoration: none;
+          color: inherit;
+        }
+        article {
+          border-radius: 5px;
+          margin-bottom: 1rem;
+        }
+        div > a {
+          margin-right: 5px;
+        }
+        footer {
+          padding: 0 1rem 0.4rem;
+        }
+        footer a:hover,
+        header div p:hover span {
+          text-decoration: underline;
+        }
+        h2 {
+          margin: 0;
+          font-size: 1.17em;
+          font-weight: 600;
+        }
+        h2:hover {
+          text-decoration: underline;
+        }
+        header {
+          display: grid;
+          grid-template-columns: 100fr 1fr;
+          padding: 0.5rem 1rem 0 1rem;
+        }
+        header div {
+          width: 760px;
+          width: auto;
+          padding-right: 1rem;
+        }
+        img {
+          width: 100px;
+          height: 100px;
+          clip-path: inset(0% 0% 0% 0% round 10px);
+        }
+        p {
+          margin: 0;
+          text-align: justify;
+        }
+        picture {
+          display: inline-flex;
         }
       `}</style>
     </article>

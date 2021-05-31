@@ -1,9 +1,9 @@
-import { colors } from "../styles/theme";
+import { colors } from "styles/theme";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import { siteMetadata } from "../site.config";
+import { siteMetadata } from "site.config";
 import { useRouter } from "next/router";
-import useDarkMode from "../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 
 export default function Seo({
   author = "",

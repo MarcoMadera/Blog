@@ -1,4 +1,4 @@
-import { getPostsFiles } from "../utils/posts";
+import { getPostsFiles } from "../lib/posts";
 import {
   numberBetween,
   formatNumber,

@@ -1,13 +1,13 @@
 import Router from "next/router";
 import NProgress from "nprogress";
-import Layout from "../components/Layout";
-import "../styles/globals.css";
+import Layout from "components/Layout";
+import "styles/globals.css";
 import PropTypes from "prop-types";
 import Head from "next/head";
-import { siteMetadata } from "../site.config";
-import { DarkModeContextProvider } from "../context/DarkModeContext";
-import { CookiesContextProvider } from "../context/CookiesContext";
-import { NotificationContextProvider } from "../context/NotificationContext";
+import { siteMetadata } from "site.config";
+import { DarkModeContextProvider } from "context/DarkModeContext";
+import { CookiesContextProvider } from "context/CookiesContext";
+import { NotificationContextProvider } from "context/NotificationContext";
 export default function App({ Component, pageProps }) {
   Router.events.on("routeChangeStart", () => NProgress.start());
   Router.events.on("routeChangeComplete", () => NProgress.done());

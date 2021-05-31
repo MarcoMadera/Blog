@@ -1,6 +1,6 @@
-import { formatNumber, getTwitterFormattedDate } from "../../utils/helpers";
-import useMounted from "../../hooks/useMounted";
-import { tweets } from "../../styles/theme";
+import { formatNumber, getTwitterFormattedDate } from "utils/helpers";
+import useMounted from "hooks/useMounted";
+import { tweets } from "styles/theme";
 import PropTypes from "prop-types";
 
 export default function TweetInfo({ username, tweetId, metrics, created_at }) {

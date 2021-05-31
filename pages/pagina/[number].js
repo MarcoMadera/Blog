@@ -1,5 +1,5 @@
-import { getPostsPagesPaths, getHomeDataFromPage } from "../../utils/posts";
-import HomeLayout from "../../layouts/Home";
+import { getPostsPagesPaths, getHomeDataFromPage } from "lib/posts";
+import HomeLayout from "layouts/Home";
 
 export default function Page(data) {
   return (

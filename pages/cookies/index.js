@@ -1,8 +1,8 @@
-import Seo from "../../components/Seo";
-import { H1, H2, H3, A, Ul, Li, P, Table, Th, Td } from "../../components/tags";
-import useCookies from "../../hooks/useCookies";
-import { colors } from "../../styles/theme";
-import useDarkMode from "../../hooks/useDarkMode";
+import Seo from "components/Seo";
+import { H1, H2, H3, A, Ul, Li, P, Table, Th, Td } from "components/tags";
+import useCookies from "hooks/useCookies";
+import { colors } from "styles/theme";
+import useDarkMode from "hooks/useDarkMode";
 import { useEffect } from "react";
 
 export default function Cookies() {

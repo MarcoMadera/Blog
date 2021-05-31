@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CookiesContext from "../context/CookiesContext";
+import CookiesContext from "context/CookiesContext";
 import useNotification from "./useNotification";
 export default function useCookies() {
   const { acceptedcookies, setAcceptedCookies } = useContext(CookiesContext);

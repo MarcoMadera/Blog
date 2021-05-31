@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { colors } from "../styles/theme";
+import { colors } from "styles/theme";
 import PropTypes from "prop-types";
-import Moon from "./icons/Moon";
-import Sun from "./icons/Sun";
-import useDarkMode from "../hooks/useDarkMode";
-import styles from "./Navbar.module.css";
+import { Moon, Sun } from "./icons";
+import useDarkMode from "hooks/useDarkMode";
+
 function Anchor({ label, href, children, ...attribs }) {
   const router = useRouter();
 
@@ -56,7 +55,7 @@ export default function Navbar() {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <header className={styles.header}>
+    <header>
       <Anchor
         href="/"
         label="Logo Marco Madera, ir a la página principal"
@@ -126,6 +125,74 @@ export default function Navbar() {
         header :global(nav a:hover),
         header :global(nav a:focus) {
           color: ${darkMode ? colors.dark_secondary : colors.secondary};
+        }
+      `}</style>
+      <style jsx>{`
+        button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          display: inline-flex;
+          margin: 8px;
+        }
+        header {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin: 0 auto;
+          max-width: 1300px;
+          padding: 20px;
+        }
+        header :global(a),
+        header :global(nav a) {
+          color: inherit;
+        }
+        header :global(img) {
+          height: 40px;
+          margin-right: 10px;
+          width: 40px;
+        }
+        header :global(nav) {
+          align-items: center;
+          display: flex;
+        }
+        header :global(nav a) {
+          display: inline-block;
+          margin: 9px 5px;
+          min-width: fit-content;
+        }
+        header :global(nav a:hover),
+        header :global(nav a:focus) {
+          animation: text-pop-up-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+        }
+        header :global(picture) {
+          display: inline-flex;
+        }
+        header :global(span) {
+          font-size: 1.17em;
+          font-weight: 400;
+          margin: 0;
+        }
+        @keyframes text-pop-up-top {
+          0% {
+            text-shadow: none;
+            transform: translateY(0);
+            transform-origin: 50% 50%;
+          }
+          100% {
+            transform: translateY(-2px);
+            transform-origin: 50% 50%;
+          }
+        }
+        @media print {
+          header {
+            justify-content: center;
+          }
+          header :global(nav) {
+            display: none;
+          }
         }
       `}</style>
     </header>

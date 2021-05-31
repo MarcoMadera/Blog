@@ -1,6 +1,6 @@
-import { colors } from "../styles/code/colors";
+import { colors } from "styles/code/colors";
 import Head from "next/head";
-import useDarkMode from "../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 
 export default function Colors({ ...allColors }) {
   const { darkMode } = useDarkMode();

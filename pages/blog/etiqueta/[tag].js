@@ -1,7 +1,7 @@
-import { getTagData, getTagsSlugs } from "../../../utils/posts";
+import { getTagData, getTagsSlugs } from "lib/posts";
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
-import HomeLayout from "../../../layouts/Home";
+import HomeLayout from "layouts/Home";
 
 export default function Tag({ postsByTag, tags, tag }) {
   return (

@@ -1,11 +1,8 @@
-import { H1, H2, Ul, Li, P, Img } from "../../components/tags";
-import ActionAnchor from "../../components/ActionAnchor";
-import Seo from "../../components/Seo";
+import { H1, H2, Ul, Li, P, Img } from "components/tags";
+import ActionAnchor from "components/ActionAnchor";
+import Seo from "components/Seo";
 import PropTypes from "prop-types";
-import Css from "../../components/icons/Css";
-import Html5 from "../../components/icons/Html5";
-import ReactIcon from "../../components/icons/React";
-import Svelte from "../../components/icons/Svelte";
+import { Css, Html5, ReactIcon, Svelte } from "components/icons";
 import { useEffect } from "react";
 
 const Challenge = ({

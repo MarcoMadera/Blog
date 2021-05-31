@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import useTweet from "../../hooks/useTweet";
-import { colors, tweets } from "../../styles/theme";
-import useDarkMode from "../../hooks/useDarkMode";
+import useTweet from "hooks/useTweet";
+import { colors, tweets } from "styles/theme";
+import useDarkMode from "hooks/useDarkMode";
 import TweetHeader from "./tweet-header";
 import TweetInfo from "./tweet-info";
 import TweetAction from "./tweet-action";

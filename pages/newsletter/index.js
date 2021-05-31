@@ -1,10 +1,10 @@
-import Seo from "../../components/Seo";
+import Seo from "components/Seo";
 import { useEffect, useRef, useState } from "react";
-import { colors } from "../../styles/theme";
-import { H1, Input, A } from "../../components/tags";
-import useDarkMode from "../../hooks/useDarkMode";
-import ActionButton from "../../components/ActionButton";
-import useNotification from "../../hooks/useNotification";
+import { colors } from "styles/theme";
+import { H1, Input, A } from "components/tags";
+import useDarkMode from "hooks/useDarkMode";
+import ActionButton from "components/ActionButton";
+import useNotification from "hooks/useNotification";
 import { useRouter } from "next/router";
 
 const NewsletterPage = () => {

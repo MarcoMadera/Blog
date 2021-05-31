@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, createContext, useEffect } from "react";
-import { onAuthStateChanged } from "../lib/firebase/client";
+import { onAuthStateChanged } from "lib/firebase/client";
+
 const UserContext = createContext({
   user: undefined,
   setUser: () => {},

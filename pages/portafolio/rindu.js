@@ -1,6 +1,6 @@
-import ActionAnchor from "../../components/ActionAnchor";
-import { Ul, Li, H1, H2, Img, P, Video, H3 } from "../../components/tags";
-import Seo from "../../components/Seo";
+import ActionAnchor from "components/ActionAnchor";
+import { Ul, Li, H1, H2, Img, P, Video, H3 } from "components/tags";
+import Seo from "components/Seo";
 import { useEffect } from "react";
 
 export default function TestRandomNumbers() {

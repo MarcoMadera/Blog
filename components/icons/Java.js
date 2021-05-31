@@ -1,7 +1,7 @@
-import useDarkMode from "../../hooks/useDarkMode";
-import { colors } from "../../styles/theme";
+import useDarkMode from "hooks/useDarkMode";
+import { colors } from "styles/theme";
 
-export default function Java(props) {
+export function Java(props) {
   const { darkMode } = useDarkMode();
 
   return (

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import { tweets } from "../../styles/theme";
+import { tweets } from "styles/theme";
 import PropTypes from "prop-types";
-import useDarkMode from "../../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 
 // Note: Poll data is most likely cached, so ongoing polls will not be updated
 // until a revalidation happens

@@ -1,19 +1,15 @@
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
-import { colors } from "../styles/theme";
-import useDarkMode from "../hooks/useDarkMode";
-import { Info } from "../components/Comment/icons/index";
-import useNotification from "../hooks/useNotification";
-import Error from "./Comment/icons/Error";
+import { colors } from "styles/theme";
+import useDarkMode from "hooks/useDarkMode";
+import { Info, Error } from "components/icons";
+import useNotification from "hooks/useNotification";
 
 export default function Notification() {
   const [targetNode, setTargetNode] = useState();
   const { darkMode } = useDarkMode();
-  const {
-    notification,
-    removeNotification,
-    setNotification,
-  } = useNotification();
+  const { notification, removeNotification, setNotification } =
+    useNotification();
 
   useEffect(() => {
     setTargetNode(document.querySelector("#notification"));

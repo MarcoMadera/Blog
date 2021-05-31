@@ -1,4 +1,4 @@
-export default function Spotify(props) {
+export function Spotify(props) {
   return (
     <svg viewBox="0 0 16 16" {...props}>
       <title>Spotify</title>

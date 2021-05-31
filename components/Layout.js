@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import Footer from "./Footer";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-import { colors } from "../styles/theme";
-import useDarkMode from "../hooks/useDarkMode";
+import { colors } from "styles/theme";
+import useDarkMode from "hooks/useDarkMode";
 import CookiesModal from "./CookiesModal";
-import useCookies from "../hooks/useCookies";
+import useCookies from "hooks/useCookies";
 import Notification from "./Notification";
 export default function Layout({ children }) {
   const { darkMode, setDarkMode } = useDarkMode();

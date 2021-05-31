@@ -1,6 +1,6 @@
-import { colors } from "../../styles/theme";
+import { colors } from "styles/theme";
 import PropTypes from "prop-types";
-import useDarkMode from "../../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 export function Meter({ children, ...attribs }) {
   return (
     <>

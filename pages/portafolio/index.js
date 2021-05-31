@@ -1,6 +1,6 @@
-import Seo from "../../components/Seo";
-import ActionLink from "../../components/ActionLink";
-import { H1, H2, P, A, Img, ALink } from "../../components/tags";
+import Seo from "components/Seo";
+import ActionLink from "components/ActionLink";
+import { H1, H2, P, A, Img, ALink } from "components/tags";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 

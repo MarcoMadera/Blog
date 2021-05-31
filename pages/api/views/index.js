@@ -1,4 +1,4 @@
-import { database } from "../../../lib/firebase/admin";
+import { database } from "lib/firebase/admin";
 
 export default async function views(_, res) {
   const snapshot = await database.ref("views").once("value");

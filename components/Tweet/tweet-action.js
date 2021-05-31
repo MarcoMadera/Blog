@@ -1,9 +1,10 @@
-import { formatNumber } from "../../utils/helpers";
-import { tweets } from "../../styles/theme";
+import { formatNumber } from "utils/helpers";
+import { tweets } from "styles/theme";
 import PropTypes from "prop-types";
-import useDarkMode from "../../hooks/useDarkMode";
+import useDarkMode from "hooks/useDarkMode";
 import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
+
 export default function TweetAction({ name, username, tweetId, metrics }) {
   const userUrl = `https://twitter.com/${username}`;
   const tweetUrl = `${userUrl}/status/${tweetId}`;
@@ -11,6 +12,7 @@ export default function TweetAction({ name, username, tweetId, metrics }) {
   const isConversation = count > 4;
   const { darkMode } = useDarkMode();
   const htmlToReactParser = HtmlToReact.Parser();
+
   return (
     <>
       {isConversation ? (

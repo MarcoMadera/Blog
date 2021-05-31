@@ -1,5 +1,5 @@
-import codeStyles from "../../styles/codeStyles";
-import { colors } from "../../styles/theme";
+import codeStyles from "styles/codeStyles";
+import { colors } from "styles/theme";
 import markdown from "remark-parse";
 import prism from "@mapbox/rehype-prism";
 import PropTypes from "prop-types";
@@ -7,22 +7,27 @@ import rehype2react from "rehype-react";
 import remark2rehype from "remark-rehype";
 import unified from "unified";
 import { createElement } from "react";
-import useDarkMode from "../../hooks/useDarkMode";
-import styles from "./code.module.css";
+import useDarkMode from "hooks/useDarkMode";
 
 export function InlineCode({ classname, children, ...attrbs }) {
   const { darkMode } = useDarkMode();
   return (
-    <code
-      className={`${
-        classname ? `${`${classname} ${styles.inlineCode}`}` : styles.inlineCode
-      } `}
-      {...attrbs}
-    >
+    <code className={classname} {...attrbs}>
       {children}
       <style jsx>{`
         code {
           background: ${darkMode ? colors.dark_accents4 : colors.accents4};
+        }
+      `}</style>
+      <style jsx>{`
+        code {
+          border-radius: 6px;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
+          font-size: 14px;
+          line-height: 1.8;
+          padding: 3px 6px;
+          overflow-wrap: break-word;
         }
       `}</style>
     </code>
@@ -36,7 +41,7 @@ function Span({ number }) {
 export function Pre({ children, ...atrribs }) {
   const { darkMode } = useDarkMode();
   return (
-    <div className={styles.preCode}>
+    <div>
       <pre tabIndex="-1" {...atrribs}>
         {children}
       </pre>
@@ -54,6 +59,66 @@ export function Pre({ children, ...atrribs }) {
           border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
         }
       `}</style>
+      <style jsx>{`
+        div {
+          margin: 20px 0;
+          position: relative;
+        }
+        pre,
+        pre :global(code),
+        pre :global(code[data-lang]:before) {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
+        }
+        pre {
+          border-radius: 10px;
+          display: block;
+          font-size: 14px;
+          hyphens: none;
+          line-height: 1.8;
+          margin: 0.5em 0px;
+          overflow: auto;
+          padding: 0.8em 1em;
+          tab-size: 4;
+          text-align: left;
+          white-space: pre;
+          word-break: normal;
+          word-spacing: normal;
+          word-wrap: normal;
+        }
+        pre:focus {
+          outline: none;
+        }
+        pre :global(code) {
+          background: none;
+          padding: 0;
+        }
+        pre::-webkit-scrollbar {
+          height: 8px;
+          width: 8px;
+          overflow: visible;
+        }
+        pre::-webkit-scrollbar-thumb {
+          background: #d32f2fe1;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 30px;
+          border-bottom-left-radius: 30px;
+        }
+        pre::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        pre :global(code[data-lang]:before) {
+          border-radius: 4px;
+          content: attr(data-lang);
+          font-size: 12px;
+          padding: 2px 8px;
+          position: absolute;
+          right: 8px;
+          text-transform: uppercase;
+          top: -11px;
+        }
+      `}</style>
     </div>
   );
 }
@@ -61,13 +126,20 @@ export function Pre({ children, ...atrribs }) {
 function LeftLinesNumbers({ lineNumbers }) {
   const { darkMode } = useDarkMode();
   return (
-    <code className={styles.leftNumbers}>
+    <code>
       {lineNumbers.map((number) => (
         <Span key={number} number={number} />
       ))}
       <style jsx>{`
         code {
           color: ${darkMode ? colors.dark_codeTextColor : colors.codeTextColor};
+        }
+      `}</style>
+      <style jsx>{`
+        code {
+          float: left;
+          font-size: 14px;
+          margin-right: 10px;
         }
       `}</style>
     </code>

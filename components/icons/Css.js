@@ -1,4 +1,4 @@
-export default function Css(props) {
+export function Css(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="3 3 42 42" {...props}>
       <title>CSS</title>

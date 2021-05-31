@@ -1,4 +1,4 @@
-import { getPostBySlug, getPostsSlugs } from "utils/posts";
+import { getPostBySlug, getPostsSlugs } from "lib/posts";
 import getTweets from "lib/twitter";
 import { useEffect } from "react";
 import BlogLayout from "layouts/Blog";

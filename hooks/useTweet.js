@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import TweetsContext from "../context/TweetsContext";
-import TweetsMapContext from "../context/TweetsMapContext";
+import TweetsContext from "context/TweetsContext";
+import TweetsMapContext from "context/TweetsMapContext";
 
 export default function useTweet(id, hideConversation) {
   const tweets = useContext(TweetsContext);

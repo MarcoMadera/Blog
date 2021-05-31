@@ -1,5 +1,5 @@
-import Seo from "../../components/Seo";
-import { H1, Video } from "../../components/tags";
+import Seo from "components/Seo";
+import { H1, Video } from "components/tags";
 
 const suscription = () => {
   return (

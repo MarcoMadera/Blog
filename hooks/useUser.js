@@ -1,11 +1,11 @@
 import { useCallback, useContext } from "react";
-import UserContext from "../context/UserContext";
+import UserContext from "context/UserContext";
 import {
   loginAnonymously,
   loginWithGithub,
   loginWithTwitter,
   logOut,
-} from "../lib/firebase/client";
+} from "lib/firebase/client";
 import useNotification from "./useNotification";
 
 export default function useUser() {

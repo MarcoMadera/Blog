@@ -1,11 +1,12 @@
 import { useCallback, useContext } from "react";
-import CommentsContext from "../context/CommentsContext";
-import { database, uploadImage } from "../lib/firebase/client";
-import { siteMetadata } from "../site.config";
+import CommentsContext from "context/CommentsContext";
+import { database, uploadImage } from "lib/firebase/client";
+import { siteMetadata } from "site.config";
 import useNotification from "./useNotification";
 import firebase from "firebase/app/";
 import useUser from "./useUser";
 import { useRouter } from "next/router";
+
 export default function useComments() {
   const {
     allComments,
