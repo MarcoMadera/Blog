@@ -15,7 +15,7 @@ export { Html5 } from "./Html5";
 export { Info } from "./Info";
 export { Java } from "./Java";
 export { JavaScript } from "./JavaScript";
-export { Js } from "./Js";
+export { JavascriptSquare } from "./JavascriptSquare";
 export { LinkedInSquare } from "./LinkedInSquare";
 export { LinkedInShare } from "./LinkedInShare";
 export { Moon } from "./Moon";

@@ -1,7 +1,7 @@
 import Seo from "components/Seo";
 import PropTypes from "prop-types";
 import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "components/tags";
-import { Excel, Js, Html5, Css, Vba } from "components/icons";
+import { Excel, JavascriptSquare, Html5, Css, Vba } from "components/icons";
 import { useEffect } from "react";
 
 function Article({ title, img, children }) {
@@ -84,7 +84,7 @@ export default function sreExcel() {
         </P>
         <Html5 width={50} height={50} />
         <Css width={50} height={50} />
-        <Js width={50} height={50} />
+        <JavascriptSquare width={50} height={50} />
       </Article>
       <Article
         title="Vista Excel"
