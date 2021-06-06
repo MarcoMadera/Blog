@@ -42,6 +42,7 @@ export default function Tweet({ id, caption, hideConversation }) {
             <TweetHeader
               name={user.name}
               username={user.username}
+              userId={user.id}
               verified={user.verified}
               profile_image_url={user.profile_image_url}
             />

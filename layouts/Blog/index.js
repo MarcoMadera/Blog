@@ -16,6 +16,7 @@ import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
 import { TweetsContextProvider } from "context/TweetsContext";
 import { useEffect } from "react";
+
 export default function Post({
   title,
   description,

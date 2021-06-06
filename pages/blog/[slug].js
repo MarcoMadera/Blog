@@ -1,14 +1,8 @@
 import { getPostBySlug, getPostsSlugs } from "lib/posts";
 import getTweets from "lib/twitter";
-import { useEffect } from "react";
 import BlogLayout from "layouts/Blog";
-export default function Post(data) {
-  useEffect(() => {
-    fetch(`/api/views/${data.slug}`, {
-      method: "POST",
-    });
-  }, [data.slug]);
 
+export default function Post(data) {
   return <BlogLayout {...data} />;
 }
 

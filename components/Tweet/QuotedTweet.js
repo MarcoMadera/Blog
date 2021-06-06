@@ -29,6 +29,10 @@ export default function QuotedTweet({ data }) {
               title={data.user[0].name}
               src={data.user[0].profile_image_url}
               alt={data.user[0].name}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = `https://res.cloudinary.com/demo/image/twitter/w_19,h_19/${data.user[0].id}.jpg`;
+              }}
             />
             <div className="infoContainer">
               <span className="name" title={data.user[0].name}>

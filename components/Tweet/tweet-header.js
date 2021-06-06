@@ -9,6 +9,7 @@ export default function TweetHeader({
   username,
   profile_image_url,
   verified,
+  userId,
 }) {
   const { darkMode } = useDarkMode();
   const url = `https://twitter.com/${username}`;
@@ -28,6 +29,10 @@ export default function TweetHeader({
           src={profile_image_url}
           alt={name}
           title={name}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = `https://res.cloudinary.com/demo/image/twitter/w_48,h_48/${userId}.jpg`;
+          }}
         />
       </a>
       <a
@@ -125,4 +130,5 @@ TweetHeader.propTypes = {
   profile_image_url: PropTypes.string,
   verified: PropTypes.bool,
   tweetId: PropTypes.string,
+  userId: PropTypes.string,
 };

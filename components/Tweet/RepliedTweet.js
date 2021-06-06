@@ -36,6 +36,10 @@ export default function RepliedTweet({ data }) {
               alt={data.user[0].name}
               width="48"
               height="48"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = `https://res.cloudinary.com/demo/image/twitter/w_48,h_48/${data.user[0].id}.jpg`;
+              }}
             />
           </a>
 
