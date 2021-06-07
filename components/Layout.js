@@ -90,6 +90,9 @@ export default function Layout({ children }) {
           background: ${darkMode ? colors.dark_background : colors.background};
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
         }
+        :global(h1, h2, h3, h4, h5, h6) {
+          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+        }
         a {
           background-color: ${darkMode
             ? colors.dark_accents2

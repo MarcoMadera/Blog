@@ -93,6 +93,9 @@ export default function Newsletter() {
         form {
           border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
         }
+        form :global(label) {
+          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+        }
         form :global(input) {
           border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
         }

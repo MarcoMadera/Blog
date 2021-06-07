@@ -104,6 +104,12 @@ function Footer() {
         footer {
           background: ${darkMode ? colors.dark_accents3 : colors.accents3};
         }
+        strong {
+          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+        }
+        .footer_section :global(a) {
+          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+        }
         .footer_section > :global(a:after) {
           background: ${darkMode ? colors.dark_secondary : colors.secondary};
         }

@@ -43,17 +43,17 @@ export default function BlogCard({
               />
               <img
                 alt={tags.join(", ")}
-                height="100"
+                height="80"
                 srcSet={
                   cover.startsWith(imageCloudProvider)
                     ? insertTextBetween(
                         cover,
                         imageCloudProvider.length,
-                        "/q_auto,f_auto,c_scale,h_100,w_100"
+                        "/q_auto,f_auto,c_scale,h_80,w_80"
                       )
                     : cover
                 }
-                width="100"
+                width="80"
               />
             </picture>
           </header>
@@ -102,9 +102,17 @@ export default function BlogCard({
           text-decoration: none;
           color: inherit;
         }
+        a:focus {
+          outline: none;
+        }
         article {
           border-radius: 5px;
           margin-bottom: 1rem;
+        }
+        article:focus-within {
+          outline-style: dashed;
+          outline-width: 2px;
+          outline-color: #b50000;
         }
         div > a {
           margin-right: 5px;
@@ -121,6 +129,9 @@ export default function BlogCard({
           font-size: 1.17em;
           font-weight: 600;
         }
+        a:focus h2,
+        a:focus span,
+        footer a:focus,
         h2:hover {
           text-decoration: underline;
         }
@@ -135,8 +146,8 @@ export default function BlogCard({
           padding-right: 1rem;
         }
         img {
-          width: 100px;
-          height: 100px;
+          width: 80px;
+          height: 80px;
           clip-path: inset(0% 0% 0% 0% round 10px);
         }
         p {

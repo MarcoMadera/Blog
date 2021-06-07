@@ -1,5 +1,5 @@
 export const colors = {
-  primary: "#b50000",
+  primary: "#c60000",
   secondary: "#8b0000",
   tertiary: "#aa0000",
   accents1: "#aaa",
@@ -8,7 +8,8 @@ export const colors = {
   accents4: "#f5f5f5",
   accents5: "#fafafa",
   background: "#fff",
-  textColor: "#000",
+  textColor: "#535a60",
+  titleColor: "#242729",
   codeTextColor: "#767676",
 
   // Dark Mode
@@ -22,6 +23,7 @@ export const colors = {
   dark_accents5: "#24292e",
   dark_background: "#0d1117",
   dark_textColor: "#c9d1d9",
+  dark_titleColor: "#dcdfea",
   dark_codeTextColor: "#aaa",
   white: "#fff",
   black: "#000",

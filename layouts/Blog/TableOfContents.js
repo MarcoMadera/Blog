@@ -1,6 +1,8 @@
 import { A } from "components/tags";
 import slugify from "react-slugify";
 import PropTypes from "prop-types";
+import useDarkMode from "hooks/useDarkMode";
+import { colors } from "styles/theme";
 
 function Section({ children }) {
   return <section>{children}</section>;
@@ -19,6 +21,7 @@ function ListItem({ children }) {
 }
 
 export default function TableOfContents({ content = [] }) {
+  const { darkMode } = useDarkMode();
   return (
     <nav aria-labelledby="headerMenu">
       <Section>
@@ -35,6 +38,11 @@ export default function TableOfContents({ content = [] }) {
           </OrderedList>
         )}
       </Section>
+      <style jsx>{`
+        nav :global(h2) {
+          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+        }
+      `}</style>
       <style jsx>{`
         :global(body) {
           overflow-x: visible;

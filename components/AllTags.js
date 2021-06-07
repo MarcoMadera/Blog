@@ -1,6 +1,8 @@
 import { ALink } from "./tags";
 import PropTypes from "prop-types";
 import slugify from "react-slugify";
+import { colors } from "styles/theme";
+import useDarkMode from "hooks/useDarkMode";
 
 function Heading({ children }) {
   return <h2>{children}</h2>;
@@ -11,6 +13,7 @@ function Div({ children }) {
 }
 
 export default function AllTags({ tags, title = "Todas las etiquetas" }) {
+  const { darkMode } = useDarkMode();
   return (
     <section>
       <Heading>{title}</Heading>
@@ -26,6 +29,11 @@ export default function AllTags({ tags, title = "Todas las etiquetas" }) {
           </ALink>
         ))}
       </Div>
+      <style jsx>{`
+        section :global(h2) {
+          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+        }
+      `}</style>
       <style jsx>{`
         section :global(a) {
           margin: 0 0 3px 0;
