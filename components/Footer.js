@@ -107,11 +107,11 @@ function Footer() {
         strong {
           color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
         }
-        .footer_section :global(a) {
+        .footer_section {
           color: ${darkMode ? colors.dark_textColor : colors.titleColor};
         }
         .footer_section > :global(a:after) {
-          background: ${darkMode ? colors.dark_secondary : colors.secondary};
+          background: ${darkMode ? colors.dark_secondary : colors.primary};
         }
       `}</style>
       <style jsx>{`

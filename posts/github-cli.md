@@ -281,8 +281,6 @@ Github API es poderoso, con `gh api` se pueden hacer llamadas <abbr title="Hyper
   <span class="blue">"cover"</span>: <span class="green">"https://i.scdn.co/image/ab67616d00004851c27ad6f3930a857177ba33dc"</span>,
   <span class="blue">"listening"</span>: <span class="red">true</span>,
 }
-
-C:\Users\marco>
 </code></pre>
 
 ## Conclusión

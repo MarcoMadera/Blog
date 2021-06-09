@@ -85,6 +85,8 @@ export function Pre({ children, ...atrribs }) {
           word-break: normal;
           word-spacing: normal;
           word-wrap: normal;
+          scrollbar-width: thin;
+          scrollbar-color: #f03030bf transparent;
         }
         pre:focus {
           outline: none;

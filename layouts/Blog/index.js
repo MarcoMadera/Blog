@@ -130,8 +130,7 @@ export default function Post({
       </aside>
       <style jsx>{`
         nav :global(a) {
-          border: 3px solid
-            ${darkMode ? colors.dark_secondary : colors.secondary};
+          border: 3px solid ${darkMode ? colors.dark_secondary : colors.primary};
         }
       `}</style>
       <style jsx>{`

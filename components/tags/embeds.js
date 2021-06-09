@@ -33,7 +33,7 @@ export function Youtube({ id, title, caption }) {
       <style global jsx>{`
         .youtubeWrapper {
           margin: auto;
-          width: 560px;
+          max-width: 560px;
           height: 315px;
           background-color: #000;
           position: relative;
