@@ -19,7 +19,7 @@ export default function Tag({ postsByTag, tags, tag }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getTagsSlugs();
+  const paths = await getTagsSlugs();
   return {
     paths,
     fallback: false,
