@@ -5,6 +5,8 @@ import { getFormattedDate } from "utils/helpers";
 import { imageCloudProvider } from "site.config";
 import useDarkMode from "hooks/useDarkMode";
 import { insertTextBetween } from "utils/helpers";
+import Image from "next/image";
+
 export default function BlogCard({
   author,
   cover,
@@ -14,6 +16,7 @@ export default function BlogCard({
   title,
   tags,
   readingTimeInMinutes,
+  blurDataURL,
 }) {
   const { darkMode } = useDarkMode();
 
@@ -28,34 +31,23 @@ export default function BlogCard({
                 {description}.. <span>Leer más</span>
               </p>
             </div>
-            <picture>
-              <source
-                media="(max-width: 876px)"
-                srcSet={
-                  cover.startsWith(imageCloudProvider)
-                    ? insertTextBetween(
-                        cover,
-                        imageCloudProvider.length,
-                        "/q_auto,f_auto,c_scale,h_300,w_300"
-                      )
-                    : cover
-                }
-              />
-              <img
-                alt={tags.join(", ")}
-                height="80"
-                srcSet={
-                  cover.startsWith(imageCloudProvider)
-                    ? insertTextBetween(
-                        cover,
-                        imageCloudProvider.length,
-                        "/q_auto,f_auto,c_scale,h_80,w_80"
-                      )
-                    : cover
-                }
-                width="80"
-              />
-            </picture>
+            <Image
+              height={80}
+              width={80}
+              alt={tags.join(", ")}
+              placeholder="blur"
+              loader={({ src }) =>
+                src.startsWith(imageCloudProvider)
+                  ? insertTextBetween(
+                      src,
+                      imageCloudProvider.length,
+                      "/q_auto,f_auto,c_scale,h_80,w_80"
+                    )
+                  : src
+              }
+              blurDataURL={blurDataURL}
+              src={cover}
+            />
           </header>
         </a>
       </Link>
@@ -137,7 +129,7 @@ export default function BlogCard({
         }
         header {
           display: grid;
-          grid-template-columns: 100fr 1fr;
+          grid-template-columns: 1fr 80px;
           padding: 0.5rem 1rem 0 1rem;
         }
         header div {
@@ -145,7 +137,7 @@ export default function BlogCard({
           width: auto;
           padding-right: 1rem;
         }
-        img {
+        header :global(img) {
           width: 80px;
           height: 80px;
           clip-path: inset(0% 0% 0% 0% round 10px);
@@ -153,9 +145,6 @@ export default function BlogCard({
         p {
           margin: 0;
           text-align: justify;
-        }
-        picture {
-          display: inline-flex;
         }
       `}</style>
     </article>
@@ -170,5 +159,6 @@ BlogCard.propTypes = {
   slug: PropTypes.string,
   tags: PropTypes.array,
   title: PropTypes.string,
+  blurDataURL: PropTypes.string,
   readingTimeInMinutes: PropTypes.number,
 };

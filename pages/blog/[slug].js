@@ -1,5 +1,5 @@
 import { getPostBySlug, getPostsSlugs } from "lib/posts";
-import getTweets from "lib/twitter";
+import getElementsData from "lib/elementsData";
 import BlogLayout from "layouts/Blog";
 
 export default function Post(data) {
@@ -14,9 +14,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const data = getPostBySlug(slug);
-  const tweets = await getTweets(data.content);
+  const data = await getPostBySlug(slug);
+  const { tweets, images } = await getElementsData(data.content);
   return {
-    props: { ...data, tweets },
+    props: { ...data, tweets, images },
   };
 }

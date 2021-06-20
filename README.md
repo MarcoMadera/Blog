@@ -45,9 +45,9 @@ To include Tweets in your post use the `tweet` tag:
   When true a single tweet is displayed.
 - `caption` (string?)
 
-The optional property `includeconversation` is set to `true` by default
+The optional property `hideConversation` is set to `false` by default
 
-To embed videos from youtube use the youtube tag.
+To embed videos from youtube use the `youtube` tag.
 
 ```html
 <!-- https://www.youtube.com/watch?v=xcJtL7QggTI id=xcJtL7QggTI -->

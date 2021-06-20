@@ -11,6 +11,6 @@ export default function Home(data) {
 }
 
 export async function getStaticProps() {
-  const { posts, pages, tags } = getHomeDataFromPage(1);
+  const { posts, pages, tags } = await getHomeDataFromPage(1);
   return { props: { posts, tags, pages, currentPage: 1 } };
 }

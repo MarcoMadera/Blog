@@ -19,6 +19,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { number } }) {
-  const { posts, pages, tags } = getHomeDataFromPage(number);
+  const { posts, pages, tags } = await getHomeDataFromPage(number);
   return { props: { posts, tags, pages, currentPage: Number(number) } };
 }

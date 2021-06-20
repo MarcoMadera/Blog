@@ -31,6 +31,7 @@ import Colors from "../Colors";
 import Font from "../Font";
 import ActionButton from "../ActionButton";
 import ActionAnchor from "../ActionAnchor";
+import useImage from "hooks/useImage";
 
 export const components = {
   p: function ParagraphMd({ node, children }) {
@@ -167,6 +168,10 @@ export const components = {
   },
   img: function ImageMD({ node }) {
     const { darkMode } = useDarkMode();
+    const regularImage = node.properties.src;
+    const darkImage = node.properties.dark;
+    const lightImage = node.properties.light;
+    const { data } = useImage(regularImage || darkImage || lightImage);
     if (node.properties?.className?.includes("twemoji")) {
       // eslint-disable-next-line jsx-a11y/alt-text
       return <img {...node.properties} />;
@@ -175,7 +180,10 @@ export const components = {
       return (
         <figure>
           <Img
-            src={darkMode ? node.properties.dark : node.properties.light}
+            src={darkMode ? darkImage : lightImage}
+            blurDataURL={data?.base64}
+            width={data?.img.width}
+            height={data?.img.height}
             {...node.properties}
           />
           <figcaption>{node.properties.caption}</figcaption>
@@ -192,7 +200,10 @@ export const components = {
 
     return (
       <Img
-        src={darkMode ? node.properties.dark : node.properties.light}
+        src={darkMode ? darkImage : lightImage}
+        blurDataURL={data?.base64}
+        width={data?.img.width}
+        height={data?.img.height}
         {...node.properties}
       />
     );

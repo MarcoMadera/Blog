@@ -16,6 +16,7 @@ import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
 import { TweetsContextProvider } from "context/TweetsContext";
 import { useEffect } from "react";
+import { ImagesContextProvider } from "context/ImagesContext";
 
 export default function Post({
   title,
@@ -33,6 +34,7 @@ export default function Post({
   summary,
   slug,
   tweets,
+  images,
   h2s,
   readingTimeInMinutes,
 }) {
@@ -83,9 +85,11 @@ export default function Post({
         </header>
         <TableOfContents content={h2s} />
         <div itemProp="articlebody" aria-labelledby="articleTitle">
-          <TweetsContextProvider tweets={tweets}>
-            <MarkDown source={content} html={true} />
-          </TweetsContextProvider>
+          <ImagesContextProvider images={images}>
+            <TweetsContextProvider tweets={tweets}>
+              <MarkDown source={content} html={true} />
+            </TweetsContextProvider>
+          </ImagesContextProvider>
         </div>
         <Hr />
         <BlogFooter
@@ -252,6 +256,7 @@ Post.propTypes = {
   content: PropTypes.string,
   nextPost: PropTypes.object,
   tweets: PropTypes.object,
+  images: PropTypes.object,
   previousPost: PropTypes.object,
   recommendedPosts: PropTypes.array,
   profilePhoto: PropTypes.string,

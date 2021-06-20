@@ -8,7 +8,14 @@ const LoadDetailsDialog = dynamic(() => import("./details-dialog"), {
   ssr: false,
 });
 
-export function Img({ src, alt = "", title, width: w, height: h }) {
+export function Img({
+  src,
+  alt = "",
+  title,
+  blurDataURL,
+  width: w,
+  height: h,
+}) {
   if (!src) {
     return null;
   }
@@ -28,6 +35,19 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
 
   const layout = width && height ? "intrinsic" : "cover";
 
+  const myLoader = ({ src, width, height }) => {
+    const rest = `${src.replace(
+      new RegExp(
+        `${imageCloudProvider.replace(/[.*+?^${}()|/[\]\\]/g, "\\$&")}.+?(/)`,
+        "g"
+      ),
+      ""
+    )}`;
+    return `${imageCloudProvider}/c_limit,w_${width}${
+      height ? `,h_${height}` : ""
+    }/${rest}`;
+  };
+
   return (
     <details>
       <summary
@@ -44,22 +64,15 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
       >
         {src.startsWith(imageCloudProvider) ? (
           <Image
+            loader={({ src }) => src}
             alt={alt}
-            layout={layout}
+            placeholder={blurDataURL ? "blur" : "empty"}
+            blurDataURL={blurDataURL}
             height={width && height ? height : undefined}
             width={width && height ? width : undefined}
             objectFit={layout}
             quality={100}
-            src={`${src.replace(
-              new RegExp(
-                `${imageCloudProvider.replace(
-                  /[.*+?^${}()|/[\]\\]/g,
-                  "\\$&"
-                )}.+?(/)`,
-                "g"
-              ),
-              ""
-            )}`}
+            src={src}
             title={title || alt}
           />
         ) : (
@@ -78,19 +91,13 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
             {src.startsWith(imageCloudProvider) ? (
               <Image
                 alt={alt}
+                loader={myLoader}
+                placeholder={blurDataURL ? "blur" : "empty"}
+                blurDataURL={blurDataURL}
                 layout="fill"
                 loading="lazy"
                 objectFit="scale-down"
-                src={`${src.replace(
-                  new RegExp(
-                    `${imageCloudProvider.replace(
-                      /[.*+?^${}()|/[\]\\]/g,
-                      "\\$&"
-                    )}.+?(/)`,
-                    "g"
-                  ),
-                  ""
-                )}`}
+                src={src}
                 title={title || alt}
               />
             ) : (
@@ -198,7 +205,6 @@ export function Img({ src, alt = "", title, width: w, height: h }) {
           display: flex;
           justify-content: center;
           left: 0;
-          padding: 5vh 1.5rem;
           position: fixed;
           right: 0;
           top: 0;
@@ -248,6 +254,7 @@ Img.propTypes = {
   alt: PropTypes.string,
   title: PropTypes.string,
   src: PropTypes.string,
+  blurDataURL: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

@@ -9,6 +9,7 @@ export default function TestRandomNumbers() {
       method: "POST",
     });
   }, []);
+
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Rindu" />
@@ -71,6 +72,7 @@ export default function TestRandomNumbers() {
               "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_268/v1618517128/Potfolio/Rindu/open.spotify.com_playlist_6aXLDB6mvgUK8jthLNhMxt_2_tly0yt.png"
             }
             alt="Playlist casi llena"
+            blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAgEAACAAYCAwAAAAAAAAAAAAABAgADBAUREgYxISJB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJtzyssdjn0CSbJN1ahkO4l1zJs5X2Y5U9k5wOonZv1Xk6khfg2PiEID/9k="
           />
         </div>
       </article>
@@ -90,6 +92,7 @@ export default function TestRandomNumbers() {
               "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_268/v1618517132/Potfolio/Rindu/open.spotify.com_playlist_6aXLDB6mvgUK8jthLNhMxt_4_zz6gow.png"
             }
             alt="Playlist liberada"
+            blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAgEAACAAYCAwAAAAAAAAAAAAABAgADBAUREgYxISJB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJtzyssdjn0CSbJN1ahkO4l1zJs5X2Y5U9k5wOonZv1Xk6khfg2PiEID/9k="
           />
         </div>
       </article>

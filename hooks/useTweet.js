@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import TweetsContext from "context/TweetsContext";
-import TweetsMapContext from "context/TweetsMapContext";
+import DataMapContext from "context/DataMapContext";
 
 export default function useTweet(id, hideConversation) {
   const tweets = useContext(TweetsContext);
-  const addTweet = useContext(TweetsMapContext);
-  if (addTweet) {
-    addTweet(id, hideConversation);
+  const data = useContext(DataMapContext);
+  if (data?.addTweet) {
+    data.addTweet(id, hideConversation);
     return { ignore: true };
   }
 

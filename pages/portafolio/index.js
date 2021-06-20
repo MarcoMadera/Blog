@@ -4,10 +4,16 @@ import { H1, H2, P, A, Img, ALink } from "components/tags";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 
-const Article = ({ img, title, children }) => {
+const Article = ({ img, title, blurDataURL, children }) => {
   return (
     <article>
-      <Img src={img} alt={title} width={400} height={222} />
+      <Img
+        src={img}
+        alt={title}
+        width={400}
+        height={222}
+        blurDataURL={blurDataURL}
+      />
       <div>
         <H2>{title}</H2>
         {children}
@@ -84,6 +90,7 @@ const Portfolio = () => {
       <Article
         title="Maquetación frontend"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1610994328/Potfolio/challenges/1_h7zddv.jpg"
+        blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAJBAAAQMDAgcBAAAAAAAAAAAAAQIDBQAGEQQhBxMUIjFBUWH/xAAVAQEBAAAAAAAAAAAAAAAAAAABA//EABgRAAMBAQAAAAAAAAAAAAAAAAABESEC/9oADAMBAAIRAxEAPwCzwYVbN0QslLQ1rMxTka+oob611ZcHKBIUv5v4wR+Vpib50wSA7ptYHMdwS8CAfeDjcUpVO8wEqqf/2Q=="
       >
         <P>
           Esta es una serie de retos que he ido realizando para pasar el rato.
@@ -105,6 +112,7 @@ const Portfolio = () => {
       <Article
         title="Rindu, limpiador de spotify playlists"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1618517767/Potfolio/Rindu/spotify-playlists-cleaner.vercel.app__sj4ozo.png"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVQImQG6AEX/AEwiVGA7ZTwXRD0YRC0HNT8SR0IVS0IVS0ARSUIVSwA1JTw3NzU+Pj4fIR8DAANIMVBLMFJHLk5KMlJKMlIAQUBHRUZHMDAxLCwtNDQ1QT5HSkRMUEpTRUFJVlVgAFloWks8OaqhnJyNjTs2MUdXS6Hessf/2lVxXG2DcQCCn3fzwZfg2NHjyLXIpn6GtYeFtIaCsYKKuYuTxJMAjr+Gfn5WPkkyREosgYpjquiqsvOvsvOvsfOsq+uow9ZH6nwZ8fIAAAAASUVORK5CYII="
       >
         <P>
           Ya sea que tengas un bot para crear playlists y agregue canciones
@@ -124,6 +132,7 @@ const Portfolio = () => {
       <Article
         title="Tests para números aleatorios"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
+        blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAYH/8QAIBAAAgIBAwUAAAAAAAAAAAAAAgMABAUBBhESIjFBUf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDZcngUZ3f6bRUKrreIFRqtOcYmrq5LsEdOPvnX3LSIgf/Z"
       >
         <P>
           Es una herramienta que verifica estadísticamente si los números de una
@@ -152,6 +161,7 @@ const Portfolio = () => {
       <Article
         title="Registro de trámites en Excel"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVQImQG6AEX/AMjHwqSQkvn49+rn4eHd19vW0Ovq5eTe27KglfX19gBnV1ZSQT9WRURdTktbTUvCvrvt7evs6+vPx8Tl5OQA29ratainvrKyx8DAiXZ06+jpzMXFsqOjxLa2+Pj4AK2bmCUAAFM1L4FqZSoDAO7u7s3Hx5qDg62Vlf///wDu7Ozi3Nzj3tzu6+rYzc21o6O7qanIu7nFt7Xn4uIA8fPy8/b19vf39fT09ff38fHx8fHx7Ovr9vX16urqLm2FcP5vKbgAAAAASUVORK5CYII="
       >
         <H2></H2>
         <P>
@@ -188,6 +198,7 @@ const Portfolio = () => {
 Article.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string,
+  blurDataURL: PropTypes.string,
   children: PropTypes.node,
 };
 

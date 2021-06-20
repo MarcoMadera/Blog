@@ -3,6 +3,8 @@ import { siteMetadata } from "site.config";
 import { colors } from "styles/theme";
 import PropTypes from "prop-types";
 import useDarkMode from "hooks/useDarkMode";
+import authorImg from "public/profile-80x80.jpg";
+import Image from "next/image";
 
 function Anchor({ children, href, label }) {
   return (
@@ -18,16 +20,12 @@ export default function Aside() {
 
   return (
     <aside>
-      <picture>
-        <source srcSet="/profile-222x222.jpg" media="(max-width: 876px)" />
-        <img
-          src="/profile-80x80.jpg"
-          alt="Marco Madera"
-          width="80"
-          loading="eager"
-          height="80"
-        />
-      </picture>
+      <Image
+        src={authorImg}
+        alt="Marco Madera"
+        placeholder="blur"
+        loading="eager"
+      />
       <p>
         ¡Hola!{" "}
         <img
@@ -93,11 +91,8 @@ export default function Aside() {
           box-sizing: border-box;
           margin: 0 10px;
         }
-        
-        img[alt="Marco Madera"] {
+        aside :global(img[alt="Marco Madera"]) {
           clip-path: circle(50% at 50% 50%);
-          height: 80px;
-          width: 80px;
         }
         p {
           margin 1em 0;

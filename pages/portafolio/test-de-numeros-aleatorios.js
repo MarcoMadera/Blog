@@ -10,6 +10,7 @@ export default function TestRandomNumbers() {
       method: "POST",
     });
   }, []);
+
   return (
     <main id="main">
       <Seo title="Portafolio 💼 | Números Pseudo Aleatorios" />
@@ -46,6 +47,7 @@ export default function TestRandomNumbers() {
               "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_268/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png"
             }
             alt="Reporte Diario"
+            blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAYH/8QAHhAAAgEEAwEAAAAAAAAAAAAAAQIEAAMFEQcSIVH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A1nKYeJneS7d6TGjGVh1svHkOHa4nYFtLpwF9+g73V/SlB//Z"
           />
         </div>
       </article>
