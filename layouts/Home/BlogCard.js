@@ -129,7 +129,7 @@ export default function BlogCard({
         }
         header {
           display: grid;
-          grid-template-columns: 1fr 80px;
+          grid-template-columns: 1fr minmax(0, 5rem);
           padding: 0.5rem 1rem 0 1rem;
         }
         header div {
@@ -138,8 +138,10 @@ export default function BlogCard({
           padding-right: 1rem;
         }
         header :global(img) {
-          width: 80px;
-          height: 80px;
+          width: 5rem;
+          height: 5rem;
+          min-height: 5rem !important;
+          margin: 0 !important;
           clip-path: inset(0% 0% 0% 0% round 10px);
         }
         p {
