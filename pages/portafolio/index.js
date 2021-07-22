@@ -88,6 +88,19 @@ const Portfolio = () => {
       <Seo title="Portafolio 💼 | Marco Madera" />
       <H1>Portafolio</H1>
       <Article
+        title="Bot chat de facebook"
+        img="https://res.cloudinary.com/marcomadera/image/upload/v1626903927/Potfolio/FacebookChatBot/FacebookChatBot_iomibw.png"
+        blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAJBAAAQMDAgcBAAAAAAAAAAAAAQIDBQAGEQQhBxMUIjFBUWH/xAAVAQEBAAAAAAAAAAAAAAAAAAABA//EABgRAAMBAQAAAAAAAAAAAAAAAAABESEC/9oADAMBAAIRAxEAPwCzwYVbN0QslLQ1rMxTka+oob611ZcHKBIUv5v4wR+Vpib50wSA7ptYHMdwS8CAfeDjcUpVO8wEqqf/2Q=="
+      >
+        <P>
+          Chat bot de facebook para la página de facebook del hotel posada del
+          desierto. Utiliza inteligencia artificial de procesamiento natural de
+          lenguaje para responder a dudas comunes y no tan comunes sobre el
+          hotel y servicios que ofrece.
+        </P>
+        <ActionLink href="/portafolio/facebook-bot">Detalles</ActionLink>
+      </Article>
+      <Article
         title="Maquetación frontend"
         img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1610994328/Potfolio/challenges/1_h7zddv.jpg"
         blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAJBAAAQMDAgcBAAAAAAAAAAAAAQIDBQAGEQQhBxMUIjFBUWH/xAAVAQEBAAAAAAAAAAAAAAAAAAABA//EABgRAAMBAQAAAAAAAAAAAAAAAAABESEC/9oADAMBAAIRAxEAPwCzwYVbN0QslLQ1rMxTka+oob611ZcHKBIUv5v4wR+Vpib50wSA7ptYHMdwS8CAfeDjcUpVO8wEqqf/2Q=="
