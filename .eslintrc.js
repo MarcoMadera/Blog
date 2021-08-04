@@ -11,7 +11,11 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "plugin:jest/recommended",
     "prettier",
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
   ],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -19,8 +23,15 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: "module",
   },
-  plugins: ["react", "jsx-a11y", "react-hooks", "prettier"],
+  plugins: [
+    "react",
+    "jsx-a11y",
+    "react-hooks",
+    "prettier",
+    "@typescript-eslint",
+  ],
   rules: {
+    "react/prop-types": 0,
     "prettier/prettier": ["error", { endOfLine: "auto" }],
     "jsx-a11y/anchor-is-valid": [
       0,
@@ -38,4 +49,13 @@ module.exports = {
     "no-unneeded-ternary": 1,
     "react/react-in-jsx-scope": 0,
   },
+  overrides: [
+    {
+      // enable the rule specifically for TypeScript files
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        "@typescript-eslint/explicit-module-boundary-types": [1],
+      },
+    },
+  ],
 };

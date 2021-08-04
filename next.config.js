@@ -1,4 +1,8 @@
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ **/
+const nextConfig = {
+  reactStrictMode: true,
   images: {
     domains: ["res.cloudinary.com"],
     deviceSizes: [360, 400, 500, 550, 630, 705, 818, 1060, 1140, 1920, 2048],
@@ -14,8 +18,8 @@ module.exports = {
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
-      require("./lib/sitemap");
-      require("./lib/feed");
+      require("./lib/sitemap.js");
+      require("./lib/feed.js");
     }
     return config;
   },
@@ -175,3 +179,5 @@ const securityHeaders = [
     value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
   },
 ];
+
+module.exports = nextConfig;
