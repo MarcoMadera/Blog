@@ -33,14 +33,17 @@ import ActionAnchor from "../ActionAnchor";
 import useImage from "hooks/useImage";
 import {
   NormalComponents,
-  ReactBaseProps,
   ReactMarkdownProps,
   SpecialComponents,
 } from "react-markdown/src/ast-to-react";
-import { ReactNode, ReactPortal } from "react";
+import { ReactNode, ReactPortal, ClassAttributes, HTMLAttributes } from "react";
 import { imageCloudProvider } from "site.config";
 
-type BasicComponent = (props: ReactBaseProps & ReactMarkdownProps) => ReactNode;
+type BasicComponent = (
+  props: ClassAttributes<HTMLElement> &
+    HTMLAttributes<HTMLElement> &
+    ReactMarkdownProps
+) => ReactNode;
 
 export type CustomComponents = {
   usefont: BasicComponent;
@@ -53,14 +56,19 @@ export type CustomComponents = {
 };
 
 export const components:
-  | Partial<NormalComponents & SpecialComponents & CustomComponents>
+  | Partial<
+      Omit<NormalComponents, keyof SpecialComponents> &
+        SpecialComponents &
+        CustomComponents
+    >
   | undefined = {
   p: function ParagraphMd({ node, children }) {
     const allowedChildren = {
       tags: ["dfn", "abbr", "i", "em", "code", "a", "strong", "delete"],
     };
     const style = node.properties?.style as string;
-    const tagName = node.children[0].tagName as string;
+    const child = node.children[0] as unknown as Element;
+    const tagName = child?.tagName as string;
 
     const camelize = (string: string) =>
       string.replace(/-([a-z])/gi, (_, group) => group.toUpperCase());
@@ -88,7 +96,8 @@ export const components:
   },
   a: function LinkMd({ children, node, href, ...attribs }) {
     const link = href as string;
-    const title = node.title as string;
+    const title = node.properties?.title as string;
+
     return (
       <A
         target={link.startsWith("#") ? "_self" : "_blank"}
@@ -193,9 +202,10 @@ export const components:
       return null;
     }
     const liChild = children[1] as ReactPortal;
+    const child = node.children[1] as unknown as Element;
     return (
       <Li checked={checked}>
-        {node.children[1]?.tagName === "p"
+        {child?.tagName === "p"
           ? liChild?.props?.children
           : children?.map((el) => {
               const element = el as ReactPortal;
