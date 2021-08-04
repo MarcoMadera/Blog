@@ -25,7 +25,7 @@ export default function Preview({
         }
         username={user?.username ?? "Anónimo"}
         comment={comment}
-        img={imgURL ? imgURL : null}
+        img={imgURL ? imgURL : undefined}
       />
       <div>
         <A

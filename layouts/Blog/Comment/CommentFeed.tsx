@@ -23,7 +23,7 @@ export default function CommentFeed({
     commentId: Comment["commentId"]
   ) {
     e.preventDefault();
-    removeComment(commentId);
+    removeComment(commentId || "");
   }
 
   return (

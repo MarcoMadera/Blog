@@ -1,7 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface Comment {
-  commentId: string;
+  commentId?: string;
   avatar?: string;
   username?: string;
   comment?: string;
