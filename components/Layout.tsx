@@ -7,6 +7,7 @@ import useDarkMode from "hooks/useDarkMode";
 import CookiesModal from "./CookiesModal";
 import useCookies from "hooks/useCookies";
 import Notification from "./Notification";
+import useAnalitycs from "hooks/useAnalitycs";
 
 export default function Layout({
   children,
@@ -14,7 +15,8 @@ export default function Layout({
   children: ReactNode;
 }): ReactElement {
   const { darkMode, setDarkMode } = useDarkMode();
-  const { acceptedcookies, setAcceptedCookies, track } = useCookies();
+  const { acceptedcookies, setAcceptedCookies } = useCookies();
+  const { trackWithGoogleAnalitycs } = useAnalitycs();
   const router = useRouter();
 
   function a11ySmartFocus() {
@@ -49,21 +51,24 @@ export default function Layout({
     } else {
       setDarkMode && setDarkMode(true);
     }
+  }, [setDarkMode]);
 
+  useEffect(() => {
     if (localStorage.getItem("cookiesAccepted") === "true") {
-      track("pageview");
+      trackWithGoogleAnalitycs();
       setAcceptedCookies && setAcceptedCookies(true);
     }
     if (localStorage.getItem("cookiesAccepted") === "false") {
       setAcceptedCookies && setAcceptedCookies(false);
     }
-  }, [setAcceptedCookies, setDarkMode, track]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setAcceptedCookies]);
 
   useEffect(() => {
     // update page url minimal google analytics
     const handleRouteChange = () => {
       if (acceptedcookies === true) {
-        track("pageview");
+        trackWithGoogleAnalitycs();
       }
       a11ySmartFocus();
     };
@@ -72,7 +77,7 @@ export default function Layout({
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events, acceptedcookies, track]);
+  }, [router.events, acceptedcookies, trackWithGoogleAnalitycs]);
 
   return (
     <>

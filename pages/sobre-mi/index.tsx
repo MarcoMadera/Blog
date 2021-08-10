@@ -4,6 +4,7 @@ import { ReactElement, useCallback, useEffect, useState } from "react";
 import AboutLayout from "../../layouts/About";
 import { GetServerSideProps } from "next";
 import { SongData, NowPlaying } from "types/spotify";
+import useAnalitycs from "hooks/useAnalitycs";
 
 interface AboutProps {
   nowPlaying: NowPlaying;
@@ -20,6 +21,7 @@ export default function About({
   topTracks,
   recentlyPlayed,
 }: AboutProps): ReactElement {
+  useAnalitycs("sobre-mi");
   const [newNowPlaying, setNewNowPlaying] = useState(
     nowPlaying.listening ? nowPlaying : recentlyPlayed
   );

@@ -1,13 +1,15 @@
 import Seo from "components/Seo";
-import { FormEvent, ReactElement, useEffect, useRef, useState } from "react";
+import { FormEvent, ReactElement, useRef, useState } from "react";
 import { colors } from "styles/theme";
 import { H1, Input, A } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
 import ActionButton from "components/ActionButton";
 import useNotification from "hooks/useNotification";
 import { useRouter } from "next/router";
+import useAnalitycs from "hooks/useAnalitycs";
 
 export default function NewsletterPage(): ReactElement {
+  useAnalitycs("page-newsletter");
   const router = useRouter();
   const { darkMode } = useDarkMode();
   const { addNotification } = useNotification();
@@ -17,12 +19,6 @@ export default function NewsletterPage(): ReactElement {
   const isValidEmail = RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
-
-  useEffect(() => {
-    fetch("/api/views/newsletterpage", {
-      method: "POST",
-    });
-  }, []);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

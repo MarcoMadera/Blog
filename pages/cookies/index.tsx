@@ -3,21 +3,42 @@ import { H1, H2, H3, A, Ul, Li, P, Table, Th, Td } from "components/tags";
 import useCookies from "hooks/useCookies";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
+import useAnalitycs from "hooks/useAnalitycs";
+import useNotification from "hooks/useNotification";
+import useLocalStorage from "hooks/useLocalStorage";
 
 export default function Cookies(): ReactElement {
   const { darkMode } = useDarkMode();
-  const { acceptedcookies, toggleAceptedCookies } = useCookies();
+  const { addNotification } = useNotification();
+  const { acceptedcookies, setAcceptedCookies, deleteCookie } = useCookies();
+  useAnalitycs("page-cookies");
+  const setAceptedCookiesLocalStorage = useLocalStorage(
+    "cookiesAccepted",
+    "false"
+  )[1];
 
-  const handleClick = () => {
-    toggleAceptedCookies();
-  };
+  function toggleAceptedCookies() {
+    if (!setAcceptedCookies) {
+      return;
+    }
 
-  useEffect(() => {
-    fetch("/api/views/page-cookies", {
-      method: "POST",
+    if (acceptedcookies === true) {
+      setAceptedCookiesLocalStorage("false");
+      deleteCookie("_ga");
+      addNotification({
+        variant: "info",
+        message: "Cookies desactivadas",
+      });
+      return setAcceptedCookies(false);
+    }
+    setAceptedCookiesLocalStorage("true");
+    addNotification({
+      variant: "info",
+      message: "Cookies activadas",
     });
-  }, []);
+    return setAcceptedCookies(true);
+  }
 
   return (
     <main id="main">
@@ -34,7 +55,7 @@ export default function Cookies(): ReactElement {
         >
           <input
             type="checkbox"
-            onClick={handleClick}
+            onClick={toggleAceptedCookies}
             defaultChecked={!acceptedcookies}
           />
         </label>

@@ -16,7 +16,7 @@ import { CommentsContextProvider } from "context/CommentsContext";
 import { TweetsContextProvider } from "context/TweetsContext";
 import { ImagesContextProvider } from "context/ImagesContext";
 import { PostWithMedia } from "types/posts";
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 
 export default function Post({
   title,
@@ -39,12 +39,6 @@ export default function Post({
   readingTimeInMinutes,
 }: PostWithMedia): ReactElement {
   const { darkMode } = useDarkMode();
-
-  useEffect(() => {
-    fetch(`/api/views/${slug}`, {
-      method: "POST",
-    });
-  }, [slug]);
 
   return (
     <main>

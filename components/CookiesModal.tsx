@@ -4,11 +4,18 @@ import { ReactPortal, useEffect, useState } from "react";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import useCookies from "hooks/useCookies";
+import useAnalitycs from "hooks/useAnalitycs";
+import useLocalStorage from "hooks/useLocalStorage";
 
 export default function CookiesModal(): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element>();
   const { darkMode } = useDarkMode();
-  const { setAcceptedCookies, track } = useCookies();
+  const { setAcceptedCookies } = useCookies();
+  const { trackWithGoogleAnalitycs } = useAnalitycs();
+  const setAceptedCookiesLocalStorage = useLocalStorage(
+    "cookiesAccepted",
+    "false"
+  )[1];
 
   useEffect(() => {
     setTargetNode(document.querySelector("#cookiesDialog") as Element);
@@ -23,11 +30,11 @@ export default function CookiesModal(): ReactPortal | null {
       return;
     }
     if (change === true) {
-      track("pageview");
-      localStorage.setItem("cookiesAccepted", "true");
+      trackWithGoogleAnalitycs();
+      setAceptedCookiesLocalStorage("true");
       return setAcceptedCookies(true);
     } else {
-      localStorage.setItem("cookiesAccepted", "false");
+      setAceptedCookiesLocalStorage("false");
       return setAcceptedCookies(false);
     }
   }

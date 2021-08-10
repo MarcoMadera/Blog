@@ -1,13 +1,10 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 import Seo from "components/Seo";
 import { A, H1, H2, P, ALink, Ul, Li } from "components/tags";
+import useAnalitycs from "hooks/useAnalitycs";
 
 export default function Privacy(): ReactElement {
-  useEffect(() => {
-    fetch("/api/views/page-privacidad", {
-      method: "POST",
-    });
-  }, []);
+  useAnalitycs("page-privacidad");
   return (
     <main id="main">
       <Seo title="Política de privacidad" />

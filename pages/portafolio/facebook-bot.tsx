@@ -1,15 +1,12 @@
 import { H1, H2, P } from "components/tags";
 import { Nodejs } from "components/icons";
 import Seo from "components/Seo";
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 import Script from "next/script";
+import useAnalitycs from "hooks/useAnalitycs";
 
 export default function TestRandomNumbers(): ReactElement {
-  useEffect(() => {
-    fetch("/api/views/facebook-bot", {
-      method: "POST",
-    });
-  }, []);
+  useAnalitycs("facebook-bot");
 
   return (
     <main id="main">

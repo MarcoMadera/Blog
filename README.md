@@ -2,6 +2,17 @@
 
 Blog Site: <https://marcomadera.com>
 
+## **Running Locally**
+
+```bash
+git clone https://github.com/MarcoMadera/Blog.git
+cd Blog
+npm install
+npm run dev
+```
+
+For the project to work properly a `.env.local` file similar to [`.env.example`](https://github.com/MarcoMadera/Blog/blob/master/.env.example) is required
+
 ## **Want to Contribute?**
 
 Thank you for your interest in contributing to the blog site. Submit an issue in the Issues section for reporting/fixing bugs/typos and to request new features.
@@ -66,22 +77,19 @@ In addition to everything that is already included with Markdown
 
 ### **Images**
 
-In Markdown, images work this way `![text](src)` there's not much play, but if you want to have the alternative text and the title separately, use the same structure as html, this way you can also add a `caption`.
+In addition to the properties that already exist, the properties of `caption`, `dark` and `light` are added.
 
 ```html
-<img src="" alt="" tile="" caption="" light="" dark="">
+<img src="" alt="" title="" caption="" light="" dark="">
 ```
 
 **`Properties`**
 
-- `src` (string)
-- `alt` (string?)
-- `title` (string?)
 - `caption` (string?)
 - `light` (string?)\
   Is the img src that will be use when the theme page is light
 - `dark` (string?)\
-  Is the img src will be use when the theme page is dark
+  Is the img src that will be use when the theme page is dark
 
 ⚡ This tag does not replace the Markdown form.
 

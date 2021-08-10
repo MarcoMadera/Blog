@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useContext } from "react";
 import DarkModeContext from "context/DarkModeContext";
+import useLocalStorage from "./useLocalStorage";
 
 export default function useDarkMode(): {
   darkMode: boolean;
@@ -7,17 +8,18 @@ export default function useDarkMode(): {
   toggleDarkMode: () => void;
 } {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  const setThemeLocalStorage = useLocalStorage("theme", "dark")[1];
 
   function toggleDarkMode() {
     if (!setDarkMode) {
       return;
     }
     if (darkMode === false) {
-      localStorage.setItem("theme", "dark");
+      setThemeLocalStorage("dark");
       return setDarkMode(true);
     }
 
-    localStorage.setItem("theme", "light");
+    setThemeLocalStorage("light");
     return setDarkMode(false);
   }
   return {

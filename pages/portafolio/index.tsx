@@ -1,7 +1,8 @@
 import Seo from "components/Seo";
 import ActionLink from "components/ActionLink";
 import { H1, H2, P, A, Img, ALink } from "components/tags";
-import { PropsWithChildren, ReactElement, useEffect } from "react";
+import { PropsWithChildren, ReactElement } from "react";
+import useAnalitycs from "hooks/useAnalitycs";
 
 interface ArticleProps {
   img: string;
@@ -96,11 +97,7 @@ function Article({
 }
 
 export default function Portfolio(): ReactElement {
-  useEffect(() => {
-    fetch("/api/views/page-portafolio", {
-      method: "POST",
-    });
-  }, []);
+  useAnalitycs("page-portafolio");
 
   return (
     <main id="main">

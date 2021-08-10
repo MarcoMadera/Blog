@@ -6,12 +6,13 @@ import {
   SetStateAction,
   ReactElement,
 } from "react";
-const Context = createContext<CookiesContext | undefined>(undefined);
 
 interface CookiesContext {
   acceptedcookies: boolean | undefined;
-  setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>> | undefined;
+  setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>>;
 }
+
+const Context = createContext<CookiesContext | undefined>(undefined);
 
 export function CookiesContextProvider({
   children,

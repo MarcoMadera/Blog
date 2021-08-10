@@ -5,8 +5,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
 import Custom404 from "pages/404";
+import useAnalitycs from "hooks/useAnalitycs";
 
 export default function Post(data: PostWithMedia | undefined): ReactElement {
+  useAnalitycs(data?.slug);
   if (data) {
     return <BlogLayout {...data} />;
   }

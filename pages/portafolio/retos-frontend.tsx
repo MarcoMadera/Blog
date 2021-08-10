@@ -2,7 +2,8 @@ import { H1, H2, Ul, Li, P, Img } from "components/tags";
 import ActionAnchor from "components/ActionAnchor";
 import Seo from "components/Seo";
 import { Css, Html5, ReactIcon, Svelte } from "components/icons";
-import { PropsWithChildren, ReactElement, useEffect } from "react";
+import { PropsWithChildren, ReactElement } from "react";
+import useAnalitycs from "hooks/useAnalitycs";
 
 interface ChallengeProps {
   title: string;
@@ -94,11 +95,7 @@ function Challenge({
 }
 
 export default function Challenges(): ReactElement {
-  useEffect(() => {
-    fetch("/api/views/portafolio-retos-frontend", {
-      method: "POST",
-    });
-  }, []);
+  useAnalitycs("portafolio-retos-frontend");
 
   return (
     <main id="main">

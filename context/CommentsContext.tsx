@@ -1,6 +1,6 @@
 import { useState, createContext, ReactNode, ReactElement } from "react";
 import { CommentsContext } from "types/comments";
-const Context = createContext<CommentsContext | undefined>(undefined);
+const Context = createContext<CommentsContext | null>(null);
 
 export function CommentsContextProvider({
   children,

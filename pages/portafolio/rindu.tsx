@@ -1,14 +1,11 @@
 import ActionAnchor from "components/ActionAnchor";
 import { Ul, Li, H1, H2, Img, P, Video, H3 } from "components/tags";
 import Seo from "components/Seo";
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
+import useAnalitycs from "hooks/useAnalitycs";
 
 export default function TestRandomNumbers(): ReactElement {
-  useEffect(() => {
-    fetch("/api/views/portafolio-rindu", {
-      method: "POST",
-    });
-  }, []);
+  useAnalitycs("portafolio-rindu");
 
   return (
     <main id="main">
