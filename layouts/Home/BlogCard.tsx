@@ -148,9 +148,6 @@ export default function BlogCard({
           margin: 0 !important;
           clip-path: inset(0% 0% 0% 0% round 10px);
         }
-        header :global(noscript + img) {
-          background-image: unset !important;
-        }
         p {
           margin: 0;
           text-align: justify;

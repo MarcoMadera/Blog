@@ -172,9 +172,6 @@ export function Img({
           max-height: calc(100vh - 10vh);
           max-width: calc(100vw - 3rem);
         }
-        summary :global(noscript + img) {
-          background-image: unset !important;
-        }
         details *:focus {
           outline: none;
           outline-style: none;

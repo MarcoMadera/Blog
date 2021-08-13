@@ -33,6 +33,8 @@ export default function Aside(): ReactElement {
         alt="Marco Madera"
         placeholder="blur"
         loading="eager"
+        width={80}
+        height={80}
       />
       <p>
         ¡Hola! {/* eslint-disable-next-line @next/next/no-img-element */}
