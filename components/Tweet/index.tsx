@@ -42,16 +42,17 @@ export default function Tweet({
   const quotedTweetUrl = quotedTweetUser
     ? `https://twitter.com/${quotedTweetUser.username}/status/${data?.quotedTweet?.tweet?.id}`
     : undefined;
-  const tweetUrl = repliedTweetUser
+  const repliedTweetUrl = repliedTweetUser
     ? `https://twitter.com/${repliedTweetUser.username}/status/${data?.tweet?.id}`
     : undefined;
+  const currentTweetUrl = `https://twitter.com/${user.username}/status/${data?.tweet.id}`;
 
   return (
     <div className="container">
       {data && (
         <div className="tweet">
           <a
-            href={tweetUrl}
+            href={repliedTweetUrl || currentTweetUrl}
             className="brand"
             target="_blank"
             rel="noopener noreferrer"
