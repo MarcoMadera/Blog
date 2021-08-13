@@ -40,12 +40,12 @@ export default function BlogCard({
               width={80}
               alt={tags.join(", ")}
               placeholder="blur"
-              loader={({ src }) =>
+              loader={({ src, width }) =>
                 src.startsWith(imageCloudProvider)
                   ? insertTextBetween(
                       src,
                       imageCloudProvider.length,
-                      "/q_auto,f_auto,c_scale,h_80,w_80"
+                      `/q_auto,f_auto,c_scale,h_${width},w_${width}`
                     )
                   : src
               }
@@ -147,6 +147,9 @@ export default function BlogCard({
           min-height: 5rem !important;
           margin: 0 !important;
           clip-path: inset(0% 0% 0% 0% round 10px);
+        }
+        header :global(noscript + img) {
+          background-image: unset !important;
         }
         p {
           margin: 0;

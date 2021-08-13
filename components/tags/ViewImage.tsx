@@ -11,6 +11,7 @@ import Image from "next/image";
 import { ImgData } from "types/posts";
 import getClientSize from "utils/getClientSize";
 import { imageCloudProvider } from "site.config";
+import useLockBodyScroll from "hooks/useLockBodyScroll";
 
 interface ViewImageProps {
   openModal: boolean;
@@ -43,7 +44,7 @@ export default function ViewImage({
 }: ViewImageProps): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element>();
   const exitButtonRef = useRef<HTMLButtonElement>(null);
-
+  useLockBodyScroll();
   const onPressKey = useCallback(
     (event) => {
       const firstElement = exitButtonRef.current;
@@ -85,7 +86,7 @@ export default function ViewImage({
     imageHeight
   );
 
-  const myLoader = ({ src }: { src: string }) => {
+  const myLoader = ({ src, width }: { src: string; width: number }) => {
     const rest = `${src.replace(
       new RegExp(
         `${imageCloudProvider.replace(/[.*+?^${}()|/[\]\\]/g, "\\$&")}.+?(/)`,
@@ -93,7 +94,7 @@ export default function ViewImage({
       ),
       ""
     )}`;
-    return `${imageCloudProvider}/${rest}`;
+    return `${imageCloudProvider}/${width ? `c_limit,w_${width}/` : ""}${rest}`;
   };
 
   return createPortal(
@@ -130,7 +131,6 @@ export default function ViewImage({
             ) : (
               <Image
                 alt={alt}
-                loader={myLoader}
                 layout="fill"
                 objectFit="scale-down"
                 src={fullImage?.img.src || src}
@@ -159,6 +159,9 @@ export default function ViewImage({
         ></button>
       </div>
       <style jsx>{`
+        .imageContainer :global(img) {
+          background-size: cover;
+        }
         .bgcontainer {
           box-sizing: border-box;
           height: 100vh;

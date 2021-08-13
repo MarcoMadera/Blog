@@ -11,6 +11,7 @@ import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import useComments from "hooks/useComments";
 import useUser from "hooks/useUser";
+import useLockBodyScroll from "hooks/useLockBodyScroll";
 
 interface SendCommentPopupProps {
   sendCommentRef: RefObject<HTMLButtonElement>;
@@ -25,6 +26,7 @@ export default function SendCommentPopup({
   const { loginUserAnonymously } = useUser();
   const firstButtonRef = useRef<HTMLButtonElement | null>(null);
   const secondButtonRef = useRef<HTMLButtonElement | null>(null);
+  useLockBodyScroll();
   const onPressKey = useCallback(
     (event) => {
       const firstElement = firstButtonRef.current;

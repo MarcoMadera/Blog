@@ -60,6 +60,17 @@ export function Img({
     setOpenModal(false);
   }
 
+  function imageLoader({ src, width }: { src: string; width: number }) {
+    const rest = `${src.replace(
+      new RegExp(
+        `${imageCloudProvider.replace(/[.*+?^${}()|/[\]\\]/g, "\\$&")}.+?(/)`,
+        "g"
+      ),
+      ""
+    )}`;
+    return `${imageCloudProvider}/c_limit,w_${width}/${rest}`;
+  }
+
   return (
     <details>
       <summary
@@ -82,7 +93,7 @@ export function Img({
           shouldBlurImage ? (
             <Image
               alt={alt}
-              loader={({ src }) => src}
+              loader={imageLoader}
               title={title || alt}
               src={src}
               placeholder="blur"
@@ -94,7 +105,7 @@ export function Img({
           ) : specificSize ? (
             <Image
               alt={alt}
-              loader={({ src }) => src}
+              loader={imageLoader}
               title={title || alt}
               src={src}
               layout="intrinsic"
@@ -109,6 +120,7 @@ export function Img({
               src={src}
               layout="fill"
               objectFit="cover"
+              unoptimized={true}
             />
           )
         ) : (
@@ -159,6 +171,9 @@ export function Img({
         div :global(img) {
           max-height: calc(100vh - 10vh);
           max-width: calc(100vw - 3rem);
+        }
+        summary :global(noscript + img) {
+          background-image: unset !important;
         }
         details *:focus {
           outline: none;

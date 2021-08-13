@@ -8,6 +8,7 @@ body {
 html {
   scroll-behavior: smooth;
   min-width: 340px;
+  width: 100%;
 }
 * {
   margin: 0;

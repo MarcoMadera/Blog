@@ -1,9 +1,7 @@
-import { GithubSquare, LinkedInSquare, TwitterSquare } from "./icons";
+import { GithubSquare, LinkedInSquare, TwitterSquare } from "components/icons";
 import { siteMetadata } from "site.config";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import authorImg from "public/profile-80x80.jpg";
-import Image from "next/image";
 import { PropsWithChildren, ReactElement } from "react";
 
 interface AnchorProps {
@@ -29,8 +27,9 @@ export default function Aside(): ReactElement {
 
   return (
     <aside>
-      <Image
-        src={authorImg}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/profile-80x80.jpg"
         alt="Marco Madera"
         placeholder="blur"
         loading="eager"

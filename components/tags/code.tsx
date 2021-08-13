@@ -242,8 +242,8 @@ export function CodeBlock({
         );
 
   const styles: {
-    light: Record<string, string>;
-    dark: Record<string, string>;
+    light: Record<string, ReactElement>;
+    dark: Record<string, ReactElement>;
   } = codeStyles;
 
   const style = darkMode

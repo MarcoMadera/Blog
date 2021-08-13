@@ -1,5 +1,5 @@
 import AllTags from "components/AllTags";
-import Aside from "components/Aside";
+import Aside from "./Aside";
 import BlogCard from "./BlogCard";
 import { colors } from "styles/theme";
 import Custom404 from "pages/404";
