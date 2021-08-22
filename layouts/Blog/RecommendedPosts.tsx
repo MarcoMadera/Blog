@@ -2,7 +2,7 @@ import { ALink } from "components/tags";
 import { colors } from "styles/theme";
 import { imageCloudProvider } from "site.config";
 import useDarkMode from "hooks/useDarkMode";
-import { insertTextBetween } from "utils/helpers";
+import { insertTextBetween } from "utils";
 import { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
 

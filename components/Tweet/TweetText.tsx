@@ -3,13 +3,24 @@ import { TwitterLink } from "./TwitterLink";
 import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
 import { Tweet } from "types/tweet";
-import { ReactNode } from "react";
+import { ReactElement } from "react";
+import useDarkMode from "hooks/useDarkMode";
+import { colors } from "styles/theme";
 
-export function formatTweetText(
-  text: Tweet["text"],
-  entities?: Tweet["entities"],
-  quotedTweetUrl?: string
-): ReactNode[] {
+interface TweetTextProps {
+  text: Tweet["text"];
+  entities?: Tweet["entities"];
+  quotedTweetUrl?: string;
+  original?: boolean;
+}
+
+export default function TweetText({
+  text,
+  entities,
+  quotedTweetUrl,
+  original,
+}: TweetTextProps): ReactElement {
+  const { darkMode } = useDarkMode();
   const htmlToReactParser = HtmlToReact.Parser();
   let replacedText;
   const urls = entities?.urls?.map(({ url, display_url, expanded_url }) => ({
@@ -69,5 +80,21 @@ export function formatTweetText(
     </TwitterLink>
   ));
 
-  return replacedText;
+  return (
+    <p>
+      {replacedText}
+      <style jsx>{`
+        p {
+          text-align: left;
+          line-height: 1.5125;
+          margin: 0px;
+          white-space: pre-wrap;
+          padding: 0px;
+          font-size: ${original ? "17px" : "14px"};
+          font-weight: 400;
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+        }
+      `}</style>
+    </p>
+  );
 }

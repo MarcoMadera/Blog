@@ -1,4 +1,4 @@
-import { formatNumber, getTwitterFormattedDate } from "utils/helpers";
+import { formatNumber, getTwitterFormattedDate } from "utils";
 import useMounted from "hooks/useMounted";
 import { tweets } from "styles/theme";
 import { User, Tweet } from "types/tweet";

@@ -1,5 +1,5 @@
 import { H1, H2, Ul, Li, P, Img } from "components/tags";
-import ActionAnchor from "components/ActionAnchor";
+import ActionButton from "components/ActionButton";
 import Seo from "components/Seo";
 import { Css, Html5, ReactIcon, Svelte } from "components/icons";
 import { PropsWithChildren, ReactElement } from "react";
@@ -33,9 +33,15 @@ function Challenge({
     <article>
       <div>
         <H2>{title}</H2>
-        <ActionAnchor href={liveDemo}>Ver en vivo</ActionAnchor>
-        <ActionAnchor href={challengePage}>Página del reto</ActionAnchor>
-        <ActionAnchor href={repo}>Código</ActionAnchor>
+        <ActionButton type="anchor" href={liveDemo}>
+          Ver en vivo
+        </ActionButton>
+        <ActionButton type="anchor" href={challengePage}>
+          Página del reto
+        </ActionButton>
+        <ActionButton type="anchor" href={repo}>
+          Código
+        </ActionButton>
         <P>
           <strong>Nivel en Frontend Mentor: {level}</strong>
         </P>

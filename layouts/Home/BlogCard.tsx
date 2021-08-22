@@ -1,9 +1,8 @@
 import Link from "next/link";
 import slugify from "react-slugify";
-import { getFormattedDate } from "utils/helpers";
+import { getFormattedDate, insertTextBetween } from "utils";
 import { imageCloudProvider } from "site.config";
 import useDarkMode from "hooks/useDarkMode";
-import { insertTextBetween } from "utils/helpers";
 import Image from "next/image";
 import { PostData } from "types/posts";
 import { ReactElement } from "react";

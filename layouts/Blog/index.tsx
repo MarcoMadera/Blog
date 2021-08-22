@@ -2,12 +2,12 @@ import Seo from "components/Seo";
 import MarkDown from "components/Markdown/index";
 import TableOfContents from "./TableOfContents";
 import Comments from "./Comment";
-import Newsletter from "components/Newsletter";
+import NewsletterCard from "components/NewsletterCard";
 import AllTags from "components/AllTags";
 import RecommendedPosts from "./RecommendedPosts";
 import BlogFooter from "./BlogFooter";
 import { colors } from "styles/theme";
-import { getFormattedDate, insertTextBetween } from "utils/helpers";
+import { getFormattedDate, insertTextBetween } from "utils";
 import { imageCloudProvider } from "site.config";
 import { H1, ALink, Hr } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
@@ -121,7 +121,7 @@ export default function Post({
       <aside>
         <AllTags allTags={tags} title="Etiquetas del artículo" />
         <RecommendedPosts recommendedPosts={recommendedPosts} slug={slug} />
-        <Newsletter />
+        <NewsletterCard />
       </aside>
       <style jsx>{`
         nav :global(a) {

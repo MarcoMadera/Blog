@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { imageCloudProvider } from "site.config";
 import useDarkMode from "hooks/useDarkMode";
-import ViewImage from "./ViewImage";
+import ViewFullImageModal from "../modals/ViewFullImageModal";
 import { ReactElement, useRef, useState } from "react";
 import { ImgData } from "types/posts";
 
@@ -135,7 +135,7 @@ export function Img({
         )}
       </summary>
       {openModal && (
-        <ViewImage
+        <ViewFullImageModal
           alt={alt}
           blurDataURL={blurDataURL}
           exitModal={exitModal}

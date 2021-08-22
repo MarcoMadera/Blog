@@ -1,4 +1,4 @@
-import { formatNumber } from "utils/helpers";
+import { formatNumber } from "utils";
 import { tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import twemoji from "twemoji";

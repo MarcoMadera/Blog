@@ -3,7 +3,6 @@ import Markdown from "components/Markdown";
 import { DataMapContextProvider } from "context/DataMapContext";
 import { getPlaiceholder } from "plaiceholder";
 import { TweetData, TweetResponse } from "types/tweet";
-import needle from "needle";
 import { Images, Tweets } from "types/posts";
 
 const API_URL = "https://api.twitter.com";
@@ -14,7 +13,7 @@ async function getTweetData(
 ): Promise<TweetData | null> {
   const { ignoreTweet = false, hideConversation = false } = options;
 
-  const params = {
+  const paramsData = {
     "tweet.fields":
       "attachments,entities,created_at,public_metrics,referenced_tweets",
     "user.fields": "username,profile_image_url,verified",
@@ -24,14 +23,17 @@ async function getTweetData(
     expansions: "author_id,attachments.media_keys,attachments.poll_ids",
   };
 
-  const res = await needle("get", `${API_URL}/2/tweets/${id}`, params, {
+  const params = new URLSearchParams(paramsData);
+
+  const res = await fetch(`${API_URL}/2/tweets/${id}?${params}`, {
+    method: "GET",
     headers: {
       "User-Agent": "v2TweetLookupJS",
       authorization: `Bearer ${process.env.TWITTER_API_TOKEN}`,
     },
   });
 
-  const tweetResponse: TweetResponse = res.body;
+  const tweetResponse: TweetResponse = await res.json();
 
   if (!tweetResponse) {
     console.error(`Fetch tweet with id: "${id}" failed`);

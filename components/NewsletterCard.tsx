@@ -14,7 +14,7 @@ function P({ children }: { children: ReactNode }) {
   return <p>{children}</p>;
 }
 
-export default function Newsletter(): ReactElement {
+export default function NewsletterCard(): ReactElement {
   const router = useRouter();
   const { darkMode } = useDarkMode();
   const { addNotification } = useNotification();

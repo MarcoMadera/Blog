@@ -1,9 +1,9 @@
 import useDarkMode from "hooks/useDarkMode";
-import { colors, tweets } from "styles/theme";
-import { formatTweetText } from "./formatTweetText";
+import { tweets } from "styles/theme";
+import TweetText from "./TweetText";
 import { TweetMedia } from "./Media";
 import { TweetPoll } from "./Poll";
-import { formatNumber, getQuotedTwitterFormattedDate } from "utils/helpers";
+import { formatNumber, getQuotedTwitterFormattedDate } from "utils";
 import useMounted from "hooks/useMounted";
 import QuotedTweet from "./QuotedTweet";
 import { TweetData } from "types/tweet";
@@ -93,7 +93,7 @@ export default function RepliedTweet({
               </span>
             </div>
           </a>
-          <p>{formatTweetText(data.tweet.text, data.tweet.entities)}</p>
+          <TweetText text={data.tweet.text} entities={data.tweet.entities} />
           {data.poll ? <TweetPoll poll={data.poll} /> : null}
           {data.media ? <TweetMedia data={data.media} quoted={true} /> : null}
           {data.quotedTweet ? <QuotedTweet data={data.quotedTweet} /> : null}
@@ -310,16 +310,6 @@ export default function RepliedTweet({
         .repliedTweet {
           position: relative;
           padding: 0 10px;
-        }
-        div.tweet div p {
-          text-align: left;
-          line-height: 1.5125;
-          margin: 0px;
-          white-space: pre-wrap;
-          padding: 0px;
-          font-size: 14px;
-          font-weight: 400;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
         }
       `}</style>
     </blockquote>

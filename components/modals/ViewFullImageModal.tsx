@@ -9,7 +9,7 @@ import {
 } from "react";
 import Image from "next/image";
 import { ImgData } from "types/posts";
-import getClientSize from "utils/getClientSize";
+import { getClientSize } from "utils";
 import { imageCloudProvider } from "site.config";
 import useLockBodyScroll from "hooks/useLockBodyScroll";
 
@@ -28,7 +28,7 @@ interface ViewImageProps {
   fullImage?: Omit<ImgData, "fullImg"> | null;
 }
 
-export default function ViewImage({
+export default function ViewFullImageModal({
   openModal,
   exitModal,
   isFromCloudProvider,

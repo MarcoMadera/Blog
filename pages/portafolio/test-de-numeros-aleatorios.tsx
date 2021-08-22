@@ -1,4 +1,4 @@
-import ActionAnchor from "components/ActionAnchor";
+import ActionButton from "components/ActionButton";
 import { ALink, H1, H2, Img, P } from "components/tags";
 import { ChartJs, ReactIcon } from "components/icons";
 import Seo from "components/Seo";
@@ -15,12 +15,18 @@ export default function TestRandomNumbers(): ReactElement {
       <article>
         <div>
           <H2>Pruebas para números aleatorios</H2>
-          <ActionAnchor href="https://test-for-random-numbers.marcomadera.vercel.app/">
+          <ActionButton
+            type="anchor"
+            href="https://test-for-random-numbers.marcomadera.vercel.app/"
+          >
             Ver en vivo
-          </ActionAnchor>
-          <ActionAnchor href="https://github.com/MarcoMadera/Test-for-random-numbers">
+          </ActionButton>
+          <ActionButton
+            type="anchor"
+            href="https://github.com/MarcoMadera/Test-for-random-numbers"
+          >
             Código
-          </ActionAnchor>
+          </ActionButton>
           <P>
             Esta es una sencilla herramienta para verificar si los números
             insertados cumplen el comportamiento de los números aleatorios, se

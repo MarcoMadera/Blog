@@ -1,4 +1,4 @@
-import ActionAnchor from "components/ActionAnchor";
+import ActionButton from "components/ActionButton";
 import { Ul, Li, H1, H2, Img, P, Video, H3 } from "components/tags";
 import Seo from "components/Seo";
 import { ReactElement } from "react";
@@ -14,12 +14,18 @@ export default function TestRandomNumbers(): ReactElement {
       <article>
         <div>
           <H2>Rindu Limpia tus playlists</H2>
-          <ActionAnchor href="https://spotify-playlists-cleaner.vercel.app/">
+          <ActionButton
+            type="anchor"
+            href="https://spotify-playlists-cleaner.vercel.app/"
+          >
             Ver en vivo
-          </ActionAnchor>
-          <ActionAnchor href="https://github.com/MarcoMadera/spotify-playlists-cleaner">
+          </ActionButton>
+          <ActionButton
+            type="anchor"
+            href="https://github.com/MarcoMadera/spotify-playlists-cleaner"
+          >
             Código
-          </ActionAnchor>
+          </ActionButton>
           <H3>En qué casos te ayuda Rindu:</H3>
           <Ul>
             <Li>

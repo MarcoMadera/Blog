@@ -5,7 +5,7 @@ import useDarkMode from "hooks/useDarkMode";
 import { Info, Error } from "components/icons";
 import useNotification from "hooks/useNotification";
 
-export default function Notification(): ReactPortal | null {
+export default function NotificationsModal(): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element>();
   const { darkMode } = useDarkMode();
   const { notifications, removeNotification, setNotifications } =

@@ -29,7 +29,6 @@ import Tweet from "../Tweet";
 import Colors from "../Colors";
 import Font from "../Font";
 import ActionButton from "../ActionButton";
-import ActionAnchor from "../ActionAnchor";
 import useImage from "hooks/useImage";
 import {
   NormalComponents,
@@ -113,7 +112,7 @@ export const components:
   hr: function HorizontalRuleMd() {
     return <Hr />;
   },
-  abbr: function HorizontalRuleMd({ children, node }) {
+  abbr: function AbbreviationMd({ children, node }) {
     return <Abbr {...node.properties}>{children}</Abbr>;
   },
   usefont: function UseFont({ node }) {
@@ -280,9 +279,9 @@ export const components:
   actionanchor: function ActionAnchorNode({ node, children }) {
     const href = node.properties?.href as string;
     return (
-      <ActionAnchor href={href} {...node.properties}>
+      <ActionButton type="anchor" href={href} {...node.properties}>
         {children}
-      </ActionAnchor>
+      </ActionButton>
     );
   },
   actionbutton: function ActionButtonNode({ node, children }) {
@@ -294,7 +293,7 @@ export const components:
   table: function TableMd({ children }) {
     return <Table>{children}</Table>;
   },
-  td: function ThMd({ style, children, node }) {
+  td: function TdMd({ style, children, node }) {
     return (
       <Td style={style} {...node.properties}>
         {children}
@@ -310,7 +309,7 @@ export const components:
   progress: function ProgressNode({ node }) {
     return <Progress {...node.properties} />;
   },
-  th: function TdMd({ style, children, node }) {
+  th: function ThMd({ style, children, node }) {
     return (
       <Th style={style} {...node.properties}>
         {children}

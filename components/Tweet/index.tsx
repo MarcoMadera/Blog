@@ -6,7 +6,7 @@ import TweetInfo from "./tweet-info";
 import TweetAction from "./tweet-action";
 import { TweetPoll } from "./Poll";
 import { TweetMedia } from "./Media";
-import { formatTweetText } from "./formatTweetText";
+import TweetText from "./TweetText";
 import QuotedTweet from "./QuotedTweet";
 import RepliedTweet from "./RepliedTweet";
 import { ReactElement, ReactNode } from "react";
@@ -70,13 +70,12 @@ export default function Tweet({
               profile_image_url={user.profile_image_url}
             />
             <section>
-              <p>
-                {formatTweetText(
-                  data.tweet.text,
-                  data.tweet.entities,
-                  quotedTweetUrl
-                )}
-              </p>
+              <TweetText
+                text={data.tweet.text}
+                entities={data.tweet.entities}
+                quotedTweetUrl={quotedTweetUrl}
+                original={true}
+              />
               {data.poll ? <TweetPoll poll={data.poll} /> : null}
               {data.media ? <TweetMedia data={data.media} /> : null}
               {data.quotedTweet ? (
@@ -155,16 +154,6 @@ export default function Tweet({
           vertical-align: text-bottom;
           background-size: contain;
           background-repeat: no-repeat;
-        }
-        div.tweet div p {
-          text-align: left;
-          line-height: 1.5125;
-          margin: 0px;
-          white-space: pre-wrap;
-          padding: 0px;
-          font-size: 17px;
-          font-weight: 400;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
         }
       `}</style>
     </div>

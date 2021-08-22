@@ -13,20 +13,22 @@ import useComments from "hooks/useComments";
 import useUser from "hooks/useUser";
 import useLockBodyScroll from "hooks/useLockBodyScroll";
 
-interface SendCommentPopupProps {
+interface SendCommentConfirmationModalProps {
   sendCommentRef: RefObject<HTMLButtonElement>;
 }
 
-export default function SendCommentPopup({
+export default function SendCommentConfirmationModal({
   sendCommentRef,
-}: SendCommentPopupProps): ReactPortal | null {
+}: SendCommentConfirmationModalProps): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element>();
   const { darkMode } = useDarkMode();
   const { isSubmittingComment, setIsSubmittingComment } = useComments();
   const { loginUserAnonymously } = useUser();
   const firstButtonRef = useRef<HTMLButtonElement | null>(null);
   const secondButtonRef = useRef<HTMLButtonElement | null>(null);
+
   useLockBodyScroll();
+
   const onPressKey = useCallback(
     (event) => {
       const firstElement = firstButtonRef.current;
@@ -68,6 +70,7 @@ export default function SendCommentPopup({
   if (targetNode === undefined || !setIsSubmittingComment) {
     return null;
   }
+
   return createPortal(
     <div className="popupConfirm">
       <div

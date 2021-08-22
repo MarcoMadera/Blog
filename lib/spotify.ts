@@ -1,4 +1,3 @@
-import querystring from "querystring";
 import { CurrentlyPlaying, RecentlyPlayed, TopTracks } from "types/spotify";
 
 const {
@@ -27,9 +26,9 @@ async function refreshToken() {
       Authorization: `Basic ${getAuth}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: querystring.stringify({
+    body: new URLSearchParams({
       grant_type: "refresh_token",
-      refresh_token,
+      refresh_token: refresh_token || "",
     }),
   });
 

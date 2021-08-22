@@ -1,4 +1,4 @@
-import { numberBetween } from "utils/helpers";
+import { numberBetweenRange } from "utils";
 import { siteMetadata } from "site.config";
 import { ReactElement, useCallback, useEffect, useState } from "react";
 import AboutLayout from "../../layouts/About";
@@ -46,7 +46,7 @@ export default function About({
   useEffect(() => {
     const updateNowPlaying = setInterval(
       () => reqNowPlaying(),
-      numberBetween(60000, 90000)
+      numberBetweenRange(60000, 90000)
     );
     return () => clearInterval(updateNowPlaying);
   }, [reqNowPlaying]);

@@ -23,9 +23,12 @@ const LoadMoreCommentsButton = dynamic(
   }
 );
 
-const SendCommentPopup = dynamic(() => import("./options/SendCommentPopup"), {
-  ssr: false,
-});
+const SendCommentConfirmationModal = dynamic(
+  () => import("components/modals/SendCommentConfirmationModal"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Comments({ slug }: { slug: string }): ReactElement {
   const [preview, setPreview] = useState(false);
@@ -81,7 +84,7 @@ export default function Comments({ slug }: { slug: string }): ReactElement {
   return (
     <section>
       {!isLoggedIn && isSubmittingComment && isValidComment ? (
-        <SendCommentPopup sendCommentRef={sendCommentRef} />
+        <SendCommentConfirmationModal sendCommentRef={sendCommentRef} />
       ) : null}
       <label htmlFor="Comment">
         <H2>Comentarios</H2>

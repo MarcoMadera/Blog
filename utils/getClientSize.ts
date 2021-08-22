@@ -1,4 +1,21 @@
-export default function getClientSize(width: number, height: number) {
+/**
+ * Get the actual space used in screen based on the innerHeight and innerWidth
+ *
+ * Ex. Screen = 1349 x 671
+ * getClientSize(4000,2000)=>{widthPercent:100, heightPercent:50}
+ *
+ * @param width number
+ * @param height number
+ * @returns :{ widthPercent:number, heightPercent:number, }
+ */
+
+export default function getClientSize(
+  width: number,
+  height: number
+): {
+  widthPercent: number;
+  heightPercent: number;
+} {
   const screenHeight = window.innerHeight;
   const screenWidth = window.innerWidth;
 

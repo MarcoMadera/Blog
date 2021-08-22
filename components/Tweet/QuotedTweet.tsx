@@ -1,9 +1,9 @@
 import useDarkMode from "hooks/useDarkMode";
-import { colors, tweets } from "styles/theme";
-import { formatTweetText } from "./formatTweetText";
+import { tweets } from "styles/theme";
+import TweetText from "./TweetText";
 import { TweetMedia } from "./Media";
 import { TweetPoll } from "./Poll";
-import { getQuotedTwitterFormattedDate } from "utils/helpers";
+import { getQuotedTwitterFormattedDate } from "utils";
 import useMounted from "hooks/useMounted";
 import { TweetData } from "types/tweet";
 import { ReactElement } from "react";
@@ -73,7 +73,7 @@ export default function QuotedTweet({
               </span>
             </div>
           </a>
-          <p>{formatTweetText(data.tweet.text, data.tweet.entities)}</p>
+          <TweetText text={data.tweet.text} entities={data.tweet.entities} />
         </div>
         {data.poll ? <TweetPoll poll={data.poll} /> : null}
         {data.media ? <TweetMedia data={data.media} quoted={true} /> : null}
@@ -147,16 +147,6 @@ export default function QuotedTweet({
         div.tweet > div {
           position: relative;
           padding: 10px 15px 5px 15px;
-        }
-        div.tweet div p {
-          text-align: left;
-          line-height: 1.5125;
-          margin: 0px;
-          white-space: pre-wrap;
-          padding: 0px;
-          font-size: 14px;
-          font-weight: 400;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
         }
       `}</style>
     </blockquote>

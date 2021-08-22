@@ -1,10 +1,10 @@
 import AllTags from "components/AllTags";
-import Aside from "./Aside";
+import ProfileCard from "./ProfileCard";
 import BlogCard from "./BlogCard";
 import { colors } from "styles/theme";
 import Custom404 from "pages/404";
 import Link from "next/link";
-import Newsletter from "components/Newsletter";
+import NewsletterCard from "components/NewsletterCard";
 import Seo from "components/Seo";
 import useDarkMode from "hooks/useDarkMode";
 import { siteMetadata } from "site.config";
@@ -32,7 +32,7 @@ export default function HomeLayout({
         title={title}
         canonical={currentPage !== 1 ? siteMetadata.siteUrl : undefined}
       />
-      <Aside />
+      <ProfileCard />
       <section>
         <h1>
           {tag
@@ -72,7 +72,7 @@ export default function HomeLayout({
       </section>
       <aside>
         <AllTags allTags={allTags} />
-        <Newsletter />
+        <NewsletterCard />
       </aside>
       <style jsx>{`
         a {

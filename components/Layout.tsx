@@ -1,92 +1,33 @@
 import Navbar from "./Navbar";
-import { useRouter } from "next/router";
 import Footer from "./Footer";
-import { ReactElement, ReactNode, useEffect } from "react";
+import { ReactElement, ReactNode } from "react";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import CookiesModal from "./CookiesModal";
+import CookiesModal from "./modals/CookiesModal";
 import useCookies from "hooks/useCookies";
-import Notification from "./Notification";
-import useAnalitycs from "hooks/useAnalitycs";
+import NotificationsModal from "./modals/NotificationsModal";
+import useRouterEvents from "hooks/useRouterEvents";
+import useLocalStorageState from "hooks/useLocalStorageState";
 
 export default function Layout({
   children,
 }: {
   children: ReactNode;
 }): ReactElement {
-  const { darkMode, setDarkMode } = useDarkMode();
-  const { acceptedcookies, setAcceptedCookies } = useCookies();
-  const { trackWithGoogleAnalitycs } = useAnalitycs();
-  const router = useRouter();
+  const { darkMode } = useDarkMode();
+  const { acceptedcookies } = useCookies();
 
-  function a11ySmartFocus() {
-    const elementToFocus =
-      document.querySelector("h1") ||
-      document.querySelector("main") ||
-      document.body;
-
-    if (elementToFocus) {
-      const didTabIndexExist = elementToFocus.getAttribute("tabIndex");
-
-      // Only elements with a tabIndex are focusable. So we add a tabIndex here just to make it focusable.
-      if (!didTabIndexExist) {
-        elementToFocus.setAttribute("tabIndex", "-1");
-      }
-
-      elementToFocus.focus();
-
-      // Once the focus leaves the element, we should clean up the tabIndex, if we added one. This is so the screen-reader
-      // does not try to focus the element for purposes other than the initial client-navigation.
-      if (!didTabIndexExist) {
-        elementToFocus.addEventListener("blur", () => {
-          elementToFocus.removeAttribute("tabIndex");
-        });
-      }
-    }
-  }
-
-  useEffect(() => {
-    if (localStorage.getItem("theme") === "light") {
-      setDarkMode && setDarkMode(false);
-    } else {
-      setDarkMode && setDarkMode(true);
-    }
-  }, [setDarkMode]);
-
-  useEffect(() => {
-    if (localStorage.getItem("cookiesAccepted") === "true") {
-      trackWithGoogleAnalitycs();
-      setAcceptedCookies && setAcceptedCookies(true);
-    }
-    if (localStorage.getItem("cookiesAccepted") === "false") {
-      setAcceptedCookies && setAcceptedCookies(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setAcceptedCookies]);
-
-  useEffect(() => {
-    // update page url minimal google analytics
-    const handleRouteChange = () => {
-      if (acceptedcookies === true) {
-        trackWithGoogleAnalitycs();
-      }
-      a11ySmartFocus();
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events, acceptedcookies, trackWithGoogleAnalitycs]);
+  useLocalStorageState();
+  useRouterEvents();
 
   return (
     <>
       <a href="#main">Saltar al contenido</a>
-      <Notification />
+      <NotificationsModal />
       <Navbar />
       {children}
       <Footer />
-      {acceptedcookies === undefined ? <CookiesModal /> : ""}
+      {acceptedcookies === undefined ? <CookiesModal /> : null}
       <style jsx>{`
         :global(html) {
           color-scheme: ${darkMode ? "dark" : "light"};

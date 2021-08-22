@@ -1,4 +1,4 @@
-import { ALink } from "./tags";
+import { ALink } from "../tags";
 import ReactDOM from "react-dom";
 import { ReactPortal, useEffect, useState } from "react";
 import { colors } from "styles/theme";

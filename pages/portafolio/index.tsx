@@ -1,5 +1,5 @@
 import Seo from "components/Seo";
-import ActionLink from "components/ActionLink";
+import ActionButton from "components/ActionButton";
 import { H1, H2, P, A, Img, ALink } from "components/tags";
 import { PropsWithChildren, ReactElement } from "react";
 import useAnalitycs from "hooks/useAnalitycs";
@@ -57,7 +57,7 @@ function Article({
           padding-right: 30px;
           grid-area: 1 / 1 / 1 / 2;
         }
-        article:hover :global(.actionLink) {
+        article:hover :global(.actionButton) {
           animation: heartbeat 1.5s ease-in-out 1s 2 both;
         }
         @keyframes heartbeat {
@@ -116,7 +116,9 @@ export default function Portfolio(): ReactElement {
           lenguaje para responder a dudas comunes y no tan comunes sobre el
           hotel y servicios que ofrece.
         </P>
-        <ActionLink href="/portafolio/facebook-bot">Detalles</ActionLink>
+        <ActionButton type="link" href="/portafolio/facebook-bot">
+          Detalles
+        </ActionButton>
       </Article>
       <Article
         title="Maquetación frontend"
@@ -140,7 +142,9 @@ export default function Portfolio(): ReactElement {
           diseño, por lo que son realizados principalmente a ojo de la imagen
           proporcionada.
         </P>
-        <ActionLink href="/portafolio/retos-frontend">Detalles</ActionLink>
+        <ActionButton type="link" href="/portafolio/retos-frontend">
+          Detalles
+        </ActionButton>
       </Article>
       <Article
         title="Rindu, limpiador de spotify playlists"
@@ -162,7 +166,9 @@ export default function Portfolio(): ReactElement {
           remueve esos tracks duplicados y nulos de tus playlists dejando uno de
           cada tipo.
         </P>
-        <ActionLink href="/portafolio/rindu">Detalles</ActionLink>
+        <ActionButton type="link" href="/portafolio/rindu">
+          Detalles
+        </ActionButton>
       </Article>
       <Article
         title="Tests para números aleatorios"
@@ -191,9 +197,9 @@ export default function Portfolio(): ReactElement {
           </A>
           .
         </P>
-        <ActionLink href="/portafolio/test-de-numeros-aleatorios">
+        <ActionButton type="link" href="/portafolio/test-de-numeros-aleatorios">
           Detalles
-        </ActionLink>
+        </ActionButton>
       </Article>
       <Article
         title="Registro de trámites en Excel"
@@ -213,7 +219,9 @@ export default function Portfolio(): ReactElement {
           contenido y posibles errores de transcripción al llevar la información
           directamente al archivo final.
         </P>
-        <ActionLink href="/portafolio/sre-excel">Detalles</ActionLink>
+        <ActionButton type="link" href="/portafolio/sre-excel">
+          Detalles
+        </ActionButton>
       </Article>
       <style jsx>{`
         main :global(h1) {
