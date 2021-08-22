@@ -1,17 +1,9 @@
 import codeStyles from "styles/codeStyles";
 import { colors } from "styles/theme";
-import markdown from "remark-parse";
-import rehypePrism from "@mapbox/rehype-prism";
-import rehype2react from "rehype-react";
-import remark2rehype from "remark-rehype";
-import unified from "unified";
-import {
-  createElement,
-  PropsWithChildren,
-  ReactElement,
-  ReactNode,
-} from "react";
+import { PropsWithChildren, ReactElement, ReactNode } from "react";
 import useDarkMode from "hooks/useDarkMode";
+import useCodeBlock from "hooks/useCodeBlock";
+import HtmlToReact from "html-to-react";
 
 interface InlineCodeProps {
   children: ReactNode[];
@@ -150,7 +142,7 @@ interface LeftLinesNumbersProps {
   lineNumbers: number[];
 }
 
-function LeftLinesNumbers({
+export function LeftLinesNumbers({
   lineNumbers,
 }: LeftLinesNumbersProps): ReactElement {
   const { darkMode } = useDarkMode();
@@ -176,70 +168,27 @@ function LeftLinesNumbers({
   );
 }
 
-const customClasses = {
-  atrule: "a",
-  "attr-equals": "A",
-  "attr-name": "b",
-  "attr-value": "B",
-  attribute: "c",
-  boolean: "C",
-  class: "d",
-  "class-name": "D",
-  color: "e",
-  comment: "E",
-  "control-flow": "f",
-  function: "F",
-  id: "g",
-  important: "G",
-  interpolation: "h",
-  keyword: "H",
-  "maybe-class-name": "i",
-  module: "I",
-  "n-th": "j",
-  nil: "J",
-  number: "k",
-  operator: "K",
-  parameter: "l",
-  "plain-text": "L",
-  "property-access": "m",
-  property: "M",
-  "pseudo-class": "n",
-  "pseudo-element": "N",
-  punctuation: "o",
-  "regex-delimiter": "O",
-  rule: "p",
-  selector: "P",
-  string: "q",
-  style: "Q",
-  tag: "r",
-  "template-string": "R",
-  unit: "s",
-  url: "S",
-  variable: "t",
-};
-
 interface CodeBlockProps {
   className?: string;
   language: string;
   meta?: string;
   value: ReactNode[];
   mdCode: boolean;
+  id: number;
 }
 
 export function CodeBlock({
   language,
   value,
   mdCode,
-}: PropsWithChildren<CodeBlockProps>): ReactElement {
+  id,
+}: PropsWithChildren<CodeBlockProps>): ReactElement | null {
   const { darkMode } = useDarkMode();
-  const nodeValue = value[0] as string;
-  const lineNumbers =
-    typeof nodeValue === "object"
-      ? []
-      : Array.from(
-          { length: (nodeValue?.match(/\n/g) || "").length },
-          (_, i) => i + 1
-        );
+  const { data, ignore } = useCodeBlock(id, value, language);
+
+  if (ignore) {
+    return null;
+  }
 
   const styles: {
     light: Record<string, ReactElement>;
@@ -250,58 +199,14 @@ export function CodeBlock({
     ? styles.dark[`${language}`] ?? undefined
     : styles.light[`${language}`] ?? undefined;
 
-  const processor = unified()
-    .use(markdown)
-    .use(remark2rehype)
-    .use(rehypePrism, { ignoreMissing: true })
-    .use(rehype2react, {
-      createElement: createElement,
-      components: {
-        pre: function PreformattedNode({ children }) {
-          return (
-            <>
-              <Pre>{children as ReactNode}</Pre>
-            </>
-          );
-        },
-        code: function CodeNode({ children }) {
-          return (
-            <code data-lang={language}>
-              <LeftLinesNumbers lineNumbers={lineNumbers} />
-              {children}
-            </code>
-          );
-        },
-        span: function SpanNode({ className, children }) {
-          const cless = className as string;
-          const clase = cless.split(" ");
-          const allCustomClasses: Record<string, string> = customClasses;
-          return (
-            <span
-              className={
-                !clase[clase.length - 1].includes("language-")
-                  ? allCustomClasses[clase[clase.length - 1]] ??
-                    clase[clase.length - 1]
-                  : clase[clase.length - 1].replace("language-", "")
-              }
-            >
-              {children as ReactNode}
-            </span>
-          );
-        },
-      },
-    });
-
-  const file = processor.processSync(`~~~${language}\n${value}~~~`);
+  const htmlToReactParser = HtmlToReact.Parser();
 
   return (
     <>
-      {mdCode ? (
-        file.result
+      {mdCode && data ? (
+        htmlToReactParser.parse(data.result)
       ) : (
-        <Pre>
-          <code data-lang={language}>{value}</code>
-        </Pre>
+        <code data-lang={language}>{value}</code>
       )}
       {style && (
         <style global jsx>

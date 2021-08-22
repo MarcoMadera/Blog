@@ -34,12 +34,19 @@ export interface ImgData {
   fullImg: Omit<ImgData, "fullImg"> | null;
 }
 
+export interface CodeBlockData {
+  result: unknown;
+  language: string | undefined;
+}
+
 export type Tweets = Record<string, TweetData>;
 export type Images = Record<string, ImgData>;
+export type CodeBlocks = Record<string, CodeBlockData>;
 
 export interface PostWithMedia extends Post {
   tweets: Tweets;
   images: Images;
+  codeBlocks: CodeBlocks;
 }
 
 export type AllTags = string[];

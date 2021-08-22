@@ -17,6 +17,7 @@ import { TweetsContextProvider } from "context/TweetsContext";
 import { ImagesContextProvider } from "context/ImagesContext";
 import { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
+import { CodeBlocksContextProvider } from "context/CodeBlocksContext";
 
 export default function Post({
   title,
@@ -35,6 +36,7 @@ export default function Post({
   slug,
   tweets,
   images,
+  codeBlocks,
   h2s,
   readingTimeInMinutes,
 }: PostWithMedia): ReactElement {
@@ -80,9 +82,11 @@ export default function Post({
         <TableOfContents h2s={h2s} />
         <div itemProp="articlebody" aria-labelledby="articleTitle">
           <ImagesContextProvider images={images}>
-            <TweetsContextProvider tweets={tweets}>
-              <MarkDown source={content} html={true} />
-            </TweetsContextProvider>
+            <CodeBlocksContextProvider codeBlocks={codeBlocks}>
+              <TweetsContextProvider tweets={tweets}>
+                <MarkDown source={content} html={true} />
+              </TweetsContextProvider>
+            </CodeBlocksContextProvider>
           </ImagesContextProvider>
         </div>
         <Hr />

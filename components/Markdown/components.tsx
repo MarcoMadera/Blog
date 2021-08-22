@@ -22,6 +22,7 @@ import {
   Select,
   Video,
   Youtube,
+  Pre,
 } from "../tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
@@ -162,7 +163,7 @@ export const components:
     );
   },
   pre: function PreNode({ children }) {
-    return <>{children}</>;
+    return <Pre>{children}</Pre>;
   },
   colors: function PreNode({ node }) {
     return <Colors {...node.properties} />;
@@ -184,6 +185,7 @@ export const components:
         }
         mdCode={!!className}
         value={children}
+        id={node.position?.start.offset as number}
       />
     );
   },
