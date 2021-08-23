@@ -60,15 +60,15 @@ export default function TweetInfo({
           </span>
         )}
       </a>
-      {createdAt && (
-        <a
-          className="time"
-          href={tweetUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <time
-            title={`Publicado: ${createdAt.toLocaleDateString("es", {
+      <a
+        className="time"
+        href={tweetUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <time
+          title={`Publicado: ${
+            createdAt?.toLocaleDateString("es", {
               year: "numeric",
               month: "short",
               day: "numeric",
@@ -76,13 +76,13 @@ export default function TweetInfo({
               hour: "2-digit",
               minute: "2-digit",
               hour12: true,
-            })}`}
-            dateTime={createdAt.toISOString()}
-          >
-            {getTwitterFormattedDate(created_at)}
-          </time>
-        </a>
-      )}
+            }) || ""
+          }`}
+          dateTime={createdAt?.toISOString() || ""}
+        >
+          {getTwitterFormattedDate(created_at) || Date()}
+        </time>
+      </a>
       <style jsx>{`
         a {
           text-decoration: none;
