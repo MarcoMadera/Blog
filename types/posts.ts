@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { TweetData } from "./tweet";
 
 export type PostData = {
@@ -35,18 +36,16 @@ export interface ImgData {
 }
 
 export interface CodeBlockData {
-  result: unknown;
-  language: string | undefined;
+  result: string;
+  language?: string;
 }
 
 export type Tweets = Record<string, TweetData>;
 export type Images = Record<string, ImgData>;
 export type CodeBlocks = Record<string, CodeBlockData>;
-
+export type Elements = Record<string, TweetData | ImgData | CodeBlockData>;
 export interface PostWithMedia extends Post {
-  tweets: Tweets;
-  images: Images;
-  codeBlocks: CodeBlocks;
+  elements: Elements;
 }
 
 export type AllTags = string[];
@@ -59,4 +58,56 @@ export interface HomeData {
   pages: Pages;
   currentPage?: CurrentPage;
   tag?: string;
+}
+
+export interface ElementTweetParams {
+  id: string;
+  hideConversation: boolean;
+}
+
+export interface ElementCodeBlockParams {
+  id: string;
+  content: ReactNode[];
+  language: string;
+}
+
+export interface ElementImageParams {
+  normal: string;
+  full?: string | undefined;
+}
+
+export type Ids = ImageId | TweetId | CodeBlockId;
+export type ImageId = `image:${string}`;
+export type TweetId = `tweet:${string}`;
+export type CodeBlockId = `codeBlock:${string}`;
+
+export interface ElementImage extends ElementImageParams {
+  type: "image";
+}
+export interface ElementTweet extends ElementTweetParams {
+  type: "tweet";
+}
+export interface ElementCodeBlock extends ElementCodeBlockParams {
+  type: "codeBlock";
+}
+
+export type Element = ElementImage | ElementTweet | ElementCodeBlock;
+
+export interface UElementRes {
+  Img: {
+    data: ImgData | undefined;
+    ignore: boolean;
+  };
+  Tweet: {
+    data: TweetData | undefined;
+    ignore: boolean;
+  };
+  CodeBlock: {
+    data: CodeBlockData | undefined;
+    ignore: boolean;
+  };
+  Response: {
+    data: ImgData | TweetData | CodeBlockData | undefined;
+    ignore: boolean;
+  };
 }

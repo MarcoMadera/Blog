@@ -2,116 +2,96 @@ import ReactDOMServer from "react-dom/server";
 import Markdown from "components/Markdown";
 import { DataMapContextProvider } from "context/DataMapContext";
 import { getPlaiceholder } from "plaiceholder";
-import { CodeBlocks, Images, Tweets } from "types/posts";
+import {
+  Element,
+  ElementCodeBlock,
+  ElementImage,
+  Elements,
+  ElementTweet,
+} from "types/posts";
 import getTweetData from "utils/getTweetData";
 import codeHighlighter from "utils/codeHighlighter";
-import { ReactNode } from "react";
 
-export default async function getElementsData(content: string): Promise<{
-  tweets: Tweets;
-  images: Images;
-  codeBlocks: CodeBlocks;
-}> {
-  const ids: { id: string; hideConversation: boolean }[] = [];
-  const imgs: { src: { normal: string; full: string | undefined } }[] = [];
-  const codeBlocksArr: {
-    id: number;
-    content: ReactNode[];
-    language?: string;
-  }[] = [];
+export default async function getElementsData(
+  content: string
+): Promise<Elements> {
+  const elementsArr: Element[] = [];
 
-  const addTweet = (id: string, hideConversation: boolean) => {
-    if (!ids.some((i) => i.id.includes(id))) {
-      ids.push({ id, hideConversation });
-    }
-  };
-
-  const addImage = (src: { normal: string; full: string | undefined }) => {
-    if (!imgs.some((i) => i.src.normal.includes(src.normal))) {
-      imgs.push({ src });
-    }
-  };
-
-  const addCodeBlock = (
-    id: number,
-    content: ReactNode[],
-    language?: string
-  ) => {
-    if (!codeBlocksArr.some((i) => i.content.includes(content))) {
-      codeBlocksArr.push({ id, content, language });
-    }
+  const addElement = (element: Element) => {
+    elementsArr.push(element);
   };
 
   // Render the page once to populate `ids`
   ReactDOMServer.renderToString(
-    <DataMapContextProvider
-      addTweet={addTweet}
-      addImage={addImage}
-      addCodeBlock={addCodeBlock}
-    >
+    <DataMapContextProvider addElement={addElement}>
       <Markdown source={content} html={true} />
     </DataMapContextProvider>
   );
 
+  const allTweetsId = elementsArr.filter(
+    (e) => e.type === "tweet"
+  ) as ElementTweet[];
+
   const tweetsData = await Promise.all(
-    ids.map(async ({ id, hideConversation }) => {
+    allTweetsId.map(async ({ id, hideConversation, type }) => {
       const data = await getTweetData(id, {
         ignoreTweet: false,
         hideConversation,
       });
-      return { id, data };
+      return { id: `${type}:${id}`, data };
     })
   );
 
-  const codeBlocksData = codeBlocksArr.map(({ id, content, language }) => {
-    const highlightedCode = codeHighlighter(content, language);
-    const result = ReactDOMServer.renderToStaticMarkup(<>{highlightedCode}</>);
-    const data = { result, language };
-
-    return { id, data };
-  });
+  const allImagesUrl = elementsArr.filter(
+    (e) => e.type === "image"
+  ) as ElementImage[];
 
   const imagesData = await Promise.all(
-    imgs.map(async ({ src }) => {
+    allImagesUrl.map(async ({ normal, full, type }) => {
       let fullImg = null;
-      const { base64, img } = await getPlaiceholder(src.normal, {
+      const { base64, img } = await getPlaiceholder(normal, {
         size: 10,
       });
-      if (src.full) {
-        const { base64, img } = await getPlaiceholder(src.full, {
+
+      if (full) {
+        const { base64, img } = await getPlaiceholder(full, {
           size: 10,
         });
         fullImg = { base64, img };
       }
-      return { src, base64, img, fullImg };
+
+      return {
+        id: `${type}:${normal}`,
+        data: { base64, img, fullImg },
+      };
     })
   );
 
-  const tweets = tweetsData.reduce((result: Tweets, { id, data }) => {
-    if (data) {
-      result[id] = data;
+  const allCodeBlocks = elementsArr.filter(
+    (e) => e.type === "codeBlock"
+  ) as ElementCodeBlock[];
+
+  const codeBlocksData = allCodeBlocks.map(
+    ({ id, content, language, type }) => {
+      const highlightedCode = codeHighlighter(content, language);
+      const result = ReactDOMServer.renderToStaticMarkup(
+        <>{highlightedCode}</>
+      );
+      const data = { result, language };
+
+      return { id: `${type}:${id}`, data };
     }
-    return result;
-  }, {});
+  );
 
-  const codeBlocks = codeBlocksData.reduce(
-    (result: CodeBlocks, { id, data }) => {
-      if (data) {
-        result[id] = data;
+  const elementsData = [...tweetsData, ...imagesData, ...codeBlocksData].reduce(
+    (result: Elements, element) => {
+      if (element.data) {
+        result[element.id] = element.data;
       }
       return result;
     },
     {}
   );
 
-  const images = imagesData.reduce(
-    (result: Images, { src, base64, img, fullImg }) => {
-      if (base64) {
-        result[src.normal] = { img, base64, fullImg };
-      }
-      return result;
-    },
-    {}
-  );
-  return { tweets, images, codeBlocks };
+  return elementsData;
 }

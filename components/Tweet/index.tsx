@@ -1,4 +1,3 @@
-import useTweet from "hooks/useTweet";
 import { colors, tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import TweetHeader from "./tweet-header";
@@ -10,6 +9,7 @@ import TweetText from "./TweetText";
 import QuotedTweet from "./QuotedTweet";
 import RepliedTweet from "./RepliedTweet";
 import { ReactElement, ReactNode } from "react";
+import useElementData from "hooks/useElementData";
 
 interface TweetProps {
   id: string;
@@ -22,7 +22,11 @@ export default function Tweet({
   caption,
   hideConversation,
 }: TweetProps): ReactElement | null {
-  const { data, ignore } = useTweet(id, hideConversation);
+  const { data, ignore } = useElementData({
+    type: "tweet",
+    id: id,
+    hideConversation,
+  });
   const user = Array.isArray(data?.user) ? data?.user[0] : null;
 
   const { darkMode } = useDarkMode();

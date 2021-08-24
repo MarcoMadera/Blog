@@ -2,8 +2,8 @@ import codeStyles from "styles/codeStyles";
 import { colors } from "styles/theme";
 import { PropsWithChildren, ReactElement, ReactNode } from "react";
 import useDarkMode from "hooks/useDarkMode";
-import useCodeBlock from "hooks/useCodeBlock";
 import HtmlToReact from "html-to-react";
+import useElementData from "hooks/useElementData";
 
 interface InlineCodeProps {
   children: ReactNode[];
@@ -184,7 +184,12 @@ export function CodeBlock({
   id,
 }: PropsWithChildren<CodeBlockProps>): ReactElement | null {
   const { darkMode } = useDarkMode();
-  const { data, ignore } = useCodeBlock(id, value, language);
+  const { data, ignore } = useElementData({
+    type: "codeBlock",
+    content: value,
+    id: id.toString(),
+    language,
+  });
 
   if (ignore) {
     return null;

@@ -30,10 +30,10 @@ export const getStaticProps: GetStaticProps<Params> = async ({ params }) => {
   const slug = params?.slug;
   if (slug) {
     const post = await getPostBySlug(typeof slug === "string" ? slug : slug[0]);
-    const { tweets, images, codeBlocks } = await getElementsData(post.content);
+    const elements = await getElementsData(post.content);
 
     return {
-      props: { ...post, tweets, images, codeBlocks },
+      props: { ...post, elements },
     };
   }
   return {

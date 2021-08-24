@@ -13,11 +13,9 @@ import { H1, ALink, Hr } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
 import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
-import { TweetsContextProvider } from "context/TweetsContext";
-import { ImagesContextProvider } from "context/ImagesContext";
 import { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
-import { CodeBlocksContextProvider } from "context/CodeBlocksContext";
+import { ElementsContextProvider } from "context/ElementsContext";
 
 export default function Post({
   title,
@@ -34,9 +32,7 @@ export default function Post({
   twitter,
   summary,
   slug,
-  tweets,
-  images,
-  codeBlocks,
+  elements,
   h2s,
   readingTimeInMinutes,
 }: PostWithMedia): ReactElement {
@@ -81,13 +77,9 @@ export default function Post({
         </header>
         <TableOfContents h2s={h2s} />
         <div itemProp="articlebody" aria-labelledby="articleTitle">
-          <ImagesContextProvider images={images}>
-            <CodeBlocksContextProvider codeBlocks={codeBlocks}>
-              <TweetsContextProvider tweets={tweets}>
-                <MarkDown source={content} html={true} />
-              </TweetsContextProvider>
-            </CodeBlocksContextProvider>
-          </ImagesContextProvider>
+          <ElementsContextProvider elements={elements}>
+            <MarkDown source={content} html={true} />
+          </ElementsContextProvider>
         </div>
         <Hr />
         <BlogFooter

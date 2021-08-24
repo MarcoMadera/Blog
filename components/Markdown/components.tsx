@@ -30,7 +30,6 @@ import Tweet from "../Tweet";
 import Colors from "../Colors";
 import Font from "../Font";
 import ActionButton from "../ActionButton";
-import useImage from "hooks/useImage";
 import {
   NormalComponents,
   ReactMarkdownProps,
@@ -38,6 +37,7 @@ import {
 } from "react-markdown/src/ast-to-react";
 import { ReactNode, ReactPortal, ClassAttributes, HTMLAttributes } from "react";
 import { imageCloudProvider } from "site.config";
+import useElementData from "hooks/useElementData";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &
@@ -234,10 +234,13 @@ export const components:
       )}`;
       return `${imageCloudProvider}/c_limit/${rest}`;
     };
-    const { data } = useImage({
+
+    const { data } = useElementData({
+      type: "image",
       normal: src,
       full: isFromCloudProvider ? myLoader(src) : undefined,
     });
+
     const classNames = node.properties?.className as string[];
 
     if (classNames?.includes("twemoji")) {
