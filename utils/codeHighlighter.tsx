@@ -4,7 +4,6 @@ import rehypePrism from "@mapbox/rehype-prism";
 import rehype2react from "rehype-react";
 import remark2rehype from "remark-rehype";
 import { createElement, ReactNode } from "react";
-import { LeftLinesNumbers } from "components/tags/code";
 
 const customClasses = {
   atrule: "a",
@@ -52,15 +51,6 @@ export default function codeHighlighter(
   content: ReactNode[],
   language?: string
 ): ReactNode[] {
-  const nodeValue = content[0] as string;
-  const lineNumbers =
-    typeof nodeValue === "object"
-      ? []
-      : Array.from(
-          { length: (nodeValue?.match(/\n/g) || "").length },
-          (_, i) => i + 1
-        );
-
   const processor = unified()
     .use(markdown)
     .use(remark2rehype)
@@ -72,12 +62,7 @@ export default function codeHighlighter(
           return <>{children as ReactNode}</>;
         },
         code: function CodeNode({ children }) {
-          return (
-            <code data-lang={language}>
-              <LeftLinesNumbers lineNumbers={lineNumbers} />
-              {children}
-            </code>
-          );
+          return <>{children}</>;
         },
         span: function SpanNode({ className, children }) {
           const cless = className as string;

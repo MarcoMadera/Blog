@@ -23,6 +23,7 @@ import {
   Video,
   Youtube,
   Pre,
+  Note,
 } from "../tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
@@ -35,9 +36,16 @@ import {
   ReactMarkdownProps,
   SpecialComponents,
 } from "react-markdown/src/ast-to-react";
-import { ReactNode, ReactPortal, ClassAttributes, HTMLAttributes } from "react";
+import {
+  ReactNode,
+  ReactPortal,
+  ClassAttributes,
+  HTMLAttributes,
+  ReactElement,
+} from "react";
 import { imageCloudProvider } from "site.config";
 import useElementData from "hooks/useElementData";
+import { Element } from "hast";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &
@@ -53,7 +61,17 @@ export type CustomComponents = {
   youtube: BasicComponent;
   actionanchor: BasicComponent;
   actionbutton: BasicComponent;
+  note: BasicComponent;
 };
+
+interface ElementNodes {
+  type: Element["type"];
+  tagName?: Element["tagName"];
+  properties?: Element["properties"];
+  position?: Element["position"];
+  children?: ElementNodes;
+  value?: string | number;
+}
 
 export const components:
   | Partial<
@@ -162,6 +180,10 @@ export const components:
       />
     );
   },
+  note: function NoteNode({ node, children }) {
+    const type = node.properties?.type as unknown as string;
+    return <Note type={type}>{children}</Note>;
+  },
   pre: function PreNode({ children }) {
     return <Pre>{children}</Pre>;
   },
@@ -189,8 +211,50 @@ export const components:
       />
     );
   },
-  blockquote: function BlockQuoteMd({ children }) {
-    return <Blockquote>{children}</Blockquote>;
+  blockquote: function BlockQuoteMd({ children, node }: ReactMarkdownProps) {
+    const nodes: ElementNodes = node as unknown as ElementNodes;
+    const nodeChildren = nodes.children;
+    const blockData = Array.isArray(nodeChildren)
+      ? nodeChildren[1].children
+      : undefined;
+    const hasSource = Array.isArray(blockData)
+      ? blockData[blockData.length - 1].tagName === "a"
+      : false;
+    const sourceHref = blockData[blockData.length - 1].properties?.href;
+    const sourceChild = blockData[blockData.length - 1]?.children;
+    const sourceName = Array.isArray(sourceChild)
+      ? sourceChild[0]?.value
+      : undefined;
+
+    const childrenWithOutSource = blockData.map(
+      (data: ElementNodes[], i: number) => {
+        const d = children[1] as unknown as ReactElement;
+        if (blockData.length - 1 !== i) {
+          return data || Array.isArray(d) ? d.props.children[i] : null;
+        }
+      }
+    );
+
+    return (
+      <Blockquote>
+        {hasSource ? (
+          <p>
+            {childrenWithOutSource}{" "}
+            <A
+              classname="source"
+              target="_blank"
+              title={sourceName}
+              rel="noopener noreferrer"
+              href={sourceHref}
+            >
+              {sourceName}
+            </A>
+          </p>
+        ) : (
+          children
+        )}
+      </Blockquote>
+    );
   },
   ol: function OlNode({ children, depth }) {
     return <Ol depth={depth}>{children}</Ol>;
@@ -261,7 +325,7 @@ export const components:
           <figcaption>{node.properties.caption}</figcaption>
           <style jsx>{`
             figcaption {
-              font-size: 14px;
+              font-size: 15px;
               text-align: center;
               margin: 10px 10% 20px;
             }

@@ -16,6 +16,7 @@ export function Youtube({ id, title, caption }: YoutubeProps): ReactElement {
   return (
     <div>
       <LiteYouTubeEmbed
+        announce="Ver video"
         id={id}
         adNetwork={true}
         playlist={false} // Use  true when ID be from a playlist
@@ -31,7 +32,7 @@ export function Youtube({ id, title, caption }: YoutubeProps): ReactElement {
           max-width: 560px;
         }
         div p.caption {
-          font-size: 14px;
+          font-size: 15px;
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
           text-align: center;
           margin: 0;
@@ -83,6 +84,8 @@ export function Youtube({ id, title, caption }: YoutubeProps): ReactElement {
           background-color: #212121;
           z-index: 1;
           opacity: 0.8;
+          border: none;
+          cursor: pointer;
           border-radius: 14%;
           transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
         }

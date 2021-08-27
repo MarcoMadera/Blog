@@ -1,7 +1,8 @@
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement } from "react";
+import { PropsWithChildren, ReactElement } from "react";
 import { ReactNode } from "react-markdown";
+import { noteStyles } from "./noteStyles";
 
 interface Text {
   children: ReactNode;
@@ -56,15 +57,33 @@ export function Blockquote({ children }: Text): ReactElement {
       {children}
       <style jsx>{`
         blockquote {
-          border-left: 5px solid
-            ${darkMode ? colors.dark_primary : colors.primary};
+          background: ${darkMode ? "#161b22" : "#fbfbfb"};
         }
       `}</style>
       <style jsx>{`
         blockquote {
-          margin-left: 30px;
-          margin-right: 30px;
-          padding-left: 10px;
+          display: block;
+          position: relative;
+          padding: 0px 40px 0px 40px;
+          border: 1px solid #cccccc4d;
+          border-radius: 10px;
+        }
+        blockquote::before {
+          font-family: Georgia, serif;
+          font-size: 60px;
+          font-weight: bold;
+          color: #c70000;
+          position: absolute;
+          content: "“";
+          left: 5px;
+          top: 5px;
+        }
+        blockquote :global(a.source) {
+          display: block;
+          max-width: 80%;
+          margin: 0 0 0 auto;
+          text-align: right;
+          width: fit-content;
         }
         @media screen and (min-width: 0px) and (max-width: 500px) {
           blockquote {
@@ -142,9 +161,16 @@ export function Kbd({ children, ...attribs }: Text): ReactElement {
   );
 }
 
-export function P({ children }: Text): ReactElement {
+interface PTypes {
+  children: ReactNode;
+  [x: string]: string | number | ReactNode;
+}
+export function P({
+  children,
+  ...attribs
+}: PropsWithChildren<PTypes>): ReactElement {
   return (
-    <p>
+    <p {...attribs}>
       {children}
       <style jsx>{`
         p {
@@ -156,5 +182,48 @@ export function P({ children }: Text): ReactElement {
         }
       `}</style>
     </p>
+  );
+}
+
+interface NoteTypes {
+  type: "alert" | "success" | "info" | "danger" | string;
+}
+export function Note({
+  children,
+  type,
+}: PropsWithChildren<NoteTypes>): ReactElement {
+  const { darkMode } = useDarkMode();
+
+  const styles: {
+    light: Record<string, ReactElement>;
+    dark: Record<string, ReactElement>;
+  } = noteStyles;
+
+  const style = darkMode
+    ? styles.dark[`${type}`] ?? undefined
+    : styles.light[`${type}`] ?? undefined;
+
+  return (
+    <>
+      <p role="note" className={type}>
+        {children}
+        <style jsx>{`
+          p[role="note"] {
+            padding: 1.5em;
+            border-radius: 4px;
+            border-width: 1px;
+            border-style: solid;
+            width: 100%;
+            margin: 16px 0;
+            color: white;
+          }
+        `}</style>
+      </p>
+      {style && (
+        <style global jsx>
+          {style}
+        </style>
+      )}
+    </>
   );
 }

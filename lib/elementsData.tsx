@@ -77,7 +77,7 @@ export default async function getElementsData(
       const result = ReactDOMServer.renderToStaticMarkup(
         <>{highlightedCode}</>
       );
-      const data = { result, language };
+      const data = { result };
 
       return { id: `${type}:${id}`, data };
     }

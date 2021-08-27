@@ -97,7 +97,7 @@ export default function Post({
               {previousPost.title}
             </ALink>
           ) : (
-            <div />
+            <span></span>
           )}
           {nextPost ? (
             <ALink title="" href={`/blog/${nextPost.slug}`} rel="next">
@@ -105,7 +105,7 @@ export default function Post({
               {nextPost.title}
             </ALink>
           ) : (
-            <div />
+            <span></span>
           )}
         </nav>
         <UserContextProvider>
@@ -134,19 +134,22 @@ export default function Post({
           padding: 0 20px;
           margin: 10px auto 50px auto;
         }
-        div[itemProp="articlebody"] {
+        div {
           grid-area: body;
         }
         article > :global(hr) {
           grid-area: hr;
         }
-        div[itemProp="articlebody"] :global(p) {
-          text-align: justify;
-          line-height: 1.6;
+        div :global(p) {
+          line-height: 28px;
+          font-size: 17.2px;
+          word-spacing: 3px;
+          letter-spacing: -0.3px;
         }
-        div[itemProp="articlebody"] :global(h2),
-        div[itemProp="articlebody"] :global(h3) {
+        div :global(h2),
+        div :global(h3) {
           font-weight: 600;
+          letter-spacing: -0.5px;
         }
         nav {
           grid-area: nav;
@@ -160,7 +163,9 @@ export default function Post({
         }
         header :global(h1) {
           margin: 0 0 0.5em 0;
-          font-weight: 700;
+          font-weight: bold;
+          letter-spacing: -1.5px;
+          font-size: 36px;
         }
         header p {
           margin: 0;
@@ -202,8 +207,8 @@ export default function Post({
         @media screen and (min-width: 875px) {
           main {
             display: grid;
-            grid-template-columns: minmax(0px, 982px) 240px;
-            grid-gap: 2em;
+            grid-template-columns: minmax(0px, 944px) 240px;
+            grid-gap: 3.375em;
           }
           nav :global(a) {
             width: 230px;
@@ -212,13 +217,13 @@ export default function Post({
         @media screen and (min-width: 1124px) {
           main {
             max-width: 1300px;
-            grid-template-columns: minmax(0px, 982px) 240px;
+            grid-template-columns: minmax(0px, 944px) 240px;
           }
           article {
             display: grid;
-            grid-template-columns: 240px minmax(0, 982px);
+            grid-template-columns: 240px minmax(0, 944px);
             grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav" "toc comments";
-            column-gap: 2em;
+            column-gap: 3.375em;
           }
         }
         @media print {

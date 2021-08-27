@@ -101,7 +101,7 @@ export default function QuotedTweet({
         }
         a.header {
           display: flex;
-          font-size: 14px;
+          font-size: 15px;
           align-items: center;
           color: inherit;
           text-decoration: none;

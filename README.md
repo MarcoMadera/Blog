@@ -112,6 +112,16 @@ Sometimes videos are better than actual gif to get the same behaviour as a gif u
 
 ⚡ This tag does not replace the Markdown form.
 
+### **Note**
+
+```html
+<note type="info">This is a note to provide more detail to the main content</note>
+```
+
+**`Properties`**
+
+- `type` "info" | "success" | "alert" | "danger"
+
 ### **Text Font/Colors**
 
 You can change the font of your texts with the tag usefont:

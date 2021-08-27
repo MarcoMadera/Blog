@@ -37,9 +37,6 @@ export const aboutStyles = css`
   main :global(h1) {
     text-align: center;
   }
-  section :global(p) {
-    text-align: justify;
-  }
   video {
     display: block;
     margin: 30px auto 0 auto;

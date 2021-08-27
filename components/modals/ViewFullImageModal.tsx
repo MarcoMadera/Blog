@@ -196,10 +196,6 @@ export default function ViewFullImageModal({
           height: ${heightPercent > 0 ? heightPercent + "%" : "100%"};
           width: ${widthPercent > 0 ? widthPercent + "%" : "100%"};
         }
-        p {
-          margin: 0;
-          font-size: 14px;
-        }
         img {
           width: 100%;
           height: 100%;

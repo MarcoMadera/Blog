@@ -81,16 +81,16 @@ export default function TweetText({
   ));
 
   return (
-    <p>
+    <p className="tweet-text">
       {replacedText}
       <style jsx>{`
-        p {
+        p.tweet-text {
           text-align: left;
           line-height: 1.5125;
           margin: 0px;
           white-space: pre-wrap;
           padding: 0px;
-          font-size: ${original ? "17px" : "14px"};
+          font-size: ${original ? "18px" : "15px"};
           font-weight: 400;
           color: ${darkMode ? colors.dark_textColor : colors.textColor};
         }

@@ -73,7 +73,7 @@ El siguiente ejemplo de crear un tweet que se hace retweet cada vez que aparece 
 
 Un ataque de entidades externas es el tipo de ataque que abusa del procesador de xml.
 
-> Este ataque puede conducir a la divulgación de datos confidenciales, denegación de servicio, falsificación de solicitudes del lado del servidor, escaneo de puertos desde la perspectiva de la máquina donde se encuentra el analizador y otros impactos del sistema. - [Wikipedia](https://en.wikipedia.org/wiki/XML_external_entity_attack)
+> Este ataque puede conducir a la divulgación de datos confidenciales, denegación de servicio, falsificación de solicitudes del lado del servidor, escaneo de puertos desde la perspectiva de la máquina donde se encuentra el analizador y otros impactos del sistema. [Wikipedia](https://en.wikipedia.org/wiki/XML_external_entity_attack)
 
 En el sitio *secrets of app security* hay un ejemplo claro de un ataque con saml para interceptar solicitudes y remplazarla con tu código [Ataque XXE](https://secretsofappsecurity.blogspot.com/2017/01/saml-security-xml-external-entity-attack.html).
 
@@ -125,7 +125,7 @@ Este mes se puso a disposición para descargar datos de más de 500 millones de 
 
 La legislación mexicana obliga a las empresas que tratan con datos personales, a notificar vulneraciones de los datos de los titulares.
 
-> Las vulneraciones de seguridad ocurridas en cualquier fase del tratamiento que afecten de forma significativa los derechos patrimoniales o morales de los titulares, serán informadas de forma inmediata por el responsable al titular, a fin de que este último pueda tomar las medidas correspondientes a la defensa de sus derechos - [Artículo 20 - Ley federal de protección de datos personales en posesión de los particulares](http://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf)
+> Las vulneraciones de seguridad ocurridas en cualquier fase del tratamiento que afecten de forma significativa los derechos patrimoniales o morales de los titulares, serán informadas de forma inmediata por el responsable al titular, a fin de que este último pueda tomar las medidas correspondientes a la defensa de sus derechos [Artículo 20 - Ley federal de protección de datos personales en posesión de los particulares](http://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf)
 
 Así como en esta vulnerabilidad mis datos se han visto comprometidos en otras 6 empresas como Bookmate, Nitro, Wattpad y YouNow. De ninguna he tenido ningún aviso para tomar alguna precaución. Por suerte existen páginas como [haveibeenpwned](https://haveibeenpwned.com/) donde te puedes enterar si has sido víctima de estas vulneraciones.
 

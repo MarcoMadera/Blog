@@ -6,7 +6,6 @@ import HtmlToReact from "html-to-react";
 import useElementData from "hooks/useElementData";
 
 interface InlineCodeProps {
-  children: ReactNode[];
   classname?: string;
 }
 
@@ -14,7 +13,7 @@ export function InlineCode({
   classname,
   children,
   ...attrbs
-}: InlineCodeProps): ReactElement {
+}: PropsWithChildren<InlineCodeProps>): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (
@@ -191,6 +190,15 @@ export function CodeBlock({
     language,
   });
 
+  const nodeValue = value[0] as string;
+  const lineNumbers =
+    typeof nodeValue === "object"
+      ? []
+      : Array.from(
+          { length: (nodeValue?.match(/\n/g) || "").length },
+          (_, i) => i + 1
+        );
+
   if (ignore) {
     return null;
   }
@@ -209,7 +217,10 @@ export function CodeBlock({
   return (
     <>
       {mdCode && data ? (
-        htmlToReactParser.parse(data.result)
+        <code data-lang={language}>
+          <LeftLinesNumbers lineNumbers={lineNumbers} />
+          {htmlToReactParser.parse(data.result)}
+        </code>
       ) : (
         <code data-lang={language}>{value}</code>
       )}

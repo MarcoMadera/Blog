@@ -139,6 +139,7 @@ export default function Tweet({
           border: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
           border-radius: 15px;
           margin: ${tweets.containerMargin};
+          background: ${darkMode ? "#161b22" : "#fcfcfc"};
         }
         @media (any-hover: hover) {
           div.tweet:hover {
