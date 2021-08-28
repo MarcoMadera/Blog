@@ -107,9 +107,6 @@ export default function Aside(): ReactElement {
         p {
           margin 1em 0;
         }
-        picture {
-          display: inline-flex;
-        }
       `}</style>
     </aside>
   );

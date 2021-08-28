@@ -109,7 +109,9 @@ export default function TextArea({
           padding: 4px 8px;
           margin-bottom: 4px;
         }
-
+        textarea::placeholder {
+          color: #0d1117;
+        }
         textarea:focus {
           outline-style: dashed;
           outline-width: 2px;

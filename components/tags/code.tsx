@@ -21,7 +21,7 @@ export function InlineCode({
       {children}
       <style jsx>{`
         code {
-          background: ${darkMode ? colors.dark_accents4 : colors.accents4};
+          background: ${darkMode ? "#2F333A" : "#F5F5F5"};
         }
       `}</style>
       <style jsx>{`

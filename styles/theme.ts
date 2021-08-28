@@ -61,9 +61,9 @@ export const tweets = {
   tweetBgColor: "#fff",
   tweetBorder: "1px solid #e1e8ed",
   tweetBorderHover: "1px solid #ccd6dd",
-  tweetLinkColor: "#2b7bb9",
+  tweetLinkColor: "#198ad0",
   tweetLinkColorHover: "#3b94d9",
-  tweetColorGray: "#697882",
+  tweetColorGray: "#758691",
   tweetColorRed: "#e02460",
   tweetColorGreen: "#169B56",
 };
