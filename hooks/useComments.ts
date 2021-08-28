@@ -3,10 +3,20 @@ import CommentsContext from "context/CommentsContext";
 import { database, uploadImage } from "lib/firebase/client";
 import { siteMetadata } from "site.config";
 import useNotification from "./useNotification";
-import firebase from "firebase/app/";
 import useUser from "./useUser";
 import { useRouter } from "next/router";
 import { Comment, UseComments } from "types/comments";
+import { getDownloadURL, UploadTask } from "firebase/storage";
+import {
+  ref,
+  onValue,
+  limitToLast,
+  push,
+  set,
+  remove,
+  serverTimestamp,
+  query,
+} from "firebase/database";
 
 export default function useComments(): UseComments {
   const context = useContext(CommentsContext);
@@ -29,24 +39,27 @@ export default function useComments(): UseComments {
   const slug = router.query.slug;
 
   const updateCommentCount = useCallback(() => {
-    database.ref(`post/${slug}`).on("value", (snapshot) => {
-      if (setCommentCount) setCommentCount(snapshot.numChildren());
+    const postRef = ref(database, `post/${slug}`);
+    onValue(postRef, (snapshot) => {
+      if (setCommentCount) setCommentCount(snapshot.size);
     });
   }, [setCommentCount, slug]);
 
   const realtimeCommentList = useCallback(async () => {
+    const postRef = ref(database, `post/${slug}`);
     try {
-      database
-        .ref(`post/${slug}`)
-        .limitToLast(siteMetadata.commentsPerPost * (timesLoadedComments || 0))
-        .on("value", (snapshot) => {
-          const comments: Comment[] = [];
-          snapshot.forEach((snap) => {
-            comments.unshift(snap.val());
-          });
-
-          if (setAllComments) setAllComments(comments);
+      const commentsQuery = query(
+        postRef,
+        limitToLast(siteMetadata.commentsPerPost * (timesLoadedComments || 0))
+      );
+      onValue(commentsQuery, (snapshot) => {
+        const comments: Comment[] = [];
+        snapshot.forEach((snap) => {
+          comments.unshift(snap.val());
         });
+
+        if (setAllComments) setAllComments(comments);
+      });
       updateCommentCount();
     } catch {
       addNotification({
@@ -63,7 +76,13 @@ export default function useComments(): UseComments {
   ]);
 
   const handleTask = useCallback(
-    ({ task, isSendingMoreFiles }) => {
+    ({
+      task,
+      isSendingMoreFiles,
+    }: {
+      task: UploadTask;
+      isSendingMoreFiles: boolean;
+    }) => {
       if (task) {
         const onProgress = () => {
           if (setImgURL) setImgURL(null);
@@ -75,7 +94,7 @@ export default function useComments(): UseComments {
           });
         };
         const onComplete = () => {
-          task.snapshot.ref.getDownloadURL().then(setImgURL);
+          getDownloadURL(task.snapshot.ref).then(setImgURL);
           if (isSendingMoreFiles) {
             addNotification({
               variant: "info",
@@ -92,12 +111,12 @@ export default function useComments(): UseComments {
 
   const createComment = useCallback(
     async (comment) => {
+      const postRef = ref(database, `post/${slug}`);
       if (setIsSubmittingComment) setIsSubmittingComment(false);
       try {
-        const commentRef = database.ref(`post/${slug}`);
-        const newcommentRef = commentRef.push();
+        const newcommentRef = push(postRef);
         const commentId = (await newcommentRef).key?.toString();
-        newcommentRef.set({
+        set(ref(database, `post/${slug}/${commentId}`), {
           username: user?.username ?? "Anónimo",
           avatar:
             user?.avatar ??
@@ -107,7 +126,7 @@ export default function useComments(): UseComments {
           img: imgURL,
           post: slug,
           uid: user?.uid,
-          date: firebase.database.ServerValue.TIMESTAMP,
+          date: serverTimestamp(),
           commentId: commentId,
         });
         if (setImgURL) setImgURL(null);
@@ -136,9 +155,8 @@ export default function useComments(): UseComments {
 
   const removeComment = useCallback(
     (commentId) => {
-      database
-        .ref(`post/${slug}/${commentId}`)
-        .remove()
+      const commentRef = ref(database, `post/${slug}/${commentId}`);
+      remove(commentRef)
         .then(() => {
           addNotification({ variant: "info", message: "Comentario eliminado" });
         })
@@ -178,18 +196,14 @@ export default function useComments(): UseComments {
   }
 
   return {
-    slug,
     imgURL,
     sendFile,
     comment,
-    setImgURL,
     setComment,
     allComments,
     commentCount,
     removeComment,
     createComment,
-    setAllComments,
-    updateCommentCount,
     realtimeCommentList,
     isSubmittingComment,
     timesLoadedComments,

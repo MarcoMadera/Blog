@@ -86,7 +86,6 @@ export function Li({
           line-height: 1.6;
           align-items: center;
           list-style-position: outside;
-          text-align: justify;
         }
         input {
           clip: rect(0, 0, 0, 0);

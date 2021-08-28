@@ -1,3 +1,4 @@
+import { UploadTask } from "firebase/storage";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface Comment {
@@ -21,25 +22,21 @@ export interface CommentsContext {
   setComment: Dispatch<SetStateAction<string>>;
   isSubmittingComment: boolean;
   setIsSubmittingComment: Dispatch<SetStateAction<boolean>>;
-  task: firebase.default.storage.UploadTask | null;
+  task: UploadTask | null;
   setTask: Dispatch<SetStateAction<CommentsContext["task"]>>;
   commentCount: number;
   setCommentCount: Dispatch<SetStateAction<number>>;
 }
 
 export interface UseComments {
-  slug: string | string[] | undefined;
   imgURL: CommentsContext["imgURL"] | undefined;
   sendFile: (files: FileList) => void;
   comment: CommentsContext["comment"] | undefined;
-  setImgURL: CommentsContext["setImgURL"] | undefined;
   setComment: CommentsContext["setComment"] | undefined;
   allComments: CommentsContext["allComments"] | undefined;
   commentCount: CommentsContext["commentCount"] | undefined;
   removeComment: (commentId: string) => void;
   createComment: (comment: string) => Promise<void>;
-  setAllComments: CommentsContext["setAllComments"] | undefined;
-  updateCommentCount: () => void;
   realtimeCommentList: () => Promise<void>;
   isSubmittingComment: CommentsContext["isSubmittingComment"] | undefined;
   timesLoadedComments: CommentsContext["timesLoadedComments"] | undefined;

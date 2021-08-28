@@ -149,7 +149,6 @@ export default function BlogCard({
         }
         p {
           margin: 0;
-          text-align: justify;
         }
       `}</style>
     </article>

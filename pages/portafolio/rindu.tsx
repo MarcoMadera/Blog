@@ -153,9 +153,6 @@ export default function TestRandomNumbers(): ReactElement {
         main :global(h1) {
           text-align: center;
         }
-        main :global(p) {
-          text-align: justify;
-        }
         @media print, screen and (max-width: 876px) {
           article {
             grid-template-columns: auto;

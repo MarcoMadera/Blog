@@ -91,7 +91,6 @@ export default function CookiesModal(): ReactPortal | null {
           font-size: 14px;
           margin: 0;
         }
-
         section {
           position: fixed;
           right: 10px;

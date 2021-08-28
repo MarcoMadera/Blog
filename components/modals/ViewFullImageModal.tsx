@@ -45,6 +45,7 @@ export default function ViewFullImageModal({
   const [targetNode, setTargetNode] = useState<Element>();
   const exitButtonRef = useRef<HTMLButtonElement>(null);
   useLockBodyScroll();
+
   const onPressKey = useCallback(
     (event) => {
       const firstElement = exitButtonRef.current;

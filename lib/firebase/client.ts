@@ -1,7 +1,23 @@
-import firebase from "firebase/app";
-import "firebase/database";
-import "firebase/storage";
-import "firebase/auth";
+import { getApp, getApps, initializeApp } from "firebase/app";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  UploadTask,
+} from "firebase/storage";
+import { getDatabase } from "firebase/database";
+import {
+  getAuth,
+  signInWithPopup,
+  signOut,
+  signInAnonymously,
+  TwitterAuthProvider,
+  GithubAuthProvider,
+  onAuthStateChanged as onAuthStateChangedFirebase,
+  Unsubscribe,
+  User as firebaseUser,
+  UserCredential,
+} from "firebase/auth";
 import { nanoid } from "nanoid";
 import { User, UserContextTypes } from "types/user";
 
@@ -15,13 +31,16 @@ const config = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = !firebase.apps.length
-  ? firebase.initializeApp(config)
-  : firebase.app();
+const app = getApps().length ? getApp() : initializeApp(config);
 
-export const database = app.database();
+export const database = getDatabase(app);
 
-export function mapUserFromFirebaseAuth(user: firebase.User): User {
+const storage = getStorage(app);
+
+const auth = getAuth(app);
+auth.languageCode = "es";
+
+export function mapUserFromFirebaseAuth(user: firebaseUser): User {
   const { displayName, email, photoURL, uid } = user;
 
   return { avatar: photoURL, username: displayName, email: email, uid };
@@ -29,26 +48,26 @@ export function mapUserFromFirebaseAuth(user: firebase.User): User {
 
 export function onAuthStateChanged(
   setUser: UserContextTypes["setUser"]
-): firebase.Unsubscribe {
-  return firebase.auth().onAuthStateChanged((user) => {
+): Unsubscribe {
+  return onAuthStateChangedFirebase(auth, (user) => {
     const normalizeUser = user ? mapUserFromFirebaseAuth(user) : null;
     setUser(normalizeUser || undefined);
   });
 }
 
-export function loginWithGithub(): Promise<firebase.auth.UserCredential> {
-  const gitHubProvider = new firebase.auth.GithubAuthProvider();
-  return firebase.auth().signInWithPopup(gitHubProvider);
+export function loginWithGithub(): Promise<UserCredential> {
+  const gitHubProvider = new GithubAuthProvider();
+  return signInWithPopup(auth, gitHubProvider);
 }
-export function loginWithTwitter(): Promise<firebase.auth.UserCredential> {
-  const twitterProvider = new firebase.auth.TwitterAuthProvider();
-  return firebase.auth().signInWithPopup(twitterProvider);
+export function loginWithTwitter(): Promise<UserCredential> {
+  const twitterProvider = new TwitterAuthProvider();
+  return signInWithPopup(auth, twitterProvider);
 }
-export async function loginAnonymously(): Promise<firebase.auth.UserCredential> {
-  return await firebase.auth().signInAnonymously();
+export async function loginAnonymously(): Promise<UserCredential> {
+  return await signInAnonymously(auth);
 }
 export function logOut(): Promise<void> {
-  return firebase.auth().signOut();
+  return signOut(auth);
 }
 
 export function uploadImage(
@@ -56,11 +75,11 @@ export function uploadImage(
   userId: User["uid"],
   isSendingMoreFiles: boolean
 ): {
-  task: firebase.storage.UploadTask;
+  task: UploadTask;
   isSendingMoreFiles: boolean;
 } {
-  const ref = firebase.storage().ref(`user/${userId}/${nanoid()}-${file.name}`);
-  const task = ref.put(file);
+  const storageRef = ref(storage, `user/${userId}/${nanoid()}-${file.name}`);
+  const task = uploadBytesResumable(storageRef, file);
   return { task, isSendingMoreFiles };
 }
 

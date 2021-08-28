@@ -275,10 +275,8 @@ export default function Cookies(): ReactElement {
           margin: 0 0 1rem 0;
         }
         main {
-          text-align: center;
           margin: 0 auto 1rem auto;
           padding: 0 0 50px 0;
-          text-align: justify;
         }
         @media screen and (max-width: 425px) {
           main {
