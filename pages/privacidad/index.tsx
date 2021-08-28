@@ -394,7 +394,6 @@ export default function Privacy(): ReactElement {
           text-align: center;
         }
         main {
-          text-align: center;
           margin: 0 auto 1rem auto;
           padding: 0 0 50px 0;
         }

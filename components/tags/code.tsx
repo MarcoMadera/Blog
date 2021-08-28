@@ -59,12 +59,12 @@ export function Pre({
       </pre>
       <style jsx>{`
         pre {
-          background: ${darkMode ? colors.dark_background : colors.background};
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
           color: ${darkMode ? colors.dark_textColor : colors.dark_accents5};
           border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
         }
         pre :global(code[data-lang]:before) {
-          background: ${darkMode ? colors.dark_background : colors.background};
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
           color: ${darkMode
             ? "rgba(255, 255, 255, 0.7)"
             : "rgba(0, 0, 0, 0.7)"};

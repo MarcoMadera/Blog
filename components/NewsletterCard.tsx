@@ -92,12 +92,14 @@ export default function NewsletterCard(): ReactElement {
       <style jsx>{`
         form {
           border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
         }
         form :global(label) {
           color: ${darkMode ? colors.dark_textColor : colors.titleColor};
         }
         form :global(input) {
           border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
+          background: ${darkMode ? "#1e242d" : "#f9f9f9"};
         }
         form :global(input:focus) {
           border: 1px solid

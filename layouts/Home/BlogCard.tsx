@@ -6,6 +6,7 @@ import useDarkMode from "hooks/useDarkMode";
 import Image from "next/image";
 import { PostData } from "types/posts";
 import { ReactElement } from "react";
+import { colors } from "styles/theme";
 
 export default function BlogCard({
   author,
@@ -77,6 +78,7 @@ export default function BlogCard({
               ? "rgba(255,255,255,0.2)"
               : "rgba(0, 0, 0, 0.2)"}
             0px 0px 2px 0px;
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
         }
         article:hover,
         article:focus-within {

@@ -76,6 +76,7 @@ export default function Aside(): ReactElement {
               ? "rgba(255,255,255,0.2)"
               : "rgba(0, 0, 0, 0.2)"}
             0px 0px 2px 0px;
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
         }
         aside :global(a:hover svg),
         aside :global(a:focus svg) {

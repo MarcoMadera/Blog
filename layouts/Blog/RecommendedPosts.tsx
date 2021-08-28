@@ -54,7 +54,7 @@ export default function RecommendedPosts({
       )}
       <style jsx>{`
         div :global(a:hover) {
-          background: ${darkMode ? colors.dark_accents3 : colors.accents5};
+          background: ${darkMode ? "#161b22" : colors.accents5};
         }
       `}</style>
       <style jsx>{`

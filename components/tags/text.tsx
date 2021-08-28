@@ -57,7 +57,7 @@ export function Blockquote({ children }: Text): ReactElement {
       {children}
       <style jsx>{`
         blockquote {
-          background: ${darkMode ? "#161b22" : "#fbfbfb"};
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
         }
       `}</style>
       <style jsx>{`

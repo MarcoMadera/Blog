@@ -28,7 +28,8 @@ function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
       </a>
       <style jsx>{`
         a {
-          border: 1px solid ${colors.accents1};
+          border: 1px solid ${darkMode ? "#cccccc75" : colors.accents1};
+          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
         }
         a:hover,
         a:focus-within {

@@ -110,7 +110,7 @@ export default function TextArea({
           margin-bottom: 4px;
         }
         textarea::placeholder {
-          color: #0d1117;
+          color: #7d7d7d;
         }
         textarea:focus {
           outline-style: dashed;
