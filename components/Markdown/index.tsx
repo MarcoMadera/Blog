@@ -21,7 +21,7 @@ export default function Markdown({
       rehypePlugins={html ? [rehypeRaw] : undefined}
       remarkPlugins={[[gfm]]}
       components={components}
-      disallowedElements={["script"]}
+      disallowedElements={["script", "head", "meta"]}
     >
       {source}
     </ReactMarkdown>

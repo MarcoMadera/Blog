@@ -1,4 +1,4 @@
-import { ALink } from "./tags";
+import { ALink } from "components/tags";
 import slugify from "react-slugify";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
@@ -26,7 +26,7 @@ export default function AllTags({
             key={tag}
             title=""
           >
-            #{tag}
+            {tag}
           </ALink>
         ))}
       </div>

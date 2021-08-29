@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * @type {import('next').NextConfig}
  **/
+
+const path = require("path");
+
 const nextConfig = {
   experimental: { esmExternals: true },
   reactStrictMode: true,
@@ -17,10 +21,22 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
+    config.resolve.alias["domhandler"] = path.resolve(
+      __dirname,
+      "node_modules",
+      "domhandler"
+    );
     if (isServer) {
       require("./lib/sitemap.js");
       require("./lib/feed.js");
+    }
+    if (!dev && !isServer) {
+      Object.assign(config.resolve.alias, {
+        react: "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat",
+      });
     }
     return config;
   },

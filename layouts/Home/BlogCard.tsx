@@ -59,8 +59,12 @@ export default function BlogCard({
         <div>
           {tags.length &&
             tags.map((tag) => (
-              <Link href={`/blog/etiqueta/${slugify(tag)}/`} key={tag}>
-                <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
+              <Link
+                prefetch={false}
+                href={`/blog/etiqueta/${slugify(tag)}/`}
+                key={tag}
+              >
+                <a aria-label={`etiqueta ${tag}`}>{tag}</a>
               </Link>
             ))}
         </div>

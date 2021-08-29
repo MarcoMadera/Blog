@@ -5,7 +5,7 @@ date: 2021-05-26
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1622007476/Blog/1-Aniversario/cake_uss8y3.jpg
 author: Marco Madera
 tags:
-  - Off-Topic
+  - Off Topic
 ---
 
 El día 20 de mayo del año 2020, en plena pandemia, se publicó por primera vez en el blog, todavía no en este dominio sino en el que tengo como sitio alternativo <https://marcomadera.github.io>, creado primeramente con `react`, `webpack`, `react-router` y `react-markdown`. La meta era crear 12 posts 1 cada mes, a lo que este es el post 12/12.

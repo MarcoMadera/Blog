@@ -1,4 +1,4 @@
-import AllTags from "components/AllTags";
+import AllTags from "./AllTags";
 import ProfileCard from "./ProfileCard";
 import BlogCard from "./BlogCard";
 import { colors } from "styles/theme";
@@ -51,7 +51,10 @@ export default function HomeLayout({
               const isCurrentPage = pageNumber === currentPage;
               return (
                 <li key={pageNumber}>
-                  <Link href={i === 0 ? "/" : `/pagina/${pageNumber}`}>
+                  <Link
+                    prefetch={false}
+                    href={i === 0 ? "/" : `/pagina/${pageNumber}`}
+                  >
                     <a
                       className={isCurrentPage ? "currentPage" : "pagination"}
                       aria-label={

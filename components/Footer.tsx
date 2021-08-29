@@ -29,25 +29,25 @@ function Footer(): ReactElement {
       <section>
         <div className="footer_section">
           <strong>Navegación</strong>
-          <Link href="/">
+          <Link prefetch={false} href="/">
             <a>Inicio</a>
           </Link>
-          <Link href="/portafolio">
+          <Link prefetch={false} href="/portafolio">
             <a>Portafolio</a>
           </Link>
-          <Link href="/sobre-mi">
+          <Link prefetch={false} href="/sobre-mi">
             <a>Sobre mí</a>
           </Link>
-          <Link href="/newsletter">
+          <Link prefetch={false} href="/newsletter">
             <a>Newsletter</a>
           </Link>
         </div>
         <div className="footer_section">
           <strong>Legal</strong>
-          <Link href="/cookies">
+          <Link prefetch={false} href="/cookies">
             <a>Política de cookies</a>
           </Link>
-          <Link href="/privacidad">
+          <Link prefetch={false} href="/privacidad">
             <a>Privacidad</a>
           </Link>
           <Anchor href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">

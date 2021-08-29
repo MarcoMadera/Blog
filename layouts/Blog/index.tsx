@@ -3,10 +3,10 @@ import MarkDown from "components/Markdown/index";
 import TableOfContents from "./TableOfContents";
 import Comments from "./Comment";
 import NewsletterCard from "components/NewsletterCard";
-import AllTags from "components/AllTags";
 import RecommendedPosts from "./RecommendedPosts";
 import BlogFooter from "./BlogFooter";
 import { colors } from "styles/theme";
+import TagsHeader from "./TagsHeader";
 import { getFormattedDate, insertTextBetween } from "utils";
 import { imageCloudProvider } from "site.config";
 import { H1, ALink, Hr } from "components/tags";
@@ -62,6 +62,7 @@ export default function Post({
         itemType="http://schema.org/Article"
       >
         <header>
+          <TagsHeader tags={tags} />
           <H1 itemProp="headline name" id="articleTitle">
             {title}
           </H1>
@@ -115,7 +116,6 @@ export default function Post({
         </UserContextProvider>
       </article>
       <aside>
-        <AllTags allTags={tags} title="Etiquetas del artículo" />
         <RecommendedPosts recommendedPosts={recommendedPosts} slug={slug} />
         <NewsletterCard />
       </aside>
@@ -140,6 +140,7 @@ export default function Post({
         article > :global(hr) {
           grid-area: hr;
         }
+        div :global(li),
         div :global(p) {
           line-height: 28px;
           font-size: 17.2px;
