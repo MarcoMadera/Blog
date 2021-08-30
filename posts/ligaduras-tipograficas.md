@@ -49,7 +49,9 @@ En el alfabeto árabe los caracteres no tienen una forma fija. Cada letra se esc
 
 En programación se utilizan muchos operadores con caracteres separados que unidos tienen un significado. Lo símbolos `>=`, mi mente por un instante tiene que procesar ambos caracteres por separado "mayor o igual". Si bien gran parte de la programación se trata de leer y entender el código, las ligaduras podrían ayudar a captarlo más rápido y hacer que nuestro código sea más agradable a la vista.
 
-Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
+<note type="tip">
+
+Estas son algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
 
 - [Fira Code](https://github.com/tonsky/FiraCode "Repositorio de Fira Code")
 - [MonoId](https://github.com/larsenwork/monoid "Repositorio de MonoID")
@@ -58,6 +60,8 @@ Algunas fuentes con ligaduras de programación gratuitas que puedes descargar:
   &nbsp;
 
 Descarga e instala la fuente que desees como cualquier otra fuente.
+
+</note>
 
 ## Habilita las ligaduras en tu editor
 

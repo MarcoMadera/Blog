@@ -51,7 +51,14 @@ Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son 
 }
 ```
 
-Estos datos en el lado del cliente (*frontend*) pueden ser expuestos para revelar las respuestas correctas. Un mejor manejo podría ser que cada vez el usuario responda una pregunta se haga una petición al servidor para saber si es acertada la respuesta del usuario y actuar conforme al resultado. Similar si fueran números de tarjetas de crédito. Puede que no sea necesario enviar el número completo sino los últimos 4 dígitos si el usuario decide revelarlo o como sea conveniente.
+<note type="danger">Estos datos en el lado del cliente (*frontend*) pueden ser expuestos para revelar las respuestas correctas.</note>
+
+<note type="tip">
+
+- Un mejor manejo podría ser que cada vez el usuario responda una pregunta se haga una petición al servidor para saber si es acertada la respuesta del usuario y actuar conforme al resultado.
+- Si fueran números de tarjetas de crédito puede que no sea necesario enviar el número completo, sino los últimos 4 dígitos por si el usuario decide revelarlo o como le sea conveniente.
+
+</note>
 
 ## Cross-site scripting (XSS)
 

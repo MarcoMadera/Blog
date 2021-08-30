@@ -47,9 +47,7 @@ Primero lo que se necesita es que la página deseada tenga implementada la funci
 - No hay un feedback del usuario.
 - Algunos elementos pueden que no se muestren correctamente a lo esperado.
 
-## Extracto
-
-El sitio ya tiene RSS! si te suscribes a él puede que no veas algunos elementos correctamente, ya que puede depender del lector si soporta estilos dentro o no. De igual forma puedes dar clic al enlace para que te direccione a la página del blog y verlo de la forma esperada. Te recuerdo que también existe la opción de recibir emails a través del Newsletter si no te agrada esta forma de recibir actualizaciones.
+<note type="info">¡El sitio ya tiene [RSS](https://marcomadera.com/rss.xml)! Te recuerdo que también existe la opción de recibir emails a través del [Newsletter](https://marcomadera.com/newsletter) si no te agrada esta forma de recibir actualizaciones.</note>
 
 ## Conclusión
 

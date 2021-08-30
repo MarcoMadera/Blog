@@ -16,6 +16,7 @@ export const anchorStyle = css`
   a {
     display: inline;
     text-decoration: none;
+    overflow-wrap: break-word;
   }
   a:hover,
   a:focus {

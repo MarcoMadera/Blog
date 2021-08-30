@@ -246,9 +246,11 @@ p {
 }
 ```
 
-En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto, pues la propiedad abreviada contiene los demás valores dados por el defecto.
+<note type="info">
 
-Mal:
+En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto, pues la propiedad abreviada contiene los demás valores dados por defecto.
+
+Mal: La regla no aplica el estilo de fuente italica.
 
 ```css -2
 p {
@@ -257,7 +259,7 @@ p {
 }
 ```
 
-Bien:
+Bien: De está forma de aplica correctamente ambos estilos.
 
 ```css 3
 p {
@@ -265,6 +267,8 @@ p {
   font-style: italic;
 }
 ```
+
+</note>
 
 El lugar donde está ubicado nuestros estilos da **importancia** a que se apliquen. También existe un valor dedicado a ello `!important`. Este valor hará que se aplique el estilo independientemente del orden que se aplique. En el siguiente ejemplo el color del párrafo quedará en blanco.
 
@@ -530,7 +534,7 @@ Los siguientes prefijos son los más comunes:
 |     -o-     |            Opera            |
 |     -ms-    | Microsoft Internet Explorer |
 
-[Can I Use](https://caniuse.com "Can I Use") es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar. Podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.
+<note type="tip">[Can I Use](https://caniuse.com "Can I Use") es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar. Podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.</note>
 
 Soporte para la propiedad `hyphens` en distintos navegadores:
 

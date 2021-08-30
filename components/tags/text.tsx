@@ -1,8 +1,11 @@
 import { colors } from "styles/theme";
+import { colors as codeColors } from "styles/code/colors";
 import useDarkMode from "hooks/useDarkMode";
 import { PropsWithChildren, ReactElement } from "react";
 import { ReactNode } from "react-markdown";
 import { noteStyles } from "./noteStyles";
+import { Bulb, Info, Alert, Star } from "components/icons";
+import { Check } from "components/icons/Check";
 
 interface Text {
   children: ReactNode;
@@ -150,7 +153,7 @@ export function Kbd({ children, ...attribs }: Text): ReactElement {
           color: #333;
           display: inline-block;
           font-family: monospace;
-          font-size: 0.85em;
+          font-size: 13px;
           font-weight: 700;
           line-height: 1;
           padding: 2px 4px;
@@ -186,39 +189,88 @@ export function P({
 }
 
 interface NoteTypes {
-  type: "alert" | "success" | "info" | "danger" | string;
+  type: "success" | "info" | "danger" | "tip" | "important" | string;
+  title?: string;
+  isInline: boolean;
 }
 export function Note({
   children,
-  type,
+  type = "info",
+  isInline,
+  title,
 }: PropsWithChildren<NoteTypes>): ReactElement {
   const { darkMode } = useDarkMode();
 
-  const styles: {
-    light: Record<string, ReactElement>;
-    dark: Record<string, ReactElement>;
-  } = noteStyles;
+  const style = type ? noteStyles[`${type}`] : noteStyles.normal;
 
-  const style = darkMode
-    ? styles.dark[`${type}`] ?? undefined
-    : styles.light[`${type}`] ?? undefined;
+  const noteTitles: Record<string, string | ReactElement> = {
+    info: (
+      <>
+        <Info width={24} height={24} fill="#3448c5" />
+        {title || "Nota"}
+      </>
+    ),
+    danger: (
+      <>
+        <Alert width={24} height={24} fill="#ff5050" />
+        {title || "Precaución"}
+      </>
+    ),
+    success: (
+      <>
+        <Check width={24} height={24} fill="#4caf50" />
+        {title || "Pasos"}
+      </>
+    ),
+    important: (
+      <>
+        <Star width={24} height={24} fill="#EFCE4A" />
+        {title || "Importante"}
+      </>
+    ),
+    tip: (
+      <>
+        <Bulb width={24} height={24} />
+        {title || "Tip"}
+      </>
+    ),
+  };
 
   return (
     <>
-      <p role="note" className={type}>
-        {children}
+      <div role="note" className={type}>
+        <div>
+          <p>
+            <strong>{noteTitles[type]}:</strong> {isInline ? children : null}
+          </p>
+          {!isInline ? <>{children}</> : null}
+        </div>
         <style jsx>{`
-          p[role="note"] {
-            padding: 1.5em;
-            border-radius: 4px;
-            border-width: 1px;
-            border-style: solid;
+          div[role="note"] {
+            padding: 12px;
+            border-radius: 3px 7px 7px 3px;
             width: 100%;
             margin: 16px 0;
-            color: white;
+            color: inherit;
+            background: ${darkMode ? colors.dark_accents4 : colors.accents4};
+          }
+          div[role="note"] :global(svg) {
+            display: inline-block;
+            vertical-align: sub;
+            margin-right: 7px;
+          }
+          div[role="note"] :global(p code),
+          div[role="note"] :global(li code) {
+            color: ${darkMode ? codeColors.dark_purple : codeColors.purple};
+          }
+          div[role="note"] :global(li::marker) {
+            font-weight: bold;
+          }
+          p {
+            margin: 0;
           }
         `}</style>
-      </p>
+      </div>
       {style && (
         <style global jsx>
           {style}

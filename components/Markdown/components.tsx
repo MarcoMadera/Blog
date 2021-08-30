@@ -181,8 +181,18 @@ export const components:
     );
   },
   note: function NoteNode({ node, children }) {
+    const nodes: ElementNodes = node as unknown as ElementNodes;
+    const nodeChildren = nodes.children;
+    const isInline = Array.isArray(nodeChildren)
+      ? nodeChildren[0].value !== "\n"
+      : false;
     const type = node.properties?.type as unknown as string;
-    return <Note type={type}>{children}</Note>;
+    const title = node.properties?.title as unknown as string;
+    return (
+      <Note type={type} isInline={isInline} title={title}>
+        {children}
+      </Note>
+    );
   },
   pre: function PreNode({ children }) {
     return <Pre>{children}</Pre>;

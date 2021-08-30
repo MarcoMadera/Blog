@@ -60,9 +60,11 @@ Ahora que tengo está página, me preguntaba ¿qué iba a pasar con la anterior?
 
 En la primera versión usaba como servicio de comentarios a [Disqus](https://disqus.com) y en esta versión me tomé el primer mes de periodo de prueba de [fastcomments](https://fastcomments.com), durante ese mes estuve creando mi propia integración con firebase, de la cual me siento orgulloso de cómo quedó el aspecto de la sección de comentarios.
 
-Otro elemento del blog de la que me siento conforme son los tweets cargados estáticamente. Esto surgió a partir de que ocupaba tweets en mis posts, pero la opción que ofrece twitter de incrustar tweets se ve muy fea en el modo oscuro o en el modo claro, fue un reto divertido crear mi propio componente para incrustar tweets.
+Otro elemento del blog de la que me siento conforme son los tweets cargados estáticamente. Esto surgió a partir de que ocupaba tweets en mis posts, pero la opción que ofrece twitter de incrustar tweets es lenta y fea, así que me propuse crear mi propio elemento que solo tome el id y lo muestre, fue un reto divertido crear mi propio componente para incrustar tweets.
 
-Algo que agregué y que debo ponerle más atención porque quiero que la gente se involucre es el [Newsletter](https://marcomadera.com/newsletter), una parte importante si quiero que me sigan leyendo.
+<note type="tip">Puedes revisar cómo está hecho el blog visitando el código en el [repositorio](https://github.com/MarcoMadera/Blog)</note>
+
+Algo que agregué y que debo ponerle más atención porque quiero que la gente se involucre es el Newsletter, una parte importante si quiero que me sigan leyendo.
 
 En general el blog ha tenido pequeños y grandes cambios, los cuales me siento que van en el rumbo correcto, no me considero bueno en el tema del diseño, por lo que ahí sí reconozco que me falta feedback en ese aspecto.
 
@@ -70,10 +72,10 @@ En general el blog ha tenido pequeños y grandes cambios, los cuales me siento q
 
 La primera meta está hecha, era lograr 12 publicaciones en un año ni más ni menos. Esta meta perjudicó en cierta medida, porque hay publicaciones muy largas que pudieron ser divididas en varias.
 
-Gracias a este blog, tengo las ganas de seguir aprendiendo e investigando nuevas cosas por lo que no tengo intención de soltarlo. Reclutadores y otras personas se han interesado en mí por mantenerlo y eso para mí es una buena señal. En febrero de este año dejé mi actual trabajo, los cuales fueron muy buenos conmigo antes y durante la pandemia, pero posiblemente tome otro rumbo.
-
 ![Blog o no](https://res.cloudinary.com/marcomadera/image/upload/w_402,h_250/v1622004646/Blog/1-Aniversario/toblogornottoblog_bqenbb.jpg)
 
-Puede que a futuro haya más posts puede que más cortos o no, lo que sí es un hecho es que seguiré mejorando la página, y el primer objetivo es darle otro aspecto a los emails del [Newsletter](https://marcomadera.com/newsletter), por lo que te recomiendo suscribirte.
+Gracias a este blog, tengo las ganas de seguir aprendiendo e investigando nuevas cosas por lo que no tengo intención de soltarlo. Reclutadores y otras personas se han interesado en mí por mantenerlo y eso para mí es una buena señal. En febrero de este año dejé mi actual trabajo, los cuales fueron muy buenos conmigo antes y durante la pandemia, pero posiblemente tome otro rumbo.
+
+<note type="important">Puede que a futuro haya más posts puede que más cortos o no, lo que sí es un hecho es que seguiré mejorando la página, y el primer objetivo es darle otro aspecto a los emails del [Newsletter](https://marcomadera.com/newsletter), por lo que te recomiendo suscribirte.</note>
 
 Déjame un comentario de lo que piensas, no es necesario identificarte, pero mucha gente no lo sabe, o si te gustaría adentrarte más y quieres aportar tu grano de arena eres bienvenido a [contribuir en GitHub](https://github.com/MarcoMadera/Blog).

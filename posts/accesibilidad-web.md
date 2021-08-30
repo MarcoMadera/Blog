@@ -89,7 +89,7 @@ Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al m
 <img src ="img src" alt="texto mostrar en caso que no esté disponible la imagen">
 ```
 
-Otro aprovechamiento de accesibilidad con las imágenes puede ser tal y como se usa en este sitio web, al darle clic a una imagen se muestra una de mayor tamaño.
+<note type="info">Otro aprovechamiento de accesibilidad con las imágenes puede ser tal y como se usa en este sitio web, al darle clic a una imagen se muestra una de mayor tamaño.</note>
 
 ### Uso de scope en tablas
 
@@ -218,6 +218,8 @@ const listenKeys = (e) => {
 
 document.body.addEventListener("keyup", (e) => listenKeys(e));
 ```
+
+<note type="danger">El uso de KeyboardEvent.keyCode está deprecado y puede dejar de funcionar en un futuro, usar KeyboardEvent.key en su lugar</note>
 
 ## Test de accesibilidad
 

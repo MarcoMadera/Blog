@@ -72,7 +72,7 @@ Los elementos de estructura son de los más importantes para el SEO, definen com
 <!-- No necesariamente tiene que seguir esta estructura -->
 ```
 
-- Con la etiqueta `<nav>` se pueden identificar los **enlaces de navegación**. Puede haber varías secciones de navegación en una página y no todos los enlaces necesitan de ir dentro de una etiqueta `nav`.
+- Con la etiqueta `<nav>` se pueden identificar los **enlaces de navegación**. Puede haber varías secciones de navegación en una página y no todos los enlaces necesitan de ir dentro de una etiqueta `<nav>`.
 - La etiqueta `<header>` agrupa la **introducción de la página**.
 - `<aside>` es una etiqueta que designa un área en la cual hay **información suplementaria** al contenido principal.
 - La etiqueta `<main>` señala al **contenido principal** de la página. Solo puede existir una etiqueta de este tipo visible por página.

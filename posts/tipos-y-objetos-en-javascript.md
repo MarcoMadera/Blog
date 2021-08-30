@@ -42,11 +42,15 @@ new String(str)[0] = "p";
 console.log(str);
 ```
 
+<note type="success" title="Pasos">
+
 1. Se define una variable `str` de valor primitivo *string*.
 2. Se intenta acceder al *key* 0 de la variable `str`, como no es posible declarar propiedades a valores primitivos JavaScript lo envuelve en un objeto de tipo *string*, se accede al valor y lo imprime dando resultado `y`.
 3. Hace lo mismo del paso anterior, pero accede a la propiedad `length`.
 4. Se crea otro objeto de la variable `str` donde la key 0 es igual a `p`. Es como escribir 1+1 en medio de una ejecución.
 5. Imprime la variable str que es igual a `yay`.
+
+</note>
 
 Cuando comparamos objetos, estos se comparan por referencia. ¿Esto qué significa? Cada objeto, a pesar de que puedan lucir similares o iguales, ellos son diferentes, cada uno tiene su propia identidad. A la hora de comparar dos objetos vamos a obtener un valor negativo, ya que ellos no son iguales. A diferencia los valores primitivos, los cuales ellos no tienen su propia identidad, vamos a obtener un resultado positivo.
 

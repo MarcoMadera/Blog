@@ -23,17 +23,22 @@ Los *snippets* son **fragmentos reutilizables de código personalizado** que pue
 
 Gracias al *scope* de los *snippets* es que <abbr title="Visual Studio Code">VSCode</abbr> sugiere los *snippets* que puedas usar en el archivo basado en el lenguaje y/o proyecto.
 
-- **Scope global**: Es útil porque se pueden **usar todos los snippets que definas independietemente del proyecto y del lenguaje** que usemos. Para definirlo se dirije a abrir las opciones con <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> y buscar *`preferences: Configure User Snippets > new global snippets file`*, te pedira un nombre del archivo global y creará el archivo `json` donde se puede empezar a crear los *snippets*.
-- **Scope de lenguaje**: Estos son **snippets basados en el lenguaje** que usemos, este lenguaje se puede cambiar con <kbd>ctrl</kbd>+<kbd>k</kbd> seguido de la tecla <kbd>m</kbd>. Al igual que *scope* global *`preferences: Configure User Snippets`* se busca el lenguaje deseado y abrirá el archivo donde se pueden empezar a crearlos.
-- **Scope de proyecto**: Solo **se pueden usar en un proyecto específico**. Es útil porque se puede compartir con el proyecto. Al igual en las opciones se busca por `New Snippets file for "project name"` te pedirá el nombre del archivo y crea una carpeta si no existe llamada `.vscode` donde se encuentra el archivo que tenemos que editar.
+- **Scope global**: Es útil porque se pueden **usar todos los snippets que definas independietemente del proyecto y del lenguaje** que usemos.\
+
+- **Scope de lenguaje**: Estos son **snippets basados en el lenguaje** que usemos, este lenguaje se puede cambiar con <kbd>ctrl</kbd>+<kbd>k</kbd> seguido de la tecla <kbd>m</kbd>.
+- **Scope de proyecto**: Solo **se pueden usar en un proyecto específico**. Es útil porque se puede compartir con el proyecto.
+
+<note type="important">
+
+- Para **definir el scope global** se dirije a las opciones con <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> y buscar *`preferences: Configure User Snippets > new global snippets file`*, te pedira un nombre del archivo global y creará el archivo `json` donde se puede empezar a crear los *snippets*.
+- Para **definir el scope del lenguaje** en opciones *`preferences: Configure User Snippets`* se busca el lenguaje deseado y abrirá el archivo donde se pueden empezar a crearlos.
+- Para **definir el scope por proyecto** en opciones `preferences: Configure User Snippets > New Snippets file for "project name"` te pedirá el nombre del archivo y crea una carpeta si no existe llamada `.vscode` donde se encuentra el archivo que tenemos que editar.
+
+</note>
 
 ## Crear snippets propios
 
-Una vez elegido el *scope* y ya dentro de nuestro archivo podemos crear nuestro primer *snippet* donde el primer *key* es el nombre, dentro de este van 3 elementos:
-
-- **Prefix**: Es el prefijo con el que llamaremos al *snippet*. Algunas personas le algo al inicio para identicarlos como por ejemplo `_c`, pero por gusto personal y facilidad no lo hago.
-- **Body**: Es el código a usar.
-- **Description**: (opcional) es la descripción de ayuda que aparecerá al darle en más detalles como se vio al inicio.
+Una vez elegido el *scope* y ya dentro de nuestro archivo podemos crear nuestro primer *snippet*.
 
 ```json
 {
@@ -45,9 +50,21 @@ Una vez elegido el *scope* y ya dentro de nuestro archivo podemos crear nuestro 
 }
 ```
 
-El anterior *snippet* es el ya visto comentario, expliquemos que pasa en el body: Primero tenemos a `$LINE_COMMENT` esto es una **variable predefinida por visual studio code**, la sintaxis de variables empieza por el símbolo `$` esta variable nos ayuda a poner comentarios sin tener que preocuparnos por el lenguaje, ya que algunos ya están soportados. Lo que hace este *snippet* perfecto para que sea de *scope* global.
+<note type="info" title="Notas">
 
-El símbolo `$0` es muy importante. **`$0` indica donde va a acabar siempre la posición cursor** al seguir pulsando <kbd>tab</kbd>. Si este valor es mayor a 0 irá de manera ascendente hasta llegar al final 0.
+El primer *key* es el nombre del *snippet* y dentro de este va un objeto con 3 elementos:
+
+- **Prefix**: Es el prefijo con el que llamaremos al *snippet*. Algunas personas le ponen algo al inicio para reconocer los *snippets* propios, como por ejemplo `_c`.
+- **Body**: Es el código a usar.
+- **Description**: Es la descripción de ayuda que aparecerá al darle en más detalles como se vio al inicio (opcional).
+
+</note>
+
+El anterior *snippet* es el ya visto en la primera sección, expliquemos que pasa en el body: Primero tenemos a `$LINE_COMMENT`, esto es una **variable predefinida por visual studio code**. La sintaxis de estas variables empieza por el símbolo `$`, .
+
+<note type="tip">Gracias a que la variable `$LINE_COMMENT` nos ayuda a poner comentarios sin tener que preocuparnos por el lenguaje, hace que este *snippet* sea perfecto para el *scope* global.</note>
+
+El símbolo `$0` es muy importante. **`$0` indica la posición en donde va a acabar nuestro cursor** al seguir pulsando <kbd>tab</kbd>. Si este valor es mayor a 0 irá de manera ascendente hasta llegar al final 0.
 
 |   Orden en body   | $1 | $0 | $3 | $2 |
 |:-----------------:|:--:|:--:|:--:|:--:|
@@ -55,7 +72,7 @@ El símbolo `$0` es muy importante. **`$0` indica donde va a acabar siempre la p
 
 ### Variables predefinidas y variables con opciones
 
-Para darle un nombre predeterminado a una variable se le agrega`:nombre` después del número de variable. Y para crear una variable con opciones, al igual seguido del número separamos las opciones por coma y las envolvemos dentro de los símbolos `||`.
+Para darle un nombre predeterminado a una variable se le agrega `:nombre` después del número de variable. Y para crear una variable con opciones, al igual seguido del número separamos las opciones por coma y las envolvemos dentro de los símbolos `||`.
 
 En el siguiente ejemplo tenemos dos variables predefinidas y una opcional.
 

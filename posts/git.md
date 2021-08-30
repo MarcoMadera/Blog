@@ -77,7 +77,9 @@ Para **agregar archivos al *stage*** usamos `git add <archivo>`, `git add *` o `
 
 Si nos equivocamos, para **eliminar archivos del *stage*** sin borrarlo de nuestro directorio usamos `git rm --cached <archivo>`. El *flag* `--cached` hace que no se elimine de nuestro directorio, si no se agrega se eliminaría también de nuestro directorio de trabajo. Si olvidamos agregar el flag no está todo perdido, podemos recuperar el archivo con `git restore <archivo>`.
 
-Para **Ignorar archivos** se crea un archivo `.gitignore` en la raíz del proyecto. Esto hace que todos los archivos que coincidan dentro de `.gitignore` no sean tomados en cuenta para ninguna acción con Git. Puedes revisar la [colección de archivos de .gitignore](https://github.com/github/gitignore) para ver ejemplos o usarlos en tus proyectos.
+Para **Ignorar archivos** se crea un archivo `.gitignore` en la raíz del proyecto. Esto hace que todos los archivos que coincidan dentro de `.gitignore` no sean tomados en cuenta para ninguna acción con Git.
+
+<note type="tip">Puedes revisar la [colección de archivos de .gitignore](https://github.com/github/gitignore) para ver ejemplos o usarlos en tus proyectos.</note>
 
 Ya teniendo todo lo que queramos para **guardar los archivos** usamos `git commit`. Esto abrirá el editor que definimos en la configuración para poner un mensaje descriptivo o igual lo podemos añadir en la consola con el *flag* `-m`. Para añadir archivos que ya habían estado en el *stage* usamos el *flag* `-am` que es la combinación de `-a --add` y `-m --message`.
 
@@ -131,7 +133,7 @@ Se puede decir que Git tiene tres árboles donde se agrupan archivos. `HEAD` es 
 
 Al realizar el comando `git init` Git crea una rama por defecto que suele ser *master*. Esta no es una rama especial, es como cualquier otra con el detalle que es la inicial, la que Git crea por defecto. Nuestro proyecto puede seguir cualquier rama como principal en cualquier punto.
 
-Cuando un *commit* es creado es mandado al `HEAD`, la rama actual, donde Git guarda la información de los cambios una única vez, lo demás son referencias con cambios, no se vuelve almacenar nada ya creado. Con esto Git permite crear copias de nuestro proyecto en un estado en formas de referencias y experimentar con ellas todo lo que queramos sin haber otro coste más que los nuevos cambios. Estos grupos de referencias en un estado son llamadas ramas que igual tendrá solamente un identificador propio.
+Cuando un *commit* es creado es enviado al `HEAD`, la rama actual, donde Git guarda la información de los cambios una única vez, lo demás son referencias con cambios, no se vuelve almacenar nada ya creado. Con esto Git permite crear copias de nuestro proyecto en un estado en formas de referencias y experimentar con ellas todo lo que queramos sin haber otro coste más que los nuevos cambios. Estos grupos de referencias en un estado son llamadas ramas que igual tendrá solamente un identificador propio.
 
 <svg style="margin: 0 auto;" width="100%" height="476pt" viewBox="0.00 0.00 206.00 476.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g transform="scale(1 1) rotate(0) translate(4 472)">
@@ -231,7 +233,7 @@ Successfully rebased and updated refs/heads/&lt;nombre de rama&gt;.
 
 ## Repositorio Remoto
 
-Todo lo que hemos estado trabajando es sobre el repositorio local de nuestro proyecto. Para que otras personas lo vean y colaboren con él, podemos usar los servicios remotos como GitHub, Bitbucket y GitLab; son servicios que permiten la gestión de proyectos y el seguimiento de trabajo con otros desarrolladores.
+Todo lo que hemos estado trabajando es sobre el repositorio local de nuestro proyecto. Para que otras personas lo vean y colaboren con él, podemos usar los servicios remotos como [GitHub](https://github.com/), [Bitbucket](https://bitbucket.org/) y [GitLab](https://about.gitlab.com/); son servicios que permiten la gestión de proyectos y el seguimiento de trabajo con otros desarrolladores.
 
 Para subir un repositorio local a uno remoto, tendremos que crear un repositorio en algunos de los servicios en el cual obtendremos una *url* del nuestro proyecto, con la que podremos utilizar `git remote add <nombre indentificador> <url>`
 

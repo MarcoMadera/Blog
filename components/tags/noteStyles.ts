@@ -1,69 +1,56 @@
 import { ReactElement } from "react-markdown";
 import css from "styled-jsx/css";
 
-export const NoteSuccessLightStyles = css.global`
-  p[role="note"].success {
-    background: #4caf50;
-    border-color: #47df4c;
+const NoteSuccessStyles = css.global`
+  div[role="note"].success {
+    border-left: 4px solid #4caf50;
+  }
+  div[role="note"].success li::marker,
+  div[role="note"].success a {
+    color: #4caf50;
   }
 `;
-export const NoteSuccessDarkStyles = css.global`
-  p[role="note"].success {
-    background: #2e7d32;
-    border-color: #4ec954;
+const NoteInfoStyles = css.global`
+  div[role="note"].info {
+    border-left: 4px solid #3448c5;
+  }
+  div[role="note"].info li::marker,
+  div[role="note"].info a {
+    color: #3448c5;
   }
 `;
-export const NoteAlertLightStyles = css.global`
-  p[role="note"].alert {
-    background: #f39c12;
-    border-color: #fcd08b;
+const NoteTipStyles = css.global`
+  div[role="note"].tip {
+    border-left: 4px solid #48c4d8;
+  }
+  div[role="note"].tip li::marker,
+  div[role="note"].tip a {
+    color: #48c4d8;
   }
 `;
-export const NoteAlertDarkStyles = css.global`
-  p[role="note"].alert {
-    background: #e49d2b;
-    border-color: #ffac27;
+const NoteDangerStyles = css.global`
+  div[role="note"].danger {
+    border-left: 4px solid #ff5050;
+  }
+  div[role="note"].danger li::marker,
+  div[role="note"].danger a {
+    color: #ff5050;
   }
 `;
-export const NoteInfoLightStyles = css.global`
-  p[role="note"].info {
-    background: #3498db;
-    border-color: #95cef5;
+const NoteImportantStyles = css.global`
+  div[role="note"].important {
+    border-left: 4px solid #efce4a;
   }
-`;
-export const NoteInfoDarkStyles = css.global`
-  p[role="note"].info {
-    background: #1980c5;
-    border-color: #55bafd;
-  }
-`;
-export const NoteDangerLightStyles = css.global`
-  p[role="note"].danger {
-    background: #e74c3c;
-    border-color: #fd9c92;
-  }
-`;
-export const NoteDangerDarkStyles = css.global`
-  p[role="note"].danger {
-    background: #c33223;
-    border-color: #f86555;
+  div[role="note"].important li::marker,
+  div[role="note"].important a {
+    color: #efce4a;
   }
 `;
 
-export const noteStyles: {
-  light: Record<string, ReactElement>;
-  dark: Record<string, ReactElement>;
-} = {
-  light: {
-    success: NoteSuccessLightStyles,
-    info: NoteInfoLightStyles,
-    alert: NoteAlertLightStyles,
-    danger: NoteDangerLightStyles,
-  },
-  dark: {
-    success: NoteSuccessDarkStyles,
-    info: NoteInfoDarkStyles,
-    alert: NoteAlertDarkStyles,
-    danger: NoteDangerDarkStyles,
-  },
+export const noteStyles: Record<string, ReactElement> = {
+  success: NoteSuccessStyles,
+  info: NoteInfoStyles,
+  danger: NoteDangerStyles,
+  tip: NoteTipStyles,
+  important: NoteImportantStyles,
 };

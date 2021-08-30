@@ -21,7 +21,7 @@ Dato importante que sacamos de esta definición es que ECMAScript no provee el a
 
 Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos. No se puede decir que son realmente aleatorios, por eso el pseudo. Algunos algoritmos hacen muy bien el trabajo de simular las propiedades de los números aleatorios. Otros caen en el bucle de repetirse infinitamente.
 
-Para que una secuencia de números sea aleatoria, es necesario que tengan una distribución uniforme y que no tengan correlación. Deben de tener la misma probabilidad de ser elegidos y que la elección de uno no dependa del otro.
+<note type="info">Para que una secuencia de números sea aleatoria, es necesario que tengan una distribución uniforme y que no tengan correlación. Deben de tener la misma probabilidad de ser elegidos y que la elección de uno no dependa del otro.</note>
 
 ## Distribución uniforme
 
@@ -87,11 +87,9 @@ En caso de tener 300, 16.666.
 Para determinar el valor del rango de cada categoría en nuestro caso sería uno sobre el número de intervalos que tenemos. Para determinar las ocurrencias posicionamos nuestros números aleatorios a la categoría que pertenecen.
 Por ahora si tomamos como muestra [esta lista](https://marcomadera.github.io/assets/blog/numerosAleatorios.txt "Lista de números") de 300 números nuestro progreso sería el siguiente:
 
-<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_349,dpr_auto/v1608331325/Blog/1/Graph2_lmzua3.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_347,dpr_auto/v1608335119/Blog/1/Graph2-dark_pyj8ok.png" alt="Gráfica">
+<image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_349,dpr_auto/v1608331325/Blog/1/Graph2_lmzua3.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_347,dpr_auto/v1608335119/Blog/1/Graph2-dark_pyj8ok.png" alt="Gráfica" caption="Muestra generada a partir de Math.Random() en la consola de Google Chrome.">
 
-Muestra generada a partir de Math.Random() en la consola de Google Chrome.
-
-Visualmente entre más recta es la línea, más uniforme es. Por lo que a simple vista ya podemos intuir un resultado.
+<note type="tip">Visualmente entre más recta es la línea, más uniforme es. Por lo que a simple vista ya podemos intuir un resultado.</note>
 
 Para corroborar lo que vemos, necesitamos, el valor de chi-cuadrada(x2), los grados de libertad (K) y un nivel de confianza (α).
 
@@ -379,19 +377,13 @@ En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados
 
 De las 100 pruebas:
 
-68 pruebas cumplieron con la uniformidad, independencia y longitud.
-
-1 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
-
-6 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
-
-2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
-
-18 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
-
-1 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
-
-4 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
+- 68 pruebas cumplieron con la uniformidad, independencia y longitud.
+- 1 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
+- 6 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
+- 2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
+- 18 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
+- 1 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+- 4 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
 
 ### Test 2
 
@@ -403,19 +395,13 @@ En 100 pruebas de 3000 números cada una, se obtuvieron los siguientes resultado
 
 De las 100 pruebas:
 
-49 pruebas cumplieron con la uniformidad, independencia y longitud.
-
-0 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
-
-2 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
-
-2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
-
-42 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
-
-4 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
-
-1 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
+- 49 pruebas cumplieron con la uniformidad, independencia y longitud.
+- 0 Pruebas que no cumplieron la uniformidad e independencia pero sí la longitud de rachas.
+- 2 Pruebas que no cumplieron la uniformidad y longitud pero sí la independencia.
+- 2 Pruebas que cumplieron la uniformidad y la longitud pero no la independencia.
+- 42 Pruebas que cumplieron la uniformidad e independencia pero no la longitud de rachas.
+- 4 Pruebas que no cumplieron la uniformidad pero sí la longitud y la independencia.
+- 1 Pruebas que cumplieron la uniformidad pero no la independencia ni longitud de rachas.
 
 ### Conclusión
 
