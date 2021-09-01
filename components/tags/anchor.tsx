@@ -1,5 +1,5 @@
 import { colors } from "styles/theme";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import useDarkMode from "hooks/useDarkMode";
 import css from "styled-jsx/css";
 import { PropsWithChildren, ReactElement } from "react";
@@ -60,13 +60,14 @@ export function ALink({
   children,
   href,
   title,
+  prefetch,
   ...attribs
-}: PropsWithChildren<AProps>): ReactElement {
+}: PropsWithChildren<AProps & LinkProps>): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (
     <>
-      <Link href={href}>
+      <Link href={href} prefetch={prefetch}>
         <a
           title={title === "" ? undefined : title ?? href}
           {...attribs}

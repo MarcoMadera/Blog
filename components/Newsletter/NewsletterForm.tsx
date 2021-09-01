@@ -1,26 +1,22 @@
-import ActionButton from "./ActionButton";
+import { FormEvent, ReactElement, ReactNode, useRef, useState } from "react";
 import { colors } from "styles/theme";
-import { Input } from "./tags";
-import { useRef, useState, ReactElement, FormEvent, ReactNode } from "react";
+import { Input } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
+import ActionButton from "components/ActionButton";
 import useNotification from "hooks/useNotification";
 import { useRouter } from "next/router";
 
-function Label({ children }: { children: ReactNode }) {
-  return <label htmlFor="bd-email">{children}</label>;
-}
-
-function P({ children }: { children: ReactNode }) {
-  return <p>{children}</p>;
-}
-
-export default function NewsletterCard(): ReactElement {
+export default function NewsletterForm({
+  children,
+}: {
+  children?: ReactNode[];
+}): ReactElement {
   const router = useRouter();
   const { darkMode } = useDarkMode();
   const { addNotification } = useNotification();
-  const formRef = useRef(null);
-  const [error, setError] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [email, setEmail] = useState("");
+  const [error, setError] = useState(false);
   const isValidEmail = RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
@@ -60,6 +56,7 @@ export default function NewsletterCard(): ReactElement {
           variant: "info",
           message:
             "Revisa tu bandeja de entrada, recibirás un correo electrónico de confirmación",
+          displayTime: 15000,
         });
         router.push("/newsletter/suscription");
       })
@@ -73,9 +70,8 @@ export default function NewsletterCard(): ReactElement {
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} noValidate>
-      <Label>¡Suscríbete al Newsletter!</Label>
-      <P>Recibirás actualizaciones del blog con temas de programación</P>
+    <form ref={formRef} className="bd-email" onSubmit={handleSubmit} noValidate>
+      {children}
       <Input
         type="email"
         name="email"
@@ -90,13 +86,6 @@ export default function NewsletterCard(): ReactElement {
       />
       <ActionButton>Suscríbete</ActionButton>
       <style jsx>{`
-        form {
-          border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
-        }
-        form :global(label) {
-          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
-        }
         form :global(input) {
           border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
           background: ${darkMode ? "#1e242d" : "#f9f9f9"};
@@ -107,44 +96,6 @@ export default function NewsletterCard(): ReactElement {
         }
         form :global(input:hover) {
           border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
-        }
-      `}</style>
-      <style jsx>{`
-        form {
-          border-radius: 4px;
-          height: fit-content;
-          margin-bottom: 50px;
-          margin-top: 40px;
-          padding: 20px;
-          position: sticky;
-          text-align: center;
-          top: 10px;
-          width: 100%;
-        }
-        form :global(label) {
-          font-size: 18px;
-          font-weight: 600;
-          margin: 30px 0;
-        }
-        form :global(p) {
-          font-size: 15px;
-          text-align: center;
-          margin: 1em 0;
-        }
-        form :global(input) {
-          margin-bottom: 30px;
-          outline: unset;
-          padding: 6px 8px;
-          width: 100%;
-        }
-        form :global(button) {
-          width: 100%;
-        }
-
-        @media print {
-          form {
-            display: none;
-          }
         }
       `}</style>
     </form>

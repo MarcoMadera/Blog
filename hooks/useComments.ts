@@ -100,6 +100,7 @@ export default function useComments(): UseComments {
               variant: "info",
               message:
                 "Solo se puede subir una imagen por comentario por este medio. Puedes usar la opción de imagen por enlace si prefieres tener más de una.",
+              displayTime: 20000,
             });
           }
         };
@@ -161,7 +162,10 @@ export default function useComments(): UseComments {
           addNotification({ variant: "info", message: "Comentario eliminado" });
         })
         .catch(() => {
-          addNotification("Error al eliminar el comentario");
+          addNotification({
+            variant: "error",
+            message: "Error al eliminar el comentario",
+          });
         });
     },
     [addNotification, slug]

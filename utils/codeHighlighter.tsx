@@ -45,6 +45,8 @@ const customClasses = {
   unit: "s",
   url: "S",
   variable: "t",
+  regex: "T",
+  "regex-flags": "u",
 };
 
 export default function codeHighlighter(

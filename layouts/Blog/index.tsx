@@ -2,7 +2,7 @@ import Seo from "components/Seo";
 import MarkDown from "components/Markdown/index";
 import TableOfContents from "./TableOfContents";
 import Comments from "./Comment";
-import NewsletterCard from "components/NewsletterCard";
+import NewsletterCard from "components/Newsletter/NewsletterCard";
 import RecommendedPosts from "./RecommendedPosts";
 import BlogFooter from "./BlogFooter";
 import { colors } from "styles/theme";

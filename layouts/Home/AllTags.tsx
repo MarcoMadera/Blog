@@ -25,6 +25,7 @@ export default function AllTags({
             href={`/blog/etiqueta/${slugify(tag)}/`}
             key={tag}
             title=""
+            prefetch={false}
           >
             {tag}
           </ALink>

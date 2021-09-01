@@ -8,6 +8,7 @@ export const JAVASCRIPT = css.global`
   code[data-lang="javascript"] .t,
   code[data-lang="javascript"] .f,
   code[data-lang="javascript"] .D,
+  code[data-lang="javascript"] .T,
   code[data-lang="javascript"] .I {
     color: ${colors.blue};
   }
@@ -35,6 +36,7 @@ export const Dark_JAVASCRIPT = css.global`
   code[data-lang="javascript"] .t,
   code[data-lang="javascript"] .f,
   code[data-lang="javascript"] .D,
+  code[data-lang="javascript"] .T,
   code[data-lang="javascript"] .I {
     color: ${colors.dark_blue};
   }

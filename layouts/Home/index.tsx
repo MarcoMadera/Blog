@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 import { colors } from "styles/theme";
 import Custom404 from "pages/404";
 import Link from "next/link";
-import NewsletterCard from "components/NewsletterCard";
+import NewsletterCard from "components/Newsletter/NewsletterCard";
 import Seo from "components/Seo";
 import useDarkMode from "hooks/useDarkMode";
 import { siteMetadata } from "site.config";
