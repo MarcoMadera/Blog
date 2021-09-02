@@ -1,28 +1,31 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const matter = require("gray-matter");
-const fs = require("fs");
-const slugify = require("react-slugify").default;
-const { siteMetadata } = require("../site.config");
-const toc = require("markdown-toc-unlazy");
-const twemoji = require("twemoji");
-const readingTime = require("reading-time");
-const { getPlaiceholder } = require("plaiceholder");
+import matter from "gray-matter";
+import { readdirSync, readFileSync } from "fs";
+import slugify from "react-slugify";
+import { siteMetadata } from "../site.config";
+import toc from "markdown-toc-unlazy";
+import { parse } from "twemoji";
+import readingTime from "reading-time";
+import { getPlaiceholder } from "plaiceholder";
+import { AllTags, Pages, Post, PostData } from "types/posts";
 
-function getPostsFiles() {
+export function getPostsFiles(): {
+  filename: string;
+}[] {
   // Get all posts Files located in `posts`
-  const postsFiles = fs.readdirSync(`${process.cwd()}/posts`).map((file) => ({
+  const postsFiles = readdirSync(`${process.cwd()}/posts`).map((file) => ({
     filename: `${file}`,
   }));
   return postsFiles;
 }
 
-async function getSortedPostsData() {
+export async function getSortedPostsData(): Promise<PostData[]> {
   const postsFiles = getPostsFiles();
 
   const posts = Promise.all(
     postsFiles.map(async ({ filename }) => {
       // Get raw content from file
-      const markdownWithMetadata = fs.readFileSync(`posts/${filename}`);
+      const markdownWithMetadata = readFileSync(`posts/${filename}`);
 
       // Parse markdown, get frontmatter data
       const { data, content } = matter(markdownWithMetadata);
@@ -43,9 +46,9 @@ async function getSortedPostsData() {
       const summary = data.summary || null;
       const description = data.description;
 
-      const h2s = toc(content)
-        .json.filter(({ lvl }) => lvl === 2)
-        .map(({ content }) => {
+      const h2s: string[] = toc(content)
+        .json.filter(({ lvl }: { lvl: number }) => lvl === 2)
+        .map(({ content }: { content: string }) => {
           return content;
         });
 
@@ -74,7 +77,13 @@ async function getSortedPostsData() {
   return posts;
 }
 
-async function getTagsSlugs() {
+export async function getTagsSlugs(): Promise<
+  {
+    params: {
+      tag: string;
+    };
+  }[]
+> {
   const sortedposts = await getSortedPostsData();
 
   return sortedposts.flatMap(({ tags }) =>
@@ -86,7 +95,7 @@ async function getTagsSlugs() {
   );
 }
 
-async function getPostBySlug(slug) {
+export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
   const posts = await getSortedPostsData();
 
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
@@ -106,7 +115,7 @@ async function getPostBySlug(slug) {
     tags: currentPost.tags,
     description: currentPost.description,
     blurDataURL: currentPost.blurDataURL,
-    content: twemoji.parse(currentPost.content, {
+    content: parse(currentPost.content, {
       className: "twemoji",
       attributes: () => ({ width: "19", height: "19" }),
     }),
@@ -133,7 +142,11 @@ async function getPostBySlug(slug) {
   };
 }
 
-function getPostsSlugs() {
+export function getPostsSlugs(): {
+  params: {
+    slug: string;
+  };
+}[] {
   return getPostsFiles().map(({ filename }) => ({
     params: {
       slug: filename.replace(".md", ""),
@@ -141,14 +154,18 @@ function getPostsSlugs() {
   }));
 }
 
-function getPostsPages() {
+export function getPostsPages(): number[] {
   return Array.from(
     { length: Math.ceil(getPostsFiles().length / siteMetadata.postsPerPage) },
     (_, i) => i + 1
   );
 }
 
-function getPostsPagesPaths() {
+export function getPostsPagesPaths(): {
+  params: {
+    number: string;
+  };
+}[] {
   return getPostsPages().map((pageNumber) => ({
     params: {
       number: pageNumber.toString(),
@@ -156,36 +173,32 @@ function getPostsPagesPaths() {
   }));
 }
 
-async function getHomeDataFromPage(number) {
+type Posts = Omit<PostData, "h2s" | "content">[];
+
+interface HomeDataFromPage {
+  posts: Posts;
+  pages: Pages;
+  allTags: AllTags;
+}
+
+export async function getHomeDataFromPage(
+  number: number
+): Promise<HomeDataFromPage> {
   const allPosts = await getSortedPostsData();
   const indexOfLastPost = number * siteMetadata.postsPerPage;
   const indexOfFirstPost = indexOfLastPost - siteMetadata.postsPerPage;
   return {
-    posts: allPosts
-      .slice(indexOfFirstPost, indexOfLastPost)
-      .map(
-        ({
-          tags,
-          author,
-          cover,
-          date,
-          description,
-          slug,
-          title,
-          readingTimeInMinutes,
-          blurDataURL,
-        }) => ({
-          tags,
-          author,
-          cover,
-          date,
-          description,
-          slug,
-          title,
-          readingTimeInMinutes,
-          blurDataURL,
-        })
-      ),
+    posts: allPosts.slice(indexOfFirstPost, indexOfLastPost).map((post) => ({
+      tags: post.tags,
+      author: post.author,
+      cover: post.cover,
+      date: post.date,
+      description: post.description,
+      slug: post.slug,
+      title: post.title,
+      readingTimeInMinutes: post.readingTimeInMinutes,
+      blurDataURL: post.blurDataURL,
+    })),
     pages: Array.from(
       { length: Math.ceil(allPosts.length / siteMetadata.postsPerPage) },
       (_, i) => i + 1
@@ -194,46 +207,25 @@ async function getHomeDataFromPage(number) {
   };
 }
 
-async function getTagData(slug) {
+export async function getTagData(slug: PostData["slug"]): Promise<{
+  posts: Posts;
+  allTags: AllTags;
+}> {
   const allPosts = await getSortedPostsData();
   return {
     posts: allPosts
       .filter(({ tags }) => slugify(tags).includes(slug))
-      .map(
-        ({
-          tags,
-          author,
-          cover,
-          date,
-          description,
-          slug,
-          title,
-          readingTimeInMinutes,
-          blurDataURL,
-        }) => ({
-          tags,
-          author,
-          cover,
-          date,
-          description,
-          slug,
-          title,
-          readingTimeInMinutes,
-          blurDataURL,
-        })
-      ),
+      .map((post) => ({
+        tags: post.tags,
+        author: post.author,
+        cover: post.cover,
+        date: post.date,
+        description: post.description,
+        slug: post.slug,
+        title: post.title,
+        readingTimeInMinutes: post.readingTimeInMinutes,
+        blurDataURL: post.blurDataURL,
+      })),
     allTags: [...new Set(allPosts.flatMap(({ tags }) => tags))],
   };
 }
-
-module.exports = {
-  getSortedPostsData,
-  getPostsFiles,
-  getTagsSlugs,
-  getPostBySlug,
-  getPostsSlugs,
-  getPostsPages,
-  getPostsPagesPaths,
-  getHomeDataFromPage,
-  getTagData,
-};

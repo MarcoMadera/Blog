@@ -1,3 +1,4 @@
+// eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, { Head, Main, NextScript, Html } from "next/document";
 import { ReactElement } from "react";
 import { siteMetadata } from "site.config";

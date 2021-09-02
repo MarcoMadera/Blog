@@ -27,10 +27,6 @@ const nextConfig = {
       "node_modules",
       "domhandler"
     );
-    if (isServer) {
-      require("./lib/sitemap.js");
-      require("./lib/feed.js");
-    }
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
         react: "preact/compat",
@@ -85,6 +81,11 @@ const nextConfig = {
       {
         source: "/portfolio/challenges",
         destination: "/portafolio/retos-frontend",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/sre-excel",
+        destination: "/portafolio/sre-excel",
         permanent: true,
       },
       {

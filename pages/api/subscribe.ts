@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { ApiError } from "next/dist/server/api-utils";
 
 export default async function subscribe(
   req: NextApiRequest,
@@ -40,7 +41,11 @@ export default async function subscribe(
     }
 
     return res.status(201).json({ error: "" });
-  } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() });
+  } catch (error: unknown) {
+    const response = error as ApiError;
+
+    return res
+      .status(500)
+      .json({ error: response.message || response.toString() });
   }
 }
