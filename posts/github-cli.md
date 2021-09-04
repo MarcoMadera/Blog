@@ -12,7 +12,7 @@ Sin importar el lenguaje que usamos para programar la línea de comandos es una 
 
 ## ¿Qué es GitHub CLI?
 
-Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para **ejecutar todo el flujo de trabajo en GitHub en la línea de comandos**. Nos permite interactuar con repositorios, *issues*, *pull request* y más.
+Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para **ejecutar todo el flujo de trabajo en GitHub en la línea de comandos**. Nos permite interactuar con repositorios, _issues_, _pull request_ y más.
 
 <tweet id="1306586113293729795"></tweet>
 
@@ -46,18 +46,18 @@ Otros subcomandos que también se pueden usar con `gh auth`:
 
 La estructura de los comandos siguen el mismo patrón `gh <comando> <acción> [flags]` y pueden ser los siguientes:
 
-| Comando |                    Acciones                    |
-|:-------:|:-----------------------------------------------|
-|   gist  | Ver, crear, editar, eliminar *gists*...        |
-|  issue  | Ver, crear, reabrir, cerrar *issues*...        |
-|    pr   | Ver, crear, revisar, cerrar *pull requests*... |
-| release | Crear, eliminar, subir, descargar *releases*...|
-|   repo  | Crear, clonar, *fork*, y ver repositorios.     |
-|  alias  | Crea, lista y elimina atajos de comandos.      |
-|   api   | Hacer llamadas HTTP a Rest o GraphQL API.      |
-|   auth  | Login, logout, y *refresh* de la autenticación.|
-|  config | Maneja la configuración para gh.               |
-|   help  | El comando de ayuda.                           |
+| Comando | Acciones                                        |
+| :-----: | :---------------------------------------------- |
+|  gist   | Ver, crear, editar, eliminar _gists_...         |
+|  issue  | Ver, crear, reabrir, cerrar _issues_...         |
+|   pr    | Ver, crear, revisar, cerrar _pull requests_...  |
+| release | Crear, eliminar, subir, descargar _releases_... |
+|  repo   | Crear, clonar, _fork_, y ver repositorios.      |
+|  alias  | Crea, lista y elimina atajos de comandos.       |
+|   api   | Hacer llamadas HTTP a Rest o GraphQL API.       |
+|  auth   | Login, logout, y _refresh_ de la autenticación. |
+| config  | Maneja la configuración para gh.                |
+|  help   | El comando de ayuda.                            |
 
 ## Repositorios
 
@@ -78,7 +78,7 @@ C:\Users\marco\repositorios>github-cli>
 
 Para **ver repositorios** utilizamos `gh repo view` seguido del nombre del repositorio de esta forma `usuario/repositorio`. Se puede observar la descripción del repositorio y el contenido del archivo `README.md`.
 
-Los *flags* que recibe pueden ser por ejemplo `-w` o `--web` para ver el repositorio en la web. Si no incluye un nombre de repositorio se verá el repositorio que está en el directorio actual.
+Los _flags_ que recibe pueden ser por ejemplo `-w` o `--web` para ver el repositorio en la web. Si no incluye un nombre de repositorio se verá el repositorio que está en el directorio actual.
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios\github-cli>gh repo view
 MarcoMadera/github-cli
@@ -111,11 +111,11 @@ C:\Users\marco\repositorios>cd github-cli
 C:\Users\marco\repositorios\github-cli>
 </code></pre></div>
 
-Para hacer **fork de un repositorio** funciona de la misma manera que clonar un repositorio, el comando *fork* `gh repo fork` seguido del repositorio. Si no se provee de ningún repositorio, hace un *fork* del proyecto actual. Lo que es bueno se quiere empezar a arreglar *bugs* o realizar una nueva mejora rápidamente.
+Para hacer **fork de un repositorio** funciona de la misma manera que clonar un repositorio, el comando _fork_ `gh repo fork` seguido del repositorio. Si no se provee de ningún repositorio, hace un _fork_ del proyecto actual. Lo que es bueno se quiere empezar a arreglar _bugs_ o realizar una nueva mejora rápidamente.
 
 ## Pull Request
 
-El comando para *pull request* es `pr` seguido de una acción que pueden ser una de las siguientes:
+El comando para _pull request_ es `pr` seguido de una acción que pueden ser una de las siguientes:
 
 <div style="display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
   <ul>
@@ -140,7 +140,7 @@ El comando para *pull request* es `pr` seguido de una acción que pueden ser una
   </ul>
 </div>
 
-Para **crear pull request** podemos usar `gh pr create`. Para agregar directamente un título usamos el *flag* `--title`, para el contenido el *flag* `--body` y para agregar a alguien para que lo revise el *flag* `--reviewer` seguido del usuario.
+Para **crear pull request** podemos usar `gh pr create`. Para agregar directamente un título usamos el _flag_ `--title`, para el contenido el _flag_ `--body` y para agregar a alguien para que lo revise el _flag_ `--reviewer` seguido del usuario.
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios\github-cli>gh pr create --title "Como crear un pr" --body "contenido"
 
@@ -158,9 +158,9 @@ To github.com:MarcoMadera/github-cli.git
 Branch 'rp' set up to track remote branch 'rp' from 'origin'.
 </code></pre>
 
-Con `gh pr list` seguido de los *flags* podemos **listar pull request**. Los *flags* se pueden usar como filtros. `--limit` seguido del número limita a la lista. `--state` y  `--label` seguidos por el valor muestra solo las `pr` que coincidan.
+Con `gh pr list` seguido de los _flags_ podemos **listar pull request**. Los _flags_ se pueden usar como filtros. `--limit` seguido del número limita a la lista. `--state` y `--label` seguidos por el valor muestra solo las `pr` que coincidan.
 
-Para **ver pull request** se usa `gh pr view` seguido del número del *pull request* o directamente la *URL*.
+Para **ver pull request** se usa `gh pr view` seguido del número del _pull request_ o directamente la _URL_.
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios>gh pr view
 <span style="font-weight:600;">Update README.md</span>
@@ -173,7 +173,7 @@ Las demás acciones funcionan de manera similar. `gh pr status` muestra el estad
 
 ## Issues
 
-El comando para manejar *issues* es `issue` seguido de una acción que pueden ser una de las siguientes:
+El comando para manejar _issues_ es `issue` seguido de una acción que pueden ser una de las siguientes:
 
 <div style="display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
   <ul>
@@ -190,7 +190,7 @@ El comando para manejar *issues* es `issue` seguido de una acción que pueden se
   </ul>
 </div>
 
-Para **crear issues** se usa el comando `gh issue create`. Para agregar directamente un título usamos el *flag* `--title`, para el contenido el *flag* `--body`.
+Para **crear issues** se usa el comando `gh issue create`. Para agregar directamente un título usamos el _flag_ `--title`, para el contenido el _flag_ `--body`.
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios\github-cli>gh issue create --title "título" --body "contenido" --label "bug"
 
@@ -199,9 +199,9 @@ Creating issue in MarcoMadera/github-cli
 https://github.com/MarcoMadera/github-cli/issues/2
 </code></pre>
 
-Para **ver issues** se usa `gh issue view` seguido del número del *pull request* o directamente la *URL*.
+Para **ver issues** se usa `gh issue view` seguido del número del _pull request_ o directamente la _URL_.
 
-Para **listar issues** se usa `gh issue list`. Los *flags* se pueden usar como filtros: `--limit` seguida del número limita a la lista, `--author`, `--label`, `--assignee` seguidos por el valor muestra solo las `issues` que coincidan.
+Para **listar issues** se usa `gh issue list`. Los _flags_ se pueden usar como filtros: `--limit` seguida del número limita a la lista, `--author`, `--label`, `--assignee` seguidos por el valor muestra solo las `issues` que coincidan.
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios\github-cli>gh issue list --label "bug"
 
@@ -222,7 +222,7 @@ C:\Users\marco\repositorios>gh issue view 2
 
 ## Gist
 
-El comando para manejar los *gists* es `gist` seguido de una acción que pueden ser una de las siguientes:
+El comando para manejar los _gists_ es `gist` seguido de una acción que pueden ser una de las siguientes:
 
 <div style="display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
   <ul>
@@ -238,13 +238,13 @@ El comando para manejar los *gists* es `gist` seguido de una acción que pueden 
   </ul>
 </div>
 
-Para **crear un gist** nuevo se hace a través del siguiente comando: `gh gist create` seguido del nombre de uno o varios archivos separados por espacio. Por defecto los gist son privados, se pueden hacer públicos con el *flag* `-public`.
+Para **crear un gist** nuevo se hace a través del siguiente comando: `gh gist create` seguido del nombre de uno o varios archivos separados por espacio. Por defecto los gist son privados, se pueden hacer públicos con el _flag_ `-public`.
 
-Para **editar ver o borrar un gists** es con `gh gist edit` `gh gist view` o `gh gist delete` respectivamente seguido del *ID* del *gist* o directamente la *URL*.
+Para **editar ver o borrar un gists** es con `gh gist edit` `gh gist view` o `gh gist delete` respectivamente seguido del _ID_ del _gist_ o directamente la _URL_.
 
 ## Alias
 
-Los *aliases* son declaraciones de una palabra como un comando extendible, un *shortcut* al comando. Para manejarlos se usa el comando `alias` seguido de una acción que pueden ser una de las siguientes:
+Los _aliases_ son declaraciones de una palabra como un comando extendible, un _shortcut_ al comando. Para manejarlos se usa el comando `alias` seguido de una acción que pueden ser una de las siguientes:
 
 <div style="display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
   <ul>
@@ -258,7 +258,7 @@ Los *aliases* son declaraciones de una palabra como un comando extendible, un *s
   </ul>
 </div>
 
-Para **crear un alias** se hace con el comando `gh alias set` seguido del nombre del alias a utilizar como *shortcut* y la expansión del comando. Para crear una lista de mis *bugs* sería el siguiente comando `gh alias misbugs='gh issue list -a "MarcoMadera" -l "bug"'`
+Para **crear un alias** se hace con el comando `gh alias set` seguido del nombre del alias a utilizar como _shortcut_ y la expansión del comando. Para crear una lista de mis _bugs_ sería el siguiente comando `gh alias misbugs='gh issue list -a "MarcoMadera" -l "bug"'`
 
 <pre><code data-lang="CLI">C:\Users\marco\repositorios>gh alias set cr "repo create"
 - Adding alias for cr: <span style="font-weight:600;">repo create</span>
@@ -271,7 +271,7 @@ cr: repo create
 
 ## API
 
-Github API es poderoso, con `gh api` se pueden hacer llamadas <abbr title="Hyper Text Transfer Protocol">HTTP</abbr> a <abbr title="Representational State Transfer">REST</abbr> o GraphQL API. Se usa con el comando `gh api` seguido del *endpoint* que puede ser una *URL* absoluta o la representación de un repositorio de la siguiente manera de ejemplo `repos/user/repo/releases`. El método que usa por defecto es `GET`, se puede cambiar con el *flag* `--method`.
+Github API es poderoso, con `gh api` se pueden hacer llamadas <abbr title="Hyper Text Transfer Protocol">HTTP</abbr> a <abbr title="Representational State Transfer">REST</abbr> o GraphQL API. Se usa con el comando `gh api` seguido del _endpoint_ que puede ser una _URL_ absoluta o la representación de un repositorio de la siguiente manera de ejemplo `repos/user/repo/releases`. El método que usa por defecto es `GET`, se puede cambiar con el _flag_ `--method`.
 
 <pre><code data-lang="CLI">C:\Users\marco>gh api https://marcomadera.com/api/now-playing
 {
@@ -285,4 +285,4 @@ Github API es poderoso, con `gh api` se pueden hacer llamadas <abbr title="Hyper
 
 ## Conclusión
 
-Github CLI reduce la necesidad de abrir la [Página de Github](https://github.com/ "Página de Github") después de hacer *commits* y *push* de código. Por lo que es de gran ayuda para ahorrar tiempo. A día de hoy es la versión 1.0.0 y trae la mayoría de características de GitHub.
+Github CLI reduce la necesidad de abrir la [Página de Github](https://github.com/ "Página de Github") después de hacer _commits_ y _push_ de código. Por lo que es de gran ayuda para ahorrar tiempo. A día de hoy es la versión 1.0.0 y trae la mayoría de características de GitHub.

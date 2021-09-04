@@ -170,24 +170,24 @@ Vemos que los primeros cuatro números tienen una racha ascendente, intercala 3 
 Tenemos lo siguiente:
 
 | **Racha** | **Longitud** |
-|:---------:|:------------:|
-|     1     |       4      |
-|     2     |       1      |
-|     3     |       1      |
-|     4     |       1      |
-|     5     |       2      |
+| :-------: | :----------: |
+|     1     |      4       |
+|     2     |      1       |
+|     3     |      1       |
+|     4     |      1       |
+|     5     |      2       |
 
 Transpuesta nuestra tabla de tal manera que ahora clasificamos según la longitud de la tabla:
 
-| **Longitud de rachas** | 1 | 2 | 3 | 4 | **Total** |
-|:----------------------:|:-:|:-:|:-:|:-:|:---------:|
-|  **Número de rachas**  | 3 | 1 | 0 | 1 |     5     |
+| **Longitud de rachas** |  1  |  2  |  3  |  4  | **Total** |
+| :--------------------: | :-: | :-: | :-: | :-: | :-------: |
+|  **Número de rachas**  |  3  |  1  |  0  |  1  |     5     |
 
 Si aplicamos lo que sabemos hasta ahora a la lista de nuestros 300 números iniciales, quedaría de la siguiente manera:
 
-| **Longitud de rachas** |  1  |  2 |  3 | 4 | **Total** |
-|:----------------------:|:---:|:--:|:--:|:-:|:---------:|
-|  **Número de rachas**  | 116 | 55 | 19 | 4 |    194    |
+| **Longitud de rachas** |  1  |  2  |  3  |  4  | **Total** |
+| :--------------------: | :-: | :-: | :-: | :-: | :-------: |
+|  **Número de rachas**  | 116 | 55  | 19  |  4  |    194    |
 
 Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los tres estadísticos:
 
@@ -262,8 +262,8 @@ Lo que cambia es que ahora nuestros números esperados los calcularemos de con l
 Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longitudes de rachas:
 
 | **Longitud de rachas** |  1  |  2  |  3  |  4  | **Total** |
-|:----------------------:|:---:|:---:|:---:|:---:|:---------:|
-|  **Número de rachas**  | 116 |  55 |  19 |  4  |    194    |
+| :--------------------: | :-: | :-: | :-: | :-: | :-------: |
+|  **Número de rachas**  | 116 | 55  | 19  |  4  |    194    |
 
 <div className="chi-eq"><i>
   e<sub>1</sub> =
@@ -350,8 +350,8 @@ Lo cual son números similares a los obtenidos.
 Existe la restricción de que los números observados y esperados no pueden ser menor que 5. Por lo que e4 se le sumaría a e3 quedando de la siguiente manera:
 
 | **Observados** |   116   |   55   |   23   |
-|:--------------:|:-------:|:------:|:------:|
-|  **Esperados** | 125.083 | 59.766 | 21.137 |
+| :------------: | :-----: | :----: | :----: |
+| **Esperados**  | 125.083 | 59.766 | 21.137 |
 
 Con estos datos calculamos chi-cuadrada (X2) = 1.2038
 k = 4-1 = 3
@@ -371,9 +371,9 @@ Esta muestra nos dio que los números no son uniformes pero sí independientes
 
 En 100 pruebas de 100 números cada una, se obtuvieron los siguientes resultados:
 
-| **Número de pruebas correctas** |  1 |  2 |  3 | **Total** |
-|:-------------------------------:|:--:|:--:|:--:|-----------|
-|           **Valores**           | 11 | 21 | 68 | 100       |
+| **Número de pruebas correctas** |  1  |  2  |  3  | **Total** |
+| :-----------------------------: | :-: | :-: | :-: | --------- |
+|           **Valores**           | 11  | 21  | 68  | 100       |
 
 De las 100 pruebas:
 
@@ -389,9 +389,9 @@ De las 100 pruebas:
 
 En 100 pruebas de 3000 números cada una, se obtuvieron los siguientes resultados:
 
-| **Número de pruebas correctas** | 1 |  2 |  3 | **Total** |
-|:-------------------------------:|:-:|:--:|:--:|:---------:|
-|           **Valores**           | 3 | 48 | 49 |    100    |
+| **Número de pruebas correctas** |  1  |  2  |  3  | **Total** |
+| :-----------------------------: | :-: | :-: | :-: | :-------: |
+|           **Valores**           |  3  | 48  | 49  |    100    |
 
 De las 100 pruebas:
 

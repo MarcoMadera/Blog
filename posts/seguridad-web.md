@@ -29,29 +29,29 @@ Si no se hace correctamente este paso se pueden tener datos corruptos. Por ejemp
 
 <tweet id="1396196807173099524" caption="[Actualización: 22 Mayo 21] A partir de está fecha se le asignó un nombre de usuario, lo cual ya pasaba en las aplicaciones móbiles cambiando cada cierto tiempo."></tweet>
 
-Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al *frontend* puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
+Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al _frontend_ puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
 
 ```json
 {
-  test: [
+  "test": [
     {
-      question: "¿Qué url es más segura?",
-      anwers: [
+      "question": "¿Qué url es más segura?",
+      "anwers": [
         {
-          text: "https://googIe.com",
-          correct: true,
+          "text": "https://googIe.com",
+          "correct": true
         },
         {
-          text: "http://www.google.com",
-          correct: false,
-        },
+          "text": "http://www.google.com",
+          "correct": false
+        }
       ]
-    },
-  ],
+    }
+  ]
 }
 ```
 
-<note type="danger">Estos datos en el lado del cliente (*frontend*) pueden ser expuestos para revelar las respuestas correctas.</note>
+<note type="danger">Estos datos en el lado del cliente (_frontend_) pueden ser expuestos para revelar las respuestas correctas.</note>
 
 <note type="tip">
 
@@ -72,7 +72,7 @@ Imagina que la sección de comentarios de este post aceptara etiquetas HTML como
 
 Un ejemplo no persistente sería si al tener un buscador no validar la query, permitir que la siguiente URL `https://marcomadera.com/search?q=<script%20type='application/javascript'>alert('xss');</script>` ejecute el código.
 
-El siguiente ejemplo de crear un tweet que se hace retweet cada vez que aparece en pantalla, sería persistente en cuanto aparezca en el *feed* de una persona haría retweet por si solo.
+El siguiente ejemplo de crear un tweet que se hace retweet cada vez que aparece en pantalla, sería persistente en cuanto aparezca en el _feed_ de una persona haría retweet por si solo.
 
 <youtube id="zv0kZKC6GAM"></youtube>
 
@@ -82,7 +82,7 @@ Un ataque de entidades externas es el tipo de ataque que abusa del procesador de
 
 > Este ataque puede conducir a la divulgación de datos confidenciales, denegación de servicio, falsificación de solicitudes del lado del servidor, escaneo de puertos desde la perspectiva de la máquina donde se encuentra el analizador y otros impactos del sistema. [Wikipedia](https://en.wikipedia.org/wiki/XML_external_entity_attack)
 
-En el sitio *secrets of app security* hay un ejemplo claro de un ataque con saml para interceptar solicitudes y remplazarla con tu código [Ataque XXE](https://secretsofappsecurity.blogspot.com/2017/01/saml-security-xml-external-entity-attack.html).
+En el sitio _secrets of app security_ hay un ejemplo claro de un ataque con saml para interceptar solicitudes y remplazarla con tu código [Ataque XXE](https://secretsofappsecurity.blogspot.com/2017/01/saml-security-xml-external-entity-attack.html).
 
 Puede que recuerdes el mensaje del punto negro de WhatsApp y iMessage. Este es un ataque de este tipo que tenía oculto múltiples entidades `&lrm;` que cambian la dirección del texto y que el procesador de xml no podía soportar. Otro ataque similar a este es el llamado [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack) que usa entidades `&lol;`.
 
@@ -92,7 +92,7 @@ Puede que recuerdes el mensaje del punto negro de WhatsApp y iMessage. Este es u
 
 En este tipo de ataque el atacador abusa de la funcionalidad del servidor para utilizar los recursos internos de este.
 
-En una situación normal el *frontend* de una tienda puede hacer llamadas al servidor para saber si un producto está disponible `http://storeapi.api/product/check`, el atacante hace peticiones al servidor modificando ese *endpoint*, por ejemplo al mismo `http://localhost/admin` abusando de la confianza.
+En una situación normal el _frontend_ de una tienda puede hacer llamadas al servidor para saber si un producto está disponible `http://storeapi.api/product/check`, el atacante hace peticiones al servidor modificando ese _endpoint_, por ejemplo al mismo `http://localhost/admin` abusando de la confianza.
 
 <videogif title="Server Request" src="https://res.cloudinary.com/marcomadera/video/upload/v1618513408/Blog/seguridad-web/server_clic_twfhas.mp4"></videogif>
 
@@ -103,10 +103,10 @@ Un ataque de inyección de comandos puede ocurrir porque el servidor no valida e
 El siguiente ejemplo es un lector de archivos vulnerable que devuelve el contenido del archivo, el usuario puede insertar algo como `"filename.pdf rm -rf /"` y borrar el contenido del servidor entero o dirigirse a una ruta `"../passwords"` provocando un ataque transversal de directorio.
 
 ```javascript
-app.get('/viewer', (req, res) => {
+app.get("/viewer", (req, res) => {
   const { filename } = req.query;
   try {
-    const stdout = childProcess.execSync('cat folder/' + filename);
+    const stdout = childProcess.execSync("cat folder/" + filename);
     res.send(stdout.toString());
   } catch (err) {
     res.send(err.toString());

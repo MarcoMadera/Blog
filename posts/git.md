@@ -8,7 +8,7 @@ tags:
   - Terminal
 ---
 
-En mis inicios programando siempre escuchaba algo sobre el control de versiones, era algo que veía un poco complicado y donde no me quería meter porque estaba más enfocado en aprender otras cosas. Lo simplificaba como en qué estado se encuentra mi proyecto y usar versión *alpha*, *beta*, v1.0.0... Lo que ahora veo como una etiqueta que no se altera. Esto me llevó a realizar cambios sin justificación y a perder mucho trabajo que no guardé.
+En mis inicios programando siempre escuchaba algo sobre el control de versiones, era algo que veía un poco complicado y donde no me quería meter porque estaba más enfocado en aprender otras cosas. Lo simplificaba como en qué estado se encuentra mi proyecto y usar versión _alpha_, _beta_, v1.0.0... Lo que ahora veo como una etiqueta que no se altera. Esto me llevó a realizar cambios sin justificación y a perder mucho trabajo que no guardé.
 
 <tweet id="1342099157398544385"></tweet>
 
@@ -20,12 +20,12 @@ En algún momento al conocer Git me sentí igual que Flavio y por los recuerdos 
 
 El control de versiones es un **sistema que guarda los cambios en el tiempo** de uno o varios archivos. Se pueden revertir estos cambios a un estado anterior, lo que significa que si tenemos un problema, podemos comparar los cambios en el tiempo, ver quién modificó algo que pudiera causar el problema y poder cambiar el estado actual a uno donde no se presente el problema.
 
-Git es un sistema de control de versiones que **almacena la información como un flujo de *snapshots*** de un sistema de archivos. Cada vez que hay un cambio o se guarda el estado del proyecto, Git toma una imagen de todos los archivos y crea una referencia a ese momento. En un futuro cambio, si un archivo no se modifica Git no vuelve a almacenar el archivo, sino que usa la referencia al momento anterior.
+Git es un sistema de control de versiones que **almacena la información como un flujo de _snapshots_** de un sistema de archivos. Cada vez que hay un cambio o se guarda el estado del proyecto, Git toma una imagen de todos los archivos y crea una referencia a ese momento. En un futuro cambio, si un archivo no se modifica Git no vuelve a almacenar el archivo, sino que usa la referencia al momento anterior.
 
 Git contempla tres estados:
 
 - `modified`: Cuando un archivo cambia, pero no se ha enviado a la base de datos local de Git.
-- `staged`:  Cuando se añade un archivo modificado para ser enviado en el siguiente `commit`.
+- `staged`: Cuando se añade un archivo modificado para ser enviado en el siguiente `commit`.
 - `commited`: Cuando los datos están almacenados en la base de datos local de Git.
 
 ## Configuración de git
@@ -54,10 +54,10 @@ user.email=example@email.com</code></pre>
 El flujo de trabajo en Git sigue el siguiente patrón:
 
 1. Haces modificaciones en tu directorio de trabajo controlado.
-2. Selecciona los cambios a añadir en el estado *staged* para ser enviados con el siguiente `commit`.
-3. Haces un commit, el cual toma todos los archivos en estado *staged* y almacena la *snapshot* en la base de datos de Git.
+2. Selecciona los cambios a añadir en el estado _staged_ para ser enviados con el siguiente `commit`.
+3. Haces un commit, el cual toma todos los archivos en estado _staged_ y almacena la _snapshot_ en la base de datos de Git.
 
-Para tener un directorio nuevo de trabajo controlado, en la terminal se dirige a la ruta del proyecto para **inicializar el repositorio** con el comando `git init`. Esto creará el archivo `.git` en la raíz del proyecto, donde se guardará la información de cada *snapshot*.
+Para tener un directorio nuevo de trabajo controlado, en la terminal se dirige a la ruta del proyecto para **inicializar el repositorio** con el comando `git init`. Esto creará el archivo `.git` en la raíz del proyecto, donde se guardará la información de cada _snapshot_.
 
 <pre><code data-lang="CLI"><span class="purple">cd</span> <span class="blue">repositorios/gitpost/</span>
 <span class="purple">git</span> <span class="blue">init</span>
@@ -73,20 +73,20 @@ Untracked files:
   <span class="red">README</span>
 nothing added to commit but untracked files present (use <span class="green">"git add"</span> to track)</code></pre>
 
-Para **agregar archivos al *stage*** usamos `git add <archivo>`, `git add *` o `git add .` agrega todos los archivos en el *stage*, `git add *.<extensión>` agrega los archivos con la extensión especificada y `git add /<folder>` agrega todos los archivos dentro de la carpeta especificada.
+Para **agregar archivos al _stage_** usamos `git add <archivo>`, `git add *` o `git add .` agrega todos los archivos en el _stage_, `git add *.<extensión>` agrega los archivos con la extensión especificada y `git add /<folder>` agrega todos los archivos dentro de la carpeta especificada.
 
-Si nos equivocamos, para **eliminar archivos del *stage*** sin borrarlo de nuestro directorio usamos `git rm --cached <archivo>`. El *flag* `--cached` hace que no se elimine de nuestro directorio, si no se agrega se eliminaría también de nuestro directorio de trabajo. Si olvidamos agregar el flag no está todo perdido, podemos recuperar el archivo con `git restore <archivo>`.
+Si nos equivocamos, para **eliminar archivos del _stage_** sin borrarlo de nuestro directorio usamos `git rm --cached <archivo>`. El _flag_ `--cached` hace que no se elimine de nuestro directorio, si no se agrega se eliminaría también de nuestro directorio de trabajo. Si olvidamos agregar el flag no está todo perdido, podemos recuperar el archivo con `git restore <archivo>`.
 
 Para **Ignorar archivos** se crea un archivo `.gitignore` en la raíz del proyecto. Esto hace que todos los archivos que coincidan dentro de `.gitignore` no sean tomados en cuenta para ninguna acción con Git.
 
 <note type="tip">Puedes revisar la [colección de archivos de .gitignore](https://github.com/github/gitignore) para ver ejemplos o usarlos en tus proyectos.</note>
 
-Ya teniendo todo lo que queramos para **guardar los archivos** usamos `git commit`. Esto abrirá el editor que definimos en la configuración para poner un mensaje descriptivo o igual lo podemos añadir en la consola con el *flag* `-m`. Para añadir archivos que ya habían estado en el *stage* usamos el *flag* `-am` que es la combinación de `-a --add` y `-m --message`.
+Ya teniendo todo lo que queramos para **guardar los archivos** usamos `git commit`. Esto abrirá el editor que definimos en la configuración para poner un mensaje descriptivo o igual lo podemos añadir en la consola con el _flag_ `-m`. Para añadir archivos que ya habían estado en el _stage_ usamos el _flag_ `-am` que es la combinación de `-a --add` y `-m --message`.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m</span> <span class="green">"&lt;mensaje descriptivo&gt;"</span>
 <span class="purple">git</span> <span class="blue">commit -am</span> <span class="green">"&lt;mensaje descriptivo&gt;"</span></code></pre>
 
-Mostrar el historial de commits del repositorio usamos `git log`, el resultado de este es un poco feo, por lo que se puede hacer más bonito con el *flag* `--pretty`. `git log` solo mostrará por defecto el historial por debajo de la rama.
+Mostrar el historial de commits del repositorio usamos `git log`, el resultado de este es un poco feo, por lo que se puede hacer más bonito con el _flag_ `--pretty`. `git log` solo mostrará por defecto el historial por debajo de la rama.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">log</span>
 <span class="yellow">commit ed3946555db4597294bae2014cfe996b88268bef (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span>
@@ -109,7 +109,7 @@ Date:   Mon Jun 29 19:28:42 2020 -0500
 <span class="yellow">65b5a12</span> | MarcoMadera | 10 minutes ago | hello world
 <span class="yellow">fd14a30</span> | MarcoMadera | 11 minutes ago | hola mundo</code></pre>
 
-Para **mostrar las diferencias entre un commit y otro** de un archivo lo hacemos con el comando `git diff`. `git diff` muestra la diferencia por defecto de lo que has puesto en el *stage* y lo que vas a hacer commit. Muestra las líneas exactas que fueron añadidas o removidas. El comando puede ser selectivo usando el hash de cada commit a comparar.
+Para **mostrar las diferencias entre un commit y otro** de un archivo lo hacemos con el comando `git diff`. `git diff` muestra la diferencia por defecto de lo que has puesto en el _stage_ y lo que vas a hacer commit. Muestra las líneas exactas que fueron añadidas o removidas. El comando puede ser selectivo usando el hash de cada commit a comparar.
 
 Usar `git diff` no suele ser muy placentero de ver para archivos largos, se puede explorar el uso de `git difftool` para configurar una herramienta más gráfica para estos casos.
 
@@ -129,11 +129,11 @@ Hello World       | Hola Mundo
 
 ## El modelo de ramas
 
-Se puede decir que Git tiene tres árboles donde se agrupan archivos. `HEAD` es el indicador del último *commit* realizado y de la rama actual. `Index` es el espacio donde se agregan/modifican/eliminan los archivos del antes mencionado *stage* antes de realizar un commit. Finalmente está el directorio de trabajo manejado como el `Working tree`
+Se puede decir que Git tiene tres árboles donde se agrupan archivos. `HEAD` es el indicador del último _commit_ realizado y de la rama actual. `Index` es el espacio donde se agregan/modifican/eliminan los archivos del antes mencionado _stage_ antes de realizar un commit. Finalmente está el directorio de trabajo manejado como el `Working tree`
 
-Al realizar el comando `git init` Git crea una rama por defecto que suele ser *master*. Esta no es una rama especial, es como cualquier otra con el detalle que es la inicial, la que Git crea por defecto. Nuestro proyecto puede seguir cualquier rama como principal en cualquier punto.
+Al realizar el comando `git init` Git crea una rama por defecto que suele ser _master_. Esta no es una rama especial, es como cualquier otra con el detalle que es la inicial, la que Git crea por defecto. Nuestro proyecto puede seguir cualquier rama como principal en cualquier punto.
 
-Cuando un *commit* es creado es enviado al `HEAD`, la rama actual, donde Git guarda la información de los cambios una única vez, lo demás son referencias con cambios, no se vuelve almacenar nada ya creado. Con esto Git permite crear copias de nuestro proyecto en un estado en formas de referencias y experimentar con ellas todo lo que queramos sin haber otro coste más que los nuevos cambios. Estos grupos de referencias en un estado son llamadas ramas que igual tendrá solamente un identificador propio.
+Cuando un _commit_ es creado es enviado al `HEAD`, la rama actual, donde Git guarda la información de los cambios una única vez, lo demás son referencias con cambios, no se vuelve almacenar nada ya creado. Con esto Git permite crear copias de nuestro proyecto en un estado en formas de referencias y experimentar con ellas todo lo que queramos sin haber otro coste más que los nuevos cambios. Estos grupos de referencias en un estado son llamadas ramas que igual tendrá solamente un identificador propio.
 
 <svg style="margin: 0 auto;" width="100%" height="476pt" viewBox="0.00 0.00 206.00 476.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g transform="scale(1 1) rotate(0) translate(4 472)">
@@ -195,9 +195,9 @@ Cuando un *commit* es creado es enviado al `HEAD`, la rama actual, donde Git gua
 <polygon fill="#2e7d32" stroke="#2e7d32" points="123.405,-109.846 113.796,-105.385 118.526,-114.865 123.405,-109.846"></polygon></g></g>
 </svg>
 
-Ahora que tenemos una idea de lo que son las ramas pasemos al manejo de ellas. Para crear una rama usamos `git branch <nombre de la rama>`, esto creará un indicador llamado `HEAD` que apuntará a la rama en la que estamos para ubicarnos mejor, en este caso aún seguiríamos en la rama *master*. Para cambiar de ramas usamos `git switch <nombre de la rama>` o `git checkout <nombre de la rama>`, esto moverá el apuntador `HEAD` a la nueva línea en la que estaremos trabajando.
+Ahora que tenemos una idea de lo que son las ramas pasemos al manejo de ellas. Para crear una rama usamos `git branch <nombre de la rama>`, esto creará un indicador llamado `HEAD` que apuntará a la rama en la que estamos para ubicarnos mejor, en este caso aún seguiríamos en la rama _master_. Para cambiar de ramas usamos `git switch <nombre de la rama>` o `git checkout <nombre de la rama>`, esto moverá el apuntador `HEAD` a la nueva línea en la que estaremos trabajando.
 
-En algún punto las ramas pueden volver a unirse a la rama principal o a otra rama, como se muestra en la gráfica anterior. Todo lo que tienes que hacer es ir a la rama donde se van a hacer los cambios y usar `git merge <nombre de rama>`. Git creará una nueva *snapshot* de los cambios y un nuevo *commit* de referencia especial porque tendrá dos ancestros directos.
+En algún punto las ramas pueden volver a unirse a la rama principal o a otra rama, como se muestra en la gráfica anterior. Todo lo que tienes que hacer es ir a la rama donde se van a hacer los cambios y usar `git merge <nombre de rama>`. Git creará una nueva _snapshot_ de los cambios y un nuevo _commit_ de referencia especial porque tendrá dos ancestros directos.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">checkout master</span>
 Switched to branch <span class="green">'master'</span>
@@ -235,7 +235,7 @@ Successfully rebased and updated refs/heads/&lt;nombre de rama&gt;.
 
 Todo lo que hemos estado trabajando es sobre el repositorio local de nuestro proyecto. Para que otras personas lo vean y colaboren con él, podemos usar los servicios remotos como [GitHub](https://github.com/), [Bitbucket](https://bitbucket.org/) y [GitLab](https://about.gitlab.com/); son servicios que permiten la gestión de proyectos y el seguimiento de trabajo con otros desarrolladores.
 
-Para subir un repositorio local a uno remoto, tendremos que crear un repositorio en algunos de los servicios en el cual obtendremos una *url* del nuestro proyecto, con la que podremos utilizar `git remote add <nombre indentificador> <url>`
+Para subir un repositorio local a uno remoto, tendremos que crear un repositorio en algunos de los servicios en el cual obtendremos una _url_ del nuestro proyecto, con la que podremos utilizar `git remote add <nombre indentificador> <url>`
 
 Otra forma de obtener un repositorio es **clonar un repositorio remoto** con `git clone <url> <nombre>`. Con esto ya tendremos en nuestro directorio local una copia con la que podremos contribuir al proyecto o simplemente experimentar con su funcionamiento.
 
@@ -247,7 +247,7 @@ remote: Compressing objects: <span class="darkyellow">100%</span> (<span class="
 remote: Total <span class="darkyellow">64</span> (delta <span class="darkyellow">32</span>), reused <span class="darkyellow">45</span> (delta <span class="darkyellow">17</span>)</span>, pack-reused <span class="darkyellow">0</span>
 Unpacking objects: <span class="darkyellow">100%</span> (<span class="darkyellow">64</span>/<span class="darkyellow">64</span>), <span class="darkyellow">74.53 KiB</span> | <span class="darkyellow">19.00 KiB/s</span>, done.</code></pre>
 
-Después de usar `git clone`, si usamos `git remote` veremos que tendremos *origin*, este es el nombre para identificar la *url* que Git le pone por defecto a los proyectos obtenidos por `git clone`. Esto sucede al igual que al inicializar un proyecto, Git por defecto crea la rama con nombre *master*. Se puede **renombrar el identificador** con el comando `git remote rename <origin en este caso> <nuevo nombre>`
+Después de usar `git clone`, si usamos `git remote` veremos que tendremos _origin_, este es el nombre para identificar la _url_ que Git le pone por defecto a los proyectos obtenidos por `git clone`. Esto sucede al igual que al inicializar un proyecto, Git por defecto crea la rama con nombre _master_. Se puede **renombrar el identificador** con el comando `git remote rename <origin en este caso> <nuevo nombre>`
 
 Ahora que tenemos un repositorio remoto, puede que el contenido del remoto sea diferente por cambios de otros colaboradores. En nuestro repositorio local no se verán reflejados esos cambios. Para actualizar nuestro repositorio local podemos usar `git pull`. Trae los cambios generalmente del servidor al que se clonó y hace un `merge` automático en nuestro repositorio local. Para indicar otro servicio remoto y rama se usa `git pull <remoto> <rama>`
 
@@ -255,7 +255,7 @@ Cuando ya hemos hecho commit de los cambios que queremos compartir en nuestro re
 
 ## Comandos de Git adicionales
 
-Si no quieres escribir el comando completo cada vez, puedes fácilmente configurar un *alias* para cada comando. Los *alias* en Git nos permiten **crear *shortcuts***, a través de `git config --global alias.<atajo> comando`.
+Si no quieres escribir el comando completo cada vez, puedes fácilmente configurar un _alias_ para cada comando. Los _alias_ en Git nos permiten **crear _shortcuts_**, a través de `git config --global alias.<atajo> comando`.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">config --global alias.&lt;atajo&gt; <span class="green">"&lt;comando&gt;"</span></span>
 <span class="purple">git</span> <span class="blue">config --global alias.st <span class="green">"status"</span></span>
@@ -269,7 +269,7 @@ Si ya hicimos commit y olvidamos **añadir un archivo o enmendar algún cambio**
 <span class="purple">git</span> <span class="blue">git commit --amend</span>
 </code></pre>
 
-Git mantiene un *log* de dónde el `HEAD` y sus referencias han estado. Lo podemos ver con el comando `git reflog` y mostrar más a detalle la acción que se relizó en esa referecnai con el comando `git show HEAD@{<número o referencia en días>}`.
+Git mantiene un _log_ de dónde el `HEAD` y sus referencias han estado. Lo podemos ver con el comando `git reflog` y mostrar más a detalle la acción que se relizó en esa referecnai con el comando `git show HEAD@{<número o referencia en días>}`.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">reflog</span>
 <span class="yellow">2673d2d (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span> HEAD@{0}: merge newbranch: Merge made by the <span class="green">'recursive'</span> strategy.

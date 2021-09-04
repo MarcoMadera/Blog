@@ -16,7 +16,7 @@ El día 20 de mayo del año 2020, en plena pandemia, se publicó por primera vez
 
 A mí siempre me ha gustado programar, yo veía videos en Youtube y cursos en [LinkedIn Learning](https://www.linkedin.com/learning/me) cuando había las pruebas gratuitas mensuales. Por lo que después de conseguir un trabajo y salir de la universidad, vi una buena opción en invertir en mi educación de programación web por lo que me suscribí a [Platzi](https://platzi.com) dónde sigo aprendiendo mucho.
 
-En mi tiempo libre después de salir a trabajar me ponía al tanto sobre el mundo del desarrollo *backend* y *frontend* de las aplicaciones y es de las cosas que más me encantan, por lo que sigo compartiendo cosas en esta aventura.
+En mi tiempo libre después de salir a trabajar me ponía al tanto sobre el mundo del desarrollo _backend_ y _frontend_ de las aplicaciones y es de las cosas que más me encantan, por lo que sigo compartiendo cosas en esta aventura.
 
 ## La desesperación
 

@@ -147,6 +147,10 @@ export default function Post({
           word-spacing: 3px;
           letter-spacing: -0.3px;
         }
+        div :global(h2) {
+          font-size: 2em;
+          margin-top: 1em;
+        }
         div :global(h2),
         div :global(h3) {
           font-weight: 600;

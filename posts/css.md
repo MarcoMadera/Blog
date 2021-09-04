@@ -23,8 +23,10 @@ Existen tres formas de usar los estilos, a través de la etiqueta style, en lín
 Para darle **estilos en línea** a un elemento se le añade el atributo `style` y se le agrega el valor con las declaraciones deseadas. Este tipo de estilo tiene mayor prioridad sobre otras reglas de CSS para ser aplicadas.
 
 ```html
-<p style="color: #fff; width: max-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);">
-En Línea
+<p
+  style="color: #fff; width: max-content; padding: 5px 10px; margin: auto; border-radius: 10px; background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);"
+>
+  En Línea
 </p>
 ```
 
@@ -36,21 +38,17 @@ En HTML existe una etiqueta destinada para los **estilos internos**. Se pueden a
 
 ```html
 <style>
-body {
-  margin: 0;
-  padding: 0;
-}
+  body {
+    margin: 0;
+    padding: 0;
+  }
 </style>
 ```
 
 La manera que se aprovecha mejor es con **estilos externos**. Este tipo de estilo es el que tiene menor prioridad sobre otras reglas de CSS. Se hace un `<link>` a una hoja de estilos (.css) dentro de la etiqueta `<head>` de nuestro documento HTML. Al momento de cargar la página, inmediatamente llamará a la hoja de estilos externa y aplicará los estilos. Con esto le quitamos el peso al archivo HTML de cargar con los estilos para tener un mejor tiempo de respuesta. Para hacer esto la etiqueta `<link>` debe de ir de la siguiente forma, donde `href` es la ubicación de la hoja de estilos.
 
 ```html
-<link
-  rel="stylesheet"
-  href="./styles.css"
-  type="text/css"
-/>
+<link rel="stylesheet" href="./styles.css" type="text/css" />
 ```
 
 ## Selectores
@@ -60,47 +58,61 @@ Al usar CSS en una hoja externa o en la etiqueta `<style>` los selectores son ne
 El **selector universal** es un asterisco `*` selecciona cualquier tipo de etiqueta del documento HTML. Al igual que los demás selectores se puede combinar.
 
 ```css
-* { ... }
+* {
+  ...;
+}
 
-div * span { ... }
+div * span {
+  ...;
+}
 ```
 
 Para **seleccionar etiquetas** simplemente se escribe el nombre de la etiqueta seguida de las declaraciones de CSS entre paréntesis.
 
 ```css
-nav { ... }
+nav {
+  ...;
+}
 
-nav[class="topNavbar"] { ... }
+nav[class="topNavbar"] {
+  ...;
+}
 ```
 
 Si se quiere seleccionar por atributos se puede hacer con los **selectores de atributos**. Se distinguen por los corchetes `[]` que contiene la especificación del selector.
 
 ```css
-[lang="es-MX"] { ... }
+[lang="es-MX"] {
+  ...;
+}
 ```
 
 Pueden ser tan específicos como se muestran en la siguiente tabla:
 
-|    Selector atributo   |                            Selección                            |
-|:----------------------:|:---------------------------------------------------------------:|
+|   Selector atributo    |                            Selección                            |
+| :--------------------: | :-------------------------------------------------------------: |
 |      `[atributo]`      |              Elemento que contenga cierto atributo              |
 |  `[atributo="valor"]`  |           Elemento que el atributo sea igual al valor           |
-|  `[atributo*="valor"]` |          Elemento que el atributo incluya cierto valor          |
-|  `[atributo~="valor"]` |  Elemento que el atributo incluya el valor separado por espacio |
-|  `[atributo^="valor"]` |        Elemento que el atributo empiece con cierto valor        |
+| `[atributo*="valor"]`  |          Elemento que el atributo incluya cierto valor          |
+| `[atributo~="valor"]`  | Elemento que el atributo incluya el valor separado por espacio  |
+| `[atributo^="valor"]`  |        Elemento que el atributo empiece con cierto valor        |
 | `[atributo\|="valor"]` | Elemento que el atributo empiece con el valor o valor (espacio) |
-|  `[atributo$="valor"]` |        Elemento que el atributo termine con cierto valor        |
+| `[atributo$="valor"]`  |        Elemento que el atributo termine con cierto valor        |
 
 Las `ID` en HTML son únicas, por consecuencia hace que en CSS también solo se pueda aplicar a un solo elemento único. Para **seleccionar atributos `ID`** se usa el símbolo `#` antes del nombre de la `ID`.
 
 ```css
-#SomeId { ... }
+#SomeId {
+  ...;
+}
 ```
 
 Para **seleccionar atributos class** se usa el nombre de un atributo clase precediendo un punto `.` se seleccionarán todos los elementos que tienen el mismo atributo `class`. El siguiente ejemplo le aplica los estilos a todos los elementos con el mismo atributo `class`.
 
 ```css
-.clase { ... }
+.clase {
+  ...;
+}
 ```
 
 ### Combinaciones de selectores
@@ -110,39 +122,55 @@ Los selectores se pueden combinar para seleccionar elementos que tienen cierta r
 La manera para **compartir propiedades** es separando los selectores con comma `,`. Esto ayuda a no repetirse y tener un código más limpio.
 
 ```css
-nav.topNavbar, a[href=*"example.com"], #someId { ... }
+nav.topNavbar,
+a[href=*"example.com"],
+#someId {
+  ...;
+}
 ```
 
 Para ser más selectivos podemos especificar **etiquetas, class o id's unidos** de un punto `.`. Para el siguiente ejemplo, selecciona todas las etiquetas `<nav>` que contengan el atributo `class` topNavbar y el `ID` someID.
 
 ```css
-nav#someID.topNavbar { ... }
+nav#someID.topNavbar {
+  ...;
+}
 
-nav.topNavb#someID { ... }
+nav.topNavb#someID {
+  ...;
+}
 ```
 
 Otra forma de especificar elementos es a través de la **selección por jerarquía**. Se hace separando los elementos a tener en cuenta por espacios. Para el siguiente ejemplo, selecciona todos los elementos que contengan el atributo `class` topNavbar y que tenga un ancestro de etiqueta `<nav>`, no tiene que ser directamente el padre.
 
 ```css
-nav .topNavbar { ... }
+nav .topNavbar {
+  ...;
+}
 ```
 
 Ahora si se quiere hacer una **selección de elementos con ancestro directo** tenemos el signo `>`. En el siguiente ejemplo seleccionamos todos los elementos con el atributo `class` topNavbar que el padre sea una etiqueta `<nav>`.
 
 ```css
-nav > .topNavbar { ... }
+nav > .topNavbar {
+  ...;
+}
 ```
 
 Otro tipo de selector es **seleccionar elementos del mismo nivel**. Con el signo `~` podemos seleccionar elementos del mismo nivel siguientes al elemento. El siguiente ejemplo selecciona a todos los elementos del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
 
 ```css
-nav ~ .topNavbar { ... }
+nav ~ .topNavbar {
+  ...;
+}
 ```
 
 Para **seleccionar el primer elemento del mismo nivel** tenemos el signo `+`. El siguiente ejemplo selecciona al primer elemento del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
 
 ```css
-nav + .topNavbar { ... }
+nav + .topNavbar {
+  ...;
+}
 ```
 
 ## Declaraciones
@@ -192,7 +220,7 @@ Para crear una propiedad personalizada se utiliza como prefijo el doble guion `-
 
 ```css
 .topNavbar {
-  --color-verde: #1DB954;
+  --color-verde: #1db954;
   --color-gris: #ccc;
   background: var(--color-gris);
   color: var(--color-verde);
@@ -202,8 +230,8 @@ Para crear una propiedad personalizada se utiliza como prefijo el doble guion `-
 Para usar las propiedades en un scope global del documento se pueden definir las propiedades en la pseudo-clase `:root`.
 
 ```css
-:root{
-  --color-verde: #1DB954;
+:root {
+  --color-verde: #1db954;
   --color-gris: #ccc;
 }
 
@@ -230,7 +258,7 @@ Los elementos de CSS tienen la característica de que se pueden **heredar propie
 div {
   border: initial;
   border: inherit;
-  border: unset;  
+  border: unset;
 }
 ```
 
@@ -305,11 +333,15 @@ CSS al igual que otros lenguajes cuenta con funciones. A diferencia de otros len
 Tenemos **funciones generales**, estas son las más usadas comúnmente como las de asignar propiedades personalizadas, aplicar colores, hacer cálculos sobre unidades del DOM entre otras.
 
 ```css
-{
+ {
   color: var(--color-white);
-  color: rgba(123,123,123,0.2);
+  color: rgba(123, 123, 123, 0.2);
   width: calc(100vw - 80px);
-  background: radial-gradient(ellipse at center, rgba(240,47,23,0.7) 0%, rgba(240,47,23,1) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(240, 47, 23, 0.7) 0%,
+    rgba(240, 47, 23, 1) 100%
+  );
   background-image: url("src/image.jpg");
 }
 ```
@@ -334,7 +366,7 @@ Las **funciones de dimensiones** se aplican a los elementos definidos por vector
 .dimension {
   transform: scale(2);
   transform: translate(-50%, -50%);
-  transform: perspective(50em) rotateY(50deg)
+  transform: perspective(50em) rotateY(50deg);
 }
 ```
 
@@ -365,16 +397,17 @@ Son declaraciones que comienzan con el símbolo arroba `@`.
 `@import` nos permite incluir una hoja de estilos externa, con esto podemos volver a usar nuestros estilos y poder agregar más estilos. El siguiente código importará la fuente Montserrat si se encuentra en un dispositivo de impresión.
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') print;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap")
+print;
 ```
 
-`@keyframes`  — Describe la configuración de pasos intermedios en una secuencia de animación CSS.
+`@keyframes` — Describe la configuración de pasos intermedios en una secuencia de animación CSS.
 
 `@media` se usa para aplicar estilos para diferentes tipos de medios
 
 ```css
-@media screen and (max-width: 1300px){
-  nav{
+@media screen and (max-width: 1300px) {
+  nav {
     width: 100px;
   }
 }
@@ -436,10 +469,10 @@ El `padding` y el `margin` **son separadores**. El `margin` siempre es invisible
   background: #99c;
   border: 1px solid #000;
 }
-.with-padding{
+.with-padding {
   padding: 30px;
 }
-.with-margin{
+.with-margin {
   margin: 30px;
 }
 ```
@@ -486,8 +519,9 @@ Un ejemplo simple de uso de porcentajes sería el siguiente:
   left: 0;
   top: 0;
 }
-.ball:before, .ball:after {
-  content: '';
+.ball:before,
+.ball:after {
+  content: "";
   position: absolute;
   width: 20px;
   height: 4px;
@@ -497,17 +531,20 @@ Un ejemplo simple de uso de porcentajes sería el siguiente:
 }
 
 .ball:before {
-  transform:rotate(45deg);
+  transform: rotate(45deg);
 }
 .ball:after {
-  transform:rotate(-45deg);
+  transform: rotate(-45deg);
 }
 @keyframes bounce {
-  32%, 66% {
+  32%,
+  66% {
     top: 0px;
     animation-timing-function: ease-in;
   }
-  16%, 50%, 83%{
+  16%,
+  50%,
+  83% {
     top: 80px;
     animation-timing-function: ease-out;
   }
@@ -527,12 +564,12 @@ CSS no se interpreta igual en todos los navegadores, un decorador de texto puede
 CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características. Algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con **prefijos** que solo el navegador conoce. La ventaja de CSS es que si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda.
 Los siguientes prefijos son los más comunes:
 
-|   Prefijo   |         Navegadores         |
-|:-----------:|:---------------------------:|
-|   -webkit-  |        Chrome, Safari       |
-|    -moz-    |           Firefox           |
-|     -o-     |            Opera            |
-|     -ms-    | Microsoft Internet Explorer |
+| Prefijo  |         Navegadores         |
+| :------: | :-------------------------: |
+| -webkit- |       Chrome, Safari        |
+|  -moz-   |           Firefox           |
+|   -o-    |            Opera            |
+|   -ms-   | Microsoft Internet Explorer |
 
 <note type="tip">[Can I Use](https://caniuse.com "Can I Use") es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar. Podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.</note>
 

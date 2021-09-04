@@ -77,7 +77,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.1.0",
     "lint-staged": "^11.1.2",
-    "markdown-it": "^12.2.0",
     "prettier": "^2.3.2",
     "react-test-renderer": "^17.0.2",
     "rss": "^1.2.2",

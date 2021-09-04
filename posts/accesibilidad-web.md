@@ -64,8 +64,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 ```html
 <body>
   <div></div>
-  <div>
-  </div>
+  <div></div>
   <div></div>
 </body>
 ```
@@ -75,8 +74,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 ```html
 <body>
   <header></header>
-  <main>
-  </main>
+  <main></main>
   <footer></footer>
 </body>
 ```
@@ -86,18 +84,23 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al momento de encontrarse con alguna imagen. Los que hace es leer el contenido de este atributo que será presentada al usuario como una **descripción**. También se mostrará este texto si es dado caso que la imagen no se encuentre disponible.
 
 ```html
-<img src ="img src" alt="texto mostrar en caso que no esté disponible la imagen">
+<img
+  src="img src"
+  alt="texto mostrar en caso que no esté disponible la imagen"
+/>
 ```
 
 <note type="info">Otro aprovechamiento de accesibilidad con las imágenes puede ser tal y como se usa en este sitio web, al darle clic a una imagen se muestra una de mayor tamaño.</note>
 
 ### Uso de scope en tablas
 
-El uso del *scope* ayuda a los lectores de pantalla a seguir el **orden correcto**.
+El uso del _scope_ ayuda a los lectores de pantalla a seguir el **orden correcto**.
 
 ```html
 <table border="1">
-  <caption>Contact Information</caption>
+  <caption>
+    Contact Information
+  </caption>
   <tr>
     <td></td>
     <th scope="col">Name</th>
@@ -119,6 +122,7 @@ El uso del *scope* ayuda a los lectores de pantalla a seguir el **orden correcto
 ### Roles apropiados
 
 Los siguientes elementos tienen la apariencia de botón pero con roles diferentes:
+
 <style>#anchor{margin-right:20px;}.blog3__container{position:relative}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(1){display:block;width:1px;height:3px;background:#3ace3a;transform:rotate(-45deg) translate(-2px,7px)}.share-box div:nth-of-type(5) span:nth-of-type(2) span:nth-of-type(2){display:block;width:1px;height:8px;border-radius:0;background:#3ace3a;transform:rotate(35deg) translate(5px,-4px)}.share-box{position:absolute;width:fit-content;height:fit-content;background-color:#fff;border-radius:6px;top:-135px;visibility:hidden;padding:10px;box-shadow:0 0 8px 0 rgba(0,0,0,.3)}.share-box div{font-size:13px;align-items:center}.share-box div:nth-of-type(1){display:grid;grid-template-columns:1fr auto;margin-bottom:15px}.share-box div:nth-of-type(2){display:grid;grid-template-columns:1fr 1fr;margin-bottom:8px}.share-box div:nth-of-type(3){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(4){display:grid;grid-template-columns:1fr auto;margin-bottom:6px}.share-box div:nth-of-type(5){display:grid;grid-template-columns:1fr auto}.share-box div span{line-height:1;margin:0;padding:0;width:fit-content;font-family:consolas;color:#b3b3b3}.share-box div:nth-of-type(1) span:nth-of-type(1){color:#881280;font-size:13px}.share-box div:nth-of-type(1) span:nth-of-type(2){font-size:13px}.share-box div:nth-of-type(2) span:nth-of-type(1){color:#6c7278;font-size:11px}.share-box div:nth-of-type(2) span:nth-of-type(2){display:block;width:100%;height:1px;background:#ddd}.share-box div:nth-of-type(3) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(4) span:nth-of-type(2){color:#6c7278}.share-box div:nth-of-type(5) span:nth-of-type(2){width:14px;height:14px;border-radius:50%;border:1px solid #3ace3a}.triangle-down{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #fff;position:absolute;bottom:-11px;left:20%}#butons:hover+.share-box{visibility:visible;left:106.5px}#anchor:hover+.share-box{visibility:visible}</style><div class="blog3__container"><actionanchor href="#anchor" id="anchor" >ancla</actionanchor><div class="share-box"><div><span>anchor</span><span>104.25 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>ancla</span></div><div><span>Role</span><span>link</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div><actionbutton id="butons">botón</actionbutton><div class="share-box"><div><span>button</span><span>106.5 x 38</span></div><div><span>ACCESIBILITY</span><span></span></div><div><span>Name</span><span>botón</span></div><div><span>Role</span><span>button</span></div><div><span>Keyboard-focusable</span><span><span></span><span></span></span></div><div class="triangle-down"></div></div></div>
 
 Hay que **definir los roles de acuerdo a la función que realizarán**. En este caso el primer "botón" tiene la funcionalidad de enlazar a otra página por lo que debería ser implementado como hipervínculo para que tome el rol de link.
@@ -223,7 +227,7 @@ document.body.addEventListener("keyup", (e) => listenKeys(e));
 
 ## Test de accesibilidad
 
-Los test de accesibilidad ayudan a resolver problemas comunes. Se pueden hacer a través de *devtools* con *lighthouse* o a través de otras plataformas.
+Los test de accesibilidad ayudan a resolver problemas comunes. Se pueden hacer a través de _devtools_ con _lighthouse_ o a través de otras plataformas.
 
 - [Axe core](https://github.com/dequelabs/axe-core "Axe core")
 

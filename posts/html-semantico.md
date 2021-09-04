@@ -31,7 +31,7 @@ Algo sencillo de hacer es abrir el lector de pantalla con <kbd>cmd</kbd> + <kbd>
 
 Que Mengano quiere agregar un borde a las secciones de una página para distinguirlas mejor, podría hacerlo fácilmente. Un uso más común es con los motores de búsqueda, recolectan la estructura de los sitios para posicionar mejor los que cumplan los estándares.
 
--------
+---
 
 ## Ventajas
 
@@ -39,7 +39,7 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 - Es usado para mejorar la [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico).
 - Es fácil de entender sin esfuerzo desde la estructura al contenido, no me imagino lo horrible tener que encontrar elementos entre varios `div` y tablas, en la web de hace años.
 
--------
+---
 
 ## Estructura
 
@@ -80,11 +80,11 @@ Los elementos de estructura son de los más importantes para el SEO, definen com
 - La etiqueta `<section>` representa a un **contenido genérico** en un documento donde no es similar a otro elemento.
 - El `<footer>` suele ser usado para añadir **información extra** sobre la página, el autor, copyright, avisos legales navegación, etc.
 
--------
+---
 
 ## Presentación de textos
 
-El texto principal que debe de ser el más llamativo es el **título de cabecera**, hay de varios y van desde el rango `<h1>` a `<h6>`, donde el `<h1>` es el más importante. Deben de ir en orden descendente en cada secuencia. Usualmente el *user-agent* de los navegadores estilan a la etiqueta `<h1>` como el más grande de tamaño y en negrita.
+El texto principal que debe de ser el más llamativo es el **título de cabecera**, hay de varios y van desde el rango `<h1>` a `<h6>`, donde el `<h1>` es el más importante. Deben de ir en orden descendente en cada secuencia. Usualmente el _user-agent_ de los navegadores estilan a la etiqueta `<h1>` como el más grande de tamaño y en negrita.
 
 La etiqueta más común para mostrar texto es la de los **párrafos** con la etiqueta `<p>`. Existen etiquetas para modificar el texto y así darle personalidad como la de énfasis `<em>` para <em>realzar la entonación</em> de la frase. `<mark>` para resaltar <mark>información relevante</mark> o `<strong>` para mostrar **palabras o frases importantes**.
 
@@ -92,7 +92,7 @@ Para mostrar texto borrado se usa la etiqueta ~`<strike>`~ <ins>`<del>`</ins> y 
 La forma de usar las etiquetas anteriores es sencilla, solo poniendo el texto entre la etiqueta de la siguiente forma:
 
 ```html
-<etiqueta>texto<etiqueta>
+<etiqueta>texto<etiqueta></etiqueta></etiqueta>
 ```
 
 En <dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> existen etiquetas para abreviar `<abbr>` y definir `<dfn>`. Las abreviaciones se pueden plasmar en html con la etiqueta `<abbr>` llevan de atributo `title` el título de la abreviación. Las definiciones se usan con la etiqueta `<dfn>`, se usan para direccionar a la definición a través de un atributo que puede ser `id`.
@@ -112,8 +112,9 @@ Otra forma de mostrar información es con la etiqueta `<address>`. Como su nombr
 
 ```html
 <address>
-  Escrito por: <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a>.<br>
-  Vísitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br>
+  Escrito por:
+  <a href="mailto:ejemplo@ejemplo.com">Marco Antonio Madera</a>.<br />
+  Vísitanos en: <a href="https://marcomadera.com">marcomadera.com</a><br />
   Dirección: Caborca Sonora, México
 </address>
 ```
@@ -122,14 +123,14 @@ Para **separar el texto** tenemos varias etiquetas. La etiqueta `<br>` represent
 
 ¿qué-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisiéramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamente-<wbr>largos:<wbr>http://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
 
--------
+---
 
 Lo de arriba 👆 es una regla horizontal
 
 ```html
-¿qué-<wbr>pasaría-<wbr>si-<wbr>no-<wbr>quisiéramos-<wbr>usar-<wbr>espacios-<wbr>entre-<wbr>palabras-<wbr>o-<wbr>usar-<wbr>enlaces-<wbr>o-<wbr>extremadamente-<wbr>largos:<wbr>https://<wbr>marco<wbr>madera<wbr>.com<wbr>/blog<wbr>/html-<wbr>semantico
+¿qué-<wbr />pasaría-<wbr />si-<wbr />no-<wbr />quisiéramos-<wbr />usar-<wbr />espacios-<wbr />entre-<wbr />palabras-<wbr />o-<wbr />usar-<wbr />enlaces-<wbr />o-<wbr />extremadamente-<wbr />largos:<wbr />https://<wbr />marco<wbr />madera<wbr />.com<wbr />/blog<wbr />/html-<wbr />semantico
 
-<hr>
+<hr />
 
 <p>Lo de arriba 👆 es una regla horizontal</p>
 ```
@@ -189,7 +190,7 @@ La etiqueta `<select>` nos da la oportunidad de hacer listas despegables que pue
 </select>
 ```
 
--------
+---
 
 ## Imágenes
 
@@ -205,12 +206,7 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 />
 
 ```html
-<img
-  src="https://picsum.photos/100"
-  alt="Imagen"
-  width="100"
-  height="100"
-/>
+<img src="https://picsum.photos/100" alt="Imagen" width="100" height="100" />
 ```
 
 `<Figure>` es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta `<figcaption>` que es la leyenda del contenido.
@@ -219,41 +215,38 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 
 ```html
 <figure>
-  <img src="https://picsum.photos/200" alt="Figura" width="200" height="200">
+  <img src="https://picsum.photos/200" alt="Figura" width="200" height="200" />
   <figcaption>Imagen Aleatoria</figcaption>
 </figure>
 ```
 
-La etiqueta `<picture>` es para **elementos visuales**, puede contener varias etiquetas `<sources>` con condiciones, la primera que cumpla será la que va a ser mostrada. La etiqueta `<source>` puede tener el atributo de cualquier *media query*. Se pueden mostrar imágenes especiales para modo oscuro o mostrar diferentes imágenes dependiendo del ancho del *viewport*.
+La etiqueta `<picture>` es para **elementos visuales**, puede contener varias etiquetas `<sources>` con condiciones, la primera que cumpla será la que va a ser mostrada. La etiqueta `<source>` puede tener el atributo de cualquier _media query_. Se pueden mostrar imágenes especiales para modo oscuro o mostrar diferentes imágenes dependiendo del ancho del _viewport_.
 
 <picture style="text-align:center;display:block;"><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/v1607127814/Blog/5/510-100x100_nbahln.jpg" media="(max-width: 500px)" /><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/v1607127728/Blog/5/1051-200x200_rok2jh.jpg" media="(max-width: 876px)" /><img style="border-radius:10px;" src="https://res.cloudinary.com/marcomadera/image/upload/w_300,h_300/v1607127804/Blog/5/71-300x300_ojopy4.jpg" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
 
 ```html
 <picture>
-  <source srcSet="https://picsum.photos/100" media="(max-width: 500px)" />
-  <source srcSet="https://picsum.photos/200" media="(max-width: 876px)" />
-  <img
-    src="https://picsum.photos/300"
-    alt="Imagen Adaptable"
-  />
+  <source srcset="https://picsum.photos/100" media="(max-width: 500px)" />
+  <source srcset="https://picsum.photos/200" media="(max-width: 876px)" />
+  <img src="https://picsum.photos/300" alt="Imagen Adaptable" />
 </picture>
 ```
 
--------
+---
 
 ## Formularios de entrada
 
-Los formularios de entrada se identifican con la etiqueta `<input>` y pueden estar dentro de la etiqueta `<form>`. El elemento `<input>` acepta el atributo `type` del cual hay diversos valores como: *button*, *checkbox*, *date*, *email*, *password*, *range*, *text*, entre otros, la mayoría se pueden plasmar tan fácil como los siguientes.
+Los formularios de entrada se identifican con la etiqueta `<input>` y pueden estar dentro de la etiqueta `<form>`. El elemento `<input>` acepta el atributo `type` del cual hay diversos valores como: _button_, _checkbox_, _date_, _email_, _password_, _range_, _text_, entre otros, la mayoría se pueden plasmar tan fácil como los siguientes.
 
-La etiqueta `<input>` de tipo *color* recibe un atributo de nombre value con el valor inicial del color que debe de ser mostrado el elemento.
+La etiqueta `<input>` de tipo _color_ recibe un atributo de nombre value con el valor inicial del color que debe de ser mostrado el elemento.
 
 <input type="color">
 
 ```html
-<input type="color" value="#b50000">
+<input type="color" value="#b50000" />
 ```
 
-La etiqueta `<input>` de tipo *number* es específico para números. Se puede definir un rango mínimo y máximo.
+La etiqueta `<input>` de tipo _number_ es específico para números. Se puede definir un rango mínimo y máximo.
 
 <input type="number" min="1" max="5" />
 
@@ -261,30 +254,36 @@ La etiqueta `<input>` de tipo *number* es específico para números. Se puede de
 <input type="number" value="1" min="1" max="5" />
 ```
 
--------
+---
 
 ## Barras
 
-Las barras utilizadas en HTML son de tipo *meter* que mide a una escala conocida y *progress* que representa el progreso de una acción.
+Las barras utilizadas en HTML son de tipo _meter_ que mide a una escala conocida y _progress_ que representa el progreso de una acción.
 
 La etiqueta `<meter>` es utilizada como indicador de una **escala conocida**, así que cuando el indicador está en un punto específico, puede variar los colores.
 
 <meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
 
 ```html
-<meter min="0" max="100" value="30" low="40" high="70" optimum="100">30 puntos</meter>
+<meter min="0" max="100" value="30" low="40" high="70" optimum="100">
+  30 puntos
+</meter>
 ```
 
 <meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
 
 ```html
-<meter min="0" max="100" value="60" low="40" high="70" optimum="100">60 puntos</meter>
+<meter min="0" max="100" value="60" low="40" high="70" optimum="100">
+  60 puntos
+</meter>
 ```
 
 <meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
 
 ```html
-<meter min="0" max="100" value="90" low="40" high="70" optimum="100">90 puntos</meter>
+<meter min="0" max="100" value="90" low="40" high="70" optimum="100">
+  90 puntos
+</meter>
 ```
 
 La **barra de progreso** es utilizada para mostrar el avance de una tarea. Existen dos valores: indeterminada y determinada.
@@ -307,13 +306,13 @@ Indeterminada:
 <progress>Indeterminada</progress>
 ```
 
--------
+---
 
 ## Listas
 
 Las listas pueden ser creadas donde los elementos tengan una secuencia ordenada o desordenada. Sin el importar el tipo de lista debe de contener al menos una etiqueta `<li>` que es la que especifica el contenido.
 
-Para **listas con un orden específico** usamos la etiqueta `<ol>` de *lista ordenada* que encapsula los elementos de nuestra lista.
+Para **listas con un orden específico** usamos la etiqueta `<ol>` de _lista ordenada_ que encapsula los elementos de nuestra lista.
 
 1. Objeto1
 2. Objeto2
@@ -323,14 +322,14 @@ Para **listas con un orden específico** usamos la etiqueta `<ol>` de *lista ord
 ```html
 <p>Lista ordenada</p>
 <ol>
- <li>objeto1</li>
- <li>objeto2</li>
- <li>objeto3</li>
- <li>objeto4</li>
+  <li>objeto1</li>
+  <li>objeto2</li>
+  <li>objeto3</li>
+  <li>objeto4</li>
 </ol>
 ```
 
-Las siguientes son **listas donde el orden no es importante**, usamos la etiqueta `<ul>` de *lista desordenada* que encapsula los elementos de nuestra lista.
+Las siguientes son **listas donde el orden no es importante**, usamos la etiqueta `<ul>` de _lista desordenada_ que encapsula los elementos de nuestra lista.
 
 - Objeto1
 - Objeto2
@@ -340,30 +339,32 @@ Las siguientes son **listas donde el orden no es importante**, usamos la etiquet
 ```html
 <p>Lista sin orden</p>
 <ul>
- <li>objeto1</li>
- <li>objeto2</li>
- <li>objeto3</li>
- <li>objeto4</li>
+  <li>objeto1</li>
+  <li>objeto2</li>
+  <li>objeto3</li>
+  <li>objeto4</li>
 </ul>
 ```
 
 Otra forma de crear listas con estos elementos son las **listas anidadas**, llevando la información cada vez más profundo como en el siguiente ejemplo:
 
 1. Objeto 1
-    1. Objeto 2
-    2. Objeto 3
-        - Objeto 3
-        - Objeto 4
-    3. Objeto 5
+   1. Objeto 2
+   2. Objeto 3
+      - Objeto 3
+      - Objeto 4
+   3. Objeto 5
 2. Objeto 6
-    1. Objeto 7
+   1. Objeto 7
 
 ```html
 <ol>
-  <li>Objeto 1
+  <li>
+    Objeto 1
     <ol>
       <li>Objeto 2</li>
-      <li>Objeto 3
+      <li>
+        Objeto 3
         <ul>
           <li>Objeto 3</li>
           <li>Objeto 4</li>
@@ -372,7 +373,8 @@ Otra forma de crear listas con estos elementos son las **listas anidadas**, llev
       <li>Objeto 5</li>
     </ol>
   </li>
-  <li>Objeto 6
+  <li>
+    Objeto 6
     <ol>
       <li>Objeto 7</li>
     </ol>
@@ -387,16 +389,12 @@ También nos podemos poner más creativos y usar distintas combinaciones con dif
 
 ```html
 <ul>
-  <li>
-    <input type="checkbox" readonly>pendiente1
-  </li>
-  <li>
-    <input type="checkbox" readonly checked>pendiente2
-  </li>
+  <li><input type="checkbox" readonly />pendiente1</li>
+  <li><input type="checkbox" readonly checked />pendiente2</li>
 </ul>
 ```
 
--------
+---
 
 ## Tablas
 
@@ -410,11 +408,13 @@ Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y 
 
 ```html
 <table>
-  <caption>Precio de cosas</caption>
+  <caption>
+    Precio de cosas
+  </caption>
   <colgroup>
-    <col span="0" style="background-color:#ff4e4a">
-    <col span="1" style="background-color:#293882">
-    <col span="2" style="background-color:#f1f3de">
+    <col span="0" style="background-color:#ff4e4a" />
+    <col span="1" style="background-color:#293882" />
+    <col span="2" style="background-color:#f1f3de" />
   </colgroup>
   <thead>
     <tr>
@@ -444,7 +444,7 @@ Las tablas en HTML es un área que abarcan etiquetas de filas columnas celdas y 
 </table>
 ```
 
--------
+---
 
 ## Conclusión
 
