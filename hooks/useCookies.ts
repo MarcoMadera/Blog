@@ -4,7 +4,7 @@ import CookiesContext from "context/CookiesContext";
 export default function useCookies(): {
   acceptedcookies: boolean | undefined;
   setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>> | undefined;
-  getCookie: (cookieName: string) => string;
+  getCookie: (cookieName: string) => string | false;
   setCookie: ({
     name,
     value,
@@ -20,13 +20,13 @@ export default function useCookies(): {
   const acceptedcookies = context?.acceptedcookies;
   const setAcceptedCookies = context?.setAcceptedCookies;
 
-  function getCookie(cookieName: string) {
+  function getCookie(cookieName: string): string | false {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${cookieName}=`);
     if (parts.length === 2) {
       return parts.pop()?.split(";").shift() || cookieName;
     }
-    return cookieName;
+    return false;
   }
 
   function setCookie({

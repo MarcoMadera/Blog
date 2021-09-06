@@ -22,21 +22,25 @@ export default function useAnalitycs(page?: string): UseAnalitycsParams {
   const trackWithGoogleAnalitycs: UseAnalitycsParams["trackWithGoogleAnalitycs"] =
     useCallback(
       (hitType = "pageview", fields: Fields) => {
-        if (!getCookie("_ga")) {
+        function addAnalyticsCookie() {
+          const value = `GA1.2.${~~(2147483648 * Math.random())}.${~~(
+            Date.now() / 1000
+          )}`;
           setCookie({
             name: "_ga",
-            value: `GA1.2.${~~(2147483648 * Math.random())}.${~~(
-              Date.now() / 1000
-            )}`,
+            value: value,
             age: 60 * 60 * 24 * 365,
           });
+          return value;
         }
+
+        const analyticsCookie = getCookie("_ga") || addAnalyticsCookie();
 
         const data: Partial<dataToSendType> = {
           v: "1",
           tid: "UA-177844057-1",
           aip: "1",
-          cid: getCookie("_ga"),
+          cid: analyticsCookie,
           t: hitType,
           dr: document.referrer,
           dt: document.title,
