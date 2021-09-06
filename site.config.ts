@@ -23,6 +23,3 @@ export const siteMetadata = {
   postsPerPage: 5,
   commentsPerPost: 5,
 };
-
-export const imageCloudProvider =
-  "https://res.cloudinary.com/marcomadera/image/upload";

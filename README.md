@@ -120,7 +120,7 @@ Sometimes videos are better than actual gif to get the same behaviour as a gif u
 
 **`Properties`**
 
-- `type` "info" | "success" | "alert" | "danger"
+- `type` "success" | "info" | "danger" | "tip" | "important"
 
 ### **Text Font/Colors**
 

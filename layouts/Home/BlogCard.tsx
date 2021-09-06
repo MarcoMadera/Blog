@@ -1,12 +1,15 @@
 import Link from "next/link";
 import slugify from "react-slugify";
-import { getFormattedDate, insertTextBetween } from "utils";
-import { imageCloudProvider } from "site.config";
+import { getFormattedDate } from "utils";
 import useDarkMode from "hooks/useDarkMode";
 import Image from "next/image";
 import { PostData } from "types/posts";
 import { ReactElement } from "react";
 import { colors } from "styles/theme";
+import {
+  isImgFromCloudProvider,
+  replaceUrlImgTransformations,
+} from "utils/cloudProvider";
 
 export default function BlogCard({
   author,
@@ -41,11 +44,10 @@ export default function BlogCard({
               alt={tags.join(", ")}
               placeholder="blur"
               loader={({ src, width }) =>
-                src.startsWith(imageCloudProvider)
-                  ? insertTextBetween(
+                isImgFromCloudProvider(src)
+                  ? replaceUrlImgTransformations(
                       src,
-                      imageCloudProvider.length,
-                      `/q_auto,f_auto,c_scale,h_${width},w_${width}`
+                      `q_auto,f_auto,c_scale,h_${width},w_${width}`
                     )
                   : src
               }

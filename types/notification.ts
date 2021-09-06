@@ -1,5 +1,5 @@
 export interface newNotification {
-  variant: "info" | "error";
+  variant: "info" | "error" | "success";
   message: string;
   displayTime?: number;
 }

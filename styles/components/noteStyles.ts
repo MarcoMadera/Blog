@@ -1,4 +1,4 @@
-import { ReactElement } from "react-markdown";
+import { ReactElement } from "react";
 import css from "styled-jsx/css";
 
 const NoteSuccessStyles = css.global`

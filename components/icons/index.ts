@@ -39,6 +39,7 @@ export { Markdown } from "./Markdown";
 export { NumberList } from "./NumberList";
 export { Twitter } from "./Twitter";
 export { Nodejs } from "./Nodejs";
+export { Check } from "./Check";
 export { Bulb } from "./Bulb";
 export { Alert } from "./Alert";
 export { Star } from "./Star";

@@ -16,10 +16,7 @@ function useElementData(element: ElementCodeBlock): UElementRes["CodeBlock"];
 function useElementData(element: Element): UElementRes["Response"] {
   const elements = useContext(ElementsContext);
   const data = useContext(DataMapContext);
-  const id: Ids =
-    element.type === "image"
-      ? `${element.type}:${element.normal}`
-      : `${element.type}:${element.id}`;
+  const id: Ids = `${element.type}:${element.id}`;
 
   if (data?.addElement) {
     data.addElement(element);

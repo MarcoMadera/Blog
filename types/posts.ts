@@ -32,7 +32,10 @@ export interface ImgData {
     type?: string;
     src: string;
   };
-  fullImg: Omit<ImgData, "fullImg"> | null;
+  fullImg: {
+    darkImage?: Omit<ImgData, "fullImg"> | null;
+    lightImage?: Omit<ImgData, "fullImg"> | null;
+  };
 }
 
 export interface CodeBlockData {
@@ -72,8 +75,9 @@ export interface ElementCodeBlockParams {
 }
 
 export interface ElementImageParams {
+  id: string;
   normal: string;
-  full?: string | undefined;
+  full?: { darkImage?: string; lightImage?: string };
 }
 
 export type Ids = ImageId | TweetId | CodeBlockId;

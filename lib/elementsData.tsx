@@ -8,6 +8,7 @@ import {
   ElementImage,
   Elements,
   ElementTweet,
+  ImgData,
 } from "types/posts";
 import getTweetData from "utils/getTweetData";
 import codeHighlighter from "utils/codeHighlighter";
@@ -47,21 +48,34 @@ export default async function getElementsData(
   ) as ElementImage[];
 
   const imagesData = await Promise.all(
-    allImagesUrl.map(async ({ normal, full, type }) => {
-      let fullImg = null;
+    allImagesUrl.map(async ({ normal, full, type, id }) => {
+      const fullImg: {
+        darkImage: Omit<ImgData, "fullImg"> | null;
+        lightImage: Omit<ImgData, "fullImg"> | null;
+      } = {
+        darkImage: null,
+        lightImage: null,
+      };
       const { base64, img } = await getPlaiceholder(normal, {
         size: 10,
       });
 
-      if (full) {
-        const { base64, img } = await getPlaiceholder(full, {
+      if (full?.darkImage) {
+        const { base64, img } = await getPlaiceholder(full.darkImage, {
           size: 10,
         });
-        fullImg = { base64, img };
+        fullImg.darkImage = { base64, img };
+      }
+
+      if (full?.lightImage) {
+        const { base64, img } = await getPlaiceholder(full.lightImage, {
+          size: 10,
+        });
+        fullImg.lightImage = { base64, img };
       }
 
       return {
-        id: `${type}:${normal}`,
+        id: `${type}:${id}`,
         data: { base64, img, fullImg },
       };
     })

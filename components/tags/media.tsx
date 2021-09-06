@@ -1,9 +1,13 @@
 import Image from "next/image";
-import { imageCloudProvider } from "site.config";
 import useDarkMode from "hooks/useDarkMode";
 import ViewFullImageModal from "../modals/ViewFullImageModal";
 import { ReactElement, useRef, useState } from "react";
 import { ImgData } from "types/posts";
+import {
+  getImageSizeFromCloudUrl,
+  isImgFromCloudProvider,
+  replaceUrlImgTransformations,
+} from "utils/cloudProvider";
 
 interface ImgProps {
   src?: string;
@@ -20,8 +24,8 @@ export function Img({
   alt = "",
   title,
   blurDataURL,
-  width: w,
-  height: h,
+  width: widthFromProps,
+  height: heightFromProps,
   fullImage,
 }: ImgProps): ReactElement | null {
   const [openModal, setOpenModal] = useState(false);
@@ -32,43 +36,29 @@ export function Img({
     return null;
   }
 
-  const urlHeights = src.startsWith(imageCloudProvider)
-    ? src.match(/h_(\d+)/)
-    : undefined;
-  const urlWidths = src.startsWith(imageCloudProvider)
-    ? src.match(/w_(\d+)/)
-    : undefined;
+  const isFromCloudProvider = isImgFromCloudProvider(src);
+  const imageSizeFromUrl = getImageSizeFromCloudUrl(src);
 
   const height =
-    h ||
-    (src.startsWith(imageCloudProvider) && urlHeights
-      ? +urlHeights[1]
-      : undefined);
+    heightFromProps ??
+    (imageSizeFromUrl.height ? +imageSizeFromUrl.height : undefined);
 
   const width =
-    w ||
-    (src.startsWith(imageCloudProvider) && urlWidths
-      ? +urlWidths[1]
-      : undefined);
+    widthFromProps ??
+    (imageSizeFromUrl.width ? +imageSizeFromUrl.width : undefined);
 
   const objectFit = width && height ? "none" : "cover";
-  const isFromCloudProvider = src.startsWith(imageCloudProvider);
-  const specificSize = typeof width == "number" && typeof height === "number";
-  const shouldBlurImage = specificSize && typeof blurDataURL === "string";
 
   function exitModal() {
     setOpenModal(false);
   }
 
   function imageLoader({ src, width }: { src: string; width: number }) {
-    const rest = `${src.replace(
-      new RegExp(
-        `${imageCloudProvider.replace(/[.*+?^${}()|/[\]\\]/g, "\\$&")}.+?(/)`,
-        "g"
-      ),
-      ""
-    )}`;
-    return `${imageCloudProvider}/c_limit,w_${width}/${rest}`;
+    if (!width) {
+      return src;
+    }
+
+    return replaceUrlImgTransformations(src, `c_limit,w_${width}`);
   }
 
   return (
@@ -90,7 +80,7 @@ export function Img({
       >
         {" "}
         {isFromCloudProvider ? (
-          shouldBlurImage ? (
+          blurDataURL ? (
             <Image
               alt={alt}
               loader={imageLoader}
@@ -99,18 +89,18 @@ export function Img({
               placeholder="blur"
               layout="intrinsic"
               blurDataURL={blurDataURL as string}
-              width={width as number}
-              height={height as number}
+              width={width}
+              height={height}
             />
-          ) : specificSize ? (
+          ) : width && height ? (
             <Image
               alt={alt}
               loader={imageLoader}
               title={title || alt}
               src={src}
               layout="intrinsic"
-              width={width as number}
-              height={height as number}
+              width={width}
+              height={height}
             />
           ) : (
             <Image
@@ -143,7 +133,6 @@ export function Img({
           openModal={openModal}
           height={height}
           isFromCloudProvider={isFromCloudProvider}
-          shouldBlurImage={shouldBlurImage}
           src={src}
           title={title}
           width={width}
@@ -201,9 +190,6 @@ export function Img({
         }
         summary > :global(div) {
           border-radius: 10px;
-        }
-         {
-          /*is deprecated but don't remove until most browsers are updated */
         }
         summary::-webkit-details-marker {
           display: none;

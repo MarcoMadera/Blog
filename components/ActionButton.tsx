@@ -1,48 +1,15 @@
-import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import { PropsWithChildren, ReactElement } from "react";
-import css from "styled-jsx/css";
 import Link from "next/link";
+import {
+  actionButtonDynamicStyle,
+  actionButtonStyle,
+  darkActionButtonDynamicStyle,
+} from "styles/components/actionButton";
 
 type ActionButtonProps =
   | { href?: never; type?: "button" | never }
   | { href: string; type: "anchor" | "link" };
-
-const actionButtonStyle = css`
-  .actionButton {
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 28px;
-    color: ${colors.white};
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 0.375rem 2rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    vertical-align: middle;
-  }
-  .actionButton:not(:disabled):not(.disabled):hover {
-    background-color: ${colors.dark_tertiary};
-    border-color: ${colors.dark_tertiary};
-    color: ${colors.white};
-    text-decoration: none;
-  }
-  .actionButton:not(:disabled):not(.disabled):active {
-    background-color: ${colors.dark_tertiary};
-    border-color: ${colors.dark_tertiary};
-    color: ${colors.white};
-  }
-  .actionButton:not(:disabled):not(.disabled):focus {
-    box-shadow: 0 0 0 0.2rem rgba(181, 0, 0, 0.3);
-    outline: none;
-  }
-`;
 
 export default function ActionButton({
   children,
@@ -52,12 +19,9 @@ export default function ActionButton({
 }: PropsWithChildren<ActionButtonProps>): ReactElement {
   const { darkMode } = useDarkMode();
 
-  const actionButtonDynamicStyle = css.global`
-    .actionButton {
-      background-color: ${darkMode ? colors.dark_secondary : colors.primary};
-      border-color: ${darkMode ? colors.dark_secondary : colors.primary};
-    }
-  `;
+  const dynamicStyle = darkMode
+    ? darkActionButtonDynamicStyle
+    : actionButtonDynamicStyle;
 
   if (type === "anchor") {
     return (
@@ -72,9 +36,7 @@ export default function ActionButton({
           {children}
         </a>
         <style jsx>{actionButtonStyle}</style>
-        <style global jsx>
-          {actionButtonDynamicStyle}
-        </style>
+        <style jsx>{dynamicStyle}</style>
       </>
     );
   }
@@ -86,9 +48,7 @@ export default function ActionButton({
           <a className="actionButton">{children}</a>
         </Link>
         <style jsx>{actionButtonStyle}</style>
-        <style global jsx>
-          {actionButtonDynamicStyle}
-        </style>
+        <style jsx>{dynamicStyle}</style>
       </>
     );
   }
@@ -99,9 +59,7 @@ export default function ActionButton({
         {children}
       </button>
       <style jsx>{actionButtonStyle}</style>
-      <style global jsx>
-        {actionButtonDynamicStyle}
-      </style>
+      <style jsx>{dynamicStyle}</style>
     </>
   );
 }

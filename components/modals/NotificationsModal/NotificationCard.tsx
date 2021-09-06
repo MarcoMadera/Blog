@@ -1,4 +1,4 @@
-import { Error, Info } from "components/icons";
+import { Error, Info, Check } from "components/icons";
 import useDarkMode from "hooks/useDarkMode";
 import useNotification from "hooks/useNotification";
 import React, { useState, useEffect, ReactElement } from "react";
@@ -32,6 +32,9 @@ export default function NotificationCard({
       <div>
         {variant === "info" && <Info width={20} height={20} />}
         {variant === "error" && <Error width={20} height={20} />}
+        {variant === "success" && (
+          <Check fill="#4caf50" width={20} height={20} />
+        )}
         <p id="alertText">{message}</p>
         <button
           aria-label="Eliminar notificación"

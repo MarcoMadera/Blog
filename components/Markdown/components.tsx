@@ -43,9 +43,12 @@ import {
   HTMLAttributes,
   ReactElement,
 } from "react";
-import { imageCloudProvider } from "site.config";
 import useElementData from "hooks/useElementData";
 import { Element } from "hast";
+import {
+  isImgFromCloudProvider,
+  replaceUrlImgTransformations,
+} from "utils/cloudProvider";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &
@@ -291,29 +294,35 @@ export const components:
   },
   img: function ImageMD({ node }) {
     const { darkMode } = useDarkMode();
-    const regularImage = node.properties?.src as string;
-    const darkImage = node.properties?.dark as string;
-    const lightImage = node.properties?.light as string;
+    const regularImage = node.properties?.src as string | undefined;
+    const darkImage = node.properties?.dark as string | undefined;
+    const lightImage = node.properties?.light as string | undefined;
     const src = (darkMode ? darkImage : lightImage) || regularImage;
 
-    const isFromCloudProvider = src.startsWith(imageCloudProvider);
+    const isFromCloudProvider = isImgFromCloudProvider(src || "");
 
-    const myLoader = (src: string) => {
-      const rest = `${src.replace(
-        new RegExp(
-          `${imageCloudProvider.replace(/[.*+?^${}()|/[\]\\]/g, "\\$&")}.+?(/)`,
-          "g"
-        ),
-        ""
-      )}`;
-      return `${imageCloudProvider}/c_limit/${rest}`;
-    };
+    function getFullImage(src: string) {
+      return replaceUrlImgTransformations(src, "c_limit");
+    }
 
     const { data } = useElementData({
+      id: node.position?.start.offset?.toString() as string,
       type: "image",
-      normal: src,
-      full: isFromCloudProvider ? myLoader(src) : undefined,
+      normal: src || "",
+      full: {
+        darkImage: isFromCloudProvider
+          ? getFullImage(regularImage || darkImage || "")
+          : undefined,
+        lightImage: isFromCloudProvider
+          ? getFullImage(lightImage || "")
+          : undefined,
+      },
     });
+
+    const fullImage =
+      lightImage && !darkMode
+        ? data?.fullImg.lightImage
+        : data?.fullImg.darkImage;
 
     const classNames = node.properties?.className as string[];
 
@@ -329,7 +338,7 @@ export const components:
             blurDataURL={data?.base64}
             width={data?.img.width}
             height={data?.img.height}
-            fullImage={data?.fullImg}
+            fullImage={fullImage}
             {...node.properties}
           />
           <figcaption>{node.properties.caption}</figcaption>
@@ -350,7 +359,7 @@ export const components:
         blurDataURL={data?.base64}
         width={data?.img.width}
         height={data?.img.height}
-        fullImage={data?.fullImg}
+        fullImage={fullImage}
         {...node.properties}
       />
     );

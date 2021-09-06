@@ -7,8 +7,7 @@ import RecommendedPosts from "./RecommendedPosts";
 import BlogFooter from "./BlogFooter";
 import { colors } from "styles/theme";
 import TagsHeader from "./TagsHeader";
-import { getFormattedDate, insertTextBetween } from "utils";
-import { imageCloudProvider } from "site.config";
+import { getFormattedDate } from "utils";
 import { H1, ALink, Hr } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
 import { UserContextProvider } from "context/UserContext";
@@ -16,6 +15,10 @@ import { CommentsContextProvider } from "context/CommentsContext";
 import { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
 import { ElementsContextProvider } from "context/ElementsContext";
+import {
+  isImgFromCloudProvider,
+  replaceUrlImgTransformations,
+} from "utils/cloudProvider";
 
 export default function Post({
   title,
@@ -44,12 +47,8 @@ export default function Post({
         title={title}
         description={description}
         cover={
-          cover.startsWith(imageCloudProvider)
-            ? insertTextBetween(
-                cover,
-                imageCloudProvider.length,
-                "/q_auto,f_auto,c_scale,w_760"
-              )
+          isImgFromCloudProvider(cover)
+            ? replaceUrlImgTransformations(cover, "q_auto,f_auto,c_scale,w_760")
             : cover
         }
         author={author}

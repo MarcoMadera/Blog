@@ -10,13 +10,12 @@ import {
 import Image from "next/image";
 import { ImgData } from "types/posts";
 import { getClientSize } from "utils";
-import { imageCloudProvider } from "site.config";
 import useLockBodyScroll from "hooks/useLockBodyScroll";
+import { replaceUrlImgTransformations } from "utils/cloudProvider";
 
 interface ViewImageProps {
   openModal: boolean;
   exitModal: () => void;
-  shouldBlurImage: boolean;
   isFromCloudProvider: boolean;
   alt: string;
   src: string;
@@ -32,7 +31,6 @@ export default function ViewFullImageModal({
   openModal,
   exitModal,
   isFromCloudProvider,
-  shouldBlurImage,
   alt,
   src,
   detailsRef,
@@ -87,16 +85,13 @@ export default function ViewFullImageModal({
     imageHeight
   );
 
-  const myLoader = ({ src, width }: { src: string; width: number }) => {
-    const rest = `${src.replace(
-      new RegExp(
-        `${imageCloudProvider.replace(/[.*+?^${}()|/[\]\\]/g, "\\$&")}.+?(/)`,
-        "g"
-      ),
-      ""
-    )}`;
-    return `${imageCloudProvider}/${width ? `c_limit,w_${width}/` : ""}${rest}`;
-  };
+  function myLoader({ src, width }: { src: string; width: number }) {
+    if (!width) {
+      return src;
+    }
+
+    return replaceUrlImgTransformations(src, `c_limit,w_${width}`);
+  }
 
   return createPortal(
     <div className="bgcontainer">
@@ -118,7 +113,7 @@ export default function ViewFullImageModal({
       >
         <div className="imageContainer">
           {isFromCloudProvider ? (
-            shouldBlurImage ? (
+            blurDataURL || fullImage?.base64 ? (
               <Image
                 alt={alt}
                 placeholder="blur"

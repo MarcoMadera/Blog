@@ -1,10 +1,12 @@
 import { ALink } from "components/tags";
 import { colors } from "styles/theme";
-import { imageCloudProvider } from "site.config";
 import useDarkMode from "hooks/useDarkMode";
-import { insertTextBetween } from "utils";
 import { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
+import {
+  isImgFromCloudProvider,
+  replaceUrlImgTransformations,
+} from "utils/cloudProvider";
 
 export default function RecommendedPosts({
   slug,
@@ -31,11 +33,10 @@ export default function RecommendedPosts({
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={
-                          cover.startsWith(imageCloudProvider)
-                            ? insertTextBetween(
+                          isImgFromCloudProvider(cover)
+                            ? replaceUrlImgTransformations(
                                 cover,
-                                imageCloudProvider.length,
-                                "/q_auto,f_auto,c_scale,h_40,w_40"
+                                "q_auto,f_auto,c_scale,h_40,w_40"
                               )
                             : cover
                         }

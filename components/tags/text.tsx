@@ -3,9 +3,8 @@ import { colors as codeColors } from "styles/code/colors";
 import useDarkMode from "hooks/useDarkMode";
 import { PropsWithChildren, ReactElement } from "react";
 import { ReactNode } from "react-markdown";
-import { noteStyles } from "./noteStyles";
-import { Bulb, Info, Alert, Star } from "components/icons";
-import { Check } from "components/icons/Check";
+import { noteStyles } from "../../styles/components/noteStyles";
+import { Bulb, Info, Alert, Star, Check } from "components/icons";
 
 interface Text {
   children: ReactNode;
