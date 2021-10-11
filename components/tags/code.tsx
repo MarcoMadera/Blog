@@ -190,14 +190,14 @@ export function CodeBlock({
     language,
   });
 
-  const nodeValue = value[0] as string;
+  const nodeValue = value[0];
   const lineNumbers =
-    typeof nodeValue === "object"
-      ? []
-      : Array.from(
-          { length: (nodeValue?.match(/\n/g) || "").length },
+    typeof nodeValue === "string"
+      ? Array.from(
+          { length: (nodeValue.match(/\n/g) || "").length },
           (_, i) => i + 1
-        );
+        )
+      : [];
 
   if (ignore) {
     return null;

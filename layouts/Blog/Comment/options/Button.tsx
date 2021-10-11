@@ -141,7 +141,7 @@ export default function Button({
       textbetweenTag || "",
       commentAfter || ""
     );
-    if (setComment) setComment(text);
+    setComment(text);
     textAreaRef.current?.focus();
   }
 

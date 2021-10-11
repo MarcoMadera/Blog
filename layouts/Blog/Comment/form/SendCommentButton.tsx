@@ -19,9 +19,7 @@ export default function SendCommentButton({
         ref={sendCommentRef as RefObject<HTMLButtonElement>}
         onClick={(e) => {
           e.preventDefault();
-          if (setIsSubmittingComment) {
-            setIsSubmittingComment(true);
-          }
+          setIsSubmittingComment(true);
         }}
       >
         Enviar comentario

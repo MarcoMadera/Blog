@@ -33,7 +33,7 @@ export default function Error({ statusCode }: Props): ReactElement {
   );
 }
 
-Error.getInitialProps = ({ res, err }: NextPageContext) => {
+Error.getInitialProps = ({ res, err }: NextPageContext): Props => {
   const statusCode = res?.statusCode ?? err?.statusCode;
   return { statusCode };
 };

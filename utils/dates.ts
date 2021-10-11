@@ -42,14 +42,14 @@ export function getFormattedDate(date: string): string {
 /**
  * Get the formatted date
  * @param {date} date a date
- * @returns formatted date in form 4:30pm - may 13, 2020
+ * @returns formatted date in form 4:30pm - 13 may, 2020
  */
 export function getTwitterFormattedDate(d: string): string {
   const date = new Date(d);
   const month = months[date.getMonth()];
   return `${formatAMPM(
     date
-  )} - ${month} ${date.getDate()}, ${date.getFullYear()}`;
+  )} - ${date.getDate()} ${month}, ${date.getFullYear()}`;
 }
 
 /**

@@ -13,11 +13,9 @@ const NotificationContext = createContext<
 >(undefined);
 
 interface NotificationContextProviderProps {
-  notifications: Notification[] | undefined;
+  notifications: Notification[];
   setNotifications: Dispatch<
-    SetStateAction<
-      NotificationContextProviderProps["notifications"] | undefined
-    >
+    SetStateAction<NotificationContextProviderProps["notifications"]>
   >;
 }
 
@@ -26,9 +24,7 @@ export function NotificationContextProvider({
 }: {
   children: ReactNode;
 }): ReactElement {
-  const [notifications, setNotifications] = useState<
-    Notification[] | undefined
-  >();
+  const [notifications, setNotifications] = useState<Notification[]>([]);
 
   return (
     <NotificationContext.Provider

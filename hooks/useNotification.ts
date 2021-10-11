@@ -4,17 +4,18 @@ import { nanoid } from "nanoid";
 import { UseNotification, Notification } from "types/notification";
 
 export default function useNotification(): UseNotification {
-  const conxtext = useContext(NotificationContext);
-  const notifications = conxtext?.notifications;
-  const setNotifications = conxtext?.setNotifications;
+  const context = useContext(NotificationContext);
+
+  if (context === undefined) {
+    throw new Error(
+      "useNotification must be used within a NotificationProvider"
+    );
+  }
+  const { notifications, setNotifications } = context;
 
   const removeNotification: UseNotification["removeNotification"] = useCallback(
     (notificationId) => {
-      if (!setNotifications) {
-        return;
-      }
-
-      const timeOut = notifications?.find(
+      const timeOut = notifications.find(
         (notification) => notification.id === notificationId
       )?.timeOut;
 
@@ -23,9 +24,6 @@ export default function useNotification(): UseNotification {
       }
 
       setNotifications((allNotifications) => {
-        if (!allNotifications) {
-          return;
-        }
         return allNotifications.filter(
           (notification) => notification.id !== notificationId
         );
@@ -36,10 +34,6 @@ export default function useNotification(): UseNotification {
 
   const addNotification: UseNotification["addNotification"] = useCallback(
     (newNotification) => {
-      if (!setNotifications) {
-        return;
-      }
-
       const newNotificationWithId: Notification = {
         ...newNotification,
         id: nanoid(),
@@ -50,7 +44,7 @@ export default function useNotification(): UseNotification {
       };
 
       setNotifications((allNotifications) => {
-        if (!allNotifications) {
+        if (!allNotifications.length) {
           return [newNotificationWithId];
         }
 

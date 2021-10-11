@@ -49,7 +49,7 @@ export default function ViewFullImageModal({
       const firstElement = exitButtonRef.current;
       if (event.key === "Escape") {
         exitModal();
-        detailsRef?.current?.focus();
+        detailsRef.current?.focus();
       }
       if (!event.shiftKey && event.key !== "Enter") {
         firstElement?.focus();
@@ -77,8 +77,8 @@ export default function ViewFullImageModal({
     return null;
   }
 
-  const imageHeight = fullImage?.img.height || 0;
-  const imageWidth = fullImage?.img.width || 0;
+  const imageHeight = fullImage?.img.height ?? 0;
+  const imageWidth = fullImage?.img.width ?? 0;
 
   const { widthPercent, heightPercent } = getClientSize(
     imageWidth,
@@ -99,13 +99,13 @@ export default function ViewFullImageModal({
         className="bg"
         onClick={() => {
           exitModal();
-          detailsRef?.current?.focus();
+          detailsRef.current?.focus();
         }}
         aria-checked={openModal}
         onKeyDown={(e) => {
           if (e.key === "Escape") {
             exitModal();
-            detailsRef?.current?.focus();
+            detailsRef.current?.focus();
           }
         }}
         role="switch"
@@ -150,7 +150,7 @@ export default function ViewFullImageModal({
           onClick={(e) => {
             e.preventDefault();
             exitModal();
-            detailsRef?.current?.focus();
+            detailsRef.current?.focus();
           }}
         ></button>
       </div>

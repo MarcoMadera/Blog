@@ -56,7 +56,7 @@ export default function Comments({ slug }: { slug: string }): ReactElement {
   }, [comment]);
 
   useEffect(() => {
-    if (setIsSubmittingComment && isSubmittingComment && !isValidComment) {
+    if (isSubmittingComment && !isValidComment) {
       addNotification({
         variant: "info",
         message: "Escribe al menos 10 caracteres",

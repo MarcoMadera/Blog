@@ -15,14 +15,17 @@ export default function useUser(): {
   loginUserWithTwitter: () => void;
   loginUserAnonymously: () => Promise<void>;
   user: User | undefined;
-  setUser: Dispatch<SetStateAction<User | undefined>> | undefined;
-  isLoggedIn: boolean | undefined;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
+  isLoggedIn: boolean;
   logOutUser: () => Promise<void>;
 } {
   const context = useContext(UserContext);
-  const user = context?.user;
-  const setUser = context?.setUser;
-  const isLoggedIn = context?.isLoggedIn;
+
+  if (context === undefined) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+
+  const { user, setUser, isLoggedIn } = context;
   const { addNotification } = useNotification();
 
   function validateError(err: FirebaseError) {
@@ -49,6 +52,7 @@ export default function useUser(): {
         validateError(err);
       });
   }
+
   function loginUserWithTwitter() {
     loginWithTwitter()
       .then(() => {
@@ -61,6 +65,7 @@ export default function useUser(): {
         validateError(err);
       });
   }
+
   async function loginUserAnonymously() {
     try {
       await loginAnonymously();
@@ -76,7 +81,7 @@ export default function useUser(): {
     () =>
       logOut()
         .then(() => {
-          if (setUser) setUser(undefined);
+          setUser(undefined);
         })
         .then(() => {
           addNotification({

@@ -4,16 +4,20 @@ import useLocalStorage from "./useLocalStorage";
 
 export default function useDarkMode(): {
   darkMode: boolean;
-  setDarkMode?: Dispatch<SetStateAction<boolean>>;
+  setDarkMode: Dispatch<SetStateAction<boolean>>;
   toggleDarkMode: () => void;
 } {
-  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  const context = useContext(DarkModeContext);
+
+  if (context === undefined) {
+    throw new Error("useDarkMode must be used within a DarkModeProvider");
+  }
+
+  const { darkMode, setDarkMode } = context;
+
   const setThemeLocalStorage = useLocalStorage("theme", "dark")[1];
 
   function toggleDarkMode() {
-    if (!setDarkMode) {
-      return;
-    }
     if (darkMode === false) {
       setThemeLocalStorage("dark");
       return setDarkMode(true);

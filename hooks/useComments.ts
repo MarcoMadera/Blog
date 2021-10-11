@@ -20,18 +20,25 @@ import {
 
 export default function useComments(): UseComments {
   const context = useContext(CommentsContext);
-  const allComments = context?.allComments;
-  const setAllComments = context?.setAllComments;
-  const timesLoadedComments = context?.timesLoadedComments;
-  const setTimesLoadedComments = context?.setTimesLoadedComments;
-  const imgURL = context?.imgURL;
-  const setImgURL = context?.setImgURL;
-  const comment = context?.comment;
-  const setComment = context?.setComment;
-  const setIsSubmittingComment = context?.setIsSubmittingComment;
-  const isSubmittingComment = context?.isSubmittingComment;
-  const commentCount = context?.commentCount;
-  const setCommentCount = context?.setCommentCount;
+
+  if (context === null) {
+    throw new Error("useComments must be used within a CommentProvider");
+  }
+
+  const {
+    allComments,
+    setAllComments,
+    timesLoadedComments,
+    setTimesLoadedComments,
+    imgURL,
+    setImgURL,
+    comment,
+    setComment,
+    setIsSubmittingComment,
+    isSubmittingComment,
+    commentCount,
+    setCommentCount,
+  } = context;
 
   const { addNotification } = useNotification();
   const { user } = useUser();
@@ -41,7 +48,7 @@ export default function useComments(): UseComments {
   const updateCommentCount = useCallback(() => {
     const postRef = ref(database, `post/${slug}`);
     onValue(postRef, (snapshot) => {
-      if (setCommentCount) setCommentCount(snapshot.size);
+      setCommentCount(snapshot.size);
     });
   }, [setCommentCount, slug]);
 
@@ -58,7 +65,7 @@ export default function useComments(): UseComments {
           comments.unshift(snap.val());
         });
 
-        if (setAllComments) setAllComments(comments);
+        setAllComments(comments);
       });
       updateCommentCount();
     } catch {
@@ -85,7 +92,7 @@ export default function useComments(): UseComments {
     }) => {
       if (task) {
         const onProgress = () => {
-          if (setImgURL) setImgURL(null);
+          setImgURL(null);
         };
         const onError = () => {
           addNotification({
@@ -113,10 +120,10 @@ export default function useComments(): UseComments {
   const createComment = useCallback(
     async (comment) => {
       const postRef = ref(database, `post/${slug}`);
-      if (setIsSubmittingComment) setIsSubmittingComment(false);
+      setIsSubmittingComment(false);
       try {
-        const newcommentRef = push(postRef);
-        const commentId = (await newcommentRef).key?.toString();
+        const newcommentRef = await push(postRef);
+        const commentId = newcommentRef.key?.toString();
         set(ref(database, `post/${slug}/${commentId}`), {
           username: user?.username ?? "Anónimo",
           avatar:
@@ -130,8 +137,8 @@ export default function useComments(): UseComments {
           date: serverTimestamp(),
           commentId: commentId,
         });
-        if (setImgURL) setImgURL(null);
-        if (setComment) setComment("");
+        setImgURL(null);
+        setComment("");
         addNotification({
           variant: "info",
           message: "Comentario publicado",
@@ -182,14 +189,14 @@ export default function useComments(): UseComments {
       });
       return;
     }
-    if (image?.size > 3 * 1024 * 1024) {
+    if (image.size > 3 * 1024 * 1024) {
       addNotification({
         variant: "info",
         message: "El archivo tiene que ser menor de 3mb",
       });
       return;
     }
-    if (!image?.type.startsWith("image")) {
+    if (!image.type.startsWith("image")) {
       addNotification({
         variant: "info",
         message: "El archivo tiene que ser de tipo imagen",

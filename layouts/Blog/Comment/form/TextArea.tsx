@@ -42,7 +42,7 @@ export default function TextArea({
         maxLength={800}
         placeholder="Escribe tu comentario"
         onChange={(e) => {
-          if (setComment) setComment(e.target.value);
+          setComment(e.target.value);
         }}
         onFocus={() => setSelectTextArea(true)}
         onDragEnter={(e) => {

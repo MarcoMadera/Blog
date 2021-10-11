@@ -27,7 +27,7 @@ export default function Tweet({
     id: id,
     hideConversation,
   });
-  const user = Array.isArray(data?.user) ? data?.user[0] : null;
+  const user = data?.user?.[0];
 
   const { darkMode } = useDarkMode();
 
@@ -36,71 +36,63 @@ export default function Tweet({
     return null;
   }
 
-  const quotedTweetUser = Array.isArray(data?.quotedTweet?.user)
-    ? data?.quotedTweet?.user[0]
-    : null;
-  const repliedTweetUser = Array.isArray(data?.repliedTweet?.user)
-    ? data?.repliedTweet?.user[0]
-    : null;
+  const quotedTweetUser = data.quotedTweet?.user?.[0];
+  const repliedTweetUser = data.repliedTweet?.user?.[0];
 
   const quotedTweetUrl = quotedTweetUser
-    ? `https://twitter.com/${quotedTweetUser.username}/status/${data?.quotedTweet?.tweet?.id}`
+    ? `https://twitter.com/${quotedTweetUser.username}/status/${data.quotedTweet?.tweet?.id}`
     : undefined;
   const repliedTweetUrl = repliedTweetUser
-    ? `https://twitter.com/${repliedTweetUser.username}/status/${data?.tweet?.id}`
+    ? `https://twitter.com/${repliedTweetUser.username}/status/${data.tweet.id}`
     : undefined;
-  const currentTweetUrl = `https://twitter.com/${user.username}/status/${data?.tweet.id}`;
+  const currentTweetUrl = `https://twitter.com/${user.username}/status/${data.tweet.id}`;
 
   return (
     <div className="container">
-      {data && (
-        <div className="tweet">
-          <a
-            href={repliedTweetUrl || currentTweetUrl}
-            className="brand"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Ver en Twitter"
-          >
-            <div className="icon-twitter" title="Ver en Twitter" role="img" />
-          </a>
-          {data.repliedTweet ? <RepliedTweet data={data.repliedTweet} /> : null}
-          <div>
-            <TweetHeader
-              name={user.name}
-              username={user.username}
-              userId={user.id}
-              verified={user.verified}
-              profile_image_url={user.profile_image_url}
-            />
-            <section>
-              <TweetText
-                text={data.tweet.text}
-                entities={data.tweet.entities}
-                quotedTweetUrl={quotedTweetUrl}
-                original={true}
-              />
-              {data.poll ? <TweetPoll poll={data.poll} /> : null}
-              {data.media ? <TweetMedia data={data.media} /> : null}
-              {data.quotedTweet ? (
-                <QuotedTweet data={data.quotedTweet} />
-              ) : null}
-              <TweetInfo
-                username={user.username}
-                tweetId={data.tweet.id}
-                metrics={data.tweet.public_metrics}
-                created_at={data.tweet.created_at}
-              />
-            </section>
-          </div>
-          <TweetAction
+      <div className="tweet">
+        <a
+          href={repliedTweetUrl || currentTweetUrl}
+          className="brand"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver en Twitter"
+        >
+          <div className="icon-twitter" title="Ver en Twitter" role="img" />
+        </a>
+        {data.repliedTweet ? <RepliedTweet data={data.repliedTweet} /> : null}
+        <div>
+          <TweetHeader
             name={user.name}
             username={user.username}
-            tweetId={data.tweet.id}
-            metrics={data.tweet.public_metrics}
+            userId={user.id}
+            verified={user.verified}
+            profile_image_url={user.profile_image_url}
           />
+          <section>
+            <TweetText
+              text={data.tweet.text}
+              entities={data.tweet.entities}
+              quotedTweetUrl={quotedTweetUrl}
+              original={true}
+            />
+            {data.poll ? <TweetPoll poll={data.poll} /> : null}
+            {data.media ? <TweetMedia data={data.media} /> : null}
+            {data.quotedTweet ? <QuotedTweet data={data.quotedTweet} /> : null}
+            <TweetInfo
+              username={user.username}
+              tweetId={data.tweet.id}
+              metrics={data.tweet.public_metrics}
+              created_at={data.tweet.created_at}
+            />
+          </section>
         </div>
-      )}
+        <TweetAction
+          name={user.name}
+          username={user.username}
+          tweetId={data.tweet.id}
+          metrics={data.tweet.public_metrics}
+        />
+      </div>
       {caption != null ? <p className="caption">{caption}</p> : null}
       <style jsx>{`
         .brand {
@@ -147,10 +139,10 @@ export default function Tweet({
         }
         div.tweet > div {
           position: relative;
-          padding: ${data?.repliedTweet
+          padding: ${data.repliedTweet
             ? "0px 12px 5px 12px"
             : "7px 12px 5px 12px"};
-          margin-top: ${data?.repliedTweet ? "-3px" : "0px"};
+          margin-top: ${data.repliedTweet ? "-3px" : "0px"};
         }
         div.tweet :global(.icon) {
           display: inline-block;

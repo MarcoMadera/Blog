@@ -17,8 +17,12 @@ export default function useCookies(): {
   deleteCookie: (cookieName: string) => string;
 } {
   const context = useContext(CookiesContext);
-  const acceptedcookies = context?.acceptedcookies;
-  const setAcceptedCookies = context?.setAcceptedCookies;
+
+  if (context === undefined) {
+    throw new Error("useCookies must be used within a CookiesProvider");
+  }
+
+  const { acceptedcookies, setAcceptedCookies } = context;
 
   function getCookie(cookieName: string): string | false {
     const value = `; ${document.cookie}`;

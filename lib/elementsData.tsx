@@ -12,6 +12,7 @@ import {
 } from "types/posts";
 import getTweetData from "utils/getTweetData";
 import codeHighlighter from "utils/codeHighlighter";
+import { DarkModeContextProvider } from "context/DarkModeContext";
 
 export default async function getElementsData(
   content: string
@@ -24,9 +25,11 @@ export default async function getElementsData(
 
   // Render the page once to populate `ids`
   ReactDOMServer.renderToString(
-    <DataMapContextProvider addElement={addElement}>
-      <Markdown source={content} html={true} />
-    </DataMapContextProvider>
+    <DarkModeContextProvider>
+      <DataMapContextProvider addElement={addElement}>
+        <Markdown source={content} html={true} />
+      </DataMapContextProvider>
+    </DarkModeContextProvider>
   );
 
   const allTweetsId = elementsArr.filter(

@@ -7,14 +7,12 @@ import {
   SetStateAction,
 } from "react";
 
-const DarkModeContext = createContext<DarkModeContext>({
-  darkMode: true,
-});
-
 interface DarkModeContext {
   darkMode: boolean;
-  setDarkMode?: Dispatch<SetStateAction<boolean>>;
+  setDarkMode: Dispatch<SetStateAction<boolean>>;
 }
+
+const DarkModeContext = createContext<DarkModeContext | undefined>(undefined);
 
 export function DarkModeContextProvider({
   children,

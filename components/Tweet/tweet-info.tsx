@@ -1,8 +1,8 @@
-import { formatNumber, getTwitterFormattedDate } from "utils";
-import useMounted from "hooks/useMounted";
+import { formatNumber } from "utils";
 import { tweets } from "styles/theme";
 import { User, Tweet } from "types/tweet";
 import { ReactElement } from "react";
+import TweetCreatedAt from "./TweetCreatedAt";
 
 interface TweetInfoProps {
   username: User["username"];
@@ -17,12 +17,9 @@ export default function TweetInfo({
   metrics,
   created_at,
 }: TweetInfoProps): ReactElement {
-  const mounted = useMounted();
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweetId}`;
   const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${tweetId}`;
   const tweetUrl = `https://twitter.com/${username}/status/${tweetId}`;
-  const createdAt =
-    typeof window !== "undefined" && mounted ? new Date(created_at) : null;
 
   return (
     <div className="info">
@@ -66,22 +63,7 @@ export default function TweetInfo({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <time
-          title={`Publicado: ${
-            createdAt?.toLocaleDateString("es", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-              weekday: "long",
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: true,
-            }) || ""
-          }`}
-          dateTime={createdAt?.toISOString() || ""}
-        >
-          {getTwitterFormattedDate(created_at) || Date()}
-        </time>
+        <TweetCreatedAt created_at={created_at} />
       </a>
       <style jsx>{`
         a {

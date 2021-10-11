@@ -93,6 +93,7 @@ export const components:
 
     const camelize = (string: string) =>
       string.replace(/-([a-z])/gi, (_, group) => group.toUpperCase());
+
     return allowedChildren.tags.includes(tagName) ||
       node.children[0].type === "text" ? (
       <p

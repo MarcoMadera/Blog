@@ -8,10 +8,10 @@ const config = {
   }),
   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
 };
-const app = !admin.apps.find((u) => u?.name === "admin")
+const adminApp = !admin.apps.find((app) => app?.name === "admin")
   ? admin.initializeApp(config, "admin")
   : admin.app("admin");
 
-export const database = app.database();
+export const database = adminApp.database();
 
-export default app;
+export default adminApp;

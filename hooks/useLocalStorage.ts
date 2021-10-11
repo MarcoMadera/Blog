@@ -10,7 +10,7 @@ export default function useLocalStorage(
 
   useEffect(() => {
     // Get from local storage by key
-    const item = localStorage?.getItem(key);
+    const item = localStorage.getItem(key);
     // If none return initialValue
     setStoredValue(item ?? initialValue);
   }, [key, initialValue]);
@@ -26,7 +26,7 @@ export default function useLocalStorage(
         // Save state
         setStoredValue(valueToStore);
         // Save to local storage
-        localStorage?.setItem(key, valueToStore);
+        localStorage.setItem(key, valueToStore);
       } catch (error) {
         // A more advanced implementation would handle the error case
         console.log(error);

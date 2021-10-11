@@ -29,19 +29,19 @@ export interface CommentsContext {
 }
 
 export interface UseComments {
-  imgURL: CommentsContext["imgURL"] | undefined;
+  imgURL: CommentsContext["imgURL"];
   sendFile: (files: FileList) => void;
-  comment: CommentsContext["comment"] | undefined;
-  setComment: CommentsContext["setComment"] | undefined;
-  allComments: CommentsContext["allComments"] | undefined;
-  commentCount: CommentsContext["commentCount"] | undefined;
+  comment: CommentsContext["comment"];
+  setComment: CommentsContext["setComment"];
+  allComments: CommentsContext["allComments"];
+  commentCount: CommentsContext["commentCount"];
   removeComment: (commentId: string) => void;
   createComment: (comment: string) => Promise<void>;
   realtimeCommentList: () => Promise<void>;
-  isSubmittingComment: CommentsContext["isSubmittingComment"] | undefined;
-  timesLoadedComments: CommentsContext["timesLoadedComments"] | undefined;
-  setIsSubmittingComment: CommentsContext["setIsSubmittingComment"] | undefined;
-  setTimesLoadedComments: CommentsContext["setTimesLoadedComments"] | undefined;
+  isSubmittingComment: CommentsContext["isSubmittingComment"];
+  timesLoadedComments: CommentsContext["timesLoadedComments"];
+  setIsSubmittingComment: CommentsContext["setIsSubmittingComment"];
+  setTimesLoadedComments: CommentsContext["setTimesLoadedComments"];
 }
 
 export interface CommentOptions {
