@@ -1,10 +1,8 @@
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 import { colors } from "styles/theme";
 
-export function NumberList(
-  props: Record<string, string | number>
-): ReactElement {
+export function NumberList(props: SVGProps<SVGSVGElement>): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (

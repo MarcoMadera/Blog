@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Html5(props: Record<string, string | number>): ReactElement {
+export function Html5(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 2000 2000" {...props}>
       <title>HTML5</title>

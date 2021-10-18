@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function LinkedInShare(
-  props: Record<string, string | number>
-): ReactElement {
+export function LinkedInShare(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg
       viewBox="0 0 112.196 112.196"

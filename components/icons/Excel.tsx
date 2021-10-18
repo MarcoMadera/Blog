@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Excel(props: Record<string, string | number>): ReactElement {
+export function Excel(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 110.037 107.5" {...props}>
       <title>Excel</title>

@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function LinkedInSquare(
-  props: Record<string, string | number>
-): ReactElement {
+export function LinkedInSquare(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg width={30} height={30} viewBox="0 0 504.4 504.4" {...props}>
       <title>LinkedIn</title>

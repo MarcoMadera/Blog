@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Twitter(props: Record<string, string | number>): ReactElement {
+export function Twitter(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 455.731 455.731" {...props}>
       <path fill="#55acee" d="M0 0h455.731v455.731H0z" />

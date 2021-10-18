@@ -32,10 +32,12 @@ export default function CookiesModal(): ReactPortal | null {
     if (change === true) {
       trackWithGoogleAnalitycs();
       setAceptedCookiesLocalStorage("true");
-      return setAcceptedCookies(true);
+      setAcceptedCookies(true);
+      return;
     } else {
       setAceptedCookiesLocalStorage("false");
-      return setAcceptedCookies(false);
+      setAcceptedCookies(false);
+      return;
     }
   }
 

@@ -3,7 +3,7 @@ import CookiesContext from "context/CookiesContext";
 
 export default function useCookies(): {
   acceptedcookies: boolean | undefined;
-  setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>> | undefined;
+  setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>>;
   getCookie: (cookieName: string) => string | false;
   setCookie: ({
     name,

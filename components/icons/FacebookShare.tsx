@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function FacebookShare(
-  props: Record<string, string | number>
-): ReactElement {
+export function FacebookShare(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg
       viewBox="0 0 112.196 112.196"

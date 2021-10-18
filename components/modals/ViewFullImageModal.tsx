@@ -113,12 +113,12 @@ export default function ViewFullImageModal({
       >
         <div className="imageContainer">
           {isFromCloudProvider ? (
-            blurDataURL || fullImage?.base64 ? (
+            fullImage?.base64 || blurDataURL ? (
               <Image
                 alt={alt}
                 placeholder="blur"
                 loader={myLoader}
-                blurDataURL={fullImage?.base64 || (blurDataURL as string)}
+                blurDataURL={fullImage?.base64 ?? blurDataURL}
                 layout="fill"
                 objectFit="scale-down"
                 src={fullImage?.img.src || src}

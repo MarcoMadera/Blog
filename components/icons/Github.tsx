@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 import { colors } from "styles/theme";
 
-export function Github(props: Record<string, string | number>): ReactElement {
+export function Github(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 24 24" {...props}>
       <g>

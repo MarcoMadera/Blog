@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function TwitterSquare(
-  props: Record<string, string | number>
-): ReactElement {
+export function TwitterSquare(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg width={30} height={30} viewBox="0 0 410.155 410.155" {...props}>
       <title>Twitter</title>

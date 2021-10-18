@@ -34,13 +34,15 @@ export default function useNotification(): UseNotification {
 
   const addNotification: UseNotification["addNotification"] = useCallback(
     (newNotification) => {
+      const displayTime = newNotification.displayTime ?? 10000;
+
       const newNotificationWithId: Notification = {
         ...newNotification,
         id: nanoid(),
-        displayTime: newNotification.displayTime ?? 10000,
+        displayTime,
         timeOut: setTimeout(() => {
           removeNotification(newNotificationWithId.id);
-        }, newNotification.displayTime ?? 10000),
+        }, displayTime),
       };
 
       setNotifications((allNotifications) => {

@@ -10,7 +10,7 @@ export default function LoadMoreCommentsButton(): ReactElement {
     <div>
       <button
         onClick={() => {
-          setTimesLoadedComments && setTimesLoadedComments((val) => val + 1);
+          setTimesLoadedComments((val) => val + 1);
         }}
       >
         Ver más comentarios

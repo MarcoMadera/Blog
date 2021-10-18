@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Css(props: Record<string, string | number>): ReactElement {
+export function Css(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="3 3 42 42" {...props}>
       <title>CSS</title>

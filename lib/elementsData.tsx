@@ -32,12 +32,12 @@ export default async function getElementsData(
     </DarkModeContextProvider>
   );
 
-  const allTweetsId = elementsArr.filter(
+  const allTweetElements = elementsArr.filter(
     (e) => e.type === "tweet"
   ) as ElementTweet[];
 
   const tweetsData = await Promise.all(
-    allTweetsId.map(async ({ id, hideConversation, type }) => {
+    allTweetElements.map(async ({ id, hideConversation, type }) => {
       const data = await getTweetData(id, {
         ignoreTweet: false,
         hideConversation,
@@ -46,12 +46,19 @@ export default async function getElementsData(
     })
   );
 
-  const allImagesUrl = elementsArr.filter(
+  const allImageElements = elementsArr.filter(
     (e) => e.type === "image"
   ) as ElementImage[];
 
+  async function getImagePlaceHolder(src: string) {
+    const { base64, img } = await getPlaiceholder(src, {
+      size: 10,
+    });
+    return { base64, img };
+  }
+
   const imagesData = await Promise.all(
-    allImagesUrl.map(async ({ normal, full, type, id }) => {
+    allImageElements.map(async ({ normal, full, type, id }) => {
       const fullImg: {
         darkImage: Omit<ImgData, "fullImg"> | null;
         lightImage: Omit<ImgData, "fullImg"> | null;
@@ -59,22 +66,14 @@ export default async function getElementsData(
         darkImage: null,
         lightImage: null,
       };
-      const { base64, img } = await getPlaiceholder(normal, {
-        size: 10,
-      });
+      const { base64, img } = await getImagePlaceHolder(normal);
 
       if (full?.darkImage) {
-        const { base64, img } = await getPlaiceholder(full.darkImage, {
-          size: 10,
-        });
-        fullImg.darkImage = { base64, img };
+        fullImg.darkImage = await getImagePlaceHolder(full.darkImage);
       }
 
       if (full?.lightImage) {
-        const { base64, img } = await getPlaiceholder(full.lightImage, {
-          size: 10,
-        });
-        fullImg.lightImage = { base64, img };
+        fullImg.lightImage = await getImagePlaceHolder(full.lightImage);
       }
 
       return {
@@ -84,11 +83,11 @@ export default async function getElementsData(
     })
   );
 
-  const allCodeBlocks = elementsArr.filter(
+  const allCodeBlockElements = elementsArr.filter(
     (e) => e.type === "codeBlock"
   ) as ElementCodeBlock[];
 
-  const codeBlocksData = allCodeBlocks.map(
+  const codeBlocksData = allCodeBlockElements.map(
     ({ id, content, language, type }) => {
       const highlightedCode = codeHighlighter(content, language);
       const result = ReactDOMServer.renderToStaticMarkup(

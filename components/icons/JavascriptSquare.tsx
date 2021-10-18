@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function JavascriptSquare(
-  props: Record<string, string | number>
-): ReactElement {
+export function JavascriptSquare(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 128 128" {...props}>
       <title>JavaScript</title>

@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Vba(props: Record<string, string | number>): ReactElement {
+export function Vba(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 32 32" {...props}>
       <title>Visual Basic for Applications</title>

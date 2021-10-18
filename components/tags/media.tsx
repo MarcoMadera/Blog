@@ -88,7 +88,7 @@ export function Img({
               src={src}
               placeholder="blur"
               layout="intrinsic"
-              blurDataURL={blurDataURL as string}
+              blurDataURL={blurDataURL}
               width={width}
               height={height}
             />
@@ -118,7 +118,7 @@ export function Img({
           <img
             alt={alt}
             src={src}
-            title={title || alt}
+            title={title ?? alt}
             height={height}
             width={width}
           />

@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Spotify(props: Record<string, string | number>): ReactElement {
+export function Spotify(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 16 16" {...props}>
       <title>Spotify</title>

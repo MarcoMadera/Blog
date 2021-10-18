@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Nodejs(props: Record<string, string | number>): ReactElement {
+export function Nodejs(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 442.37 270.929" {...props}>
       <defs>

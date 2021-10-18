@@ -1,10 +1,8 @@
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function JavaScript(
-  props: Record<string, string | number>
-): ReactElement {
+export function JavaScript(props: SVGProps<SVGSVGElement>): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (

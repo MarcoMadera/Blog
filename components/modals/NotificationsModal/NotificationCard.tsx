@@ -75,7 +75,7 @@ export default function NotificationCard({
           width: 100%;
           height: 2px;
           border-radius: 4px;
-          animation: shrink ${displayTime ? displayTime + 50 : "10050"}ms linear;
+          animation: shrink ${displayTime + 50}ms linear;
         }
         @keyframes shrink {
           from {
@@ -96,17 +96,31 @@ export default function NotificationCard({
           width: 100%;
           text-decoration: none;
           margin-bottom: 10px;
+          transition: 0.3s ease 0s;
+          animation: slide-bottom 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+        }
+        @keyframes slide-bottom {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(10px);
+          }
         }
         article.notificationDissapear {
           animation: disapear 1s;
           animation-fill-mode: forwards;
         }
         @keyframes disapear {
+          0% {
+            transform: translateY(10px);
+          }
           50% {
-            transform: translateX(-5%);
+            transform: translate(-5%, 10px);
           }
           100% {
-            transform: translateX(200%);
+            transform: translate(200%, 10px);
           }
         }
         div > :global(svg) {

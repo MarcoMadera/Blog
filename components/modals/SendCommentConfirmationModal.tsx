@@ -34,7 +34,7 @@ export default function SendCommentConfirmationModal({
       const firstElement = firstButtonRef.current;
       const lastElement = secondButtonRef.current;
       if (event.key === "Escape") {
-        setIsSubmittingComment && setIsSubmittingComment(false);
+        setIsSubmittingComment(false);
       }
       if (
         !event.shiftKey &&
@@ -67,7 +67,7 @@ export default function SendCommentConfirmationModal({
     };
   }, [onPressKey]);
 
-  if (targetNode === undefined || !setIsSubmittingComment) {
+  if (targetNode === undefined) {
     return null;
   }
 

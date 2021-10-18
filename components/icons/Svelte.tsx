@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Svelte(props: Record<string, string | number>): ReactElement {
+export function Svelte(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 98.1 118" {...props}>
       <title>Svelte</title>

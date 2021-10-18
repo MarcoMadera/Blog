@@ -10,20 +10,20 @@ export default function useLocalStorageState(): void {
 
   useEffect(() => {
     if (localStorage.getItem("theme") === "light") {
-      setDarkMode && setDarkMode(false);
+      setDarkMode(false);
     }
 
     if (localStorage.getItem("theme") !== "light") {
-      setDarkMode && setDarkMode(true);
+      setDarkMode(true);
     }
 
     if (localStorage.getItem("cookiesAccepted") === "true") {
       trackWithGoogleAnalitycs();
-      setAcceptedCookies && setAcceptedCookies(true);
+      setAcceptedCookies(true);
     }
 
     if (localStorage.getItem("cookiesAccepted") === "false") {
-      setAcceptedCookies && setAcceptedCookies(false);
+      setAcceptedCookies(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setDarkMode, setAcceptedCookies]);

@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function ChartJs(props: Record<string, string | number>): ReactElement {
+export function ChartJs(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 192 192" {...props}>
       <title>ChartJS</title>

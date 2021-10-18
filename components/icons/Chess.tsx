@@ -1,8 +1,8 @@
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Chess(props: Record<string, string | number>): ReactElement {
+export function Chess(props: SVGProps<SVGSVGElement>): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (

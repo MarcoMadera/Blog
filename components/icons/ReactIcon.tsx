@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function ReactIcon(
-  props: Record<string, string | number>
-): ReactElement {
+export function ReactIcon(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="200 50 450 500" {...props}>
       <title>ReactJS</title>

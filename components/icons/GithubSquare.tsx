@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function GithubSquare(
-  props: Record<string, string | number>
-): ReactElement {
+export function GithubSquare(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg width={30} height={30} viewBox="0 -3.5 256 256" {...props}>
       <title>Github</title>

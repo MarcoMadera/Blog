@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function Email(props: Record<string, string | number>): ReactElement {
+export function Email(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 490 490" {...props}>
       <title>Correo electrónico</title>

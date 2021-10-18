@@ -1,8 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, SVGProps } from "react";
 
-export function TwitterShare(
-  props: Record<string, string | number>
-): ReactElement {
+export function TwitterShare(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg
       viewBox="0 0 112.197 112.197"
