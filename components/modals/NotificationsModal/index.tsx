@@ -4,13 +4,19 @@ import useNotification from "hooks/useNotification";
 import NotificationCard from "./NotificationCard";
 
 export default function NotificationsModal(): ReactPortal | null {
-  const [targetNode, setTargetNode] = useState<Element>();
+  const [targetNode, setTargetNode] = useState<Element | null>();
 
   const { notifications } = useNotification();
 
   useEffect(() => {
-    setTargetNode(document.querySelector("#notification") as Element);
+    setTargetNode(document.querySelector("#notification"));
   }, []);
+
+  if (targetNode === null) {
+    throw new Error(
+      "NotificationsModal needs a target element with id: notification"
+    );
+  }
 
   if (targetNode === undefined || !notifications.length) {
     return null;

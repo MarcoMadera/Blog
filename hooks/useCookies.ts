@@ -1,21 +1,8 @@
-import { Dispatch, SetStateAction, useContext } from "react";
+import { useContext } from "react";
 import CookiesContext from "context/CookiesContext";
+import { UseCookies } from "types/cookies";
 
-export default function useCookies(): {
-  acceptedcookies: boolean | undefined;
-  setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>>;
-  getCookie: (cookieName: string) => string | false;
-  setCookie: ({
-    name,
-    value,
-    age,
-  }: {
-    name: string;
-    value: string;
-    age: number;
-  }) => void;
-  deleteCookie: (cookieName: string) => string;
-} {
+export default function useCookies(): UseCookies {
   const context = useContext(CookiesContext);
 
   if (context === undefined) {

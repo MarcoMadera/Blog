@@ -40,7 +40,7 @@ export default function ViewFullImageModal({
   height,
   fullImage,
 }: ViewImageProps): ReactPortal | null {
-  const [targetNode, setTargetNode] = useState<Element>();
+  const [targetNode, setTargetNode] = useState<Element | null>();
   const exitButtonRef = useRef<HTMLButtonElement>(null);
   useLockBodyScroll();
 
@@ -65,13 +65,19 @@ export default function ViewFullImageModal({
   );
 
   useEffect(() => {
-    setTargetNode(document.querySelector("#global") as Element);
+    setTargetNode(document.querySelector("#global"));
     document.addEventListener("keydown", onPressKey, false);
 
     return () => {
       document.removeEventListener("keydown", onPressKey, false);
     };
   }, [onPressKey]);
+
+  if (targetNode === null) {
+    throw new Error(
+      "ViewFullImageModal needs a target element with id: global"
+    );
+  }
 
   if (targetNode === undefined) {
     return null;

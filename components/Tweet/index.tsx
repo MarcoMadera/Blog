@@ -22,14 +22,13 @@ export default function Tweet({
   caption,
   hideConversation,
 }: TweetProps): ReactElement | null {
+  const { darkMode } = useDarkMode();
   const { data, ignore } = useElementData({
     type: "tweet",
     id: id,
     hideConversation,
   });
   const user = data?.user?.[0];
-
-  const { darkMode } = useDarkMode();
 
   // Happens when `getStaticProps` is traversing the tree to collect the tweet ids
   if (!user || ignore) {

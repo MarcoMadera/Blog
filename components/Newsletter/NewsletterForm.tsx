@@ -5,6 +5,7 @@ import useDarkMode from "hooks/useDarkMode";
 import ActionButton from "components/ActionButton";
 import useNotification from "hooks/useNotification";
 import { useRouter } from "next/router";
+import { subscribeToNewsletter } from "utils/subscribeToNewsletter";
 
 export default function NewsletterForm({
   children,
@@ -17,56 +18,27 @@ export default function NewsletterForm({
   const formRef = useRef<HTMLFormElement | null>(null);
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
-  const isValidEmail = RegExp(
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  );
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!isValidEmail.test(email)) {
-      addNotification({
-        variant: "error",
-        message: "Por favor inserta un correo electrónico válido",
-      });
-      return;
-    }
     setError(false);
-    fetch("/api/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-      }),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then(({ error }) => {
-        if (error) {
-          setError(true);
-          addNotification({
-            variant: "error",
-            message: error,
-          });
-          return;
-        }
-        addNotification({
-          variant: "info",
-          message:
-            "Revisa tu bandeja de entrada, recibirás un correo electrónico de confirmación",
-          displayTime: 15000,
-        });
-        router.push("/newsletter/suscription");
-      })
-      .catch(() => {
-        setError(true);
-        addNotification({
-          variant: "error",
-          message: "Ha ocurrido un error",
-        });
-      });
+
+    const { type, message } = await subscribeToNewsletter(email);
+
+    addNotification({
+      variant: type,
+      message,
+      displayTime: type === "success" ? 15000 : 10000,
+    });
+
+    if (type === "success") {
+      router.push("/newsletter/suscription");
+    }
+
+    if (type === "error") {
+      setError(true);
+    }
   };
 
   return (

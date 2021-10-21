@@ -169,4 +169,4 @@ Available colors:
 - yellow
 - textcolor
 
-For more examples you can explore the `posts` folder.
+For more examples you can explore the [`posts`](https://github.com/MarcoMadera/Blog/blob/master/posts) folder.

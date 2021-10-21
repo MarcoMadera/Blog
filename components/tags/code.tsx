@@ -190,6 +190,10 @@ export function CodeBlock({
     language,
   });
 
+  if (ignore) {
+    return null;
+  }
+
   const nodeValue = value[0];
   const lineNumbers =
     typeof nodeValue === "string"
@@ -198,10 +202,6 @@ export function CodeBlock({
           (_, i) => i + 1
         )
       : [];
-
-  if (ignore) {
-    return null;
-  }
 
   const styles: {
     light: Record<string, ReactElement>;

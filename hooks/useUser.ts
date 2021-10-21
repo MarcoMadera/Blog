@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useCallback, useContext } from "react";
+import { useCallback, useContext } from "react";
 import UserContext from "context/UserContext";
 import {
   loginAnonymously,
@@ -8,17 +8,9 @@ import {
 } from "lib/firebase/client";
 import useNotification from "./useNotification";
 import { FirebaseError } from "firebase-admin";
-import { User } from "types/user";
+import { UseUser } from "types/user";
 
-export default function useUser(): {
-  loginUserWithGithub: () => void;
-  loginUserWithTwitter: () => void;
-  loginUserAnonymously: () => Promise<void>;
-  user: User | undefined;
-  setUser: Dispatch<SetStateAction<User | undefined>>;
-  isLoggedIn: boolean;
-  logOutUser: () => Promise<void>;
-} {
+export default function useUser(): UseUser {
   const context = useContext(UserContext);
 
   if (context === undefined) {
@@ -77,6 +69,7 @@ export default function useUser(): {
       validateError(err as FirebaseError);
     }
   }
+
   const logOutUser = useCallback(
     () =>
       logOut()

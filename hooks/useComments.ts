@@ -140,7 +140,7 @@ export default function useComments(): UseComments {
         setImgURL(null);
         setComment("");
         addNotification({
-          variant: "info",
+          variant: "success",
           message: "Comentario publicado",
         });
       } catch {

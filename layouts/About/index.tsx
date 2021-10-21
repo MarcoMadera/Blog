@@ -15,11 +15,11 @@ import { aboutStyles } from "./aboutStyles";
 import Seo from "components/Seo";
 import { A, ALink, H1, H2, H3, P } from "components/tags";
 import { NowPlaying, SongData } from "types/spotify";
-import { PropsWithChildren, ReactElement } from "react";
+import { PropsWithChildren, ReactElement, memo } from "react";
 
 interface AboutLayoutProps {
-  newNowPlaying: NowPlaying;
-  topTracks: SongData[];
+  newNowPlaying: NowPlaying | null;
+  topTracks: SongData[] | null;
 }
 
 interface ThingILikeProps {
@@ -66,10 +66,10 @@ function ThingILike({
   );
 }
 
-export default function AboutLayout({
+const AboutLayout = ({
   newNowPlaying,
   topTracks,
-}: AboutLayoutProps): ReactElement {
+}: AboutLayoutProps): ReactElement => {
   return (
     <main>
       <Seo title="Sobre mí | Marco Madera" />
@@ -198,9 +198,24 @@ export default function AboutLayout({
         </div>
       </section>
       <aside>
-        <TrackList newNowPlaying={newNowPlaying} topTracks={topTracks} />
+        {newNowPlaying && topTracks ? (
+          <TrackList newNowPlaying={newNowPlaying} topTracks={topTracks} />
+        ) : null}
       </aside>
       <style jsx>{aboutStyles}</style>
     </main>
   );
-}
+};
+
+export default memo(AboutLayout, (prevProps, nextProps) => {
+  if (nextProps.newNowPlaying && nextProps.topTracks) {
+    if (
+      prevProps.newNowPlaying !== nextProps.newNowPlaying ||
+      prevProps.topTracks !== nextProps.topTracks
+    ) {
+      return false;
+    }
+    return true;
+  }
+  return true;
+});

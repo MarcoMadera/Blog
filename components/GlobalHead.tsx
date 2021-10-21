@@ -8,15 +8,15 @@ export default function GlobalHead(): ReactElement {
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link
-        rel="preconnect dns-prefetch"
-        href="https://www.google-analytics.com"
-      />
-      <link rel="preconnect dns-prefetch" href="https://res.cloudinary.com" />
-      <link
         rel="preload"
         as="image"
         href={`${siteMetadata.siteUrl}/favicon-48x48.png`}
       />
+      <link
+        rel="preconnect dns-prefetch"
+        href="https://www.google-analytics.com"
+      />
+      <link rel="preconnect dns-prefetch" href="https://res.cloudinary.com" />
       <link rel="manifest" href={`${siteMetadata.siteUrl}/manifest.json`} />
       <link
         rel="icon"

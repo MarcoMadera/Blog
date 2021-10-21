@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ApiError } from "next/dist/server/api-utils";
+import { isValidEmail } from "utils/isValidEmail";
 
 export default async function subscribe(
   req: NextApiRequest,
@@ -8,6 +9,10 @@ export default async function subscribe(
   const { email } = req.body;
   if (!email) {
     return res.status(400).json({ error: "Se requiere un email" });
+  }
+
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: "Email invalido" });
   }
 
   try {
@@ -34,13 +39,22 @@ export default async function subscribe(
           error: "Ya estás suscrito a este newsletter",
         });
       }
+      if (text.includes("detected this email to be invalid or spammy")) {
+        return res.status(400).json({
+          error:
+            "Este email puede que sea invalido o lo has ingresado muchas veces",
+        });
+      }
 
       return res.status(400).json({
         error: "Ha ocurrido un error",
       });
     }
 
-    return res.status(201).json({ error: "" });
+    return res.status(201).json({
+      message:
+        "Revisa tu bandeja de entrada, recibirás un correo electrónico de confirmación",
+    });
   } catch (error: unknown) {
     const response = error as ApiError;
 

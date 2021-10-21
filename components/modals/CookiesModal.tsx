@@ -8,7 +8,7 @@ import useAnalitycs from "hooks/useAnalitycs";
 import useLocalStorage from "hooks/useLocalStorage";
 
 export default function CookiesModal(): ReactPortal | null {
-  const [targetNode, setTargetNode] = useState<Element>();
+  const [targetNode, setTargetNode] = useState<Element | null>();
   const { darkMode } = useDarkMode();
   const { setAcceptedCookies } = useCookies();
   const { trackWithGoogleAnalitycs } = useAnalitycs();
@@ -18,17 +18,20 @@ export default function CookiesModal(): ReactPortal | null {
   )[1];
 
   useEffect(() => {
-    setTargetNode(document.querySelector("#cookiesDialog") as Element);
+    setTargetNode(document.querySelector("#cookiesDialog"));
   }, []);
+
+  if (targetNode === null) {
+    throw new Error(
+      "CookiesModal needs a target element with id: cookiesDialog"
+    );
+  }
 
   if (targetNode === undefined) {
     return null;
   }
 
   function handleClick(change: boolean) {
-    if (!setAcceptedCookies) {
-      return;
-    }
     if (change === true) {
       trackWithGoogleAnalitycs();
       setAceptedCookiesLocalStorage("true");

@@ -12,3 +12,13 @@ export interface UserContextTypes {
   setUser: Dispatch<SetStateAction<User | undefined>>;
   isLoggedIn: boolean;
 }
+
+export interface UseUser {
+  loginUserWithGithub: () => void;
+  loginUserWithTwitter: () => void;
+  loginUserAnonymously: () => Promise<void>;
+  user: User | undefined;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
+  isLoggedIn: boolean;
+  logOutUser: () => Promise<void>;
+}

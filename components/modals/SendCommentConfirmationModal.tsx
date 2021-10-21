@@ -20,7 +20,7 @@ interface SendCommentConfirmationModalProps {
 export default function SendCommentConfirmationModal({
   sendCommentRef,
 }: SendCommentConfirmationModalProps): ReactPortal | null {
-  const [targetNode, setTargetNode] = useState<Element>();
+  const [targetNode, setTargetNode] = useState<Element | null>();
   const { darkMode } = useDarkMode();
   const { isSubmittingComment, setIsSubmittingComment } = useComments();
   const { loginUserAnonymously } = useUser();
@@ -59,13 +59,19 @@ export default function SendCommentConfirmationModal({
   );
 
   useEffect(() => {
-    setTargetNode(document.querySelector("#global") as Element);
+    setTargetNode(document.querySelector("#global"));
     document.addEventListener("keydown", onPressKey, false);
 
     return () => {
       document.removeEventListener("keydown", onPressKey, false);
     };
   }, [onPressKey]);
+
+  if (targetNode === null) {
+    throw new Error(
+      "SendCommentConfirmationModal needs a target element with id: global"
+    );
+  }
 
   if (targetNode === undefined) {
     return null;

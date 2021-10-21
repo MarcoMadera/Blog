@@ -11,6 +11,7 @@ export default function useNotification(): UseNotification {
       "useNotification must be used within a NotificationProvider"
     );
   }
+
   const { notifications, setNotifications } = context;
 
   const removeNotification: UseNotification["removeNotification"] = useCallback(

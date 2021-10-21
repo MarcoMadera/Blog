@@ -306,7 +306,7 @@ export const components:
       return replaceUrlImgTransformations(src, "c_limit");
     }
 
-    const { data } = useElementData({
+    const { data, ignore } = useElementData({
       id: node.position?.start.offset?.toString() as string,
       type: "image",
       normal: src || "",
@@ -319,6 +319,10 @@ export const components:
           : undefined,
       },
     });
+
+    if (ignore) {
+      return null;
+    }
 
     const fullImage =
       lightImage && !darkMode
