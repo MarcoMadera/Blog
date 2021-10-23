@@ -34,24 +34,24 @@ export default function useNotification(): UseNotification {
   );
 
   const addNotification: UseNotification["addNotification"] = useCallback(
-    (newNotification) => {
-      const displayTime = newNotification.displayTime ?? 10000;
+    (notification) => {
+      const displayTime = notification.displayTime ?? 10000;
 
-      const newNotificationWithId: Notification = {
-        ...newNotification,
+      const newNotification: Notification = {
+        ...notification,
         id: nanoid(),
         displayTime,
         timeOut: setTimeout(() => {
-          removeNotification(newNotificationWithId.id);
+          removeNotification(newNotification.id);
         }, displayTime),
       };
 
       setNotifications((allNotifications) => {
         if (!allNotifications.length) {
-          return [newNotificationWithId];
+          return [newNotification];
         }
 
-        return [...allNotifications, newNotificationWithId];
+        return [...allNotifications, newNotification];
       });
     },
     [setNotifications, removeNotification]

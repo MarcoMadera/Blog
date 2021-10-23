@@ -1,12 +1,16 @@
 import { useCallback, useContext } from "react";
 import CommentsContext from "context/CommentsContext";
-import { database, uploadImage } from "lib/firebase/client";
+import { database, uploadTask } from "lib/firebase/client";
 import { siteMetadata } from "site.config";
 import useNotification from "./useNotification";
 import useUser from "./useUser";
 import { useRouter } from "next/router";
 import { Comment, UseComments } from "types/comments";
-import { getDownloadURL, UploadTask } from "firebase/storage";
+import {
+  getDownloadURL,
+  UploadTask,
+  UploadTaskSnapshot,
+} from "firebase/storage";
 import {
   ref,
   onValue,
@@ -40,6 +44,8 @@ export default function useComments(): UseComments {
     setCommentCount,
   } = context;
 
+  const { commentsPerPost, siteUrl } = siteMetadata;
+
   const { addNotification } = useNotification();
   const { user } = useUser();
   const router = useRouter();
@@ -47,26 +53,26 @@ export default function useComments(): UseComments {
 
   const updateCommentCount = useCallback(() => {
     const postRef = ref(database, `post/${slug}`);
-    onValue(postRef, (snapshot) => {
-      setCommentCount(snapshot.size);
-    });
+
+    onValue(postRef, ({ size }) => setCommentCount(size));
   }, [setCommentCount, slug]);
 
-  const realtimeCommentList = useCallback(async () => {
-    const postRef = ref(database, `post/${slug}`);
+  const updateComments = useCallback(async () => {
     try {
-      const commentsQuery = query(
-        postRef,
-        limitToLast(siteMetadata.commentsPerPost * (timesLoadedComments || 0))
-      );
+      const postRef = ref(database, `post/${slug}`);
+      const maxComments = limitToLast(commentsPerPost * timesLoadedComments);
+      const commentsQuery = query(postRef, maxComments);
+
       onValue(commentsQuery, (snapshot) => {
         const comments: Comment[] = [];
+
         snapshot.forEach((snap) => {
           comments.unshift(snap.val());
         });
 
         setAllComments(comments);
       });
+
       updateCommentCount();
     } catch {
       addNotification({
@@ -76,6 +82,7 @@ export default function useComments(): UseComments {
     }
   }, [
     addNotification,
+    commentsPerPost,
     setAllComments,
     slug,
     timesLoadedComments,
@@ -83,36 +90,29 @@ export default function useComments(): UseComments {
   ]);
 
   const handleTask = useCallback(
-    ({
-      task,
-      isSendingMoreFiles,
-    }: {
-      task: UploadTask;
-      isSendingMoreFiles: boolean;
-    }) => {
-      if (task) {
-        const onProgress = () => {
-          setImgURL(null);
-        };
-        const onError = () => {
+    ({ task }: { task: UploadTask }) => {
+      function onProgress(uploadTaskSnapshot: UploadTaskSnapshot) {
+        setImgURL(null);
+        if (uploadTaskSnapshot.state === "canceled") {
           addNotification({
-            variant: "error",
-            message: "Ha ocurrido un error al intentar subir la imagen",
+            variant: "info",
+            message: "Se ha cancelado subir la imagen",
           });
-        };
-        const onComplete = () => {
-          getDownloadURL(task.snapshot.ref).then(setImgURL);
-          if (isSendingMoreFiles) {
-            addNotification({
-              variant: "info",
-              message:
-                "Solo se puede subir una imagen por comentario por este medio. Puedes usar la opción de imagen por enlace si prefieres tener más de una.",
-              displayTime: 20000,
-            });
-          }
-        };
-        task.on("state_changed", onProgress, onError, onComplete);
+        }
       }
+
+      function onError() {
+        addNotification({
+          variant: "error",
+          message: "Ha ocurrido un error al intentar subir la imagen",
+        });
+      }
+
+      function onComplete() {
+        getDownloadURL(task.snapshot.ref).then(setImgURL);
+      }
+
+      task.on("state_changed", onProgress, onError, onComplete);
     },
     [setImgURL, addNotification]
   );
@@ -120,15 +120,15 @@ export default function useComments(): UseComments {
   const createComment = useCallback(
     async (comment) => {
       const postRef = ref(database, `post/${slug}`);
+
       setIsSubmittingComment(false);
+
       try {
         const newcommentRef = await push(postRef);
         const commentId = newcommentRef.key?.toString();
-        set(ref(database, `post/${slug}/${commentId}`), {
+        const newComment = {
           username: user?.username ?? "Anónimo",
-          avatar:
-            user?.avatar ??
-            `${siteMetadata.siteUrl}/profile-placeholder_200x200.jpg`,
+          avatar: user?.avatar ?? `${siteUrl}/profile-placeholder_200x200.jpg`,
           email: user?.email ?? null,
           comment: comment.trim(),
           img: imgURL,
@@ -136,9 +136,12 @@ export default function useComments(): UseComments {
           uid: user?.uid,
           date: serverTimestamp(),
           commentId: commentId,
-        });
+        };
+
+        set(newcommentRef, newComment);
         setImgURL(null);
         setComment("");
+
         addNotification({
           variant: "success",
           message: "Comentario publicado",
@@ -151,13 +154,14 @@ export default function useComments(): UseComments {
       }
     },
     [
-      imgURL,
-      setComment,
-      setImgURL,
-      setIsSubmittingComment,
-      addNotification,
       slug,
+      setIsSubmittingComment,
       user,
+      siteUrl,
+      imgURL,
+      setImgURL,
+      setComment,
+      addNotification,
     ]
   );
 
@@ -178,7 +182,7 @@ export default function useComments(): UseComments {
     [addNotification, slug]
   );
 
-  function sendFile(files: FileList) {
+  function uploadImage(files: FileList) {
     const isSendingMoreFiles = files.length > 1;
     const image = files[0];
 
@@ -189,10 +193,12 @@ export default function useComments(): UseComments {
       });
       return;
     }
-    if (image.size > 3 * 1024 * 1024) {
+    if (isSendingMoreFiles) {
       addNotification({
         variant: "info",
-        message: "El archivo tiene que ser menor de 3mb",
+        message:
+          "Solo se puede subir una imagen por comentario. Puedes usar la opción de imagen por enlace si prefieres tener más de una.",
+        displayTime: 20000,
       });
       return;
     }
@@ -203,19 +209,26 @@ export default function useComments(): UseComments {
       });
       return;
     }
-    handleTask(uploadImage(image, user?.uid, isSendingMoreFiles));
+    if (image.size > 3 * 1024 * 1024) {
+      addNotification({
+        variant: "info",
+        message: "El archivo tiene que ser menor de 3mb",
+      });
+      return;
+    }
+    handleTask(uploadTask(image, user?.uid));
   }
 
   return {
     imgURL,
-    sendFile,
+    uploadImage,
     comment,
     setComment,
     allComments,
     commentCount,
     removeComment,
     createComment,
-    realtimeCommentList,
+    updateComments,
     isSubmittingComment,
     timesLoadedComments,
     setIsSubmittingComment,

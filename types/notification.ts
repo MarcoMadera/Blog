@@ -12,6 +12,6 @@ export interface Notification extends newNotification {
 
 export interface UseNotification {
   notifications: Notification[];
-  addNotification: (newNotification: newNotification) => void;
+  addNotification: (notification: newNotification) => void;
   removeNotification: (notificationId: Notification["id"]) => void;
 }

@@ -26,7 +26,7 @@ export default function Options({
   selectTextArea,
 }: OptionsProps): ReactElement {
   const { darkMode } = useDarkMode();
-  const { sendFile } = useComments();
+  const { uploadImage } = useComments();
 
   return (
     <div className="options__container">
@@ -61,7 +61,7 @@ export default function Options({
             onChange={(e) => {
               e.preventDefault();
               if (e.target.files) {
-                sendFile(e.target.files);
+                uploadImage(e.target.files);
               }
             }}
           />

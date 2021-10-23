@@ -35,7 +35,7 @@ export default function Comments({ slug }: { slug: string }): ReactElement {
   const { user, logOutUser, isLoggedIn } = useUser();
   const {
     comment,
-    realtimeCommentList,
+    updateComments,
     isSubmittingComment,
     setIsSubmittingComment,
     createComment,
@@ -72,8 +72,8 @@ export default function Comments({ slug }: { slug: string }): ReactElement {
 
   // update comments every time the slug changes
   useEffect(() => {
-    realtimeCommentList();
-  }, [slug, realtimeCommentList]);
+    updateComments();
+  }, [slug, updateComments]);
 
   useEffect(() => {
     if (comment && isLoggedIn && isSubmittingComment && isValidComment) {

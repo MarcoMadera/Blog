@@ -70,17 +70,15 @@ export function logOut(): Promise<void> {
   return signOut(auth);
 }
 
-export function uploadImage(
+export function uploadTask(
   file: File,
-  userId: User["uid"],
-  isSendingMoreFiles: boolean
+  userId: User["uid"]
 ): {
   task: UploadTask;
-  isSendingMoreFiles: boolean;
 } {
   const storageRef = ref(storage, `user/${userId}/${nanoid()}-${file.name}`);
   const task = uploadBytesResumable(storageRef, file);
-  return { task, isSendingMoreFiles };
+  return { task };
 }
 
 export default app;

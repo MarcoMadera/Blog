@@ -26,7 +26,7 @@ export default function TextArea({
 }: TextAreaProps): ReactElement {
   const { darkMode } = useDarkMode();
   const [drag, setDrag] = useState("");
-  const { comment, setComment, sendFile } = useComments();
+  const { comment, setComment, uploadImage } = useComments();
   // Set the cursor position after select one modified text option
   useEffect(() => {
     if (textAreaRef && textAreaRef.current) {
@@ -56,7 +56,7 @@ export default function TextArea({
         onDrop={(e) => {
           e.preventDefault();
           setDrag("Drop");
-          sendFile(e.dataTransfer.files);
+          uploadImage(e.dataTransfer.files);
         }}
         value={comment}
         ref={textAreaRef}

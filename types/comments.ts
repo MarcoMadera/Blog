@@ -30,14 +30,14 @@ export interface CommentsContext {
 
 export interface UseComments {
   imgURL: CommentsContext["imgURL"];
-  sendFile: (files: FileList) => void;
+  uploadImage: (files: FileList) => void;
   comment: CommentsContext["comment"];
   setComment: CommentsContext["setComment"];
   allComments: CommentsContext["allComments"];
   commentCount: CommentsContext["commentCount"];
   removeComment: (commentId: string) => void;
   createComment: (comment: string) => Promise<void>;
-  realtimeCommentList: () => Promise<void>;
+  updateComments: () => Promise<void>;
   isSubmittingComment: CommentsContext["isSubmittingComment"];
   timesLoadedComments: CommentsContext["timesLoadedComments"];
   setIsSubmittingComment: CommentsContext["setIsSubmittingComment"];
