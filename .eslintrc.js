@@ -9,11 +9,11 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:jest/recommended",
     "prettier",
     "next",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -56,6 +56,11 @@ module.exports = {
       rules: {
         "@typescript-eslint/explicit-module-boundary-types": [1],
       },
+    },
+    {
+      files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:testing-library/react", "plugin:jest/all"],
+      plugins: ["testing-library", "jest"],
     },
   ],
 };
