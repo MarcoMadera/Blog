@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactElement } from "react";
-import { ReactNode } from "react-markdown";
+import { ReactNode } from "react";
 
 export function H1({
   children,

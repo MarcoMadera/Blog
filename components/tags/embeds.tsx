@@ -1,7 +1,7 @@
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
-import { ReactNode } from "react-markdown";
+import { ReactNode } from "react";
 import { ReactElement } from "react";
 
 interface YoutubeProps {

@@ -32,10 +32,9 @@ import Colors from "../Colors";
 import Font from "../Font";
 import ActionButton from "../ActionButton";
 import {
-  NormalComponents,
   ReactMarkdownProps,
   SpecialComponents,
-} from "react-markdown/src/ast-to-react";
+} from "react-markdown/lib/ast-to-react";
 import {
   ReactNode,
   ReactPortal,
@@ -49,6 +48,7 @@ import {
   isImgFromCloudProvider,
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
+import { NormalComponents } from "react-markdown/lib/complex-types";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &

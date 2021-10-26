@@ -1,11 +1,17 @@
-import unified from "unified";
+import { unified } from "unified";
 import markdown from "remark-parse";
 import rehypePrism from "@mapbox/rehype-prism";
 import rehype2react from "rehype-react";
 import remark2rehype from "remark-rehype";
-import { createElement, ReactNode } from "react";
+import {
+  createElement,
+  ReactNode,
+  ReactElement,
+  JSXElementConstructor,
+} from "react";
+import { ReactMarkdownProps } from "react-markdown/lib/ast-to-react";
 
-const customClasses = {
+const customClasses: Record<string, string> = {
   atrule: "a",
   "attr-equals": "A",
   "attr-name": "b",
@@ -52,7 +58,7 @@ const customClasses = {
 export default function codeHighlighter(
   content: ReactNode[],
   language?: string
-): ReactNode[] {
+): ReactElement<unknown, string | JSXElementConstructor<unknown>> {
   const processor = unified()
     .use(markdown)
     .use(remark2rehype)
@@ -60,23 +66,27 @@ export default function codeHighlighter(
     .use(rehype2react, {
       createElement: createElement,
       components: {
-        pre: function PreformattedNode({ children }) {
-          return <>{children as ReactNode}</>;
-        },
-        code: function CodeNode({ children }) {
+        pre: function PreformattedNode(props: unknown) {
+          const { children } = props as ReactMarkdownProps;
           return <>{children}</>;
         },
-        span: function SpanNode({ className, children }) {
-          const cless = className as string;
-          const clase = cless.split(" ");
-          const allCustomClasses: Record<string, string> = customClasses;
+        code: function CodeNode(props: unknown) {
+          const { children } = props as ReactMarkdownProps;
+          return <>{children}</>;
+        },
+        span: function SpanNode(props: unknown) {
+          const { children, className } = props as {
+            children: ReactNode[];
+            className: string;
+          };
+          const classNames = className.split(" ");
           return (
             <span
               className={
-                !clase[clase.length - 1].includes("language-")
-                  ? allCustomClasses[clase[clase.length - 1]] ??
-                    clase[clase.length - 1]
-                  : clase[clase.length - 1].replace("language-", "")
+                !classNames[classNames.length - 1].includes("language-")
+                  ? customClasses[classNames[classNames.length - 1]] ??
+                    classNames[classNames.length - 1]
+                  : classNames[classNames.length - 1].replace("language-", "")
               }
             >
               {children as ReactNode}
@@ -87,5 +97,5 @@ export default function codeHighlighter(
     });
 
   const processData = processor.processSync(`~~~${language}\n${content}~~~`);
-  return processData.result as ReactNode[];
+  return processData.result;
 }

@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactElement } from "react";
-import { ReactNode } from "react-markdown/src/ast-to-react";
+import { ReactNode } from "react";
 
 interface TableProps {
   children: ReactNode;

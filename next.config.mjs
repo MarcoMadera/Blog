@@ -2,8 +2,7 @@
 /**
  * @type {import('next').NextConfig}
  **/
-
-const path = require("path");
+import { join } from "path";
 
 const nextConfig = {
   experimental: { esmExternals: true },
@@ -22,8 +21,8 @@ const nextConfig = {
     ];
   },
   webpack: (config, { isServer, dev }) => {
-    config.resolve.alias["domhandler"] = path.resolve(
-      __dirname,
+    config.resolve.alias["domhandler"] = join(
+      process.cwd(),
       "node_modules",
       "domhandler"
     );
@@ -198,4 +197,4 @@ const securityHeaders = [
   },
 ];
 
-module.exports = nextConfig;
+export default nextConfig;

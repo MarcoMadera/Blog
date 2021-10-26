@@ -2,7 +2,7 @@ import { colors } from "styles/theme";
 import { colors as codeColors } from "styles/code/colors";
 import useDarkMode from "hooks/useDarkMode";
 import { PropsWithChildren, ReactElement } from "react";
-import { ReactNode } from "react-markdown";
+import { ReactNode } from "react";
 import { noteStyles } from "../../styles/components/noteStyles";
 import { Bulb, Info, Alert, Star, Check } from "components/icons";
 
