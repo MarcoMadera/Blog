@@ -6,6 +6,7 @@ import {
   SetStateAction,
   ReactNode,
   ReactElement,
+  useEffect,
 } from "react";
 import { ToolTip } from "types/tooltip";
 
@@ -18,7 +19,7 @@ interface ToolTipContextProviderProps {
   setToolTip: Dispatch<SetStateAction<ToolTipContextProviderProps["toolTip"]>>;
   showToolTip: boolean;
   setShowToolTip: Dispatch<SetStateAction<boolean>>;
-  mouseCoords: { x: number; y: number };
+  mouseCoords: { x: number; y: number } | undefined;
   setMouseCoords: Dispatch<
     SetStateAction<ToolTipContextProviderProps["mouseCoords"]>
   >;
@@ -33,10 +34,18 @@ export function ToolTipContextProvider({
     title: "",
   });
   const [showToolTip, setShowToolTip] = useState<boolean>(false);
-  const [mouseCoords, setMouseCoords] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
+  const [mouseCoords, setMouseCoords] = useState<
+    { x: number; y: number } | undefined
+  >();
+  const [shouldRenderModal, setShouldRenderModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (toolTip.title && showToolTip && mouseCoords) {
+      setShouldRenderModal(true);
+    } else {
+      setShouldRenderModal(false);
+    }
+  }, [toolTip, showToolTip, mouseCoords]);
 
   return (
     <ToolTipContext.Provider
@@ -49,7 +58,7 @@ export function ToolTipContextProvider({
         setMouseCoords,
       }}
     >
-      <ToolTipModal />
+      {shouldRenderModal ? <ToolTipModal /> : null}
       {children}
     </ToolTipContext.Provider>
   );

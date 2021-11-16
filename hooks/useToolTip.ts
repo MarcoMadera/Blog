@@ -43,8 +43,14 @@ export default function useToolTip(): UseToolTip {
           );
           setShowToolTip(true);
         },
-        onBlur: () => setShowToolTip(false),
-        onMouseLeave: () => setShowToolTip(false),
+        onBlur: () => {
+          addToolTip({ title: "" }, undefined);
+          setShowToolTip(false);
+        },
+        onMouseLeave: () => {
+          addToolTip({ title: "" }, undefined);
+          setShowToolTip(false);
+        },
         onMouseMove: (e: MouseEvent) => {
           if (options?.hideToolTip) {
             return;
