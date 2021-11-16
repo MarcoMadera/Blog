@@ -3,23 +3,8 @@ import Link from "next/link";
 import { siteMetadata } from "site.config";
 import useDarkMode from "hooks/useDarkMode";
 import { TwitterSquare, LinkedInSquare, GithubSquare } from "./icons";
-import { PropsWithChildren, ReactElement } from "react";
-
-interface AnchorProps {
-  href: string;
-}
-
-function Anchor({
-  href,
-  children,
-  ...props
-}: PropsWithChildren<AnchorProps>): ReactElement {
-  return (
-    <a href={href} rel="noopener noreferrer" target="_blank" {...props}>
-      {children}
-    </a>
-  );
-}
+import { ReactElement } from "react";
+import { A } from "components/tags";
 
 function Footer(): ReactElement {
   const { darkMode } = useDarkMode();
@@ -50,54 +35,53 @@ function Footer(): ReactElement {
           <Link prefetch={false} href="/privacidad">
             <a>Privacidad</a>
           </Link>
-          <Anchor href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+          <A href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
             Licencia
-          </Anchor>
+          </A>
         </div>
         <div className="footer_section">
           <strong>Enlaces externos</strong>
-          <Anchor href="https://blog.marcomadera.com/">Blog</Anchor>
-          <Anchor href="https://github.com/MarcoMadera/Blog">
-            Código fuente
-          </Anchor>
-          <Anchor href="https://marcomadera.github.io/">
-            Sitio alternativo
-          </Anchor>
-          <Anchor href={`${siteMetadata.siteUrl}/rss.xml`}>RSS</Anchor>
+          <A href="https://blog.marcomadera.com/">Blog</A>
+          <A href="https://github.com/MarcoMadera/Blog">Código fuente</A>
+          <A href="https://marcomadera.github.io/">Sitio alternativo</A>
+          <A href={`${siteMetadata.siteUrl}/rss.xml`}>RSS</A>
         </div>
         <div className="footer_section ">
           <strong>Social</strong>
           <div className="footer_social">
-            <Anchor
+            <A
               href="https://twitter.com/madera_marco"
               aria-label="Visitar la página de Twitter"
+              title="Twitter"
             >
               <TwitterSquare
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
-            </Anchor>
-            <Anchor
+            </A>
+            <A
               href="https://www.linkedin.com/in/marcomadera"
               aria-label="Visitar la página de LinkedIn"
+              title="LinkedIn"
             >
               <LinkedInSquare
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
-            </Anchor>
-            <Anchor
+            </A>
+            <A
               href="https://github.com/MarcoMadera"
               aria-label="Visitar la página de Github"
+              title="Github"
             >
               <GithubSquare
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
-            </Anchor>
+            </A>
           </div>
           <div>
             <span translate="no">Marco Madera &copy; 2020 - 2021</span>

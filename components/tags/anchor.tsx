@@ -61,6 +61,7 @@ export function A({
 
 export function ALink({
   classname,
+  className,
   children,
   href,
   title,
@@ -78,7 +79,7 @@ export function ALink({
         <a
           {...getToolTipAttrbutes(title ?? href, { hideToolTip })}
           {...attribs}
-          className={classname}
+          className={classname || className}
         >
           {children}
           <style jsx>{`

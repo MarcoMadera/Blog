@@ -3,7 +3,6 @@ import ProfileCard from "./ProfileCard";
 import BlogCard from "./BlogCard";
 import { colors } from "styles/theme";
 import Custom404 from "pages/404";
-import Link from "next/link";
 import NewsletterCard from "components/Newsletter/NewsletterCard";
 import Seo from "components/Seo";
 import useDarkMode from "hooks/useDarkMode";
@@ -11,6 +10,7 @@ import { siteMetadata } from "site.config";
 import slugify from "react-slugify";
 import { HomeData } from "types/posts";
 import { ReactElement } from "react";
+import { ALink } from "components/tags";
 
 interface HomeLayoutProps extends HomeData {
   title: string;
@@ -49,24 +49,21 @@ export default function HomeLayout({
           <ol>
             {pages.map((pageNumber, i) => {
               const isCurrentPage = pageNumber === currentPage;
+              const title = isCurrentPage
+                ? "Página actual"
+                : `Ir a página ${pageNumber}`;
               return (
                 <li key={pageNumber}>
-                  <Link
+                  <ALink
+                    className={isCurrentPage ? "currentPage" : "pagination"}
                     prefetch={false}
                     href={i === 0 ? "/" : `/pagina/${pageNumber}`}
+                    aria-label={title}
+                    title={title}
+                    aria-current={isCurrentPage ? "true" : undefined}
                   >
-                    <a
-                      className={isCurrentPage ? "currentPage" : "pagination"}
-                      aria-label={
-                        isCurrentPage
-                          ? "Página actual"
-                          : `Ir a página ${pageNumber}`
-                      }
-                      aria-current={isCurrentPage ? "true" : undefined}
-                    >
-                      {pageNumber}
-                    </a>
-                  </Link>
+                    {pageNumber}
+                  </ALink>
                 </li>
               );
             })}
@@ -78,7 +75,7 @@ export default function HomeLayout({
         <NewsletterCard />
       </aside>
       <style jsx>{`
-        a {
+        nav :global(a) {
           color: ${darkMode ? colors.dark_primary : colors.primary};
         }
         nav :global(.pagination:hover) {
@@ -94,7 +91,7 @@ export default function HomeLayout({
         }
       `}</style>
       <style jsx>{`
-        a {
+        nav :global(a) {
           align-items: center;
           border-radius: 50% !important;
           display: flex;

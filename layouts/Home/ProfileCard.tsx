@@ -2,24 +2,8 @@ import { GithubSquare, LinkedInSquare, TwitterSquare } from "components/icons";
 import { siteMetadata } from "site.config";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { PropsWithChildren, ReactElement } from "react";
-
-interface AnchorProps {
-  href: string;
-  label: string;
-}
-
-function Anchor({
-  children,
-  href,
-  label,
-}: PropsWithChildren<AnchorProps>): ReactElement {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-      {children}
-    </a>
-  );
-}
+import { ReactElement } from "react";
+import { A } from "components/tags";
 
 export default function Aside(): ReactElement {
   const { social } = siteMetadata;
@@ -50,26 +34,29 @@ export default function Aside(): ReactElement {
         pasarte, cualquier cosa me puedes contactar a través de las siguientes
         redes:
       </p>
-      <Anchor
+      <A
         href={`https://github.com/${social.gitHub}`}
-        label="Página de Github"
+        aria-label="Página de Github"
+        title="Github"
       >
         <GithubSquare fill={darkMode ? colors.dark_primary : colors.primary} />
-      </Anchor>
-      <Anchor
+      </A>
+      <A
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
-        label="Página de LinkedIn"
+        aria-label="Página de LinkedIn"
+        title="LinkedIn"
       >
         <LinkedInSquare
           fill={darkMode ? colors.dark_primary : colors.primary}
         />
-      </Anchor>
-      <Anchor
+      </A>
+      <A
         href={`https://twitter.com/${social.twitter}`}
-        label="Página de Twitter"
+        aria-label="Página de Twitter"
+        title="Twitter"
       >
         <TwitterSquare fill={darkMode ? colors.dark_primary : colors.primary} />
-      </Anchor>
+      </A>
       <style jsx>{`
         aside {
           box-shadow: ${darkMode

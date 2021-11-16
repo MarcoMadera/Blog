@@ -4,6 +4,7 @@ import { siteMetadata } from "site.config";
 import { A } from "components/tags";
 import { PostWithMedia } from "types/posts";
 import { PropsWithChildren, ReactElement } from "react";
+import useToolTip from "hooks/useToolTip";
 
 interface ButtonProps {
   url: string;
@@ -15,9 +16,10 @@ function Button({
   network,
   children,
 }: PropsWithChildren<ButtonProps>): ReactElement {
+  const { getToolTipAttrbutes } = useToolTip();
   return (
     <button
-      title={`Compartir en ${network}`}
+      {...getToolTipAttrbutes(`Compartir en ${network}`)}
       onClick={() => {
         window.open(
           `${url}`,

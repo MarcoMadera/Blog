@@ -33,7 +33,7 @@ export default function ToolTipModal(): ReactPortal | null {
       showToolTip && !shouldShowToolTip
         ? setTimeout(() => {
             setCoords(mouseCoords);
-            const toolTipWitdh = toolTipRef.current?.getClientRects()[0].width;
+            const toolTipWitdh = toolTipRef.current?.getClientRects()[0]?.width;
             if (
               toolTipWitdh &&
               coords.x &&
