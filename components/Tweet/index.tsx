@@ -10,6 +10,7 @@ import QuotedTweet from "./QuotedTweet";
 import RepliedTweet from "./RepliedTweet";
 import { ReactElement, ReactNode } from "react";
 import useElementData from "hooks/useElementData";
+import useToolTip from "hooks/useToolTip";
 
 interface TweetProps {
   id: string;
@@ -23,6 +24,7 @@ export default function Tweet({
   hideConversation,
 }: TweetProps): ReactElement | null {
   const { darkMode } = useDarkMode();
+  const { getToolTipAttrbutes } = useToolTip();
   const { data, ignore } = useElementData({
     type: "tweet",
     id: id,
@@ -56,7 +58,11 @@ export default function Tweet({
           rel="noopener noreferrer"
           aria-label="Ver en Twitter"
         >
-          <div className="icon-twitter" title="Ver en Twitter" role="img" />
+          <div
+            className="icon-twitter"
+            {...getToolTipAttrbutes("Ver en Twitter")}
+            role="img"
+          />
         </a>
         {data.repliedTweet ? <RepliedTweet data={data.repliedTweet} /> : null}
         <div>

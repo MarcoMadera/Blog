@@ -5,6 +5,7 @@ import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
 import { Tweet, User } from "types/tweet";
 import { ReactElement } from "react";
+import { A } from "components/tags";
 
 interface TweetActionProps {
   name: User["name"];
@@ -29,24 +30,28 @@ export default function TweetAction({
   return (
     <>
       {isConversation ? (
-        <a
+        <A
           href={tweetUrl}
           title="Ver la conversación en Twitter"
           target="_blank"
           rel="noopener noreferrer"
+          className="tweetActionA"
+          textColor={tweets.linkColor}
         >
           <div className="icon icon-reply" />
           <span className="text">
             {count && formatNumber(count)} personas están hablando de esto
           </span>
           <div className="icon icon-chevron" />
-        </a>
+        </A>
       ) : (
-        <a
+        <A
           href={userUrl}
           title={`Ver el perfil de ${name} en Twitter`}
           target="_blank"
           rel="noopener noreferrer"
+          className="tweetActionA"
+          textColor={tweets.linkColor}
         >
           <div className="icon icon-profile" />
           <span className="text">
@@ -56,13 +61,11 @@ export default function TweetAction({
             )}
           </span>
           <div className="icon icon-chevron" />
-        </a>
+        </A>
       )}
-
       <style jsx>{`
-        a {
+        :global(.tweetActionA) {
           display: flex;
-          color: ${tweets.tweetLinkColor};
           font-size: 0.875rem;
           align-items: center;
           padding: 0.625rem 15px;
@@ -70,13 +73,15 @@ export default function TweetAction({
           border-top: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
         }
         @media (any-hover: hover) {
-          a:hover {
+          :global(.tweetActionA:hover),
+          :global(.tweetActionA:focus) {
             color: ${tweets.tweetLinkColorHover};
             border-top: ${darkMode
               ? "1px solid #536673"
               : tweets.tweetBorderHover};
+            text-decoration: none;
           }
-          a:hover > .icon-reply {
+          :global(.tweetActionA:hover > .icon-reply) {
             background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20class%3D%22icon%22%20fill%3D%22%233b94d9%22%20d%3D%22M14.046%202.242l-4.148-.01h-.002c-4.374%200-7.8%203.427-7.8%207.802%200%204.098%203.186%207.206%207.465%207.37v3.828c0%20.108.045.286.12.403.143.225.385.347.633.347.138%200%20.277-.038.402-.118.264-.168%206.473-4.14%208.088-5.506%201.902-1.61%203.04-3.97%203.043-6.312v-.017c-.006-4.368-3.43-7.788-7.8-7.79zm3.787%2012.972c-1.134.96-4.862%203.405-6.772%204.643V16.67c0-.414-.334-.75-.75-.75h-.395c-3.66%200-6.318-2.476-6.318-5.886%200-3.534%202.768-6.302%206.3-6.302l4.147.01h.002c3.532%200%206.3%202.766%206.302%206.296-.003%201.91-.942%203.844-2.514%205.176z%22%2F%3E%3C%2Fsvg%3E);
           }
         }
@@ -95,6 +100,7 @@ export default function TweetAction({
         }
         .text {
           margin-left: 0.25rem;
+          color: ${tweets.linkColor};
         }
       `}</style>
     </>

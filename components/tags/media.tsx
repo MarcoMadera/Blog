@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import useDarkMode from "hooks/useDarkMode";
 import ViewFullImageModal from "../modals/ViewFullImageModal";
 import { ReactElement, useRef, useState } from "react";
@@ -8,6 +8,7 @@ import {
   isImgFromCloudProvider,
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
+import useToolTip from "hooks/useToolTip";
 
 interface ImgProps {
   src?: string;
@@ -29,7 +30,7 @@ export function Img({
   fullImage,
 }: ImgProps): ReactElement | null {
   const [openModal, setOpenModal] = useState(false);
-
+  const { getToolTipAttrbutes, addToolTip, setShowToolTip } = useToolTip();
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   if (!src) {
@@ -61,8 +62,47 @@ export function Img({
     return replaceUrlImgTransformations(src, `c_limit,w_${width}`);
   }
 
+  const imageProps: ImageProps = {
+    alt,
+    src: src,
+  };
+
+  if (blurDataURL) {
+    imageProps.loader = imageLoader;
+    imageProps.placeholder = "blur";
+    imageProps.layout = "intrinsic";
+    imageProps.blurDataURL = blurDataURL;
+    imageProps.width = width;
+    imageProps.height = height;
+  }
+
+  if (width && height && !blurDataURL) {
+    imageProps.layout = "intrinsic";
+    imageProps.width = width;
+    imageProps.height = height;
+  }
+
+  if (!width && !height && !blurDataURL) {
+    imageProps.layout = "fill";
+    imageProps.objectFit = "cover";
+    imageProps.unoptimized = true;
+    imageProps.loader = ({ src }) => src;
+  }
+
   return (
-    <details>
+    <details
+      onFocus={(e) => {
+        setShowToolTip(true);
+        addToolTip(
+          { title: title || alt },
+          {
+            x: e.target.getClientRects()[0].left,
+            y: e.target.getClientRects()[0].top,
+          }
+        );
+      }}
+      onBlur={() => setShowToolTip(false)}
+    >
       <summary
         ref={detailsRef}
         tabIndex={0}
@@ -80,47 +120,16 @@ export function Img({
       >
         {" "}
         {isFromCloudProvider ? (
-          blurDataURL ? (
-            <Image
-              alt={alt}
-              loader={imageLoader}
-              title={title || alt}
-              src={src}
-              placeholder="blur"
-              layout="intrinsic"
-              blurDataURL={blurDataURL}
-              width={width}
-              height={height}
-            />
-          ) : width && height ? (
-            <Image
-              alt={alt}
-              loader={imageLoader}
-              title={title || alt}
-              src={src}
-              layout="intrinsic"
-              width={width}
-              height={height}
-            />
-          ) : (
-            <Image
-              alt={alt}
-              loader={({ src }) => src}
-              title={title || alt}
-              src={src}
-              layout="fill"
-              objectFit="cover"
-              unoptimized={true}
-            />
-          )
+          // eslint-disable-next-line jsx-a11y/alt-text
+          <Image {...imageProps} {...getToolTipAttrbutes(title || alt)} />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             alt={alt}
             src={src}
-            title={title ?? alt}
             height={height}
             width={width}
+            {...getToolTipAttrbutes(title || alt)}
           />
         )}
       </summary>
@@ -233,10 +242,15 @@ export function Video({
   ...attribs
 }: VideoProps): ReactElement {
   const { darkMode } = useDarkMode();
+  const { getToolTipAttrbutes } = useToolTip();
 
   return (
     // eslint-disable-next-line jsx-a11y/media-has-caption
-    <video src={src ?? (darkMode ? dark : light)} title={title} {...attribs}>
+    <video
+      src={src ?? (darkMode ? dark : light)}
+      {...getToolTipAttrbutes(title ?? "")}
+      {...attribs}
+    >
       Tu navegador no soporta videos
       <style jsx>{`
         video {

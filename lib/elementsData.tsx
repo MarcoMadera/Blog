@@ -13,6 +13,7 @@ import {
 import getTweetData from "utils/getTweetData";
 import codeHighlighter from "utils/codeHighlighter";
 import { DarkModeContextProvider } from "context/DarkModeContext";
+import { ToolTipContextProvider } from "context/ToolTipContext";
 
 export default async function getElementsData(
   content: string
@@ -26,9 +27,11 @@ export default async function getElementsData(
   // Render the page once to populate `ids`
   ReactDOMServer.renderToString(
     <DarkModeContextProvider>
-      <DataMapContextProvider addElement={addElement}>
-        <Markdown source={content} html={true} />
-      </DataMapContextProvider>
+      <ToolTipContextProvider>
+        <DataMapContextProvider addElement={addElement}>
+          <Markdown source={content} html={true} />
+        </DataMapContextProvider>
+      </ToolTipContextProvider>
     </DarkModeContextProvider>
   );
 

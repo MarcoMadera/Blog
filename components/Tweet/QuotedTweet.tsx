@@ -6,6 +6,7 @@ import { TweetPoll } from "./Poll";
 import { TweetData } from "types/tweet";
 import { ReactElement } from "react";
 import TweetHeaderInfo from "./TweetHeaderInfo";
+import useToolTip from "hooks/useToolTip";
 
 interface QuotedTweetProps {
   data: TweetData;
@@ -15,6 +16,7 @@ export default function QuotedTweet({
   data,
 }: QuotedTweetProps): ReactElement | null {
   const { darkMode } = useDarkMode();
+  const { getToolTipAttrbutes } = useToolTip();
   const user = data.user?.[0];
 
   if (!user) {
@@ -33,9 +35,9 @@ export default function QuotedTweet({
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              title={user.name}
               src={user.profile_image_url}
               alt={user.name}
+              {...getToolTipAttrbutes(user.name)}
               onError={(e) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src = `https://res.cloudinary.com/demo/image/twitter/w_19,h_19/${user.id}.jpg`;

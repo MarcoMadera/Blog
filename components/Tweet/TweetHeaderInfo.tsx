@@ -3,6 +3,7 @@ import { tweets } from "styles/theme";
 import { ReactElement } from "react";
 import { User } from "types/tweet";
 import TweetCreatedAt from "./TweetCreatedAt";
+import useToolTip from "hooks/useToolTip";
 
 export default function TweetHeaderInfo({
   user,
@@ -12,16 +13,20 @@ export default function TweetHeaderInfo({
   created_at: string;
 }): ReactElement {
   const { darkMode } = useDarkMode();
+  const { getToolTipAttrbutes } = useToolTip();
+
   return (
     <div className="infoContainer">
-      <span className="name" title={user.name}>
+      <span className="name" {...getToolTipAttrbutes(user.name)}>
         {user.name}
       </span>
       {user.verified ? (
         <span title="Cuenta verificada" className="verified"></span>
       ) : null}
-      <span className="username" title={`@${user.username}`}>
+      <span className="username" {...getToolTipAttrbutes(`@${user.username}`)}>
         @{user.username} &middot;{" "}
+      </span>
+      <span className="username date">
         <TweetCreatedAt created_at={created_at} variant="short" />
       </span>
       <style jsx>{`
@@ -37,6 +42,7 @@ export default function TweetHeaderInfo({
         }
         .name {
           font-weight: 700;
+          margin-right: 6px;
         }
         .verified {
           display: inline-flex;
@@ -54,8 +60,10 @@ export default function TweetHeaderInfo({
           margin-left: 6px;
         }
         .username {
-          margin: 0 6px;
           color: ${tweets.tweetColorGray};
+        }
+        .date {
+          margin-right: 6px;
         }
       `}</style>
     </div>

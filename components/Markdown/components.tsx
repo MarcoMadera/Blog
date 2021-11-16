@@ -49,6 +49,7 @@ import {
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
 import { NormalComponents } from "react-markdown/lib/complex-types";
+import { convertInlineStylesToObject, convertParamsToObject } from "utils";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &
@@ -88,27 +89,22 @@ export const components:
       tags: ["dfn", "abbr", "i", "em", "code", "a", "strong", "delete"],
     };
     const style = node.properties?.style as string;
-    const child = node.children[0] as unknown as Element;
+    const child = node.children[0] as Element;
     const tagName = child?.tagName as string;
+    const shouldBeInParagraph =
+      allowedChildren.tags.includes(tagName) ||
+      node.children[0].type === "text";
+    const { data, ...properties } = node.properties as Element["properties"] & {
+      data: string;
+    };
 
-    const camelize = (string: string) =>
-      string.replace(/-([a-z])/gi, (_, group) => group.toUpperCase());
+    const dataObject = convertParamsToObject(data);
 
-    return allowedChildren.tags.includes(tagName) ||
-      node.children[0].type === "text" ? (
+    return shouldBeInParagraph ? (
       <p
-        style={
-          style
-            ? style
-                .split(";")
-                .filter((s) => s.length)
-                .reduce((a: Record<string, string>, b) => {
-                  const keyValue = b.split(":");
-                  a[camelize(keyValue[0])] = keyValue[1];
-                  return a;
-                }, {})
-            : undefined
-        }
+        {...properties}
+        {...dataObject}
+        style={style ? convertInlineStylesToObject(style) : undefined}
       >
         {children}
       </p>
@@ -330,10 +326,13 @@ export const components:
         : data?.fullImg.darkImage;
 
     const classNames = node.properties?.className as string[];
+    const properties = node.properties as Element["properties"];
 
-    if (classNames?.includes("twemoji")) {
+    const shouldIgnore = classNames?.includes("twemoji");
+
+    if (shouldIgnore) {
       // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-      return <img {...node.properties} />;
+      return <img {...properties} />;
     }
     if (node.properties?.caption) {
       return (

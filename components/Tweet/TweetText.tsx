@@ -2,7 +2,7 @@ import reactStringReplace from "react-string-replace";
 import { TwitterLink } from "./TwitterLink";
 import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
-import { Tweet } from "types/tweet";
+import { Tweet, TwitterLinkType } from "types/tweet";
 import { ReactElement } from "react";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
@@ -53,7 +53,11 @@ export default function TweetText({
 
   // Match @-mentions
   replacedText = reactStringReplace(replacedText, /@(\w+)/g, (match, i) => (
-    <TwitterLink key={match + i} href={`https://twitter.com/${match}`} type="@">
+    <TwitterLink
+      key={match + i}
+      href={`https://twitter.com/${match}`}
+      type={TwitterLinkType.MENTION}
+    >
       {match}
     </TwitterLink>
   ));
@@ -63,7 +67,7 @@ export default function TweetText({
     <TwitterLink
       key={match + i}
       href={`https://twitter.com/search?q=%24${match}`}
-      type="$"
+      type={TwitterLinkType.CASHTAG}
     >
       {match}
     </TwitterLink>
@@ -74,7 +78,7 @@ export default function TweetText({
     <TwitterLink
       key={match + i}
       href={`https://twitter.com/hashtag/${match}`}
-      type="#"
+      type={TwitterLinkType.HASHTAG}
     >
       {match}
     </TwitterLink>

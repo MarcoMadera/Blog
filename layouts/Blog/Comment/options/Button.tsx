@@ -1,6 +1,7 @@
 import useComments from "hooks/useComments";
 import useNotification from "hooks/useNotification";
-import {
+import useToolTip from "hooks/useToolTip";
+import React, {
   Dispatch,
   MouseEvent,
   PropsWithChildren,
@@ -32,6 +33,7 @@ export default function Button({
 }: PropsWithChildren<ButtonProps>): ReactElement {
   const { addNotification } = useNotification();
   const { setComment } = useComments();
+  const { getToolTipAttrbutes } = useToolTip();
 
   function calculateCaret(initial: number, textbetweenTag: string) {
     if (mark) {
@@ -146,7 +148,10 @@ export default function Button({
   }
 
   return (
-    <button onClick={(e) => modifiedTextWithTag(e)} title={name}>
+    <button
+      onClick={(e) => modifiedTextWithTag(e)}
+      {...getToolTipAttrbutes(name)}
+    >
       <span aria-hidden="true">{children}</span>
       <style jsx>{`
         button {

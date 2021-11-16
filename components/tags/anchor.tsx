@@ -1,14 +1,18 @@
-import { colors } from "styles/theme";
 import Link, { LinkProps } from "next/link";
-import useDarkMode from "hooks/useDarkMode";
 import css from "styled-jsx/css";
-import { PropsWithChildren, ReactElement } from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
+import useToolTip from "hooks/useToolTip";
+import useDarkMode from "hooks/useDarkMode";
+import { colors } from "styles/theme";
 
 interface AProps {
   href: string;
+  hideToolTip?: boolean;
   classname?: string;
+  className?: string;
   title?: string;
   target?: string;
+  textColor?: string;
   rel?: string;
 }
 
@@ -26,31 +30,31 @@ export const anchorStyle = css`
 
 export function A({
   classname,
+  className,
   children,
   href,
   title,
+  hideToolTip,
+  textColor,
   ...attribs
 }: PropsWithChildren<AProps>): ReactElement {
+  const { getToolTipAttrbutes } = useToolTip();
   const { darkMode } = useDarkMode();
 
   return (
     <a
-      className={classname}
+      className={classname ?? className}
       href={href}
-      title={title === "" ? undefined : title ?? href}
+      {...getToolTipAttrbutes(title ?? href, { hideToolTip })}
       {...attribs}
     >
       {children}
       <style jsx>{`
         a {
-          color: ${darkMode ? colors.dark_primary : colors.primary};
-        }
-        a:hover,
-        a:focus {
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
+          color: ${textColor ??
+          (darkMode ? colors.dark_primary : colors.primary)};
         }
       `}</style>
-      <style jsx>{anchorStyle}</style>
     </a>
   );
 }
@@ -60,32 +64,31 @@ export function ALink({
   children,
   href,
   title,
+  hideToolTip,
   prefetch,
+  textColor,
   ...attribs
 }: PropsWithChildren<AProps & LinkProps>): ReactElement {
+  const { getToolTipAttrbutes } = useToolTip();
   const { darkMode } = useDarkMode();
 
   return (
     <>
       <Link href={href} prefetch={prefetch}>
         <a
-          title={title === "" ? undefined : title ?? href}
+          {...getToolTipAttrbutes(title ?? href, { hideToolTip })}
           {...attribs}
           className={classname}
         >
           {children}
+          <style jsx>{`
+            a {
+              color: ${textColor ??
+              (darkMode ? colors.dark_primary : colors.primary)};
+            }
+          `}</style>
         </a>
       </Link>
-      <style jsx>{`
-        a {
-          color: ${darkMode ? colors.dark_primary : colors.primary};
-        }
-        a:focus,
-        a:hover {
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
-        }
-      `}</style>
-      <style jsx>{anchorStyle}</style>
     </>
   );
 }

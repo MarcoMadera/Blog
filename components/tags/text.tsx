@@ -1,10 +1,10 @@
 import { colors } from "styles/theme";
 import { colors as codeColors } from "styles/code/colors";
 import useDarkMode from "hooks/useDarkMode";
-import { PropsWithChildren, ReactElement } from "react";
-import { ReactNode } from "react";
+import { PropsWithChildren, ReactElement, ReactNode } from "react";
 import { noteStyles } from "../../styles/components/noteStyles";
 import { Bulb, Info, Alert, Star, Check } from "components/icons";
+import useToolTip from "hooks/useToolTip";
 
 interface Text {
   children: ReactNode;
@@ -14,11 +14,12 @@ interface AbbrProps extends Text {
   title?: string;
 }
 
-export function Abbr({ children, ...attribs }: AbbrProps): ReactElement {
+export function Abbr({ children, title, ...attribs }: AbbrProps): ReactElement {
   const { darkMode } = useDarkMode();
+  const { getToolTipAttrbutes } = useToolTip();
 
   return (
-    <abbr {...attribs}>
+    <abbr {...getToolTipAttrbutes(title ?? "")} {...attribs}>
       {children}
       <style jsx>{`
         abbr:after {
@@ -42,7 +43,7 @@ export function Abbr({ children, ...attribs }: AbbrProps): ReactElement {
         @media print {
           abbr:after {
             border: none;
-            content: " (" attr(title) ") ";
+            content: " (" attr(${title}) ") ";
             position: unset;
           }
         }

@@ -5,7 +5,6 @@ import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import CookiesModal from "./modals/CookiesModal";
 import useCookies from "hooks/useCookies";
-import NotificationsModal from "./modals/NotificationsModal";
 import useRouterEvents from "hooks/useRouterEvents";
 import useLocalStorageState from "hooks/useLocalStorageState";
 
@@ -23,7 +22,6 @@ export default function Layout({
   return (
     <>
       <a href="#main">Saltar al contenido</a>
-      <NotificationsModal />
       <Navbar />
       {children}
       <Footer />

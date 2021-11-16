@@ -1,13 +1,14 @@
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { memo, ReactElement } from "react";
+import React, { memo, ReactElement } from "react";
 import { SongData } from "types/spotify";
+import { A } from "components/tags";
 
 function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
   const { darkMode } = useDarkMode();
   return (
     <article>
-      <a
+      <A
         href={songUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -25,20 +26,20 @@ function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
           <h2>{title}</h2>
           <p>{artist}</p>
         </div>
-      </a>
+      </A>
       <style jsx>{`
-        a {
+        article :global(a) {
           border: 1px solid ${darkMode ? "#cccccc75" : colors.accents1};
           background: ${darkMode ? colors.dark_accents3 : colors.accents3};
         }
-        a:hover,
-        a:focus-within {
+        article :global(a:hover),
+        article :global(a:focus-within) {
           box-shadow: 0px 0px 4px 0px
             ${darkMode ? "rgba(200, 200, 200, 0.30)" : "rgba(84, 84, 84, 0.15)"};
         }
       `}</style>
       <style jsx>{`
-        a {
+        article :global(a) {
           align-items: center;
           border-radius: 3px;
           color: inherit;
@@ -46,6 +47,11 @@ function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
           margin-bottom: 10px;
           padding: 5px;
           text-decoration: none;
+        }
+        article :global(a:hover),
+        article :global(a:focus) {
+          text-decoration: none;
+          color: inherit;
         }
         div {
           max-width: calc(100vw - 120px);

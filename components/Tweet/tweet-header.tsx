@@ -4,6 +4,8 @@ import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
 import { User } from "types/tweet";
 import { ReactElement } from "react";
+import { A } from "components/tags";
+import useToolTip from "hooks/useToolTip";
 
 interface TweetHeaderProps {
   name: User["name"];
@@ -21,15 +23,17 @@ export default function TweetHeader({
   userId,
 }: TweetHeaderProps): ReactElement {
   const { darkMode } = useDarkMode();
+  const { getToolTipAttrbutes } = useToolTip();
   const url = `https://twitter.com/${username}`;
   const htmlToReactParser = HtmlToReact.Parser();
 
   return (
     <div className="header">
-      <a
+      <A
         href={url}
         className="avatar"
         target="_blank"
+        title={`${name} (@${username})`}
         rel="noopener noreferrer"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -38,20 +42,20 @@ export default function TweetHeader({
           height={48}
           src={profile_image_url}
           alt={name}
-          title={name}
           onError={(e) => {
             e.currentTarget.onerror = null;
             e.currentTarget.src = `https://res.cloudinary.com/demo/image/twitter/w_48,h_48/${userId}.jpg`;
           }}
         />
-      </a>
-      <a
+      </A>
+      <A
         href={url}
         className="author"
         target="_blank"
         rel="noopener noreferrer"
+        hideToolTip
       >
-        <span className="name" title={name}>
+        <span className="name" {...getToolTipAttrbutes(name)}>
           {htmlToReactParser.parse(
             twemoji.parse(name, { className: "twemoji" })
           )}{" "}
@@ -59,11 +63,10 @@ export default function TweetHeader({
             <span className="verified" title="Cuenta verificada"></span>
           ) : null}
         </span>
-        <span className="username" title={`@${username}`}>
+        <span className="username" {...getToolTipAttrbutes(`@${username}`)}>
           @{username}
         </span>
-      </a>
-
+      </A>
       <style jsx>{`
         .header {
           display: flex;
@@ -88,20 +91,20 @@ export default function TweetHeader({
           margin-left: 3px;
           background-repeat: no-repeat;
         }
-        .avatar {
+        .header :global(.avatar) {
           height: 48px;
           width: 48px;
           min-width: 48px;
           min-height: 48px;
           margin-right: 0.625rem;
         }
-        .avatar > img {
+        .header :global(.avatar > img) {
           max-width: 100%;
           max-height: 100%;
           border-radius: 50%;
           display: inherit;
         }
-        .author {
+        .header :global(.author) {
           display: flex;
           flex-direction: column;
           text-decoration: none;
@@ -109,7 +112,7 @@ export default function TweetHeader({
           justify-content: center;
         }
         @media (any-hover: hover) {
-          .author:hover {
+          .header :global(.author:hover) {
             color: ${tweets.tweetLinkColorHover};
           }
         }

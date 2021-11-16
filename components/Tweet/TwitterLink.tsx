@@ -1,10 +1,12 @@
 import { tweets } from "styles/theme";
 import { PropsWithChildren, ReactElement } from "react";
+import { A } from "components/tags";
+import { TwitterLinkType } from "types/tweet";
 
 interface TwitterLinkProps {
   href: string;
   title?: string;
-  type?: "#" | "@" | "$";
+  type?: TwitterLinkType;
 }
 
 export const TwitterLink = ({
@@ -18,24 +20,14 @@ export const TwitterLink = ({
   }
 
   return (
-    <a
+    <A
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       title={title || type ? undefined : href}
+      textColor={tweets.linkColor}
     >
       {`${type ? `${type}${children}` : children}`}
-      <style jsx>{`
-        a {
-          color: ${tweets.linkColor};
-          text-decoration: none;
-          line-break: anywhere;
-        }
-        a:hover,
-        a:focus {
-          text-decoration: underline;
-        }
-      `}</style>
-    </a>
+    </A>
   );
 };

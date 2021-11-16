@@ -7,11 +7,12 @@ import {
   useRef,
   useState,
 } from "react";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import { ImgData } from "types/posts";
 import { getClientSize } from "utils";
 import useLockBodyScroll from "hooks/useLockBodyScroll";
 import { replaceUrlImgTransformations } from "utils/cloudProvider";
+import useToolTip from "hooks/useToolTip";
 
 interface ViewImageProps {
   openModal: boolean;
@@ -42,6 +43,7 @@ export default function ViewFullImageModal({
 }: ViewImageProps): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element | null>();
   const exitButtonRef = useRef<HTMLButtonElement>(null);
+  const { addToolTip, setShowToolTip, getToolTipAttrbutes } = useToolTip();
   useLockBodyScroll();
 
   const onPressKey = useCallback(
@@ -99,6 +101,19 @@ export default function ViewFullImageModal({
     return replaceUrlImgTransformations(src, `c_limit,w_${width}`);
   }
 
+  const imageProps: ImageProps = {
+    alt,
+    layout: "fill",
+    objectFit: "scale-down",
+    src: fullImage?.img.src || src,
+  };
+
+  if (fullImage?.base64 || blurDataURL) {
+    imageProps.placeholder = "blur";
+    imageProps.loader = myLoader;
+    imageProps.blurDataURL = fullImage?.base64 ?? blurDataURL;
+  }
+
   return createPortal(
     <div className="bgcontainer">
       <div
@@ -119,26 +134,18 @@ export default function ViewFullImageModal({
       >
         <div className="imageContainer">
           {isFromCloudProvider ? (
-            fullImage?.base64 || blurDataURL ? (
-              <Image
-                alt={alt}
-                placeholder="blur"
-                loader={myLoader}
-                blurDataURL={fullImage?.base64 ?? blurDataURL}
-                layout="fill"
-                objectFit="scale-down"
-                src={fullImage?.img.src || src}
-                title={title || alt}
-              />
-            ) : (
-              <Image
-                alt={alt}
-                layout="fill"
-                objectFit="scale-down"
-                src={fullImage?.img.src || src}
-                title={title || alt}
-              />
-            )
+            // eslint-disable-next-line jsx-a11y/alt-text
+            <Image
+              {...imageProps}
+              onMouseEnter={() => setShowToolTip(true)}
+              onMouseLeave={() => setShowToolTip(false)}
+              onMouseMove={(e) =>
+                addToolTip(
+                  { title: title || alt },
+                  { x: e.clientX, y: e.clientY }
+                )
+              }
+            />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -146,7 +153,14 @@ export default function ViewFullImageModal({
               src={fullImage?.img.src || src}
               width={width ? width : undefined}
               height={height ? height : undefined}
-              title={title || alt}
+              onMouseEnter={() => setShowToolTip(true)}
+              onMouseLeave={() => setShowToolTip(false)}
+              onMouseMove={(e) =>
+                addToolTip(
+                  { title: title || alt },
+                  { x: e.clientX, y: e.clientY }
+                )
+              }
             />
           )}
         </div>
@@ -158,6 +172,7 @@ export default function ViewFullImageModal({
             exitModal();
             detailsRef.current?.focus();
           }}
+          {...getToolTipAttrbutes("Cerrar")}
         ></button>
       </div>
       <style jsx>{`

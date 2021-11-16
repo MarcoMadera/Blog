@@ -149,7 +149,7 @@ const nextConfig = {
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.google.com *.vimeo.com *.youtube.com *.firebaseio.com *.twitter.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.google.com *.vimeo.com *.youtube.com *.firebaseio.com *.twitter.com *.jsdelivr.net;
   child-src *.youtube-nocookie.com *.google.com *.vimeo.com *.twitter.com *.bitsofco.de *.firebaseio.com *.firebaseapp.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com *.vimeo.com;
   img-src * blob: data:;

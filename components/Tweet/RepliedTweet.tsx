@@ -7,6 +7,7 @@ import QuotedTweet from "./QuotedTweet";
 import { TweetData } from "types/tweet";
 import React, { ReactElement } from "react";
 import TweetHeaderInfo from "./TweetHeaderInfo";
+import { A } from "components/tags";
 
 interface RepliedTweetProps {
   data: TweetData;
@@ -31,15 +32,15 @@ export default function RepliedTweet({
       {data.repliedTweet ? <RepliedTweet data={data.repliedTweet} /> : null}
       <div className="tweet">
         <div>
-          <a
+          <A
             href={userprofile}
             className="referenced_avatar"
             target="_blank"
             rel="noopener noreferrer"
+            title={user.name}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              title={user.name}
               src={user.profile_image_url}
               alt={user.name}
               width="48"
@@ -49,24 +50,25 @@ export default function RepliedTweet({
                 e.currentTarget.src = `https://res.cloudinary.com/demo/image/twitter/w_48,h_48/${user.id}.jpg`;
               }}
             />
-          </a>
+          </A>
           <span className="line"></span>
         </div>
         <div className="repliedTweet">
-          <a
+          <A
             href={`https://twitter.com/${user.username}`}
             target="_blank"
             rel="noopener noreferrer"
             className="header"
+            hideToolTip={true}
           >
             <TweetHeaderInfo created_at={data.tweet.created_at} user={user} />
-          </a>
+          </A>
           <TweetText text={data.tweet.text} entities={data.tweet.entities} />
           {data.poll ? <TweetPoll poll={data.poll} /> : null}
           {data.media ? <TweetMedia data={data.media} quoted={true} /> : null}
           {data.quotedTweet ? <QuotedTweet data={data.quotedTweet} /> : null}
           <div className="info">
-            <a
+            <A
               className="reply_count"
               href={replyUrl}
               title="Comentar"
@@ -86,8 +88,8 @@ export default function RepliedTweet({
                   {formatNumber(data.tweet.public_metrics.reply_count)}
                 </span>
               )}
-            </a>
-            <a
+            </A>
+            <A
               className="like"
               href={likeUrl}
               title="Me gusta"
@@ -107,8 +109,8 @@ export default function RepliedTweet({
                   {formatNumber(data.tweet.public_metrics.like_count)}
                 </span>
               )}
-            </a>
-            <a
+            </A>
+            <A
               className="retweet"
               href={retweetUrl}
               title="Retweet"
@@ -128,12 +130,13 @@ export default function RepliedTweet({
                   {formatNumber(data.tweet.public_metrics.retweet_count)}
                 </span>
               )}
-            </a>
+            </A>
           </div>
         </div>
       </div>
       <style jsx>{`
-        a {
+        .tweet :global(.header),
+        .info :global(a) {
           text-decoration: none;
         }
         .referenced_avatar {
@@ -154,41 +157,41 @@ export default function RepliedTweet({
           flex-wrap: wrap;
           margin: 10px 0 3px 0;
         }
-        .like,
-        .reply_count,
-        .retweet {
+        .info :global(.like),
+        .info :global(.reply_count),
+        .info :global(.retweet) {
           display: flex;
           color: ${tweets.tweetColorGray};
           margin-right: 0.75rem;
         }
-        .reply_count:visited,
-        .like:visited,
-        .retweet:visited {
+        .info :global(.like:visited),
+        .info :global(.reply_count:visited),
+        .info :global(.retweet:visited) {
           color: ${tweets.tweetLinkColor};
         }
         @media (any-hover: hover) {
-          .like:hover,
-          .like:focus {
+          .info :global(.like:hover),
+          .info :global(.like:focus) {
             color: ${tweets.tweetColorRed};
           }
-          .like:hover .icon-heart,
-          .like:focus .icon-heart {
+          .info :global(.like:hover .icon-heart),
+          .info :global(.like:focus .icon-heart) {
             background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20class%3D%22icon%22%20fill%3D%22%23E0245E%22%20d%3D%22M12%2021.638h-.014C9.403%2021.59%201.95%2014.856%201.95%208.478c0-3.064%202.525-5.754%205.403-5.754%202.29%200%203.83%201.58%204.646%202.73.813-1.148%202.353-2.73%204.644-2.73%202.88%200%205.404%202.69%205.404%205.755%200%206.375-7.454%2013.11-10.037%2013.156H12zM7.354%204.225c-2.08%200-3.903%201.988-3.903%204.255%200%205.74%207.035%2011.596%208.55%2011.658%201.52-.062%208.55-5.917%208.55-11.658%200-2.267-1.822-4.255-3.902-4.255-2.528%200-3.94%202.936-3.952%202.965-.23.562-1.156.562-1.387%200-.015-.03-1.426-2.965-3.955-2.965z%22%2F%3E%3C%2Fsvg%3E);
           }
-          .retweet:hover,
-          .retweet:focus {
+          .info :global(.retweet:hover),
+          .info :global(.retweet:focus) {
             color: ${tweets.tweetColorGreen};
           }
-          .retweet:hover .icon-retweet,
-          .retweet:focus .icon-retweet {
+          .info :global(.retweet:hover .icon-retweet),
+          .info :global(.retweet:focus .icon-retweet) {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs/%3E%3Cpath fill='%23169B56' d='M232.9 827.2l92.8 92.8c16 16 16 42 0 58s-42 16-58 0L104.1 814.2c-16-16-16-42 0-58l163.6-163.4c16-16 42-16 58 0s16 42 0 58l-94.4 94.4h547.1c22.7 0 41-18.3 41-41V541.6c0-22.7 18.3-41 41-41s41 18.3 41 41v203.6c0 45.2-36.7 81.9-81.9 81.9H232.9zM767.1 172.8L674.3 80c-16-16-16-42 0-58s42-16 58 0l163.6 163.6c16 16 16 42 0 58L732.3 407.2c-16 16-42 16-58 0s-16-42 0-58l94.4-94.4H215c-22.7 0-41 18.3-41 41v162.6c0 22.7-18.3 41-41 41s-41-18.3-41-41V254.8c0-45.2 36.7-82 81.9-82h593.2z'/%3E%3C/svg%3E");
           }
-          .reply_count:hover,
-          .reply_count:focus {
+          .info :global(.reply_count:hover),
+          .info :global(.reply_count:focus) {
             color: #1b95e0;
           }
-          .reply_count:hover .icon-replied,
-          .reply_count:focus .icon-replied {
+          .info :global(.reply_count:hover .icon-replied),
+          .info :global(.reply_count:focus .icon-replied) {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231B95E0' d='M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.045.286.12.403.143.225.385.347.633.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.368-3.43-7.788-7.8-7.79zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.334-.75-.75-.75h-.395c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z'%3E%3C/path%3E%3C/svg%3E");
           }
         }
@@ -217,17 +220,16 @@ export default function RepliedTweet({
         .name {
           font-weight: 700;
         }
-        a.header {
+        .tweet :global(a.header) {
           display: flex;
           font-size: 14px;
           align-items: center;
           color: inherit;
-          text-decoration: none;
           margin-bottom: 5px;
           width: fit-content;
         }
         @media (any-hover: hover) {
-          a.header:hover :global(.name) {
+          .tweet :global(a.header:hover .name) {
             color: ${tweets.tweetLinkColorHover};
           }
         }

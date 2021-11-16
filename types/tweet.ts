@@ -10,6 +10,12 @@ export interface Poll {
   }[];
 }
 
+export enum TwitterLinkType {
+  HASHTAG = "#",
+  MENTION = "@",
+  CASHTAG = "$",
+}
+
 export interface User {
   id: string;
   profile_image_url: string;

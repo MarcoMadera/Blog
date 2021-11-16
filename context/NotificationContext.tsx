@@ -1,3 +1,4 @@
+import NotificationsModal from "components/modals/NotificationsModal";
 import {
   useState,
   createContext,
@@ -33,6 +34,7 @@ export function NotificationContextProvider({
         setNotifications,
       }}
     >
+      <NotificationsModal />
       {children}
     </NotificationContext.Provider>
   );

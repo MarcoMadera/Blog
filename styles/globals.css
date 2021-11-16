@@ -57,6 +57,13 @@ h5 {
 p {
   margin: 1em 0;
 }
+a {
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
 #nprogress .bar {
   background-color: #b50000;
   position: fixed;

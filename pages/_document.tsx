@@ -13,6 +13,7 @@ export default class MyDocument extends Document {
           <div id="global" />
           <div id="notification" />
           <div id="cookiesDialog" />
+          <div id="toolTip" />
           <div>
             <NextScript />
           </div>

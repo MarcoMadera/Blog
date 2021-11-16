@@ -6,6 +6,7 @@ import useDarkMode from "hooks/useDarkMode";
 import useComments from "hooks/useComments";
 import SendCommentButton from "../form/SendCommentButton";
 import { Dispatch, ReactElement, RefObject, SetStateAction } from "react";
+import useToolTip from "hooks/useToolTip";
 
 interface OptionsProps {
   textAreaRef: unknown;
@@ -27,6 +28,7 @@ export default function Options({
 }: OptionsProps): ReactElement {
   const { darkMode } = useDarkMode();
   const { uploadImage } = useComments();
+  const { getToolTipAttrbutes } = useToolTip();
 
   return (
     <div className="options__container">
@@ -50,8 +52,8 @@ export default function Options({
         <label
           htmlFor="imageInput"
           className="optionButton"
-          aria-label="Incluir imagen"
-          title="Subir imagen"
+          aria-label="Subir imagen"
+          {...getToolTipAttrbutes("Subir imagen")}
         >
           <ImageIcon width={23} height={23} />
           <input
