@@ -6,6 +6,7 @@ import {
   Img,
   InlineCode,
   Li,
+  P,
   Ol,
   Table,
   Td,
@@ -248,7 +249,7 @@ export const components:
     return (
       <Blockquote>
         {hasSource ? (
-          <p>
+          <P>
             {childrenWithOutSource}{" "}
             <A
               classname="source"
@@ -259,7 +260,7 @@ export const components:
             >
               {sourceName}
             </A>
-          </p>
+          </P>
         ) : (
           children
         )}

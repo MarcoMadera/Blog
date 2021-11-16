@@ -182,6 +182,7 @@ export function P({
           line-height: 25.6px;
           margin: 1em 0;
           page-break-inside: avoid; /* Firefox */
+          font-size: 18px;
         }
       `}</style>
     </p>

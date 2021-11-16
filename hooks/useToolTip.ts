@@ -20,8 +20,8 @@ export default function useToolTip(): UseToolTip {
 
   const addToolTip: UseToolTip["addToolTip"] = useCallback(
     (toolTip, coords) => {
-      setToolTip(toolTip);
       setMouseCoords(coords);
+      setToolTip(toolTip);
     },
     [setToolTip, setMouseCoords]
   );
@@ -34,7 +34,6 @@ export default function useToolTip(): UseToolTip {
           if (options?.hideToolTip) {
             return;
           }
-          setShowToolTip(true);
           addToolTip(
             { title: title },
             {
@@ -42,6 +41,7 @@ export default function useToolTip(): UseToolTip {
               y: e.target.getClientRects()[0].top,
             }
           );
+          setShowToolTip(true);
         },
         onBlur: () => setShowToolTip(false),
         onMouseLeave: () => setShowToolTip(false),
