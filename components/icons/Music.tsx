@@ -7,7 +7,6 @@ export function Music(props: SVGProps<SVGSVGElement>): ReactElement {
 
   return (
     <svg viewBox="0 0 502 502" {...props}>
-      <title>Música</title>
       <path
         fill={darkMode ? colors.dark_primary : colors.primary}
         d="M167.599 282.635H96.277c-39.39 0-71.322 31.932-71.322 71.322s31.932 71.322 71.322 71.322 71.322-31.932 71.322-71.322v-71.322zm309.447 66.721h-71.322c-39.39 0-71.322 31.932-71.322 71.322S366.334 492 405.724 492s71.322-31.932 71.322-71.322v-71.322z"

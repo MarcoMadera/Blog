@@ -3,7 +3,6 @@ import { ReactElement, SVGProps } from "react";
 export function Email(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
     <svg viewBox="0 0 490 490" {...props}>
-      <title>Correo electrónico</title>
       <path fill="#fff" d="M75 32.5v167.305L245 297.5l170-97.695V32.5z"></path>
       <path
         fill="#fcbf47"

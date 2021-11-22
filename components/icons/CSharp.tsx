@@ -7,7 +7,6 @@ export function CSharp(props: SVGProps<SVGSVGElement>): ReactElement {
 
   return (
     <svg viewBox="-26 -20 507 552" {...props}>
-      <title>C Sharp</title>
       <defs>
         <linearGradient
           id="d"

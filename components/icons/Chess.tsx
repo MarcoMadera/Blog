@@ -7,7 +7,6 @@ export function Chess(props: SVGProps<SVGSVGElement>): ReactElement {
 
   return (
     <svg viewBox="0 0 512 512" {...props}>
-      <title>Ajedrez</title>
       <path
         fill={darkMode ? colors.dark_background : colors.background}
         d="M87.348 304c-2.004 40-6.84 83-17.586 112h100.477c-10.746-29-15.582-72-17.586-112H87.348zM176 256H64c-4.41 0-8 3.59-8 8s3.59 8 8 8h112c4.41 0 8-3.59 8-8s-3.59-8-8-8z"

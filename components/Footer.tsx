@@ -35,16 +35,44 @@ function Footer(): ReactElement {
           <Link prefetch={false} href="/privacidad">
             <a>Privacidad</a>
           </Link>
-          <A href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+          <A
+            href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Licencia
           </A>
         </div>
         <div className="footer_section">
           <strong>Enlaces externos</strong>
-          <A href="https://blog.marcomadera.com/">Blog</A>
-          <A href="https://github.com/MarcoMadera/Blog">Código fuente</A>
-          <A href="https://marcomadera.github.io/">Sitio alternativo</A>
-          <A href={`${siteMetadata.siteUrl}/rss.xml`}>RSS</A>
+          <A
+            href="https://blog.marcomadera.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Blog
+          </A>
+          <A
+            href="https://github.com/MarcoMadera/Blog"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Código fuente
+          </A>
+          <A
+            href="https://marcomadera.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sitio alternativo
+          </A>
+          <A
+            href={`${siteMetadata.siteUrl}/rss.xml`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            RSS
+          </A>
         </div>
         <div className="footer_section ">
           <strong>Social</strong>
@@ -53,6 +81,8 @@ function Footer(): ReactElement {
               href="https://twitter.com/madera_marco"
               aria-label="Visitar la página de Twitter"
               title="Twitter"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <TwitterSquare
                 width={28}
@@ -64,6 +94,8 @@ function Footer(): ReactElement {
               href="https://www.linkedin.com/in/marcomadera"
               aria-label="Visitar la página de LinkedIn"
               title="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <LinkedInSquare
                 width={28}
@@ -75,6 +107,8 @@ function Footer(): ReactElement {
               href="https://github.com/MarcoMadera"
               aria-label="Visitar la página de Github"
               title="Github"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <GithubSquare
                 width={28}

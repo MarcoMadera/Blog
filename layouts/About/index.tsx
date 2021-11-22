@@ -16,6 +16,7 @@ import Seo from "components/Seo";
 import { A, ALink, H1, H2, H3, P } from "components/tags";
 import { NowPlaying, SongData } from "types/spotify";
 import { PropsWithChildren, ReactElement, memo } from "react";
+import useToolTip from "hooks/useToolTip";
 
 interface AboutLayoutProps {
   newNowPlaying: NowPlaying | null;
@@ -70,19 +71,29 @@ const AboutLayout = ({
   newNowPlaying,
   topTracks,
 }: AboutLayoutProps): ReactElement => {
+  const { getToolTipAttrbutes } = useToolTip();
+
   return (
     <main>
       <Seo title="Sobre mí | Marco Madera" />
       <aside>
-        <Code width="50" height="50" />
-        <Java width="50" height="50" />
-        <AugmentedReallity width="50" height="50" />
-        <CSharp width="50" height="50" />
-        <JavaScript width="50" height="50" />
-        <Music width="50" height="50" />
-        <Chess width="50" height="50" />
-        <Book width="50" height="50" />
-        <Film width="50" height="50" />
+        <Code width="50" height="50" {...getToolTipAttrbutes("Código")} />
+        <Java width="50" height="50" {...getToolTipAttrbutes("Java")} />
+        <AugmentedReallity
+          width="50"
+          height="50"
+          {...getToolTipAttrbutes("Realidad Aumentada")}
+        />
+        <CSharp width="50" height="50" {...getToolTipAttrbutes("C Sharp")} />
+        <JavaScript
+          width="50"
+          height="50"
+          {...getToolTipAttrbutes("JavaScript")}
+        />
+        <Music width="50" height="50" {...getToolTipAttrbutes("Música")} />
+        <Chess width="50" height="50" {...getToolTipAttrbutes("Ajedrez")} />
+        <Book width="50" height="50" {...getToolTipAttrbutes("Libro")} />
+        <Film width="50" height="50" {...getToolTipAttrbutes("Película")} />
       </aside>
       <section id="main">
         <div>
@@ -184,12 +195,18 @@ const AboutLayout = ({
                 );
                 return false;
               }}
-              title="Enviar correo electrónico"
+              {...getToolTipAttrbutes("Enviar correo electrónico")}
             >
               <Email width="20" height="20" />
             </button>
           </P>
-          <video autoPlay loop muted playsInline>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            {...getToolTipAttrbutes("Perfecto")}
+          >
             <source
               src="https://res.cloudinary.com/marcomadera/video/upload/v1602516508/about/18283-212312-32345_cptpwx.mp4"
               type="video/mp4"

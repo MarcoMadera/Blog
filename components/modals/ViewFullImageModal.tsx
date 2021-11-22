@@ -43,7 +43,7 @@ export default function ViewFullImageModal({
 }: ViewImageProps): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element | null>();
   const exitButtonRef = useRef<HTMLButtonElement>(null);
-  const { addToolTip, setShowToolTip, getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttrbutes } = useToolTip();
   useLockBodyScroll();
 
   const onPressKey = useCallback(
@@ -135,17 +135,7 @@ export default function ViewFullImageModal({
         <div className="imageContainer">
           {isFromCloudProvider ? (
             // eslint-disable-next-line jsx-a11y/alt-text
-            <Image
-              {...imageProps}
-              onMouseEnter={() => setShowToolTip(true)}
-              onMouseLeave={() => setShowToolTip(false)}
-              onMouseMove={(e) =>
-                addToolTip(
-                  { title: title || alt },
-                  { x: e.clientX, y: e.clientY }
-                )
-              }
-            />
+            <Image {...imageProps} {...getToolTipAttrbutes(title || alt)} />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -153,14 +143,7 @@ export default function ViewFullImageModal({
               src={fullImage?.img.src || src}
               width={width ? width : undefined}
               height={height ? height : undefined}
-              onMouseEnter={() => setShowToolTip(true)}
-              onMouseLeave={() => setShowToolTip(false)}
-              onMouseMove={(e) =>
-                addToolTip(
-                  { title: title || alt },
-                  { x: e.clientX, y: e.clientY }
-                )
-              }
+              {...getToolTipAttrbutes(title || alt)}
             />
           )}
         </div>

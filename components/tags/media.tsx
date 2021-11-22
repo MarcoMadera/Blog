@@ -92,14 +92,14 @@ export function Img({
   return (
     <details
       onFocus={(e) => {
-        setShowToolTip(true);
-        addToolTip(
-          { title: title || alt },
-          {
+        addToolTip({
+          title: title || alt,
+          coords: {
             x: e.target.getClientRects()[0].left,
             y: e.target.getClientRects()[0].top,
-          }
-        );
+          },
+        });
+        setShowToolTip(true);
       }}
       onBlur={() => setShowToolTip(false)}
     >

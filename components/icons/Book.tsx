@@ -7,7 +7,6 @@ export function Book(props: SVGProps<SVGSVGElement>): ReactElement {
 
   return (
     <svg viewBox="0 0 512 512" {...props}>
-      <title>Libro</title>
       <path
         fill={darkMode ? colors.dark_secondary : colors.secondary}
         d="M7.778 107.865h496.447v320.29H7.778z"

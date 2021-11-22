@@ -1,6 +1,11 @@
 import Link, { LinkProps } from "next/link";
 import css from "styled-jsx/css";
-import React, { PropsWithChildren, ReactElement } from "react";
+import React, {
+  AnchorHTMLAttributes,
+  DetailedHTMLProps,
+  PropsWithChildren,
+  ReactElement,
+} from "react";
 import useToolTip from "hooks/useToolTip";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
@@ -37,7 +42,13 @@ export function A({
   hideToolTip,
   textColor,
   ...attribs
-}: PropsWithChildren<AProps>): ReactElement {
+}: PropsWithChildren<
+  DetailedHTMLProps<
+    AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > &
+    AProps
+>): ReactElement {
   const { getToolTipAttrbutes } = useToolTip();
   const { darkMode } = useDarkMode();
 
