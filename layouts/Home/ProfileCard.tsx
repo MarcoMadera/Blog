@@ -27,8 +27,8 @@ export default function Aside(): ReactElement {
           className="twemoji"
           alt="👋"
           src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f44b.png"
-          width="18"
-          height="18"
+          width="24"
+          height="24"
         />{" "}
         Soy <span translate="no">Marco</span>, autor del blog. Gracias por
         pasarte, cualquier cosa me puedes contactar a través de las siguientes
@@ -72,9 +72,9 @@ export default function Aside(): ReactElement {
       `}</style>
       <style jsx>{`
         aside :global(.twemoji) {
-          height: 1.1em;
+          height: 24px;
           margin: 0 2px;
-          vertical-align: -3px;
+          vertical-align: top;
         }
         aside {
           border-radius: 12px;
@@ -93,7 +93,8 @@ export default function Aside(): ReactElement {
           clip-path: circle(50% at 50% 50%);
         }
         p {
-          margin 1em 0;
+          margin: 1em 0;
+          line-height: 1.5;
         }
       `}</style>
     </aside>

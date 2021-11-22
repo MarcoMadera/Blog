@@ -125,9 +125,9 @@ export default function Post({
       `}</style>
       <style jsx>{`
         main :global(.twemoji) {
-          height: 1.1em;
+          height: 24px;
           margin: 0 2px;
-          vertical-align: -3px;
+          vertical-align: top;
         }
         main {
           padding: 0 20px;

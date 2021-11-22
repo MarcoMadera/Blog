@@ -72,6 +72,11 @@ export default function TweetAction({
           text-decoration: none;
           border-top: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
         }
+        .text :global(.twemoji) {
+          height: 1.2em;
+          width: 1.2em;
+          vertical-align: top;
+        }
         @media (any-hover: hover) {
           :global(.tweetActionA:hover),
           :global(.tweetActionA:focus) {

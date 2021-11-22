@@ -68,6 +68,8 @@ export default function ToolTipModal(): ReactPortal | null {
     ? 50
     : toolTip.coords.x - 30;
 
+  const shouldShowToolTip = toolTip.title !== "" && showToolTip;
+
   return createPortal(
     <span
       id={toolTip.id}
@@ -77,14 +79,14 @@ export default function ToolTipModal(): ReactPortal | null {
         top: `${top}px`,
       }}
       ref={toolTipRef}
-      aria-hidden={!showToolTip}
+      aria-hidden={!shouldShowToolTip}
     >
       {toolTip.title}
       <style jsx>
         {`
           span {
-            display: ${showToolTip ? "block" : "none"};
-            pointer-events: ${showToolTip ? "all" : "none"};
+            display: ${shouldShowToolTip ? "block" : "none"};
+            pointer-events: ${shouldShowToolTip ? "all" : "none"};
             background-color: ${darkMode
               ? colors.dark_accents3
               : colors.accents3};

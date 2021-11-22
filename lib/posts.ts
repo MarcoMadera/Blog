@@ -117,7 +117,7 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
     blurDataURL: currentPost.blurDataURL,
     content: parse(currentPost.content, {
       className: "twemoji",
-      attributes: () => ({ width: "19", height: "19" }),
+      attributes: () => ({ width: "24", height: "24" }),
     }),
     author: currentPost.author ?? siteMetadata.author.name,
     profilePhoto: currentPost.profilePhoto ?? siteMetadata.author.image,

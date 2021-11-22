@@ -68,6 +68,10 @@ export default function TweetHeader({
         </span>
       </A>
       <style jsx>{`
+        .header :global(.twemoji) {
+          height: 1.2em;
+          vertical-align: top;
+        }
         .header {
           display: flex;
           padding: 3px 3px 10px 3px;
