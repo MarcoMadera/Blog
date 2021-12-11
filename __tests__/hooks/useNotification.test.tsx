@@ -1,9 +1,24 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ReactPortal } from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
 import useNotification from "../../hooks/useNotification";
 import { NotificationContextProvider } from "../../context/NotificationContext";
+import { DarkModeContextProvider } from "context/DarkModeContext";
+import ReactDOM from "react-dom";
 
 describe("hooks/useNotification", () => {
+  // eslint-disable-next-line jest/no-hooks
+  beforeAll(() => {
+    jest
+      .spyOn(ReactDOM, "createPortal")
+      .mockImplementation((element: unknown) => {
+        return element as ReactPortal;
+      });
+
+    const div = document.createElement("div");
+    div.setAttribute("id", "notification");
+    document.body.appendChild(div);
+  });
+
   it("throws error if called outside of NotificationsProvider", () => {
     expect.hasAssertions();
     const { result } = renderHook(() => useNotification());
@@ -14,8 +29,11 @@ describe("hooks/useNotification", () => {
 
   it("returns context value of NotificationProvider", () => {
     expect.hasAssertions();
+
     const wrapper = ({ children }: { children: ReactNode }) => (
-      <NotificationContextProvider>{children}</NotificationContextProvider>
+      <DarkModeContextProvider>
+        <NotificationContextProvider>{children}</NotificationContextProvider>
+      </DarkModeContextProvider>
     );
     const { result } = renderHook(() => useNotification(), { wrapper });
 
@@ -26,8 +44,11 @@ describe("hooks/useNotification", () => {
 
   it("adds notification to notifications array", async () => {
     expect.hasAssertions();
+
     const wrapper = ({ children }: { children: ReactNode }) => (
-      <NotificationContextProvider>{children}</NotificationContextProvider>
+      <DarkModeContextProvider>
+        <NotificationContextProvider>{children}</NotificationContextProvider>
+      </DarkModeContextProvider>
     );
 
     const { result } = renderHook(() => useNotification(), { wrapper });
@@ -44,8 +65,11 @@ describe("hooks/useNotification", () => {
 
   it("removes notification from notifications array", () => {
     expect.assertions(1);
+
     const wrapper = ({ children }: { children: ReactNode }) => (
-      <NotificationContextProvider>{children}</NotificationContextProvider>
+      <DarkModeContextProvider>
+        <NotificationContextProvider>{children}</NotificationContextProvider>
+      </DarkModeContextProvider>
     );
 
     const { result } = renderHook(() => useNotification(), { wrapper });

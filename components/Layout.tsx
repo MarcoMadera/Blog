@@ -3,8 +3,6 @@ import Footer from "./Footer";
 import { ReactElement, ReactNode } from "react";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import CookiesModal from "./modals/CookiesModal";
-import useCookies from "hooks/useCookies";
 import useRouterEvents from "hooks/useRouterEvents";
 import useLocalStorageState from "hooks/useLocalStorageState";
 
@@ -14,7 +12,6 @@ export default function Layout({
   children: ReactNode;
 }): ReactElement {
   const { darkMode } = useDarkMode();
-  const { acceptedcookies } = useCookies();
 
   useLocalStorageState();
   useRouterEvents();
@@ -25,7 +22,6 @@ export default function Layout({
       <Navbar />
       {children}
       <Footer />
-      {acceptedcookies === undefined ? <CookiesModal /> : null}
       <style jsx>{`
         :global(html) {
           color-scheme: ${darkMode ? "dark" : "light"};

@@ -1,3 +1,4 @@
+import CookiesModal from "components/modals/CookiesModal";
 import {
   useState,
   createContext,
@@ -23,6 +24,7 @@ export function CookiesContextProvider({
     useState<CookiesContext["acceptedcookies"]>();
   return (
     <Context.Provider value={{ acceptedcookies, setAcceptedCookies }}>
+      {acceptedcookies === undefined ? <CookiesModal /> : null}
       {children}
     </Context.Provider>
   );
