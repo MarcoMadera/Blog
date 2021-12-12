@@ -38,6 +38,8 @@ export default function Aside(): ReactElement {
         href={`https://github.com/${social.gitHub}`}
         aria-label="Página de Github"
         title="Github"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <GithubSquare fill={darkMode ? colors.dark_primary : colors.primary} />
       </A>
@@ -45,6 +47,8 @@ export default function Aside(): ReactElement {
         href={`https://www.linkedin.com/in/${social.linkedIn}`}
         aria-label="Página de LinkedIn"
         title="LinkedIn"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <LinkedInSquare
           fill={darkMode ? colors.dark_primary : colors.primary}
@@ -54,6 +58,8 @@ export default function Aside(): ReactElement {
         href={`https://twitter.com/${social.twitter}`}
         aria-label="Página de Twitter"
         title="Twitter"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <TwitterSquare fill={darkMode ? colors.dark_primary : colors.primary} />
       </A>
