@@ -51,6 +51,7 @@ import {
 } from "utils/cloudProvider";
 import { NormalComponents } from "react-markdown/lib/complex-types";
 import { convertInlineStylesToObject, convertParamsToObject } from "utils";
+import SpaceTweet from "components/Tweet/SpaceTweet";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &
@@ -63,6 +64,7 @@ export type CustomComponents = {
   videogif: BasicComponent;
   colors: BasicComponent;
   tweet: BasicComponent;
+  space: BasicComponent;
   youtube: BasicComponent;
   actionanchor: BasicComponent;
   actionbutton: BasicComponent;
@@ -180,6 +182,15 @@ export const components:
         }
       />
     );
+  },
+  space: function SpaceNode({ node }) {
+    const id = node.properties?.id as string;
+    const { data, ignore } = useElementData({
+      type: "space",
+      id: id,
+    });
+    if (ignore || !id) return null;
+    return <SpaceTweet spaceTweet={data} />;
   },
   note: function NoteNode({ node, children }) {
     const nodes: ElementNodes = node as unknown as ElementNodes;

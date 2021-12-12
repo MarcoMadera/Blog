@@ -39,6 +39,13 @@ export default function TweetText({
     /(https?:\/\/\S+)/g,
     (match, i) => {
       const urlToDisplay = urls?.find(({ url }) => url === match);
+      const isSpaceTweetUrl = urlToDisplay?.expanded_url.startsWith(
+        "https://twitter.com/i/spaces"
+      );
+
+      if (isSpaceTweetUrl) {
+        return null;
+      }
 
       return (
         <TwitterLink key={match + i} href={match}>

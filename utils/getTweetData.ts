@@ -1,4 +1,5 @@
-import { TweetData, TweetResponse } from "types/tweet";
+import { SpaceData, TweetData, TweetResponse } from "types/tweet";
+import getSpaceData from "./getSpaceData";
 
 export default async function getTweetData(
   id: string,
@@ -41,6 +42,13 @@ export default async function getTweetData(
       : null;
     const user = tweetResponse.includes?.users || null;
     const tweet = tweetResponse.data || null;
+    const spaceId =
+      tweet.entities?.urls?.map((url) => {
+        if (url.expanded_url.startsWith("https://twitter.com/i/spaces/")) {
+          return url.expanded_url.split("/spaces/")[1].split("/")[0];
+        }
+        return null;
+      })[0] || null;
     let quotedTweetId = "";
     let repliedTweetId = "";
 
@@ -57,6 +65,7 @@ export default async function getTweetData(
 
     let quotedTweet: TweetData | null = null;
     let repliedTweet: TweetData | null = null;
+    let spaceTweet: SpaceData | null = null;
 
     if (quotedTweetId && !ignoreTweet) {
       const res = await getTweetData(quotedTweetId, {
@@ -72,6 +81,11 @@ export default async function getTweetData(
       });
       repliedTweet = res;
     }
+    if (spaceId) {
+      const res = await getSpaceData(spaceId);
+      spaceTweet = res;
+    }
+
     return {
       media,
       poll,
@@ -79,6 +93,7 @@ export default async function getTweetData(
       tweet,
       quotedTweet,
       repliedTweet,
+      spaceTweet,
     };
   }
   return null;

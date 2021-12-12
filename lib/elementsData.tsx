@@ -8,12 +8,14 @@ import {
   ElementImage,
   Elements,
   ElementTweet,
+  ElementSpace,
   ImgData,
 } from "types/posts";
 import getTweetData from "utils/getTweetData";
 import codeHighlighter from "utils/codeHighlighter";
 import { DarkModeContextProvider } from "context/DarkModeContext";
 import { ToolTipContextProvider } from "context/ToolTipContext";
+import getSpaceData from "utils/getSpaceData";
 
 export default async function getElementsData(
   content: string
@@ -45,6 +47,17 @@ export default async function getElementsData(
         ignoreTweet: false,
         hideConversation,
       });
+      return { id: `${type}:${id}`, data };
+    })
+  );
+
+  const allSpaceElements = elementsArr.filter(
+    (e) => e.type === "space"
+  ) as ElementSpace[];
+
+  const spacesData = await Promise.all(
+    allSpaceElements.map(async ({ id, type }) => {
+      const data = await getSpaceData(id);
       return { id: `${type}:${id}`, data };
     })
   );
@@ -102,15 +115,17 @@ export default async function getElementsData(
     }
   );
 
-  const elementsData = [...tweetsData, ...imagesData, ...codeBlocksData].reduce(
-    (result: Elements, element) => {
-      if (element.data) {
-        result[element.id] = element.data;
-      }
-      return result;
-    },
-    {}
-  );
+  const elementsData = [
+    ...tweetsData,
+    ...imagesData,
+    ...codeBlocksData,
+    ...spacesData,
+  ].reduce((result: Elements, element) => {
+    if (element.data) {
+      result[element.id] = element.data;
+    }
+    return result;
+  }, {});
 
   return elementsData;
 }

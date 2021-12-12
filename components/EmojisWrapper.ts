@@ -1,17 +1,18 @@
 import {
-  Attributes,
   createElement,
   createRef,
+  HTMLAttributes,
   PropsWithChildren,
   ReactElement,
+  ReactHTML,
   useEffect,
 } from "react";
 import twemoji, { ParseObject } from "twemoji";
 
 interface EmojisWrapperProps {
-  tag?: string;
+  tag?: keyof ReactHTML;
   options?: Partial<ParseObject>;
-  attributes?: Attributes;
+  attributes?: HTMLAttributes<EmojisWrapperProps["tag"]>;
 }
 
 export default function EmojisWrapper({

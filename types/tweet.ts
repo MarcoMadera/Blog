@@ -23,6 +23,35 @@ export interface User {
   name: string;
   username: string;
 }
+interface Mention {
+  start: number;
+  end: number;
+  username: string;
+  id: string;
+}
+interface Annotation {
+  start: number;
+  end: number;
+  probability: number;
+  type: string;
+  normalized_text: string;
+}
+export interface Url {
+  start: number;
+  end: number;
+  url: string;
+  expanded_url: string;
+  display_url: string;
+  images?: {
+    url: string;
+    width: number;
+    height: number;
+  }[];
+  status?: number;
+  title?: string;
+  description?: string;
+  unwound_url?: string;
+}
 export interface Tweet {
   id: string;
   public_metrics: {
@@ -39,35 +68,9 @@ export interface Tweet {
     media_keys?: string[];
   };
   entities?: {
-    mentions?: {
-      start: number;
-      end: number;
-      username: string;
-      id: string;
-    }[];
-    annotations?: {
-      start: number;
-      end: number;
-      probability: number;
-      type: string;
-      normalized_text: string;
-    }[];
-    urls?: {
-      start: number;
-      end: number;
-      url: string;
-      expanded_url: string;
-      display_url: string;
-      images?: {
-        url: string;
-        width: number;
-        height: number;
-      }[];
-      status?: number;
-      title?: string;
-      description?: string;
-      unwound_url?: string;
-    }[];
+    mentions?: Mention[];
+    annotations?: Annotation[];
+    urls?: Url[];
   };
   referenced_tweets?: {
     type: "replied_to" | "quoted";
@@ -75,6 +78,25 @@ export interface Tweet {
   }[];
   quotedTweet?: Tweet;
   repliedTweet?: Tweet;
+}
+
+export interface SpaceData {
+  data: {
+    id: string;
+    name: string;
+    description?: string;
+    is_ticketed: boolean;
+    title: string;
+    created_at: string;
+    creator_id: string;
+    scheduled_start: string;
+    state?: "ended" | "started" | "scheduled";
+    ended_at?: string;
+    started_at?: string;
+  };
+  includes: {
+    users: User[];
+  };
 }
 
 export interface Media {
@@ -102,4 +124,5 @@ export interface TweetData {
   tweet: Tweet;
   quotedTweet: TweetData | null;
   repliedTweet: TweetData | null;
+  spaceTweet: SpaceData | null;
 }

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { TweetData } from "./tweet";
+import { TweetData, SpaceData } from "./tweet";
 
 export type PostData = {
   readingTimeInMinutes: number;
@@ -44,9 +44,13 @@ export interface CodeBlockData {
 }
 
 export type Tweets = Record<string, TweetData>;
+export type Spaces = Record<string, SpaceData>;
 export type Images = Record<string, ImgData>;
 export type CodeBlocks = Record<string, CodeBlockData>;
-export type Elements = Record<string, TweetData | ImgData | CodeBlockData>;
+export type Elements = Record<
+  string,
+  TweetData | ImgData | CodeBlockData | SpaceData
+>;
 export interface PostWithMedia extends Post {
   elements: Elements;
 }
@@ -63,27 +67,29 @@ export interface HomeData {
   tag?: string;
 }
 
-export interface ElementTweetParams {
+export interface DefaultElementParams {
   id: string;
+}
+
+export interface ElementTweetParams extends DefaultElementParams {
   hideConversation: boolean;
 }
 
-export interface ElementCodeBlockParams {
-  id: string;
+export interface ElementCodeBlockParams extends DefaultElementParams {
   content: ReactNode[];
   language: string;
 }
 
-export interface ElementImageParams {
-  id: string;
+export interface ElementImageParams extends DefaultElementParams {
   normal: string;
   full?: { darkImage?: string; lightImage?: string };
 }
 
-export type Ids = ImageId | TweetId | CodeBlockId;
+export type Ids = ImageId | TweetId | CodeBlockId | SpaceId;
 export type ImageId = `image:${string}`;
 export type TweetId = `tweet:${string}`;
 export type CodeBlockId = `codeBlock:${string}`;
+export type SpaceId = `space:${string}`;
 
 export interface ElementImage extends ElementImageParams {
   type: "image";
@@ -94,8 +100,15 @@ export interface ElementTweet extends ElementTweetParams {
 export interface ElementCodeBlock extends ElementCodeBlockParams {
   type: "codeBlock";
 }
+export interface ElementSpace extends DefaultElementParams {
+  type: "space";
+}
 
-export type Element = ElementImage | ElementTweet | ElementCodeBlock;
+export type Element =
+  | ElementImage
+  | ElementTweet
+  | ElementSpace
+  | ElementCodeBlock;
 
 export interface UElementRes {
   Img: {
@@ -106,12 +119,16 @@ export interface UElementRes {
     data: TweetData | undefined;
     ignore: boolean;
   };
+  Space: {
+    data: SpaceData | undefined;
+    ignore: boolean;
+  };
   CodeBlock: {
     data: CodeBlockData | undefined;
     ignore: boolean;
   };
   Response: {
-    data: ImgData | TweetData | CodeBlockData | undefined;
+    data: ImgData | TweetData | SpaceData | CodeBlockData | undefined;
     ignore: boolean;
   };
 }

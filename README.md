@@ -41,7 +41,7 @@ Blog content goes here following the markdown syntax.
 
 ## **Embed Elements**
 
-To include Tweets in your post use the `tweet` tag:
+### **Tweets**
 
 ```html
 <!-- https://twitter.com/Twitter/status/1323314485705297926 id=1323314485705297926 -->
@@ -58,7 +58,18 @@ To include Tweets in your post use the `tweet` tag:
 
 The optional property `hideConversation` is set to `false` by default
 
-To embed videos from youtube use the `youtube` tag.
+### **Spaces from twitter**
+
+```html
+<!-- https://twitter.com/i/spaces/1mnxedZkoZvJX id=1mnxedZkoZvJX -->
+<space id="Space Id"></tweet>
+```
+
+**`Properties`**
+
+- `id` (string)
+
+### **Youtube Videos**
 
 ```html
 <!-- https://www.youtube.com/watch?v=xcJtL7QggTI id=xcJtL7QggTI -->

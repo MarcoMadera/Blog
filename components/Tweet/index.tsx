@@ -11,6 +11,7 @@ import RepliedTweet from "./RepliedTweet";
 import { ReactElement, ReactNode } from "react";
 import useElementData from "hooks/useElementData";
 import useToolTip from "hooks/useToolTip";
+import SpaceTweet from "./SpaceTweet";
 
 interface TweetProps {
   id: string;
@@ -83,6 +84,9 @@ export default function Tweet({
             {data.poll ? <TweetPoll poll={data.poll} /> : null}
             {data.media ? <TweetMedia data={data.media} /> : null}
             {data.quotedTweet ? <QuotedTweet data={data.quotedTweet} /> : null}
+            {data.spaceTweet ? (
+              <SpaceTweet spaceTweet={data.spaceTweet} />
+            ) : null}
             <TweetInfo
               username={user.username}
               tweetId={data.tweet.id}
