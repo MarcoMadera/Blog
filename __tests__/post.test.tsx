@@ -1,10 +1,16 @@
-import { getPostsFiles } from "../lib/posts";
-import { numberBetweenRange, formatNumber, getFormattedDate } from "../utils";
+import {
+  getPostsFiles,
+  getPostBySlug,
+  getPostsPages,
+  getHomeDataFromPage,
+} from "lib/posts";
+import { siteMetadata } from "site.config";
 
 describe("getPostsFiles", () => {
   it("should show the file names", async () => {
     expect.hasAssertions();
     const fileNames = getPostsFiles();
+
     const expected = { filename: "accesibilidad-web.md" };
     expect(fileNames).toStrictEqual(
       expect.arrayContaining([expect.objectContaining(expected)])
@@ -12,50 +18,36 @@ describe("getPostsFiles", () => {
   });
 });
 
-describe("numberBetweenRange", () => {
-  it("pass 0 and 0", () => {
+describe("getPostBySlug", () => {
+  it("should find the post", async () => {
     expect.hasAssertions();
-    const result = numberBetweenRange(0, 0);
-    expect(result).toBe(0);
+    await expect(getPostBySlug("accesibilidad-web")).resolves.toBeDefined();
   });
 });
 
-describe("formatNumber", () => {
-  it("expected behaviour", () => {
+describe("getPostsPages", () => {
+  it("should return array of number", () => {
     expect.hasAssertions();
-    const result = formatNumber(928392382);
-    expect(result).toBe("928,392,382");
-  });
 
-  it("pass a single number", () => {
-    expect.hasAssertions();
-    const result = formatNumber(1);
-    expect(result).toBe("1");
-  });
-
-  it("pass 0", () => {
-    expect.hasAssertions();
-    const result = formatNumber(0);
-    expect(result).toBe("0");
+    const pages = getPostsPages();
+    expect(pages).toStrictEqual(expect.arrayContaining([expect.any(Number)]));
   });
 });
 
-describe("getFormattedDate", () => {
-  it("pass today date", () => {
+describe("getHomeDataFromPage", () => {
+  it("posts should be not greater that postPerPage", async () => {
     expect.hasAssertions();
-    const result = getFormattedDate("march 13 2021");
-    expect(result).toBe("13 mar. 2021");
-  });
+    const homedata = await getHomeDataFromPage(1);
+    expect(homedata.allTags).toStrictEqual(
+      expect.arrayContaining([expect.any(String)])
+    );
 
-  it("pass a single number", () => {
-    expect.hasAssertions();
-    const result = getFormattedDate("1");
-    expect(result).toBe("1 ene. 2001");
-  });
+    expect(homedata.pages).toStrictEqual(
+      expect.arrayContaining([expect.any(Number)])
+    );
 
-  it("pass 0", () => {
-    expect.hasAssertions();
-    const result = getFormattedDate("0");
-    expect(result).toBe("1 ene. 2000");
+    expect(homedata.posts.length).toBeLessThanOrEqual(
+      siteMetadata.postsPerPage
+    );
   });
 });

@@ -1,7 +1,7 @@
 import React, { ReactNode, ReactPortal } from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
-import useNotification from "../../hooks/useNotification";
-import { NotificationContextProvider } from "../../context/NotificationContext";
+import useNotification from "hooks/useNotification";
+import { NotificationContextProvider } from "context/NotificationContext";
 import { DarkModeContextProvider } from "context/DarkModeContext";
 import ReactDOM from "react-dom";
 
@@ -43,7 +43,7 @@ describe("hooks/useNotification", () => {
   });
 
   it("adds notification to notifications array", async () => {
-    expect.hasAssertions();
+    expect.assertions(2);
 
     const wrapper = ({ children }: { children: ReactNode }) => (
       <DarkModeContextProvider>
@@ -59,12 +59,13 @@ describe("hooks/useNotification", () => {
         variant: "success",
       });
     });
+    expect(result.current.notifications).toHaveLength(1);
     const lastResult = result.current.notifications[0];
     expect(lastResult.message).toBe("test");
   });
 
   it("removes notification from notifications array", () => {
-    expect.assertions(1);
+    expect.assertions(2);
 
     const wrapper = ({ children }: { children: ReactNode }) => (
       <DarkModeContextProvider>
@@ -81,6 +82,7 @@ describe("hooks/useNotification", () => {
       })
     );
     const notifications = result.current.notifications;
+    expect(result.current.notifications).toHaveLength(1);
     act(() => result.current.removeNotification(notifications[0].id));
     expect(result.current.notifications).toHaveLength(0);
   });

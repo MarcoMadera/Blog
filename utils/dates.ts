@@ -33,8 +33,8 @@ export function formatAMPM(date: Date): string {
  * @param {date} date a date
  * @returns formatted date in form 20 may 2020
  */
-export function getFormattedDate(date: string): string {
-  const d = new Date(date);
+export function getFormattedDate(date: string | Date): string {
+  const d = typeof date === "string" ? new Date(date) : date;
   const month = months[d.getUTCMonth()];
   return `${d.getUTCDate()} ${month}. ${d.getUTCFullYear()}`;
 }

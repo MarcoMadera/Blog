@@ -22,12 +22,16 @@ export default function getClientSize(
   const heightRatio = height / screenHeight;
   const widthRatio = width / screenWidth;
 
+  function roundToTwo(num: number) {
+    return Math.round(num * 100) / 100;
+  }
+
   if (
     (heightRatio > 1 && widthRatio < 1) ||
     (heightRatio > 1 && widthRatio > 1 && heightRatio > widthRatio)
   ) {
     return {
-      widthPercent: (widthRatio / heightRatio) * 100,
+      widthPercent: roundToTwo((widthRatio / heightRatio) * 100),
       heightPercent: 100,
     };
   }
@@ -38,12 +42,12 @@ export default function getClientSize(
   ) {
     return {
       widthPercent: 100,
-      heightPercent: (heightRatio / widthRatio) * 100,
+      heightPercent: roundToTwo((heightRatio / widthRatio) * 100),
     };
   }
 
   return {
-    widthPercent: widthRatio * 100,
-    heightPercent: heightRatio * 100,
+    widthPercent: roundToTwo(widthRatio * 100),
+    heightPercent: roundToTwo(heightRatio * 100),
   };
 }

@@ -9,7 +9,7 @@ export default function convertInlineStylesToObject(
     .filter((s) => s.length)
     .reduce((a: Record<string, string>, b) => {
       const keyValue = b.split(":");
-      a[camelize(keyValue[0])] = keyValue[1];
+      a[camelize(keyValue[0]).trim()] = keyValue[1].trim();
       return a;
     }, {});
   return styleObject;
