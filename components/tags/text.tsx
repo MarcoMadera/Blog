@@ -188,6 +188,29 @@ export function P({
   );
 }
 
+interface CaptionProps {
+  children: ReactNode;
+}
+export function Caption({ children }: CaptionProps): ReactElement {
+  const { darkMode } = useDarkMode();
+  return (
+    <p role="note">
+      <em>{children}</em>
+      <style jsx>
+        {`
+          p {
+            font-size: 0.8em;
+            margin: 0;
+            margin-top: 0.5em;
+            color: ${darkMode ? colors.dark_textColor : colors.textColor};
+            text-align: center;
+          }
+        `}
+      </style>
+    </p>
+  );
+}
+
 interface NoteTypes {
   type: "success" | "info" | "danger" | "tip" | "important" | string;
   title?: string;

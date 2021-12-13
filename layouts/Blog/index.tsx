@@ -147,7 +147,11 @@ export default function Post({
           letter-spacing: -0.3px;
         }
         div :global(h2) {
-          font-size: 2em;
+          font-size: 2.2rem;
+          margin-top: 1em;
+        }
+        div :global(h3) {
+          font-size: 1.6rem;
           margin-top: 1em;
         }
         div :global(h2),
@@ -169,7 +173,7 @@ export default function Post({
           margin: 0 0 0.5em 0;
           font-weight: bold;
           letter-spacing: -1.5px;
-          font-size: 36px;
+          font-size: 40px;
         }
         header p {
           margin: 0;

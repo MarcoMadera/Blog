@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-For the project to work properly a `.env.local` file similar to [`.env.example`](https://github.com/MarcoMadera/Blog/blob/master/.env.example) is required
+For the project to work properly a `.env.local` file similar to [`.env.example`](https://github.com/MarcoMadera/Blog/blob/master/.env.example) is required.
 
 ## **Want to Contribute?**
 
@@ -62,7 +62,7 @@ The optional property `hideConversation` is set to `false` by default
 
 ```html
 <!-- https://twitter.com/i/spaces/1mnxedZkoZvJX id=1mnxedZkoZvJX -->
-<space id="Space Id"></tweet>
+<space id="Space Id"></space>
 ```
 
 **`Properties`**
@@ -137,7 +137,7 @@ Sometimes videos are better than actual gif to get the same behaviour as a gif u
 
 You can change the font of your texts with the tag usefont:
 
-Go to the page <https://fonts.google.com> and choose a font
+Go to the page <https://fonts.google.com> and choose a font that you like.
 
 ```html
 <usefont src="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap"></usefont>

@@ -30,11 +30,11 @@ Los meses pasaban, no había una resolución al problema. Se veían noticias del
 
 Lo bueno es que la empresa hizo todo lo que pudo y estuvimos sin trabajar durante casi 6 meses con sueldo y eso es de aplaudir 👏 👏.
 
-Mientras tanto yo me seguía preparando en el mundo del desarrollo web.
+Mientras tanto yo me seguía preparando en el mundo del desarrollo web y aprendiendo cosas nuevas.
 
 ## La aceptación
 
-Ya que me di cuenta de que iba para largo, durante esos 6 meses tuve mucho tiempo libre y descubrí muchas cosas sobre mí mismo. Ahora sé que me gusta estar solo, dejé de ver series y películas, al final supe que las miraba principalmente para convivir. Dejé de escuchar mucha música, me sorprendió saber que era en la oficina donde más escuchaba, pero en mi casa no lo sentía igual.
+Ya que me di cuenta de que iba para largo, durante esos 6 meses tuve mucho tiempo libre y descubrí muchas cosas sobre mí mismo. Ahora sé que me gusta estar solo, dejé de ver series y películas, al final supe que las miraba principalmente para convivir. Dejé de escuchar mucha música, me sorprendió saber que era en la oficina donde más escuchaba, pero en mi casa no lo sentía igual que en la oficina.
 
 Tuve una charla sobre esto con una amiga que me contaba como ella se sentía fatal por no poder salir, ya quería que todo acabara. Yo por el contrario me sentía muy cómodo y feliz, pero no lo quise manifestar en ese momento para no parecer un desalmado y solo afirmé que era terrible.
 
@@ -42,27 +42,27 @@ Me interesé en otras cosas como jugar ajedrez en línea, subí de 1600 a 1900 e
 
 <tweet id="1243959387997306881"></tweet>
 
-Por supuesto en Twitter hay grandes comunidades de desarrollo de software, me empapé de lo que me gusta, y al investigar a nuevas influencias se me ocurrió la obvia idea de crear un blog.
+Por supuesto en Twitter hay grandes comunidades de desarrollo de software, me empapé de lo que me gusta, y al investigar a nuevas influencias se me ocurrió la obvia idea de crear un blog para compartir mis experiencias.
 
 ## La idea
 
-Ya conté un poco de sobre cómo surgió de que necesitaba un blog en el [post: crea tu propio blog](https://blog.marcomadera.com/tu-blog) publicado en mi blog de [hashnode](https://blog.marcomadera.com). Lo que me motivó a crear algo desde cero era que yo pudiera **agregar todo lo que yo quisiera sin las limitaciones** de las plataformas tradicionales.
+Ya conté un poco de sobre cómo surgió de que necesitaba un blog en el [post: crea tu propio blog](https://blog.marcomadera.com/tu-blog) publicado en mi blog de [hashnode](https://blog.marcomadera.com). Lo que me motivó a crear algo desde cero era que yo pudiera agregar todo lo que yo quisiera **sin limitaciones** de las plataformas tradicionales.
 
-![Necesito un blog](https://res.cloudinary.com/marcomadera/image/upload/w_690,h_424/v1615529175/hashnode/EhkL29QXsAMFVf1_v58ohk.jpg "Necesito un blog!")
+![Developer's side project](https://res.cloudinary.com/marcomadera/image/upload/w_690,h_424/v1615529175/hashnode/EhkL29QXsAMFVf1_v58ohk.jpg "Developer's side project")
 
-La idea de esto era tener algo que yo pudiera controlar para así publicar **posts interactivos**. El ejemplo claro fue el [post de números pseudo aleatorios](https://marcomadera.com/blog/numeros-pseudo-aleatorios "Post de numeros pseudos aleatorios"), mi primer post, donde incluía toda la lógica en código y la posibilidad de que se graficaran los datos en el mismo post. Otro ejemplo es el botón de navegar a una página aleatoria que se encuentra en la primera versión.
+La idea de esto era tener algo que yo pudiera controlar para así publicar **posts interactivos**. El ejemplo claro fue el [post de números pseudo aleatorios](https://marcomadera.com/blog/numeros-pseudo-aleatorios "Post de numeros pseudos aleatorios"), mi primer post, donde incluía toda la lógica en código y la posibilidad de que se graficaran los datos en el mismo post. Otro ejemplo es el botón de navegar a una página aleatoria que se encuentra en la primera versión del blog.
 
-Tres meses después de crear la primera versión empecé con la segunda, donde vine desechando muchas de estas ideas porque quería crear algo más robusto. Esta vez me decidí a construir mi blog con [NextJS](https://nextjs.org/), que fuera **de código abierto donde cualquier persona puede contribuir, incluso crear sus propios posts**, por lo que tenía que poner algunas limitaciones.
+Tres meses después de crear la primera versión empecé con la segunda, donde vine desechando muchas de estas ideas porque quería crear algo más robusto. Esta vez me decidí a construir mi blog con [NextJS](https://nextjs.org/ "Página de NextJS"), que fuera de **código abierto** donde cualquier persona puede contribuir, incluso crear sus propios posts, por lo que tenía que poner algunas limitaciones para crear posts **sin modificar el código**.
 
 ## Los cambios
 
 Ahora que tengo está página, me preguntaba ¿qué iba a pasar con la anterior?, si seguirla actualizando o no. Al final le agregué [RSS](http://marcomadera.com/rss.xml) a este blog y la versión 1 del blog la modifiqué para que obtenga los nuevos posts de ahí.
 
-En la primera versión usaba como servicio de comentarios a [Disqus](https://disqus.com) y en esta versión me tomé el primer mes de periodo de prueba de [fastcomments](https://fastcomments.com), durante ese mes estuve creando mi propia integración con firebase, de la cual me siento orgulloso de cómo quedó el aspecto de la sección de comentarios.
+En la primera versión usaba como servicio de comentarios a [Disqus](https://disqus.com "Página de Discus") y en esta versión me tomé el primer mes de periodo de prueba de [FastComments](https://fastcomments.com "Página de FastComments"), durante ese mes estuve creando mi propia integración con firebase, de la cual me siento orgulloso de cómo quedó el aspecto de la sección de comentarios.
 
 Otro elemento del blog de la que me siento conforme son los tweets cargados estáticamente. Esto surgió a partir de que ocupaba tweets en mis posts, pero la opción que ofrece twitter de incrustar tweets es lenta y fea, así que me propuse crear mi propio elemento que solo tome el id y lo muestre, fue un reto divertido crear mi propio componente para incrustar tweets.
 
-<note type="tip">Puedes revisar cómo está hecho el blog visitando el código en el [repositorio](https://github.com/MarcoMadera/Blog)</note>
+<note type="tip">Puedes revisar cómo está hecho el blog visitando el código en el [repositorio](https://github.com/MarcoMadera/Blog "Visitar repositorio del blog")</note>
 
 Algo que agregué y que debo ponerle más atención porque quiero que la gente se involucre es el Newsletter, una parte importante si quiero que me sigan leyendo.
 
@@ -72,7 +72,7 @@ En general el blog ha tenido pequeños y grandes cambios, los cuales me siento q
 
 La primera meta está hecha, era lograr 12 publicaciones en un año ni más ni menos. Esta meta perjudicó en cierta medida, porque hay publicaciones muy largas que pudieron ser divididas en varias.
 
-![Blog o no](https://res.cloudinary.com/marcomadera/image/upload/w_402,h_250/v1622004646/Blog/1-Aniversario/toblogornottoblog_bqenbb.jpg)
+![Blog o no](https://res.cloudinary.com/marcomadera/image/upload/w_402,h_250/v1622004646/Blog/1-Aniversario/toblogornottoblog_bqenbb.jpg "Mecanógrafo de bloguear o no bloguear")
 
 Gracias a este blog, tengo las ganas de seguir aprendiendo e investigando nuevas cosas por lo que no tengo intención de soltarlo. Reclutadores y otras personas se han interesado en mí por mantenerlo y eso para mí es una buena señal. En febrero de este año dejé mi actual trabajo, los cuales fueron muy buenos conmigo antes y durante la pandemia, pero posiblemente tome otro rumbo.
 

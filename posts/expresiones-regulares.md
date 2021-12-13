@@ -12,25 +12,29 @@ La mayor parte de mi vida he evitado las cosas complicadas sin siquiera intentar
 
 En una ocasión tuve que usar expresiones regulares para resolver algo muy sencillo. Tardé horas averiguando la mejor forma de hacerlo. Al final lo logré, estaba feliz porque había aprendido algo nuevo y todo funcionaba correctamente, así que hice _deploy_ de la aplicación.
 
-Una semana después un amigo me avisó que la aplicación no le funcionaba en safari. Y pues claro yo no sabía cuál podría ser la raíz del problema porque en una semana ya había hecho muchos cambios. Para ponerla en corto era que yo había caído en el error de la compatibilidad porque safari no soportaba el _look behind_ `<=` y _look ahead_ `=>` de las expresiones regulares, algo que sí soportaban chrome y firefox.
+Una semana después un amigo me avisó que la aplicación no le funcionaba en Safari. Y pues claro yo no sabía cuál podría ser la raíz del problema porque en una semana ya había hecho muchos cambios. Para ponerla en corto era que yo había caído en el error de la compatibilidad, porque Safari no soportaba el _look behind_ `<=` y _look ahead_ `=>` de las expresiones regulares, algo que sí soportaban Google Chrome y Firefox.
 
-Después de esta experiencia ya no quería usar más expresiones regulares, porque ya son difíciles de captar el significado rápidamente `/^(.){5}\w?[a-Z|A-Z|0-9]$/ig`, tratar de leer algo así sin experiencia puede parecer abrumador y luego le sumamos una carga más al tener que estar atento qué navegador soporta que cosa.
+Después de esta experiencia ya no quería usar más expresiones regulares, porque es difícil de entender el significado de algo asi (`/^(.){5}\w?[a-Z|A-Z|0-9]$/ig`), sin experiencia puede parecer abrumador y luego le agregamos una carga más al tener que estar atento qué navegador soporta que cosa.
 
 Lo tenía claro las expresiones regulares no son para mí, ni para muchos, ya que pueden llegar a ser un dolor de cabeza...
 
 <tweet id="1405731639569764359"></tweet>
 
-Cada tanto tiempo, toca un problema que dices esto lo podría resolver con expresiones regulares y no es que se pueda sino que hasta te cuestionas si se puede resolver sin expresiones regulares. Al final y al cabo las expresiones pueden parecer caracteres sin sentido, pero lo tienen, pueden ser muy complejas, pero no son difíciles de entender.
+Pero de vez en cuando te encuentras con un problema que crees que se puede resolver con expresiones regulares y no  que se puede hacer e incluso te preguntas si se puede resolver sin expresiones regulares o no. Al final, las expresiones pueden parecer caracteres absurdos, pero lo tienen, pueden ser muy complejas, pero no son difíciles de entender.
 
 ## ¿Qué son las expresiones regulares?
 
-Las expresiones regulares son patrones que definimos para filtrar en una cadena de caracteres. Son útiles para seleccionar parte de la información que necesitamos descartando lo que sobra. ¿A que se parece a un buscador normal cierto?
+Las expresiones regulares son patrones que definimos para filtrar en una cadena de caracteres. Son útiles para seleccionar parte de la información que necesitamos, descartando lo que sobra. ¿A que se parece a un buscador normal tipo <kbd>CTRL</kbd>+<kbd>F</kbd>, cierto?
 
 <videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1630649114/Blog/expresiones-regulares/E-TKDVoXEAA4Rfp_adpqde.mp4"></videogif>
 
-Se diferencia del <kbd>CTRL</kbd>+<kbd>F</kbd> porque este busca textos precisos y te arroja el match. Con expresiones regulares es más complejo, se pueden buscar patrones como buscar todas las palabras que estén entre dos espacios, palabras que empiecen con mayúscula, encontrar la primera palabra de cada línea, etc.
+Se diferencia del <kbd>CTRL</kbd>+<kbd>F</kbd> en que busca textos precisos y te arroja el match. Con expresiones regulares es más complejo porque busca por patrones, como por ejemplo, buscar todas las palabras que estén entre dos espacios, palabras que comienzan con mayúscula, encontrar la primera palabra de cada línea, etc.
 
-Lucen algo así `/#\d+\s+.*/g`, `/contenido/flags` esto JavaScript lo entenderá como una expresión regular, pero por detrás lo que en realidad hace es que lo envuelve en un objeto RegExp, como se explicó en el blog [Tipos y objetos en JavaScript](https://marcomadera.com/blog/tipos-y-objetos-en-javascript), gracias a esto podemos acceder a las propiedades y métodos como _flags_, _ignoreCase_, `exec()`, `test()`, etc.
+<colors purple blue green></color>
+
+## Sintaxis de expresiones regulares
+
+Lucen algo así `/#\d+\s+.*/g`, `/contenido/flags`, esto JavaScript lo entenderá como una expresión regular, pero por detrás, lo que en realidad hace es que lo envuelve en un objeto RegExp, como se explicó en el blog [Tipos y objetos en JavaScript](https://marcomadera.com/blog/tipos-y-objetos-en-javascript); gracias a esto podemos acceder a las propiedades y métodos como _flags_, _ignoreCase_, `exec()`, `test()`, etc.
 
 ```javascript
 const reg1 = /#\d+\s+.*/g;
@@ -40,22 +44,26 @@ reg1; // => /#\d+\s+.*/g
 reg2; // => /#\d+\s+.*/g
 ```
 
-<colors purple blue green></color>
+<captione text="Forma de la expresión regular"></captione>
 
-## Sintaxis de expresiones regulares
+### Flags
 
-Empecemos por los _flags_, estas se sitúan al final de una expresión regular `/contenido/flags`. Los _flags_ permiten darle características a nuestras búsquedas y pueden ser usadas en cualquier orden.
+Los _flags_, se sitúan al final de una expresión regular `/contenido/flags`. Los _flags_ permiten darle características a nuestras búsquedas y pueden ser usadas en cualquier orden.
 
 - `g`: Coincidencia global: comprueba en toda la cadena, en lugar de detenerse cuando encuentra la primera coincidencia.
 - `i`: Ignora si es mayúscula o minúscula.
-- `m`: Búsqueda en multilinea
+- `m`: Búsqueda en multilínea
 
-Ahora pasamos al contenido, los siguientes indican grupos y rangos de caracteres de expresión.
+### Grupos y rangos
+
+Dentro del contenido, podemos encontar los siguientes grupos y rangos de caracteres de expresión.
 
 - `[]`: Toma en cuenta los caracteres dentro de los _brackets_ <code>/<span class="purple">[</span>a<span class="purple">]</span>/g</code> aplicado: <span class="green">"<span class="purple">a</span>e<span class="purple">a</span>"</span>
 - `[^]`: Toma en cuenta los caracteres que no están dentro de los _brackets_ después del símbolo `^`, <code>/<span class="purple">[^</span>a<span class="purple">]</span>/g</code> aplicado: <span class="green">"a<span class="purple">e</span>a"</span>
 - `( )`: Recuerda lo que está dentro del paréntesis, captura al grupo para después usarlos con <code><span class="purple">$</span>n</code> en algún método de _string_ donde `n` es el índice del grupo empezando por 1. También se puede declarar un nombre a cada grupo <code><span class="purple">(?<</span>nombre<span class="purple">>)</span></code> para identificarlos en la propiedad _groups_ de _RegExp_
 - `|`: Uno u otro <code>/<span class="purple">true</span><span class="blue">\|</span><span class="purple">false</span>/g</code> aplicado: <span class="green">"<span class="purple">true</span> es verdadero y <span class="purple">false</span> es falso"</span>
+
+### Clases de caracteres predefinidas
 
 Para facilitarnos las cosas tenemos clases ya predefinidas y construidas que distinguen tipos.
 
@@ -75,6 +83,8 @@ La siguientes expresiones son equivalentes: <code>/<span class="purple">[0-9]</s
 
 ---
 
+### Cuantificadores
+
 Seguimos con los cuantificadores indican el número de caracteres o expresiones que deben coincidir.
 
 - `{ }`: Hace match al número exacto entre corchetes <code>/a<span class="purple">{3}</span>/</code> aplica a <span class="green">"<span class="purple">aaa</span>"</span> pero no a <span class="green">"aaaa"</span>
@@ -84,6 +94,8 @@ Seguimos con los cuantificadores indican el número de caracteres o expresiones 
 - `?`: 0 o uno, es equivalente a `{0,1}`
 
 ---
+
+### Limitadores
 
 Terminamos con los limitadores que indican el comienzo y el final de líneas y palabras, y otros patrones que indican de alguna manera que el reconocimiento es posible.
 
@@ -153,15 +165,17 @@ const hitsData = hits.map((hit) => {
 });
 ```
 
-<note type="danger">El uso del método `exec()` con el _flag_ global recordará el `lastIndex` en la expresión regular, por lo que al usarla de nuevo se pueden obtener resultados inesperados. La razón de por qué funciona es que la constante `regularExp` se crea cada vez que un hit es manejado por `map`, un problema de performance. Si se define `regularExp` fuera para que no se cree de nuevo es conveniente usar `matchAll` dentro de la función al mapear hits.</note>
+<note type="danger">El uso del método `exec()` con el _flag_ global recordará el `lastIndex` en la expresión regular, por lo que al usarla de nuevo se pueden obtener resultados inesperados. La razón de por qué funciona con este ejemplo es porque la constante `regularExp` se crea cada vez que un hit es manejado por `map`, lo que crea un problema de performance. Si se define `regularExp` fuera para que no se cree de nuevo es conveniente usar `matchAll` dentro de la función al mapear hits.</note>
+
+<note type="tip" title="Ejercicio">Modifica el código para que se pueda usar `exec()` y `matchAll()` para obtener los hits del string.</note>
 
 <note type="success" title="Explicación de la expresión regular">
 
-1. Lo que significa hits es has match en esta _string_ con esta expresión `/#\d+\s+.*/g` que significa: todo lo que contenga # seguido de uno o más dígitos, seguido por uno más espacios y después por cualquier carácter excepto nueva línea. Esto retornará un _array_ con toos los elementos.
-2. Ya teniendo el _array_ de hits se mapea para obtener la información de cada uno, para ello creamos nuestra expresión dónde queremos capturar los grupos que deseamos extraer `/#(\d+)\s+([\s\w]*\b)\s?(@\w+)?/ig`, esta significa:
-   1. En la expresión que empieza con # captura los dígitos siguientes
-   2. Seguida de uno o más espacios captura ya sean espacios o alfanuméricos tantas veces como se presenten, pero que terminen en el límite de palabra.
-   3. Luego seguido o no un espacio captura si es que hay el símbolo @ seguido de uno o más alfanuméricos.
+1. Lo que significa `/#\d+\s+.*/g` es todo lo que contenga # seguido de uno o más dígitos, seguido por uno o más espacios y después por cualquier carácter excepto nueva línea. Esto retornará un _array_ con todos los elementos.
+2. Ya teniendo el _array_ de hits se mapea para obtener la información de cada uno, para ello creamos nuestra expresión dónde queremos capturar los grupos que deseamos extraer `/#(?<number>\d+)\s+(?<songTitle>[\s\w]*\b)\s?(?<username>@\w+)?/gi`, esta significa:
+   1. En la expresión que empieza con # captura uno o más dígitos `\d+` que le siguen, en el grupo llamado _number_.
+   2. Seguido de uno o más espacios `\s+`, captura en el grupo _songTitle_ ya sean espacios o alfanuméricos tantas veces como se presenten, `[\s\w]*`, pero que terminen en el límite de palabra `\b`.
+   3. Luego puede haber o no haber un espacio `\s?` captura en el grupo _username_ el símbolo @ seguido de uno o más alfanuméricos `\w+`, pero hacemos este grupo username opcional agregando `?` al final del grupo.
 3. Después podemos extraer los datos capturados con `exec()` o con `matchAll()` y retornar nuestro objeto.
 
 </note>
@@ -171,51 +185,51 @@ const hitsData = hits.map((hit) => {
 [
   {
     "number": "1",
-    "songtitle": "Disturbia",
+    "songTitle": "Disturbia",
     "username": "@rihanna"
   },
   {
     "number": "2",
-    "songtitle": "Crush",
+    "songTitle": "Crush",
     "username": "@DavidArchie"
   },
   {
     "number": "3",
-    "songtitle": "Forever",
+    "songTitle": "Forever",
     "username": "@chrisbrown"
   },
   {
     "number": "4",
-    "songtitle": "I Kissed A Girl",
+    "songTitle": "I Kissed A Girl",
     "username": "@katyperry"
   },
   {
     "number": "5",
-    "songtitle": "Viva La Vida",
+    "songTitle": "Viva La Vida",
     "username": "@coldplay"
   },
   {
     "number": "6",
-    "songtitle": "Paper Planes",
+    "songTitle": "Paper Planes",
     "username": "@MIAuniverse"
   },
   {
     "number": "7",
-    "songtitle": "Dangerous",
+    "songTitle": "Dangerous",
     "username": "@KardinalO"
   },
   {
     "number": "8",
-    "songtitle": "Take A Bow"
+    "songTitle": "Take A Bow"
   },
   {
     "number": "9",
-    "songtitle": "Closer",
+    "songTitle": "Closer",
     "username": "@NeYoCompound"
   },
   {
     "number": "10",
-    "songtitle": "Change",
+    "songTitle": "Change",
     "username": "@taylorswift13"
   }
 ]
@@ -226,5 +240,7 @@ const hitsData = hits.map((hit) => {
 Ahora ya tenemos nuestra información bien separada y lista para usar de otra forma. Como era esperado el hit número 8 no tiene nombre de usuario.
 
 ## Conclusión
+
+Las expresiones regulares son una herramienta muy útil para validar datos de formularios, pero también para extraer información de un string.
 
 Aunque exista un amor/odio con las expresiones regulares, en algún momento nos viene bien su uso. Tienen muchos buenos usos porque puede hacer busquedas complejas como validar entradas de usuario o hacer _highlight_ a un bloque de código aplicando clases. Hay que tener cuidado dónde y cómo las usamos porque pueden ser objetivo de ataques.

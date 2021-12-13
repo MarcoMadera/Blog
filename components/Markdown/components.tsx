@@ -25,6 +25,7 @@ import {
   Youtube,
   Pre,
   Note,
+  Caption,
 } from "../tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
@@ -65,6 +66,7 @@ export type CustomComponents = {
   colors: BasicComponent;
   tweet: BasicComponent;
   space: BasicComponent;
+  captione: BasicComponent;
   youtube: BasicComponent;
   actionanchor: BasicComponent;
   actionbutton: BasicComponent;
@@ -167,6 +169,10 @@ export const components:
   },
   input: function InputNode(props) {
     return <Input type={props.node.type} {...props} />;
+  },
+  captione: function CaptionNode({ node }) {
+    const text = node.properties?.text as string;
+    return <Caption>{text}</Caption>;
   },
   tweet: function TweetNode({ node }) {
     const hprop = node.properties?.hideconversation;
