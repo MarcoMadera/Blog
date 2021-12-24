@@ -49,7 +49,7 @@ function Article({
         article:nth-of-type(2n + 2) {
           grid-template-columns: 1fr 400px;
         }
-        div{
+        div {
           padding-left: 30px;
         }
         article:nth-of-type(2n + 2) div {
@@ -83,11 +83,11 @@ function Article({
             animation-timing-function: ease-out;
           }
         }
-        @media print, screen and (min-width: 0px) and (max-width: 876px){
-          article{
-            display block;
+        @media print, screen and (min-width: 0px) and (max-width: 876px) {
+          article {
+            display: block;
           }
-          div{
+          div {
             padding: 0;
           }
         }
