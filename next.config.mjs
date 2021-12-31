@@ -2,7 +2,6 @@
 /**
  * @type {import('next').NextConfig}
  **/
-import { join } from "path";
 
 const nextConfig = {
   reactStrictMode: true,
@@ -21,11 +20,11 @@ const nextConfig = {
     ];
   },
   webpack: (config, { isServer, dev }) => {
-    config.resolve.alias["domhandler"] = join(
-      process.cwd(),
-      "node_modules",
-      "domhandler"
+    const { pathname: domhandlerPath } = new URL(
+      "node_modules/domhandler",
+      import.meta.url
     );
+    config.resolve.alias["domhandler"] = domhandlerPath;
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
         react: "preact/compat",
