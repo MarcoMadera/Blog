@@ -4,6 +4,7 @@ import { Spotify } from "components/icons";
 import MusicCard from "./MusicCard";
 import { Hr } from "components/tags";
 import { SongData } from "types/spotify";
+import useAnalytics from "hooks/useAnalytics";
 
 interface MusicHeaderProps extends SongData {
   header: string;
@@ -16,6 +17,7 @@ function MusicHeader({
   songUrl,
   title,
 }: MusicHeaderProps): ReactElement {
+  const { trackWithGoogleAnalytics } = useAnalytics();
   return (
     <>
       <header>
@@ -25,6 +27,13 @@ function MusicHeader({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Perfil de spotify"
+          onClick={() => {
+            trackWithGoogleAnalytics("social", {
+              socialNetwork: "spotify",
+              socialAction: "click",
+              socialTarget: "https://open.spotify.com/user/12133024755",
+            });
+          }}
         >
           <Spotify width="26" height="26" fill={colors.spotify} />
         </a>

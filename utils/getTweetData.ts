@@ -28,12 +28,12 @@ export default async function getTweetData(
     },
   });
 
-  const tweetResponse: TweetResponse = await res.json();
-
-  if (!tweetResponse) {
+  if (!res.ok) {
     console.error(`Fetch tweet with id: "${id}" failed`);
     return null;
   }
+
+  const tweetResponse: TweetResponse = await res.json();
 
   if (tweetResponse) {
     const media = tweetResponse.includes?.media || null;

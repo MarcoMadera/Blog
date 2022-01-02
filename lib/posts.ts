@@ -19,10 +19,17 @@ export function getPostsFiles(): {
   return postsFiles;
 }
 
+export async function getBlurDataURL(imagePath: string): Promise<string> {
+  const { base64 } = await getPlaiceholder(imagePath, {
+    size: 10,
+  });
+  return base64;
+}
+
 export async function getSortedPostsData(): Promise<PostData[]> {
   const postsFiles = getPostsFiles();
 
-  const posts = Promise.all(
+  const sortedPosts = Promise.all(
     postsFiles.map(async ({ filename }) => {
       // Get raw content from file
       const markdownWithMetadata = readFileSync(`posts/${filename}`);
@@ -32,9 +39,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
 
       const slug = filename.replace(".md", "");
 
-      const { base64 } = await getPlaiceholder(data.cover, {
-        size: 10,
-      });
+      const blurDataURL = await posts.getBlurDataURL(data.cover);
 
       const date = data.date.toString();
       const title = data.title;
@@ -59,7 +64,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
         tags,
         slug,
         cover,
-        blurDataURL: base64,
+        blurDataURL,
         h2s,
         content,
         author,
@@ -74,7 +79,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
       (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
     )
   );
-  return posts;
+  return sortedPosts;
 }
 
 export async function getTagsSlugs(): Promise<
@@ -229,3 +234,9 @@ export async function getTagData(slug: PostData["slug"]): Promise<{
     allTags: [...new Set(allPosts.flatMap(({ tags }) => tags))],
   };
 }
+
+const posts = {
+  getBlurDataURL,
+};
+
+export default posts;

@@ -3,9 +3,11 @@ import useDarkMode from "hooks/useDarkMode";
 import React, { memo, ReactElement } from "react";
 import { SongData } from "types/spotify";
 import { A } from "components/tags";
+import useAnalytics from "hooks/useAnalytics";
 
 function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
   const { darkMode } = useDarkMode();
+  const { trackWithGoogleAnalytics } = useAnalytics();
   return (
     <article>
       <A
@@ -14,6 +16,14 @@ function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
         rel="noopener noreferrer"
         aria-label={`Reproducir ${title} de ${artist} en Spotify`}
         title={`${title} ${String.fromCharCode(183)} ${artist}`}
+        onClick={() => {
+          trackWithGoogleAnalytics("event", {
+            eventCategory: "music",
+            eventAction: "play",
+            eventLabel: `${title} ${String.fromCharCode(183)} ${artist}`,
+            eventValue: "1",
+          });
+        }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

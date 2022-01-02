@@ -3,10 +3,10 @@ import { Nodejs } from "components/icons";
 import Seo from "components/Seo";
 import { ReactElement } from "react";
 import Script from "next/script";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 
 export default function TestRandomNumbers(): ReactElement {
-  useAnalitycs("facebook-bot");
+  useAnalytics("facebook-bot");
 
   return (
     <main id="main">

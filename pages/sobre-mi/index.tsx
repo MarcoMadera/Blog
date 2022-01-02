@@ -4,7 +4,8 @@ import { ReactElement, useCallback, useEffect, useState } from "react";
 import AboutLayout from "../../layouts/About";
 import { GetServerSideProps } from "next";
 import { SongData, NowPlaying } from "types/spotify";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
+import { ApiError } from "next/dist/server/api-utils";
 
 interface AboutProps {
   nowPlaying: NowPlaying | null;
@@ -21,13 +22,14 @@ export default function About({
   topTracks,
   recentlyPlayed,
 }: AboutProps): ReactElement {
-  useAnalitycs("sobre-mi");
+  useAnalytics("sobre-mi");
   const [newNowPlaying, setNewNowPlaying] = useState(
     nowPlaying?.listening ? nowPlaying : recentlyPlayed
   );
   const [newTopTracks, setNewTopTracks] = useState<SongData[] | null>(
     topTracks
   );
+  const { trackWithGoogleAnalytics } = useAnalytics();
 
   const reqNowPlaying = useCallback(async () => {
     try {
@@ -42,17 +44,21 @@ export default function About({
       ]);
 
       if (!nowPlayingRes.ok || !recentlyPlayedRes.ok) {
-        throw new Error();
+        throw new Error("Error fetching now playing");
       }
 
       const nowPlaying: NowPlaying = await nowPlayingRes.json();
       const recentlyPlayed: SongData = await recentlyPlayedRes.json();
 
       setNewNowPlaying(nowPlaying.listening ? nowPlaying : recentlyPlayed);
-    } catch (error) {
-      console.log(error);
+    } catch (error: unknown) {
+      const responseError = error as ApiError;
+      trackWithGoogleAnalytics("exception", {
+        exDescription: responseError.message,
+        exFatal: "0",
+      });
     }
-  }, []);
+  }, [trackWithGoogleAnalytics]);
 
   const reqTopTracks = useCallback(async () => {
     try {
@@ -61,16 +67,20 @@ export default function About({
       const [topTracksRes] = await Promise.all([topTracksProm]);
 
       if (!topTracksRes.ok) {
-        throw new Error();
+        throw new Error("Error fetching top tracks");
       }
 
       const topTracks: SongData[] = await topTracksRes.json();
 
       setNewTopTracks(topTracks);
-    } catch (error) {
-      console.log(error);
+    } catch (error: unknown) {
+      const responseError = error as ApiError;
+      trackWithGoogleAnalytics("exception", {
+        exDescription: responseError.message,
+        exFatal: "0",
+      });
     }
-  }, []);
+  }, [trackWithGoogleAnalytics]);
 
   useEffect(() => {
     const updateNowPlaying = setInterval(() => {

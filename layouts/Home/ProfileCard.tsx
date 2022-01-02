@@ -3,7 +3,7 @@ import { siteMetadata } from "site.config";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import { ReactElement } from "react";
-import { A } from "components/tags";
+import { SocialAnchor } from "./SocialAnchor";
 
 export default function Aside(): ReactElement {
   const { social } = siteMetadata;
@@ -15,7 +15,6 @@ export default function Aside(): ReactElement {
       <img
         src="/profile-80x80.jpg"
         alt="Marco Madera"
-        placeholder="blur"
         loading="eager"
         width={80}
         height={80}
@@ -34,35 +33,26 @@ export default function Aside(): ReactElement {
         pasarte, cualquier cosa me puedes contactar a través de las siguientes
         redes:
       </p>
-      <A
-        href={`https://github.com/${social.gitHub}`}
-        aria-label="Página de Github"
-        title="Github"
-        target="_blank"
-        rel="noopener noreferrer"
+      <SocialAnchor
+        socialTarget={`https://github.com/${social.gitHub}`}
+        socialNetwork="GitHub"
       >
         <GithubSquare fill={darkMode ? colors.dark_primary : colors.primary} />
-      </A>
-      <A
-        href={`https://www.linkedin.com/in/${social.linkedIn}`}
-        aria-label="Página de LinkedIn"
-        title="LinkedIn"
-        target="_blank"
-        rel="noopener noreferrer"
+      </SocialAnchor>
+      <SocialAnchor
+        socialTarget={`https://www.linkedin.com/in/${social.linkedIn}`}
+        socialNetwork="LinkedIn"
       >
         <LinkedInSquare
           fill={darkMode ? colors.dark_primary : colors.primary}
         />
-      </A>
-      <A
-        href={`https://twitter.com/${social.twitter}`}
-        aria-label="Página de Twitter"
-        title="Twitter"
-        target="_blank"
-        rel="noopener noreferrer"
+      </SocialAnchor>
+      <SocialAnchor
+        socialTarget={`https://twitter.com/${social.twitter}`}
+        socialNetwork="Twitter"
       >
         <TwitterSquare fill={darkMode ? colors.dark_primary : colors.primary} />
-      </A>
+      </SocialAnchor>
       <style jsx>{`
         aside {
           box-shadow: ${darkMode

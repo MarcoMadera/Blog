@@ -2,7 +2,7 @@ import Seo from "components/Seo";
 import ActionButton from "components/ActionButton";
 import { H1, H2, P, A, Img, ALink } from "components/tags";
 import { PropsWithChildren, ReactElement } from "react";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 
 interface ArticleProps {
   img: string;
@@ -97,7 +97,7 @@ function Article({
 }
 
 export default function Portfolio(): ReactElement {
-  useAnalitycs("page-portafolio");
+  useAnalytics("page-portafolio");
 
   return (
     <main id="main">

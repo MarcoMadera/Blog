@@ -17,6 +17,7 @@ import { A, ALink, H1, H2, H3, P } from "components/tags";
 import { NowPlaying, SongData } from "types/spotify";
 import { PropsWithChildren, ReactElement, memo } from "react";
 import useToolTip from "hooks/useToolTip";
+import useAnalytics from "hooks/useAnalytics";
 
 interface AboutLayoutProps {
   newNowPlaying: NowPlaying | null;
@@ -72,6 +73,7 @@ const AboutLayout = ({
   topTracks,
 }: AboutLayoutProps): ReactElement => {
   const { getToolTipAttrbutes } = useToolTip();
+  const { trackWithGoogleAnalytics } = useAnalytics();
 
   return (
     <main>
@@ -189,6 +191,11 @@ const AboutLayout = ({
             , o mándame un correo dando clic al icono{" "}
             <button
               onClick={() => {
+                trackWithGoogleAnalytics("social", {
+                  socialNetwork: "email",
+                  socialAction: "click",
+                  socialTarget: "mailto:me@marcomadera.com",
+                });
                 window.open(
                   "mailto:me@marcomadera.com",
                   "width=600,height=500,scrollbars=no,resizable=no"

@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
 import Seo from "components/Seo";
 import { A, H1, H2, P, ALink, Ul, Li } from "components/tags";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 
 export default function Privacy(): ReactElement {
-  useAnalitycs("page-privacidad");
+  useAnalytics("page-privacidad");
   return (
     <main id="main">
       <Seo title="Política de privacidad" />

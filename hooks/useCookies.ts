@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import CookiesContext from "context/CookiesContext";
 import { UseCookies } from "types/cookies";
 
@@ -11,30 +11,35 @@ export default function useCookies(): UseCookies {
 
   const { acceptedcookies, setAcceptedCookies } = context;
 
-  function getCookie(cookieName: string): string | false {
+  const getCookie = useCallback((cookieName: string): string | false => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${cookieName}=`);
     if (parts.length === 2) {
       return parts.pop()?.split(";").shift() || cookieName;
     }
     return false;
-  }
+  }, []);
 
-  function setCookie({
-    name,
-    value,
-    age,
-  }: {
-    name: string;
-    value: string;
-    age: number;
-  }) {
-    document.cookie = `${name}=${value}; max-age=${age}; Path=/;"`;
-  }
+  const setCookie = useCallback(
+    ({ name, value, age }: { name: string; value: string; age: number }) => {
+      document.cookie = `${name}=${value}; max-age=${age}; Path=/;"`;
+    },
+    []
+  );
 
-  function deleteCookie(cookieName: string) {
+  const deleteCookie = useCallback((cookieName: string): string => {
     return (document.cookie = `${cookieName}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax;`);
-  }
+  }, []);
+
+  const toggleAcceptedCookies = useCallback(() => {
+    if (acceptedcookies) {
+      deleteCookie("_ga");
+      setAcceptedCookies(false);
+      return "Cookies desactivadas";
+    }
+    setAcceptedCookies(true);
+    return "Cookies activadas";
+  }, [acceptedcookies, deleteCookie, setAcceptedCookies]);
 
   return {
     acceptedcookies,
@@ -42,5 +47,6 @@ export default function useCookies(): UseCookies {
     getCookie,
     setCookie,
     deleteCookie,
+    toggleAcceptedCookies,
   };
 }

@@ -3,6 +3,7 @@ import { SpaceData } from "types/tweet";
 import { getQuotedTwitterFormattedDate } from "utils";
 import EmojisWrapper from "components/EmojisWrapper";
 import useToolTip from "hooks/useToolTip";
+import useAnalytics from "hooks/useAnalytics";
 
 export default function SpaceTweet({
   spaceTweet,
@@ -10,6 +11,7 @@ export default function SpaceTweet({
   spaceTweet: SpaceData | undefined;
 }): ReactElement {
   const { getToolTipAttrbutes } = useToolTip();
+  const { trackWithGoogleAnalytics } = useAnalytics();
   if (!spaceTweet) {
     return <></>;
   }
@@ -82,6 +84,13 @@ export default function SpaceTweet({
         href={`https://twitter.com/i/spaces/${spaceTweet.data.id}`}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => {
+          trackWithGoogleAnalytics("social", {
+            socialAction: "click space",
+            socialNetwork: "twitter",
+            socialTarget: `https://twitter.com/i/spaces/${spaceTweet.data.id}`,
+          });
+        }}
       >
         {spaceTweet.data.state === "ended"
           ? "Escucha la grabación en twitter"

@@ -5,9 +5,11 @@ import useDarkMode from "hooks/useDarkMode";
 import { TwitterSquare, LinkedInSquare, GithubSquare } from "./icons";
 import { ReactElement } from "react";
 import { A } from "components/tags";
+import { SocialAnchor } from "layouts/Home/SocialAnchor";
 
-function Footer(): ReactElement {
+export default function Footer(): ReactElement {
   const { darkMode } = useDarkMode();
+  const { social } = siteMetadata;
 
   return (
     <footer>
@@ -77,45 +79,36 @@ function Footer(): ReactElement {
         <div className="footer_section ">
           <strong>Social</strong>
           <div className="footer_social">
-            <A
-              href="https://twitter.com/madera_marco"
-              aria-label="Visitar la página de Twitter"
-              title="Twitter"
-              target="_blank"
-              rel="noopener noreferrer"
+            <SocialAnchor
+              socialTarget={`https://twitter.com/${social.twitter}`}
+              socialNetwork="Twitter"
             >
               <TwitterSquare
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
-            </A>
-            <A
-              href="https://www.linkedin.com/in/marcomadera"
-              aria-label="Visitar la página de LinkedIn"
-              title="LinkedIn"
-              target="_blank"
-              rel="noopener noreferrer"
+            </SocialAnchor>
+            <SocialAnchor
+              socialTarget={`https://www.linkedin.com/in/${social.linkedIn}`}
+              socialNetwork="LinkedIn"
             >
               <LinkedInSquare
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
-            </A>
-            <A
-              href="https://github.com/MarcoMadera"
-              aria-label="Visitar la página de Github"
-              title="Github"
-              target="_blank"
-              rel="noopener noreferrer"
+            </SocialAnchor>
+            <SocialAnchor
+              socialTarget={`https://github.com/${social.gitHub}`}
+              socialNetwork="GitHub"
             >
               <GithubSquare
                 width={28}
                 height={28}
                 fill={darkMode ? colors.dark_primary : colors.primary}
               />
-            </A>
+            </SocialAnchor>
           </div>
           <div>
             <span translate="no">Marco Madera &copy; 2020 - 2021</span>
@@ -214,5 +207,3 @@ function Footer(): ReactElement {
     </footer>
   );
 }
-
-export default Footer;

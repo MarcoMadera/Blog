@@ -1,4 +1,4 @@
-import {
+import posts, {
   getPostsFiles,
   getPostBySlug,
   getPostsPages,
@@ -21,7 +21,10 @@ describe("getPostsFiles", () => {
 describe("getPostBySlug", () => {
   it("should find the post", async () => {
     expect.hasAssertions();
-    await expect(getPostBySlug("accesibilidad-web")).resolves.toBeDefined();
+    jest.spyOn(posts, "getBlurDataURL").mockResolvedValue("base64");
+    expect((await getPostBySlug("accesibilidad-web")).blurDataURL).toBe(
+      "base64"
+    );
   });
 });
 
@@ -35,8 +38,9 @@ describe("getPostsPages", () => {
 });
 
 describe("getHomeDataFromPage", () => {
-  it("posts should be not greater that postPerPage", async () => {
+  it("posts should be not greater than postPerPage", async () => {
     expect.hasAssertions();
+    jest.spyOn(posts, "getBlurDataURL").mockResolvedValue("base64");
     const homedata = await getHomeDataFromPage(1);
     expect(homedata.allTags).toStrictEqual(
       expect.arrayContaining([expect.any(String)])

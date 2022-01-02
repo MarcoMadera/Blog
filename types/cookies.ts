@@ -14,4 +14,5 @@ export interface UseCookies {
     age: number;
   }) => void;
   deleteCookie: (cookieName: string) => string;
+  toggleAcceptedCookies: () => string;
 }

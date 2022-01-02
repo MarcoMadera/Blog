@@ -2,7 +2,7 @@ import Seo from "components/Seo";
 import { H1, H2, Img, P, Kbd, Ul, Li, Abbr } from "components/tags";
 import { Excel, JavascriptSquare, Html5, Css, Vba } from "components/icons";
 import { PropsWithChildren, ReactElement } from "react";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 
 interface ArticleProps {
   title: string;
@@ -86,7 +86,7 @@ function Article({
 }
 
 export default function SreExcel(): ReactElement {
-  useAnalitycs("portafolio-sre");
+  useAnalytics("portafolio-sre");
 
   return (
     <main id="main">

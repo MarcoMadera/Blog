@@ -21,9 +21,14 @@ import {
   serverTimestamp,
   query,
 } from "firebase/database";
+import useAnalytics from "./useAnalytics";
 
 export default function useComments(): UseComments {
   const context = useContext(CommentsContext);
+  const { addNotification } = useNotification();
+  const { user } = useUser();
+  const router = useRouter();
+  const { trackWithGoogleAnalytics } = useAnalytics();
 
   if (context === null) {
     throw new Error("useComments must be used within a CommentProvider");
@@ -46,9 +51,6 @@ export default function useComments(): UseComments {
 
   const { commentsPerPost, siteUrl } = siteMetadata;
 
-  const { addNotification } = useNotification();
-  const { user } = useUser();
-  const router = useRouter();
   const slug = router.query.slug;
 
   const updateCommentCount = useCallback(() => {
@@ -74,10 +76,20 @@ export default function useComments(): UseComments {
       });
 
       updateCommentCount();
+      trackWithGoogleAnalytics("event", {
+        eventCategory: "Comments",
+        eventAction: "Loaded",
+        eventLabel: `${slug}`,
+        eventValue: "1",
+      });
     } catch {
       addNotification({
         variant: "error",
         message: "Error al actualizar los comentarios",
+      });
+      trackWithGoogleAnalytics("exception", {
+        exDescription: "Update comments error",
+        exFatal: "0",
       });
     }
   }, [
@@ -86,6 +98,7 @@ export default function useComments(): UseComments {
     setAllComments,
     slug,
     timesLoadedComments,
+    trackWithGoogleAnalytics,
     updateCommentCount,
   ]);
 
@@ -106,6 +119,10 @@ export default function useComments(): UseComments {
           variant: "error",
           message: "Ha ocurrido un error al intentar subir la imagen",
         });
+        trackWithGoogleAnalytics("exception", {
+          exDescription: "Upload image error",
+          exFatal: "0",
+        });
       }
 
       function onComplete() {
@@ -114,7 +131,7 @@ export default function useComments(): UseComments {
 
       task.on("state_changed", onProgress, onError, onComplete);
     },
-    [setImgURL, addNotification]
+    [setImgURL, addNotification, trackWithGoogleAnalytics]
   );
 
   const createComment = useCallback(
@@ -146,10 +163,20 @@ export default function useComments(): UseComments {
           variant: "success",
           message: "Comentario publicado",
         });
+        trackWithGoogleAnalytics("event", {
+          eventCategory: "Form",
+          eventAction: "Submit success",
+          eventLabel: "Comments",
+          eventValue: "1",
+        });
       } catch {
         addNotification({
           variant: "error",
           message: "Error al publicar el comentario",
+        });
+        trackWithGoogleAnalytics("exception", {
+          exDescription: "Create comment error",
+          exFatal: "0",
         });
       }
     },
@@ -162,6 +189,7 @@ export default function useComments(): UseComments {
       setImgURL,
       setComment,
       addNotification,
+      trackWithGoogleAnalytics,
     ]
   );
 

@@ -1,11 +1,11 @@
 import Seo from "components/Seo";
 import { ReactElement } from "react";
 import { H1, A } from "components/tags";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 import NewsletterForm from "components/Newsletter/NewsletterForm";
 
 export default function NewsletterPage(): ReactElement {
-  useAnalitycs("page-newsletter");
+  useAnalytics("page-newsletter");
 
   return (
     <main id="main">

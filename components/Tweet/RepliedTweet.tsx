@@ -8,6 +8,7 @@ import { TweetData } from "types/tweet";
 import React, { ReactElement } from "react";
 import TweetHeaderInfo from "./TweetHeaderInfo";
 import { A } from "components/tags";
+import useAnalytics from "hooks/useAnalytics";
 
 interface RepliedTweetProps {
   data: TweetData;
@@ -16,6 +17,7 @@ interface RepliedTweetProps {
 export default function RepliedTweet({
   data,
 }: RepliedTweetProps): ReactElement | null {
+  const { trackWithGoogleAnalytics } = useAnalytics();
   const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${data.tweet.id}`;
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${data.tweet.id}`;
   const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${data.tweet.id}`;
@@ -26,6 +28,7 @@ export default function RepliedTweet({
   }
 
   const userprofile = `https://twitter.com/${user.username}`;
+  const tweetUrl = `https://twitter.com/${user.username}/status/${data.tweet.id}`;
 
   return (
     <blockquote className="container">
@@ -75,6 +78,13 @@ export default function RepliedTweet({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${data.tweet.public_metrics.reply_count} comentarios, Comentar en twitter`}
+              onClick={() => {
+                trackWithGoogleAnalytics("social", {
+                  socialAction: "reply",
+                  socialNetwork: "twitter",
+                  socialTarget: tweetUrl,
+                });
+              }}
             >
               <div className="reply">
                 <div
@@ -96,6 +106,13 @@ export default function RepliedTweet({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${data.tweet.public_metrics.like_count} me gusta, Dar me gusta en twitter`}
+              onClick={() => {
+                trackWithGoogleAnalytics("social", {
+                  socialAction: "like",
+                  socialNetwork: "twitter",
+                  socialTarget: tweetUrl,
+                });
+              }}
             >
               <div className="heart">
                 <div
@@ -117,6 +134,13 @@ export default function RepliedTweet({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${data.tweet.public_metrics.retweet_count} retweets, Hacer retweet en twitter`}
+              onClick={() => {
+                trackWithGoogleAnalytics("social", {
+                  socialAction: "retweet",
+                  socialNetwork: "twitter",
+                  socialTarget: tweetUrl,
+                });
+              }}
             >
               <div>
                 <div

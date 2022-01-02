@@ -2,10 +2,10 @@ import ActionButton from "components/ActionButton";
 import { Ul, Li, H1, H2, Img, P, Video, H3 } from "components/tags";
 import Seo from "components/Seo";
 import { ReactElement } from "react";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 
 export default function TestRandomNumbers(): ReactElement {
-  useAnalitycs("portafolio-rindu");
+  useAnalytics("portafolio-rindu");
 
   return (
     <main id="main">

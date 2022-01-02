@@ -3,10 +3,10 @@ import { ALink, H1, H2, Img, P } from "components/tags";
 import { ChartJs, ReactIcon } from "components/icons";
 import Seo from "components/Seo";
 import { ReactElement } from "react";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 
 export default function TestRandomNumbers(): ReactElement {
-  useAnalitycs("portafolio-random-numbers");
+  useAnalytics("portafolio-random-numbers");
 
   return (
     <main id="main">

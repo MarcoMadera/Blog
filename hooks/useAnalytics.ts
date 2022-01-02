@@ -1,27 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
-import { dataToSendType, Fields, UseAnalitycsParams } from "types/analitycs";
+import { dataToSendType, Fields, useAnalyticsParams } from "types/analytics";
 import useCookies from "./useCookies";
 
-export default function useAnalitycs(page?: string): UseAnalitycsParams {
+export default function useAnalytics(page?: string): useAnalyticsParams {
   const [views, setViews] = useState(null);
-  const { getCookie, setCookie } = useCookies();
+  const { getCookie, setCookie, acceptedcookies } = useCookies();
 
-  useEffect(() => {
-    if (!page) {
-      return;
-    }
-
-    fetch(`/api/views/${page}`, {
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then(setViews)
-      .catch((err) => console.log(err));
-  }, [page]);
-
-  const trackWithGoogleAnalitycs: UseAnalitycsParams["trackWithGoogleAnalitycs"] =
+  const trackWithGoogleAnalytics: useAnalyticsParams["trackWithGoogleAnalytics"] =
     useCallback(
       (hitType = "pageview", fields: Fields) => {
+        if (!acceptedcookies) {
+          return;
+        }
+
         function addAnalyticsCookie() {
           const value = `GA1.2.${~~(2147483648 * Math.random())}.${~~(
             Date.now() / 1000
@@ -84,11 +75,29 @@ export default function useAnalitycs(page?: string): UseAnalitycsParams {
           new URLSearchParams(data)
         );
       },
-      [getCookie, setCookie]
+      [getCookie, setCookie, acceptedcookies]
     );
 
+  useEffect(() => {
+    if (!page) {
+      return;
+    }
+
+    fetch(`/api/views/${page}`, {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then(setViews)
+      .catch(() =>
+        trackWithGoogleAnalytics("exception", {
+          exDescription: "Error fetching views",
+          exFatal: "0",
+        })
+      );
+  }, [page, trackWithGoogleAnalytics]);
+
   return {
-    trackWithGoogleAnalitycs,
+    trackWithGoogleAnalytics,
     views,
   };
 }

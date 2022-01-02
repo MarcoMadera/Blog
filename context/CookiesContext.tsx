@@ -1,4 +1,5 @@
 import CookiesModal from "components/modals/CookiesModal";
+import useLocalStorage from "hooks/useLocalStorage";
 import {
   useState,
   createContext,
@@ -6,6 +7,7 @@ import {
   Dispatch,
   SetStateAction,
   ReactElement,
+  useEffect,
 } from "react";
 
 interface CookiesContext {
@@ -22,6 +24,19 @@ export function CookiesContextProvider({
 }): ReactElement {
   const [acceptedcookies, setAcceptedCookies] =
     useState<CookiesContext["acceptedcookies"]>();
+  const setAceptedCookiesLocalStorage = useLocalStorage(
+    "cookiesAccepted",
+    "false"
+  )[1];
+
+  useEffect(() => {
+    if (acceptedcookies === false) {
+      setAceptedCookiesLocalStorage("false");
+    }
+    if (acceptedcookies === true) {
+      setAceptedCookiesLocalStorage("true");
+    }
+  });
   return (
     <Context.Provider value={{ acceptedcookies, setAcceptedCookies }}>
       {acceptedcookies === undefined ? <CookiesModal /> : null}

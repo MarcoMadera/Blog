@@ -4,6 +4,7 @@ import { User, Tweet } from "types/tweet";
 import { ReactElement } from "react";
 import TweetCreatedAt from "./TweetCreatedAt";
 import { A } from "components/tags";
+import useAnalytics from "hooks/useAnalytics";
 
 interface TweetInfoProps {
   username: User["username"];
@@ -18,6 +19,7 @@ export default function TweetInfo({
   metrics,
   created_at,
 }: TweetInfoProps): ReactElement {
+  const { trackWithGoogleAnalytics } = useAnalytics();
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweetId}`;
   const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${tweetId}`;
   const tweetUrl = `https://twitter.com/${username}/status/${tweetId}`;
@@ -31,6 +33,13 @@ export default function TweetInfo({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${metrics.like_count} me gusta, Dar me gusta en twitter`}
+        onClick={() => {
+          trackWithGoogleAnalytics("social", {
+            socialAction: "like",
+            socialNetwork: "twitter",
+            socialTarget: tweetUrl,
+          });
+        }}
       >
         <div className="heart">
           <div className="icon icon-heart" role="img" aria-hidden="true" />
@@ -48,6 +57,13 @@ export default function TweetInfo({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${metrics.retweet_count} retweets, Hacer retweet en twitter`}
+        onClick={() => {
+          trackWithGoogleAnalytics("social", {
+            socialAction: "retweet",
+            socialNetwork: "twitter",
+            socialTarget: tweetUrl,
+          });
+        }}
       >
         <div>
           <div className="icon icon-retweet" role="img" aria-hidden="true" />

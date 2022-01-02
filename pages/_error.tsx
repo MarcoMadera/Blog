@@ -1,12 +1,24 @@
 import Seo from "components/Seo";
+import useAnalytics from "hooks/useAnalytics";
 import { NextPageContext } from "next";
-import { ReactElement } from "react";
+import { useRouter } from "next/router";
+import { ReactElement, useEffect } from "react";
 
 interface Props {
   statusCode?: number;
 }
 
 export default function Error({ statusCode }: Props): ReactElement {
+  const { pathname } = useRouter();
+  const { trackWithGoogleAnalytics } = useAnalytics();
+
+  useEffect(() => {
+    trackWithGoogleAnalytics("exception", {
+      exDescription: `${statusCode || "client"} error: ${pathname}`,
+      exFatal: "1",
+    });
+  }, [pathname, statusCode, trackWithGoogleAnalytics]);
+
   return (
     <main id="main">
       <Seo title={`😫 Error ${statusCode || "del cliente"}`} />

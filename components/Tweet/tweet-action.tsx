@@ -6,6 +6,7 @@ import HtmlToReact from "html-to-react";
 import { Tweet, User } from "types/tweet";
 import { ReactElement } from "react";
 import { A } from "components/tags";
+import useAnalytics from "hooks/useAnalytics";
 
 interface TweetActionProps {
   name: User["name"];
@@ -24,6 +25,7 @@ export default function TweetAction({
   const tweetUrl = `${userUrl}/status/${tweetId}`;
   const count = metrics.reply_count + metrics.retweet_count;
   const isConversation = count > 4;
+  const { trackWithGoogleAnalytics } = useAnalytics();
   const { darkMode } = useDarkMode();
   const htmlToReactParser = HtmlToReact.Parser();
 
@@ -37,6 +39,13 @@ export default function TweetAction({
           rel="noopener noreferrer"
           className="tweetActionA"
           textColor={tweets.linkColor}
+          onClick={() => {
+            trackWithGoogleAnalytics("social", {
+              socialAction: "view",
+              socialNetwork: "twitter",
+              socialTarget: tweetUrl,
+            });
+          }}
         >
           <div className="icon icon-reply" />
           <span className="text">
@@ -52,6 +61,13 @@ export default function TweetAction({
           rel="noopener noreferrer"
           className="tweetActionA"
           textColor={tweets.linkColor}
+          onClick={() => {
+            trackWithGoogleAnalytics("social", {
+              socialAction: "view",
+              socialNetwork: "twitter",
+              socialTarget: userUrl,
+            });
+          }}
         >
           <div className="icon icon-profile" />
           <span className="text">

@@ -3,7 +3,7 @@ import ActionButton from "components/ActionButton";
 import Seo from "components/Seo";
 import { Css, Html5, ReactIcon, Svelte } from "components/icons";
 import { PropsWithChildren, ReactElement } from "react";
-import useAnalitycs from "hooks/useAnalitycs";
+import useAnalytics from "hooks/useAnalytics";
 
 interface ChallengeProps {
   title: string;
@@ -101,7 +101,7 @@ function Challenge({
 }
 
 export default function Challenges(): ReactElement {
-  useAnalitycs("portafolio-retos-frontend");
+  useAnalytics("portafolio-retos-frontend");
 
   return (
     <main id="main">

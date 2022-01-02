@@ -6,6 +6,7 @@ import ActionButton from "components/ActionButton";
 import useNotification from "hooks/useNotification";
 import { useRouter } from "next/router";
 import { subscribeToNewsletter } from "utils/subscribeToNewsletter";
+import useAnalytics from "hooks/useAnalytics";
 
 export default function NewsletterForm({
   children,
@@ -15,6 +16,7 @@ export default function NewsletterForm({
   const router = useRouter();
   const { darkMode } = useDarkMode();
   const { addNotification } = useNotification();
+  const { trackWithGoogleAnalytics } = useAnalytics();
   const formRef = useRef<HTMLFormElement | null>(null);
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
@@ -25,6 +27,12 @@ export default function NewsletterForm({
     setError(false);
 
     const { type, message } = await subscribeToNewsletter(email);
+    trackWithGoogleAnalytics("event", {
+      eventCategory: "Form",
+      eventAction: `Submit ${type}`,
+      eventLabel: "Newsletter",
+      eventValue: "1",
+    });
 
     addNotification({
       variant: type,

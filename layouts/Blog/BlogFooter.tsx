@@ -5,6 +5,7 @@ import { A } from "components/tags";
 import { PostWithMedia } from "types/posts";
 import { PropsWithChildren, ReactElement } from "react";
 import useToolTip from "hooks/useToolTip";
+import useAnalytics from "hooks/useAnalytics";
 
 interface ButtonProps {
   url: string;
@@ -17,10 +18,16 @@ function Button({
   children,
 }: PropsWithChildren<ButtonProps>): ReactElement {
   const { getToolTipAttrbutes } = useToolTip();
+  const { trackWithGoogleAnalytics } = useAnalytics();
   return (
     <button
       {...getToolTipAttrbutes(`Compartir en ${network}`)}
       onClick={() => {
+        trackWithGoogleAnalytics("social", {
+          socialAction: "share",
+          socialNetwork: network,
+          socialTarget: url,
+        });
         window.open(
           `${url}`,
           "popup",

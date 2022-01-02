@@ -4,18 +4,13 @@ import { ReactPortal, useEffect, useState } from "react";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import useCookies from "hooks/useCookies";
-import useAnalitycs from "hooks/useAnalitycs";
-import useLocalStorage from "hooks/useLocalStorage";
+import useAnalytics from "hooks/useAnalytics";
 
 export default function CookiesModal(): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element | null>();
   const { darkMode } = useDarkMode();
   const { setAcceptedCookies } = useCookies();
-  const { trackWithGoogleAnalitycs } = useAnalitycs();
-  const setAceptedCookiesLocalStorage = useLocalStorage(
-    "cookiesAccepted",
-    "false"
-  )[1];
+  const { trackWithGoogleAnalytics } = useAnalytics();
 
   useEffect(() => {
     setTargetNode(document.querySelector("#cookiesDialog"));
@@ -31,19 +26,6 @@ export default function CookiesModal(): ReactPortal | null {
     return null;
   }
 
-  function handleClick(change: boolean) {
-    if (change === true) {
-      trackWithGoogleAnalitycs();
-      setAceptedCookiesLocalStorage("true");
-      setAcceptedCookies(true);
-      return;
-    } else {
-      setAceptedCookiesLocalStorage("false");
-      setAcceptedCookies(false);
-      return;
-    }
-  }
-
   return ReactDOM.createPortal(
     <section>
       <p>
@@ -57,14 +39,15 @@ export default function CookiesModal(): ReactPortal | null {
       <div>
         <button
           onClick={() => {
-            handleClick(false);
+            setAcceptedCookies(false);
           }}
         >
           Rechazar
         </button>
         <button
           onClick={() => {
-            handleClick(true);
+            trackWithGoogleAnalytics();
+            setAcceptedCookies(true);
           }}
         >
           Aceptar

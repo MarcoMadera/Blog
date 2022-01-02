@@ -1,20 +1,18 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import a11ySmartFocus from "utils/a11ySmartFocus";
-import useAnalitycs from "./useAnalitycs";
+import useAnalytics from "./useAnalytics";
 import useCookies from "./useCookies";
 import NProgress from "nprogress";
 
 export default function useRouterEvents(): void {
   const { acceptedcookies } = useCookies();
-  const { trackWithGoogleAnalitycs } = useAnalitycs();
+  const { trackWithGoogleAnalytics } = useAnalytics();
   const router = useRouter();
 
   useEffect(() => {
     function handleRouteChange() {
-      if (acceptedcookies === true) {
-        trackWithGoogleAnalitycs();
-      }
+      trackWithGoogleAnalytics();
       a11ySmartFocus();
       NProgress.done();
     }
@@ -28,5 +26,5 @@ export default function useRouterEvents(): void {
       router.events.off("routeChangeComplete", handleRouteChange);
       router.events.off("routeChangeError", () => NProgress.done());
     };
-  }, [router.events, acceptedcookies, trackWithGoogleAnalitycs]);
+  }, [router.events, acceptedcookies, trackWithGoogleAnalytics]);
 }

@@ -1,7 +1,19 @@
 import Seo from "components/Seo";
-import { ReactElement } from "react";
+import useAnalytics from "hooks/useAnalytics";
+import { useRouter } from "next/router";
+import { ReactElement, useEffect } from "react";
 
 export default function Custom500(): ReactElement {
+  const { pathname } = useRouter();
+  const { trackWithGoogleAnalytics } = useAnalytics();
+
+  useEffect(() => {
+    trackWithGoogleAnalytics("exception", {
+      exDescription: `500 internal server error: ${pathname}`,
+      exFatal: "1",
+    });
+  }, [pathname, trackWithGoogleAnalytics]);
+
   return (
     <main id="main">
       <Seo title="😫 500 - Servidor? | Marco Madera" />

@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import useAnalitycs from "./useAnalitycs";
+import useAnalytics from "./useAnalytics";
 import useCookies from "./useCookies";
 import useDarkMode from "./useDarkMode";
 
 export default function useLocalStorageState(): void {
   const { setDarkMode } = useDarkMode();
-  const { trackWithGoogleAnalitycs } = useAnalitycs();
+  const { trackWithGoogleAnalytics } = useAnalytics();
   const { setAcceptedCookies } = useCookies();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function useLocalStorageState(): void {
     }
 
     if (localStorage.getItem("cookiesAccepted") === "true") {
-      trackWithGoogleAnalitycs();
+      trackWithGoogleAnalytics();
       setAcceptedCookies(true);
     }
 
