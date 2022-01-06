@@ -3,6 +3,7 @@ import { HTML, Dark_HTML } from "./code/languages/html";
 import { JSON, Dark_JSON } from "./code/languages/json";
 import { JSX, Dark_JSX } from "./code/languages/jsx";
 import { JAVASCRIPT, Dark_JAVASCRIPT } from "./code/languages/javascript";
+import { DEFAULT, Dark_DEFAULT } from "./code/languages/default";
 
 const codeStyles = {
   light: {
@@ -11,6 +12,7 @@ const codeStyles = {
     javascript: JAVASCRIPT,
     json: JSON,
     jsx: JSX,
+    default: DEFAULT,
   },
   dark: {
     css: Dark_CSS,
@@ -18,6 +20,7 @@ const codeStyles = {
     javascript: Dark_JAVASCRIPT,
     json: Dark_JSON,
     jsx: Dark_JSX,
+    default: Dark_DEFAULT,
   },
 };
 

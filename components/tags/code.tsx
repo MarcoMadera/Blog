@@ -209,8 +209,8 @@ export function CodeBlock({
   } = codeStyles;
 
   const style = darkMode
-    ? styles.dark[`${language}`] ?? undefined
-    : styles.light[`${language}`] ?? undefined;
+    ? styles.dark[`${language}`] ?? styles.dark["default"]
+    : styles.light[`${language}`] ?? styles.light["default"];
 
   const htmlToReactParser = HtmlToReact.Parser();
 

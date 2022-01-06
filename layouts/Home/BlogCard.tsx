@@ -26,6 +26,7 @@ export default function BlogCard({
   "h2s" | "content" | "profilePhoto" | "twitter" | "summary"
 > {
   const { darkMode } = useDarkMode();
+  const isFromCloudProvider = isImgFromCloudProvider(cover);
 
   return (
     <article>
@@ -43,14 +44,16 @@ export default function BlogCard({
               width={80}
               alt={tags.join(", ")}
               placeholder="blur"
-              loader={({ src, width }) =>
-                isImgFromCloudProvider(src)
-                  ? replaceUrlImgTransformations(
-                      src,
-                      `q_auto,f_auto,c_scale,h_${width},w_${width}`
-                    )
-                  : src
+              loader={
+                isFromCloudProvider
+                  ? ({ src, width }) =>
+                      replaceUrlImgTransformations(
+                        src,
+                        `q_auto,f_auto,c_scale,h_${width},w_${width}`
+                      )
+                  : undefined
               }
+              unoptimized={!isFromCloudProvider}
               blurDataURL={blurDataURL}
               src={cover}
             />
@@ -66,7 +69,7 @@ export default function BlogCard({
                 href={`/blog/etiqueta/${slugify(tag)}/`}
                 key={tag}
               >
-                <a aria-label={`etiqueta ${tag}`}>{tag}</a>
+                <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
               </Link>
             ))}
         </div>
