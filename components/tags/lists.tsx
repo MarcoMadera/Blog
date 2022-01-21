@@ -89,7 +89,7 @@ export function Li({
         }
         li :global(p) {
           margin: 0 0 12px 0;
-          white-space: pre;
+          white-space: pre-wrap;
         }
         li :global(p:last-child) {
           margin-bottom: 0px;

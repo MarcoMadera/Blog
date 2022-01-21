@@ -90,7 +90,7 @@ MarcoMadera/github-cli
 
   <span style="font-weight:600;">### Ver los repositorios</span>
 
-    $gh repo view <span class="red">[</span>&lt;repository&gt;<span class="red">]</span> <span class="red">[</span>flags<span class="red">]</span>
+    $gh repo view <span class="red">[</span>&#60;repository&#62;<span class="red">]</span> <span class="red">[</span>flags<span class="red">]</span>
 
   Con este comando se puede observar la descripción del repositorio y el contenido del archivo README.md.
 </code></pre>

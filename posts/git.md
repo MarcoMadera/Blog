@@ -69,7 +69,7 @@ Para no ir a ciegas comando tras comandos podemos **revisar el estado** con `git
 On branch master
 Your branch is up-to-date with <span class="green">'origin/master'</span>.
 Untracked files:
-  (use <span class="green">"git add &lt;file&gt;..."</span>. to include in what will be committed)
+  (use <span class="green">"git add &#60;file&#62;..."</span>. to include in what will be committed)
   <span class="red">README</span>
 nothing added to commit but untracked files present (use <span class="green">"git add"</span> to track)</code></pre>
 
@@ -83,20 +83,20 @@ Para **Ignorar archivos** se crea un archivo `.gitignore` en la raíz del proyec
 
 Ya teniendo todo lo que queramos para **guardar los archivos** usamos `git commit`. Esto abrirá el editor que definimos en la configuración para poner un mensaje descriptivo o igual lo podemos añadir en la consola con el _flag_ `-m`. Para añadir archivos que ya habían estado en el _stage_ usamos el _flag_ `-am` que es la combinación de `-a --add` y `-m --message`.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m</span> <span class="green">"&lt;mensaje descriptivo&gt;"</span>
-<span class="purple">git</span> <span class="blue">commit -am</span> <span class="green">"&lt;mensaje descriptivo&gt;"</span></code></pre>
+<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m</span> <span class="green">"&#60;mensaje descriptivo&#62;"</span>
+<span class="purple">git</span> <span class="blue">commit -am</span> <span class="green">"&#60;mensaje descriptivo&#62;"</span></code></pre>
 
 Mostrar el historial de commits del repositorio usamos `git log`, el resultado de este es un poco feo, por lo que se puede hacer más bonito con el _flag_ `--pretty`. `git log` solo mostrará por defecto el historial por debajo de la rama.
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">log</span>
 <span class="yellow">commit ed3946555db4597294bae2014cfe996b88268bef (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span>
-Author: MarcoMadera &lt;example@email.com&gt;
+Author: MarcoMadera &#60;example@email.com&#62;
 Date:   Mon Jul 6 17:09:50 2020 -0500
 
     hola mundo
 
 <span class="yellow">commit e150e0079854fa6a5996db6ee692fc1377a1f2ff</span>
-Author: MarcoMadera &lt;example@email.com&gt;
+Author: MarcoMadera &#60;example@email.com&#62;
 Date:   Mon Jun 29 19:28:42 2020 -0500
 
     hello world
@@ -142,55 +142,55 @@ Cuando un _commit_ es creado es enviado al `HEAD`, la rama actual, donde Git gua
 <ellipse fill="lightgrey" stroke="lightgrey" cx="27" cy="-450" rx="27" ry="18"></ellipse>
 <text text-anchor="middle" x="27" y="-445.8" font-family="inherit" font-size="13.00">a1</text></g><g><title>a2</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="27" cy="-378" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="27" y="-373.8" font-family="inherit" font-size="13.00">a2</text></g><g><title>a1-&gt;a2</title>
+<text text-anchor="middle" x="27" y="-373.8" font-family="inherit" font-size="13.00">a2</text></g><g><title>a1-&#62;a2</title>
 <path fill="none" stroke="#9c27b0" d="M27,-431.697C27,-423.983 27,-414.712 27,-406.112"></path>
 <polygon fill="#9c27b0" stroke="#9c27b0" points="30.5001,-406.104 27,-396.104 23.5001,-406.104 30.5001,-406.104"></polygon></g><g><title>a3</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="27" cy="-306" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="27" y="-301.8" font-family="inherit" font-size="13.00">a3</text></g><g><title>a2-&gt;a3</title>
+<text text-anchor="middle" x="27" y="-301.8" font-family="inherit" font-size="13.00">a3</text></g><g><title>a2-&#62;a3</title>
 <path fill="none" stroke="#9c27b0" d="M27,-359.697C27,-351.983 27,-342.712 27,-334.112"></path>
 <polygon fill="#9c27b0" stroke="#9c27b0" points="30.5001,-334.104 27,-324.104 23.5001,-334.104 30.5001,-334.104"></polygon></g><g><title>b1</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="99" cy="-306" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="99" y="-301.8" font-family="inherit" font-size="13.00">b1</text></g><g><title>a2-&gt;b1</title>
+<text text-anchor="middle" x="99" y="-301.8" font-family="inherit" font-size="13.00">b1</text></g><g><title>a2-&#62;b1</title>
 <path fill="none" stroke="#4f5cc8" d="M41.5703,-362.834C51.7499,-352.938 65.5239,-339.546 77.0306,-328.359"></path>
 <polygon fill="#4f5cc8" stroke="#4f5cc8" points="79.4741,-330.865 84.2043,-321.385 74.5945,-325.846 79.4741,-330.865"></polygon></g><g><title>a4</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="27" cy="-234" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="27" y="-229.8" font-family="inherit" font-size="13.00">a4</text></g><g><title>a3-&gt;a4</title>
+<text text-anchor="middle" x="27" y="-229.8" font-family="inherit" font-size="13.00">a4</text></g><g><title>a3-&#62;a4</title>
 <path fill="none" stroke="#9c27b0" d="M27,-287.697C27,-279.983 27,-270.712 27,-262.112"></path>
 <polygon fill="#9c27b0" stroke="#9c27b0" points="30.5001,-262.104 27,-252.104 23.5001,-262.104 30.5001,-262.104"></polygon></g><g><title>a5</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="27" cy="-162" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="27" y="-157.8" font-family="inherit" font-size="13.00">a5</text></g><g><title>a4-&gt;a5</title>
+<text text-anchor="middle" x="27" y="-157.8" font-family="inherit" font-size="13.00">a5</text></g><g><title>a4-&#62;a5</title>
 <path fill="none" stroke="#9c27b0" d="M27,-215.697C27,-207.983 27,-198.712 27,-190.112"></path>
 <polygon fill="#9c27b0" stroke="#9c27b0" points="30.5001,-190.104 27,-180.104 23.5001,-190.104 30.5001,-190.104"></polygon></g><g><title>a6</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="27" cy="-90" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="27" y="-85.8" font-family="inherit" font-size="13.00">a6</text></g><g><title>a5-&gt;a6</title>
+<text text-anchor="middle" x="27" y="-85.8" font-family="inherit" font-size="13.00">a6</text></g><g><title>a5-&#62;a6</title>
 <path fill="none" stroke="#9c27b0" d="M27,-143.697C27,-135.983 27,-126.712 27,-118.112"></path>
 <polygon fill="#9c27b0" stroke="#9c27b0" points="30.5001,-118.104 27,-108.104 23.5001,-118.104 30.5001,-118.104"></polygon></g><g><title>a7</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="27" cy="-18" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="27" y="-13.8" font-family="inherit" font-size="13.00">a7</text></g><g><title>a6-&gt;a7</title>
+<text text-anchor="middle" x="27" y="-13.8" font-family="inherit" font-size="13.00">a7</text></g><g><title>a6-&#62;a7</title>
 <path fill="none" stroke="#9c27b0" d="M27,-71.6966C27,-63.9827 27,-54.7125 27,-46.1124"></path>
 <polygon fill="#9c27b0" stroke="#9c27b0" points="30.5001,-46.1043 27,-36.1043 23.5001,-46.1044 30.5001,-46.1043"></polygon></g><g><title>b2</title><ellipse fill="lightgrey" stroke="lightgrey" cx="99" cy="-234" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="99" y="-229.8" font-family="inherit" font-size="13.00">b2</text></g><g><title>b1-&gt;b2</title><path fill="none" stroke="#4f5cc8" d="M99,-287.697C99,-279.983 99,-270.712 99,-262.112"></path>
+<text text-anchor="middle" x="99" y="-229.8" font-family="inherit" font-size="13.00">b2</text></g><g><title>b1-&#62;b2</title><path fill="none" stroke="#4f5cc8" d="M99,-287.697C99,-279.983 99,-270.712 99,-262.112"></path>
 <polygon fill="#4f5cc8" stroke="#4f5cc8" points="102.5,-262.104 99,-252.104 95.5001,-262.104 102.5,-262.104"></polygon></g><g><title>c1</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="171" cy="-234" rx="27" ry="18"></ellipse>
 <text text-anchor="middle" x="171" y="-229.8" font-family="inherit" font-size="13.00">c1</text>
-</g><g><title>b1-&gt;c1</title>
+</g><g><title>b1-&#62;c1</title>
 <path fill="none" stroke="#2e7d32" d="M113.57,-290.834C123.75,-280.938 137.524,-267.546 149.031,-256.359"></path>
 <polygon fill="#2e7d32" stroke="#2e7d32" points="151.474,-258.865 156.204,-249.385 146.595,-253.846 151.474,-258.865"></polygon>
 </g><g><title>b3</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="99" cy="-162" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="99" y="-157.8" font-family="inherit" font-size="13.00">b3</text></g><g><title>b2-&gt;b3</title>
+<text text-anchor="middle" x="99" y="-157.8" font-family="inherit" font-size="13.00">b3</text></g><g><title>b2-&#62;b3</title>
 <path fill="none" stroke="#4f5cc8" d="M99,-215.697C99,-207.983 99,-198.712 99,-190.112"></path>
 <polygon fill="#4f5cc8" stroke="#4f5cc8" points="102.5,-190.104 99,-180.104 95.5001,-190.104 102.5,-190.104"></polygon></g><g><title>b4</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="99" cy="-90" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="99" y="-85.8" font-family="inherit" font-size="13.00">b4</text></g><g><title>b3-&gt;b4</title>
+<text text-anchor="middle" x="99" y="-85.8" font-family="inherit" font-size="13.00">b4</text></g><g><title>b3-&#62;b4</title>
 <path fill="none" stroke="#4f5cc8" d="M99,-143.697C99,-135.983 99,-126.712 99,-118.112"></path>
-<polygon fill="#4f5cc8" stroke="#4f5cc8" points="102.5,-118.104 99,-108.104 95.5001,-118.104 102.5,-118.104"></polygon></g><g><title>b4-&gt;a7</title>
+<polygon fill="#4f5cc8" stroke="#4f5cc8" points="102.5,-118.104 99,-108.104 95.5001,-118.104 102.5,-118.104"></polygon></g><g><title>b4-&#62;a7</title>
 <path fill="none" stroke="#4f5cc8" d="M84.4297,-74.8345C74.2501,-64.9376 60.4761,-51.5462 48.9694,-40.3591"></path>
 <polygon fill="#4f5cc8" stroke="#4f5cc8" points="51.4055,-37.8461 41.7957,-33.3847 46.5259,-42.865 51.4055,-37.8461"></polygon></g><g><title>c2</title>
 <ellipse fill="lightgrey" stroke="lightgrey" cx="171" cy="-162" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="171" y="-157.8" font-family="inherit" font-size="13.00">c2</text></g><g><title>c1-&gt;c2</title>
+<text text-anchor="middle" x="171" y="-157.8" font-family="inherit" font-size="13.00">c2</text></g><g><title>c1-&#62;c2</title>
 <path fill="none" stroke="#2e7d32" d="M171,-215.697C171,-207.983 171,-198.712 171,-190.112"></path>
-<polygon fill="#2e7d32" stroke="#2e7d32" points="174.5,-190.104 171,-180.104 167.5,-190.104 174.5,-190.104"></polygon></g><g><title>c2-&gt;b4</title>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="174.5,-190.104 171,-180.104 167.5,-190.104 174.5,-190.104"></polygon></g><g><title>c2-&#62;b4</title>
 <path fill="none" stroke="#2e7d32" d="M156.43,-146.834C146.25,-136.938 132.476,-123.546 120.969,-112.359"></path>
 <polygon fill="#2e7d32" stroke="#2e7d32" points="123.405,-109.846 113.796,-105.385 118.526,-114.865 123.405,-109.846"></polygon></g></g>
 </svg>
@@ -201,7 +201,7 @@ En algún punto las ramas pueden volver a unirse a la rama principal o a otra ra
 
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">checkout master</span>
 Switched to branch <span class="green">'master'</span>
-<span class="purple">git</span> <span class="blue">merge &lt;nombre de rama&gt;</span>
+<span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span>
 Merge made by the <span class="green">'recursive'</span> strategy.
 index.js | 1 <span class="green">+</span>
 1 file changed, 1 insertion(<span class="green">+</span>)
@@ -209,7 +209,7 @@ create mode 100644 index.js</code></pre>
 
 No todo es tan bonito siempre. Al momento de unir ramas, si cambias la misma parte del mismo archivo en las dos ramas que se han unido ocurrirá un conflicto, Git no podrá unirlas tan fácil, te indicará dónde está el conflicto y te pedirá que lo arregles.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">merge &lt;nombre de rama&gt;</span>
+<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span>
 Auto-merging index.js
 <span class="red">CONFLICT</span> (content): Merge conflict in index.js
 Automatic merge failed; fix conflicts and then commit the result.</code></pre>
@@ -222,13 +222,13 @@ El historial de commits es tal y lo que pasó, cambiar este historial sería cam
 
 El uso de `git rebase` puede ir en contra de esto porque coloca la base de una rama de un commit a otra rama diferente, pero en algunos casos puede ser útil, simplemente porque tal vez no quieras tener una rama completa para un cambio tan pequeño. Una vez ya acabado el trabajo de unir ambas ramas se puede eliminar la rama porque ahora está apuntando a la rama principal, por lo que ya no sería necesaria. Para eliminar ramas se hace con `git branch -d <nombre de rama>`.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">checkout &lt;nombre de rama&gt;</span>
+<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">checkout &#60;nombre de rama&#62;</span>
 <span class="purple">git</span> <span class="blue">rebase master</span>
-Successfully rebased and updated refs/heads/&lt;nombre de rama&gt;.
+Successfully rebased and updated refs/heads/&#60;nombre de rama&#62;.
 
 <span class="purple">git</span> <span class="blue">checkout master</span>
-<span class="purple">git</span> <span class="blue">merge &lt;nombre de rama&gt;</span>
-<span class="purple">git</span> <span class="blue">branch -d &lt;nombre de rama&gt;</span>
+<span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span>
+<span class="purple">git</span> <span class="blue">branch -d &#60;nombre de rama&#62;</span>
 </code></pre>
 
 ## Repositorio Remoto
@@ -257,15 +257,15 @@ Cuando ya hemos hecho commit de los cambios que queremos compartir en nuestro re
 
 Si no quieres escribir el comando completo cada vez, puedes fácilmente configurar un _alias_ para cada comando. Los _alias_ en Git nos permiten **crear _shortcuts_**, a través de `git config --global alias.<atajo> comando`.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">config --global alias.&lt;atajo&gt; <span class="green">"&lt;comando&gt;"</span></span>
+<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">config --global alias.&#60;atajo&#62; <span class="green">"&#60;comando&#62;"</span></span>
 <span class="purple">git</span> <span class="blue">config --global alias.st <span class="green">"status"</span></span>
 <span class="purple">git</span> <span class="blue">git config --global alias.slog <span class="green">"log --pretty=format:'%h | %cn | %cr | %s'"</span></span>
 </code></pre>
 
 Si ya hicimos commit y olvidamos **añadir un archivo o enmendar algún cambio** podemos hacerlo con el comando `git commit --amend --no-edit`. Igualmente si nos equivocamos en la descripción de nuestro commit lo podemos arreglar con el mismo comando `git commit --amend` si lo invocamos después de haber ocurrido el error.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m <span class="green">"&lt;mensaje&gt;"</span></span>
-<span class="purple">git</span> <span class="blue">add &lt;archivo&gt;</span>
+<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m <span class="green">"&#60;mensaje&#62;"</span></span>
+<span class="purple">git</span> <span class="blue">add &#60;archivo&#62;</span>
 <span class="purple">git</span> <span class="blue">git commit --amend</span>
 </code></pre>
 
@@ -279,7 +279,7 @@ Git mantiene un _log_ de dónde el `HEAD` y sus referencias han estado. Lo podem
 
 <span class="purple">git</span> <span class="blue">show HEAD@{2}</span>
 <span class="yellow">commit ed3946555db4597294bae2014cfe996b88268bef</span>
-Author: MarcoMadera &lt;example@email.com&gt;
+Author: MarcoMadera &#60;example@email.com&#62;
 Date:   Mon Jul 6 17:09:50 2020 -0500
 
     hola mundo
