@@ -87,6 +87,13 @@ export function Li({
           align-items: center;
           list-style-position: outside;
         }
+        li :global(p) {
+          margin: 0 0 12px 0;
+          white-space: pre;
+        }
+        li :global(p:last-child) {
+          margin-bottom: 0px;
+        }
         input {
           clip: rect(0, 0, 0, 0);
           width: 0;

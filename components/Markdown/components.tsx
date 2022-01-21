@@ -294,16 +294,15 @@ export const components:
     if (!children) {
       return null;
     }
-    const liChild = children[1] as ReactPortal;
-    const child = node.children[1] as unknown as Element;
     return (
-      <Li checked={checked}>
-        {child?.tagName === "p"
-          ? liChild?.props?.children
-          : children?.map((el) => {
-              const element = el as ReactPortal;
-              return element?.props?.type === "checkbox" ? null : el;
-            })}
+      <Li checked={checked} {...node.properties}>
+        {children?.map((el) => {
+          const element = el as ReactPortal;
+          if (element?.props?.type === "checkbox") {
+            return null;
+          }
+          return el;
+        })}
       </Li>
     );
   },

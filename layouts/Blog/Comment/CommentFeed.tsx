@@ -46,7 +46,11 @@ export default function CommentFeed({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={avatar} alt={username} title={username} />
         <div>
-          <Markdown source={comment} />
+          {comment ? (
+            <Markdown source={comment} />
+          ) : (
+            <p>Aquí se mostrará tu comentario... cuando lo escribas</p>
+          )}
           {img && <Img src={img} alt="" />}
         </div>
         <style jsx>{`
