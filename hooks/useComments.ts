@@ -210,42 +210,45 @@ export default function useComments(): UseComments {
     [addNotification, slug]
   );
 
-  function uploadImage(files: FileList) {
-    const isSendingMoreFiles = files.length > 1;
-    const image = files[0];
+  const uploadImage = useCallback(
+    (files: FileList) => {
+      const isSendingMoreFiles = files.length > 1;
+      const image = files[0];
 
-    if (user === null) {
-      addNotification({
-        variant: "info",
-        message: "Necesitas identificarte para enviar una imagen",
-      });
-      return;
-    }
-    if (isSendingMoreFiles) {
-      addNotification({
-        variant: "info",
-        message:
-          "Solo se puede subir una imagen por comentario. Puedes usar la opción de imagen por enlace si prefieres tener más de una.",
-        displayTime: 20000,
-      });
-      return;
-    }
-    if (!image.type.startsWith("image")) {
-      addNotification({
-        variant: "info",
-        message: "El archivo tiene que ser de tipo imagen",
-      });
-      return;
-    }
-    if (image.size > 3 * 1024 * 1024) {
-      addNotification({
-        variant: "info",
-        message: "El archivo tiene que ser menor de 3mb",
-      });
-      return;
-    }
-    handleTask(uploadTask(image, user?.uid));
-  }
+      if (user === null) {
+        addNotification({
+          variant: "info",
+          message: "Necesitas identificarte para enviar una imagen",
+        });
+        return;
+      }
+      if (isSendingMoreFiles) {
+        addNotification({
+          variant: "info",
+          message:
+            "Solo se puede subir una imagen por comentario. Puedes usar la opción de imagen por enlace si prefieres tener más de una.",
+          displayTime: 20000,
+        });
+        return;
+      }
+      if (!image.type.startsWith("image")) {
+        addNotification({
+          variant: "info",
+          message: "El archivo tiene que ser de tipo imagen",
+        });
+        return;
+      }
+      if (image.size > 3 * 1024 * 1024) {
+        addNotification({
+          variant: "info",
+          message: "El archivo tiene que ser menor de 3mb",
+        });
+        return;
+      }
+      handleTask(uploadTask(image, user?.uid));
+    },
+    [addNotification, handleTask, user]
+  );
 
   return {
     imgURL,

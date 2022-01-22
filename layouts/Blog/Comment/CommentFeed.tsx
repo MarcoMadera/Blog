@@ -47,7 +47,10 @@ export default function CommentFeed({
         <img src={avatar} alt={username} title={username} />
         <div>
           {comment ? (
-            <Markdown source={comment} />
+            <Markdown
+              source={comment}
+              type={`comment-${commentId ?? user?.uid ?? "anon"}`}
+            />
           ) : (
             <p>Aquí se mostrará tu comentario... cuando lo escribas</p>
           )}

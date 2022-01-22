@@ -19,6 +19,7 @@ import {
   isImgFromCloudProvider,
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
+import EmojisWrapper from "components/EmojisWrapper";
 
 export default function Post({
   title,
@@ -78,7 +79,9 @@ export default function Post({
         <TableOfContents h2s={h2s} />
         <div itemProp="articlebody" aria-labelledby="articleTitle">
           <ElementsContextProvider elements={elements}>
-            <MarkDown source={content} html={true} />
+            <EmojisWrapper options={{ className: "twemoji" }}>
+              <MarkDown source={content} html={true} type="post" />
+            </EmojisWrapper>
           </ElementsContextProvider>
         </div>
         <Hr />

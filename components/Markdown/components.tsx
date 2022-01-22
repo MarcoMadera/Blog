@@ -119,7 +119,12 @@ export const components:
   },
   a: function LinkMd({ children, node, href, ...attribs }) {
     const link = href as string;
-    const title = node.properties?.title as string;
+    let title =
+      (node.properties?.title as string) ??
+      (node.properties?.ariaLabel as string);
+    if (node.properties && "dataFootnoteRef" in node.properties) {
+      title = `Ir a la nota ${children}`;
+    }
 
     return (
       <A

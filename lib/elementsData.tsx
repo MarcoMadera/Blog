@@ -1,5 +1,5 @@
 import ReactDOMServer from "react-dom/server";
-import Markdown from "components/Markdown";
+import Markdown, { MarkdownType } from "components/Markdown";
 import { DataMapContextProvider } from "context/DataMapContext";
 import { getPlaiceholder } from "plaiceholder";
 import {
@@ -18,7 +18,8 @@ import { ToolTipContextProvider } from "context/ToolTipContext";
 import getSpaceData from "utils/getSpaceData";
 
 export default async function getElementsData(
-  content: string
+  content: string,
+  type: MarkdownType
 ): Promise<Elements> {
   const elementsArr: Element[] = [];
 
@@ -31,7 +32,7 @@ export default async function getElementsData(
     <DarkModeContextProvider>
       <ToolTipContextProvider>
         <DataMapContextProvider addElement={addElement}>
-          <Markdown source={content} html={true} />
+          <Markdown source={content} html={true} type={type} />
         </DataMapContextProvider>
       </ToolTipContextProvider>
     </DarkModeContextProvider>

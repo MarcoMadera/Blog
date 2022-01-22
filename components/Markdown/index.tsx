@@ -4,14 +4,19 @@ import rehypeRaw from "rehype-raw";
 import { components } from "./components";
 import { ReactElement } from "react";
 
+type Username = string;
+export type MarkdownType = "post" | `comment-${Username}`;
+
 interface MarkdownProps {
   source: string;
   html?: boolean;
+  type: MarkdownType;
 }
 
 export default function Markdown({
   source,
   html,
+  type,
 }: MarkdownProps): ReactElement {
   return (
     <ReactMarkdown
@@ -22,7 +27,7 @@ export default function Markdown({
       remarkRehypeOptions={{
         footnoteBackLabel: "Volver al contenido",
         footnoteLabel: "Notas",
-        clobberPrefix: "",
+        clobberPrefix: type,
       }}
     >
       {source}

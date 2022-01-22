@@ -29,7 +29,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.7.0",
     "firebase": "^9.6.4",
-    "firebase-admin": "^10.0.1",
+    "firebase-admin": "^10.0.2",
     "gray-matter": "^4.0.3",
     "html-to-react": "^1.4.7",
     "markdown-toc-unlazy": "^1.0.1",
@@ -75,7 +75,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-testing-library": "^5.0.3",
+    "eslint-plugin-testing-library": "^5.0.4",
     "globby": "^12.2.0",
     "jest": "^27.4.7",
     "prettier": "^2.5.1",
