@@ -77,13 +77,13 @@ export default function Post({
           </p>
         </header>
         <TableOfContents h2s={h2s} />
-        <div itemProp="articlebody" aria-labelledby="articleTitle">
-          <ElementsContextProvider elements={elements}>
-            <EmojisWrapper options={{ className: "twemoji" }}>
+        <EmojisWrapper>
+          <div itemProp="articlebody" aria-labelledby="articleTitle">
+            <ElementsContextProvider elements={elements}>
               <MarkDown source={content} html={true} type="post" />
-            </EmojisWrapper>
-          </ElementsContextProvider>
-        </div>
+            </ElementsContextProvider>
+          </div>
+        </EmojisWrapper>
         <Hr />
         <BlogFooter
           slug={slug}

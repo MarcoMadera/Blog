@@ -20,33 +20,28 @@ export default function SpaceTweet({
       <div className="space-tweet__header">
         <div className="space-tweet__header-left">
           <div className="space-tweet__header-left-name">
-            <EmojisWrapper
-              tag="span"
-              attributes={{ className: "name" }}
-              options={{ className: "twemoji" }}
-            >
-              <span className="space-tweet__header-left-date">
-                {getQuotedTwitterFormattedDate(
-                  spaceTweet.data.scheduled_start ?? spaceTweet.data.ended_at
+            <EmojisWrapper>
+              <span className="name">
+                <span className="space-tweet__header-left-date">
+                  {getQuotedTwitterFormattedDate(
+                    spaceTweet.data.scheduled_start ?? spaceTweet.data.ended_at
+                  )}
+                </span>{" "}
+                &middot; {spaceTweet.includes.users[0].name}{" "}
+                <a
+                  href={`https://twitter.com/${spaceTweet.includes.users[0].username}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @{spaceTweet.includes.users[0].username}
+                </a>
+              </span>
+              <div className="space-tweet__body">
+                <p className="title">{spaceTweet.data.title}</p>
+                {spaceTweet.data.description && (
+                  <p>{spaceTweet.data.description}</p>
                 )}
-              </span>{" "}
-              &middot; {spaceTweet.includes.users[0].name}{" "}
-              <a
-                href={`https://twitter.com/${spaceTweet.includes.users[0].username}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @{spaceTweet.includes.users[0].username}
-              </a>
-            </EmojisWrapper>
-            <EmojisWrapper
-              attributes={{ className: "space-tweet__body" }}
-              options={{ className: "twemoji" }}
-            >
-              <p className="title">{spaceTweet.data.title}</p>
-              {spaceTweet.data.description && (
-                <p>{spaceTweet.data.description}</p>
-              )}
+              </div>
             </EmojisWrapper>
           </div>
         </div>

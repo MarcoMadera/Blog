@@ -27,7 +27,7 @@ export default function CommentFeed({
   }
 
   return (
-    <EmojisWrapper options={{ className: "twemoji" }}>
+    <EmojisWrapper>
       <article>
         <header>
           <b>{username}</b>
