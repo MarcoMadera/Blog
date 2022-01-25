@@ -12,7 +12,9 @@ La mayor parte de mi vida he evitado las cosas complicadas sin siquiera intentar
 
 En una ocasión tuve que usar expresiones regulares para resolver algo muy sencillo. Tardé horas averiguando la mejor forma de hacerlo. Al final lo logré, estaba feliz porque había aprendido algo nuevo y todo funcionaba correctamente, así que hice _deploy_ de la aplicación.
 
-Una semana después un amigo me avisó que la aplicación no le funcionaba en Safari. Y pues claro yo no sabía cuál podría ser la raíz del problema porque en una semana ya había hecho muchos cambios. Para ponerla en corto era que yo había caído en el error de la compatibilidad, porque Safari no soportaba el _look behind_ `<=` y _look ahead_ `=>` de las expresiones regulares, algo que sí soportaban Google Chrome y Firefox.
+Una semana después un amigo me avisó que la aplicación no le funcionaba en Safari. Y pues claro yo no sabía cuál podría ser la raíz del problema porque en una semana ya había hecho muchos cambios. Para ponerla en corto era que yo había caído en el error de la compatibilidad, porque Safari no soportaba el _look behind_[^1] `<=` y _look ahead_ `=>` de las expresiones regulares, algo que sí soportaban Google Chrome y Firefox.
+
+[^1]: A la fecha de publicar este post, Safari no soporta la expresión regular `<=` y `=>` (`look behind` y `look ahead`).  Can I use <cite>[Lookbehind in JS regular expressions](https://caniuse.com/js-regexp-lookbehind)</cite>
 
 Después de esta experiencia ya no quería usar más expresiones regulares, porque es difícil de entender el significado de algo asi (`/^(.){5}\w?[a-Z|A-Z|0-9]$/ig`), sin experiencia puede parecer abrumador y luego le agregamos una carga más al tener que estar atento qué navegador soporta que cosa.
 
@@ -24,7 +26,9 @@ Pero de vez en cuando te encuentras con un problema que crees que se puede resol
 
 ## ¿Qué son las expresiones regulares?
 
-Las expresiones regulares son patrones que definimos para filtrar en una cadena de caracteres. Son útiles para seleccionar parte de la información que necesitamos, descartando lo que sobra. ¿A que se parece a un buscador normal tipo <kbd>CTRL</kbd>+<kbd>F</kbd>, cierto?
+Las expresiones regulares[^2] son patrones que definimos para filtrar en una cadena de caracteres. Son útiles para seleccionar parte de la información que necesitamos, descartando lo que sobra. ¿A que se parece a un buscador normal tipo <kbd>CTRL</kbd>+<kbd>F</kbd>, cierto?
+
+[^2]: MDN Web Docs & MDN contributors <cite>[Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)</cite>
 
 <videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1630649114/Blog/expresiones-regulares/E-TKDVoXEAA4Rfp_adpqde.mp4"></videogif>
 

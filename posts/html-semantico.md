@@ -13,7 +13,7 @@ tags:
 Esta semana estuvo rondando por mi cabeza un comentario que leí en Twitter. No sé si lo entendí del todo bien, trataba sobre crear páginas web que sean leídas por humanos, no para robots. No pude encontrar la referencia, pero estoy seguro de que ya lo había leído en pasadas ocasiones. ¿Considerando los siguientes títulos esto aplica?
 
 <div style="display: block;
-    font-size: 1.5em;
+    font-size: 2.2rem;
     margin-top: 0.83em;
     margin-bottom: 0.83em;
     margin-left: 0px;
@@ -27,7 +27,9 @@ Algo sencillo de hacer es abrir el lector de pantalla con <kbd>cmd</kbd> + <kbd>
 
 ## ¿Qué es HTML Semántico?
 
-<dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico</dfn> es el **uso de etiquetas, atributos y valores coherentes** al contenido y estructura de nuestras páginas. Se mejora la lectura de los elementos y se le agrega un significado semántico. El uso de estas etiquetas permiten a los procesadores de HTML usar nuestro contenido en otros contextos.
+<dfn><abbr title="Hyper Text Markup Language">HTML</abbr> Semántico[^semantics]</dfn> es el **uso de etiquetas, atributos y valores coherentes** al contenido y estructura de nuestras páginas. Se mejora la lectura de los elementos y se le agrega un significado semántico. El uso de estas etiquetas permiten a los procesadores de HTML usar nuestro contenido en otros contextos.
+
+[^semantics]: MDN Web Docs & MDN contributors <cite>[Semantics in HTML](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html)</cite>
 
 Que Mengano quiere agregar un borde a las secciones de una página para distinguirlas mejor, podría hacerlo fácilmente. Un uso más común es con los motores de búsqueda, recolectan la estructura de los sitios para posicionar mejor los que cumplan los estándares.
 
@@ -37,7 +39,9 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 
 - Es importante para el SEO, los motores de búsqueda pueden encontrar la información más relevante para poder posicionar mejor el sitio.
 - Es usado para mejorar la [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico).
-- Es fácil de entender sin esfuerzo desde la estructura al contenido, no me imagino lo horrible tener que encontrar elementos entre varios `div` y tablas, en la web de hace años.
+- Es fácil de entender sin esfuerzo desde la estructura al contenido[^all-tags], no me imagino lo horrible tener que encontrar elementos entre varios `div` y tablas, en la web de hace años.
+
+[^all-tags]: Todas las etiquedas HTML [All the tags](https://allthetags.com/)
 
 ---
 

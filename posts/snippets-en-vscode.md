@@ -13,7 +13,9 @@ Al empezar a usar <abbr title="Visual Studio Code">VSCode</abbr> me enteré de l
 
 ## ¿Qué son los snippets?
 
-Los _snippets_ son **fragmentos de código reutilizables** que puedes llamar con un atajo de teclado o con prefijos mientras escribes en el editor.
+Los _snippets_ en Visual Studio Code[^1] son **fragmentos de código reutilizables** que puedes llamar con un atajo de teclado o con prefijos mientras escribes en el editor.
+
+[^1]: Visual Studio Code [Snippets in Visual Studio Code](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
 
 <videogif title="Snippet general" src="https://res.cloudinary.com/marcomadera/video/upload/c_scale,w_650/v1615173210/Blog/Code%20Snippets%20en%20VSCode/generalSnippet_peoxlp.mp4"></videogif>
 

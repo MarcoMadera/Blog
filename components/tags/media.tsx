@@ -89,6 +89,9 @@ export function Img({
     imageProps.loader = ({ src }) => src;
   }
 
+  const isImgToTheRight = alt.includes("a la derecha");
+  const isImgToTheLeft = alt.includes("a la izquierda");
+
   return (
     <details
       onFocus={(e) => {
@@ -154,15 +157,13 @@ export function Img({
           object-fit: ${objectFit === "cover" ? "cover" : "unset"};
         }
         details {
-          float: ${alt.includes("a la derecha")
+          float: ${isImgToTheRight
             ? "right"
-            : alt.includes("a la izquierda")
+            : isImgToTheLeft
             ? "left"
             : "none"};
-          margin: ${alt.includes("a la derecha") ||
-          alt.includes("a la izquierda")
-            ? "10px"
-            : "0 auto"};
+          margin: ${isImgToTheRight || isImgToTheLeft ? "10px" : "0 auto"};
+          max-width: ${isImgToTheRight || isImgToTheLeft ? "45%" : "100%"};
         }
       `}</style>
       <style jsx>{`

@@ -1,4 +1,4 @@
-import { A } from "components/tags";
+import { ALink } from "components/tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
@@ -17,9 +17,9 @@ export default function TableOfContents({
           <ol>
             {h2s.map((item, i) => (
               <li key={i}>
-                <A title="" href={`#${slugify(item)}`}>
+                <ALink href={`#${slugify(item)}`} target="_self" title="">
                   {item}
-                </A>
+                </ALink>
               </li>
             ))}
           </ol>

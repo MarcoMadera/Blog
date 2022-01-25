@@ -1,5 +1,4 @@
 import Link, { LinkProps } from "next/link";
-import css from "styled-jsx/css";
 import React, {
   AnchorHTMLAttributes,
   DetailedHTMLProps,
@@ -20,18 +19,6 @@ interface AProps {
   textColor?: string;
   rel?: string;
 }
-
-export const anchorStyle = css`
-  a {
-    display: inline;
-    text-decoration: none;
-    overflow-wrap: break-word;
-  }
-  a:hover,
-  a:focus {
-    text-decoration: underline;
-  }
-`;
 
 export function A({
   classname,

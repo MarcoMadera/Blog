@@ -23,7 +23,9 @@ Un ataque por phishing consiste en enviar un correo electrónico que pretende ha
 
 La seguridad web es la práctica de implementar medidas para proteger un sitio web haciéndolo más difícil de vulnerar. Es necesaria para proteger un sitio web contra el robo de datos y mantener una reputación con tus usuarios.
 
-Existen muchas razones para que tu sitio web sea vulnerable, de las cuales vamos a poner unas cuantas sobre la mesa.
+Existen muchas razones para que tu sitio web sea vulnerable, de las cuales vamos a poner unas cuantas de las más populares[^1] sobre la mesa.
+
+[^1]: Open Web Application Security Project [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
 
 ## Validación y manejo de datos
 

@@ -13,9 +13,11 @@ Esta entrada es posible gracias a la aleatoriedad de Math.random() de JavaScript
 
 Primero hay que saber qué es Math.Random(), la definición de la especificación estándar del lenguaje, ECMAScript 2015 dice:
 
-> Devuelve un número con signo positivo. Mayor o igual que 0 pero menor que 1. Elegido aleatoriamente o pseudo aleatoriamente con una distribución aproximadamente uniforme en ese rango. Utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas.
+> Devuelve un número con signo positivo. Mayor o igual que 0 pero menor que 1. Elegido aleatoriamente o pseudo aleatoriamente con una distribución aproximadamente uniforme en ese rango. Utilizando un algoritmo o estrategia dependiente de la implementación. Esta función no toma argumentos. Cada función Math.random creada para ambientes de código distintos debe producir una secuencia distinta de valores a partir de llamadas sucesivas. [tc39.es](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.random)
 
-Dato importante que sacamos de esta definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo. Depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome. Ambos utilizan el motor V8 para correr JavaScript. Por otro lado Firefox utiliza SpiderMonkey y Safari usa Nitro. Aunque los tres usen el algoritmo xorshift128 +, mis resultados valdrán solo para V8 porque el motor se encarga de escoger la semilla que genera los números.
+Dato importante que sacamos de esta definición es que ECMAScript no provee el algoritmo ni la forma de implementarlo. Depende del ambiente que utilizamos, en mi caso, utilizo NodeJs y Chrome. Ambos utilizan el motor V8 para correr JavaScript. Por otro lado Firefox utiliza SpiderMonkey y Safari usa Nitro. Aunque los tres usen el algoritmo xorshift128 +, mis resultados valdrán solo para V8 porque el motor se encarga de escoger la semilla que genera los números[^1].
+
+[^1]: There’s Math.random(), and then there’s Math.random() (Dec 17 2015) [V8.dev](https://v8.dev/blog/math-random)
 
 ## ¿Qué son los números pseudo-aleatorios?
 
@@ -31,7 +33,7 @@ La uniformidad en el caso de los números aleatorios, significa que en un rango 
 
 <image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_346,dpr_auto/v1608331325/Blog/1/Graph1_iiqyqc.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_345,dpr_auto/v1608335119/Blog/1/Graph1-dark_r9zxe8.png" alt="Gráfica uniforme">
 
-Gráfica completamente uniforme
+<captione>Gráfica completamente uniforme</captione>
 
 Una de las pruebas para determinar este comportamiento es la de chi-cuadrada x<sup>2</sup>:
 
@@ -99,7 +101,9 @@ Para calcular K = Número de intervalos - 1, en este caso K=17.
 
 El nivel de confianza (α) que usaré es de 0.05, pero puede ser diferente, ya que este es decidido por la persona encargada de la investigación, es el riesgo que se toma.
 
-Se puede calcular de dos formas. En una tabla de probabilidades de chi-cuadrada con el área a la derecha se busca los grados de libertad de 17 y buscamos el valor que más se acerque a nuestro resultado. Nos situamos entre la columna 0.05 y 0.025, esa va a ser nuestra probabilidad, que exactamente es: 0.03527. La multiplicamos por 100: 3.527% y este es el valor de que nuestra hipótesis nula esté correcta. De que nuestros datos sigan una distribución uniforme. Como 5% < 3.527% no se cumple, rechazamos nuestra hipótesis nula y aceptamos la hipótesis alternativa.
+Se puede calcular de dos formas. En una tabla de probabilidades de chi-cuadrada[^tabla] con el área a la derecha se busca los grados de libertad de 17 y buscamos el valor que más se acerque a nuestro resultado. Nos situamos entre la columna 0.05 y 0.025, esa va a ser nuestra probabilidad, que exactamente es: 0.03527. La multiplicamos por 100: 3.527% y este es el valor de que nuestra hipótesis nula esté correcta. De que nuestros datos sigan una distribución uniforme. Como 5% < 3.527% no se cumple, rechazamos nuestra hipótesis nula y aceptamos la hipótesis alternativa.
+
+[^tabla]: [Tabla de chi-cuadrada](https://www.disfrutalasmatematicas.com/datos/tabla-chi-cuadrado.html)
 
 Los números no son uniformes como se mira a simple vista en la gráfica.
 
@@ -197,7 +201,9 @@ Ahora que ya sabemos que son 194 rachas, tenemos lo necesario para calcular los 
 
 Z = -0.108 El valor de la distribución normal
 
-Para determinar la independencia, buscaríamos ahora en una tabla de distribución normal el valor α/2. Seguiré usando 0.05 de alpha, por lo que buscaré el valor de 0.025. Si vamos a los valores de los laterales encontramos que la desviación normal es de 1.96. Si nuestro valor α fuera 0.1 para tener una confianza del 90% la desviación normal sería de 1.65.
+Para determinar la independencia, buscaríamos ahora en una tabla de distribución normal[^2] el valor α/2. Seguiré usando 0.05 de alpha, por lo que buscaré el valor de 0.025. Si vamos a los valores de los laterales encontramos que la desviación normal es de 1.96. Si nuestro valor α fuera 0.1 para tener una confianza del 90% la desviación normal sería de 1.65.
+
+[^2]: [Tabla de distribución normal](https://matemovil.com/tabla-de-distribucion-normal-estandarizada-tabla-z/)
 
 Para saber si aceptamos nuestra hipótesis nula evaluamos si el valor absoluto de nuestra Z es menor a la desviación normal de la tabla. De lo contrario se rechaza.
 

@@ -14,9 +14,11 @@ Algo que siempre veía en los sitios era el icono típico de RSS. Nunca le prest
 
 ## ¿Qué es RSS?
 
-RSS es un **formato** para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica. De esta forma los usuarios se pueden **suscribir al feed** y dar seguimiento **al sitio** sin la necesidad de tener que visitarlo para ver si ocurrió una actualización.
+RSS[^1] es un **formato** para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica. De esta forma los usuarios se pueden **suscribir al feed** y dar seguimiento **al sitio** sin la necesidad de tener que visitarlo para ver si ocurrió una actualización.
 
 Pero que maravilla! ya no tendré mi buzón lleno de newsletter a los que me he suscrito durante mucho tiempo y he omitido desvincularlo.
+
+[^1]: Wikipedia contributors. (2022, January 10). RSS. In Wikipedia, The Free Encyclopedia. Retrieved 23:32, January 24, 2022, from [RSS - Wikipedia](https://en.wikipedia.org/w/index.php?title=RSS&oldid=1064761195)
 
 ## ¿Cómo suscribirse?
 

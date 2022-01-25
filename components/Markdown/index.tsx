@@ -26,7 +26,7 @@ export default function Markdown({
       disallowedElements={["script", "head", "meta"]}
       remarkRehypeOptions={{
         footnoteBackLabel: "Volver al contenido",
-        footnoteLabel: "Notas",
+        footnoteLabel: "Referencias",
         clobberPrefix: type,
       }}
     >

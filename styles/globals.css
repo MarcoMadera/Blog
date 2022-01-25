@@ -112,6 +112,15 @@ a:focus {
 .nprogress-custom-parent #nprogress .bar {
   position: absolute;
 }
+section[data-footnotes] ol li {
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+}
+section[data-footnotes] ol li,
+section[data-footnotes] ol li p {
+  font-size: 1rem;
+  margin-top: 0;
+}
 @media print {
   main {
     grid-template-columns: minmax(0px, 760px) !important;

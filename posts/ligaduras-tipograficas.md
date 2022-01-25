@@ -29,11 +29,19 @@ Estás ligaduras son más estéticas, tienen el propósito de **lucir bien**, en
 
 <videogif title="Ligaduras Discrecionales" light="https://res.cloudinary.com/marcomadera/video/upload/v1608396895/Blog/2/discrecional_rph5i3.mp4" dark="https://res.cloudinary.com/marcomadera/video/upload/v1608396895/Blog/2/discrecional-dark_bpsbiq.mp4"></videogif>
 
+<captione text="fuente: Gabriola"></captione>
+
 ## Ligaduras históricas
 
 ![Notacion tironiana a la derecha](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_200,h_286,dpr_auto/v1608338660/Blog/2/2af6de62vb43bnnc4_ou6z52-removebg_fta5pq.png "Notas tironianas")
 
-Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente **creadas para reducir el tiempo de escritura**. Cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada. Para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas. Fueron muy populares, por lo que después se le atribuyó la invención de la taquigrafía.
+Las ligaduras históricas son las que ya no se usan comúnmente. Estas ligaduras fueron originalmente **creadas para reducir el tiempo de escritura**. Cuando Cicerón recitaba sus discursos, su esclavo, Tirón, los escribía para dejar constancia documentada. Para escribir rápido no despegaba la mano uniendo algunas letras dando paso a las notas tironianas[^1]. Fueron muy populares, por lo que después se le atribuyó la invención de la taquigrafía.
+
+El _shorthand_[^2] es igual una forma abreviada de escribir que tiene multiples sistemas de escritura y que se ha usado en los recientes años[^3].
+
+[^1]: Wikipedia contributors. (2022, January 23). Tironian notes. In Wikipedia, The Free Encyclopedia. Retrieved 15:36, January 24, 2022, from <cite>[Tironian notes – Wikipedia](https://en.wikipedia.org/w/index.php?title=Tironian_notes&oldid=1067528673)</cite>
+[^2]: Wikipedia contributors. (2022, January 11). Shorthand. In Wikipedia, The Free Encyclopedia. Retrieved 15:31, January 24, 2022, from <cite>[Shorthand – Wikipedia](https://en.wikipedia.org/w/index.php?title=Shorthand&oldid=1065099823)</cite>
+[^3]: niknook143 (2022, January 22). Can anyone read shorthand? My grandmother wrote this to my grandfather in 1947 on the back of her high school graduation picture. [Online forum]. Retrieved from <cite>[OldSchoolCool – Reddit](https://www.reddit.com/r/OldSchoolCool/comments/saiz3v/can_anyone_read_shorthand_my_grandmother_wrote/)</cite>
 
 <image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_125,h_50,dpr_auto/v1595269482/Blog/2/2b32bcc21v1b32vb_k6ikwo.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_125,h_50,dpr_auto/v1608343616/Blog/2/kxnaskdxaddaasddqwdnqwd_cios5t.png" title="Ampersand" alt="Ampersand a la izquierda">
 

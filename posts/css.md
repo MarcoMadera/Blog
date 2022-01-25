@@ -561,8 +561,10 @@ Un ejemplo simple de uso de porcentajes sería el siguiente:
 
 CSS no se interpreta igual en todos los navegadores, un decorador de texto puede que no luzca de la misma forma en Firefox que en Chrome. Aplicar ciertos trucos para que todos luzca igual en todos los navegadores puede que sea una tarea tediosa. Es importante saber el mercado de usuarios al que va dirigido la página que creamos para saber en qué navegadores enfocarnos.
 
-CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características. Algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con **prefijos** que solo el navegador conoce. La ventaja de CSS es que si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda.
+CSS es un lenguaje vivo, en el cual se sigue trabajando en nuevas características. Algunos navegadores deciden implementar estas nuevas características, las cuales podemos utilizar con prefijos[^prefixes] que solo el navegador conoce. La ventaja de CSS es que si un navegador no conoce una propiedad o valor la ignorará e irá a la siguiente cosa que entienda.
 Los siguientes prefijos son los más comunes:
+
+[^prefixes]: MDN Web Docs & MDN contributors <cite>[Vendor Prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix)</cite>
 
 | Prefijo  |         Navegadores         |
 | :------: | :-------------------------: |

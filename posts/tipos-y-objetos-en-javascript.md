@@ -140,9 +140,12 @@ La **igualdad abstracta** es confusa porque al igual que lo vimos en la [coerci�
 ["abc"] == "abc"; // true
 ```
 
-Para tener una idea más clara de todos los resultados dependiendo de la operación puedes ver la [Tabla de igualdad de JavaScript](https://dorey.github.io/JavaScript-Equality-Table/):
+Para tener una idea más clara de todos los resultados dependiendo de la operación puedes ver la siguiente tabla:
 
 ![Tabla de igualdad de JavaScript](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_500,h_481,dpr_auto/v1611100839/Blog/tipos-y-objetos-en-javascript/Coercion_dzxmpj.png "Tabla de igualdad de JavaScript")
+<captione>Tabla de igualdad de JavaScript[^equality-table]</captione>
+
+[^equality-table]: Dorey [Equality in JavaScript](https://dorey.github.io/JavaScript-Equality-Table/)
 
 Es difícil aprenderse la tabla anterior por lo que hacer este tipo de igualdades puede causar algunos errores en nuestro programa o algunos comportamientos inesperados si olvidamos un dato. ¿Cómo la evitamos?. Lo recomendable es que se use el operador de **igualdad estricta**. Este operador evita que los valores se conviertan al compararlo uno con el otro.
 

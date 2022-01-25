@@ -8,9 +8,11 @@ tags:
   - Rust
 ---
 
-Esta semana he estado aprendiendo rust, no sobre cómo se va formando la capa amarillenta de oxido en el hierro ni el videojuego, sino el lenguaje de programación compilado que está enfocado en la velocidad y la seguridad.
+Esta semana he estado aprendiendo rust, no sobre cómo se va formando la capa amarillenta de oxido en el hierro ni el videojuego, sino el lenguaje de programación compilado que está enfocado en la velocidad y la seguridad[^1].
 
 Rust es un lenguaje compilado, por lo que se puede compilar a un código binario similar a lenguajes como C, C++, y Java, que se diferencian de lenguajes como python y javascript porque estos se ejecutan en tiempo de ejecución.
+
+[^1]: Steve Klabnik & Carol Nichols, with contributions from the Rust Community (2018). The Rust Programming Language. [online] Available at: [doc.rust-lang.org](https://doc.rust-lang.org/book/)
 
 ## Variables y su mutabilidad
 
@@ -74,7 +76,7 @@ fn main() {
 <span>The new year is: 2022</span>
 </code></pre>
 
-Esto puede que no sea comveniente, por lo que la mutabilidad también puede resultar muy útil en muchos casos.
+Esto puede que no sea conveniente, por lo que la mutabilidad también puede resultar muy útil en muchos casos.
 
 ## ¿Cómo se hace una variable mutable en Rust?
 
@@ -145,7 +147,7 @@ fn main() {
 
 </note>
 
-<note type="danger" title="Advertencia">
+<note type="danger" title="Error">
 
 Las constantes tienen que llevar el tipo de valor. Si no se pone, el compilador generará un error.
 

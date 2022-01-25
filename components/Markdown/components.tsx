@@ -26,6 +26,7 @@ import {
   Pre,
   Note,
   Caption,
+  ALink,
 } from "../tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
@@ -71,6 +72,7 @@ export type CustomComponents = {
   actionanchor: BasicComponent;
   actionbutton: BasicComponent;
   note: BasicComponent;
+  section: BasicComponent;
 };
 
 interface ElementNodes {
@@ -117,25 +119,69 @@ export const components:
       <>{children}</>
     );
   },
+  section: function SectionNode({
+    children,
+    node,
+    ...attribs
+  }: {
+    children: ReactNode & ReactNode[];
+    node: Element;
+  }) {
+    let footNotes = 0;
+    const nodes: ElementNodes = node as unknown as ElementNodes;
+    const classNames = nodes.properties?.className as string[] | undefined;
+    if (classNames?.includes("footnotes")) {
+      if (Array.isArray(nodes.children)) {
+        const olElements = nodes.children?.filter(
+          (child) => child.tagName === "ol"
+        )[0];
+        if (Array.isArray(olElements?.children)) {
+          const olChildren = olElements?.children?.filter(
+            (child: { type: string } | undefined) => child?.type === "element"
+          );
+          footNotes = olChildren.length;
+        }
+      }
+    }
+    return (
+      <section {...attribs}>
+        {children}
+        <style jsx>{`
+          section > :global(ol) {
+            column-width: ${footNotes > 2 ? "19em" : "initial"};
+          }
+        `}</style>
+      </section>
+    );
+  },
   a: function LinkMd({ children, node, href, ...attribs }) {
     const link = href as string;
     let title =
       (node.properties?.title as string) ??
       (node.properties?.ariaLabel as string);
     if (node.properties && "dataFootnoteRef" in node.properties) {
-      title = `Ir a la nota ${children}`;
+      title = `Ir a la referencia ${children}`;
     }
+    const isSelf = link.startsWith("#");
 
     return (
-      <A
-        target={link.startsWith("#") ? "_self" : "_blank"}
-        title={title}
-        rel={link.startsWith("#") ? undefined : "noopener noreferrer"}
-        href={link}
-        {...attribs}
-      >
-        {children}
-      </A>
+      <>
+        {isSelf ? (
+          <ALink href={link} target="_self" title={title} {...attribs}>
+            {children}
+          </ALink>
+        ) : (
+          <A
+            target={"_blank"}
+            title={title}
+            rel={"noopener noreferrer"}
+            href={link}
+            {...attribs}
+          >
+            {children}
+          </A>
+        )}
+      </>
     );
   },
   hr: function HorizontalRuleMd() {
@@ -175,9 +221,9 @@ export const components:
   input: function InputNode(props) {
     return <Input type={props.node.type} {...props} />;
   },
-  captione: function CaptionNode({ node }) {
+  captione: function CaptionNode({ node, children }) {
     const text = node.properties?.text as string;
-    return <Caption>{text}</Caption>;
+    return <Caption>{text ?? children}</Caption>;
   },
   tweet: function TweetNode({ node }) {
     const hprop = node.properties?.hideconversation;

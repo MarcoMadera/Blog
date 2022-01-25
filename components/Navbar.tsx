@@ -4,6 +4,7 @@ import { colors } from "styles/theme";
 import { Moon, Sun } from "./icons";
 import useDarkMode from "hooks/useDarkMode";
 import { ReactElement, ReactNode } from "react";
+import useToolTip from "hooks/useToolTip";
 
 interface AnchorProps {
   label: string;
@@ -62,6 +63,8 @@ function Logo() {
 
 export default function Navbar(): ReactElement {
   const { darkMode, toggleDarkMode } = useDarkMode();
+  const { getToolTipAttrbutes } = useToolTip();
+  const title = `Cambiar al tema ${darkMode ? "claro" : "oscuro"}`;
 
   return (
     <header>
@@ -76,7 +79,8 @@ export default function Navbar(): ReactElement {
         <button
           onClick={() => toggleDarkMode()}
           className="Header__darkMode Header__darkMode-Title"
-          aria-label={`Cambiar al tema ${darkMode ? "claro" : "oscuro"}`}
+          aria-label={title}
+          {...getToolTipAttrbutes(title)}
         >
           {darkMode ? (
             <Moon

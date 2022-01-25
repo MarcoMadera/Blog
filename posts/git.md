@@ -20,7 +20,9 @@ En algún momento al conocer Git me sentí igual que Flavio y por los recuerdos 
 
 El control de versiones es un **sistema que guarda los cambios en el tiempo** de uno o varios archivos. Se pueden revertir estos cambios a un estado anterior, lo que significa que si tenemos un problema, podemos comparar los cambios en el tiempo, ver quién modificó algo que pudiera causar el problema y poder cambiar el estado actual a uno donde no se presente el problema.
 
-Git es un sistema de control de versiones que **almacena la información como un flujo de _snapshots_** de un sistema de archivos. Cada vez que hay un cambio o se guarda el estado del proyecto, Git toma una imagen de todos los archivos y crea una referencia a ese momento. En un futuro cambio, si un archivo no se modifica Git no vuelve a almacenar el archivo, sino que usa la referencia al momento anterior.
+Git[^1] es un sistema de control de versiones que **almacena la información como un flujo de _snapshots_** de un sistema de archivos. Cada vez que hay un cambio o se guarda el estado del proyecto, Git toma una imagen de todos los archivos y crea una referencia a ese momento. En un futuro cambio, si un archivo no se modifica Git no vuelve a almacenar el archivo, sino que usa la referencia al momento anterior.
+
+[^1]: Scott Chacon & Ben Straub [Pro Git 2nd Edition (2014)](https://git-scm.com/book/en/v2)
 
 Git contempla tres estados:
 

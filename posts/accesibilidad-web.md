@@ -12,11 +12,15 @@ tags:
   - JavaScript
 ---
 
-Según el [Informe mundial sobre la discapacidad](https://www.who.int/disabilities/world_report/2011/accessible_es.pdf "Informe mundial sobre la discapacidad") publicado en el año 2011 estima que **más de mil millones de personas viven con algún tipo de discapacidad**. Alrededor del 15% de la población mundial.
+Según el Informe mundial sobre la discapacidad[^1] publicado en el año 2011 estima que **más de mil millones de personas viven con algún tipo de discapacidad**. Alrededor del 15% de la población mundial.
+
+[^1]: Organización mundial de la salud (2011) [Informe mundial sobre la discapacidad](https://www.who.int/disabilities/world_report/2011/accessible_es.pdf)
 
 La accesibilidad web es la práctica continua de asegurarnos que todo lo que creamos para la web se puede usar, interpretar y operar por una variedad de personas en una variedad de situaciones.
 
-[Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/ "Web Content Accessibility Guidelines") creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.
+Web Content Accessibility Guidelines (WCAG[^2]) creadas por W3C son recomendaciones para crear contenido web más accesible, las cuales también han sido ratificadas por la ISO, como estándar ISO/IEC 40500:2012.
+
+[^2]: <cite>[Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/)</cite>
 
 ## ¿Por qué implementar accesibilidad en la web?
 
@@ -129,7 +133,9 @@ Hay que **definir los roles de acuerdo a la función que realizarán**. En este 
 
 ### Atributos Aria
 
-Estos atributos se pueden añadir a cualquier etiqueta HTML para **comunicar cambios especiales al DOM** de nuestra aplicación. Roles propiedades y estados. Siempre es preferible usar un elemento HTML semántico correcto si es que existe en lugar de usar ARIA.
+Estos atributos se pueden añadir a cualquier etiqueta HTML para **comunicar cambios especiales al DOM** de nuestra aplicación. Roles propiedades y estados. Siempre es preferible usar un elemento HTML semántico correcto si es que existe en lugar de usar ARIA (accesible rich internet applications[^aria]).
+
+[^aria]: [W3C Web Accessibility Initiative](https://www.w3.org/WAI/standards-guidelines/aria/)
 
 - Roles: Define el tipo general del objeto. Comunican a los navegadores cuáles son las interacciones que debería esperar y cómo se va a usar este objeto en nuestro proyecto. Se usan en situaciones muy específicas, es mejor depender del HTML semántico para comunicar los roles. Atributo: `role`.
 
@@ -161,7 +167,9 @@ En este caso tal como sucede en todos los elementos interactivos de este sitio w
 
 ### Skip Links
 
-Es una [técnica](https://www.w3.org/TR/WCAG20-TECHS/G1.html "Técnica") que permite **navegar directamente al contenido principal**. El primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.
+Es una técnica[^skip-link] que permite **navegar directamente al contenido principal**. El primer elemento de la página sería este enlace. Con esto se logra que con cada cambio de página al navegar con el teclado no tener que pasar de nuevo por contenido repetitivo.
+
+[^skip-link]: W3C - Adding a link at the top of each page that goes directly to the main content area - [Techniques for WCAG 2.1](https://www.w3.org/WAI/WCAG21/Techniques/general/G1)
 
 ```html
 <style>
@@ -223,7 +231,9 @@ const listenKeys = (e) => {
 document.body.addEventListener("keyup", (e) => listenKeys(e));
 ```
 
-<note type="danger">El uso de KeyboardEvent.keyCode está deprecado y puede dejar de funcionar en un futuro, usar KeyboardEvent.key en su lugar</note>
+<note type="danger">El uso de KeyboardEvent.keyCode está deprecado[^keyboard] y puede dejar de funcionar en un futuro, usar KeyboardEvent.key en su lugar</note>
+  
+[^keyboard]: MDN Web Docs & MDN contributors <cite>[KeyboardEvent.keyCode](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)</cite>
 
 ## Test de accesibilidad
 

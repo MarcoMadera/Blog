@@ -1,12 +1,13 @@
 /**
- * Focus the h1, main or body, the first element that exist
+ * Focus and element by default it will focus the h1, main or body, the first element that exist
+ * @param element HTMLElement
  */
-
-export default function a11ySmartFocus(): void {
+export default function a11ySmartFocus(element?: HTMLElement): void {
   const elementToFocus =
-    document.querySelector("h1") ||
-    document.querySelector("main") ||
-    document.body;
+    element ??
+    (document.querySelector("h1") ||
+      document.querySelector("main") ||
+      document.body);
 
   if (elementToFocus) {
     const didTabIndexExist = elementToFocus.getAttribute("tabIndex");

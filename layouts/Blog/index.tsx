@@ -153,6 +153,9 @@ export default function Post({
           font-size: 2.2rem;
           margin-top: 1em;
         }
+        div :global(sup) {
+          font-weight: 600;
+        }
         div :global(h3) {
           font-size: 1.6rem;
           margin-top: 1em;

@@ -8,11 +8,15 @@ tags:
   - Terminal
 ---
 
-Sin importar el lenguaje que usamos para programar la línea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva. Cambiar entre la terminal y la web va en contra de esto. En octubre de 2019 [se empezó a trabajar con Github CLI](https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3 "Primer commit de Github CLI") para reducir el cambio de contexto entre GitHub web y la máquina local.
+Sin importar el lenguaje que usamos para programar la línea de comandos es una herramienta que nos permite trabajar de manera más rápida y productiva. Cambiar entre la terminal y la web va en contra de esto. En octubre de 2019 se empezó a trabajar[^1] con Github CLI para reducir el cambio de contexto entre GitHub web y la máquina local.
+
+[^1]: Primer commit de Github CLI en [Github](https://github.com/cli/cli/commit/8dd03144ffdc6c0d486d6b705f9c7fba871ee7c3)
 
 ## ¿Qué es GitHub CLI?
 
-Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para **ejecutar todo el flujo de trabajo en GitHub en la línea de comandos**. Nos permite interactuar con repositorios, _issues_, _pull request_ y más.
+Github <abbr title="Command Line Interface">CLI</abbr> es la herramienta oficial de código abierto para **ejecutar todo el flujo de trabajo en GitHub en la línea de comandos**. Nos permite interactuar con repositorios, _issues_, _pull request_ y más[^2].
+
+[^2]: [Github CLI Manual](https://cli.github.com/manual/)
 
 <tweet id="1306586113293729795"></tweet>
 
