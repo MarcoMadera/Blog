@@ -7,6 +7,8 @@ import type { TweetData } from "types/tweet";
 import { ReactElement } from "react";
 import TweetHeaderInfo from "./TweetHeaderInfo";
 import useToolTip from "hooks/useToolTip";
+import SpaceTweet from "./SpaceTweet";
+import TweetUrlPreview from "./TweetUrlPreview";
 
 interface QuotedTweetProps {
   data: TweetData;
@@ -21,6 +23,10 @@ export default function QuotedTweet({
 
   if (!user) {
     return null;
+  }
+  const urlsToIgnore: string[] = [];
+  if (data.urlPreview) {
+    urlsToIgnore.push(data.urlPreview.expanded_url);
   }
 
   return (
@@ -45,10 +51,18 @@ export default function QuotedTweet({
             />
             <TweetHeaderInfo created_at={data.tweet.created_at} user={user} />
           </a>
-          <TweetText text={data.tweet.text} entities={data.tweet.entities} />
+          <TweetText
+            text={data.tweet.text}
+            entities={data.tweet.entities}
+            urlsToIgnore={urlsToIgnore}
+          />
         </div>
         {data.poll ? <TweetPoll poll={data.poll} /> : null}
         {data.media ? <TweetMedia data={data.media} quoted={true} /> : null}
+        {data.spaceTweet ? <SpaceTweet spaceTweet={data.spaceTweet} /> : null}
+        {data.urlPreview ? (
+          <TweetUrlPreview urlPreview={data.urlPreview} />
+        ) : null}
       </div>
       <style jsx>{`
         blockquote.container {
@@ -56,6 +70,13 @@ export default function QuotedTweet({
           border-width: 1px;
           border-radius: 15px;
           margin: 1rem auto;
+        }
+        .tweet :global(.url-preview-large a) {
+          border-radius: 0 0 16px 16px;
+          border: none;
+        }
+        .tweet :global(.url-preview-small a) {
+          margin: 2px 15px 15px 15px;
         }
         a.header {
           display: flex;

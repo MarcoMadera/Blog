@@ -11,14 +11,14 @@ import { colors } from "styles/theme";
 interface TweetTextProps {
   text: Tweet["text"];
   entities?: Tweet["entities"];
-  quotedTweetUrl?: string;
   original?: boolean;
+  urlsToIgnore?: string[];
 }
 
 export default function TweetText({
   text,
   entities,
-  quotedTweetUrl,
+  urlsToIgnore,
   original,
 }: TweetTextProps): ReactElement {
   const { darkMode } = useDarkMode();
@@ -51,7 +51,9 @@ export default function TweetText({
       return (
         <TwitterLink key={match + i} href={match}>
           {urlToDisplay?.display_url.startsWith("pic.twitter.com") ||
-          urlToDisplay?.expanded_url === quotedTweetUrl
+          (urlsToIgnore &&
+            urlToDisplay &&
+            urlsToIgnore.includes(urlToDisplay?.expanded_url))
             ? null
             : urlToDisplay?.display_url}
         </TwitterLink>

@@ -10,6 +10,8 @@ import TweetHeaderInfo from "./TweetHeaderInfo";
 import { A } from "components/tags";
 import useAnalytics from "hooks/useAnalytics";
 import { HitType } from "types/analytics";
+import SpaceTweet from "./SpaceTweet";
+import TweetUrlPreview from "./TweetUrlPreview";
 
 interface RepliedTweetProps {
   data: TweetData;
@@ -71,6 +73,10 @@ export default function RepliedTweet({
           {data.poll ? <TweetPoll poll={data.poll} /> : null}
           {data.media ? <TweetMedia data={data.media} quoted={true} /> : null}
           {data.quotedTweet ? <QuotedTweet data={data.quotedTweet} /> : null}
+          {data.spaceTweet ? <SpaceTweet spaceTweet={data.spaceTweet} /> : null}
+          {data.urlPreview ? (
+            <TweetUrlPreview urlPreview={data.urlPreview} />
+          ) : null}
           <div className="info">
             <A
               className="reply_count"

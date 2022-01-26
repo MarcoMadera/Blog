@@ -13,6 +13,7 @@ import useElementData from "hooks/useElementData";
 import useToolTip from "hooks/useToolTip";
 import SpaceTweet from "./SpaceTweet";
 import { ElementType } from "types/posts";
+import TweetUrlPreview from "./TweetUrlPreview";
 
 interface TweetProps {
   id: string;
@@ -49,6 +50,13 @@ export default function Tweet({
     ? `https://twitter.com/${repliedTweetUser.username}/status/${data.tweet.id}`
     : undefined;
   const currentTweetUrl = `https://twitter.com/${user.username}/status/${data.tweet.id}`;
+  const urlsToIgnore: string[] = [];
+  if (quotedTweetUrl) {
+    urlsToIgnore.push(quotedTweetUrl);
+  }
+  if (data.urlPreview) {
+    urlsToIgnore.push(data.urlPreview.expanded_url);
+  }
 
   return (
     <div className="container">
@@ -79,7 +87,7 @@ export default function Tweet({
             <TweetText
               text={data.tweet.text}
               entities={data.tweet.entities}
-              quotedTweetUrl={quotedTweetUrl}
+              urlsToIgnore={urlsToIgnore}
               original={true}
             />
             {data.poll ? <TweetPoll poll={data.poll} /> : null}
@@ -87,6 +95,9 @@ export default function Tweet({
             {data.quotedTweet ? <QuotedTweet data={data.quotedTweet} /> : null}
             {data.spaceTweet ? (
               <SpaceTweet spaceTweet={data.spaceTweet} />
+            ) : null}
+            {data.urlPreview ? (
+              <TweetUrlPreview urlPreview={data.urlPreview} />
             ) : null}
             <TweetInfo
               username={user.username}

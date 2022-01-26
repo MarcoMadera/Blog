@@ -21,7 +21,10 @@ export default function TweetHeaderInfo({
         {user.name}
       </span>
       {user.verified ? (
-        <span title="Cuenta verificada" className="verified"></span>
+        <span
+          className="verified"
+          {...getToolTipAttrbutes("Cuenta verificada")}
+        ></span>
       ) : null}
       <span className="username" {...getToolTipAttrbutes(`@${user.username}`)}>
         @{user.username} &middot;{" "}
@@ -57,7 +60,7 @@ export default function TweetHeaderInfo({
           height: 19px;
           vertical-align: middle;
           background-repeat: no-repeat;
-          margin-left: 6px;
+          margin-right: 5px;
         }
         .username {
           color: ${tweets.tweetColorGray};

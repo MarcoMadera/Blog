@@ -36,7 +36,7 @@ interface Annotation {
   type: string;
   normalized_text: string;
 }
-interface Url {
+export interface Url {
   start: number;
   end: number;
   url: string;
@@ -125,4 +125,5 @@ export interface TweetData {
   quotedTweet: TweetData | null;
   repliedTweet: TweetData | null;
   spaceTweet: SpaceData | null;
+  urlPreview: Url | null;
 }

@@ -37,6 +37,11 @@ export default async function getTweetData(
 
   if (tweetResponse) {
     const media = tweetResponse.includes?.media || null;
+    const urls = tweetResponse.data?.entities?.urls || null;
+    const urlsIsArray = Array.isArray(urls) && urls.length > 0;
+    const urlPreview = urlsIsArray
+      ? urls.filter((url) => url?.status === 200)[urls.length - 1] ?? null
+      : null;
     const poll = tweetResponse.includes?.polls
       ? tweetResponse.includes?.polls[0]
       : null;
@@ -94,6 +99,7 @@ export default async function getTweetData(
       quotedTweet,
       repliedTweet,
       spaceTweet,
+      urlPreview,
     };
   }
   return null;

@@ -55,12 +55,17 @@ export default function TweetHeader({
         rel="noopener noreferrer"
         hideToolTip
       >
-        <span className="name" {...getToolTipAttrbutes(name)}>
-          {htmlToReactParser.parse(
-            twemoji.parse(name, { className: "twemoji" })
-          )}{" "}
+        <span className="name">
+          <span {...getToolTipAttrbutes(name)}>
+            {htmlToReactParser.parse(
+              twemoji.parse(name, { className: "twemoji" })
+            )}{" "}
+          </span>
           {verified ? (
-            <span className="verified" title="Cuenta verificada"></span>
+            <span
+              className="verified"
+              {...getToolTipAttrbutes("Cuenta verificada")}
+            ></span>
           ) : null}
         </span>
         <span className="username" {...getToolTipAttrbutes(`@${username}`)}>
