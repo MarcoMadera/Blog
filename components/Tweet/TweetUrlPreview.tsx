@@ -12,7 +12,10 @@ export default function TweetUrlPreview({
 }: TweetUrlPreviewProps): ReactElement | null {
   const domain = urlPreview.unwound_url?.split("/")[2]?.replace(/^www\./, "");
   const { darkMode } = useDarkMode();
-  if (!urlPreview.images) {
+  if (
+    !urlPreview.images ||
+    urlPreview.unwound_url?.startsWith("https://twitter.com/i/spaces/")
+  ) {
     return null;
   }
   const isLargeCard =

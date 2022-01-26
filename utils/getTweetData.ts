@@ -34,8 +34,7 @@ export default async function getTweetData(
   }
 
   const tweetResponse: TweetResponse = await res.json();
-
-  if (tweetResponse) {
+  if (tweetResponse.data) {
     const media = tweetResponse.includes?.media || null;
     const urls = tweetResponse.data?.entities?.urls || null;
     const urlsIsArray = Array.isArray(urls) && urls.length > 0;
