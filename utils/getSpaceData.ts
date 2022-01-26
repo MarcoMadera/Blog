@@ -1,4 +1,4 @@
-import { SpaceData } from "types/tweet";
+import type { SpaceData } from "types/tweet";
 
 export default async function getSpaceData(
   id: string

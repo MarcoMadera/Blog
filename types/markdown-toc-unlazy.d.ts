@@ -1,4 +1,4 @@
-interface tocResul {
+interface TocResul {
   tokens: {
     type: string;
     tight?: boolean;
@@ -27,5 +27,5 @@ declare module "markdown-toc-unlazy" {
       firsth1?: number;
       linkify?: boolean;
     }
-  ): tocResul;
+  ): TocResul;
 }

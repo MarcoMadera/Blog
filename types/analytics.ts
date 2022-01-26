@@ -1,43 +1,44 @@
-type hitTypes =
-  | "pageview"
-  | "screenview"
-  | "event"
-  | "transaction"
-  | "item"
-  | "social"
-  | "exception"
-  | "timing";
+export enum HitType {
+  PAGEVIEW = "pageview",
+  EVENT = "event",
+  TIMING = "timing",
+  SCREENVIEW = "screenview",
+  TRANSACTION = "transaction",
+  ITEM = "item",
+  SOCIAL = "social",
+  EXCEPTION = "exception",
+}
 
 interface Event {
-  eventCategory: dataToSendType["ec"];
-  eventAction: dataToSendType["ea"];
-  eventLabel: dataToSendType["el"];
-  eventValue: dataToSendType["ev"];
+  eventCategory: DataToSendType["ec"];
+  eventAction: DataToSendType["ea"];
+  eventLabel: DataToSendType["el"];
+  eventValue: DataToSendType["ev"];
 }
 
 interface Screenview {
-  screenName: dataToSendType["cd"];
+  screenName: DataToSendType["cd"];
 }
 
 interface Timing {
-  timingCategory: dataToSendType["utc"];
-  timingVar: dataToSendType["utv"];
-  timingValue: dataToSendType["utt"];
-  timingLabel: dataToSendType["utl"];
+  timingCategory: DataToSendType["utc"];
+  timingVar: DataToSendType["utv"];
+  timingValue: DataToSendType["utt"];
+  timingLabel: DataToSendType["utl"];
 }
 
 interface Exception {
-  exDescription: dataToSendType["exd"];
-  exFatal: dataToSendType["exf"];
+  exDescription: DataToSendType["exd"];
+  exFatal: DataToSendType["exf"];
 }
 
 interface Social {
-  socialNetwork: dataToSendType["sn"];
-  socialAction: dataToSendType["sa"];
-  socialTarget: dataToSendType["st"];
+  socialNetwork: DataToSendType["sn"];
+  socialAction: DataToSendType["sa"];
+  socialTarget: DataToSendType["st"];
 }
 
-export type dataToSendType = {
+export type DataToSendType = {
   v: string;
   tid: string;
   cid: string;
@@ -96,23 +97,23 @@ export type Fields =
   | Social
   | undefined;
 
-export interface useAnalyticsParams {
-  trackWithGoogleAnalytics<T extends hitTypes>(
-    hitType: hitTypes | T,
-    fields: T extends "event"
+export interface UseAnalyticsParams {
+  trackWithGoogleAnalytics<T extends HitType>(
+    hitType: HitType | T,
+    fields: T extends HitType.EVENT
       ? Event
-      : T extends "screenview"
+      : T extends HitType.SCREENVIEW
       ? Screenview
-      : T extends "social"
+      : T extends HitType.SOCIAL
       ? Social
-      : T extends "exception"
+      : T extends HitType.EXCEPTION
       ? Exception
-      : T extends "timing"
+      : T extends HitType.TIMING
       ? Timing
       : undefined
   ): void;
   trackWithGoogleAnalytics(
-    hitType?: "pageview" | "item" | "transaction",
+    hitType?: HitType.PAGEVIEW | HitType.ITEM | HitType.TRANSACTION,
     fields?: undefined
   ): void;
   views: number | null;

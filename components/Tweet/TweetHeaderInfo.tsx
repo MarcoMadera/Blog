@@ -1,7 +1,7 @@
 import useDarkMode from "hooks/useDarkMode";
 import { tweets } from "styles/theme";
 import { ReactElement } from "react";
-import { User } from "types/tweet";
+import type { User } from "types/tweet";
 import TweetCreatedAt from "./TweetCreatedAt";
 import useToolTip from "hooks/useToolTip";
 

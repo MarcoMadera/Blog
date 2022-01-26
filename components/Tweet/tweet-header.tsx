@@ -2,7 +2,7 @@ import { tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
-import { User } from "types/tweet";
+import type { User } from "types/tweet";
 import { ReactElement } from "react";
 import { A } from "components/tags";
 import useToolTip from "hooks/useToolTip";

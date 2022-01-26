@@ -1,9 +1,10 @@
 import { ReactElement } from "react";
-import { SpaceData } from "types/tweet";
+import type { SpaceData } from "types/tweet";
 import { getQuotedTwitterFormattedDate } from "utils";
 import EmojisWrapper from "components/EmojisWrapper";
 import useToolTip from "hooks/useToolTip";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 export default function SpaceTweet({
   spaceTweet,
@@ -80,7 +81,7 @@ export default function SpaceTweet({
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => {
-          trackWithGoogleAnalytics("social", {
+          trackWithGoogleAnalytics(HitType.SOCIAL, {
             socialAction: "click space",
             socialNetwork: "twitter",
             socialTarget: `https://twitter.com/i/spaces/${spaceTweet.data.id}`,

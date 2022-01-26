@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { tweets } from "styles/theme";
-import { Media } from "types/tweet";
+import type { Media } from "types/tweet";
 import { Img } from "../tags";
 
 interface MediaProps {

@@ -3,9 +3,10 @@ import { siteMetadata } from "site.config";
 import { ReactElement, useCallback, useEffect, useState } from "react";
 import AboutLayout from "../../layouts/About";
 import { GetServerSideProps } from "next";
-import { SongData, NowPlaying } from "types/spotify";
+import type { SongData, NowPlaying } from "types/spotify";
 import useAnalytics from "hooks/useAnalytics";
 import { ApiError } from "next/dist/server/api-utils";
+import { HitType } from "types/analytics";
 
 interface AboutProps {
   nowPlaying: NowPlaying | null;
@@ -53,7 +54,7 @@ export default function About({
       setNewNowPlaying(nowPlaying.listening ? nowPlaying : recentlyPlayed);
     } catch (error: unknown) {
       const responseError = error as ApiError;
-      trackWithGoogleAnalytics("exception", {
+      trackWithGoogleAnalytics(HitType.EXCEPTION, {
         exDescription: responseError.message,
         exFatal: "0",
       });
@@ -75,7 +76,7 @@ export default function About({
       setNewTopTracks(topTracks);
     } catch (error: unknown) {
       const responseError = error as ApiError;
-      trackWithGoogleAnalytics("exception", {
+      trackWithGoogleAnalytics(HitType.EXCEPTION, {
         exDescription: responseError.message,
         exFatal: "0",
       });

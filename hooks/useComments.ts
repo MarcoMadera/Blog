@@ -5,7 +5,7 @@ import { siteMetadata } from "site.config";
 import useNotification from "./useNotification";
 import useUser from "./useUser";
 import { useRouter } from "next/router";
-import { Comment, UseComments } from "types/comments";
+import type { Comment, UseComments } from "types/comments";
 import {
   getDownloadURL,
   UploadTask,
@@ -22,6 +22,7 @@ import {
   query,
 } from "firebase/database";
 import useAnalytics from "./useAnalytics";
+import { HitType } from "types/analytics";
 
 export default function useComments(): UseComments {
   const context = useContext(CommentsContext);
@@ -76,7 +77,7 @@ export default function useComments(): UseComments {
       });
 
       updateCommentCount();
-      trackWithGoogleAnalytics("event", {
+      trackWithGoogleAnalytics(HitType.EVENT, {
         eventCategory: "Comments",
         eventAction: "Loaded",
         eventLabel: `${slug}`,
@@ -87,7 +88,7 @@ export default function useComments(): UseComments {
         variant: "error",
         message: "Error al actualizar los comentarios",
       });
-      trackWithGoogleAnalytics("exception", {
+      trackWithGoogleAnalytics(HitType.EXCEPTION, {
         exDescription: "Update comments error",
         exFatal: "0",
       });
@@ -119,7 +120,7 @@ export default function useComments(): UseComments {
           variant: "error",
           message: "Ha ocurrido un error al intentar subir la imagen",
         });
-        trackWithGoogleAnalytics("exception", {
+        trackWithGoogleAnalytics(HitType.EXCEPTION, {
           exDescription: "Upload image error",
           exFatal: "0",
         });
@@ -163,7 +164,7 @@ export default function useComments(): UseComments {
           variant: "success",
           message: "Comentario publicado",
         });
-        trackWithGoogleAnalytics("event", {
+        trackWithGoogleAnalytics(HitType.EVENT, {
           eventCategory: "Form",
           eventAction: "Submit success",
           eventLabel: "Comments",
@@ -174,7 +175,7 @@ export default function useComments(): UseComments {
           variant: "error",
           message: "Error al publicar el comentario",
         });
-        trackWithGoogleAnalytics("exception", {
+        trackWithGoogleAnalytics(HitType.EXCEPTION, {
           exDescription: "Create comment error",
           exFatal: "0",
         });

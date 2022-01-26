@@ -2,7 +2,7 @@
  * Focus and element by default it will focus the h1, main or body, the first element that exist
  * @param element HTMLElement
  */
-export default function a11ySmartFocus(element?: HTMLElement): void {
+export default function a11ySmartFocus(element?: HTMLElement | null): void {
   const elementToFocus =
     element ??
     (document.querySelector("h1") ||

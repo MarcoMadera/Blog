@@ -1,7 +1,7 @@
 import { ALink } from "components/tags";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { PostWithMedia } from "types/posts";
+import type { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
 import {
   isImgFromCloudProvider,

@@ -2,7 +2,7 @@ import { getTagData, getTagsSlugs } from "lib/posts";
 import slugify from "react-slugify";
 import HomeLayout from "layouts/Home";
 import { ReactElement } from "react";
-import { HomeData } from "types/posts";
+import type { HomeData } from "types/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Custom404 from "pages/404";
 

@@ -4,11 +4,12 @@ import { TweetMedia } from "./Media";
 import { TweetPoll } from "./Poll";
 import { formatNumber } from "utils";
 import QuotedTweet from "./QuotedTweet";
-import { TweetData } from "types/tweet";
+import type { TweetData } from "types/tweet";
 import React, { ReactElement } from "react";
 import TweetHeaderInfo from "./TweetHeaderInfo";
 import { A } from "components/tags";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 interface RepliedTweetProps {
   data: TweetData;
@@ -79,7 +80,7 @@ export default function RepliedTweet({
               rel="noopener noreferrer"
               aria-label={`${data.tweet.public_metrics.reply_count} comentarios, Comentar en twitter`}
               onClick={() => {
-                trackWithGoogleAnalytics("social", {
+                trackWithGoogleAnalytics(HitType.SOCIAL, {
                   socialAction: "reply",
                   socialNetwork: "twitter",
                   socialTarget: tweetUrl,
@@ -107,7 +108,7 @@ export default function RepliedTweet({
               rel="noopener noreferrer"
               aria-label={`${data.tweet.public_metrics.like_count} me gusta, Dar me gusta en twitter`}
               onClick={() => {
-                trackWithGoogleAnalytics("social", {
+                trackWithGoogleAnalytics(HitType.SOCIAL, {
                   socialAction: "like",
                   socialNetwork: "twitter",
                   socialTarget: tweetUrl,
@@ -135,7 +136,7 @@ export default function RepliedTweet({
               rel="noopener noreferrer"
               aria-label={`${data.tweet.public_metrics.retweet_count} retweets, Hacer retweet en twitter`}
               onClick={() => {
-                trackWithGoogleAnalytics("social", {
+                trackWithGoogleAnalytics(HitType.SOCIAL, {
                   socialAction: "retweet",
                   socialNetwork: "twitter",
                   socialTarget: tweetUrl,

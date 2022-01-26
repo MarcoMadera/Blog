@@ -2,13 +2,14 @@ import Seo from "components/Seo";
 import useAnalytics from "hooks/useAnalytics";
 import { useRouter } from "next/router";
 import { ReactElement, useEffect } from "react";
+import { HitType } from "types/analytics";
 
 export default function Custom500(): ReactElement {
   const { pathname } = useRouter();
   const { trackWithGoogleAnalytics } = useAnalytics();
 
   useEffect(() => {
-    trackWithGoogleAnalytics("exception", {
+    trackWithGoogleAnalytics(HitType.EXCEPTION, {
       exDescription: `500 internal server error: ${pathname}`,
       exFatal: "1",
     });

@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import ElementsContext from "context/ElementsContext";
 import DataMapContext from "context/DataMapContext";
-import {
+import type {
   Element,
   ElementCodeBlock,
   ElementImage,
   ElementTweet,
   ElementSpace,
-  Ids,
+  ElementId,
   UElementRes,
 } from "types/posts";
 
@@ -18,7 +18,7 @@ function useElementData(element: ElementCodeBlock): UElementRes["CodeBlock"];
 function useElementData(element: Element): UElementRes["Response"] {
   const elements = useContext(ElementsContext);
   const data = useContext(DataMapContext);
-  const id: Ids = `${element.type}:${element.id}`;
+  const id: ElementId = `${element.type}:${element.id}`;
 
   if (data?.addElement) {
     data.addElement(element);

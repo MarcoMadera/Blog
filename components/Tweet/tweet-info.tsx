@@ -1,10 +1,11 @@
 import { formatNumber } from "utils";
 import { tweets } from "styles/theme";
-import { User, Tweet } from "types/tweet";
+import type { User, Tweet } from "types/tweet";
 import { ReactElement } from "react";
 import TweetCreatedAt from "./TweetCreatedAt";
 import { A } from "components/tags";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 interface TweetInfoProps {
   username: User["username"];
@@ -34,7 +35,7 @@ export default function TweetInfo({
         rel="noopener noreferrer"
         aria-label={`${metrics.like_count} me gusta, Dar me gusta en twitter`}
         onClick={() => {
-          trackWithGoogleAnalytics("social", {
+          trackWithGoogleAnalytics(HitType.SOCIAL, {
             socialAction: "like",
             socialNetwork: "twitter",
             socialTarget: tweetUrl,
@@ -58,7 +59,7 @@ export default function TweetInfo({
         rel="noopener noreferrer"
         aria-label={`${metrics.retweet_count} retweets, Hacer retweet en twitter`}
         onClick={() => {
-          trackWithGoogleAnalytics("social", {
+          trackWithGoogleAnalytics(HitType.SOCIAL, {
             socialAction: "retweet",
             socialNetwork: "twitter",
             socialTarget: tweetUrl,

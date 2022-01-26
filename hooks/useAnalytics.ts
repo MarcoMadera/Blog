@@ -1,14 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
-import { dataToSendType, Fields, useAnalyticsParams } from "types/analytics";
+import type {
+  DataToSendType,
+  Fields,
+  UseAnalyticsParams,
+} from "types/analytics";
+import { HitType } from "types/analytics";
 import useCookies from "./useCookies";
 
-export default function useAnalytics(page?: string): useAnalyticsParams {
+export default function useAnalytics(page?: string): UseAnalyticsParams {
   const [views, setViews] = useState(null);
   const { getCookie, setCookie, acceptedcookies } = useCookies();
 
-  const trackWithGoogleAnalytics: useAnalyticsParams["trackWithGoogleAnalytics"] =
+  const trackWithGoogleAnalytics: UseAnalyticsParams["trackWithGoogleAnalytics"] =
     useCallback(
-      (hitType = "pageview", fields: Fields) => {
+      (hitType = HitType.PAGEVIEW, fields: Fields) => {
         if (!acceptedcookies) {
           return;
         }
@@ -27,7 +32,7 @@ export default function useAnalytics(page?: string): useAnalyticsParams {
 
         const analyticsCookie = getCookie("_ga") || addAnalyticsCookie();
 
-        const data: Partial<dataToSendType> = {
+        const data: Partial<DataToSendType> = {
           v: "1",
           tid: "UA-177844057-1",
           aip: "1",
@@ -89,7 +94,7 @@ export default function useAnalytics(page?: string): useAnalyticsParams {
       .then((res) => res.json())
       .then(setViews)
       .catch(() =>
-        trackWithGoogleAnalytics("exception", {
+        trackWithGoogleAnalytics(HitType.EXCEPTION, {
           exDescription: "Error fetching views",
           exFatal: "0",
         })

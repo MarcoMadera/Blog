@@ -3,10 +3,11 @@ import { tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import twemoji from "twemoji";
 import HtmlToReact from "html-to-react";
-import { Tweet, User } from "types/tweet";
+import type { Tweet, User } from "types/tweet";
 import { ReactElement } from "react";
 import { A } from "components/tags";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 interface TweetActionProps {
   name: User["name"];
@@ -40,7 +41,7 @@ export default function TweetAction({
           className="tweetActionA"
           textColor={tweets.linkColor}
           onClick={() => {
-            trackWithGoogleAnalytics("social", {
+            trackWithGoogleAnalytics(HitType.SOCIAL, {
               socialAction: "view",
               socialNetwork: "twitter",
               socialTarget: tweetUrl,
@@ -62,7 +63,7 @@ export default function TweetAction({
           className="tweetActionA"
           textColor={tweets.linkColor}
           onClick={() => {
-            trackWithGoogleAnalytics("social", {
+            trackWithGoogleAnalytics(HitType.SOCIAL, {
               socialAction: "view",
               socialNetwork: "twitter",
               socialTarget: userUrl,

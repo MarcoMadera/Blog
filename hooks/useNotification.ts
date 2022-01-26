@@ -1,7 +1,7 @@
 import { useCallback, useContext } from "react";
 import NotificationContext from "context/NotificationContext";
 import { nanoid } from "nanoid";
-import { UseNotification, Notification } from "types/notification";
+import type { UseNotification, Notification } from "types/notification";
 
 export default function useNotification(): UseNotification {
   const context = useContext(NotificationContext);

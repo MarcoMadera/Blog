@@ -2,13 +2,14 @@ import Seo from "components/Seo";
 import useAnalytics from "hooks/useAnalytics";
 import { useRouter } from "next/router";
 import { ReactElement, useEffect } from "react";
+import { HitType } from "types/analytics";
 
 export default function Custom404(): ReactElement {
   const { pathname } = useRouter();
   const { trackWithGoogleAnalytics } = useAnalytics();
 
   useEffect(() => {
-    trackWithGoogleAnalytics("exception", {
+    trackWithGoogleAnalytics(HitType.EXCEPTION, {
       exDescription: `404 page not found: ${pathname}`,
       exFatal: "0",
     });

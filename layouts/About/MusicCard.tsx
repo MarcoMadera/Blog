@@ -1,9 +1,10 @@
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import React, { memo, ReactElement } from "react";
-import { SongData } from "types/spotify";
+import type { SongData } from "types/spotify";
 import { A } from "components/tags";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
   const { darkMode } = useDarkMode();
@@ -17,7 +18,7 @@ function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
         aria-label={`Reproducir ${title} de ${artist} en Spotify`}
         title={`${title} ${String.fromCharCode(183)} ${artist}`}
         onClick={() => {
-          trackWithGoogleAnalytics("event", {
+          trackWithGoogleAnalytics(HitType.EVENT, {
             eventCategory: "music",
             eventAction: "play",
             eventLabel: `${title} ${String.fromCharCode(183)} ${artist}`,

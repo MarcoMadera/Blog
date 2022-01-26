@@ -1,6 +1,6 @@
 import { FocusEvent, MouseEvent, useCallback, useContext, useRef } from "react";
 import ToolTipContext from "context/ToolTipContext";
-import { UseToolTip } from "types/tooltip";
+import type { UseToolTip } from "types/tooltip";
 import { uniqueId } from "lodash";
 
 export default function useToolTip(): UseToolTip {

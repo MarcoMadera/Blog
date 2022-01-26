@@ -3,8 +3,9 @@ import { colors } from "styles/theme";
 import { Spotify } from "components/icons";
 import MusicCard from "./MusicCard";
 import { Hr } from "components/tags";
-import { SongData } from "types/spotify";
+import type { SongData } from "types/spotify";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 interface MusicHeaderProps extends SongData {
   header: string;
@@ -28,7 +29,7 @@ function MusicHeader({
           rel="noopener noreferrer"
           aria-label="Perfil de spotify"
           onClick={() => {
-            trackWithGoogleAnalytics("social", {
+            trackWithGoogleAnalytics(HitType.SOCIAL, {
               socialNetwork: "spotify",
               socialAction: "click",
               socialTarget: "https://open.spotify.com/user/12133024755",

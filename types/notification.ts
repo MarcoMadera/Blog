@@ -1,10 +1,10 @@
-export interface newNotification {
+interface NewNotification {
   variant: "info" | "error" | "success";
   message: string;
   displayTime?: number;
 }
 
-export interface Notification extends newNotification {
+export interface Notification extends NewNotification {
   timeOut: NodeJS.Timeout;
   id: string;
   displayTime: number;
@@ -12,6 +12,6 @@ export interface Notification extends newNotification {
 
 export interface UseNotification {
   notifications: Notification[];
-  addNotification: (notification: newNotification) => void;
+  addNotification: (notification: NewNotification) => void;
   removeNotification: (notificationId: Notification["id"]) => void;
 }

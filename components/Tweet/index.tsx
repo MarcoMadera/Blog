@@ -12,6 +12,7 @@ import { ReactElement, ReactNode } from "react";
 import useElementData from "hooks/useElementData";
 import useToolTip from "hooks/useToolTip";
 import SpaceTweet from "./SpaceTweet";
+import { ElementType } from "types/posts";
 
 interface TweetProps {
   id: string;
@@ -27,7 +28,7 @@ export default function Tweet({
   const { darkMode } = useDarkMode();
   const { getToolTipAttrbutes } = useToolTip();
   const { data, ignore } = useElementData({
-    type: "tweet",
+    type: ElementType.TWEET,
     id: id,
     hideConversation,
   });

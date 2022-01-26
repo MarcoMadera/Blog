@@ -2,14 +2,12 @@ import ReactDOMServer from "react-dom/server";
 import Markdown, { MarkdownType } from "components/Markdown";
 import { DataMapContextProvider } from "context/DataMapContext";
 import { getPlaiceholder } from "plaiceholder";
-import {
+import type {
   Element,
-  ElementCodeBlock,
-  ElementImage,
+  ElementsData,
   Elements,
-  ElementTweet,
-  ElementSpace,
-  ImgData,
+  FullImg,
+  ElementId,
 } from "types/posts";
 import getTweetData from "utils/getTweetData";
 import codeHighlighter from "utils/codeHighlighter";
@@ -20,12 +18,18 @@ import getSpaceData from "utils/getSpaceData";
 export default async function getElementsData(
   content: string,
   type: MarkdownType
-): Promise<Elements> {
-  const elementsArr: Element[] = [];
-
-  const addElement = (element: Element) => {
-    elementsArr.push(element);
+): Promise<ElementsData> {
+  const elements: Elements = {
+    tweet: [],
+    space: [],
+    image: [],
+    codeBlock: [],
   };
+
+  function addElement(element: Element) {
+    const arr: Element[] = elements[element.type];
+    arr.push(element);
+  }
 
   // Render the page once to populate `ids`
   ReactDOMServer.renderToString(
@@ -38,34 +42,22 @@ export default async function getElementsData(
     </DarkModeContextProvider>
   );
 
-  const allTweetElements = elementsArr.filter(
-    (e) => e.type === "tweet"
-  ) as ElementTweet[];
-
   const tweetsData = await Promise.all(
-    allTweetElements.map(async ({ id, hideConversation, type }) => {
+    elements.tweet.map(async ({ id, hideConversation, type }) => {
       const data = await getTweetData(id, {
         ignoreTweet: false,
         hideConversation,
       });
-      return { id: `${type}:${id}`, data };
+      return { id: `${type}:${id}` as ElementId, data };
     })
   );
-
-  const allSpaceElements = elementsArr.filter(
-    (e) => e.type === "space"
-  ) as ElementSpace[];
 
   const spacesData = await Promise.all(
-    allSpaceElements.map(async ({ id, type }) => {
+    elements.space.map(async ({ id, type }) => {
       const data = await getSpaceData(id);
-      return { id: `${type}:${id}`, data };
+      return { id: `${type}:${id}` as ElementId, data };
     })
   );
-
-  const allImageElements = elementsArr.filter(
-    (e) => e.type === "image"
-  ) as ElementImage[];
 
   async function getImagePlaceHolder(src: string) {
     const { base64, img } = await getPlaiceholder(src, {
@@ -75,11 +67,8 @@ export default async function getElementsData(
   }
 
   const imagesData = await Promise.all(
-    allImageElements.map(async ({ normal, full, type, id }) => {
-      const fullImg: {
-        darkImage: Omit<ImgData, "fullImg"> | null;
-        lightImage: Omit<ImgData, "fullImg"> | null;
-      } = {
+    elements.image.map(async ({ normal, full, type, id }) => {
+      const fullImg: FullImg = {
         darkImage: null,
         lightImage: null,
       };
@@ -94,17 +83,13 @@ export default async function getElementsData(
       }
 
       return {
-        id: `${type}:${id}`,
+        id: `${type}:${id}` as ElementId,
         data: { base64, img, fullImg },
       };
     })
   );
 
-  const allCodeBlockElements = elementsArr.filter(
-    (e) => e.type === "codeBlock"
-  ) as ElementCodeBlock[];
-
-  const codeBlocksData = allCodeBlockElements.map(
+  const codeBlocksData = elements.codeBlock.map(
     ({ id, content, language, type }) => {
       const highlightedCode = codeHighlighter(content, language);
       const result = ReactDOMServer.renderToStaticMarkup(
@@ -112,7 +97,7 @@ export default async function getElementsData(
       );
       const data = { result };
 
-      return { id: `${type}:${id}`, data };
+      return { id: `${type}:${id}` as ElementId, data };
     }
   );
 
@@ -121,7 +106,7 @@ export default async function getElementsData(
     ...imagesData,
     ...codeBlocksData,
     ...spacesData,
-  ].reduce((result: Elements, element) => {
+  ].reduce((result: ElementsData, element) => {
     if (element.data) {
       result[element.id] = element.data;
     }

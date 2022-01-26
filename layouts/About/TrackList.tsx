@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { NowPlaying, SongData } from "types/spotify";
+import type { NowPlaying, SongData } from "types/spotify";
 import MusicHeader from "./MusicHeader";
 import TopTracksList from "./TopTracksList";
 

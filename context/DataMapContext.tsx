@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, ReactElement } from "react";
-import { Element } from "types/posts";
+import type { Element } from "types/posts";
 const DataMapContext = createContext<DataMapContextProviderProps | undefined>(
   undefined
 );

@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { SongData } from "types/spotify";
+import type { SongData } from "types/spotify";
 import MusicCard from "./MusicCard";
 
 interface TopTracksListProps {

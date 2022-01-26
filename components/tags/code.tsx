@@ -4,6 +4,7 @@ import { PropsWithChildren, ReactElement, ReactNode } from "react";
 import useDarkMode from "hooks/useDarkMode";
 import HtmlToReact from "html-to-react";
 import useElementData from "hooks/useElementData";
+import { ElementType } from "types/posts";
 
 interface InlineCodeProps {
   classname?: string;
@@ -184,7 +185,7 @@ export function CodeBlock({
 }: PropsWithChildren<CodeBlockProps>): ReactElement | null {
   const { darkMode } = useDarkMode();
   const { data, ignore } = useElementData({
-    type: "codeBlock",
+    type: ElementType.CODEBLOCK,
     content: value,
     id: id.toString(),
     language,

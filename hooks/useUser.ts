@@ -8,7 +8,7 @@ import {
 } from "lib/firebase/client";
 import useNotification from "./useNotification";
 import { FirebaseError } from "firebase-admin";
-import { UseUser } from "types/user";
+import type { UseUser } from "types/user";
 
 export default function useUser(): UseUser {
   const context = useContext(UserContext);

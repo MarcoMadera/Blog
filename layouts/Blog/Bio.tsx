@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { colors } from "styles/theme";
-import { PostWithMedia } from "types/posts";
+import type { PostWithMedia } from "types/posts";
 
 export default function Bio({
   author,

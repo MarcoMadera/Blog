@@ -1,4 +1,4 @@
-import { SpaceData, TweetData, TweetResponse } from "types/tweet";
+import type { SpaceData, TweetData, TweetResponse } from "types/tweet";
 import getSpaceData from "./getSpaceData";
 
 export default async function getTweetData(

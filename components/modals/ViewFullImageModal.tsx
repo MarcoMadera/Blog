@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import Image, { ImageProps } from "next/image";
-import { ImgData } from "types/posts";
+import type { ImgData } from "types/posts";
 import { getClientSize } from "utils";
 import useLockBodyScroll from "hooks/useLockBodyScroll";
 import { replaceUrlImgTransformations } from "utils/cloudProvider";

@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import CookiesContext from "context/CookiesContext";
-import { UseCookies } from "types/cookies";
+import type { UseCookies } from "types/cookies";
 
 export default function useCookies(): UseCookies {
   const context = useContext(CookiesContext);

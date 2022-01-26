@@ -23,7 +23,10 @@ export interface Post extends PostData {
   nextPost: Pick<PostData, "title" | "slug"> | null;
   recommendedPosts: Pick<PostData, "title" | "cover" | "slug">[];
 }
-
+export interface FullImg {
+  darkImage?: Omit<ImgData, "fullImg"> | null;
+  lightImage?: Omit<ImgData, "fullImg"> | null;
+}
 export interface ImgData {
   base64: string;
   img: {
@@ -32,32 +35,31 @@ export interface ImgData {
     type?: string;
     src: string;
   };
-  fullImg: {
-    darkImage?: Omit<ImgData, "fullImg"> | null;
-    lightImage?: Omit<ImgData, "fullImg"> | null;
-  };
+  fullImg: FullImg;
 }
 
-export interface CodeBlockData {
+interface CodeBlockData {
   result: string;
   language?: string;
 }
 
-export type Tweets = Record<string, TweetData>;
-export type Spaces = Record<string, SpaceData>;
-export type Images = Record<string, ImgData>;
-export type CodeBlocks = Record<string, CodeBlockData>;
-export type Elements = Record<
-  string,
-  TweetData | ImgData | CodeBlockData | SpaceData
->;
+export enum ElementType {
+  TWEET = "tweet",
+  IMAGE = "image",
+  CODEBLOCK = "codeBlock",
+  SPACE = "space",
+}
+
+export type ElementId = `${ElementType}:${string}`;
+export type ElementsData = Record<ElementId, ElementData>;
+
 export interface PostWithMedia extends Post {
-  elements: Elements;
+  elements: ElementsData;
 }
 
 export type AllTags = string[];
 export type Pages = number[];
-export type CurrentPage = number;
+type CurrentPage = number;
 
 export interface HomeData {
   posts: PostData[];
@@ -67,41 +69,42 @@ export interface HomeData {
   tag?: string;
 }
 
-export interface DefaultElementParams {
+interface DefaultElementParams {
   id: string;
 }
 
-export interface ElementTweetParams extends DefaultElementParams {
+interface ElementTweetParams extends DefaultElementParams {
   hideConversation: boolean;
 }
 
-export interface ElementCodeBlockParams extends DefaultElementParams {
+interface ElementCodeBlockParams extends DefaultElementParams {
   content: ReactNode[];
   language: string;
 }
 
-export interface ElementImageParams extends DefaultElementParams {
+interface ElementImageParams extends DefaultElementParams {
   normal: string;
   full?: { darkImage?: string; lightImage?: string };
 }
 
-export type Ids = ImageId | TweetId | CodeBlockId | SpaceId;
-export type ImageId = `image:${string}`;
-export type TweetId = `tweet:${string}`;
-export type CodeBlockId = `codeBlock:${string}`;
-export type SpaceId = `space:${string}`;
+export interface Elements {
+  tweet: ElementTweet[];
+  space: ElementSpace[];
+  image: ElementImage[];
+  codeBlock: ElementCodeBlock[];
+}
 
 export interface ElementImage extends ElementImageParams {
-  type: "image";
+  type: ElementType.IMAGE;
 }
 export interface ElementTweet extends ElementTweetParams {
-  type: "tweet";
+  type: ElementType.TWEET;
 }
 export interface ElementCodeBlock extends ElementCodeBlockParams {
-  type: "codeBlock";
+  type: ElementType.CODEBLOCK;
 }
 export interface ElementSpace extends DefaultElementParams {
-  type: "space";
+  type: ElementType.SPACE;
 }
 
 export type Element =
@@ -109,6 +112,8 @@ export type Element =
   | ElementTweet
   | ElementSpace
   | ElementCodeBlock;
+
+type ElementData = ImgData | TweetData | SpaceData | CodeBlockData;
 
 export interface UElementRes {
   Img: {
@@ -128,7 +133,7 @@ export interface UElementRes {
     ignore: boolean;
   };
   Response: {
-    data: ImgData | TweetData | SpaceData | CodeBlockData | undefined;
+    data: ElementData | undefined;
     ignore: boolean;
   };
 }

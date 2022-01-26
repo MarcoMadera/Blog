@@ -1,6 +1,6 @@
 import { getRecentlyPlayed } from "lib/spotify";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { SongData } from "types/spotify";
+import type { SongData } from "types/spotify";
 
 export default async function recentlyPlayed(
   _: NextApiRequest,

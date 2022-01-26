@@ -2,7 +2,7 @@ import { getHomeDataFromPage } from "lib/posts";
 import HomeLayout from "layouts/Home";
 import { ReactElement } from "react";
 import { GetStaticProps } from "next";
-import { HomeData } from "types/posts";
+import type { HomeData } from "types/posts";
 
 export default function Home(data: HomeData): ReactElement {
   return (

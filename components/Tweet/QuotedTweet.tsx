@@ -3,7 +3,7 @@ import { tweets } from "styles/theme";
 import TweetText from "./TweetText";
 import { TweetMedia } from "./Media";
 import { TweetPoll } from "./Poll";
-import { TweetData } from "types/tweet";
+import type { TweetData } from "types/tweet";
 import { ReactElement } from "react";
 import TweetHeaderInfo from "./TweetHeaderInfo";
 import useToolTip from "hooks/useToolTip";

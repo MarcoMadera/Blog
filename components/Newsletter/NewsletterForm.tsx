@@ -7,6 +7,7 @@ import useNotification from "hooks/useNotification";
 import { useRouter } from "next/router";
 import { subscribeToNewsletter } from "utils/subscribeToNewsletter";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 export default function NewsletterForm({
   children,
@@ -27,7 +28,7 @@ export default function NewsletterForm({
     setError(false);
 
     const { type, message } = await subscribeToNewsletter(email);
-    trackWithGoogleAnalytics("event", {
+    trackWithGoogleAnalytics(HitType.EVENT, {
       eventCategory: "Form",
       eventAction: `Submit ${type}`,
       eventLabel: "Newsletter",

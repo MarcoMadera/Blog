@@ -9,7 +9,7 @@ import React, {
   RefObject,
   SetStateAction,
 } from "react";
-import { CommentOptions } from "types/comments";
+import type { CommentOptions } from "types/comments";
 
 interface ButtonProps extends CommentOptions {
   textAreaRef: RefObject<HTMLTextAreaElement>;

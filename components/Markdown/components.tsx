@@ -54,6 +54,7 @@ import {
 import { NormalComponents } from "react-markdown/lib/complex-types";
 import { convertInlineStylesToObject, convertParamsToObject } from "utils";
 import SpaceTweet from "components/Tweet/SpaceTweet";
+import { ElementType } from "types/posts";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &
@@ -243,7 +244,7 @@ export const components:
   space: function SpaceNode({ node }) {
     const id = node.properties?.id as string;
     const { data, ignore } = useElementData({
-      type: "space",
+      type: ElementType.SPACE,
       id: id,
     });
     if (ignore || !id) return null;
@@ -372,7 +373,7 @@ export const components:
 
     const { data, ignore } = useElementData({
       id: node.position?.start.offset?.toString() as string,
-      type: "image",
+      type: ElementType.IMAGE,
       normal: src || "",
       full: {
         darkImage: isFromCloudProvider

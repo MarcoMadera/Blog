@@ -7,7 +7,7 @@ import {
   CheckList,
   NumberList,
 } from "components/icons";
-import { CommentOptions } from "types/comments";
+import type { CommentOptions } from "types/comments";
 
 export const options: CommentOptions[] = [
   { name: "Título", type: "header", mark: "# ", children: "T" },

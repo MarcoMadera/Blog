@@ -36,7 +36,7 @@ interface Annotation {
   type: string;
   normalized_text: string;
 }
-export interface Url {
+interface Url {
   start: number;
   end: number;
   url: string;

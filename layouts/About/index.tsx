@@ -14,10 +14,11 @@ import TrackList from "./TrackList";
 import { aboutStyles } from "./aboutStyles";
 import Seo from "components/Seo";
 import { A, ALink, H1, H2, H3, P } from "components/tags";
-import { NowPlaying, SongData } from "types/spotify";
+import type { NowPlaying, SongData } from "types/spotify";
 import { PropsWithChildren, ReactElement, memo } from "react";
 import useToolTip from "hooks/useToolTip";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 interface AboutLayoutProps {
   newNowPlaying: NowPlaying | null;
@@ -191,7 +192,7 @@ const AboutLayout = ({
             , o mándame un correo dando clic al icono{" "}
             <button
               onClick={() => {
-                trackWithGoogleAnalytics("social", {
+                trackWithGoogleAnalytics(HitType.SOCIAL, {
                   socialNetwork: "email",
                   socialAction: "click",
                   socialTarget: "mailto:me@marcomadera.com",

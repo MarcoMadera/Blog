@@ -12,7 +12,7 @@ import { H1, ALink, Hr } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
 import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
-import { PostWithMedia } from "types/posts";
+import type { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
 import { ElementsContextProvider } from "context/ElementsContext";
 import {

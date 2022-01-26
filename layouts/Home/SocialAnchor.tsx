@@ -1,6 +1,7 @@
 import useAnalytics from "hooks/useAnalytics";
 import { PropsWithChildren, ReactElement } from "react";
 import { A } from "components/tags";
+import { HitType } from "types/analytics";
 
 interface SocialAnchorProps {
   socialNetwork: string;
@@ -21,7 +22,7 @@ export function SocialAnchor({
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => {
-        trackWithGoogleAnalytics("social", {
+        trackWithGoogleAnalytics(HitType.SOCIAL, {
           socialAction: "click",
           socialNetwork: socialNetwork,
           socialTarget: socialTarget,

@@ -3,5 +3,5 @@ export default function insertTextBetween(
   index: number,
   value: string
 ): string {
-  return str.substr(0, index) + value + str.substr(index);
+  return str.slice(0, index) + value + str.slice(index);
 }

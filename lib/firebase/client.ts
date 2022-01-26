@@ -19,7 +19,7 @@ import {
   UserCredential,
 } from "firebase/auth";
 import { nanoid } from "nanoid";
-import { User, UserContextTypes } from "types/user";
+import type { User, UserContextTypes } from "types/user";
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,

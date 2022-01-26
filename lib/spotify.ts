@@ -1,4 +1,8 @@
-import { CurrentlyPlaying, RecentlyPlayed, TopTracks } from "types/spotify";
+import type {
+  CurrentlyPlaying,
+  RecentlyPlayed,
+  TopTracks,
+} from "types/spotify";
 
 const {
   SPOTIFY_CLIENT_ID: client_id,

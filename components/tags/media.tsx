@@ -2,7 +2,7 @@ import Image, { ImageProps } from "next/image";
 import useDarkMode from "hooks/useDarkMode";
 import ViewFullImageModal from "../modals/ViewFullImageModal";
 import { ReactElement, useRef, useState } from "react";
-import { ImgData } from "types/posts";
+import type { ImgData } from "types/posts";
 import {
   getImageSizeFromCloudUrl,
   isImgFromCloudProvider,

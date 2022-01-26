@@ -3,7 +3,7 @@ import slugify from "react-slugify";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import { ReactElement } from "react";
-import { HomeData, PostWithMedia } from "types/posts";
+import type { HomeData, PostWithMedia } from "types/posts";
 
 interface AllTagsProps {
   allTags: PostWithMedia["tags"] | HomeData["allTags"];

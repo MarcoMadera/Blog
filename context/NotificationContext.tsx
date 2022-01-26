@@ -7,7 +7,7 @@ import {
   ReactNode,
   ReactElement,
 } from "react";
-import { Notification } from "types/notification";
+import type { Notification } from "types/notification";
 
 const NotificationContext = createContext<
   NotificationContextProviderProps | undefined

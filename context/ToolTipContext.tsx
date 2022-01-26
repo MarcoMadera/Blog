@@ -7,7 +7,7 @@ import {
   ReactNode,
   ReactElement,
 } from "react";
-import { ToolTip } from "types/tooltip";
+import type { ToolTip } from "types/tooltip";
 
 const ToolTipContext = createContext<ToolTipContextProviderProps | undefined>(
   undefined

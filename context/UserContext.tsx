@@ -6,8 +6,7 @@ import {
   ReactNode,
 } from "react";
 import { onAuthStateChanged } from "lib/firebase/client";
-import { UserContextTypes } from "types/user";
-import { User } from "types/user";
+import type { UserContextTypes, User } from "types/user";
 
 const UserContext = createContext<UserContextTypes | undefined>(undefined);
 

@@ -2,10 +2,11 @@ import Bio from "./Bio";
 import { FacebookShare, LinkedInShare, TwitterShare } from "components/icons";
 import { siteMetadata } from "site.config";
 import { A } from "components/tags";
-import { PostWithMedia } from "types/posts";
+import type { PostWithMedia } from "types/posts";
 import { PropsWithChildren, ReactElement } from "react";
 import useToolTip from "hooks/useToolTip";
 import useAnalytics from "hooks/useAnalytics";
+import { HitType } from "types/analytics";
 
 interface ButtonProps {
   url: string;
@@ -23,7 +24,7 @@ function Button({
     <button
       {...getToolTipAttrbutes(`Compartir en ${network}`)}
       onClick={() => {
-        trackWithGoogleAnalytics("social", {
+        trackWithGoogleAnalytics(HitType.SOCIAL, {
           socialAction: "share",
           socialNetwork: network,
           socialTarget: url,

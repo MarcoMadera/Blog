@@ -8,7 +8,7 @@ import Seo from "components/Seo";
 import useDarkMode from "hooks/useDarkMode";
 import { siteMetadata } from "site.config";
 import slugify from "react-slugify";
-import { HomeData } from "types/posts";
+import type { HomeData } from "types/posts";
 import { ReactElement } from "react";
 import { ALink } from "components/tags";
 

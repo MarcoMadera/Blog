@@ -3,7 +3,7 @@ import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
 import { ReactElement } from "react";
-import { PostWithMedia } from "types/posts";
+import type { PostWithMedia } from "types/posts";
 
 export default function TableOfContents({
   h2s,

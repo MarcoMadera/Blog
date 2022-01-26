@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactElement } from "react";
 import slugify from "react-slugify";
-import { PostWithMedia } from "types/posts";
+import type { PostWithMedia } from "types/posts";
 
 interface TagsHeaderTypes {
   tags: PostWithMedia["tags"];

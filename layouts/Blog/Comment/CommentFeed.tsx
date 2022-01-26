@@ -3,7 +3,7 @@ import useUser from "hooks/useUser";
 import Markdown from "components/Markdown/index";
 import { Img } from "components/tags";
 import EmojisWrapper from "components/EmojisWrapper";
-import { Comment } from "types/comments";
+import type { Comment } from "types/comments";
 import { MouseEvent, ReactElement } from "react";
 
 export default function CommentFeed({

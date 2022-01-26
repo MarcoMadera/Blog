@@ -2,7 +2,7 @@ import { getPostBySlug, getPostsSlugs } from "lib/posts";
 import getElementsData from "lib/elementsData";
 import BlogLayout from "layouts/Blog";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { PostWithMedia } from "types/posts";
+import type { PostWithMedia } from "types/posts";
 import { ReactElement } from "react";
 import Custom404 from "pages/404";
 import useAnalytics from "hooks/useAnalytics";

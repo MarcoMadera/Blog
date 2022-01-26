@@ -3,6 +3,7 @@ import useAnalytics from "hooks/useAnalytics";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { ReactElement, useEffect } from "react";
+import { HitType } from "types/analytics";
 
 interface Props {
   statusCode?: number;
@@ -13,7 +14,7 @@ export default function Error({ statusCode }: Props): ReactElement {
   const { trackWithGoogleAnalytics } = useAnalytics();
 
   useEffect(() => {
-    trackWithGoogleAnalytics("exception", {
+    trackWithGoogleAnalytics(HitType.EXCEPTION, {
       exDescription: `${statusCode || "client"} error: ${pathname}`,
       exFatal: "1",
     });

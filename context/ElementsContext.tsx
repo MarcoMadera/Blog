@@ -1,10 +1,10 @@
 import { createContext, PropsWithChildren, ReactElement } from "react";
-import { Elements } from "types/posts";
+import type { ElementsData } from "types/posts";
 
-const ElementsContext = createContext<Elements | undefined>(undefined);
+const ElementsContext = createContext<ElementsData | undefined>(undefined);
 
 interface ElementsContextProviderProps {
-  elements: Elements;
+  elements: ElementsData;
 }
 
 export function ElementsContextProvider({

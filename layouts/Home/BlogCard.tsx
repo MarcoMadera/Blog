@@ -3,7 +3,7 @@ import slugify from "react-slugify";
 import { getFormattedDate } from "utils";
 import useDarkMode from "hooks/useDarkMode";
 import Image from "next/image";
-import { PostData } from "types/posts";
+import type { PostData } from "types/posts";
 import { ReactElement } from "react";
 import { colors } from "styles/theme";
 import {

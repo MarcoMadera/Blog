@@ -7,7 +7,7 @@ import toc from "markdown-toc-unlazy";
 import { parse } from "twemoji";
 import readingTime from "reading-time";
 import { getPlaiceholder } from "plaiceholder";
-import { AllTags, Pages, Post, PostData } from "types/posts";
+import type { AllTags, Pages, Post, PostData } from "types/posts";
 
 export function getPostsFiles(): {
   filename: string;
