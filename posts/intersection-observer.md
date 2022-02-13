@@ -1,7 +1,7 @@
 ---
 title: Como usar intersection observer
 description: Intersection observer es una API que permite detectar cuando un elemento entra en una zona visible.
-date: 2022-01-02
+date: 2022-02-14
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1644780836/Blog/intersection-observer/camera_k4t8ps.jpg
 author: Marco Madera
 tags:
