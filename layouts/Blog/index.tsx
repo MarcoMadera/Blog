@@ -13,7 +13,7 @@ import useDarkMode from "hooks/useDarkMode";
 import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
 import type { PostWithMedia } from "types/posts";
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { ElementsContextProvider } from "context/ElementsContext";
 import {
   isImgFromCloudProvider,
@@ -41,6 +41,63 @@ export default function Post({
   readingTimeInMinutes,
 }: PostWithMedia): ReactElement {
   const { darkMode } = useDarkMode();
+
+  useEffect(() => {
+    let lastIntersection: string | null = null;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("id");
+          const liElements = [
+            ...document.querySelectorAll("#headerMenu + ol > li"),
+          ];
+          const liElement = liElements.find((li) => {
+            return (
+              li.children[0].getAttribute("href") === `/blog/${slug}#${id}`
+            );
+          });
+          if (entry.isIntersecting && entry.intersectionRatio === 1) {
+            liElement?.classList.add("active");
+            lastIntersection = id;
+            console.log(lastIntersection);
+          } else {
+            liElement?.classList.remove("active");
+          }
+
+          liElements.forEach((liElement) => {
+            liElement.classList.remove("active");
+          });
+
+          const firstVisibleLink = document.querySelector(".active");
+
+          if (firstVisibleLink) {
+            firstVisibleLink.classList.add("active");
+          }
+
+          if (!firstVisibleLink && lastIntersection) {
+            document
+              .querySelector(
+                `#headerMenu + ol > li a[href="/blog/${slug}#${lastIntersection}"]`
+              )
+              ?.parentElement?.classList.add("active");
+          }
+        });
+      },
+      {
+        rootMargin: "0px",
+        threshold: 1,
+      }
+    );
+
+    const headings = document.querySelectorAll("#main > div h2");
+    const elementBeforeFirstHeading =
+      document.querySelector("#main > div h2")?.previousElementSibling;
+    [elementBeforeFirstHeading, ...headings].forEach((heading) => {
+      if (heading) {
+        observer.observe(heading);
+      }
+    });
+  }, [slug]);
 
   return (
     <main>

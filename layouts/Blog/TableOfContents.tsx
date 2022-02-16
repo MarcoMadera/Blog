@@ -34,6 +34,10 @@ export default function TableOfContents({
         :global(body) {
           overflow-x: visible;
         }
+        ol :global(li.active a) {
+          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          font-weight: 600;
+        }
         nav {
           grid-area: toc;
         }
