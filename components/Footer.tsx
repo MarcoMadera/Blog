@@ -62,11 +62,11 @@ export default function Footer(): ReactElement {
             Código fuente
           </A>
           <A
-            href="https://marcomadera.github.io/"
+            href="https://old.marcomadera.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Sitio alternativo
+            Sitio antiguo
           </A>
           <A
             href={`${siteMetadata.siteUrl}/rss.xml`}

@@ -47,6 +47,8 @@ export function Img({
   const width =
     widthFromProps ??
     (imageSizeFromUrl.width ? +imageSizeFromUrl.width : undefined);
+  const shouldZoomIn =
+    fullImage && width ? fullImage.img.width - width > 100 : false;
 
   const objectFit = width && height ? "none" : "cover";
 
@@ -155,6 +157,7 @@ export function Img({
         summary :global(img) {
           object-position: ${objectFit === "cover" ? "top" : "unset"};
           object-fit: ${objectFit === "cover" ? "cover" : "unset"};
+          cursor: ${shouldZoomIn ? "zoom-in" : "pointer"};
         }
         details {
           float: ${isImgToTheRight
@@ -209,7 +212,6 @@ export function Img({
         }
         summary :global(img) {
           border-radius: 10px;
-          cursor: pointer;
           max-height: 100vh;
           max-width: 100%;
         }
