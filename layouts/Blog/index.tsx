@@ -13,7 +13,7 @@ import useDarkMode from "hooks/useDarkMode";
 import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
 import type { PostWithMedia } from "types/posts";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect } from "react";
 import { ElementsContextProvider } from "context/ElementsContext";
 import {
   isImgFromCloudProvider,
@@ -59,7 +59,6 @@ export default function Post({
           if (entry.isIntersecting && entry.intersectionRatio === 1) {
             liElement?.classList.add("active");
             lastIntersection = id;
-            console.log(lastIntersection);
           } else {
             liElement?.classList.remove("active");
           }
