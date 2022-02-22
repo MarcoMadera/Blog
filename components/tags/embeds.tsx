@@ -23,8 +23,6 @@ export function Youtube({ id, title, caption }: YoutubeProps): ReactElement {
         title={title || "YouTube Embed"}
         noCookie={true}
         wrapperClass="youtubeWrapper"
-        // remove this line when updating from 2.2.0 to 2.3.0 as should be optional
-        thumbnail={""}
       />
       {caption != null ? <p className="caption">{caption}</p> : null}
       <style jsx>{`
