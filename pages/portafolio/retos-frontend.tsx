@@ -110,7 +110,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="REST Countries API with color theme switcher"
         level="Avanzado"
-        liveDemo="https://countries.marcomadera.vercel.app/"
+        liveDemo="https://countries.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca"
         repo="https://github.com/MarcoMadera/REST-Countries-API-with-color-theme-switcher"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_391/v1597007828/Potfolio/challenges/abbcd-bsde-bbvb_ax6hja.jpg"
@@ -134,7 +134,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="Rock Paper Scissors / Lizard Spock"
         level="Avanzado"
-        liveDemo="http://rock-paper-scissors.marcomadera.vercel.app/"
+        liveDemo="https://rock-paper-scissors.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH"
         repo="https://github.com/MarcoMadera/Rock-Paper-Scissors-Lizard-Spock"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_403/v1596519017/Potfolio/challenges/bccd-hs23c-fdfns_lhan01.jpg"
@@ -164,7 +164,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="Chat App CSS Illustration"
         level="Intermedio"
-        liveDemo="https://chat-app-css-illustration.marcomadera.vercel.app/"
+        liveDemo="https://simple-booking.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/chat-app-css-illustration-O5auMkFqY"
         repo="https://github.com/MarcoMadera/chat-app-css-illustration"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_403/v1595280865/Potfolio/challenges/e3refv80-b4vfd8-11ea-8aa5-1dcvf2d3e79a_q5s13z.jpg"
@@ -188,7 +188,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="Manage landing page"
         level="Intermedio"
-        liveDemo="https://manage-landing-page.marcomadera.vercel.app/"
+        liveDemo="https://manage-landing.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/manage-landing-page-SLXqC6P5"
         repo="https://github.com/MarcoMadera/manage-landing-page"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_403/v1595276265/Potfolio/challenges/ba06b000-be6b-11ea-8d49-fb31622b8b52_xiksfy.jpg"
@@ -222,7 +222,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="Easybank landing page"
         level="Intermedio"
-        liveDemo="https://easy-bank-landing-page.marcomadera.vercel.app/"
+        liveDemo="https://easy-bank.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/easybank-landing-page-WaUhkoDN"
         repo="https://github.com/MarcoMadera/easy-bank-landing-page"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_403/v1595276298/Potfolio/challenges/6e876a00-b972-11ea-9783-c54128c626c3_ho5tq4.jpg"
@@ -242,7 +242,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="Job listings with filtering"
         level="Intermedio"
-        liveDemo="https://job-listings-with-filtering.marcomadera.vercel.app/"
+        liveDemo="https://job-list.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt"
         repo="https://github.com/MarcoMadera/Job-listings-with-filtering"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_382/v1595276324/Potfolio/challenges/ebec7980-b6e9-11ea-8760-3077406d08e6_mrjaid.jpg"
@@ -263,9 +263,33 @@ export default function Challenges(): ReactElement {
         <ReactIcon width={50} height={50} />
       </Challenge>
       <Challenge
+        title="Weather Forecast"
+        level="Intermedio"
+        liveDemo="https://weather.marcomadera.com"
+        challengePage="https://www.codementor.io/projects/weather-forecast-website-atx32lz7zb"
+        repo="https://github.com/MarcoMadera/Weather-Foreast"
+        challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_265/v1645668918/Potfolio/challenges/Weather_fs3nhv.png"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAIAAADzBuo/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVQImSXNOw7CMAwA0GyckFOwcwtGbsKE2Ir4DVwAhJBKoE0tO6kTO3yDENLbn3FASIFj6tBTYI4imkWzakZi40MkQmttKc9SPqUU0QdgAkwUxCBxtd5tV8vF5jiazBqHgP2lxfqGDoLhKEg+M4ynczMY1tfu/bqrSlbhmEzjfrUP8XBuq/3JQQDs/1rwX1uuhqf+VOa4AAAAAElFTkSuQmCC"
+        fullWidth={1349}
+        fullHeight={650}
+      >
+        <Ul>
+          <Li>
+            Mostrar el clima actual, incluidas las condiciones climáticas, la
+            temperatura, la humedad, la velocidad del viento y la fecha y la
+            hora.
+          </Li>
+          <Li>
+            Visualización para mostrar el cambio de temperatura, el cambio de
+            humedad y las condiciones climáticas de cada día.
+          </Li>
+        </Ul>
+        <ReactIcon width={50} height={50} />
+      </Challenge>
+      <Challenge
         title="LoopStudios Landing Page"
         level="Junior"
-        liveDemo="https://loopstudios-landing-page.marcomadera.vercel.app/"
+        liveDemo="https://loopstudios-landing.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw"
         repo="https://github.com/MarcoMadera/Loopstudios-Landing-Page"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_403/v1610993095/Potfolio/challenges/desktop-preview_zqqulr.jpg"
@@ -285,7 +309,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="Clipboard Landing Page"
         level="Junior"
-        liveDemo="https://clipboard-landing-page.marcomadera.vercel.app/"
+        liveDemo="https://clipboard-landing.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/clipboard-landing-page-5cc9bccd6c4c91111378ecb9"
         repo="https://github.com/MarcoMadera/clipboard-landing-page"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_403/v1595276230/Potfolio/challenges/63db5980-b4c8-11ea-8aa5-1583b2d3e79a_xxhse4.jpg"
@@ -305,7 +329,7 @@ export default function Challenges(): ReactElement {
       <Challenge
         title="Social Media Dashboard"
         level="Junior"
-        liveDemo="https://social-media-dashboard.marcomadera.vercel.app/"
+        liveDemo="https://social.marcomadera.com"
         challengePage="https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H"
         repo="https://github.com/MarcoMadera/social-media-dashboard"
         challengeImg="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,w_550,h_268/v1595276348/Potfolio/challenges/4b2b4200-b316-11ea-97ab-b223698314a4_vvyaif.png"

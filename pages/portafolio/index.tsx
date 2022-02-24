@@ -157,7 +157,7 @@ export default function Portfolio(): ReactElement {
           Ya sea que tengas un bot para crear playlists y agregue canciones
           repetidas, o por algún error se guardaron como tracks nulos,{" "}
           <A
-            href="https://spotify-playlists-cleaner.vercel.app/"
+            href="https://rindu.marcomadera.com"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -191,7 +191,7 @@ export default function Portfolio(): ReactElement {
           <A
             target="_blank"
             rel="noopener noreferrer"
-            href="https://test-for-random-numbers.marcomadera.vercel.app/"
+            href="https://random-numbers-test.marcomadera.com"
           >
             test para números aleatorios
           </A>
