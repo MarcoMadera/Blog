@@ -1,5 +1,11 @@
 import { createPortal } from "react-dom";
-import { ReactPortal, useEffect, useRef, useState } from "react";
+import {
+  ReactPortal,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import useToolTip from "hooks/useToolTip";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
@@ -19,7 +25,7 @@ export default function ToolTipModal(): ReactPortal | null {
     setTargetNode(document.querySelector("#toolTip"));
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsDifferentPos(false);
     if (
       (!toolTip.coords.x && !toolTip.coords.y) ||
