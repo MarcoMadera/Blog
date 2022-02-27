@@ -17,7 +17,7 @@ export default function TestRandomNumbers(): ReactElement {
           <H2>Pruebas para números aleatorios</H2>
           <ActionButton
             type="anchor"
-            href="https://test-for-random-numbers.marcomadera.vercel.app/"
+            href="https://random-numbers-test.marcomadera.com/"
           >
             Ver en vivo
           </ActionButton>

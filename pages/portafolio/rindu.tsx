@@ -14,10 +14,7 @@ export default function TestRandomNumbers(): ReactElement {
       <article>
         <div>
           <H2>Rindu Limpia tus playlists</H2>
-          <ActionButton
-            type="anchor"
-            href="https://spotify-playlists-cleaner.vercel.app/"
-          >
+          <ActionButton type="anchor" href="https://rindu.marcomadera.com/">
             Ver en vivo
           </ActionButton>
           <ActionButton

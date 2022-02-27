@@ -423,6 +423,6 @@ En cuanto al problema inicial puedo decir que los números en la mayoría de los
 
 ## ¿Tus números son aleatorios?
 
-Puedes probar [esta herramienta](https://test-for-random-numbers.marcomadera.vercel.app/ "Test para números aleatorios") para evaluar tus números aleatorios. Ya que sabes los procedimientos de las pruebas de números aleatorios, te invito a contribuir en [este repositorio](https://github.com/MarcoMadera/Test-for-random-numbers "Repositorio de test para números aleatorios") donde encontrarás el código que he estado escribiendo al mismo tiempo de escribir este post.
+Puedes probar [esta herramienta](https://random-numbers-test.marcomadera.com/ "Test para números aleatorios") para evaluar tus números aleatorios. Ya que sabes los procedimientos de las pruebas de números aleatorios, te invito a contribuir en [este repositorio](https://github.com/MarcoMadera/Test-for-random-numbers "Repositorio de test para números aleatorios") donde encontrarás el código que he estado escribiendo al mismo tiempo de escribir este post.
 
 Introduce números que sean entre 0 y 1 separados por espacios, intenta tantos números quieras, entre más números mejor. El Alpha que tomará la prueba es de 0.05.
