@@ -5,7 +5,7 @@ date: 2022-02-14
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1644780836/Blog/intersection-observer/camera_k4t8ps.jpg
 author: Marco Madera
 tags:
-  - Javascript
+  - JavaScript
 ---
 
 Algunas veces necesitamos saber en qué parte se encuentra un elemento en la pantalla para poder hacer algo. Por ejemplo, hace tiempo, creando un clon de spotify para experimentar me tope con el siguiente caso de uso peculiar:

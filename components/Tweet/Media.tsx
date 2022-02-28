@@ -51,6 +51,9 @@ export function TweetMedia({ data, quoted }: MediaProps): ReactElement {
           width: 100%;
           min-height: 200px;
         }
+        :global(.repliedTweet .mediacontainer details summary img) {
+          border-radius: 10px;
+        }
         .mediacontainer :global(details:nth-of-type(3)) {
           grid-column-end: ${data.length === 3 ? "span 2" : "unset"};
         }

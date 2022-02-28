@@ -1,4 +1,4 @@
-import ToolTipModal from "components/modals/ToolTipModal";
+import dynamic from "next/dynamic";
 import {
   useState,
   createContext,
@@ -8,6 +8,10 @@ import {
   ReactElement,
 } from "react";
 import type { ToolTip } from "types/tooltip";
+
+const ToolTipModal = dynamic(() => import("components/modals/ToolTipModal"), {
+  ssr: false,
+});
 
 const ToolTipContext = createContext<ToolTipContextProviderProps | undefined>(
   undefined
