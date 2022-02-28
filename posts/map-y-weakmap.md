@@ -148,7 +148,7 @@ console.log(weakMap);
 
 ## Diferencias entre Map y Object
 
-- Los objetos solo permiten asociar como key los strings o symbol. Si pasamos otro valor JavaScript hará una [coerción de datos](https://marcomadera.com/blog/tipos-y-objetos-en-JavaScript#coercion-de-datos) para convertir el valor en un string.
+- Los objetos solo permiten asociar como key los strings o symbol. Si pasamos otro valor JavaScript hará una [coerción de datos](https://marcomadera.com/blog/tipos-y-objetos-en-javascript#coercion-de-datos) para convertir el valor en un string.
 - Podemos acceder al tamaño de un Map con el método `size`, algo que con los objetos no podemos hacer.
 - La forma en la que podemos iterarlos es diferente.
 
@@ -181,7 +181,7 @@ console.log(map.size); // 3
 map.delete("key");
 console.log(map.size); // 2
 
-// WeakMap
+// Object
 const obj = {key: "value", 1: "uno", true: "verdadero"};
 console.log(Object.keys(obj).length); // 3
 delete obj.key;
@@ -194,4 +194,4 @@ console.log(Object.keys(obj).length); // 2
 
 ## Conclusión
 
-Las estructuras de datos `Map` y `WeakMap` son otra alternativa para almacenar datos en forma de clave-valor, que pueden servir para casos especiales, según las necesidades de nuestra aplicación. Existen también estructuras de datos `Set` y `WeakSet` que son similares a estas, por lo que le puedes eche un vistazo.
+Las estructuras de datos `Map` y `WeakMap` son otra alternativa para almacenar datos en forma de clave-valor, que pueden servir para casos especiales, según las necesidades de nuestra aplicación. Existen también estructuras de datos `Set` y `WeakSet` que son similares a estas, por lo que le puedes echar un vistazo.
