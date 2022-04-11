@@ -7,10 +7,10 @@ import {
   isValidElement,
   cloneElement,
 } from "react";
-import twemoji, { ParseObject } from "twemoji";
+import twemoji from "twemoji";
 
 interface EmojisWrapperProps {
-  options?: Partial<ParseObject>;
+  options?: Partial<TwemojiOptions>;
 }
 
 export default function EmojisWrapper({

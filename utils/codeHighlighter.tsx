@@ -10,6 +10,8 @@ import {
   JSXElementConstructor,
 } from "react";
 import { ReactMarkdownProps } from "react-markdown/lib/ast-to-react";
+import React from "react";
+import { CreateElementLike } from "rehype-react/lib";
 
 const customClasses: Record<string, string> = {
   atrule: "a",
@@ -64,7 +66,7 @@ export default function codeHighlighter(
     .use(remark2rehype)
     .use(rehypePrism, { ignoreMissing: true })
     .use(rehype2react, {
-      createElement: createElement,
+      createElement: createElement as CreateElementLike,
       components: {
         pre: function PreformattedNode(props: unknown) {
           const { children } = props as ReactMarkdownProps;
@@ -97,5 +99,8 @@ export default function codeHighlighter(
     });
 
   const processData = processor.processSync(`~~~${language}\n${content}~~~`);
-  return processData.result;
+  return processData.result as ReactElement<
+    unknown,
+    string | JSXElementConstructor<unknown>
+  >;
 }

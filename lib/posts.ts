@@ -4,7 +4,7 @@ import { readdirSync, readFileSync } from "fs";
 import slugify from "react-slugify";
 import { siteMetadata } from "../site.config";
 import toc from "markdown-toc-unlazy";
-import { parse } from "twemoji";
+import twetmoji from "twemoji";
 import readingTime from "reading-time";
 import { getPlaiceholder } from "plaiceholder";
 import type { AllTags, Pages, Post, PostData } from "types/posts";
@@ -120,7 +120,7 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
     tags: currentPost.tags,
     description: currentPost.description,
     blurDataURL: currentPost.blurDataURL,
-    content: parse(currentPost.content, {
+    content: twetmoji.parse(currentPost.content, {
       className: "twemoji",
       attributes: () => ({ width: "24", height: "24" }),
     }),

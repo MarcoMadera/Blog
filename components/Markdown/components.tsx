@@ -213,11 +213,10 @@ export const components:
   },
   youtube: function YoutubeVideoNode({ node }) {
     const id = node.properties?.id as string;
-    const caption =
-      (node.properties?.caption as string) || (node.children[0] as ReactNode);
+    const caption = (node.properties?.caption as string) || node.children[0];
     const title = node.properties?.title as string;
 
-    return <Youtube id={id} caption={caption} title={title} />;
+    return <Youtube id={id} caption={caption as string} title={title} />;
   },
   input: function InputNode(props) {
     return <Input type={props.node.type} {...props} />;
@@ -229,15 +228,13 @@ export const components:
   tweet: function TweetNode({ node }) {
     const hprop = node.properties?.hideconversation;
     const hideConversation = hprop === undefined ? false : hprop !== "false";
+    const caption = (node.properties?.caption as string) || node.children[0];
 
     return (
       <Tweet
         id={node.properties?.id as string}
         hideConversation={hideConversation}
-        caption={
-          (node.properties?.caption as string) ||
-          (node.children[0] as ReactNode)
-        }
+        caption={caption as string}
       />
     );
   },

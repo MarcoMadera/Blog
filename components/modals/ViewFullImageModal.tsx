@@ -47,7 +47,7 @@ export default function ViewFullImageModal({
   useLockBodyScroll();
 
   const onPressKey = useCallback(
-    (event) => {
+    (event: KeyboardEvent) => {
       const firstElement = exitButtonRef.current;
       if (event.key === "Escape") {
         exitModal();
@@ -57,7 +57,7 @@ export default function ViewFullImageModal({
         firstElement?.focus();
         return event.preventDefault();
       }
-      if (event.shiftKey && event.key === "Tab" && event.key !== "Enter") {
+      if (event.shiftKey && event.key === "Tab") {
         firstElement?.focus();
         event.preventDefault();
       }

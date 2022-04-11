@@ -136,7 +136,7 @@ export default function useComments(): UseComments {
   );
 
   const createComment = useCallback(
-    async (comment) => {
+    async (comment: string) => {
       const postRef = ref(database, `post/${slug}`);
 
       setIsSubmittingComment(false);
@@ -195,7 +195,7 @@ export default function useComments(): UseComments {
   );
 
   const removeComment = useCallback(
-    (commentId) => {
+    (commentId: string) => {
       const commentRef = ref(database, `post/${slug}/${commentId}`);
       remove(commentRef)
         .then(() => {

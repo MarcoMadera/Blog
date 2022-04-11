@@ -30,7 +30,7 @@ export default function SendCommentConfirmationModal({
   useLockBodyScroll();
 
   const onPressKey = useCallback(
-    (event) => {
+    (event: KeyboardEvent) => {
       const firstElement = firstButtonRef.current;
       const lastElement = secondButtonRef.current;
       if (event.key === "Escape") {
@@ -47,8 +47,7 @@ export default function SendCommentConfirmationModal({
       if (
         event.shiftKey &&
         event.key === "Tab" &&
-        document.activeElement !== lastElement &&
-        event.key !== "Enter"
+        document.activeElement !== lastElement
       ) {
         lastElement?.focus();
         event.preventDefault();
