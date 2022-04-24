@@ -9,12 +9,14 @@ import type {
   ElementSpace,
   ElementId,
   UElementRes,
+  ElementHeading,
 } from "types/posts";
 
 function useElementData(element: ElementImage): UElementRes["Img"];
 function useElementData(element: ElementTweet): UElementRes["Tweet"];
 function useElementData(element: ElementSpace): UElementRes["Space"];
 function useElementData(element: ElementCodeBlock): UElementRes["CodeBlock"];
+function useElementData(element: ElementHeading): UElementRes["Heading"];
 function useElementData(element: Element): UElementRes["Response"] {
   const elements = useContext(ElementsContext);
   const data = useContext(DataMapContext);

@@ -14,6 +14,7 @@ import codeHighlighter from "utils/codeHighlighter";
 import { DarkModeContextProvider } from "context/DarkModeContext";
 import { ToolTipContextProvider } from "context/ToolTipContext";
 import getSpaceData from "utils/getSpaceData";
+import { getNodeText } from "utils/getNodeText";
 
 export default async function getElementsData(
   content: string,
@@ -24,6 +25,7 @@ export default async function getElementsData(
     space: [],
     image: [],
     codeBlock: [],
+    heading: [],
   };
 
   function addElement(element: Element) {
@@ -101,11 +103,18 @@ export default async function getElementsData(
     }
   );
 
+  const headingsData = elements.heading.map(({ id, type, level, text }) => {
+    const data = { level, text: getNodeText(text) };
+
+    return { id: `${type}:${id}` as ElementId, data };
+  });
+
   const elementsData = [
     ...tweetsData,
     ...imagesData,
     ...codeBlocksData,
     ...spacesData,
+    ...headingsData,
   ].reduce((result: ElementsData, element) => {
     if (element.data) {
       result[element.id] = element.data;

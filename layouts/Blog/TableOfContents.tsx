@@ -3,25 +3,72 @@ import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
 import { ReactElement } from "react";
-import type { PostWithMedia } from "types/posts";
+import type { HeadingData } from "types/posts";
+import { Li, Ol } from "components/tags";
+
+interface ConstructedTable {
+  level: number;
+  text: string;
+  children: ConstructedTable[];
+}
 
 export default function TableOfContents({
-  h2s,
-}: Pick<PostWithMedia, "h2s">): ReactElement {
+  headings,
+}: {
+  headings: HeadingData[];
+}): ReactElement {
   const { darkMode } = useDarkMode();
+  const constructedTable: ConstructedTable[] = [];
+
+  headings.forEach(({ text, level }) => {
+    const constructedTableItem: ConstructedTable = {
+      level,
+      text,
+      children: [],
+    };
+    if (level === 2) {
+      constructedTable.push(constructedTableItem);
+    }
+    if (level === 3) {
+      const parent = [...constructedTable]
+        .reverse()
+        .find((item) => item.level === 2);
+      if (!parent) return;
+      const parentIndex = constructedTable.indexOf(parent);
+      constructedTable[parentIndex]?.children.push(constructedTableItem);
+    }
+  });
+
   return (
     <nav aria-labelledby="headerMenu">
       <section>
         <h2 id="headerMenu">Tabla de contenido</h2>
-        {h2s.length > 0 && (
+        {constructedTable?.length > 0 && (
           <ol>
-            {h2s.map((item, i) => (
-              <li key={i}>
-                <ALink href={`#${slugify(item)}`} target="_self" title="">
-                  {item}
-                </ALink>
-              </li>
-            ))}
+            {constructedTable.map(({ level, text, children }, i) => {
+              return (
+                <Li key={i} hideListStyle>
+                  <ALink href={`#${slugify(text)}`} target="_self" title="">
+                    {text}
+                  </ALink>
+                  {children.length > 0 && (
+                    <Ol depth={level - 1}>
+                      {children.map(({ text }, i) => (
+                        <Li key={i} hideListStyle>
+                          <ALink
+                            href={`#${slugify(text)}`}
+                            target="_self"
+                            title=""
+                          >
+                            {text}
+                          </ALink>
+                        </Li>
+                      ))}
+                    </Ol>
+                  )}
+                </Li>
+              );
+            })}
           </ol>
         )}
       </section>
@@ -50,9 +97,9 @@ export default function TableOfContents({
           font-weight: 600;
           line-height: 43px;
         }
-        li {
+        nav :global(li) {
           list-style: none;
-          margin: 10px 0;
+          margin: 5px 0;
         }
         section {
           position: sticky;

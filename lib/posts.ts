@@ -3,7 +3,6 @@ import matter from "gray-matter";
 import { readdirSync, readFileSync } from "fs";
 import slugify from "react-slugify";
 import { siteMetadata } from "../site.config";
-import toc from "markdown-toc-unlazy";
 import twetmoji from "twemoji";
 import readingTime from "reading-time";
 import { getPlaiceholder } from "plaiceholder";
@@ -51,12 +50,6 @@ export async function getSortedPostsData(): Promise<PostData[]> {
       const summary = data.summary || null;
       const description = data.description;
 
-      const h2s: string[] = toc(content)
-        .json.filter(({ lvl }: { lvl: number }) => lvl === 2)
-        .map(({ content }: { content: string }) => {
-          return content;
-        });
-
       return {
         readingTimeInMinutes: Math.ceil(readingTime(content).minutes),
         date,
@@ -65,7 +58,6 @@ export async function getSortedPostsData(): Promise<PostData[]> {
         slug,
         cover,
         blurDataURL,
-        h2s,
         content,
         author,
         profilePhoto,
@@ -143,7 +135,6 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
       : null,
     recommendedPosts,
     slug,
-    h2s: currentPost.h2s,
   };
 }
 

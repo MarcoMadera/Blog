@@ -27,6 +27,7 @@ import {
   Note,
   Caption,
   ALink,
+  H3,
 } from "../tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
@@ -474,10 +475,31 @@ export const components:
       </Th>
     );
   },
-  h1: function Heading1Md({ children }) {
+  h1: function Heading1Md({ children, node }) {
+    useElementData({
+      type: ElementType.HEADING,
+      level: 1,
+      id: node.position?.start.offset?.toString() as string,
+      text: children,
+    });
     return <H2>{children}</H2>;
   },
-  h2: function Heading2Md({ children }) {
+  h2: function Heading2Md({ children, node }) {
+    useElementData({
+      type: ElementType.HEADING,
+      level: 2,
+      id: node.position?.start.offset?.toString() ?? "ref-2",
+      text: children,
+    });
     return <H2 id={slugify(children)}>{children}</H2>;
+  },
+  h3: function Heading3Md({ children, node }) {
+    useElementData({
+      type: ElementType.HEADING,
+      level: 3,
+      id: node.position?.start.offset?.toString() ?? "ref-3",
+      text: children,
+    });
+    return <H3 id={slugify(children)}>{children}</H3>;
   },
 };

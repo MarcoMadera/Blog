@@ -9,7 +9,6 @@ export type PostData = {
   slug: string;
   blurDataURL: string;
   cover: string;
-  h2s: string[];
   content: string;
   author: string;
   profilePhoto?: string;
@@ -42,12 +41,17 @@ interface CodeBlockData {
   result: string;
   language?: string;
 }
+export interface HeadingData {
+  level: number;
+  text: string;
+}
 
 export enum ElementType {
   TWEET = "tweet",
   IMAGE = "image",
   CODEBLOCK = "codeBlock",
   SPACE = "space",
+  HEADING = "heading",
 }
 
 export type ElementId = `${ElementType}:${string}`;
@@ -82,6 +86,11 @@ interface ElementCodeBlockParams extends DefaultElementParams {
   language: string;
 }
 
+interface ElementHeadingParams extends DefaultElementParams {
+  level: number;
+  text: ReactNode & ReactNode[];
+}
+
 interface ElementImageParams extends DefaultElementParams {
   normal: string;
   full?: { darkImage?: string; lightImage?: string };
@@ -92,6 +101,7 @@ export interface Elements {
   space: ElementSpace[];
   image: ElementImage[];
   codeBlock: ElementCodeBlock[];
+  heading: ElementHeading[];
 }
 
 export interface ElementImage extends ElementImageParams {
@@ -103,6 +113,9 @@ export interface ElementTweet extends ElementTweetParams {
 export interface ElementCodeBlock extends ElementCodeBlockParams {
   type: ElementType.CODEBLOCK;
 }
+export interface ElementHeading extends ElementHeadingParams {
+  type: ElementType.HEADING;
+}
 export interface ElementSpace extends DefaultElementParams {
   type: ElementType.SPACE;
 }
@@ -111,9 +124,15 @@ export type Element =
   | ElementImage
   | ElementTweet
   | ElementSpace
-  | ElementCodeBlock;
+  | ElementCodeBlock
+  | ElementHeading;
 
-type ElementData = ImgData | TweetData | SpaceData | CodeBlockData;
+type ElementData =
+  | ImgData
+  | TweetData
+  | SpaceData
+  | CodeBlockData
+  | HeadingData;
 
 export interface UElementRes {
   Img: {
@@ -130,6 +149,10 @@ export interface UElementRes {
   };
   CodeBlock: {
     data: CodeBlockData | undefined;
+    ignore: boolean;
+  };
+  Heading: {
+    data: HeadingData | undefined;
     ignore: boolean;
   };
   Response: {

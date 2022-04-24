@@ -1,13 +1,11 @@
 import { FocusEvent, MouseEvent, useCallback, useContext, useRef } from "react";
 import ToolTipContext from "context/ToolTipContext";
 import type { UseToolTip } from "types/tooltip";
-import { uniqueId } from "lodash";
 
 export default function useToolTip(): UseToolTip {
   const context = useContext(ToolTipContext);
   const moveTimeout = useRef<NodeJS.Timeout>();
   const displayTimeout = useRef<NodeJS.Timeout>();
-  const toolTipId = useRef<string>(uniqueId("tooltip-"));
 
   if (context === undefined) {
     throw new Error("useToolTip must be used within a ToolTipProvider");
@@ -17,7 +15,7 @@ export default function useToolTip(): UseToolTip {
 
   const addToolTip: UseToolTip["addToolTip"] = useCallback(
     (toolTip) => {
-      setToolTip({ ...toolTip, id: toolTipId.current });
+      setToolTip({ ...toolTip, id: "tooltip-id" });
       setShowToolTip(true);
     },
     [setToolTip, setShowToolTip]
@@ -69,7 +67,7 @@ export default function useToolTip(): UseToolTip {
             }, 700);
           }, 50);
         },
-        "aria-describedby": toolTipId.current,
+        "aria-describedby": "tooltip-id",
       };
 
       return attrs;

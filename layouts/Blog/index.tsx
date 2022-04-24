@@ -12,7 +12,8 @@ import { H1, ALink, Hr } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
 import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
-import type { PostWithMedia } from "types/posts";
+import type { HeadingData, PostWithMedia } from "types/posts";
+import { ElementType } from "types/posts";
 import { ReactElement } from "react";
 import { ElementsContextProvider } from "context/ElementsContext";
 import {
@@ -37,10 +38,12 @@ export default function Post({
   summary,
   slug,
   elements,
-  h2s,
   readingTimeInMinutes,
 }: PostWithMedia): ReactElement {
   const { darkMode } = useDarkMode();
+  const headingData = Object.keys(elements)
+    .filter((key) => key.startsWith(ElementType.HEADING))
+    .map((key) => elements[key as `heading:${string}`]) as HeadingData[];
 
   return (
     <main>
@@ -76,7 +79,7 @@ export default function Post({
             &middot;{` ${readingTimeInMinutes} minutos de lectura `}
           </p>
         </header>
-        <TableOfContents h2s={h2s} />
+        <TableOfContents headings={headingData} />
         <EmojisWrapper>
           <div itemProp="articlebody" aria-labelledby="articleTitle">
             <ElementsContextProvider elements={elements}>
