@@ -148,10 +148,10 @@ export default function Portfolio(): ReactElement {
       </Article>
       <Article
         title="Rindu, limpiador de spotify playlists"
-        img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1618517767/Potfolio/Rindu/spotify-playlists-cleaner.vercel.app__sj4ozo.png"
-        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVQImQG6AEX/AEwiVGA7ZTwXRD0YRC0HNT8SR0IVS0IVS0ARSUIVSwA1JTw3NzU+Pj4fIR8DAANIMVBLMFJHLk5KMlJKMlIAQUBHRUZHMDAxLCwtNDQ1QT5HSkRMUEpTRUFJVlVgAFloWks8OaqhnJyNjTs2MUdXS6Hessf/2lVxXG2DcQCCn3fzwZfg2NHjyLXIpn6GtYeFtIaCsYKKuYuTxJMAjr+Gfn5WPkkyREosgYpjquiqsvOvsvOvsfOsq+uow9ZH6nwZ8fIAAAAASUVORK5CYII="
-        fullWidth={1366}
-        fullHeight={799}
+        img="https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1651537111/Potfolio/Rindu/home_lv3792.png"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAECAIAAAA4WjmaAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAh0lEQVQImQF8AIP/ALuZF9irAHBOIDMbRycOLEAeQzQROE0tT31qejMZNABlPgCmgQB7SwAlAz8eAB5AHUhKJE8+HkNJOEUmDyoAybRjjX5BcVQ0QS9VWUBdeF1zKR0ir3Gi5Yjf6pnhAP/7///3//Pn+f3y+v/7/2VHXxoDGJFbidKNxcmFvpXsMm7qoL5JAAAAAElFTkSuQmCC"
+        fullWidth={4992}
+        fullHeight={2316}
       >
         <P>
           Ya sea que tengas un bot para crear playlists y agregue canciones

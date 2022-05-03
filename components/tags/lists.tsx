@@ -51,7 +51,12 @@ export function Li({
   hideListStyle,
   ...attribs
 }: PropsWithChildren<LiProps>): ReactElement {
-  const checkStyle = hideListStyle ? false : checked !== null;
+  const checkStyle =
+    hideListStyle === undefined || checked === undefined
+      ? true
+      : hideListStyle
+      ? false
+      : checked !== null;
   return (
     <li {...attribs}>
       {checked === true && (

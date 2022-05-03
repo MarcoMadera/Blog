@@ -1,5 +1,5 @@
 import ActionButton from "components/ActionButton";
-import { Ul, Li, H1, H2, Img, P, Video, H3 } from "components/tags";
+import { Ul, Li, H1, H2, Img, P, H3 } from "components/tags";
 import Seo from "components/Seo";
 import { ReactElement } from "react";
 import useAnalytics from "hooks/useAnalytics";
@@ -11,7 +11,7 @@ export default function TestRandomNumbers(): ReactElement {
     <main id="main">
       <Seo title="Portafolio 💼 | Rindu" />
       <H1>Rindu</H1>
-      <article>
+      <article className="first">
         <div>
           <H2>Rindu Limpia tus playlists</H2>
           <ActionButton type="anchor" href="https://rindu.marcomadera.com/">
@@ -45,16 +45,12 @@ export default function TestRandomNumbers(): ReactElement {
             </Li>
           </Ul>
         </div>
-        <div>
-          <Video
-            src="https://res.cloudinary.com/marcomadera/video/upload/v1617518896/Spotify-Cleaner-App/2021-04-04_00-44-53_zxpprv.mp4"
-            muted
-            loop
-            autoPlay
-            playsInline
-          />
-        </div>
       </article>
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+      <video
+        src="https://res.cloudinary.com/marcomadera/video/upload/v1651550324/Potfolio/Rindu/Rindu_demo_jwtyvl.mp4"
+        controls
+      />
       <article>
         <div>
           <H2>Problema</H2>
@@ -123,6 +119,13 @@ export default function TestRandomNumbers(): ReactElement {
         }
         main :global(h3) {
           margin-top: 10px;
+        }
+        video {
+          width: 100%;
+        }
+        .first {
+          grid-template-columns: 1fr;
+          max-width: 800px;
         }
         main article:nth-child(2n + 3) div:nth-of-type(1) {
           order: 2;
