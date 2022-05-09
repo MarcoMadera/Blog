@@ -72,8 +72,9 @@ export default function Comments({ slug }: { slug: string }): ReactElement {
 
   // update comments every time the slug changes
   useEffect(() => {
-    updateComments();
-  }, [slug, updateComments]);
+    updateComments({ isFirstTime: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug]);
 
   useEffect(() => {
     if (comment && isLoggedIn && isSubmittingComment && isValidComment) {

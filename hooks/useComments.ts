@@ -60,48 +60,53 @@ export default function useComments(): UseComments {
     onValue(postRef, ({ size }) => setCommentCount(size));
   }, [setCommentCount, slug]);
 
-  const updateComments = useCallback(async () => {
-    try {
-      const postRef = ref(database, `post/${slug}`);
-      const maxComments = limitToLast(commentsPerPost * timesLoadedComments);
-      const commentsQuery = query(postRef, maxComments);
+  const updateComments = useCallback(
+    async ({ isFirstTime }: { isFirstTime: boolean }) => {
+      try {
+        const postRef = ref(database, `post/${slug}`);
+        const maxComments = limitToLast(commentsPerPost * timesLoadedComments);
+        const commentsQuery = query(postRef, maxComments);
 
-      onValue(commentsQuery, (snapshot) => {
-        const comments: Comment[] = [];
+        onValue(commentsQuery, (snapshot) => {
+          const comments: Comment[] = [];
 
-        snapshot.forEach((snap) => {
-          comments.unshift(snap.val());
+          snapshot.forEach((snap) => {
+            comments.unshift(snap.val());
+          });
+
+          setAllComments(comments);
         });
 
-        setAllComments(comments);
-      });
-
-      updateCommentCount();
-      trackWithGoogleAnalytics(HitType.EVENT, {
-        eventCategory: "Comments",
-        eventAction: "Loaded",
-        eventLabel: `${slug}`,
-        eventValue: "1",
-      });
-    } catch {
-      addNotification({
-        variant: "error",
-        message: "Error al actualizar los comentarios",
-      });
-      trackWithGoogleAnalytics(HitType.EXCEPTION, {
-        exDescription: "Update comments error",
-        exFatal: "0",
-      });
-    }
-  }, [
-    addNotification,
-    commentsPerPost,
-    setAllComments,
-    slug,
-    timesLoadedComments,
-    trackWithGoogleAnalytics,
-    updateCommentCount,
-  ]);
+        updateCommentCount();
+        trackWithGoogleAnalytics(HitType.EVENT, {
+          eventCategory: "Comments",
+          eventAction: "Loaded",
+          eventLabel: `${slug}`,
+          eventValue: "1",
+        });
+      } catch {
+        addNotification({
+          variant: "error",
+          message: `Error al ${
+            isFirstTime ? "cargar" : "actualizar"
+          } los comentarios`,
+        });
+        trackWithGoogleAnalytics(HitType.EXCEPTION, {
+          exDescription: "Update comments error",
+          exFatal: "0",
+        });
+      }
+    },
+    [
+      addNotification,
+      commentsPerPost,
+      setAllComments,
+      slug,
+      timesLoadedComments,
+      trackWithGoogleAnalytics,
+      updateCommentCount,
+    ]
+  );
 
   const handleTask = useCallback(
     ({ task }: { task: UploadTask }) => {

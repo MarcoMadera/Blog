@@ -37,7 +37,7 @@ export interface UseComments {
   commentCount: CommentsContext["commentCount"];
   removeComment: (commentId: string) => void;
   createComment: (comment: string) => Promise<void>;
-  updateComments: () => Promise<void>;
+  updateComments: ({ isFirstTime }: { isFirstTime: boolean }) => Promise<void>;
   isSubmittingComment: CommentsContext["isSubmittingComment"];
   timesLoadedComments: CommentsContext["timesLoadedComments"];
   setIsSubmittingComment: CommentsContext["setIsSubmittingComment"];

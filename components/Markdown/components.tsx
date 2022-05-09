@@ -56,6 +56,7 @@ import { NormalComponents } from "react-markdown/lib/complex-types";
 import { convertInlineStylesToObject, convertParamsToObject } from "utils";
 import SpaceTweet from "components/Tweet/SpaceTweet";
 import { ElementType } from "types/posts";
+import css from "styled-jsx/css";
 
 type BasicComponent = (
   props: ClassAttributes<HTMLElement> &
@@ -501,5 +502,11 @@ export const components:
       text: children,
     });
     return <H3 id={slugify(children)}>{children}</H3>;
+  },
+  style: function StyleNode({ children }) {
+    const { styles } = css.resolve`
+      ${children}
+    `;
+    return <>{styles}</>;
   },
 };
