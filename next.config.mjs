@@ -5,7 +5,6 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     domains: ["res.cloudinary.com"],
     deviceSizes: [360, 400, 500, 550, 630, 705, 818, 1060, 1140, 1920, 2048],
