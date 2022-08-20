@@ -12,6 +12,7 @@ interface TweetInfoProps {
   tweetId: Tweet["id"];
   metrics: Tweet["public_metrics"];
   created_at: Tweet["created_at"];
+  source: Tweet["source"];
 }
 
 export default function TweetInfo({
@@ -19,6 +20,7 @@ export default function TweetInfo({
   tweetId,
   metrics,
   created_at,
+  source,
 }: TweetInfoProps): ReactElement {
   const { trackWithGoogleAnalytics } = useAnalytics();
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweetId}`;
@@ -84,12 +86,29 @@ export default function TweetInfo({
       >
         <TweetCreatedAt created_at={created_at} />
       </A>
+      {source ? (
+        <>
+          <span>&nbsp;·&nbsp;</span>
+          <A
+            href={
+              "https://help.twitter.com/es/using-twitter/how-to-tweet#source-labels"
+            }
+            className="time"
+            target="_blank"
+            rel="noopener noreferrer"
+            hideToolTip
+          >
+            {source}
+          </A>
+        </>
+      ) : null}
       <style jsx>{`
         .info {
           font-size: 0.875rem;
           display: flex;
           flex-wrap: wrap;
           margin: 10px 0 3px 0;
+          color: ${tweets.tweetColorGray};
         }
         .info :global(.like),
         .info :global(.retweet) {

@@ -78,6 +78,7 @@ export interface Tweet {
   }[];
   quotedTweet?: Tweet;
   repliedTweet?: Tweet;
+  source?: string;
 }
 
 export interface SpaceData {

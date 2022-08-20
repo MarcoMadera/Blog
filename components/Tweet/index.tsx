@@ -104,6 +104,7 @@ export default function Tweet({
               tweetId={data.tweet.id}
               metrics={data.tweet.public_metrics}
               created_at={data.tweet.created_at}
+              source={data.tweet.source}
             />
           </section>
         </div>
@@ -152,11 +153,6 @@ export default function Tweet({
           border-radius: 15px;
           margin: ${tweets.containerMargin};
           background: ${darkMode ? colors.dark_accents3 : colors.accents3};
-        }
-        @media (any-hover: hover) {
-          div.tweet:hover {
-            border: ${darkMode ? "1px solid #536673" : tweets.tweetBorderHover};
-          }
         }
         div.tweet > div {
           position: relative;
