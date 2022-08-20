@@ -149,19 +149,32 @@ export default function RepliedTweet({
                 });
               }}
             >
-              <div>
-                <div
-                  className="icon icon-retweet"
-                  role="img"
-                  aria-hidden="true"
-                />
-              </div>
+              <div
+                className="icon icon-retweet"
+                role="img"
+                aria-hidden="true"
+              ></div>
               {data.tweet.public_metrics.retweet_count > 0 && (
                 <span className="retweets" aria-hidden="true">
                   {formatNumber(data.tweet.public_metrics.retweet_count)}
                 </span>
               )}
             </A>
+            {data.tweet.source ? (
+              <>
+                <A
+                  href={
+                    "https://help.twitter.com/es/using-twitter/how-to-tweet#source-labels"
+                  }
+                  className="source"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  hideToolTip
+                >
+                  {data.tweet.source}
+                </A>
+              </>
+            ) : null}
           </div>
         </div>
       </div>
@@ -188,12 +201,19 @@ export default function RepliedTweet({
           flex-wrap: wrap;
           margin: 10px 0 3px 0;
         }
+        .info :global(.source),
+        .dot {
+          color: ${tweets.tweetColorGray};
+        }
+        .info :global(.source:hover) {
+          color: ${tweets.tweetLinkColorHover};
+        }
         .info :global(.like),
         .info :global(.reply_count),
         .info :global(.retweet) {
           display: flex;
           color: ${tweets.tweetColorGray};
-          margin-right: 0.75rem;
+          margin-right: 0.55rem;
         }
         .info :global(.like:visited),
         .info :global(.reply_count:visited),
@@ -241,6 +261,7 @@ export default function RepliedTweet({
         .likes,
         .retweets {
           margin-left: 0.25rem;
+          line-height: 1.2;
         }
         blockquote.container {
           max-width: 550px;
