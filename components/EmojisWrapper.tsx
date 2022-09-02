@@ -31,7 +31,7 @@ export default function EmojisWrapper({
 
   const childrenWithRootRef = Children.map(children, (child) => {
     if (isValidElement(child)) {
-      return cloneElement(child, { ref: rootRef });
+      return cloneElement(child as ReactElement, { ref: rootRef });
     }
     return child;
   });
