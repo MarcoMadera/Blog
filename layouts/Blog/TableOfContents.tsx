@@ -202,7 +202,6 @@ export default function TableOfContents({
         nav {
           grid-area: toc;
           padding: 1.5rem;
-          min-height: 440px;
           border-width: 1px;
           border-radius: 0.5rem;
           border-style: solid;
