@@ -8,7 +8,7 @@ import BlogFooter from "./BlogFooter";
 import { colors } from "styles/theme";
 import TagsHeader from "./TagsHeader";
 import { getFormattedDate } from "utils";
-import { H1, ALink, Hr } from "components/tags";
+import { H1, ALink, Hr, Img } from "components/tags";
 import useDarkMode from "hooks/useDarkMode";
 import { UserContextProvider } from "context/UserContext";
 import { CommentsContextProvider } from "context/CommentsContext";
@@ -39,6 +39,7 @@ export default function Post({
   slug,
   elements,
   readingTimeInMinutes,
+  blurDataURL,
 }: PostWithMedia): ReactElement {
   const { darkMode } = useDarkMode();
   const headingData = Object.keys(elements)
@@ -78,6 +79,27 @@ export default function Post({
             </time>{" "}
             &middot;{` ${readingTimeInMinutes} minutos de lectura `}
           </p>
+          <div className="coverContainer">
+            <Img
+              src={replaceUrlImgTransformations(
+                cover,
+                "q_auto,f_auto,c_scale,w_1000,h_580"
+              )}
+              width={1050}
+              height={700}
+              blurDataURL={blurDataURL}
+              fullImage={{
+                base64: blurDataURL,
+                img: {
+                  src: cover,
+                  width: 1050,
+                  height: 700,
+                },
+              }}
+              alt={title}
+              title={title}
+            />
+          </div>
         </header>
         <TableOfContents headings={headingData} slug={slug} />
         <EmojisWrapper>
@@ -165,8 +187,9 @@ export default function Post({
         }
         div :global(h2),
         div :global(h3) {
-          font-weight: 600;
+          font-weight: 400;
           letter-spacing: -0.5px;
+          color: ${darkMode ? colors.dark_secondary : colors.primary};
         }
         nav {
           grid-area: nav;
@@ -179,15 +202,19 @@ export default function Post({
           grid-area: header;
         }
         header :global(h1) {
-          margin: 0 0 0.5em 0;
-          font-weight: bold;
+          margin: 0px 0 0.5em 0;
+          font-weight: 400;
           letter-spacing: -1.5px;
           font-size: 40px;
         }
+        .coverContainer {
+          margin: 30px 0 30px 0;
+        }
         header p {
           margin: 0;
-          font-size: 14px;
+          font-size: 18px;
           color: #929292;
+          font-weight: 500;
         }
         nav :global(a) {
           display: flex;
@@ -233,14 +260,21 @@ export default function Post({
         }
         @media screen and (min-width: 1124px) {
           main {
-            max-width: 1300px;
-            grid-template-columns: minmax(0px, 944px) 240px;
+            max-width: 1400px;
+            grid-template-columns: minmax(0px, 1100px) 240px;
+          }
+          header :global(h1) {
+            margin: 20px 0 0.5em 0;
+            font-size: 48px;
+          }
+          .coverContainer {
+            margin: 80px -200px 30px -200px;
           }
           article {
             display: grid;
             grid-template-columns: 240px minmax(0, 944px);
             grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav" "toc comments";
-            column-gap: 3.375em;
+            column-gap: 4.375em;
           }
         }
         @media print {

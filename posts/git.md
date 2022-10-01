@@ -2,7 +2,7 @@
 title: Control de versiones de Git
 description: El control de versiones es un sistema que guarda los cambios en el tiempo de uno o varios archivos.
 date: 2020-12-31
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1608823033/Blog/Git/Git-logo_pr848f.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1664627167/Blog/Git/jose-gil-2pNdTBn4C7U-unsplash_bdz3xi.jpg
 author: Marco Madera
 tags:
   - Terminal
@@ -129,7 +129,7 @@ index 5e1c309..ade1f58 100644
 Hello World       | Hola Mundo
 ~                 | ~</code></pre>
 
-## El modelo de ramas
+## El Modelo de ramas
 
 Se puede decir que Git tiene tres árboles donde se agrupan archivos. `HEAD` es el indicador del último _commit_ realizado y de la rama actual. `Index` es el espacio donde se agregan/modifican/eliminan los archivos del antes mencionado _stage_ antes de realizar un commit. Finalmente está el directorio de trabajo manejado como el `Working tree`
 

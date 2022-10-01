@@ -2,7 +2,7 @@
 title: "Seguridad en la web"
 description: La seguridad web es la práctica de implementar medidas para proteger un sitio web haciendolo más díficil de vulnerar.
 date: 2021-04-15
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1618515494/Blog/seguridad-web/security_2_prgizu.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626240/Blog/seguridad-web/jeremy-bishop-uLXBeh6oHn8-unsplash_rys8ff.jpg
 author: Marco Madera
 tags:
   - Seguridad
@@ -138,7 +138,7 @@ Esta explotación es para obtener acceso no autorizado a información o servicio
 
 <youtube id="UR_i5XSAKrg" ></tweet>
 
-## Filtración de datos
+## Filtración de Datos
 
 Este mes se puso a disposición para descargar datos de más de 500 millones de usuarios de Facebook, los datos se obtuvieron explotando una vulnerabilidad.
 

@@ -228,6 +228,7 @@ export default function TableOfContents({
             position: sticky;
             top: 20px;
             height: fit-content;
+            margin-top: 1010px;
           }
         }
       `}</style>

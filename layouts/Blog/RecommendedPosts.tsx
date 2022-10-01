@@ -15,7 +15,7 @@ export default function RecommendedPosts({
   const { darkMode } = useDarkMode();
 
   return (
-    <div>
+    <div className="recommendedPosts-container">
       {recommendedPosts.length > 1 && (
         <>
           <h2>Artículos recomendados</h2>
@@ -104,6 +104,11 @@ export default function RecommendedPosts({
         @media screen and (max-width: 876px) {
           div :global(a) {
             margin: 13.5px 5px 13.5px 0;
+          }
+        }
+        @media screen and (min-width: 1124px) {
+          .recommendedPosts-container {
+            margin-top: 1010px;
           }
         }
       `}</style>
