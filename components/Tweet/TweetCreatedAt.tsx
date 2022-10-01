@@ -13,7 +13,7 @@ export default function TweetCreatedAt({
   const [createdAt, setCreatedAt] = useState<Date | undefined>(undefined);
 
   useEffect(() => {
-    if (created_at) {
+    if (created_at && window) {
       setCreatedAt(new Date(created_at));
     }
   }, [created_at]);
