@@ -2,7 +2,7 @@ import { ALink } from "components/tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
 import { colors } from "styles/theme";
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import type { HeadingData } from "types/posts";
 import { Li, Ol } from "components/tags";
 
@@ -12,10 +12,40 @@ interface ConstructedTable {
   children: ConstructedTable[];
 }
 
+const getmenuHeaderElements = (): Element[] => [
+  ...document.querySelectorAll("#headerMenu + ol li a"),
+];
+
+function removeClassToMenuHeaders(): void {
+  getmenuHeaderElements().forEach((headerElement) => {
+    headerElement?.classList.remove("active");
+  });
+}
+
+function addClassActiveToMenuHeaderWithId(id: string | null): void {
+  removeClassToMenuHeaders();
+  const menuHeader = document.querySelector(
+    `#headerMenu + ol > li a[href="${
+      window.history.state.as.split("#")[0]
+    }#${id}"]`
+  );
+  menuHeader?.classList.add("active");
+  if (
+    menuHeader?.parentElement?.parentElement?.parentElement
+      ?.previousElementSibling?.tagName === "A"
+  ) {
+    menuHeader.parentElement.parentElement.parentElement.previousElementSibling.classList.add(
+      "active"
+    );
+  }
+}
+
 export default function TableOfContents({
   headings,
+  slug,
 }: {
   headings: HeadingData[];
+  slug: string;
 }): ReactElement {
   const { darkMode } = useDarkMode();
   const constructedTable: ConstructedTable[] = [];
@@ -39,6 +69,47 @@ export default function TableOfContents({
     }
   });
 
+  useEffect(() => {
+    let lastIntersection: string | null =
+      window.history.state.as.split("#")[1] || null;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const headerId = entry.target.getAttribute("id");
+
+          const menuHeaderElement = getmenuHeaderElements().find((element) => {
+            return (
+              element.getAttribute("href") ===
+              `/blog/${slug}#${headerId || lastIntersection}`
+            );
+          });
+
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            addClassActiveToMenuHeaderWithId(headerId);
+            lastIntersection = headerId;
+            return;
+          } else {
+            menuHeaderElement?.classList.remove("active");
+          }
+          addClassActiveToMenuHeaderWithId(lastIntersection);
+        });
+      },
+      {
+        rootMargin: `0px 0px -${innerHeight - 160}px 0px`,
+        threshold: 1,
+      }
+    );
+
+    const headings2 = document.querySelectorAll("#main > div h2");
+    const headings3 = document.querySelectorAll("#main > div h3");
+    [...headings2, ...headings3].forEach((heading) => {
+      if (heading) {
+        observer.observe(heading);
+      }
+    });
+  }, [slug]);
+
   return (
     <nav aria-labelledby="headerMenu">
       <section>
@@ -48,23 +119,36 @@ export default function TableOfContents({
             {constructedTable.map(({ level, text, children }, i) => {
               return (
                 <Li key={i} hideListStyle>
-                  <ALink href={`#${slugify(text)}`} target="_self" title="">
+                  <ALink
+                    href={`#${slugify(text)}`}
+                    target="_self"
+                    title=""
+                    onClick={() => {
+                      addClassActiveToMenuHeaderWithId(slugify(text));
+                    }}
+                  >
                     {text}
                   </ALink>
                   {children.length > 0 && (
-                    <Ol depth={level - 1}>
-                      {children.map(({ text }, i) => (
-                        <Li key={i} hideListStyle>
-                          <ALink
-                            href={`#${slugify(text)}`}
-                            target="_self"
-                            title=""
-                          >
-                            {text}
-                          </ALink>
-                        </Li>
-                      ))}
-                    </Ol>
+                    <div className="childs">
+                      <span className="line"></span>
+                      <Ol depth={level - 1}>
+                        {children.map(({ text }, i) => (
+                          <Li key={i} hideListStyle>
+                            <ALink
+                              href={`#${slugify(text)}`}
+                              target="_self"
+                              title=""
+                              onClick={() => {
+                                addClassActiveToMenuHeaderWithId(slugify(text));
+                              }}
+                            >
+                              {text}
+                            </ALink>
+                          </Li>
+                        ))}
+                      </Ol>
+                    </div>
                   )}
                 </Li>
               );
@@ -76,17 +160,56 @@ export default function TableOfContents({
         h2 {
           color: ${darkMode ? colors.dark_textColor : colors.titleColor};
         }
+        ol :global(li a.active) {
+          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          font-weight: 600;
+        }
+        nav :global(li:hover > a),
+        nav :global(li:focus > a) {
+          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          font-weight: 600;
+        }
+        nav {
+          background-color: ${darkMode ? "rgba(31, 41, 55, 1)" : "#fff"};
+          border-color: ${darkMode ? "rgba(31, 41, 55, 1)" : "#e5e7eb"};
+        }
       `}</style>
       <style jsx>{`
         :global(body) {
           overflow-x: visible;
         }
+        .childs {
+          margin: 0;
+          display: grid;
+          grid-template-columns: 5px minmax(0, 1fr);
+          grid-template-rows: auto 1fr;
+          justify-content: space-between;
+          padding-left: 5px;
+          width: 100%;
+        }
+        ol :global(li ol) {
+          margin: 0 0 0 8px;
+        }
+        .line {
+          display: block;
+          content: "";
+          height: calc(100% - 10px);
+          width: 2px;
+          background-color: #cccccc4d;
+          margin: auto;
+          border-radius: 4px;
+        }
         nav {
           grid-area: toc;
+          padding: 1.5rem;
+          min-height: 440px;
+          border-width: 1px;
+          border-radius: 0.5rem;
+          border-style: solid;
         }
         nav :global(a) {
           display: block;
-          width: fit-content;
+          width: revert;
         }
         nav :global(a:hover),
         nav :global(a:focus) {
@@ -101,9 +224,12 @@ export default function TableOfContents({
           list-style: none;
           margin: 5px 0;
         }
-        section {
-          position: sticky;
-          top: 0px;
+        @media screen and (min-width: 1124px) {
+          nav {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+          }
         }
       `}</style>
     </nav>
