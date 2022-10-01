@@ -79,7 +79,7 @@ export default function Post({
             &middot;{` ${readingTimeInMinutes} minutos de lectura `}
           </p>
         </header>
-        <TableOfContents headings={headingData} />
+        <TableOfContents headings={headingData} slug={slug} />
         <EmojisWrapper>
           <div itemProp="articlebody" aria-labelledby="articleTitle">
             <ElementsContextProvider elements={elements}>
