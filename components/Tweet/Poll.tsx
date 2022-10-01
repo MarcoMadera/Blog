@@ -1,4 +1,4 @@
-import { Fragment, ReactElement } from "react";
+import { Fragment, ReactElement, useEffect, useState } from "react";
 import { tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import type { Poll } from "types/tweet";
@@ -15,8 +15,15 @@ export function TweetPoll({ poll }: PollProps): ReactElement {
     (count, option) => count + option.votes,
     0
   );
-  const endsAt = new Date(poll.end_datetime);
-  const now = new Date();
+  const [endsAt, setendsAt] = useState<Date | undefined>(undefined);
+  const [now, setNow] = useState<Date | undefined>(undefined);
+
+  useEffect(() => {
+    if (poll.end_datetime) {
+      setendsAt(new Date(poll.end_datetime));
+    }
+    setNow(new Date());
+  }, [poll.end_datetime]);
 
   return (
     <div className="poll">
@@ -38,7 +45,11 @@ export function TweetPoll({ poll }: PollProps): ReactElement {
       <hr />
       <div className="footer">
         <span className="votes-count">{votesCount} votos</span>
-        <span>{now > endsAt ? "Resultados finales" : "Encuesta en curso"}</span>
+        <span>
+          {now &&
+            endsAt &&
+            (now > endsAt ? "Resultados finales" : "Encuesta en curso")}
+        </span>
       </div>
 
       <style jsx>{`
