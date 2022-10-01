@@ -2,7 +2,7 @@
 title: "Snippets en Visual Studio Code"
 description: Los snippets son fragmentos reutilizables de código personalizado que puedes llamar con un atajo de teclado o con prefijos.
 date: 2021-03-08
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1615174792/Blog/Code%20Snippets%20en%20VSCode/Vscode_Logo_kw0vrw.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626418/Blog/Code%20Snippets%20en%20VSCode/sonja-prein-Gg01DgNAZHg-unsplash_qjjk8b.jpg
 author: Marco Madera
 tags:
   - VSCode

@@ -2,7 +2,7 @@
 title: "CSS: Hoja de estilos en cascada"
 description: CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado.
 date: 2020-10-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1602894559/Blog/7/css_k23ypb.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1664627330/Blog/7/joshua-rawson-harris-bMMOBVp6KQU-unsplash_fpl46t.jpg
 author: Marco Madera
 tags:
   - CSS
@@ -422,7 +422,7 @@ print;
 }
 ```
 
-## El modelo de caja
+## El Modelo de Caja
 
 Una forma de mirar los elementos a la hora de darle estilos es de forma de cajas. La mayoría de elementos se pueden estilar de esta forma pues tienen dentro el contenido, el relleno que las asegura, el borde de la caja y el margen que las separa de otras cajas.
 

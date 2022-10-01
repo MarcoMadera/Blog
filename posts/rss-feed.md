@@ -2,13 +2,13 @@
 title: "RSS Feed: ¿Qué es?, ventajas y desventajas"
 description: RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica.
 date: 2020-08-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1597944129/Blog/4/RSS_znjs6w.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1664627664/Blog/4/taras-shypka-iFSvn82XfGo-unsplash_acjiho.jpg
 author: Marco Madera
 tags:
   - Web
 ---
 
-![RSS a la derecha](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_100,w_100/v1597944129/Blog/4/RSS_znjs6w.png "RSS")
+![RSS a la Derecha](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_100,w_100/v1597944129/Blog/4/RSS_znjs6w.png "RSS")
 
 Algo que siempre veía en los sitios era el icono típico de RSS. Nunca le presté importancia hasta ahora que lo estoy implementando en el sitio. Cuando miraba una página con él, me daba la sensación de que no estaba actualizada o que usaba tecnologías del pasado, porque realmente el icono luce antiguo. Nunca me di la tarea de entender que significada ni para qué servía; y aquí estoy ahora implementándolo.
 

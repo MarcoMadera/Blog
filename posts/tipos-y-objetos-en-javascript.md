@@ -2,7 +2,7 @@
 title: "Tipos y objetos en JavaScript"
 description: En JavaScript tenemos varios tipos de datos; booleanos, numéricos, los de texto o string, el null que indica que una variable.
 date: 2021-01-27
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1611100833/Blog/tipos-y-objetos-en-javascript/Js_ul0yih.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626667/Blog/tipos-y-objetos-en-javascript/brandable-box-yW9jdBmE1BY-unsplash_krdahy.jpg
 author: Marco Madera
 tags:
   - JavaScript
@@ -85,7 +85,7 @@ En caso de que queramos comparar el contenido de _arrays_ u objetos es posible q
 #{} === #{}; // true
 ```
 
-## Coerción de datos
+## Coerción de Datos
 
 La coerción sucede cuando tenemos que **convertir un valor de un tipo de dato a otro tipo de dato**. La coerción puede suceder en ciertos escenarios automáticamente debido a que JavaScript es un lenguaje débilmente tipado, por ejemplo:
 
@@ -124,7 +124,7 @@ La **coerción de booleanos** sucede cuando se intenta, comparar o hacer alguna 
 
 Aquí tenemos un operador _OR_, básicamente está diciendo o 0 o 5, y estamos recibiendo 5. El 0 está siendo convertido a un valor `false` y 5 está siendo convertido a un valor `true`. El operador _OR_ siempre se va a inclinar por el valor `true` y por eso recibimos un 5.
 
-## Igualdad de valores
+## Igualdad de Valores
 
 En JavaScript existen los siguientes tipos de igualdad:
 

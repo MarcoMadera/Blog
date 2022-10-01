@@ -2,7 +2,7 @@
 title: "Como usar expresiones regulares con JavaScript"
 description: Las expresiones regulares son patrones que definimos para filtrar en una cadena de caracteres.
 date: 2021-09-04
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1611100833/Blog/tipos-y-objetos-en-javascript/Js_ul0yih.png
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626090/Blog/expresiones-regulares/craig-chitima-vEbpWVRwPZE-unsplash_fnzthz.jpg
 author: Marco Madera
 tags:
   - JavaScript
