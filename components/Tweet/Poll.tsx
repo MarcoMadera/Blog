@@ -19,10 +19,10 @@ export function TweetPoll({ poll }: PollProps): ReactElement {
   const [now, setNow] = useState<Date | undefined>(undefined);
 
   useEffect(() => {
-    if (poll.end_datetime) {
+    if (poll.end_datetime && window) {
       setendsAt(new Date(poll.end_datetime));
+      setNow(new Date());
     }
-    setNow(new Date());
   }, [poll.end_datetime]);
 
   return (
