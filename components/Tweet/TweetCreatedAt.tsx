@@ -11,10 +11,14 @@ export default function TweetCreatedAt({
 }): ReactElement {
   const { getToolTipAttrbutes } = useToolTip();
   const [createdAt, setCreatedAt] = useState<Date | undefined>(undefined);
+  const [createdAtIsoString, setCreatedAtIsoString] = useState<
+    string | undefined
+  >(undefined);
 
   useEffect(() => {
     if (created_at && window) {
       setCreatedAt(new Date(created_at));
+      setCreatedAtIsoString(new Date(created_at)?.toISOString());
     }
   }, [created_at]);
 
@@ -33,10 +37,11 @@ export default function TweetCreatedAt({
   }`;
 
   return (
-    <time dateTime={createdAt?.toISOString()} {...getToolTipAttrbutes(title)}>
-      {variant === "short"
-        ? getQuotedTwitterFormattedDate(created_at)
-        : getTwitterFormattedDate(created_at)}
+    <time dateTime={createdAtIsoString} {...getToolTipAttrbutes(title)}>
+      {createdAtIsoString &&
+        (variant === "short"
+          ? getQuotedTwitterFormattedDate(createdAtIsoString)
+          : getTwitterFormattedDate(createdAtIsoString))}
     </time>
   );
 }
