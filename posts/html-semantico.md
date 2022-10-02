@@ -14,11 +14,13 @@ Esta semana estuvo rondando por mi cabeza un comentario que leí en Twitter. No 
 
 <div style="display: block;
     font-size: 2.2rem;
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
+    margin-top: 1em;
+    margin-bottom: .3rem;
     margin-left: 0px;
     margin-right: 0px;
-    font-weight: 600;">¿Esto es un título?</div>
+    color: #de2323;
+    letter-spacing: -.5px;
+    font-weight: 400;">¿Esto es un título?</div>
 
 <h2>¿Esto es un título?</h2>
 

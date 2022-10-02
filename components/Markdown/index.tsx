@@ -13,6 +13,18 @@ interface MarkdownProps {
   type: MarkdownType;
 }
 
+interface Child {
+  tagName: string;
+  children: Child[];
+  data: {
+    meta: string;
+  };
+  properties: {
+    className: string[];
+    meta?: string;
+  };
+}
+
 export default function Markdown({
   source,
   html,
@@ -20,7 +32,31 @@ export default function Markdown({
 }: MarkdownProps): ReactElement {
   return (
     <ReactMarkdown
-      rehypePlugins={html ? [rehypeRaw] : undefined}
+      rehypePlugins={
+        html
+          ? [
+              () => (tree: Child) => {
+                const children = tree.children;
+
+                children.forEach((child) => {
+                  if (
+                    child.tagName === "pre" &&
+                    child.children[0]?.tagName === "code" &&
+                    child.children[0].data?.meta
+                  ) {
+                    child.children[0].properties = {
+                      ...child.children[0]?.properties,
+                      meta: child.children[0].data.meta,
+                    };
+                  }
+                });
+
+                return tree;
+              },
+              rehypeRaw,
+            ]
+          : undefined
+      }
       remarkPlugins={[[gfm]]}
       components={components}
       disallowedElements={["script", "head", "meta"]}

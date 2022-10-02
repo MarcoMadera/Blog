@@ -1,6 +1,12 @@
 import codeStyles from "styles/codeStyles";
 import { colors } from "styles/theme";
-import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import {
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+  Children,
+  isValidElement,
+} from "react";
 import useDarkMode from "hooks/useDarkMode";
 import HtmlToReact from "html-to-react";
 import useElementData from "hooks/useElementData";
@@ -91,7 +97,7 @@ export function Pre({
           line-height: 1.8;
           margin: 0.5em 0px;
           overflow: auto;
-          padding: 0.8em 1em;
+          padding: 0.8em 0;
           tab-size: 4;
           text-align: left;
           white-space: pre;
@@ -177,11 +183,18 @@ interface CodeBlockProps {
   id: number;
 }
 
+interface MetaData {
+  addedLines: number[];
+  removedLines: number[];
+  highlight: number[];
+}
+
 export function CodeBlock({
   language,
   value,
   mdCode,
   id,
+  meta,
 }: PropsWithChildren<CodeBlockProps>): ReactElement | null {
   const { darkMode } = useDarkMode();
   const { data, ignore } = useElementData({
@@ -191,18 +204,42 @@ export function CodeBlock({
     language,
   });
 
+  let metadata = {} as MetaData;
+
+  try {
+    metadata = JSON.parse(meta?.toString() || "{}");
+  } catch {
+    metadata = {} as MetaData;
+  }
+  const { addedLines, removedLines, highlight }: MetaData = metadata;
+
   if (ignore) {
     return null;
   }
 
   const nodeValue = value[0];
+  const code = data?.result as string;
+  const lines = code?.split("\n");
+  lines[0] = lines[0].replace("<div>", "");
+  lines.pop();
+
+  const valueArray = Children.toArray(value).filter(
+    (child) => child !== "\n" && child
+  );
+  const numberOfNewLines = valueArray.filter((child) => {
+    if (isValidElement(child)) {
+      return true;
+    }
+    return false;
+  }).length;
+
   const lineNumbers =
     typeof nodeValue === "string"
       ? Array.from(
           { length: (nodeValue.match(/\n/g) || "").length },
           (_, i) => i + 1
         )
-      : [];
+      : Array.from({ length: numberOfNewLines }, (_, i) => i + 1);
 
   const styles: {
     light: Record<string, ReactElement>;
@@ -219,11 +256,79 @@ export function CodeBlock({
     <>
       {mdCode && data ? (
         <code data-lang={language}>
-          <LeftLinesNumbers lineNumbers={lineNumbers} />
-          {htmlToReactParser.parse(data.result)}
+          {lines.map((line, index) => {
+            const isAddedLine = addedLines?.includes(index + 1);
+            const isRemovedLine = removedLines?.includes(index + 1);
+            const isHighlightedLine = highlight?.includes(index + 1);
+
+            const dataLine = isAddedLine
+              ? "+"
+              : isRemovedLine
+              ? "-"
+              : index + 1;
+            return (
+              <span data-line={dataLine} key={index}>
+                {htmlToReactParser.parse(line) || " "}
+                <style jsx>{`
+            span {
+              display: block;
+              position: relative;
+            }
+            span:before {
+              content: attr(data-line);
+              display: inline-block;
+              width: 1.5em;
+              margin-right: 0.5em;
+              text-align: left;
+              color: ${
+                isAddedLine
+                  ? "rgb(48, 200, 94)"
+                  : isRemovedLine
+                  ? "rgb(255, 69, 69)"
+                  : isHighlightedLine
+                  ? "#d6bcf7"
+                  : "rgb(170, 170, 170)"
+              };
+              border-left: 6px solid ${
+                isHighlightedLine ? "#d6bcf7" : "transparent"
+              });
+              padding-left: 10px;
+            }
+            span:after {
+              content: "";
+              left: 0;
+              opacity: 0.15;
+              pointer-events: none;
+              position: absolute;
+              top: 0;
+              width: 100%;
+              background-color: ${
+                isHighlightedLine
+                  ? "#d6bcf7"
+                  : isAddedLine
+                  ? "rgb(48, 200, 94)"
+                  : isRemovedLine
+                  ? "rgb(255, 69, 69)"
+                  : "transparent"
+              };
+              height: 100%;
+            }
+          `}</style>
+              </span>
+            );
+          })}
         </code>
       ) : (
-        <code data-lang={language}>{value}</code>
+        <code data-lang={language}>
+          <LeftLinesNumbers lineNumbers={lineNumbers} />
+          {value}
+          <style jsx>{`
+            code[data-lang=${language}] {
+              display: block;
+              padding: 10px 20px;
+            }
+          `}</style>
+        </code>
       )}
       {style && (
         <style global jsx>

@@ -72,7 +72,7 @@ export function Li({
       {children}
       <style jsx>{`
         li {
-          margin-left: ${checkStyle ? "20px" : "0"};
+          margin-left: ${checkStyle ? "30px" : "0"};
           margin-top: ${checkStyle ? "5px" : "0"};
           list-style-type: ${checkStyle ? "revert" : "none"};
         }

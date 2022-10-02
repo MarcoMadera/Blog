@@ -286,7 +286,7 @@ Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longi
   </span>
 </div>
 <i>
-  [300(1<sup>2</sup> + 3(1) + 1) - (1<sup>3</sup> + 3(1
+  [300(1<sup>2</sup> + 3( 1 ) + 1) - (1<sup>3</sup> + 3(1
   <sup>2</sup>) - 1 - 4)] = 125.083
 </i>
 </div>
@@ -306,7 +306,7 @@ Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longi
   </span>
 </div>
 <i>
-  [300(2<sup>2</sup> + 3(2) + 1) - (2<sup>3</sup> + 3(2
+  [300(2<sup>2</sup> + 3( 2 ) + 1) - (2<sup>3</sup> + 3(2
   <sup>2</sup>) - 2 - 4)] = 59.766
 </i>
 </div>
@@ -326,7 +326,7 @@ Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longi
   </span>
 </div>
 <i>
-  [300(3<sup>2</sup> + 3(3) + 1) - (3<sup>3</sup> + 3(3
+  [300(3<sup>2</sup> + 3( 3 ) + 1) - (3<sup>3</sup> + 3(3
   <sup>2</sup>) - 3 - 4)] = 17.369
 </i>
 </div>
@@ -346,7 +346,7 @@ Así que retomando nuestros datos de rachas obtenidas tenemos 4 diferentes longi
   </span>
 </div>
 <i>
-  [300(4<sup>2</sup> + 3(4) + 1) - (4<sup>3</sup> + 3(4
+  [300(4<sup>2</sup> + 3( 4 ) + 1) - (4<sup>3</sup> + 3(4
   <sup>2</sup>) - 4 - 4)] = 3.768
 </i>
 </div>

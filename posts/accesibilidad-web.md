@@ -87,7 +87,7 @@ Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de
 
 Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al momento de encontrarse con alguna imagen. Los que hace es leer el contenido de este atributo que será presentada al usuario como una **descripción**. También se mostrará este texto si es dado caso que la imagen no se encuentre disponible.
 
-```html
+```html {"addedLines": [], "removedLines": [], "highlight": [3]}
 <img
   src="img src"
   alt="texto mostrar en caso que no esté disponible la imagen"
@@ -100,7 +100,7 @@ Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al m
 
 El uso del _scope_ ayuda a los lectores de pantalla a seguir el **orden correcto**.
 
-```html
+```html {"addedLines": [], "removedLines": [], "highlight": [7,8,12,17]}
 <table border="1">
   <caption>
     Contact Information
@@ -171,7 +171,7 @@ Es una técnica[^skip-link] que permite **navegar directamente al contenido prin
 
 [^skip-link]: W3C - Adding a link at the top of each page that goes directly to the main content area - [Techniques for WCAG 2.1](https://www.w3.org/WAI/WCAG21/Techniques/general/G1)
 
-```html
+```html {"addedLines": [], "removedLines": [], "highlight": [15]}
 <style>
   .skip-link {
     display: block;

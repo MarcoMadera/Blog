@@ -398,7 +398,6 @@ Son declaraciones que comienzan con el símbolo arroba `@`.
 
 ```css
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap")
-print;
 ```
 
 `@keyframes` — Describe la configuración de pasos intermedios en una secuencia de animación CSS.

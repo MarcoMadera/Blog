@@ -85,6 +85,7 @@ interface ElementNodes {
   position?: Element["position"];
   children?: ElementNodes;
   value?: string | number;
+  meta?: string | number;
 }
 
 export const components:
@@ -284,6 +285,7 @@ export const components:
           className?.replace("language-", "") ||
           (node.properties?.dataLang as string)
         }
+        meta={node.properties?.meta as string}
         mdCode={!!className}
         value={children}
         id={node.position?.start.offset as number}
