@@ -15,6 +15,7 @@ import { DarkModeContextProvider } from "context/DarkModeContext";
 import { ToolTipContextProvider } from "context/ToolTipContext";
 import getSpaceData from "utils/getSpaceData";
 import { getNodeText } from "utils/getNodeText";
+import { NotificationContextProvider } from "context/NotificationContext";
 
 export default async function getElementsData(
   content: string,
@@ -37,9 +38,11 @@ export default async function getElementsData(
   ReactDOMServer.renderToString(
     <DarkModeContextProvider>
       <ToolTipContextProvider>
-        <DataMapContextProvider addElement={addElement}>
-          <Markdown source={content} html={true} type={type} />
-        </DataMapContextProvider>
+        <NotificationContextProvider>
+          <DataMapContextProvider addElement={addElement}>
+            <Markdown source={content} html={true} type={type} />
+          </DataMapContextProvider>
+        </NotificationContextProvider>
       </ToolTipContextProvider>
     </DarkModeContextProvider>
   );

@@ -229,31 +229,31 @@ export function Note({
   const noteTitles: Record<string, string | ReactElement> = {
     info: (
       <>
-        <Info width={24} height={24} fill="#3448c5" />
+        <Info className="note-icon" width={24} height={24} fill="#3448c5" />
         {title || "Nota"}
       </>
     ),
     danger: (
       <>
-        <Alert width={24} height={24} fill="#ff5050" />
+        <Alert className="note-icon" width={24} height={24} fill="#ff5050" />
         {title || "Precaución"}
       </>
     ),
     success: (
       <>
-        <Check width={24} height={24} fill="#4caf50" />
+        <Check className="note-icon" width={24} height={24} fill="#4caf50" />
         {title || "Pasos"}
       </>
     ),
     important: (
       <>
-        <Star width={24} height={24} fill="#EFCE4A" />
+        <Star className="note-icon" width={24} height={24} fill="#EFCE4A" />
         {title || "Importante"}
       </>
     ),
     tip: (
       <>
-        <Bulb width={24} height={24} />
+        <Bulb className="note-icon" width={24} height={24} />
         {title || "Tip"}
       </>
     ),
@@ -277,7 +277,7 @@ export function Note({
             color: inherit;
             background: ${darkMode ? colors.dark_accents4 : colors.accents4};
           }
-          div[role="note"] :global(svg) {
+          div[role="note"] :global(svg.note-icon) {
             display: inline-block;
             vertical-align: sub;
             margin-right: 7px;
