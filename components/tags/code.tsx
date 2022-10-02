@@ -304,8 +304,10 @@ export function CodeBlock({
   const nodeValue = value[0];
   const code = data?.result as string;
   const lines = code?.split("\n");
-  lines[0] = lines[0].replace("<div>", "");
-  lines.pop();
+  if (lines?.[0]) {
+    lines[0] = lines[0].replace("<div>", "");
+    lines.pop();
+  }
 
   const valueArray = Children.toArray(value).filter(
     (child) => child !== "\n" && child
