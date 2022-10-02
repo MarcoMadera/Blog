@@ -33,11 +33,14 @@ Primero tenemos que entender que los _strings_ son valores primitivos y como se 
 
 Lo anterior puede resultar un poco confuso, pero veamos cómo sería el código enfocándonos cuando JavaScript envuelve los valores primitivos en un nuevo objeto para que tenga sentido la acción que le damos a realizar.
 
-```javascript
+```javascript {"addedLines": [4,5,8], "removedLines": [2,3,7], "highlight": []}
 let str = "yay";
+console.log(str[0]); // "y"
+console.log(str.length); // 3
 console.log(new String(str)[0]); // "y"
 console.log(new String(str).length); // 3
 
+str[0] = "p";
 new String(str)[0] = "p";
 console.log(str);
 ```
@@ -179,7 +182,7 @@ Ventajas de los prototipos:
 
 Para crear una clase se utiliza un objeto función donde se pueden agregan las propiedades y se declaran los métodos utilizando `prototype` en lugar de como se vio en la consola `__proto__`. Con esto ya se pueden llamar instancias de la clase.
 
-```javascript
+```javascript  {"addedLines": [], "removedLines": [], "highlight": [28]}
 function Persona(edad) {}
 //Declarar métodos
 Persona.prototype = {
@@ -214,7 +217,7 @@ estudiante.permisos();
 
 Desde la especificación de ECMAScript 6 se introdujo la sintaxis de las clases. Es una transformación de la sintaxis de prototipos para hacer más cómoda la declaración de clases, _syntactic sugar_ para prototipos.
 
-```javascript
+```javascript {"addedLines": [], "removedLines": [], "highlight": [23]}
 class Persona {
   //Declarar métodos
   permisos() {

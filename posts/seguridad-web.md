@@ -114,7 +114,7 @@ Un ataque de inyección de comandos puede ocurrir porque el servidor no valida e
 
 El siguiente ejemplo es un lector de archivos vulnerable que devuelve el contenido del archivo, el usuario puede insertar algo como `"filename.pdf rm -rf /"` y borrar el contenido del servidor entero o dirigirse a una ruta `"../passwords"` provocando un [ataque transversal de directorio](https://en.wikipedia.org/wiki/Directory_traversal_attack "Directory traversal attack- Wikipedia").
 
-```javascript
+```javascript {"addedLines": [], "removedLines": [], "highlight": [4]}
 app.get("/viewer", (req, res) => {
   const { filename } = req.query;
   try {

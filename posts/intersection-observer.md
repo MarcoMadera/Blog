@@ -34,7 +34,7 @@ Un ejemplo de uso es cuando un elemento se encuentra en la pantalla, pero no se 
 
 Para usar el intersection observer, primero debemos crear una instacia del mismo y pasarle como primer parametro un callback que se ejecutará cuando el elemento objetivo entre en la pantalla y se le puede pasar un segundo parametro opcional que es la configuración.
 
-```js
+```js {"addedLines": [], "removedLines": [], "highlight": [16]}
 function callback(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -121,7 +121,7 @@ Algunos casos de uso son:
 
 Para detectar que un elemento se acerca al viewport con una distancia de 500px, debemos especificar una zona de intersección de 500px de arriba y abajo.
 
-```typescript
+```typescript {"addedLines": [], "removedLines": [], "highlight": [8]}
 const cachedRef = ref.current;
 const observer = new IntersectionObserver(
   ([e]) => {

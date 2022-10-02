@@ -37,19 +37,19 @@ Para usar Git lo primero que se debe de hacer es instalarlo, se obtiene desde la
 Una vez instalado podremos usar en nuestra consola el comando `git config --list` para ver la configuración de Git. Para modificar los datos para el entorno global usamos `git config --global <configuración> <valor>`.
 Lo esencial a modificar tiene que ser el nombre y el email, que son las configuraciones que usan todos los `commits`.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">config --global user.name </span></span><span class="green">"MarcoMadera"</span>
-<span class="purple">git</span> <span class="blue">config --global user.email </span><span class="green">"example@email.com"</span>
-
-<span class="purple">git</span> <span class="blue">config --list</span>
-http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
-core.autocrlf=<span class="red">true</span>
-core.fscache=<span class="red">true</span>
-core.symlinks=<span class="red">false</span>
-pull.rebase=<span class="red">false</span>
-credential.helper=manager
-core.editor=<span class="green">"C:\Users\marco\AppData\Local\Programs\Microsoft VS Code\Code.exe" </span><span class="blue">--wait</span>
-user.name=MarcoMadera
-user.email=example@email.com</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">config --global user.name </span><span class="green">"MarcoMadera"</span></span>
+<span><span class="purple">git</span> <span class="blue">config --global user.email </span><span class="green">"example@email.com"</span></span>
+<span></span>
+<span><span class="purple">git</span> <span class="blue">config --list</span></span>
+<span>http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt</span>
+<span>core.autocrlf=<span class="red">true</span></span>
+<span>core.fscache=<span class="red">true</span></span>
+<span>core.symlinks=<span class="red">false</span></span>
+<span>pull.rebase=<span class="red">false</span></span>
+<span>credential.helper=manager</span>
+<span>core.editor=<span class="green">"C:\Users\marco\AppData\Local\Programs\Microsoft VS Code\Code.exe" </span><span class="blue">--wait</span></span>
+<span>user.name=MarcoMadera</span>
+<span>user.email=example@email.com</span></code></pre>
 
 ## Uso básico
 
@@ -61,19 +61,19 @@ El flujo de trabajo en Git sigue el siguiente patrón:
 
 Para tener un directorio nuevo de trabajo controlado, en la terminal se dirige a la ruta del proyecto para **inicializar el repositorio** con el comando `git init`. Esto creará el archivo `.git` en la raíz del proyecto, donde se guardará la información de cada _snapshot_.
 
-<pre><code data-lang="CLI"><span class="purple">cd</span> <span class="blue">repositorios/gitpost/</span>
-<span class="purple">git</span> <span class="blue">init</span>
-Initialized empty Git repository in C:/Users/marco/repositorios/gitpost/.git/</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">cd</span> <span class="blue">repositorios/gitpost/</span></span>
+<span><span class="purple">git</span> <span class="blue">init</span></span>
+<span>Initialized empty Git repository in C:/Users/marco/repositorios/gitpost/.git/</span></code></pre>
 
 Para no ir a ciegas comando tras comandos podemos **revisar el estado** con `git status`. Nos informará dónde estamos, sobre el estado de los archivos, si se han modificado, agregado o eliminado.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">status</span>
-On branch master
-Your branch is up-to-date with <span class="green">'origin/master'</span>.
-Untracked files:
-  (use <span class="green">"git add &#60;file&#62;..."</span>. to include in what will be committed)
-  <span class="red">README</span>
-nothing added to commit but untracked files present (use <span class="green">"git add"</span> to track)</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">status</span></span>
+<span>On branch master</span>
+<span>Your branch is up-to-date with <span class="green">'origin/master'</span>.</span>
+<span>Untracked files:</span>
+<span>  (use <span class="green">"git add &#60;file&#62;..."</span>. to include in what will be committed)</span>
+<span>  <span class="red">README</span></span>
+<span>nothing added to commit but untracked files present (use <span class="green">"git add"</span> to track)</span></code></pre>
 
 Para **agregar archivos al _stage_** usamos `git add <archivo>`, `git add *` o `git add .` agrega todos los archivos en el _stage_, `git add *.<extensión>` agrega los archivos con la extensión especificada y `git add /<folder>` agrega todos los archivos dentro de la carpeta especificada.
 
@@ -85,49 +85,49 @@ Para **Ignorar archivos** se crea un archivo `.gitignore` en la raíz del proyec
 
 Ya teniendo todo lo que queramos para **guardar los archivos** usamos `git commit`. Esto abrirá el editor que definimos en la configuración para poner un mensaje descriptivo o igual lo podemos añadir en la consola con el _flag_ `-m`. Para añadir archivos que ya habían estado en el _stage_ usamos el _flag_ `-am` que es la combinación de `-a --add` y `-m --message`.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m</span> <span class="green">"&#60;mensaje descriptivo&#62;"</span>
-<span class="purple">git</span> <span class="blue">commit -am</span> <span class="green">"&#60;mensaje descriptivo&#62;"</span></code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">commit -m</span> <span class="green">"&#60;mensaje descriptivo&#62;"</span></span>
+<span><span class="purple">git</span> <span class="blue">commit -am</span> <span class="green">"&#60;mensaje descriptivo&#62;"</span></span></code></pre>
 
 Mostrar el historial de commits del repositorio usamos `git log`, el resultado de este es un poco feo, por lo que se puede hacer más bonito con el _flag_ `--pretty`. `git log` solo mostrará por defecto el historial por debajo de la rama.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">log</span>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">log</span></span>
 <span class="yellow">commit ed3946555db4597294bae2014cfe996b88268bef (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span>
-Author: MarcoMadera &#60;example@email.com&#62;
-Date:   Mon Jul 6 17:09:50 2020 -0500
-
-    hola mundo
-
+<span>Author: MarcoMadera &#60;example@email.com&#62;</span>
+<span>Date:   Mon Jul 6 17:09:50 2020 -0500</span>
+<span></span>
+<span>    hola mundo</span>
+<span></span>
 <span class="yellow">commit e150e0079854fa6a5996db6ee692fc1377a1f2ff</span>
-Author: MarcoMadera &#60;example@email.com&#62;
-Date:   Mon Jun 29 19:28:42 2020 -0500
-
-    hello world
-
-<span class="purple">git</span> <span class="blue">log --oneline</span>
-<span class="yellow">65b5a12 (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span> hello world
-<span class="yellow">fd14a30</span> hola mundo
-
-<span class="purple">git</span> <span class="blue">log --pretty=format:</span> <span class="green">"%h | %cn | %cr | %s"</span>
-<span class="yellow">65b5a12</span> | MarcoMadera | 10 minutes ago | hello world
-<span class="yellow">fd14a30</span> | MarcoMadera | 11 minutes ago | hola mundo</code></pre>
+<span>Author: MarcoMadera &#60;example@email.com&#62;</span>
+<span>Date:   Mon Jun 29 19:28:42 2020 -0500</span>
+<span></span>
+<span>    hello world</span>
+<span></span>
+<span><span class="purple">git</span> <span class="blue">log --oneline</span></span>
+<span><span class="yellow">65b5a12 (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span> hello world</span>
+<span><span class="yellow">fd14a30</span> hola mundo</span>
+<span></span>
+<span><span class="purple">git</span> <span class="blue">log --pretty=format:</span> <span class="green">"%h | %cn | %cr | %s"</span></span>
+<span><span class="yellow">65b5a12</span> | MarcoMadera | 10 minutes ago | hello world</span>
+<span><span class="yellow">fd14a30</span> | MarcoMadera | 11 minutes ago | hola mundo</span></code></pre>
 
 Para **mostrar las diferencias entre un commit y otro** de un archivo lo hacemos con el comando `git diff`. `git diff` muestra la diferencia por defecto de lo que has puesto en el _stage_ y lo que vas a hacer commit. Muestra las líneas exactas que fueron añadidas o removidas. El comando puede ser selectivo usando el hash de cada commit a comparar.
 
 Usar `git diff` no suele ser muy placentero de ver para archivos largos, se puede explorar el uso de `git difftool` para configurar una herramienta más gráfica para estos casos.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">diff commitA commitB</span>
-
-diff <span class="blue">--git</span> <span class="lightblue">a/index.js b/index.js</span>
-index 5e1c309..ade1f58 100644
-<span class="red">---</span> <span class="lightblue">a/index.js</span>
-<span class="green">+++</span> <span class="lightblue">b/index.js</span>
-@@ <span class="red">-</span>1 <span class="green">+</span>1 @@
-<span class="red">-</span>Hello World
-<span class="green">+</span>Hola Mundo
-
-<span class="purple">git</span> <span class="blue">difftool commitA commitB</span>
-Hello World       | Hola Mundo
-~                 | ~</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">diff commitA commitB</span></span>
+<span></span>
+<span>diff <span class="blue">--git</span> <span class="lightblue">a/index.js b/index.js</span></span>
+<span>index 5e1c309..ade1f58 100644</span>
+<span><span class="red">---</span> <span class="lightblue">a/index.js</span></span>
+<span><span class="green">+++</span> <span class="lightblue">b/index.js</span></span>
+<span>@@ <span class="red">-</span>1 <span class="green">+</span>1 @@</span>
+<span><span class="red">-</span>Hello World</span>
+<span><span class="green">+</span>Hola Mundo</span>
+<span></span>
+<span><span class="purple">git</span> <span class="blue">difftool commitA commitB</span></span>
+<span>Hello World       | Hola Mundo</span>
+<span>~                 | ~</span></code></pre>
 
 ## El Modelo de ramas
 
@@ -201,20 +201,20 @@ Ahora que tenemos una idea de lo que son las ramas pasemos al manejo de ellas. P
 
 En algún punto las ramas pueden volver a unirse a la rama principal o a otra rama, como se muestra en la gráfica anterior. Todo lo que tienes que hacer es ir a la rama donde se van a hacer los cambios y usar `git merge <nombre de rama>`. Git creará una nueva _snapshot_ de los cambios y un nuevo _commit_ de referencia especial porque tendrá dos ancestros directos.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">checkout master</span>
-Switched to branch <span class="green">'master'</span>
-<span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span>
-Merge made by the <span class="green">'recursive'</span> strategy.
-index.js | 1 <span class="green">+</span>
-1 file changed, 1 insertion(<span class="green">+</span>)
-create mode 100644 index.js</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">checkout master</span></span>
+<span>Switched to branch <span class="green">'master'</span></span>
+<span><span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span></span>
+<span>Merge made by the <span class="green">'recursive'</span> strategy.</span>
+<span>index.js | 1 <span class="green">+</span></span>
+<span>1 file changed, 1 insertion(<span class="green">+</span>)</span>
+<span>create mode 100644 index.js</span></code></pre>
 
 No todo es tan bonito siempre. Al momento de unir ramas, si cambias la misma parte del mismo archivo en las dos ramas que se han unido ocurrirá un conflicto, Git no podrá unirlas tan fácil, te indicará dónde está el conflicto y te pedirá que lo arregles.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span>
-Auto-merging index.js
-<span class="red">CONFLICT</span> (content): Merge conflict in index.js
-Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span></span>
+<span>Auto-merging index.js</span>
+<span><span class="red">CONFLICT</span> (content): Merge conflict in index.js</span>
+<span>Automatic merge failed; fix conflicts and then commit the result.</span></code></pre>
 
 Esto de unir ramas se puede volver un caos y nosotros podemos saber el trabajo que conlleva, pero ¿se lo queremos presentar al público así?. Al final lo que la gente ve es el resultado final y si alguien quiere ver como lo hiciste puede que quieras mostrar algo más coherente.
 
@@ -224,14 +224,13 @@ El historial de commits es tal y lo que pasó, cambiar este historial sería cam
 
 El uso de `git rebase` puede ir en contra de esto porque coloca la base de una rama de un commit a otra rama diferente, pero en algunos casos puede ser útil, simplemente porque tal vez no quieras tener una rama completa para un cambio tan pequeño. Una vez ya acabado el trabajo de unir ambas ramas se puede eliminar la rama porque ahora está apuntando a la rama principal, por lo que ya no sería necesaria. Para eliminar ramas se hace con `git branch -d <nombre de rama>`.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">checkout &#60;nombre de rama&#62;</span>
-<span class="purple">git</span> <span class="blue">rebase master</span>
-Successfully rebased and updated refs/heads/&#60;nombre de rama&#62;.
-
-<span class="purple">git</span> <span class="blue">checkout master</span>
-<span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span>
-<span class="purple">git</span> <span class="blue">branch -d &#60;nombre de rama&#62;</span>
-</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">checkout &#60;nombre de rama&#62;</span></span>
+<span><span class="purple">git</span> <span class="blue">rebase master</span></span>
+<span>Successfully rebased and updated refs/heads/&#60;nombre de rama&#62;.</span>
+<span></span>
+<span><span class="purple">git</span> <span class="blue">checkout master</span></span>
+<span><span class="purple">git</span> <span class="blue">merge &#60;nombre de rama&#62;</span></span>
+<span><span class="purple">git</span> <span class="blue">branch -d &#60;nombre de rama&#62;</span></span></code></pre>
 
 ## Repositorio Remoto
 
@@ -241,13 +240,13 @@ Para subir un repositorio local a uno remoto, tendremos que crear un repositorio
 
 Otra forma de obtener un repositorio es **clonar un repositorio remoto** con `git clone <url> <nombre>`. Con esto ya tendremos en nuestro directorio local una copia con la que podremos contribuir al proyecto o simplemente experimentar con su funcionamiento.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">clone</span> <span class="lightblue">https://github.com/MarcoMadera/Blog.git</span> <span class="blue">GitPost</span>
-Cloning into <span class="green">'GitPost'</span>...
-remote: Enumerating objects: <span class="darkyellow">64</span>, done.
-remote: Counting objects: <span class="darkyellow">100%</span> (<span class="darkyellow">64</span>/<span class="darkyellow">64</span>)</span>, done.
-remote: Compressing objects: <span class="darkyellow">100%</span> (<span class="darkyellow">45</span>/<span class="darkyellow">45</span>), done.
-remote: Total <span class="darkyellow">64</span> (delta <span class="darkyellow">32</span>), reused <span class="darkyellow">45</span> (delta <span class="darkyellow">17</span>)</span>, pack-reused <span class="darkyellow">0</span>
-Unpacking objects: <span class="darkyellow">100%</span> (<span class="darkyellow">64</span>/<span class="darkyellow">64</span>), <span class="darkyellow">74.53 KiB</span> | <span class="darkyellow">19.00 KiB/s</span>, done.</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">clone</span> <span class="lightblue">https://github.com/MarcoMadera/Blog.git</span> <span class="blue">GitPost</span></span>
+<span>Cloning into <span class="green">'GitPost'</span>...</span>
+<span>remote: Enumerating objects: <span class="darkyellow">64</span>, done.</span>
+<span>remote: Counting objects: <span class="darkyellow">100%</span> (<span class="darkyellow">64</span>/<span class="darkyellow">64</span>), done.</span>
+<span>remote: Compressing objects: <span class="darkyellow">100%</span> (<span class="darkyellow">45</span>/<span class="darkyellow">45</span>), done.</span>
+<span>remote: Total <span class="darkyellow">64</span> (delta <span class="darkyellow">32</span>), reused <span class="darkyellow">45</span> (delta <span class="darkyellow">17</span>), pack-reused <span class="darkyellow">0</span></span>
+<span>Unpacking objects: <span class="darkyellow">100%</span> (<span class="darkyellow">64</span>/<span class="darkyellow">64</span>), <span class="darkyellow">74.53 KiB</span> | <span class="darkyellow">19.00 KiB/s</span>, done.</span></code></pre>
 
 Después de usar `git clone`, si usamos `git remote` veremos que tendremos _origin_, este es el nombre para identificar la _url_ que Git le pone por defecto a los proyectos obtenidos por `git clone`. Esto sucede al igual que al inicializar un proyecto, Git por defecto crea la rama con nombre _master_. Se puede **renombrar el identificador** con el comando `git remote rename <origin en este caso> <nuevo nombre>`
 
@@ -259,17 +258,15 @@ Cuando ya hemos hecho commit de los cambios que queremos compartir en nuestro re
 
 Si no quieres escribir el comando completo cada vez, puedes fácilmente configurar un _alias_ para cada comando. Los _alias_ en Git nos permiten **crear _shortcuts_**, a través de `git config --global alias.<atajo> comando`.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">config --global alias.&#60;atajo&#62; <span class="green">"&#60;comando&#62;"</span></span>
-<span class="purple">git</span> <span class="blue">config --global alias.st <span class="green">"status"</span></span>
-<span class="purple">git</span> <span class="blue">git config --global alias.slog <span class="green">"log --pretty=format:'%h | %cn | %cr | %s'"</span></span>
-</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">config --global alias.&#60;atajo&#62; <span class="green">"&#60;comando&#62;"</span></span></span>
+<span><span class="purple">git</span> <span class="blue">config --global alias.st <span class="green">"status"</span></span></span>
+<span><span class="purple">git</span> <span class="blue">git config --global alias.slog <span class="green">"log --pretty=format:'%h | %cn | %cr | %s'"</span></span></span></code></pre>
 
 Si ya hicimos commit y olvidamos **añadir un archivo o enmendar algún cambio** podemos hacerlo con el comando `git commit --amend --no-edit`. Igualmente si nos equivocamos en la descripción de nuestro commit lo podemos arreglar con el mismo comando `git commit --amend` si lo invocamos después de haber ocurrido el error.
 
-<pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">commit -m <span class="green">"&#60;mensaje&#62;"</span></span>
-<span class="purple">git</span> <span class="blue">add &#60;archivo&#62;</span>
-<span class="purple">git</span> <span class="blue">git commit --amend</span>
-</code></pre>
+<pre><code data-lang="CLI"><span><span class="purple">git</span> <span class="blue">commit -m <span class="green">"&#60;mensaje&#62;"</span></span></span>
+<span><span class="purple">git</span> <span class="blue">add &#60;archivo&#62;</span></span>
+<span><span class="purple">git</span> <span class="blue">git commit --amend</span></code></pre>
 
 Git mantiene un _log_ de dónde el `HEAD` y sus referencias han estado. Lo podemos ver con el comando `git reflog` y mostrar más a detalle la acción que se relizó en esa referecnai con el comando `git show HEAD@{<número o referencia en días>}`.
 

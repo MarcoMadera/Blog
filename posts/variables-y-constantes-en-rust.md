@@ -39,22 +39,22 @@ fn main() {
 
 <colors green lightblue red textcolor blue orange></colors>
 
-<pre><code data-lang="CLI"><span class="blue">cargo</span> run
-<span class="green">Compiling</span> main v0.1.0 (C:\Users\marco\repositorios\rust\main)
-<span class="red">error[E0384]</span><span class="textcolor">: cannot assign twice to immutable variable `birthdate`</span>
-<span class="lightblue"> --></span> src\main.rs:4:5
+<pre><code data-lang="CLI"><span><span class="blue">cargo</span> run</span>
+<span><span class="green">Compiling</span> main v0.1.0 (C:\Users\marco\repositorios\rust\main)</span>
+<span><span class="red">error[E0384]</span>: cannot assign twice to immutable variable `birthdate`</span>
+<span><span class="lightblue"> --></span> src\main.rs:4:5</span>
 <span class="lightblue">  |</span>
-<span class="lightblue">2 |</span>     let birthdate = "1/1/2000";
+<span><span class="lightblue">2 |</span>     let birthdate = "1/1/2000";</span>
 <span class="lightblue">  |         ---------</span>
 <span class="lightblue">  |         |</span>
 <span class="lightblue">  |         first assignment to `birthdate`</span>
 <span class="lightblue">  |         help: consider making this binding mutable: `mut birthdate`</span>
-<span class="lightblue">3 |     </span>println!("The birthdate is: {}", birthdate);
-<span class="lightblue">4 |     </span>birthdate = "1/1/2022";
-<span class="lightblue">  |     </span><span class="red">^^^^^^^^^^^^^^^^^^^^^^ cannot assign twice to immutable variable</span>
+<span><span class="lightblue">3 |     </span>println!("The birthdate is: {}", birthdate);</span>
+<span><span class="lightblue">4 |     </span>birthdate = "1/1/2022";</span>
+<span><span class="lightblue">  |     </span><span class="red">^^^^^^^^^^^^^^^^^^^^^^ cannot assign twice to immutable variable</span></span>
 <span></span>
 <span class="textcolor">For more information about this error, try `rustc --explain E0384`.</span>
-<span class="red">error</span><span class="textcolor">: </span>could not compile `main` due to previous error
+<span><span class="red">error</span>: could not compile `main` due to previous error</span>
 </code></pre>
 
 En Rust, el compilador garantiza que cuando declaramos que un valor no cambiará, realmente no cambiará, pero podemos hacer shadowing para que una variable pueda cambiar declarandola de nuevo con `let`.
@@ -108,23 +108,23 @@ Las constantes, como las variables inmutables, son valores que están vinculados
 
 Al declarar una variable con `let` y usar el nombre de una variable en mayusculas, el compilador generará una advertencia.
 
-```rust
+```rust {"addedLines": [], "removedLines": [], "highlight": [2]}
 fn main() {
     let PI = 3.14159265359;
     println!("{}", PI);
 }
 ```
 
-<pre><code data-lang="CLI"><span class="blue">cargo</span> run
+<pre><code data-lang="CLI" ><span class="blue">cargo</span> run
 <span class="orange">warning:</span> variable `PI` should have a snake case name
 <span class="lightblue"> --></span> src\main.rs:2:4
 <span class="lightblue">  |</span>
 <span class="lightblue">2 |</span>     let PI = 3.14159265359;
 <span class="lightblue">  |         </span><span class="orange">^^ help: convert the identifier to snake case: `pi`</span>
 <span class="lightblue">  |</span>
-<span class="lightblue">  =</span><span class="textcolor"> note</span>: `#[warn(non_snake_case)]` on by default
+<span><span class="lightblue">  =</span><span class="textcolor"> note</span>: `#[warn(non_snake_case)]` on by default</span>
 <span></span>
-<span class="orange">warning:</span> `main` (bin "main") generated 1 warning
+<span><span class="orange">warning:</span> `main` (bin "main") generated 1 warning</span>
     <span class="green">Finished</span> dev [unoptimized + debuginfo] target(s) in 0.17s
      <span class="green">Running</span> `target\debug\main.exe`
 3.14159265359
@@ -136,7 +136,7 @@ fn main() {
 
 La forma de nombrar las variables tiene que ser en snake case. Por ejemplo, `PI` no es correcto, pero `pi` es correcto.
 
-```rust
+```rust {"addedLines": [], "removedLines": [], "highlight": [2]}
 fn main() {
     let pi = 3.14159265359;
     println!("{}", pi);
@@ -158,15 +158,15 @@ fn main() {
 }
 ```
 
-<pre><code data-lang="CLI"><span class="blue">cargo</span> run
-<span class="green">Compiling</span> main v0.1.0 (C:\Users\marco\repositorios\rust\main)
-<span class="red">error</span><span class="textcolor">: missing type for `const` item</span>
-<span class="lightblue"> --></span> src\main.rs:2:11
+<pre><code data-lang="CLI"><span><span class="blue">cargo</span> run</span>
+<span><span class="green">Compiling</span> main v0.1.0 (C:\Users\marco\repositorios\rust\main)</span>
+<span class="textcolor"><span class="red">error</span>: missing type for `const` item</span>
+<span class="textcolor"><span class="lightblue"> --></span> src\main.rs:2:11</span>
 <span class="lightblue">  |</span>
 <span class="lightblue">2 |</span>     const PI = 3.14159265359;
-<span class="lightblue">  |           </span><span class="red">^^ help: provide a type for the constant: `PI: f64`</span>
+<span><span class="lightblue">  |           </span><span class="red">^^ help: provide a type for the constant: `PI: f64`</span></span>
 <span></span>
-<span class="red">error</span><span class="textcolor">:</span> could not compile `main` due to previous error
+<span class="textcolor"><span class="red">error</span>: could not compile `main` due to previous error</span>
 </code></pre>
 
 <note type="success" title="Correcto">

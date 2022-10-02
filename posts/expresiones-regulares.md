@@ -134,7 +134,7 @@ Las expresiones regulares se utilizan con los métodos `test()`, `exec()`, `matc
 - **`ReplaceAll:`** Es igual a `replace` solo que está es de todas las ocurrencias, es una propiedad de los strings que permite ejecutarlas. Este método devuelve un _array_ con las coincidencias en el índice 0 y los demás índices son las partes que se encuentran entre paréntesis.
 - **`Split:`** Utiliza una expresión regular para dividir el _string_ en cada ocurrencia.
 
-```javascript
+```javascript {"addedLines": [], "removedLines": [], "highlight": [4]}
 let tweetText =
   "@NovallSwift “If you have a problem and decide to fix it using regex, now you have two problems” — @dlpasco, circa 2013";
 
@@ -153,7 +153,7 @@ Me encontré el siguiente tweet con información valiosa. Quiero usarla con otra
 
 <tweet id="1433186979630526469"></tweet>
 
-```javascript
+```javascript {"addedLines": [], "removedLines": [], "highlight": [12]}
 const hits = string.match(/#\d+\s+.*/g);
 
 const hitsData = hits.map((hit) => {
@@ -184,7 +184,7 @@ const hitsData = hits.map((hit) => {
 
 </note>
 
-```json
+```json {"addedLines": [], "removedLines": [], "highlight": [38,39,40,41]}
 // Resultado
 [
   {
