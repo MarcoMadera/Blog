@@ -6,11 +6,15 @@ import {
   ReactNode,
   Children,
   isValidElement,
+  ReactFragment,
+  ReactPortal,
 } from "react";
 import useDarkMode from "hooks/useDarkMode";
 import HtmlToReact from "html-to-react";
 import useElementData from "hooks/useElementData";
 import { ElementType } from "types/posts";
+import useNotification from "hooks/useNotification";
+import { CopyToClipboard } from "components/icons/CopyToClipboard";
 
 interface InlineCodeProps {
   classname?: string;
@@ -59,10 +63,49 @@ export function Pre({
   ...atrribs
 }: PropsWithChildren<Record<string, string | ReactNode>>): ReactElement {
   const { darkMode } = useDarkMode();
+  const { addNotification } = useNotification();
+
+  function getTextChild(
+    children: string | number | boolean | ReactFragment | ReactPortal
+  ): string | string[] {
+    if (typeof children === "string") {
+      return children;
+    }
+    if (isValidElement(children)) {
+      return getTextChild(children?.props?.children);
+    }
+    if (Array.isArray(children)) {
+      return children.map((child) => getTextChild(child)).join("");
+    }
+    return "";
+  }
+  const copyToClipboard = () => {
+    const data = Children.map(children, (child) => {
+      return getTextChild((child as ReactElement)?.props?.children);
+    });
+    if (data) {
+      try {
+        navigator.clipboard.writeText(data?.join(""));
+        addNotification({
+          variant: "success",
+          message: "Copiado al portapapeles",
+        });
+      } catch (error) {
+        addNotification({
+          variant: "error",
+          message: "Error al copiar al portapapeles",
+        });
+      }
+    }
+  };
+
   return (
     <div>
       <pre tabIndex={-1} {...atrribs}>
         {children}
+        <button onClick={copyToClipboard}>
+          <CopyToClipboard color="#ccc" width={30} height={30} />
+        </button>
       </pre>
       <style jsx>{`
         pre {
@@ -83,6 +126,30 @@ export function Pre({
           margin: 20px 0;
           position: relative;
         }
+        button {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          background: ${darkMode ? "rgba(31, 41, 55, 1)" : "transparent"};
+          border: ${darkMode
+            ? "1px solid transparent"
+            : "1px solid rgba(31, 41, 55, 0.2)"};
+          outline: none;
+          cursor: pointer;
+          border-radius: 6px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        button:hover,
+        button:focus {
+          background: ${darkMode ? "rgba(31, 41, 55, 0.8)" : "transparent"};
+          border: ${darkMode
+            ? "1px solid transparent"
+            : "1px solid rgba(31, 41, 55, 0.8)"};
+        }
         pre,
         pre :global(code),
         pre :global(code[data-lang]:before) {
@@ -91,7 +158,7 @@ export function Pre({
         }
         pre {
           border-radius: 10px;
-          display: block;
+          display: grid;
           font-size: 14px;
           hyphens: none;
           line-height: 1.8;
@@ -106,6 +173,8 @@ export function Pre({
           word-wrap: normal;
           scrollbar-width: thin;
           scrollbar-color: #f03030bf transparent;
+          min-height: 80px;
+          align-items: center;
         }
         pre:focus {
           outline: none;
