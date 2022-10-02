@@ -90,20 +90,30 @@ export function Pre({
           variant: "success",
           message: "Copiado al portapapeles",
         });
+        return;
       } catch (error) {
         addNotification({
           variant: "error",
           message: "Error al copiar al portapapeles",
         });
+        return;
       }
     }
+    addNotification({
+      variant: "error",
+      message: "Error al copiar al portapapeles",
+    });
   };
 
   return (
     <div>
       <pre tabIndex={-1} {...atrribs}>
         {children}
-        <button onClick={copyToClipboard}>
+        <button
+          title="Copiar al portapapeles"
+          aria-label="Copiar al portapapeles"
+          onClick={copyToClipboard}
+        >
           <CopyToClipboard color="#ccc" width={30} height={30} />
         </button>
       </pre>
@@ -120,6 +130,19 @@ export function Pre({
             : "rgba(0, 0, 0, 0.7)"};
           border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
         }
+        button {
+          background: ${darkMode ? "rgba(31, 41, 55, 1)" : "#fefefe"};
+          border: ${darkMode
+            ? "1px solid transparent"
+            : "1px solid rgba(31, 41, 55, 0.2)"};
+        }
+        button:hover,
+        button:focus {
+          background: ${darkMode ? "rgba(31, 41, 55, 0.8)" : "#fefefe"};
+          border: ${darkMode
+            ? "1px solid transparent"
+            : "1px solid rgba(31, 41, 55, 0.8)"};
+        }
       `}</style>
       <style jsx>{`
         div {
@@ -130,10 +153,7 @@ export function Pre({
           position: absolute;
           bottom: 20px;
           right: 20px;
-          background: ${darkMode ? "rgba(31, 41, 55, 1)" : "transparent"};
-          border: ${darkMode
-            ? "1px solid transparent"
-            : "1px solid rgba(31, 41, 55, 0.2)"};
+
           outline: none;
           cursor: pointer;
           border-radius: 6px;
@@ -143,13 +163,7 @@ export function Pre({
           align-items: center;
           justify-content: center;
         }
-        button:hover,
-        button:focus {
-          background: ${darkMode ? "rgba(31, 41, 55, 0.8)" : "transparent"};
-          border: ${darkMode
-            ? "1px solid transparent"
-            : "1px solid rgba(31, 41, 55, 0.8)"};
-        }
+
         pre,
         pre :global(code),
         pre :global(code[data-lang]:before) {
