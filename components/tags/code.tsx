@@ -113,6 +113,7 @@ export function Pre({
         pre :global(code) {
           background: none;
           padding: 0;
+          display: grid;
         }
         pre::-webkit-scrollbar {
           height: 8px;
@@ -270,50 +271,51 @@ export function CodeBlock({
               <span data-line={dataLine} key={index}>
                 {htmlToReactParser.parse(line) || " "}
                 <style jsx>{`
-            span {
-              display: block;
-              position: relative;
-            }
-            span:before {
-              content: attr(data-line);
-              display: inline-block;
-              width: 1.5em;
-              margin-right: 0.5em;
-              text-align: left;
-              color: ${
-                isAddedLine
-                  ? "rgb(48, 200, 94)"
-                  : isRemovedLine
-                  ? "rgb(255, 69, 69)"
-                  : isHighlightedLine
-                  ? "#d6bcf7"
-                  : "rgb(170, 170, 170)"
-              };
-              border-left: 6px solid ${
-                isHighlightedLine ? "#d6bcf7" : "transparent"
-              });
-              padding-left: 10px;
-            }
-            span:after {
-              content: "";
-              left: 0;
-              opacity: 0.15;
-              pointer-events: none;
-              position: absolute;
-              top: 0;
-              width: 100%;
-              background-color: ${
-                isHighlightedLine
-                  ? "#d6bcf7"
-                  : isAddedLine
-                  ? "rgb(48, 200, 94)"
-                  : isRemovedLine
-                  ? "rgb(255, 69, 69)"
-                  : "transparent"
-              };
-              height: 100%;
-            }
-          `}</style>
+                  span {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                  }
+                  span:before {
+                    content: attr(data-line);
+                    display: inline-block;
+                    width: 1.5em;
+                    margin-right: 0.5em;
+                    text-align: left;
+                    color: ${
+                      isAddedLine
+                        ? "rgb(48, 200, 94)"
+                        : isRemovedLine
+                        ? "rgb(255, 69, 69)"
+                        : isHighlightedLine
+                        ? "#d6bcf7"
+                        : "rgb(170, 170, 170)"
+                    };
+                    border-left: 6px solid ${
+                      isHighlightedLine ? "#d6bcf7" : "transparent"
+                    });
+                    padding-left: 10px;
+                  }
+                  span:after {
+                    content: "";
+                    left: 0;
+                    opacity: 0.15;
+                    pointer-events: none;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    background-color: ${
+                      isHighlightedLine
+                        ? "#d6bcf7"
+                        : isAddedLine
+                        ? "rgb(48, 200, 94)"
+                        : isRemovedLine
+                        ? "rgb(255, 69, 69)"
+                        : "transparent"
+                    };
+                    height: 100%;
+                  }
+                `}</style>
               </span>
             );
           })}
