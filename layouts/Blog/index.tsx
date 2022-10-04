@@ -40,6 +40,7 @@ export default function Post({
   elements,
   readingTimeInMinutes,
   blurDataURL,
+  coverData,
 }: PostWithMedia): ReactElement {
   const { darkMode } = useDarkMode();
   const headingData = Object.keys(elements)
@@ -92,8 +93,8 @@ export default function Post({
                 base64: blurDataURL,
                 img: {
                   src: cover,
-                  width: 1050,
-                  height: 700,
+                  width: coverData.width,
+                  height: coverData.height,
                 },
               }}
               alt={title}
