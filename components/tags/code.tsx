@@ -15,6 +15,7 @@ import useElementData from "hooks/useElementData";
 import { ElementType } from "types/posts";
 import useNotification from "hooks/useNotification";
 import { CopyToClipboard } from "components/icons/CopyToClipboard";
+import useToolTip from "hooks/useToolTip";
 
 interface InlineCodeProps {
   classname?: string;
@@ -64,6 +65,7 @@ export function Pre({
 }: PropsWithChildren<Record<string, string | ReactNode>>): ReactElement {
   const { darkMode } = useDarkMode();
   const { addNotification } = useNotification();
+  const { getToolTipAttrbutes } = useToolTip();
 
   function getTextChild(
     children: string | number | boolean | ReactFragment | ReactPortal
@@ -110,9 +112,9 @@ export function Pre({
       <pre tabIndex={-1} {...atrribs}>
         {children}
         <button
-          title="Copiar al portapapeles"
           aria-label="Copiar al portapapeles"
           onClick={copyToClipboard}
+          {...getToolTipAttrbutes("Copiar al portapapeles")}
         >
           <CopyToClipboard color="#ccc" width={30} height={30} />
         </button>

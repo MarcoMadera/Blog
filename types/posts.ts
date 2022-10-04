@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { TweetData, SpaceData } from "./tweet";
-
+import { IGetPlaiceholderReturn } from "plaiceholder";
 export type PostData = {
   readingTimeInMinutes: number;
   date: string;
@@ -15,6 +15,7 @@ export type PostData = {
   twitter?: string;
   description: string;
   summary?: string;
+  coverData: IGetPlaiceholderReturn["img"];
 };
 
 export interface Post extends PostData {

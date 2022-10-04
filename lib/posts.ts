@@ -18,13 +18,6 @@ export function getPostsFiles(): {
   return postsFiles;
 }
 
-export async function getBlurDataURL(imagePath: string): Promise<string> {
-  const { base64 } = await getPlaiceholder(imagePath, {
-    size: 10,
-  });
-  return base64;
-}
-
 export async function getSortedPostsData(): Promise<PostData[]> {
   const postsFiles = getPostsFiles();
 
@@ -38,7 +31,12 @@ export async function getSortedPostsData(): Promise<PostData[]> {
 
       const slug = filename.replace(".md", "");
 
-      const blurDataURL = await posts.getBlurDataURL(data.cover);
+      const { base64: blurDataURL, img: coverData } = await getPlaiceholder(
+        data.cover,
+        {
+          size: 10,
+        }
+      );
 
       const date = data.date.toString();
       const title = data.title;
@@ -64,6 +62,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
         twitter,
         description,
         summary,
+        coverData,
       };
     })
   ).then((postsData) =>
@@ -135,6 +134,7 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
       : null,
     recommendedPosts,
     slug,
+    coverData: currentPost.coverData,
   };
 }
 
@@ -194,6 +194,7 @@ export async function getHomeDataFromPage(
       title: post.title,
       readingTimeInMinutes: post.readingTimeInMinutes,
       blurDataURL: post.blurDataURL,
+      coverData: post.coverData,
     })),
     pages: Array.from(
       { length: Math.ceil(allPosts.length / siteMetadata.postsPerPage) },
@@ -221,13 +222,8 @@ export async function getTagData(slug: PostData["slug"]): Promise<{
         title: post.title,
         readingTimeInMinutes: post.readingTimeInMinutes,
         blurDataURL: post.blurDataURL,
+        coverData: post.coverData,
       })),
     allTags: [...new Set(allPosts.flatMap(({ tags }) => tags))],
   };
 }
-
-const posts = {
-  getBlurDataURL,
-};
-
-export default posts;
