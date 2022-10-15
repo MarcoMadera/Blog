@@ -43,7 +43,7 @@ Que Mengano quiere agregar un borde a las secciones de una página para distingu
 - Es usado para mejorar la [accesibilidad web](https://marcomadera.com/blog/accesibilidad-web/#html-semantico).
 - Es fácil de entender sin esfuerzo desde la estructura al contenido[^all-tags], no me imagino lo horrible tener que encontrar elementos entre varios `div` y tablas, en la web de hace años.
 
-[^all-tags]: Todas las etiquedas HTML [All the tags](https://allthetags.com/)
+[^all-tags]: Todas las etiquetas HTML [All the tags](https://allthetags.com/)
 
 ---
 
@@ -134,7 +134,7 @@ Para **separar el texto** tenemos varias etiquetas. La etiqueta `<br>` represent
 Lo de arriba 👆 es una regla horizontal
 
 ```html
-¿qué-<wbr />pasaría-<wbr />si-<wbr />no-<wbr />quisiéramos-<wbr />usar-<wbr />espacios-<wbr />entre-<wbr />palabras-<wbr />o-<wbr />usar-<wbr />enlaces-<wbr />o-<wbr />extremadamente-<wbr />largos:<wbr />https://<wbr />marco<wbr />madera<wbr />.com<wbr />/blog<wbr />/html-<wbr />semantico
+¿qué-<wbr />pasaría-<wbr />si-<wbr />no-<wbr />quisiéramos-<wbr />usar-<wbr />espacios-<wbr />entre-<wbr />palabras-<wbr />o-<wbr />usar-<wbr />enlaces-<wbr />o-<wbr />extremadamente-<wbr />largos:<wbr />https://<wbr />marco<wbr />madera<wbr />.com<wbr />/blog<wbr />/html-<wbr />semántico
 
 <hr />
 

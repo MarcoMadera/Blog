@@ -162,8 +162,8 @@ export default function Privacy(): ReactElement {
           Para analizar la navegación. El Titular recoge otros datos no
           identificativos que se obtienen mediante el uso de cookies que se
           descargan en tu ordenador cuando navegas por el sitio Web cuyas
-          caracterísiticas y finalidad están detalladas en la Política de
-          Cookies .
+          características y finalidad están detalladas en la Política de Cookies
+          .
         </Li>
         <Li>
           Para gestionar las redes sociales. el Titular tiene presencia en redes

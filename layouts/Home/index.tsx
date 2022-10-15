@@ -32,18 +32,20 @@ export default function HomeLayout({
         title={title}
         canonical={currentPage !== 1 ? siteMetadata.siteUrl : undefined}
       />
-      <ProfileCard />
       <section>
-        <h1>
+        <ProfileCard />
+        <h2>
           {tag
             ? `Etiqueta ${posts[0].tags.find((item) =>
                 slugify(item).includes(tag)
               )}`
             : "Últimos artículos"}
-        </h1>
-        {posts.map((data) => (
-          <BlogCard {...data} key={data.slug} />
-        ))}
+        </h2>
+        <div className="posts">
+          {posts.map((data) => (
+            <BlogCard {...data} key={data.slug} />
+          ))}
+        </div>
         {posts.length <= 0 && <Custom404 />}
         <nav aria-label="Paginación">
           <ol>
@@ -91,6 +93,11 @@ export default function HomeLayout({
         }
       `}</style>
       <style jsx>{`
+        .posts {
+          display: grid;
+          grid-template-columns: repeat(12, minmax(0, 1fr));
+          column-gap: 1.5rem;
+        }
         nav :global(a) {
           align-items: center;
           border-radius: 50% !important;
@@ -104,8 +111,7 @@ export default function HomeLayout({
           text-decoration: none;
           width: 31px;
         }
-        h1 {
-          font-size: 1rem;
+        h2 {
           margin: 0.83em 0;
         }
         li {
@@ -114,10 +120,12 @@ export default function HomeLayout({
         main {
           display: grid;
           grid-gap: 2em;
-          grid-template-columns: 240px minmax(0px, 710px) 240px;
+          grid-template-columns: auto;
           justify-content: center;
           padding: 0 20px 50px 20px;
           min-height: calc(100vh - 257px);
+          max-width: 1300px;
+          margin: auto;
         }
         nav {
           display: flex;
@@ -132,10 +140,15 @@ export default function HomeLayout({
           margin: 0;
           padding: 0;
         }
-        @media screen and (min-width: 0px) and (max-width: 876px) {
-          main {
-            grid-template-columns: auto;
-          }
+        section {
+          display: grid;
+          grid-gap: 2em;
+          grid-template-columns: auto;
+        }
+        aside {
+          display: grid;
+          grid-gap: 2em;
+          grid-template-columns: auto;
         }
       `}</style>
     </main>

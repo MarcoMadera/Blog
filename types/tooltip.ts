@@ -15,7 +15,7 @@ export interface UseToolTip {
   removeToolTip: () => void;
   showToolTip: boolean;
   setShowToolTip: (showToolTip: boolean) => void;
-  getToolTipAttrbutes: (
+  getToolTipAttributes: (
     title: string,
     options?: Partial<{ hideToolTip: boolean }>
   ) => {

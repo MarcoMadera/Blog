@@ -16,10 +16,10 @@ interface AbbrProps extends Text {
 
 export function Abbr({ children, title, ...attribs }: AbbrProps): ReactElement {
   const { darkMode } = useDarkMode();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
 
   return (
-    <abbr {...getToolTipAttrbutes(title ?? "")} {...attribs}>
+    <abbr {...getToolTipAttributes(title ?? "")} {...attribs}>
       {children}
       <style jsx>{`
         abbr:after {

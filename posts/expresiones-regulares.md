@@ -58,9 +58,9 @@ Los _flags_, se sitúan al final de una expresión regular `/contenido/flags`. L
 - `i`: Ignora si es mayúscula o minúscula.
 - `m`: Búsqueda en multilínea
 
-### Grupos y rangos
+### Grupos y Rangos
 
-Dentro del contenido, podemos encontar los siguientes grupos y rangos de caracteres de expresión.
+Dentro del contenido, podemos encontrar los siguientes grupos y rangos de caracteres de expresión.
 
 - `[]`: Toma en cuenta los caracteres dentro de los _brackets_ <code>/<span class="purple">[</span>a<span class="purple">]</span>/g</code> aplicado: <span class="green">"<span class="purple">a</span>e<span class="purple">a</span>"</span>
 - `[^]`: Toma en cuenta los caracteres que no están dentro de los _brackets_ después del símbolo `^`, <code>/<span class="purple">[^</span>a<span class="purple">]</span>/g</code> aplicado: <span class="green">"a<span class="purple">e</span>a"</span>
@@ -71,7 +71,7 @@ Dentro del contenido, podemos encontar los siguientes grupos y rangos de caracte
 
 Para facilitarnos las cosas tenemos clases ya predefinidas y construidas que distinguen tipos.
 
-- `.`: Toma cualquier carácter, no toma nuevas líneas a excepción de que se use el _flag_ `s`. Si por ejemplo queremos usar un punto, pero no representar una clase tendremos que escaparlo con el _backslash_ `\` seguido de la clase `\.`.
+- `.`: Toma cualquier carácter, no toma nuevas líneas a excepción de que se use el _flag_ `s`. Si por ejemplo queremos usar un punto, pero no representar una clase, lo tendremos que escapar con el _backslash_ `\` seguido de la clase `\.`.
 - `\d`: Encuentra todos los dígitos de 0 a 9, es equivalente a [0-9].
 - `\D`: Encuentra todo lo que no es un dígito.
 - `\w`: Carácter alfanumérico es equivalente a [a-zA-Z0-9_].
@@ -247,4 +247,4 @@ Ahora ya tenemos nuestra información bien separada y lista para usar de otra fo
 
 Las expresiones regulares son una herramienta muy útil para validar datos de formularios, pero también para extraer información de un string.
 
-Aunque exista un amor/odio con las expresiones regulares, en algún momento nos viene bien su uso. Tienen muchos buenos usos porque puede hacer busquedas complejas como validar entradas de usuario o hacer _highlight_ a un bloque de código aplicando clases. Hay que tener cuidado dónde y cómo las usamos porque pueden ser objetivo de ataques.
+Aunque exista un amor/odio con las expresiones regulares, en algún momento nos viene bien su uso. Tienen muchos buenos usos porque puede hacer búsquedas complejas como validar entradas de usuario o hacer _highlight_ a un bloque de código aplicando clases. Hay que tener cuidado dónde y cómo las usamos porque pueden ser objetivo de ataques.

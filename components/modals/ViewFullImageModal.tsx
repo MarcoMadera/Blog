@@ -43,7 +43,7 @@ export default function ViewFullImageModal({
 }: ViewImageProps): ReactPortal | null {
   const [targetNode, setTargetNode] = useState<Element | null>();
   const exitButtonRef = useRef<HTMLButtonElement>(null);
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   useLockBodyScroll();
 
   const onPressKey = useCallback(
@@ -135,7 +135,7 @@ export default function ViewFullImageModal({
         <div className="imageContainer">
           {isFromCloudProvider ? (
             // eslint-disable-next-line jsx-a11y/alt-text
-            <Image {...imageProps} {...getToolTipAttrbutes(title || alt)} />
+            <Image {...imageProps} {...getToolTipAttributes(title || alt)} />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -143,7 +143,7 @@ export default function ViewFullImageModal({
               src={fullImage?.img.src || src}
               width={width ? width : undefined}
               height={height ? height : undefined}
-              {...getToolTipAttrbutes(title || alt)}
+              {...getToolTipAttributes(title || alt)}
             />
           )}
         </div>
@@ -155,7 +155,7 @@ export default function ViewFullImageModal({
             exitModal();
             detailsRef.current?.focus();
           }}
-          {...getToolTipAttrbutes("Cerrar")}
+          {...getToolTipAttributes("Cerrar")}
         ></button>
       </div>
       <style jsx>{`

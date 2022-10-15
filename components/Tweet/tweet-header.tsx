@@ -23,7 +23,7 @@ export default function TweetHeader({
   userId,
 }: TweetHeaderProps): ReactElement {
   const { darkMode } = useDarkMode();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const url = `https://twitter.com/${username}`;
   const htmlToReactParser = HtmlToReact.Parser();
 
@@ -56,7 +56,7 @@ export default function TweetHeader({
         hideToolTip
       >
         <span className="name">
-          <span {...getToolTipAttrbutes(name)}>
+          <span {...getToolTipAttributes(name)}>
             {htmlToReactParser.parse(
               twemoji.parse(name, { className: "twemoji" })
             )}{" "}
@@ -64,11 +64,11 @@ export default function TweetHeader({
           {verified ? (
             <span
               className="verified"
-              {...getToolTipAttrbutes("Cuenta verificada")}
+              {...getToolTipAttributes("Cuenta verificada")}
             ></span>
           ) : null}
         </span>
-        <span className="username" {...getToolTipAttrbutes(`@${username}`)}>
+        <span className="username" {...getToolTipAttributes(`@${username}`)}>
           @{username}
         </span>
       </A>

@@ -1,6 +1,6 @@
 ---
 title: Map y WeakMap en JavaScript
-description: Existen varias estructuras de datos que nos permiten almacenar información en JavasSript, una de ellas es el Map y el WeakMap.
+description: Existen varias estructuras de datos que nos permiten almacenar información en JavasScript, una de ellas es el Map y el WeakMap.
 date: 2022-02-28
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1646008638/Blog/Map-y-WeakMap/map_ibcrlr.jpg
 author: Marco Madera
@@ -105,7 +105,7 @@ El objeto `WeakMap`[^2] es similar al `Map`, que solo aceptan objetos como _key_
 
 El garbage collector es un proceso que se ejecuta en el navegador que elimina los objetos que ya no están referenciados de la memoria, esto ayuda a no consumir recursos innecesarios y que no colapse la memoria.
 
-### Caracteriscas de WeakMap
+### Características de WeakMap
 
 Son similares a los objetos `Map` pero con algunas diferencias esenciales:
 

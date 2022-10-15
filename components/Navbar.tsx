@@ -63,7 +63,7 @@ function Logo() {
 
 export default function Navbar(): ReactElement {
   const { darkMode, toggleDarkMode } = useDarkMode();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const title = `Cambiar al tema ${darkMode ? "claro" : "oscuro"}`;
 
   return (
@@ -80,7 +80,7 @@ export default function Navbar(): ReactElement {
           onClick={() => toggleDarkMode()}
           className="Header__darkMode Header__darkMode-Title"
           aria-label={title}
-          {...getToolTipAttrbutes(title)}
+          {...getToolTipAttributes(title)}
         >
           {darkMode ? (
             <Moon

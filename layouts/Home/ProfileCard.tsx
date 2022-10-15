@@ -10,89 +10,134 @@ export default function Aside(): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (
-    <aside>
+    <header>
+      <div>
+        <h1>
+          <span translate="no">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              draggable="false"
+              className="twemoji"
+              alt="👋"
+              src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f44b.png"
+              width="36"
+              height="36"
+            />{" "}
+            Marco Madera
+          </span>
+        </h1>
+        <p>
+          Este es mi sitio personal, escribo sobre frontend y experiencias para
+          crear más valor a la comunidad web.
+        </p>
+        <div className="social">
+          <SocialAnchor
+            socialTarget={`https://github.com/${social.gitHub}`}
+            socialNetwork="GitHub"
+          >
+            <GithubSquare
+              fill={darkMode ? colors.dark_primary : colors.primary}
+            />
+          </SocialAnchor>
+          <SocialAnchor
+            socialTarget={`https://www.linkedin.com/in/${social.linkedIn}`}
+            socialNetwork="LinkedIn"
+          >
+            <LinkedInSquare
+              fill={darkMode ? colors.dark_primary : colors.primary}
+            />
+          </SocialAnchor>
+          <SocialAnchor
+            socialTarget={`https://twitter.com/${social.twitter}`}
+            socialNetwork="Twitter"
+          >
+            <TwitterSquare
+              fill={darkMode ? colors.dark_primary : colors.primary}
+            />
+          </SocialAnchor>
+        </div>
+      </div>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/profile-80x80.jpg"
+        src="/profile-222x222.jpg"
         alt="Marco Madera"
+        className="profile-photo"
         loading="eager"
-        width={80}
-        height={80}
+        width={222}
+        height={222}
       />
-      <p>
-        ¡Hola! {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          draggable="false"
-          className="twemoji"
-          alt="👋"
-          src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f44b.png"
-          width="24"
-          height="24"
-        />{" "}
-        Soy <span translate="no">Marco</span>, autor del blog. Gracias por
-        pasarte, cualquier cosa me puedes contactar a través de las siguientes
-        redes:
-      </p>
-      <SocialAnchor
-        socialTarget={`https://github.com/${social.gitHub}`}
-        socialNetwork="GitHub"
-      >
-        <GithubSquare fill={darkMode ? colors.dark_primary : colors.primary} />
-      </SocialAnchor>
-      <SocialAnchor
-        socialTarget={`https://www.linkedin.com/in/${social.linkedIn}`}
-        socialNetwork="LinkedIn"
-      >
-        <LinkedInSquare
-          fill={darkMode ? colors.dark_primary : colors.primary}
-        />
-      </SocialAnchor>
-      <SocialAnchor
-        socialTarget={`https://twitter.com/${social.twitter}`}
-        socialNetwork="Twitter"
-      >
-        <TwitterSquare fill={darkMode ? colors.dark_primary : colors.primary} />
-      </SocialAnchor>
       <style jsx>{`
-        aside {
-          box-shadow: ${darkMode
-              ? "rgba(255,255,255,0.2)"
-              : "rgba(0, 0, 0, 0.2)"}
-            0px 0px 2px 0px;
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
-        }
-        aside :global(a:hover svg),
-        aside :global(a:focus svg) {
+        header :global(a:hover svg),
+        header :global(a:focus svg) {
           fill: ${darkMode ? colors.dark_secondary : colors.secondary};
         }
       `}</style>
       <style jsx>{`
-        aside :global(.twemoji) {
-          height: 24px;
-          margin: 0 2px;
-          vertical-align: top;
+        header :global(img) {
+          border-radius: 50%;
+          margin-bottom: 20px;
+          max-width: 100%;
         }
-        aside {
-          border-radius: 12px;
-          height: 300px;
-          margin-top: 40px;
-          padding: 20px;
-          text-align: center;
-          width: 100%;
-        }
-        aside :global(a) {
+        header :global(a) {
           display: inline-flex;
           box-sizing: border-box;
           margin: 0 10px;
         }
-        aside :global(img[alt="Marco Madera"]) {
-          clip-path: circle(50% at 50% 50%);
+        h1 {
+          font-size: 1.6rem;
+          font-weight: 400;
+          line-height: 1.5;
+          margin: 0;
+          color: ${darkMode ? "#ccccccaa" : colors.accents1};
+        }
+        h1 :global(span) {
+          color: ${darkMode ? colors.dark_primary : colors.primary};
+          font-size: 2rem;
         }
         p {
-          margin: 1em 0;
-          line-height: 1.5;
+          font-size: 1.1rem;
+          line-height: 1.8;
+        }
+        header :global(.twemoji) {
+          height: 38px;
+          margin: 0 2px;
+          vertical-align: top;
+        }
+        header {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex-direction: row;
+          justify-content: space-between;
+          background-color: ${darkMode
+            ? colors.dark_background
+            : colors.background};
+          border-radius: 10px;
+          margin-bottom: 20px;
+          width: 100%;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 40px;
+          gap: 20px;
+        }
+
+        @media (max-width: 604px) {
+          header {
+            flex-direction: column;
+            padding: 20px;
+            flex-direction: column-reverse;
+          }
+          .profile-photo {
+            width: 120px;
+            height: 120px;
+          }
+          .social {
+            display: flex;
+            justify-content: center;
+          }
         }
       `}</style>
-    </aside>
+    </header>
   );
 }

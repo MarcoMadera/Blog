@@ -73,30 +73,30 @@ const AboutLayout = ({
   newNowPlaying,
   topTracks,
 }: AboutLayoutProps): ReactElement => {
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const { trackWithGoogleAnalytics } = useAnalytics();
 
   return (
     <main>
       <Seo title="Sobre mí | Marco Madera" />
       <aside>
-        <Code width="50" height="50" {...getToolTipAttrbutes("Código")} />
-        <Java width="50" height="50" {...getToolTipAttrbutes("Java")} />
+        <Code width="50" height="50" {...getToolTipAttributes("Código")} />
+        <Java width="50" height="50" {...getToolTipAttributes("Java")} />
         <AugmentedReallity
           width="50"
           height="50"
-          {...getToolTipAttrbutes("Realidad Aumentada")}
+          {...getToolTipAttributes("Realidad Aumentada")}
         />
-        <CSharp width="50" height="50" {...getToolTipAttrbutes("C Sharp")} />
+        <CSharp width="50" height="50" {...getToolTipAttributes("C Sharp")} />
         <JavaScript
           width="50"
           height="50"
-          {...getToolTipAttrbutes("JavaScript")}
+          {...getToolTipAttributes("JavaScript")}
         />
-        <Music width="50" height="50" {...getToolTipAttrbutes("Música")} />
-        <Chess width="50" height="50" {...getToolTipAttrbutes("Ajedrez")} />
-        <Book width="50" height="50" {...getToolTipAttrbutes("Libro")} />
-        <Film width="50" height="50" {...getToolTipAttrbutes("Película")} />
+        <Music width="50" height="50" {...getToolTipAttributes("Música")} />
+        <Chess width="50" height="50" {...getToolTipAttributes("Ajedrez")} />
+        <Book width="50" height="50" {...getToolTipAttributes("Libro")} />
+        <Film width="50" height="50" {...getToolTipAttributes("Película")} />
       </aside>
       <section id="main">
         <div>
@@ -203,7 +203,7 @@ const AboutLayout = ({
                 );
                 return false;
               }}
-              {...getToolTipAttrbutes("Enviar correo electrónico")}
+              {...getToolTipAttributes("Enviar correo electrónico")}
             >
               <Email width="20" height="20" />
             </button>
@@ -213,7 +213,7 @@ const AboutLayout = ({
             loop
             muted
             playsInline
-            {...getToolTipAttrbutes("Perfecto")}
+            {...getToolTipAttributes("Perfecto")}
           >
             <source
               src="https://res.cloudinary.com/marcomadera/video/upload/v1602516508/about/18283-212312-32345_cptpwx.mp4"

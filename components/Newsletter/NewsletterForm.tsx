@@ -20,6 +20,7 @@ export default function NewsletterForm({
   const { trackWithGoogleAnalytics } = useAnalytics();
   const formRef = useRef<HTMLFormElement | null>(null);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [error, setError] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -27,7 +28,7 @@ export default function NewsletterForm({
 
     setError(false);
 
-    const { type, message } = await subscribeToNewsletter(email);
+    const { type, message } = await subscribeToNewsletter(email, name);
     trackWithGoogleAnalytics(HitType.EVENT, {
       eventCategory: "Form",
       eventAction: `Submit ${type}`,
@@ -42,7 +43,7 @@ export default function NewsletterForm({
     });
 
     if (type === "success") {
-      router.push("/newsletter/suscription");
+      router.push("/newsletter/subscription");
     }
 
     if (type === "error") {
@@ -51,25 +52,51 @@ export default function NewsletterForm({
   };
 
   return (
-    <form ref={formRef} className="bd-email" onSubmit={handleSubmit} noValidate>
+    <form
+      ref={formRef}
+      id="newsletter-form"
+      className="bd-email"
+      onSubmit={handleSubmit}
+      noValidate
+    >
       {children}
-      <Input
-        type="email"
-        name="email"
-        id="bd-email"
-        autoComplete="email"
-        aria-label="Correo electrónico para el newsletter"
-        placeholder="Correo electrónico*"
-        onChange={(e) => {
-          setError(false);
-          setEmail(e.target.value);
-        }}
-      />
-      <ActionButton>Suscríbete</ActionButton>
+      <label htmlFor="newsletterForm-name">
+        Nombre
+        <Input
+          type="name"
+          name="name"
+          id="newsletterForm-name"
+          aria-label="Nombre"
+          placeholder="Nombre (opcional)"
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+      </label>
+      <label htmlFor="newsletterForm-email">
+        Email*
+        <Input
+          type="email"
+          name="email"
+          id="newsletterForm-email"
+          autoComplete="email"
+          aria-label="Correo electrónico para el newsletter"
+          placeholder="Correo electrónico (requerido)"
+          onChange={(e) => {
+            setError(false);
+            setEmail(e.target.value);
+          }}
+        />
+      </label>
+      <ActionButton>Suscribirte</ActionButton>
       <style jsx>{`
         form :global(input) {
-          border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
+          border: 1px solid ${darkMode ? "#cccccc4d" : "#ccc"};
           background: ${darkMode ? "#1e242d" : "#f9f9f9"};
+          margin-top: 0.5em;
+        }
+        form :global(#newsletterForm-email) {
+          border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
         }
         form :global(input:focus) {
           border: 1px solid
@@ -77,6 +104,14 @@ export default function NewsletterForm({
         }
         form :global(input:hover) {
           border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};
+        }
+        form label {
+          display: block;
+          text-align: left;
+        }
+        form {
+          max-width: 700px;
+          margin: auto;
         }
       `}</style>
     </form>

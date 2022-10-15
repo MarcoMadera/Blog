@@ -9,21 +9,21 @@ import useNotification from "hooks/useNotification";
 
 export default function Cookies(): ReactElement {
   const { darkMode } = useDarkMode();
-  const { acceptedcookies, toggleAcceptedCookies } = useCookies();
+  const { acceptedCookies, toggleAcceptedCookies } = useCookies();
   const { addNotification } = useNotification();
   useAnalytics("page-cookies");
 
   return (
     <main id="main">
-      <Seo title={`Política de cookies ${acceptedcookies ? "🔓" : "🔒"}`} />
+      <Seo title={`Política de cookies ${acceptedCookies ? "🔓" : "🔒"}`} />
       <H1>Política de cookies</H1>
       <div>
         <span>
-          Clic para {acceptedcookies ? "deshabilitar" : "permitir"} cookies:
+          Clic para {acceptedCookies ? "deshabilitar" : "permitir"} cookies:
         </span>
         <label
           aria-label={`${
-            acceptedcookies ? "deshabilitar" : "permitir"
+            acceptedCookies ? "deshabilitar" : "permitir"
           } cookies`}
         >
           <input
@@ -34,7 +34,7 @@ export default function Cookies(): ReactElement {
                 message: toggleAcceptedCookies(),
               });
             }}
-            defaultChecked={!acceptedcookies}
+            defaultChecked={!acceptedCookies}
           />
         </label>
       </div>
@@ -187,10 +187,10 @@ export default function Cookies(): ReactElement {
             : colors.accents2};
         }
         label:before {
-          background-image: ${!acceptedcookies
+          background-image: ${!acceptedCookies
             ? "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 0c-82.436.094-149.239 66.898-149.333 149.333v96c0 5.891 4.776 10.667 10.667 10.667S128 251.224 128 245.333h21.333c0 5.891 4.776 10.667 10.667 10.667s10.667-4.776 10.667-10.667v-96C170.667 102.205 208.872 64 256 64s85.333 38.205 85.333 85.333v53.333c0 5.891 4.776 10.667 10.667 10.667h42.667c5.891 0 10.667-4.776 10.667-10.667v-53.333C405.239 66.898 338.436.094 256 0z' fill='%23455a64'/%3E%3Cpath d='M394.667 234.667H117.333c-17.673 0-32 14.327-32 32v192c0 29.455 23.878 53.333 53.333 53.333h234.667c29.455 0 53.333-23.878 53.333-53.333v-192c.001-17.673-14.326-32-31.999-32z' fill='%23ffc107'/%3E%3Cpath d='M284.8 372.693a42.089 42.089 0 0013.867-31.36c0-23.564-19.103-42.667-42.667-42.667s-42.667 19.103-42.667 42.667a42.089 42.089 0 0013.867 31.36l-13.312 39.936c-1.862 5.589 1.16 11.629 6.749 13.491 1.084.361 2.22.546 3.363.547h64c5.891-.004 10.663-4.784 10.659-10.675a10.652 10.652 0 00-.547-3.363L284.8 372.693z' fill='%23455a64'/%3E%3C/svg%3E\")"
             : "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cpath style='fill:%23455A64;' d='M256,0c-82.436,0.094-149.239,66.898-149.333,149.333v96c0,5.891,4.776,10.667,10.667,10.667 S128,251.224,128,245.333h21.333c0,5.891,4.776,10.667,10.667,10.667c5.891,0,10.667-4.776,10.667-10.667v-96 C170.667,102.205,208.872,64,256,64s85.333,38.205,85.333 c5.891,0,10.667-4.776,10.667-10.667v-53.333C405.239,66.898,338.436,0.094,256,0z'/%3E%3Cpath style='fill:%23FFC107;' d='M394.667,234.667H117.333c-17.673,0-32,14.327-32,32v192c0,29.455,23.878,53.333,53.333,53.333 h234.667c29.455,0,53.333-23.878,53.333-53.333v-192C426.667,248.994,412.34,234.667,394.667,234.667z'/%3E%3Cpath style='fill:%23455A64;' d='M284.8,372.693c8.864-8.011,13.905-19.412,13.867-31.36c0-23.564-19.103-42.667-42.667-42.667 s-42.667,19.103-42.667,42.667c-0.038,11.948,5.003,23.349,13.867,31.36l-13.312,39.936c-1.862,5.589,1.16,11.629,6.749,13.491 c1.084,0.361,2.22,0.546,3.363,0.547h64c5.891-0.004,10.663-4.784,10.659-10.675c-0.001-1.143-0.185-2.278-0.547-3.363 L284.8,372.693z'/%3E%3C/svg%3E\")"};
-          transform: translateX(${!acceptedcookies ? "31px" : "0"});
+          transform: translateX(${!acceptedCookies ? "31px" : "0"});
           background-color: ${darkMode ? colors.accents2 : "transparent"};
         }
       `}</style>

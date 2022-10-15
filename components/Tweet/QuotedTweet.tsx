@@ -18,7 +18,7 @@ export default function QuotedTweet({
   data,
 }: QuotedTweetProps): ReactElement | null {
   const { darkMode } = useDarkMode();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const user = data.user?.[0];
 
   if (!user) {
@@ -43,7 +43,7 @@ export default function QuotedTweet({
             <img
               src={user.profile_image_url}
               alt={user.name}
-              {...getToolTipAttrbutes(user.name)}
+              {...getToolTipAttributes(user.name)}
               onError={(e) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src = `https://res.cloudinary.com/demo/image/twitter/w_19,h_19/${user.id}.jpg`;

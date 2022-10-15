@@ -236,7 +236,7 @@ El uso de `git rebase` puede ir en contra de esto porque coloca la base de una r
 
 Todo lo que hemos estado trabajando es sobre el repositorio local de nuestro proyecto. Para que otras personas lo vean y colaboren con él, podemos usar los servicios remotos como [GitHub](https://github.com/), [Bitbucket](https://bitbucket.org/) y [GitLab](https://about.gitlab.com/); son servicios que permiten la gestión de proyectos y el seguimiento de trabajo con otros desarrolladores.
 
-Para subir un repositorio local a uno remoto, tendremos que crear un repositorio en algunos de los servicios en el cual obtendremos una _url_ del nuestro proyecto, con la que podremos utilizar `git remote add <nombre indentificador> <url>`
+Para subir un repositorio local a uno remoto, tendremos que crear un repositorio en algunos de los servicios en el cual obtendremos una _url_ del nuestro proyecto, con la que podremos utilizar `git remote add <nombre identificador> <url>`
 
 Otra forma de obtener un repositorio es **clonar un repositorio remoto** con `git clone <url> <nombre>`. Con esto ya tendremos en nuestro directorio local una copia con la que podremos contribuir al proyecto o simplemente experimentar con su funcionamiento.
 
@@ -273,7 +273,7 @@ Git mantiene un _log_ de dónde el `HEAD` y sus referencias han estado. Lo podem
 <pre><code data-lang="CLI"><span class="purple">git</span> <span class="blue">reflog</span>
 <span class="yellow">2673d2d (<span class="lightblue">HEAD -></span> <span class="green">master</span>, <span class="red">origin/master</span>)</span> HEAD@{0}: merge newbranch: Merge made by the <span class="green">'recursive'</span> strategy.
 <span class="yellow">4e85459</span> HEAD@{1}: checkout: moving from master to master
-<span class="yellow">4e85459</span> HEAD@{2}: commit: hola mundo
+<span class="yellow">4e85459</span> HEAD@{2}: commit: Hola Mundo
 <span class="yellow">8c821a7</span> HEAD@{3}: checkout: moving from newbranch to master
 
 <span class="purple">git</span> <span class="blue">show HEAD@{2}</span>
@@ -281,7 +281,7 @@ Git mantiene un _log_ de dónde el `HEAD` y sus referencias han estado. Lo podem
 Author: MarcoMadera &#60;example@email.com&#62;
 Date:   Mon Jul 6 17:09:50 2020 -0500
 
-    hola mundo
+    Hola Mundo
 
 diff <span class="blue">--git</span> <span class="lightblue">a/index.js b/index.js</span>
 index 5e1c309..ade1f58 100644

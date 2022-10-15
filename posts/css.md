@@ -136,7 +136,7 @@ nav#someID.topNavbar {
   ...;
 }
 
-nav.topNavb#someID {
+nav.topNavbar#someID {
   ...;
 }
 ```
@@ -246,7 +246,7 @@ Para usar las propiedades en un scope global del documento se pueden definir las
 }
 ```
 
-## Herencia y cascada
+## Herencia y Cascada
 
 Los elementos de CSS tienen la característica de que se pueden **heredar propiedades desde los ancestros hasta el elemento actual**. Esto modifica el valor que la propiedad tiene por defecto. Propiedades como `font` y `color` ocurren de forma automática. Otras propiedades es necesario decirle que herede las propiedades con valores especiales.
 
@@ -278,7 +278,7 @@ p {
 
 En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace del revés, la declaración abreviada sobrescribirá la propiedad única a la que el navegador entienda por defecto, pues la propiedad abreviada contiene los demás valores dados por defecto.
 
-Mal: La regla no aplica el estilo de fuente italica.
+Mal: La regla no aplica el estilo de fuente itálica.
 
 ```css -2
 p {

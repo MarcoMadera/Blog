@@ -36,14 +36,14 @@ export function A({
   > &
     AProps
 >): ReactElement {
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const { darkMode } = useDarkMode();
 
   return (
     <a
       className={classname ?? className}
       href={href}
-      {...getToolTipAttrbutes(title ?? href, { hideToolTip })}
+      {...getToolTipAttributes(title ?? href, { hideToolTip })}
       {...attribs}
     >
       {children}
@@ -68,14 +68,14 @@ export function ALink({
   textColor,
   ...attribs
 }: PropsWithChildren<AProps & LinkProps>): ReactElement {
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const { darkMode } = useDarkMode();
 
   return (
     <>
       <Link href={href} prefetch={prefetch}>
         <a
-          {...getToolTipAttrbutes(title ?? href, { hideToolTip })}
+          {...getToolTipAttributes(title ?? href, { hideToolTip })}
           {...attribs}
           className={classname || className}
         >

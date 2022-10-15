@@ -200,6 +200,6 @@ let e = 2.71828182846;
 
 Por lo que algunas de las razones por las que preferiría usar constantes son:
 
-- No se puede hacer shadowing de una constante volviendola a declarar.
+- No se puede hacer shadowing de una constante volviéndola a declarar.
 - Algunas veces, una variable inmutable puede ser muy útil, pero no es necesario. En ese caso, puede usarse una constante.
 - Las constantes son válidas durante todo el tiempo que se ejecuta un programa, dentro del scope en el que se declararon y en el scope global, lo que quiere decir las puedes poner fuera del `main`, y se podrían en cualquier parte del programa. De esta forma podemos tener las constantes en un solo lugar y actualizarlas en un futuro fácilmente.

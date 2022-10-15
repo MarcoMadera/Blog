@@ -2,14 +2,14 @@ import Seo from "components/Seo";
 import { H1, Video } from "components/tags";
 import { ReactElement } from "react";
 
-export default function Suscription(): ReactElement {
+export default function Subscription(): ReactElement {
   return (
     <>
       <main id="main">
         <Seo title="Suscripción exitosa! 🎉| Marco Madera" />
         <section>
           <H1>
-            ¡Ya casi estás suscrito al Newsletter!{" "}
+            ¡Se ha confirmado tu suscripción al newsletter.!{" "}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               draggable="false"
@@ -20,10 +20,7 @@ export default function Suscription(): ReactElement {
               height="35"
             />
           </H1>
-          <p>
-            Te envié un correo de confirmación, da clic en él y completarás el
-            proceso.
-          </p>
+          <p>¡Gracias por suscribirte!</p>
           <Video
             loop
             autoPlay
