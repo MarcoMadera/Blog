@@ -13,16 +13,16 @@ interface ButtonProps {
   network: "Twitter" | "Facebook" | "LinkedIn";
 }
 
-function Button({
+export function Button({
   url,
   network,
   children,
 }: PropsWithChildren<ButtonProps>): ReactElement {
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const { trackWithGoogleAnalytics } = useAnalytics();
   return (
     <button
-      {...getToolTipAttrbutes(`Compartir en ${network}`)}
+      {...getToolTipAttributes(`Compartir en ${network}`)}
       onClick={() => {
         trackWithGoogleAnalytics(HitType.SOCIAL, {
           socialAction: "share",

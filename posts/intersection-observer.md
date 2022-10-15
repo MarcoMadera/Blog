@@ -8,7 +8,7 @@ tags:
   - JavaScript
 ---
 
-Algunas veces necesitamos saber en qué parte se encuentra un elemento en la pantalla para poder hacer algo. Por ejemplo, hace tiempo, creando un clon de spotify para experimentar me tope con el siguiente caso de uso peculiar:
+Algunas veces necesitamos saber en qué parte se encuentra un elemento en la pantalla para poder hacer algo. Por ejemplo, hace tiempo, creando un clon de Spotify para experimentar me tope con el siguiente caso de uso peculiar:
 
 <videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1641168708/Blog/intersection-observer/Pinned_header_k_rfvlbg.mp4" title="Spotify sticky table header"></videogif>
 
@@ -75,7 +75,7 @@ Para obtener la información de la observación, debemos usar el método `takeRe
 const records = observer.takeRecords();
 ```
 
-Para dejar de observar todos los elementos, debemos usar el método `disconnect`. Esta acción es necesaria para evitar fugas de memoria, asi que asegurate que no queden observadores sin desconectar.
+Para dejar de observar todos los elementos, debemos usar el método `disconnect`. Esta acción es necesaria para evitar fugas de memoria, asi que asegúrate que no queden observadores sin desconectar.
 
 ```typescript
 observer.disconnect();
@@ -142,7 +142,7 @@ return function () {
 
 Esto se puede usar para hacer `fetch` de una datos cuando el usuario está cerca del elemento que los muestra y asi evitar que se carguen datos innecesarios. Por ejemplo, si tenemos una lista de productos que se muestra en la pantalla, y cada producto tiene una imagen que se carga en el _viewport_, podemos hacer un fetch de los datos cuando el usuario está cerca del elemento que muestra la imagen.
 
-Para saber que un elemento ha sido interseccionado con el _viewport_, debemos usar el método `takeRecords` y le pasamos la referencia del elemento que queremos obtener la información.
+Para saber que un elemento ha hecho intersección con el _viewport_, debemos usar el método `takeRecords` y le pasamos la referencia del elemento que queremos obtener la información.
 
 ## Conclusión
 

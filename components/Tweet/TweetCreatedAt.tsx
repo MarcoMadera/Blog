@@ -9,7 +9,7 @@ export default function TweetCreatedAt({
   created_at: string;
   variant?: "short";
 }): ReactElement {
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const [createdAt, setCreatedAt] = useState<Date | undefined>(undefined);
   const [createdAtIsoString, setCreatedAtIsoString] = useState<
     string | undefined
@@ -37,7 +37,7 @@ export default function TweetCreatedAt({
   }`;
 
   return (
-    <time dateTime={createdAtIsoString} {...getToolTipAttrbutes(title)}>
+    <time dateTime={createdAtIsoString} {...getToolTipAttributes(title)}>
       {createdAtIsoString &&
         (variant === "short"
           ? getQuotedTwitterFormattedDate(createdAtIsoString)

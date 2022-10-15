@@ -18,7 +18,7 @@ export default function AllTags({
   return (
     <section>
       <h2>{title}</h2>
-      <div>
+      <div className="tags">
         {allTags.map((tag) => (
           <ALink
             aria-label={`etiqueta ${tag}`}
@@ -42,13 +42,31 @@ export default function AllTags({
           width: fit-content;
         }
         section div {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem 2rem;
         }
         section h2 {
-          line-height: 43px;
-          font-size: 1em;
-          font-weight: 600;
+          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          margin-bottom: 1.6rem;
+        }
+        .tags :global(a) {
+          padding: 0.45rem 0.7rem;
+          border-radius: 0.3rem;
+          background-color: ${darkMode
+            ? "rgba(31, 41, 55, 1)"
+            : colors.accents4};
+          color: ${darkMode ? colors.dark_textColor : colors.black};
+          font-size: 1rem;
+          font-weight: 400;
+          text-decoration: none;
+          transition: 0.3s ease-in-out;
+          outline: 3px solid transparent;
+        }
+        .tags :global(a:hover),
+        .tags :global(a:focus),
+        .tags :global(a:focus-within) {
+          outline: 3px solid ${colors.primary};
         }
         @media screen and (max-width: 876px) {
           section :global(a) {

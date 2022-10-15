@@ -1,6 +1,9 @@
 import { isValidEmail } from "./isValidEmail";
 
-export async function subscribeToNewsletter(email: string): Promise<{
+export async function subscribeToNewsletter(
+  email: string,
+  name: string
+): Promise<{
   type: "error" | "success";
   message: string;
 }> {
@@ -19,6 +22,7 @@ export async function subscribeToNewsletter(email: string): Promise<{
       },
       body: JSON.stringify({
         email,
+        name,
       }),
     });
 

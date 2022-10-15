@@ -30,26 +30,20 @@ export default function BlogCard({
 
   return (
     <article>
-      <Link href={`/blog/${slug}/`}>
-        <a aria-label={`post ${title}`}>
-          <header>
-            <div>
-              <h2>{title}</h2>
-              <p>
-                {description}.. <span>Leer más</span>
-              </p>
-            </div>
+      <Link href={`/blog/${slug}`}>
+        <a>
+          <div className="cover">
             <Image
-              height={80}
-              width={80}
+              height={548}
+              width={410}
               alt={tags.join(", ")}
               placeholder="blur"
               loader={
                 isFromCloudProvider
-                  ? ({ src, width }) =>
+                  ? ({ src }) =>
                       replaceUrlImgTransformations(
                         src,
-                        `q_auto,f_auto,c_scale,h_${width},w_${width}`
+                        "c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee"
                       )
                   : undefined
               }
@@ -57,109 +51,193 @@ export default function BlogCard({
               blurDataURL={blurDataURL}
               src={cover}
             />
-          </header>
+            {tags.length > 0 && (
+              <div className="tags">
+                {tags.map((tag) => (
+                  <Link href={`/blog/etiqueta/${slugify(tag)}`} key={tag}>
+                    <a>{tag}</a>
+                  </Link>
+                ))}
+              </div>
+            )}
+            <span>{author}</span>
+          </div>
+          <div className="content">
+            <div className="info">
+              <span>{getFormattedDate(date)}</span>
+              <span>{readingTimeInMinutes} min de lectura</span>
+            </div>
+            <h2>{title}</h2>
+            <p>{description}</p>
+          </div>
         </a>
       </Link>
-      <footer>
-        <div>
-          {tags.length &&
-            tags.map((tag) => (
-              <Link
-                prefetch={false}
-                href={`/blog/etiqueta/${slugify(tag)}/`}
-                key={tag}
-              >
-                <a aria-label={`etiqueta ${tag}`}>#{tag}</a>
-              </Link>
-            ))}
-        </div>
-        <section>
-          <span translate="no">{author} &middot;&nbsp;</span>
-          <time dateTime={new Date(date).toISOString()}>
-            {getFormattedDate(date)}&nbsp;&middot;&nbsp;
-          </time>
-          <span>{`${readingTimeInMinutes} min. de lectura`}</span>
-        </section>
-      </footer>
       <style jsx>{`
-        article {
-          box-shadow: ${darkMode
-              ? "rgba(255,255,255,0.2)"
-              : "rgba(0, 0, 0, 0.2)"}
-            0px 0px 2px 0px;
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+         {
+          /* show the tags in each pill inside the image top and the author inside the image bottom */
         }
-        article:hover,
-        article:focus-within {
-          box-shadow: ${darkMode
-              ? "rgba(255,255,255,0.3)"
-              : "rgba(0, 0, 0, 0.3)"}
-            0px 0px 2px 0px;
-        }
-      `}</style>
-      <style jsx>{`
-        section {
-          display: flex;
+        .tags {
+          position: absolute;
+          top: 0;
+          left: 0;
           flex-wrap: wrap;
+          padding: 0.5rem;
+          z-index: 1;
+          display: none;
         }
-        a {
-          display: inline-flex;
-          box-sizing: border-box;
+        article:hover .tags,
+        article:focus .tags,
+        article:focus-within .tags {
+          display: flex;
+        }
+        .tags a {
+          padding: 0.45rem 0.7rem;
+          border-radius: 0.3rem;
+          background-color: ${colors.white};
+          color: ${colors.black};
+          font-size: 1rem;
+          font-weight: 400;
           text-decoration: none;
-          color: inherit;
+          transition: 0.3s ease-in-out;
+          outline: 3px solid transparent;
         }
-        a:focus {
-          outline: none;
+        .tags a:hover,
+        .tags a:focus,
+        .tags a:focus-within {
+          outline: 3px solid ${colors.primary};
         }
-        article {
-          border-radius: 5px;
+        .cover {
+          position: relative;
+          border-radius: 0.5rem;
+          overflow: hidden;
           margin-bottom: 1rem;
         }
-        article:focus-within {
-          outline-style: dashed;
-          outline-width: 2px;
-          outline-color: #b50000;
+        .cover span {
+          position: absolute;
+          bottom: 0;
+          left: -5px;
+          padding: 0.5rem;
+          background-color: ${colors.white};
+          color: ${colors.black};
+          font-size: 0.75rem;
+          font-weight: 400;
+          display: none;
+          border-radius: 0 0.3rem 0 0;
         }
-        div > a {
-          margin-right: 5px;
+        article:focus .cover span,
+        article:focus-within .cover span,
+        article:hover .cover span {
+          display: block;
         }
-        footer {
-          padding: 0 1rem 0.4rem;
+        article {
+          margin-bottom: 2.5rem;
+          overflow: hidden;
+          grid-column: span 4 / span 4;
+          max-width: 410px;
         }
-        footer a:hover,
-        header div p:hover span {
-          text-decoration: underline;
+        a {
+          margin: 6px;
+        }
+        .cover {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          border-radius: 0.5rem;
+          display: flex;
+          transition: 0.3s ease-in-out;
+        }
+        .cover :global(img) {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: 0.3s ease-in-out;
+        }
+        article:hover :global(img),
+        article:focus :global(img),
+        article:focus-within :global(img) {
+          transform: scale(1.1);
+        }
+        article *:focus,
+        article *:focus-within {
+          outline: none;
+        }
+        article:focus-within .cover,
+        article:hover .cover,
+        article:focus .cover {
+          box-shadow: 0 0 0 4px
+              ${darkMode ? colors.dark_background : colors.background},
+            0 0 0 6px ${darkMode ? colors.dark_textColor : colors.black};
+        }
+        .content {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr auto;
+          grid-template-areas:
+            "title"
+            "description"
+            "info";
+          padding: 1rem;
+          border-radius: 0.5rem;
         }
         h2 {
           margin: 0;
-          font-size: 1.17em;
+          font-size: 1.5rem;
           font-weight: 600;
-        }
-        a:focus h2,
-        a:focus span,
-        footer a:focus,
-        h2:hover {
-          text-decoration: underline;
-        }
-        header {
-          display: grid;
-          grid-template-columns: 1fr minmax(0, 5rem);
-          padding: 0.5rem 1rem 0 1rem;
-        }
-        header div {
-          width: 760px;
-          width: auto;
-          padding-right: 1rem;
-        }
-        header :global(img) {
-          width: 5rem;
-          height: 5rem;
-          min-height: 5rem !important;
-          margin: 0 !important;
-          clip-path: inset(0% 0% 0% 0% round 10px);
+          line-height: 1.2;
+          color: ${darkMode ? colors.dark_primary : colors.primary};
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          overflow: hidden;
+          text-align: left;
+          -o-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          white-space: unset;
         }
         p {
           margin: 0;
+          margin-top: 1rem;
+          font-size: 1rem;
+          line-height: 1.5;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          overflow: hidden;
+          text-align: left;
+          -o-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          white-space: unset;
+        }
+        .info {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 0.5rem;
+          font-size: 0.875rem;
+          color: ${darkMode ? "#ccccccaa" : colors.accents1};
+        }
+        .info span {
+          display: flex;
+          align-items: center;
+        }
+        .info span :global(svg) {
+          margin-right: 0.5rem;
+        }
+        a {
+          display: block;
+          color: inherit;
+          text-decoration: none;
+        }
+
+        @media (max-width: 1024px) {
+          article {
+            grid-column: span 6 / span 6;
+          }
+        }
+        @media (max-width: 500px) {
+          article {
+            grid-column: span 12 / span 12;
+          }
         }
       `}</style>
     </article>

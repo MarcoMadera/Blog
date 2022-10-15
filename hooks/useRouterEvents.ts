@@ -6,7 +6,7 @@ import useCookies from "./useCookies";
 import NProgress from "nprogress";
 
 export default function useRouterEvents(): void {
-  const { acceptedcookies } = useCookies();
+  const { acceptedCookies } = useCookies();
   const { trackWithGoogleAnalytics } = useAnalytics();
   const router = useRouter();
 
@@ -33,5 +33,5 @@ export default function useRouterEvents(): void {
       router.events.off("routeChangeError", () => NProgress.done());
       router.events.off("hashChangeStart", handleHashChangeStart);
     };
-  }, [router.events, acceptedcookies, trackWithGoogleAnalytics]);
+  }, [router.events, acceptedCookies, trackWithGoogleAnalytics]);
 }

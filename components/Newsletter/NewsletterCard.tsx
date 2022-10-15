@@ -8,7 +8,7 @@ export default function NewsletterCard(): ReactElement {
 
   return (
     <NewsletterForm>
-      <label htmlFor="bd-email">¡Suscríbete al Newsletter!</label>
+      <label htmlFor="newsletterForm-email">¡Suscríbete al Newsletter!</label>
       <p>Recibirás actualizaciones del blog con temas de programación</p>
       <style jsx>{`
         :global(form.bd-email) {
@@ -32,19 +32,20 @@ export default function NewsletterCard(): ReactElement {
           width: 100%;
         }
         label {
-          font-size: 18px;
+          font-size: 1.8rem;
           font-weight: 600;
           margin: 30px 0;
         }
         p {
-          font-size: 15px;
+          font-size: 1.1rem;
           text-align: center;
           margin: 1em 0;
         }
         :global(form.bd-email input) {
+          margin-top: 1rem;
           margin-bottom: 30px;
           outline: unset;
-          padding: 6px 8px;
+          padding: 1rem 1.5rem;
           width: 100%;
         }
         :global(form.bd-email button) {

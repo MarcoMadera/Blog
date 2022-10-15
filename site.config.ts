@@ -20,6 +20,6 @@ export const siteMetadata = {
     linkedIn: "marcomadera",
     facebook: "marco.mad.lop",
   },
-  postsPerPage: 5,
+  postsPerPage: 6,
   commentsPerPost: 5,
 };

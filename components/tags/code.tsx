@@ -61,11 +61,11 @@ function Span({ number }: SpanProps) {
 
 export function Pre({
   children,
-  ...atrribs
+  ...attribs
 }: PropsWithChildren<Record<string, string | ReactNode>>): ReactElement {
   const { darkMode } = useDarkMode();
   const { addNotification } = useNotification();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
 
   function getTextChild(
     children: string | number | boolean | ReactFragment | ReactPortal
@@ -109,12 +109,12 @@ export function Pre({
 
   return (
     <div>
-      <pre tabIndex={-1} {...atrribs}>
+      <pre tabIndex={-1} {...attribs}>
         {children}
         <button
           aria-label="Copiar al portapapeles"
           onClick={copyToClipboard}
-          {...getToolTipAttrbutes("Copiar al portapapeles")}
+          {...getToolTipAttributes("Copiar al portapapeles")}
         >
           <CopyToClipboard color="#ccc" width={30} height={30} />
         </button>

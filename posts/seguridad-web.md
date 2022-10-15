@@ -35,7 +35,7 @@ Si no se hace correctamente este paso se pueden tener datos corruptos. Por ejemp
 
 <tweet id="1379691085514047490"></tweet>
 
-<tweet id="1396196807173099524" caption="[Actualización: 22 Mayo 21] A partir de está fecha se le asignó un nombre de usuario, lo cual ya pasaba en las aplicaciones móbiles cambiando cada cierto tiempo."></tweet>
+<tweet id="1396196807173099524" caption="[Actualización: 22 Mayo 21] A partir de está fecha se le asignó un nombre de usuario, lo cual ya pasaba en las aplicaciones móviles cambiando cada cierto tiempo."></tweet>
 
 Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al _frontend_ puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
 
@@ -44,7 +44,7 @@ Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son 
   "test": [
     {
       "question": "¿Qué url es más segura?",
-      "anwers": [
+      "answers": [
         {
           "text": "https://googIe.com",
           "correct": true
@@ -82,7 +82,7 @@ El siguiente ejemplo de crear un tweet que se hace retweet cada vez que aparece 
 
 ### Ataque XSS no persistente
 
-El ataque no persistente es aquel en el que el código malicisioso se ejecuta desde el navegador de la victima. Una de la formas de inyectar código es a travez de la consola del navegador. Tal vez te suene si has visto una alerta en algunos sitios web en la consola.
+El ataque no persistente es aquel en el que el código malicisioso se ejecuta desde el navegador de la victima. Una de la formas de inyectar código es a través de la consola del navegador. Tal vez te suene si has visto una alerta en algunos sitios web en la consola.
 
 ![Alerta XSS en la consola](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_227,w_705/v1618249299/Blog/seguridad-web/self-xss_axzj76.png "Alerta XSS en la consola")
 
@@ -98,7 +98,7 @@ En el blog de _secrets of app security_ hay un ejemplo claro de un ataque con sa
 
 Puede que recuerdes el mensaje del punto negro de WhatsApp y iMessage. Este es un ataque de este tipo que tenía oculto múltiples entidades `&lrm;` que cambian la dirección del texto y que el procesador de xml no podía soportar. Otro ataque similar a este es el llamado [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack) que usa entidades `&lol;`.
 
-<tweet id="994230605859651584" caption="El mensaje contenía multiples entidades de dirección del texto &lrm, que sobrecargaban la memoría y hacía que la app dejará de responder" ></tweet>
+<tweet id="994230605859651584" caption="El mensaje contenía multiples entidades de dirección del texto &lrm, que sobrecargaban la memoria y hacía que la app dejará de responder" ></tweet>
 
 ## Server-side request forgery (SSRF)
 
@@ -164,4 +164,4 @@ Algunas empresas tienen programas de recompensas para quienes encuentren vulnera
 
 ## Conclusión
 
-Los riesgos en la seguridad web se pueden presentar en diferentes formas. Estos cambian rápidamente y se requiere revisar continuamente. Esta es una práctica continua durante todo el proceso donde se deben de mantener buenas prácticas de seguridad, actualizar librerias, analizar cómo mejorar los canales de desarrollo automatizando la seguridad para que no retrase el proyecto en desarrollo.
+Los riesgos en la seguridad web se pueden presentar en diferentes formas. Estos cambian rápidamente y se requiere revisar continuamente. Esta es una práctica continua durante todo el proceso donde se deben de mantener buenas prácticas de seguridad, actualizar librerías, analizar cómo mejorar los canales de desarrollo automatizando la seguridad para que no retrase el proyecto en desarrollo.

@@ -11,7 +11,7 @@ import {
 } from "react";
 
 interface CookiesContext {
-  acceptedcookies: boolean | undefined;
+  acceptedCookies: boolean | undefined;
   setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>>;
 }
 
@@ -22,24 +22,24 @@ export function CookiesContextProvider({
 }: {
   children: ReactNode;
 }): ReactElement {
-  const [acceptedcookies, setAcceptedCookies] =
-    useState<CookiesContext["acceptedcookies"]>();
+  const [acceptedCookies, setAcceptedCookies] =
+    useState<CookiesContext["acceptedCookies"]>();
   const setAceptedCookiesLocalStorage = useLocalStorage(
     "cookiesAccepted",
     "false"
   )[1];
 
   useEffect(() => {
-    if (acceptedcookies === false) {
+    if (acceptedCookies === false) {
       setAceptedCookiesLocalStorage("false");
     }
-    if (acceptedcookies === true) {
+    if (acceptedCookies === true) {
       setAceptedCookiesLocalStorage("true");
     }
   });
   return (
-    <Context.Provider value={{ acceptedcookies, setAcceptedCookies }}>
-      {acceptedcookies === undefined ? <CookiesModal /> : null}
+    <Context.Provider value={{ acceptedCookies, setAcceptedCookies }}>
+      {acceptedCookies === undefined ? <CookiesModal /> : null}
       {children}
     </Context.Provider>
   );

@@ -21,6 +21,7 @@ import {
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
 import EmojisWrapper from "components/EmojisWrapper";
+import { PillAction } from "./PillAction";
 
 export default function Post({
   title,
@@ -137,15 +138,16 @@ export default function Post({
             <span></span>
           )}
         </nav>
+        <RecommendedPosts recommendedPosts={recommendedPosts} slug={slug} />
         <UserContextProvider>
           <CommentsContextProvider>
             <Comments slug={slug} />
           </CommentsContextProvider>
         </UserContextProvider>
+        <NewsletterCard />
       </article>
       <aside>
-        <RecommendedPosts recommendedPosts={recommendedPosts} slug={slug} />
-        <NewsletterCard />
+        <PillAction title={title} slug={slug}></PillAction>
       </aside>
       <style jsx>{`
         nav :global(a) {
@@ -248,6 +250,9 @@ export default function Post({
           nav :global(a) {
             width: 230px;
           }
+          aside {
+            display: none;
+          }
         }
         @media screen and (min-width: 875px) {
           main {
@@ -274,7 +279,7 @@ export default function Post({
           article {
             display: grid;
             grid-template-columns: 240px minmax(0, 944px);
-            grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav" "toc comments";
+            grid-template-areas: "toc header" "toc body" "toc hr" "toc footer" "toc nav" "toc recommendedPosts" "toc comments" "toc newsletter";
             column-gap: 4.375em;
           }
         }

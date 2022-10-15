@@ -28,7 +28,7 @@ export default function useToolTip(): UseToolTip {
     setShowToolTip(false);
   }, [setToolTip, setShowToolTip]);
 
-  const getToolTipAttrbutes = useCallback(
+  const getToolTipAttributes = useCallback(
     (title: string, options?: Partial<{ hideToolTip: boolean }>) => {
       const attrs = {
         onFocus: (e: FocusEvent) => {
@@ -80,7 +80,7 @@ export default function useToolTip(): UseToolTip {
     addToolTip,
     showToolTip,
     setShowToolTip,
-    getToolTipAttrbutes,
+    getToolTipAttributes,
     removeToolTip,
   };
 }

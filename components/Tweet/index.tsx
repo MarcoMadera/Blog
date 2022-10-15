@@ -27,7 +27,7 @@ export default function Tweet({
   hideConversation,
 }: TweetProps): ReactElement | null {
   const { darkMode } = useDarkMode();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const { data, ignore } = useElementData({
     type: ElementType.TWEET,
     id: id,
@@ -70,7 +70,7 @@ export default function Tweet({
         >
           <div
             className="icon-twitter"
-            {...getToolTipAttrbutes("Ver en Twitter")}
+            {...getToolTipAttributes("Ver en Twitter")}
             role="img"
           />
         </a>

@@ -9,7 +9,7 @@ export default function useCookies(): UseCookies {
     throw new Error("useCookies must be used within a CookiesProvider");
   }
 
-  const { acceptedcookies, setAcceptedCookies } = context;
+  const { acceptedCookies, setAcceptedCookies } = context;
 
   const getCookie = useCallback((cookieName: string): string | false => {
     const value = `; ${document.cookie}`;
@@ -32,17 +32,17 @@ export default function useCookies(): UseCookies {
   }, []);
 
   const toggleAcceptedCookies = useCallback(() => {
-    if (acceptedcookies) {
+    if (acceptedCookies) {
       deleteCookie("_ga");
       setAcceptedCookies(false);
       return "Cookies desactivadas";
     }
     setAcceptedCookies(true);
     return "Cookies activadas";
-  }, [acceptedcookies, deleteCookie, setAcceptedCookies]);
+  }, [acceptedCookies, deleteCookie, setAcceptedCookies]);
 
   return {
-    acceptedcookies,
+    acceptedCookies,
     setAcceptedCookies,
     getCookie,
     setCookie,

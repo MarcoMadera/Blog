@@ -100,7 +100,7 @@ export default function SreExcel(): ReactElement {
         fullHeight={768}
       >
         <P>
-          El funcionamiento es que con ayuda de un <em>bookmarlet</em>, se
+          El funcionamiento es que con ayuda de un <em>bookmarklet</em>, se
           recolecta la información necesaria. Al finalizar la jornada, se puede
           acceder desde la página web donde se podrá imprimir o descargar los
           datos para después vaciarlos a Excel de forma sencilla.

@@ -32,7 +32,7 @@ Gracias al _scope_ de los _snippets_ es que <abbr title="Visual Studio Code">VSC
 
 <note type="important">
 
-- Para **definir el scope global** se dirije a las opciones con <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> y buscar _`preferences: Configure User Snippets > new global snippets file`_, te pedira un nombre del archivo global y creará el archivo `json` donde se puede empezar a crear los _snippets_.
+- Para **definir el scope global** se dirige a las opciones con <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> y buscar _`preferences: Configure User Snippets > new global snippets file`_, te pedirá un nombre del archivo global y creará el archivo `json` donde se puede empezar a crear los _snippets_.
 - Para **definir el scope del lenguaje** en opciones _`preferences: Configure User Snippets`_ se busca el lenguaje deseado y abrirá el archivo donde se pueden empezar a crearlos.
 - Para **definir el scope por proyecto** en opciones `preferences: Configure User Snippets > New Snippets file for "project name"` te pedirá el nombre del archivo y crea una carpeta si no existe llamada `.vscode` donde se encuentra el archivo que tenemos que editar.
 
@@ -94,7 +94,7 @@ En el siguiente ejemplo tenemos dos variables predefinidas y una opcional.
 
 ### Múltiples líneas
 
-Por ahora hemos visto _snippets_ de una sola línea, pero el **body también puede ser un `array` de multiples cadenas de texto**, donde cada cadena de texto sería un salto de línea y podemos identarlo con `\t`, si es el caso que queramos usar todo en una sola línea podemos usar el salto de línea de `\n`.
+Por ahora hemos visto _snippets_ de una sola línea, pero el **body también puede ser un `array` de multiples cadenas de texto**, donde cada cadena de texto sería un salto de línea y lo podemos indentar con `\t`, si es el caso que queramos usar todo en una sola línea podemos usar el salto de línea de `\n`.
 
 ```json
 {
@@ -146,7 +146,7 @@ En la parte final es donde se remplaza lo que hace _match_ de regex en `//gm` `/
     "body": [
       "export default function ${TM_FILENAME_BASE}() {${TM_SELECTED_TEXT/^(?:(?<![\f\n\r])(?:.*))(?=[\f\n\r])|^.*(?![\f\n\r])$//gm}"
     ],
-    "description": "Wrap a component and tranform it in a function component"
+    "description": "Wrap a component and transform it in a function component"
   }
 }
 ```

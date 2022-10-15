@@ -6,7 +6,7 @@ export default async function subscribe(
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> {
-  const { email } = req.body;
+  const { email, name } = req.body;
   if (!email) {
     return res.status(400).json({ error: "Se requiere un email" });
   }
@@ -16,39 +16,38 @@ export default async function subscribe(
   }
 
   try {
-    const API_KEY = process.env.BUTTONDOWN_API_KEY;
-    const response = await fetch(
-      "https://api.buttondown.email/v1/subscribers",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Token ${API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-        }),
-      }
-    );
+    const API_KEY = process.env.MAILCHIMP_API_KEY as string;
+    const LIST_ID = process.env.MAILCHIMP_LIST_ID;
+    const DATACENTER = API_KEY.split("-")[1];
+    const url = `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`;
+
+    const data = {
+      email_address: email,
+      status: "pending",
+      merge_fields: {
+        FNAME: name,
+      },
+    };
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `auth ${API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
     if (response.status >= 400) {
-      const text = await response.text();
-
-      if (text.includes("already subscribed")) {
-        return res.status(400).json({
-          error: "Ya estás suscrito a este newsletter",
-        });
+      const responseData = await response.json();
+      console.log(responseData);
+      if (responseData.title === "Member Exists") {
+        return res.status(400).json({ error: "Ya estás suscrito" });
       }
-      if (text.includes("detected this email to be invalid or spammy")) {
-        return res.status(400).json({
-          error:
-            "Este email puede que sea invalido o lo has ingresado muchas veces",
-        });
+      if (responseData.title === "Invalid Resource") {
+        return res.status(400).json({ error: "Email invalido" });
       }
-
-      return res.status(400).json({
-        error: "Ha ocurrido un error",
-      });
+      return res.status(400).json({ error: "Error al suscribirse" });
     }
 
     return res.status(201).json({

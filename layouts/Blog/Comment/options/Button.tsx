@@ -33,7 +33,7 @@ export default function Button({
 }: PropsWithChildren<ButtonProps>): ReactElement {
   const { addNotification } = useNotification();
   const { setComment } = useComments();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
 
   function calculateCaret(initial: number, textbetweenTag: string) {
     if (mark) {
@@ -150,7 +150,7 @@ export default function Button({
   return (
     <button
       onClick={(e) => modifiedTextWithTag(e)}
-      {...getToolTipAttrbutes(name)}
+      {...getToolTipAttributes(name)}
     >
       <span aria-hidden="true">{children}</span>
       <style jsx>{`

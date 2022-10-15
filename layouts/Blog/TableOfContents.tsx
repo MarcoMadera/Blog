@@ -12,12 +12,12 @@ interface ConstructedTable {
   children: ConstructedTable[];
 }
 
-const getmenuHeaderElements = (): Element[] => [
+const getMenuHeaderElements = (): Element[] => [
   ...document.querySelectorAll("#headerMenu + ol li a"),
 ];
 
 function removeClassToMenuHeaders(): void {
-  getmenuHeaderElements().forEach((headerElement) => {
+  getMenuHeaderElements().forEach((headerElement) => {
     headerElement?.classList.remove("active");
   });
 }
@@ -78,7 +78,7 @@ export default function TableOfContents({
         entries.forEach((entry) => {
           const headerId = entry.target.getAttribute("id");
 
-          const menuHeaderElement = getmenuHeaderElements().find((element) => {
+          const menuHeaderElement = getMenuHeaderElements().find((element) => {
             return (
               element.getAttribute("href") ===
               `/blog/${slug}#${headerId || lastIntersection}`
@@ -130,7 +130,7 @@ export default function TableOfContents({
                     {text}
                   </ALink>
                   {children.length > 0 && (
-                    <div className="childs">
+                    <div className="children">
                       <span className="line"></span>
                       <Ol depth={level - 1}>
                         {children.map(({ text }, i) => (
@@ -178,7 +178,7 @@ export default function TableOfContents({
         :global(body) {
           overflow-x: visible;
         }
-        .childs {
+        .children {
           margin: 0;
           display: grid;
           grid-template-columns: 5px minmax(0, 1fr);

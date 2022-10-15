@@ -8,7 +8,7 @@ tags:
   - JavaScript
 ---
 
-En JavaScript tenemos varios tipos de datos; _booleanos_, numéricos, los de texto o _string_, el null que indica que una variable no tiene un valor, _undefined_ que indica que una variable está declarada en memoria, pero su valor aún no ha sido definido y el _symbol_, el cual fue introducido en la definición de EcmaScript 6. A partir de aquí todo lo demás son objetos, como son los arreglos o _arrays_, las fechas o incluso objetos que tú mismo declares.
+En JavaScript tenemos varios tipos de datos; _booleanos_, numéricos, los de texto o _string_, el null que indica que una variable no tiene un valor, _undefined_ que indica que una variable está declarada en memoria, pero su valor aún no ha sido definido y el _symbol_, el cual fue introducido en la definición de ECMAScript 6. A partir de aquí todo lo demás son objetos, como son los arreglos o _arrays_, las fechas o incluso objetos que tú mismo declares.
 
 ## Diferencias entre valores primitivos y objetos
 
@@ -209,7 +209,7 @@ Estudiante.prototype = Object.create(Persona.prototype, {
 });
 Estudiante.prototype.constructor = Estudiante;
 
-// Crear instacias de la clase
+// Crear instancias de la clase
 let estudiante = new Estudiante("Juanito", 17);
 estudiante.decirNombre();
 estudiante.permisos();
@@ -239,7 +239,7 @@ class Estudiante extends Persona {
   }
 }
 
-// Crear instacias de la clase
+// Crear instancias de la clase
 let estudiante = new Estudiante("Marco", 17);
 estudiante.decirNombre();
 estudiante.permisos();

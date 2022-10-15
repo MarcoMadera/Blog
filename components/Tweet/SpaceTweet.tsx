@@ -11,7 +11,7 @@ export default function SpaceTweet({
 }: {
   spaceTweet: SpaceData | undefined;
 }): ReactElement {
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
   const { trackWithGoogleAnalytics } = useAnalytics();
   if (!spaceTweet) {
     return <></>;
@@ -54,7 +54,7 @@ export default function SpaceTweet({
                 <div
                   className="space-tweet__header-right-more"
                   key={index}
-                  {...getToolTipAttrbutes(
+                  {...getToolTipAttributes(
                     `Más ${moreParticipants} participantes`
                   )}
                 >
@@ -69,7 +69,7 @@ export default function SpaceTweet({
                 key={user.id}
                 src={user.profile_image_url}
                 alt={user.name}
-                {...getToolTipAttrbutes(`${user.name} @${user.username}`)}
+                {...getToolTipAttributes(`${user.name} @${user.username}`)}
               />
             );
           })}

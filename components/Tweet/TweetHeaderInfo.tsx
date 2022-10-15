@@ -13,20 +13,20 @@ export default function TweetHeaderInfo({
   created_at: string;
 }): ReactElement {
   const { darkMode } = useDarkMode();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
 
   return (
     <div className="infoContainer">
-      <span className="name" {...getToolTipAttrbutes(user.name)}>
+      <span className="name" {...getToolTipAttributes(user.name)}>
         {user.name}
       </span>
       {user.verified ? (
         <span
           className="verified"
-          {...getToolTipAttrbutes("Cuenta verificada")}
+          {...getToolTipAttributes("Cuenta verificada")}
         ></span>
       ) : null}
-      <span className="username" {...getToolTipAttrbutes(`@${user.username}`)}>
+      <span className="username" {...getToolTipAttributes(`@${user.username}`)}>
         @{user.username} &middot;{" "}
       </span>
       <span className="username date">

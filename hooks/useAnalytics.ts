@@ -9,12 +9,12 @@ import useCookies from "./useCookies";
 
 export default function useAnalytics(page?: string): UseAnalyticsParams {
   const [views, setViews] = useState(null);
-  const { getCookie, setCookie, acceptedcookies } = useCookies();
+  const { getCookie, setCookie, acceptedCookies } = useCookies();
 
   const trackWithGoogleAnalytics: UseAnalyticsParams["trackWithGoogleAnalytics"] =
     useCallback(
       (hitType = HitType.PAGEVIEW, fields: Fields) => {
-        if (!acceptedcookies) {
+        if (!acceptedCookies) {
           return;
         }
 
@@ -80,7 +80,7 @@ export default function useAnalytics(page?: string): UseAnalyticsParams {
           new URLSearchParams(data)
         );
       },
-      [getCookie, setCookie, acceptedcookies]
+      [getCookie, setCookie, acceptedCookies]
     );
 
   useEffect(() => {

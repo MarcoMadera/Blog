@@ -11,7 +11,7 @@ export default function NewsletterPage(): ReactElement {
     <main id="main">
       <Seo title="Newsletter 📬 | Marco Madera" />
       <div>
-        <label htmlFor="bd-email">
+        <label htmlFor="newsletter-form">
           <H1>Newsletter</H1>
         </label>
         <p>

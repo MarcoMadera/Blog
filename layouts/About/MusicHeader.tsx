@@ -27,7 +27,7 @@ function MusicHeader({
           href="https://open.spotify.com/user/12133024755"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Perfil de spotify"
+          aria-label="Perfil de Spotify"
           onClick={() => {
             trackWithGoogleAnalytics(HitType.SOCIAL, {
               socialNetwork: "spotify",

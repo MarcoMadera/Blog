@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface UseCookies {
-  acceptedcookies: boolean | undefined;
+  acceptedCookies: boolean | undefined;
   setAcceptedCookies: Dispatch<SetStateAction<boolean | undefined>>;
   getCookie: (cookieName: string) => string | false;
   setCookie: ({

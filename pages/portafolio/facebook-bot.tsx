@@ -16,15 +16,15 @@ export default function TestRandomNumbers(): ReactElement {
         <div>
           <H2>Intención</H2>
           <P>
-            Crear un chat bot de facebook para la página del hotel posada del
+            Crear un chat bot de Facebook para la página del hotel posada del
             desierto. Utilizando inteligencia artificial de procesamiento
             natural de lenguaje para responder a dudas comunes y no tan comunes
             sobre el hotel y servicios que ofrece.
           </P>
           <H2>Funcionamiento</H2>
           <P>
-            Creado con nodejs y wit.ai, facebook envia el mensaje al endpoint
-            webhook, el cual procesa el mensaje enviandolo al servicio de wit.ai
+            Creado con nodejs y wit.ai, Facebook envía el mensaje al endpoint
+            webhook, el cual procesa el mensaje enviándolo al servicio de wit.ai
             y con base a los resultados del porcentaje de confianza de la
             intención del mensaje se escoge un payload para actuar.
           </P>

@@ -28,7 +28,7 @@ export default function Options({
 }: OptionsProps): ReactElement {
   const { darkMode } = useDarkMode();
   const { uploadImage } = useComments();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
 
   return (
     <div className="options__container">
@@ -53,7 +53,7 @@ export default function Options({
           htmlFor="imageInput"
           className="optionButton"
           aria-label="Subir imagen"
-          {...getToolTipAttrbutes("Subir imagen")}
+          {...getToolTipAttributes("Subir imagen")}
         >
           <ImageIcon width={23} height={23} />
           <input

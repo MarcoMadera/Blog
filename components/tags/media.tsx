@@ -30,7 +30,7 @@ export function Img({
   fullImage,
 }: ImgProps): ReactElement | null {
   const [openModal, setOpenModal] = useState(false);
-  const { getToolTipAttrbutes, addToolTip, setShowToolTip } = useToolTip();
+  const { getToolTipAttributes, addToolTip, setShowToolTip } = useToolTip();
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   if (!src) {
@@ -126,7 +126,7 @@ export function Img({
         {" "}
         {isFromCloudProvider ? (
           // eslint-disable-next-line jsx-a11y/alt-text
-          <Image {...imageProps} {...getToolTipAttrbutes(title || alt)} />
+          <Image {...imageProps} {...getToolTipAttributes(title || alt)} />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -134,7 +134,7 @@ export function Img({
             src={src}
             height={height}
             width={width}
-            {...getToolTipAttrbutes(title || alt)}
+            {...getToolTipAttributes(title || alt)}
           />
         )}
       </summary>
@@ -245,13 +245,13 @@ export function Video({
   ...attribs
 }: VideoProps): ReactElement {
   const { darkMode } = useDarkMode();
-  const { getToolTipAttrbutes } = useToolTip();
+  const { getToolTipAttributes } = useToolTip();
 
   return (
     // eslint-disable-next-line jsx-a11y/media-has-caption
     <video
       src={src ?? (darkMode ? dark : light)}
-      {...getToolTipAttrbutes(title ?? "")}
+      {...getToolTipAttributes(title ?? "")}
       {...attribs}
     >
       Tu navegador no soporta videos
