@@ -29,9 +29,9 @@ export default function BlogCard({
   const isFromCloudProvider = isImgFromCloudProvider(cover);
 
   return (
-    <article>
+    <article className="h-entry hentry">
       <Link href={`/blog/${slug}`}>
-        <a>
+        <a className="u-url" rel="bookmark">
           <div className="cover">
             <Image
               height={548}
@@ -50,32 +50,42 @@ export default function BlogCard({
               unoptimized={!isFromCloudProvider}
               blurDataURL={blurDataURL}
               src={cover}
+              className="u-photo"
             />
-            {tags.length > 0 && (
-              <div className="tags">
-                {tags.map((tag) => (
-                  <Link href={`/blog/etiqueta/${slugify(tag)}`} key={tag}>
-                    <a>{tag}</a>
-                  </Link>
-                ))}
-              </div>
-            )}
-            <span>{author}</span>
+
+            <span className="p-author author h-card vcard" translate="no">
+              {author}
+            </span>
           </div>
           <div className="content">
             <div className="info">
-              <span>{getFormattedDate(date)}</span>
+              <span>
+                <time
+                  className="dt-published published"
+                  dateTime={new Date(date).toISOString()}
+                >
+                  {getFormattedDate(date)}
+                </time>
+              </span>
               <span>{readingTimeInMinutes} min de lectura</span>
             </div>
-            <h2>{title}</h2>
-            <p>{description}</p>
+            <h2 className="p-name entry-title">{title}</h2>
+            <p className="p-summary entry-summary">{description}</p>
           </div>
         </a>
       </Link>
+      {tags.length > 0 && (
+        <div className="tags">
+          {tags.map((tag) => (
+            <Link href={`/blog/etiqueta/${slugify(tag)}`} key={tag}>
+              <a className="p-category" rel="category tag">
+                {tag}
+              </a>
+            </Link>
+          ))}
+        </div>
+      )}
       <style jsx>{`
-         {
-          /* show the tags in each pill inside the image top and the author inside the image bottom */
-        }
         .tags {
           position: absolute;
           top: 0;
@@ -134,6 +144,7 @@ export default function BlogCard({
           overflow: hidden;
           grid-column: span 4 / span 4;
           max-width: 410px;
+          position: relative;
         }
         a {
           margin: 6px;

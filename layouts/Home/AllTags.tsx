@@ -26,6 +26,7 @@ export default function AllTags({
             key={tag}
             title=""
             prefetch={false}
+            rel="tag"
           >
             {tag}
           </ALink>

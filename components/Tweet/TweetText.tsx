@@ -95,7 +95,7 @@ export default function TweetText({
   ));
 
   return (
-    <p className="tweet-text">
+    <p className="tweet-text e-content">
       {replacedText}
       <style jsx>{`
         p.tweet-text {

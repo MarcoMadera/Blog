@@ -11,10 +11,10 @@ export default function RecommendedPosts({
   recommendedPosts = [],
 }: Pick<PostWithMedia, "recommendedPosts" | "slug">): ReactElement {
   return (
-    <div className="recommendedPosts-container">
+    <div className="h-feed hfeed recommendedPosts-container">
       {recommendedPosts.length > 1 && (
         <>
-          <h2>Artículos recomendados</h2>
+          <h2 className="p-name">Artículos recomendados</h2>
           <div>
             {recommendedPosts.map(
               ({ slug: recommendedPostSlug, title, cover }, i) => {
@@ -25,6 +25,8 @@ export default function RecommendedPosts({
                       key={recommendedPostSlug}
                       title={title}
                       href={`/blog/${recommendedPostSlug}/`}
+                      rel="bookmark"
+                      className="u-url"
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
@@ -40,8 +42,9 @@ export default function RecommendedPosts({
                         alt={title}
                         width="560"
                         height="260"
+                        className="u-photo"
                       />
-                      <h3>{title}</h3>
+                      <h3 className="p-name entry-title">{title}</h3>
                     </ALink>
                   )
                 );

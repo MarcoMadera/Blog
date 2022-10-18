@@ -23,11 +23,11 @@ export default function NewsletterPage(): ReactElement {
         <p>
           Uso el servicio de{" "}
           <A
-            href="https://buttondown.email"
+            href="https://mailchimp.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            ButtonDown
+            Mailchimp
           </A>{" "}
           para enviarte los artículos más recientes, no usaré tu correo
           electrónico para otro objetivo, no te enviaré nada de spam.

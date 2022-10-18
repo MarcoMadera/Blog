@@ -10,10 +10,10 @@ export default function Aside(): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (
-    <header>
+    <header className="h-card">
       <div>
         <h1>
-          <span translate="no">
+          <span translate="no" className="p-name site-title">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               draggable="false"
@@ -26,7 +26,7 @@ export default function Aside(): ReactElement {
             Marco Madera
           </span>
         </h1>
-        <p>
+        <p className="p-summary site-description">
           Este es mi sitio personal, escribo sobre frontend y experiencias para
           crear más valor a la comunidad web.
         </p>
@@ -61,7 +61,7 @@ export default function Aside(): ReactElement {
       <img
         src="/profile-222x222.jpg"
         alt="Marco Madera"
-        className="profile-photo"
+        className="profile-photo u-photo"
         loading="eager"
         width={222}
         height={222}

@@ -23,7 +23,7 @@ export default function Footer(): ReactElement {
             <a>Portafolio</a>
           </Link>
           <Link prefetch={false} href="/sobre-mi">
-            <a>Sobre mí</a>
+            <a rel="me">Sobre mí</a>
           </Link>
           <Link prefetch={false} href="/newsletter">
             <a>Newsletter</a>
@@ -40,7 +40,7 @@ export default function Footer(): ReactElement {
           <A
             href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="license noopener noreferrer"
           >
             Licencia
           </A>
@@ -50,28 +50,28 @@ export default function Footer(): ReactElement {
           <A
             href="https://blog.marcomadera.com/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="external noopener noreferrer"
           >
             Blog
           </A>
           <A
             href="https://github.com/MarcoMadera/Blog"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="external noopener noreferrer"
           >
             Código fuente
           </A>
           <A
             href="https://old.marcomadera.com/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="external noopener noreferrer"
           >
             Sitio antiguo
           </A>
           <A
             href={`${siteMetadata.siteUrl}/rss.xml`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="external noopener noreferrer"
           >
             RSS
           </A>

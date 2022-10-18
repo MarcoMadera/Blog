@@ -31,7 +31,7 @@ export default function TweetHeader({
     <div className="header">
       <A
         href={url}
-        className="avatar"
+        className="avatar u-photo"
         target="_blank"
         title={`${name} (@${username})`}
         rel="noopener noreferrer"
@@ -52,10 +52,10 @@ export default function TweetHeader({
         href={url}
         className="author"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer author"
         hideToolTip
       >
-        <span className="name">
+        <span className="name p-name">
           <span {...getToolTipAttributes(name)}>
             {htmlToReactParser.parse(
               twemoji.parse(name, { className: "twemoji" })

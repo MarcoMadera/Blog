@@ -18,6 +18,7 @@ interface ImgProps {
   width?: number;
   height?: number;
   fullImage?: Omit<ImgData, "fullImg"> | null;
+  className?: string;
 }
 
 export function Img({
@@ -28,6 +29,7 @@ export function Img({
   width: widthFromProps,
   height: heightFromProps,
   fullImage,
+  className,
 }: ImgProps): ReactElement | null {
   const [openModal, setOpenModal] = useState(false);
   const { getToolTipAttributes, addToolTip, setShowToolTip } = useToolTip();
@@ -126,7 +128,11 @@ export function Img({
         {" "}
         {isFromCloudProvider ? (
           // eslint-disable-next-line jsx-a11y/alt-text
-          <Image {...imageProps} {...getToolTipAttributes(title || alt)} />
+          <Image
+            {...imageProps}
+            {...getToolTipAttributes(title || alt)}
+            className={className}
+          />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -135,6 +141,7 @@ export function Img({
             height={height}
             width={width}
             {...getToolTipAttributes(title || alt)}
+            className={className}
           />
         )}
       </summary>
