@@ -34,17 +34,19 @@ export default function HomeLayout({
       />
       <section>
         <ProfileCard />
-        <h2>
-          {tag
-            ? `Etiqueta ${posts[0].tags.find((item) =>
-                slugify(item).includes(tag)
-              )}`
-            : "Últimos artículos"}
-        </h2>
-        <div className="posts">
-          {posts.map((data) => (
-            <BlogCard {...data} key={data.slug} />
-          ))}
+        <div className="h-feed">
+          <h2 className="p-name">
+            {tag
+              ? `Etiqueta ${posts[0].tags.find((item) =>
+                  slugify(item).includes(tag)
+                )}`
+              : "Últimos artículos"}
+          </h2>
+          <div className="posts">
+            {posts.map((data) => (
+              <BlogCard {...data} key={data.slug} />
+            ))}
+          </div>
         </div>
         {posts.length <= 0 && <Custom404 />}
         <nav aria-label="Paginación">

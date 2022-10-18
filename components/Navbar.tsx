@@ -96,7 +96,7 @@ export default function Navbar(): ReactElement {
         <Anchor href="/portafolio" label="Ir al portafolio">
           Portafolio
         </Anchor>
-        <Anchor href="/sobre-mi" label="Ir a sobre mí">
+        <Anchor href="/sobre-mi" label="Ir a sobre mí" rel="me">
           Sobre mí
         </Anchor>
       </nav>

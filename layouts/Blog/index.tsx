@@ -62,7 +62,7 @@ export default function Post({
         date={date}
       />
       <article
-        className="blog"
+        className="blog h-entry"
         id="main"
         itemScope
         itemType="http://schema.org/Article"
@@ -76,6 +76,7 @@ export default function Post({
             <time
               itemProp="datePublished"
               dateTime={new Date(date).toISOString()}
+              className="dt-published"
             >
               {getFormattedDate(date)}
             </time>{" "}
@@ -105,7 +106,11 @@ export default function Post({
         </header>
         <TableOfContents headings={headingData} slug={slug} />
         <EmojisWrapper>
-          <div itemProp="articlebody" aria-labelledby="articleTitle">
+          <div
+            itemProp="articlebody"
+            aria-labelledby="articleTitle"
+            className="e-content"
+          >
             <ElementsContextProvider elements={elements}>
               <MarkDown source={content} html={true} type="post" />
             </ElementsContextProvider>

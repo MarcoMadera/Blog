@@ -59,13 +59,13 @@ export default function Tweet({
   }
 
   return (
-    <div className="container">
+    <article className="container h-entry">
       <div className="tweet">
         <a
           href={repliedTweetUrl || currentTweetUrl}
           className="brand"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer external"
           aria-label="Ver en Twitter"
         >
           <div
@@ -169,6 +169,6 @@ export default function Tweet({
           background-repeat: no-repeat;
         }
       `}</style>
-    </div>
+    </article>
   );
 }

@@ -17,7 +17,7 @@ export default function TweetHeaderInfo({
 
   return (
     <div className="infoContainer">
-      <span className="name" {...getToolTipAttributes(user.name)}>
+      <span className="name p-name" {...getToolTipAttributes(user.name)}>
         {user.name}
       </span>
       {user.verified ? (

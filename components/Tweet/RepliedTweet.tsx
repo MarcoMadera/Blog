@@ -40,7 +40,7 @@ export default function RepliedTweet({
         <div>
           <A
             href={userprofile}
-            className="referenced_avatar"
+            className="referenced_avatar u-photo"
             target="_blank"
             rel="noopener noreferrer"
             title={user.name}
@@ -63,8 +63,8 @@ export default function RepliedTweet({
           <A
             href={`https://twitter.com/${user.username}`}
             target="_blank"
-            rel="noopener noreferrer"
-            className="header"
+            rel="noopener noreferrer author"
+            className="header author"
             hideToolTip={true}
           >
             <TweetHeaderInfo created_at={data.tweet.created_at} user={user} />

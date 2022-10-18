@@ -37,7 +37,11 @@ export default function TweetCreatedAt({
   }`;
 
   return (
-    <time dateTime={createdAtIsoString} {...getToolTipAttributes(title)}>
+    <time
+      dateTime={createdAtIsoString}
+      className="dt-published"
+      {...getToolTipAttributes(title)}
+    >
       {createdAtIsoString &&
         (variant === "short"
           ? getQuotedTwitterFormattedDate(createdAtIsoString)
