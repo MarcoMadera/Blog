@@ -3,6 +3,7 @@ title: Ligaduras tipográficas - Tipos y Usos
 description: Las ligaduras tipográficas son símbolos especiales que se producen por la unión de múltiples caracteres.
 date: 2020-06-08
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1595269475/Blog/2/LigadurasTipograficasLogo_b90rgi.png
+coverAlt: Texto, carta en letra cursiva.
 author: Marco Madera
 tags:
   - VSCode

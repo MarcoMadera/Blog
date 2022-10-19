@@ -43,6 +43,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
       const date = data.date.toString();
       const title = data.title;
       const cover = data.cover;
+      const coverAlt = data.coverAlt;
       const tags = data.tags;
       const author = data.author || null;
       const profilePhoto = data.profilePhoto || null;
@@ -57,6 +58,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
         tags,
         slug,
         cover,
+        coverAlt,
         blurDataURL,
         content,
         author,
@@ -102,14 +104,15 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
 
   const recommendedPosts = posts
     .filter(({ tags }) => tags.some((tag) => currentPost.tags.includes(tag)))
-    .map(({ title, cover, slug }) => {
-      return { title, cover, slug };
+    .map(({ title, cover, slug, coverAlt }) => {
+      return { title, cover, slug, coverAlt };
     });
 
   return {
     date: currentPost.date,
     title: currentPost.title,
     cover: currentPost.cover,
+    coverAlt: currentPost.coverAlt,
     tags: currentPost.tags,
     description: currentPost.description,
     blurDataURL: currentPost.blurDataURL,
@@ -199,6 +202,7 @@ export async function getHomeDataFromPage(
       tags: post.tags,
       author: post.author,
       cover: post.cover,
+      coverAlt: post.coverAlt,
       date: post.date,
       description: post.description,
       slug: post.slug,
@@ -228,6 +232,7 @@ export async function getTagData(slug: PostData["slug"]): Promise<{
         tags: post.tags,
         author: post.author,
         cover: post.cover,
+        coverAlt: post.coverAlt,
         date: post.date,
         description: post.description,
         slug: post.slug,

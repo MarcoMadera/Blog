@@ -23,7 +23,7 @@ export default function Footer(): ReactElement {
             <a>Portafolio</a>
           </Link>
           <Link prefetch={false} href="/sobre-mi">
-            <a rel="me">Sobre mí</a>
+            <a>Sobre mí</a>
           </Link>
           <Link prefetch={false} href="/newsletter">
             <a>Newsletter</a>

@@ -3,6 +3,7 @@ title: GitHub desde la línea de comandos
 description: Github CLI es la herramienta oficial para ejecutar todo el flujo de trabajo en GitHub desde la línea de comandos.
 date: 2020-09-20
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626932/Blog/6/roman-synkevych-wX2L8L-fGeA-unsplash_ti5f7b.jpg
+coverAlt: Muñeco de Octocat, mascota de GitHub.
 author: Marco Madera
 tags:
   - Terminal

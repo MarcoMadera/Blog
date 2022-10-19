@@ -44,8 +44,7 @@ export function getFormattedDate(date: string | Date): string {
  * @param {date} date a date
  * @returns formatted date in form 4:30pm - 13 may, 2020
  */
-export function getTwitterFormattedDate(d: string): string {
-  const date = new Date(d);
+export function getTwitterFormattedDate(date: Date): string {
   const month = months[date.getMonth()];
   return `${formatAMPM(
     date
@@ -57,8 +56,7 @@ export function getTwitterFormattedDate(d: string): string {
  * @param {date} date a date
  * @returns formatted date in form 20 abr
  */
-export function getQuotedTwitterFormattedDate(d: string): string {
-  const date = new Date(d);
+export function getQuotedTwitterFormattedDate(date: Date): string {
   const month = months[date.getMonth()];
   return `${date.getDate()} ${month}`;
 }

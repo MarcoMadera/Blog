@@ -1,7 +1,8 @@
-import { Fragment, ReactElement, useEffect, useState } from "react";
+import { Fragment, ReactElement } from "react";
 import { tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import type { Poll } from "types/tweet";
+import { useDate } from "hooks/useDate";
 // Note: Poll data is most likely cached, so ongoing polls will not be updated
 // until a revalidation happens
 
@@ -15,15 +16,7 @@ export function TweetPoll({ poll }: PollProps): ReactElement {
     (count, option) => count + option.votes,
     0
   );
-  const [endsAt, setendsAt] = useState<Date | undefined>(undefined);
-  const [now, setNow] = useState<Date | undefined>(undefined);
-
-  useEffect(() => {
-    if (poll.end_datetime && window) {
-      setendsAt(new Date(poll.end_datetime));
-      setNow(new Date());
-    }
-  }, [poll.end_datetime]);
+  const { date: pollEndDate, now } = useDate(poll.end_datetime);
 
   return (
     <div className="poll">
@@ -47,8 +40,8 @@ export function TweetPoll({ poll }: PollProps): ReactElement {
         <span className="votes-count">{votesCount} votos</span>
         <span>
           {now &&
-            endsAt &&
-            (now > endsAt ? "Resultados finales" : "Encuesta en curso")}
+            pollEndDate &&
+            (now > pollEndDate ? "Resultados finales" : "Encuesta en curso")}
         </span>
       </div>
 

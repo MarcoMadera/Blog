@@ -26,7 +26,8 @@ export default function AllTags({
             key={tag}
             title=""
             prefetch={false}
-            rel="tag"
+            rel="category tag"
+            className="p-category"
           >
             {tag}
           </ALink>

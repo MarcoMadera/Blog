@@ -10,6 +10,7 @@ export type PostData = {
   slug: string;
   blurDataURL: string;
   cover: string;
+  coverAlt: string;
   content: string;
   author: string;
   profilePhoto?: string;
@@ -22,7 +23,7 @@ export type PostData = {
 export interface Post extends PostData {
   previousPost: Pick<PostData, "title" | "slug"> | null;
   nextPost: Pick<PostData, "title" | "slug"> | null;
-  recommendedPosts: Pick<PostData, "title" | "cover" | "slug">[];
+  recommendedPosts: Pick<PostData, "title" | "cover" | "slug" | "coverAlt">[];
 }
 export interface FullImg {
   darkImage?: Omit<ImgData, "fullImg"> | null;

@@ -22,12 +22,14 @@ import {
 } from "utils/cloudProvider";
 import EmojisWrapper from "components/EmojisWrapper";
 import { PillAction } from "./PillAction";
+import { useDate } from "hooks/useDate";
 
 export default function Post({
   title,
   description,
   date,
   cover,
+  coverAlt,
   author,
   tags,
   content,
@@ -47,6 +49,7 @@ export default function Post({
   const headingData = Object.keys(elements)
     .filter((key) => key.startsWith(ElementType.HEADING))
     .map((key) => elements[key as `heading:${string}`]) as HeadingData[];
+  const { date: publishedDate, isoString } = useDate(date);
 
   return (
     <main>
@@ -75,10 +78,10 @@ export default function Post({
           <p>
             <time
               itemProp="datePublished"
-              dateTime={new Date(date).toISOString()}
+              dateTime={isoString}
               className="dt-published"
             >
-              {getFormattedDate(date)}
+              {publishedDate ? getFormattedDate(publishedDate) : ""}
             </time>{" "}
             &middot;{` ${readingTimeInMinutes} minutos de lectura `}
           </p>
@@ -99,7 +102,7 @@ export default function Post({
                   height: coverData.height,
                 },
               }}
-              alt={title}
+              alt={coverAlt}
               title={title}
             />
           </div>

@@ -1,3 +1,4 @@
+import { useDate } from "hooks/useDate";
 import { ReactElement } from "react";
 import { IMicroMemory } from "types/microMemories";
 import EmojisWrapper from "./EmojisWrapper";
@@ -8,6 +9,8 @@ export default function MicroMemory({
   microMemory,
   date,
 }: IMicroMemory): ReactElement | null {
+  const { date: dateConstructor, isoString } = useDate(date);
+
   if (!microMemory) return null;
 
   return (
@@ -19,14 +22,16 @@ export default function MicroMemory({
       </EmojisWrapper>
       <div className="microMemory-meta">
         <div>
-          <time dateTime={new Date(date).toISOString()}>
-            {new Date(date).toLocaleDateString("es-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-              hour: "numeric",
-              minute: "numeric",
-            })}
+          <time dateTime={isoString}>
+            {dateConstructor
+              ? dateConstructor?.toLocaleDateString("es-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+              : ""}
           </time>
         </div>
       </div>

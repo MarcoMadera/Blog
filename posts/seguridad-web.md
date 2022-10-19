@@ -3,6 +3,7 @@ title: "Seguridad en la web"
 description: La seguridad web es la práctica de implementar medidas para proteger un sitio web haciendolo más díficil de vulnerar.
 date: 2021-04-15
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626240/Blog/seguridad-web/jeremy-bishop-uLXBeh6oHn8-unsplash_rys8ff.jpg
+coverAlt: Una puerta circular verde azul con una campana.
 author: Marco Madera
 tags:
   - Seguridad
