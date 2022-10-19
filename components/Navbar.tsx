@@ -69,6 +69,7 @@ export default function Navbar(): ReactElement {
   return (
     <header>
       <Anchor
+        rel="me"
         href="/"
         label="Logo Marco Madera, ir a la página principal"
         className="logo"
@@ -96,7 +97,7 @@ export default function Navbar(): ReactElement {
         <Anchor href="/portafolio" label="Ir al portafolio">
           Portafolio
         </Anchor>
-        <Anchor href="/sobre-mi" label="Ir a sobre mí" rel="me">
+        <Anchor href="/sobre-mi" label="Ir a sobre mí">
           Sobre mí
         </Anchor>
       </nav>

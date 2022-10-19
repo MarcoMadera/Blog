@@ -17,7 +17,7 @@ export default function RecommendedPosts({
           <h2 className="p-name">Artículos recomendados</h2>
           <div>
             {recommendedPosts.map(
-              ({ slug: recommendedPostSlug, title, cover }, i) => {
+              ({ slug: recommendedPostSlug, title, cover, coverAlt }, i) => {
                 return (
                   recommendedPostSlug !== slug &&
                   i <= 5 && (
@@ -39,7 +39,7 @@ export default function RecommendedPosts({
                             : cover
                         }
                         loading="lazy"
-                        alt={title}
+                        alt={coverAlt}
                         width="560"
                         height="260"
                         className="u-photo"

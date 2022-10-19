@@ -26,6 +26,7 @@ export default function Seo({
   const metaTitle = title || siteMetadata.title;
   const router = useRouter();
   const { darkMode } = useDarkMode();
+  const isBlog = router.asPath.startsWith("/blog/");
 
   return (
     <Head>
@@ -35,7 +36,7 @@ export default function Seo({
       <link
         rel="canonical"
         href={
-          canonical ?? router.asPath === "/"
+          canonical ?? (router.asPath === "/" || router.asPath === "/index")
             ? siteMetadata.siteUrl
             : `${siteMetadata.siteUrl}${router.asPath}`
         }
@@ -63,38 +64,33 @@ export default function Seo({
       />
       <meta name="twitter:site" content={`@${siteMetadata.social.twitter}`} />
       <meta property="fb:app_id" content="373017180730319" />
-      {router.asPath.startsWith("/blog/") &&
-      !router.asPath.startsWith("/blog/etiqueta") ? (
-        <>
-          <meta property="og:type" content="article" />
-          {author === siteMetadata.author.name && (
-            <meta
-              property="article:author"
-              content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
-            />
-          )}
-          <meta
-            property="article:publisher"
-            content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: `{"@context":"https://schema.org","@type":"Article","headline":"${metaTitle}","description":"${metaDescription}","image":"${cover}","datePublished":"${date}","author":{"@type":"Person","name":"${
-                author || siteMetadata.author.name
-              }"},"publisher":{"@type":"Organization","name":"${
-                siteMetadata.siteUrl
-              }","logo":{"@type":"ImageObject","url":"${
-                siteMetadata.siteUrl
-              }/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"${
-                siteMetadata.siteUrl
-              }${router.asPath}"}}`,
-            }}
-          />
-        </>
-      ) : (
-        <meta property="og:type" content="website" />
+      <meta property="og:type" content={isBlog ? "article" : "website"} />
+      {author === siteMetadata.author.name && (
+        <meta
+          property="article:author"
+          content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
+        />
       )}
+      <meta
+        property="article:publisher"
+        content={`https://www.facebook.com/${siteMetadata.social.facebook}`}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: `{"@context":"https://schema.org","@type":"${
+            isBlog ? "Article" : "WebPage"
+          }","headline":"${metaTitle}","description":"${metaDescription}","image":"${cover}","datePublished":"${date}","author":{"@type":"Person","name":"${
+            author || siteMetadata.author.name
+          }"},"publisher":{"@type":"Organization","name":"${
+            siteMetadata.siteUrl
+          }","logo":{"@type":"ImageObject","url":"${
+            siteMetadata.siteUrl
+          }/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"${
+            siteMetadata.siteUrl
+          }${router.asPath}"}}`,
+        }}
+      />
       <meta
         property="og:site_name"
         content={`${siteMetadata.title}: ${siteMetadata.description}`}

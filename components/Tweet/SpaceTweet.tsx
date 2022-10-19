@@ -5,6 +5,7 @@ import EmojisWrapper from "components/EmojisWrapper";
 import useToolTip from "hooks/useToolTip";
 import useAnalytics from "hooks/useAnalytics";
 import { HitType } from "types/analytics";
+import { useDate } from "hooks/useDate";
 
 export default function SpaceTweet({
   spaceTweet,
@@ -13,9 +14,14 @@ export default function SpaceTweet({
 }): ReactElement {
   const { getToolTipAttributes } = useToolTip();
   const { trackWithGoogleAnalytics } = useAnalytics();
+  const { date: scheduled_start_date } = useDate(
+    spaceTweet?.data.scheduled_start
+  );
+  const { date: ended_at_date } = useDate(spaceTweet?.data.ended_at);
   if (!spaceTweet) {
     return <></>;
   }
+  const headerLeftDate = scheduled_start_date || ended_at_date;
   return (
     <div className="space-tweet">
       <div className="space-tweet__header">
@@ -24,9 +30,9 @@ export default function SpaceTweet({
             <EmojisWrapper>
               <span className="name">
                 <span className="space-tweet__header-left-date">
-                  {getQuotedTwitterFormattedDate(
-                    spaceTweet.data.scheduled_start ?? spaceTweet.data.ended_at
-                  )}
+                  {headerLeftDate
+                    ? getQuotedTwitterFormattedDate(headerLeftDate)
+                    : ""}
                 </span>{" "}
                 &middot; {spaceTweet.includes.users[0].name}{" "}
                 <a

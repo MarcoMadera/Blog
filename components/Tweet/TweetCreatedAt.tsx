@@ -1,5 +1,6 @@
+import { useDate } from "hooks/useDate";
 import useToolTip from "hooks/useToolTip";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 import { getQuotedTwitterFormattedDate, getTwitterFormattedDate } from "utils";
 
 export default function TweetCreatedAt({
@@ -10,21 +11,11 @@ export default function TweetCreatedAt({
   variant?: "short";
 }): ReactElement {
   const { getToolTipAttributes } = useToolTip();
-  const [createdAt, setCreatedAt] = useState<Date | undefined>(undefined);
-  const [createdAtIsoString, setCreatedAtIsoString] = useState<
-    string | undefined
-  >(undefined);
-
-  useEffect(() => {
-    if (created_at && window) {
-      setCreatedAt(new Date(created_at));
-      setCreatedAtIsoString(new Date(created_at)?.toISOString());
-    }
-  }, [created_at]);
+  const { date, isoString } = useDate(created_at);
 
   const title = `Publicado: ${
-    createdAt
-      ? createdAt?.toLocaleDateString("es", {
+    date
+      ? date?.toLocaleDateString("es", {
           year: "numeric",
           month: "short",
           day: "numeric",
@@ -38,14 +29,14 @@ export default function TweetCreatedAt({
 
   return (
     <time
-      dateTime={createdAtIsoString}
+      dateTime={isoString}
       className="dt-published"
       {...getToolTipAttributes(title)}
     >
-      {createdAtIsoString &&
+      {date &&
         (variant === "short"
-          ? getQuotedTwitterFormattedDate(createdAtIsoString)
-          : getTwitterFormattedDate(createdAtIsoString))}
+          ? getQuotedTwitterFormattedDate(date)
+          : getTwitterFormattedDate(date))}
     </time>
   );
 }

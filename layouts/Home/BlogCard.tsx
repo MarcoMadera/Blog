@@ -10,10 +10,12 @@ import {
   isImgFromCloudProvider,
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
+import { useDate } from "hooks/useDate";
 
 export default function BlogCard({
   author,
   cover,
+  coverAlt,
   date,
   description,
   slug,
@@ -27,6 +29,7 @@ export default function BlogCard({
 > {
   const { darkMode } = useDarkMode();
   const isFromCloudProvider = isImgFromCloudProvider(cover);
+  const { date: publishedDate, isoString } = useDate(date);
 
   return (
     <article className="h-entry hentry">
@@ -36,7 +39,7 @@ export default function BlogCard({
             <Image
               height={548}
               width={410}
-              alt={tags.join(", ")}
+              alt={coverAlt}
               placeholder="blur"
               loader={
                 isFromCloudProvider
@@ -60,11 +63,8 @@ export default function BlogCard({
           <div className="content">
             <div className="info">
               <span>
-                <time
-                  className="dt-published published"
-                  dateTime={new Date(date).toISOString()}
-                >
-                  {getFormattedDate(date)}
+                <time className="dt-published published" dateTime={isoString}>
+                  {publishedDate ? getFormattedDate(publishedDate) : ""}
                 </time>
               </span>
               <span>{readingTimeInMinutes} min de lectura</span>

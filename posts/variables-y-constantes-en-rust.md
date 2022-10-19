@@ -3,6 +3,7 @@ title: "Variables y constantes en Rust"
 description: En Rust se pueden definir variables y constantes, pero tienen sus similitudes y diferencias.
 date: 2022-01-06
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1641442436/Blog/rust/zdenek-machacek-PEy4qZCLXss-unsplash_ataycj.jpg
+coverAlt: Cadena oxidada.
 author: Marco Madera
 tags:
   - Rust

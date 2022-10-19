@@ -234,7 +234,7 @@ describe("insertTextBetween", () => {
 describe("getTwitterFormattedDate", () => {
   it("should work", () => {
     expect.hasAssertions();
-    expect(getTwitterFormattedDate("2021-03-12")).toBe(
+    expect(getTwitterFormattedDate(new Date("2021-03-12"))).toBe(
       "6:00 PM - 11 mar, 2021"
     );
   });
@@ -243,7 +243,9 @@ describe("getTwitterFormattedDate", () => {
 describe("getQuotedTwitterFormattedDate", () => {
   it("should work", () => {
     expect.hasAssertions();
-    expect(getQuotedTwitterFormattedDate("2021-03-12")).toBe("11 mar");
+    expect(getQuotedTwitterFormattedDate(new Date("2021-03-12"))).toBe(
+      "11 mar"
+    );
   });
 });
 

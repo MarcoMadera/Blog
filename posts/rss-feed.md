@@ -3,6 +3,7 @@ title: "RSS Feed: ¿Qué es?, ventajas y desventajas"
 description: RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica.
 date: 2020-08-20
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1664627664/Blog/4/taras-shypka-iFSvn82XfGo-unsplash_acjiho.jpg
+coverAlt: Una persona usando una tablet y una laptop de fondo.
 author: Marco Madera
 tags:
   - Web

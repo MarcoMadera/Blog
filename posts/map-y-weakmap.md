@@ -3,6 +3,7 @@ title: Map y WeakMap en JavaScript
 description: Existen varias estructuras de datos que nos permiten almacenar información en JavasScript, una de ellas es el Map y el WeakMap.
 date: 2022-02-28
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1646008638/Blog/Map-y-WeakMap/map_ibcrlr.jpg
+coverAlt: Mapa viejo.
 author: Marco Madera
 tags:
   - JavaScript

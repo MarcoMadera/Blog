@@ -3,6 +3,7 @@ title: "Primer aniversario del blog"
 description: El día 20 de mayo del año 2020, en plena pandemia, se publicó por primera vez en el blog, ha sufrido muchos cambios.
 date: 2021-05-26
 cover: https://res.cloudinary.com/marcomadera/image/upload/v1622007476/Blog/1-Aniversario/cake_uss8y3.jpg
+coverAlt: Un pastel blanco con una vela.
 author: Marco Madera
 tags:
   - Off Topic
