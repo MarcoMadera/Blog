@@ -14,6 +14,10 @@ export default function Home(data: HomeData): ReactElement {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { posts, pages, allTags } = await getHomeDataFromPage(1);
-  return { props: { posts, allTags, pages, currentPage: 1 } };
+  const { posts, pages, allTags, microMemories } = await getHomeDataFromPage(1);
+
+  return {
+    props: { posts, allTags, pages, currentPage: 1, microMemories },
+    revalidate: 1 * 60 * 60 * 1,
+  };
 };

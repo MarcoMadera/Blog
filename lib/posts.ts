@@ -7,6 +7,8 @@ import twetmoji from "twemoji";
 import readingTime from "reading-time";
 import { getPlaiceholder } from "plaiceholder";
 import type { AllTags, Pages, Post, PostData } from "types/posts";
+import { database } from "lib/firebase/admin";
+import { IMicroMemory } from "types/microMemories";
 
 export function getPostsFiles(): {
   filename: string;
@@ -175,6 +177,7 @@ interface HomeDataFromPage {
   posts: Posts;
   pages: Pages;
   allTags: AllTags;
+  microMemories: IMicroMemory[];
 }
 
 export async function getHomeDataFromPage(
@@ -183,6 +186,14 @@ export async function getHomeDataFromPage(
   const allPosts = await getSortedPostsData();
   const indexOfLastPost = number * siteMetadata.postsPerPage;
   const indexOfFirstPost = indexOfLastPost - siteMetadata.postsPerPage;
+  const { microMemoriesPerPage } = siteMetadata;
+  const ref = database.ref("micromemories/memory");
+  const snapshot = await ref.limitToLast(microMemoriesPerPage * 3).get();
+  const microMemories: IMicroMemory[] = [];
+  snapshot.forEach((snap) => {
+    microMemories.unshift(snap.val());
+  });
+
   return {
     posts: allPosts.slice(indexOfFirstPost, indexOfLastPost).map((post) => ({
       tags: post.tags,
@@ -201,6 +212,7 @@ export async function getHomeDataFromPage(
       (_, i) => i + 1
     ),
     allTags: [...new Set(allPosts.flatMap(({ tags }) => tags))],
+    microMemories,
   };
 }
 

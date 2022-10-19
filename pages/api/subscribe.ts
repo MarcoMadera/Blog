@@ -40,7 +40,6 @@ export default async function subscribe(
 
     if (response.status >= 400) {
       const responseData = await response.json();
-      console.log(responseData);
       if (responseData.title === "Member Exists") {
         return res.status(400).json({ error: "Ya estás suscrito" });
       }

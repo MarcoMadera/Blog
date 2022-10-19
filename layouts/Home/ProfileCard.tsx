@@ -17,7 +17,7 @@ export default function Aside(): ReactElement {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               draggable="false"
-              className="twemoji"
+              className="twemoji-1"
               alt="👋"
               src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f44b.png"
               width="36"
@@ -98,7 +98,7 @@ export default function Aside(): ReactElement {
           font-size: 1.1rem;
           line-height: 1.8;
         }
-        header :global(.twemoji) {
+        header :global(.twemoji-1) {
           height: 38px;
           margin: 0 2px;
           vertical-align: top;
