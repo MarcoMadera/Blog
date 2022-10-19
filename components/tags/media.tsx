@@ -125,7 +125,7 @@ export function Img({
         }
       >
         {" "}
-        {isFromCloudProvider ? (
+        {isFromCloudProvider && (width || height) ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <Image
             {...imageProps}
