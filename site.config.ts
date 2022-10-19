@@ -22,4 +22,5 @@ export const siteMetadata = {
   },
   postsPerPage: 6,
   commentsPerPost: 5,
+  microMemoriesPerPage: 3,
 };

@@ -119,7 +119,6 @@ export function Img({
           objectFit === "cover"
             ? {
                 position: "relative",
-                maxHeight: "380px",
                 maxWidth: "100%",
               }
             : {}
@@ -166,6 +165,9 @@ export function Img({
           object-fit: ${objectFit === "cover" ? "cover" : "unset"};
           cursor: ${shouldZoomIn ? "zoom-in" : "pointer"};
         }
+        :global(.tweet) summary {
+          max-height: 400px;
+        }
         details {
           float: ${isImgToTheRight
             ? "right"
@@ -191,6 +193,7 @@ export function Img({
           overflow: hidden;
           padding: 0;
           max-width: fit-content;
+          margin: 15px 0;
         }
         details[open] {
           padding: 0;
