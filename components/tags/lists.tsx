@@ -69,10 +69,13 @@ export function Li({
           margin-left: ${!isCheckType ? "30px" : "0"};
           margin-top: ${!isCheckType ? "5px" : "0"};
           list-style-type: ${!isCheckType ? "revert" : "none"};
+          display: ${!isCheckType ? "list-item" : "grid"};
+          grid-template-columns: 25px 1fr;
+          gap: 5px;
         }
         label {
           background-color: ${checked === true ? "#ce3a3a" : "unset"};
-          border: 1px solid ${checked === true ? "unset" : "#cccccc4d"};
+          border: 1px solid ${checked === true ? "transparent" : "#cccccc4d"};
         }
         label:after {
           background-image: ${checked === true
@@ -118,7 +121,10 @@ export function Li({
           height: 1rem;
           align-items: center;
           justify-content: center;
+          margin-left: 5px;
           margin-right: 5px;
+          margin-top: 6px;
+          align-self: baseline;
         }
         label:focus-within,
         label:active {

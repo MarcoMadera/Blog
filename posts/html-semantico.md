@@ -391,13 +391,13 @@ Otra forma de crear listas con estos elementos son las **listas anidadas**, llev
 
 También nos podemos poner más creativos y usar distintas combinaciones con diferentes elementos como puede ser un **checkbox** para marcar de completada la tarea.
 
-- [ ] pendiente1
-- [x] pendiente2
+- [ ] Pendiente1
+- [x] Pendiente2
 
 ```html
 <ul>
-  <li><input type="checkbox" readonly />pendiente1</li>
-  <li><input type="checkbox" readonly checked />pendiente2</li>
+  <li><input type="checkbox" readonly />Pendiente1</li>
+  <li><input type="checkbox" readonly checked />Pendiente2</li>
 </ul>
 ```
 
