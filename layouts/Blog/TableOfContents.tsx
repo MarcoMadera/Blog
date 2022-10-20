@@ -118,7 +118,7 @@ export default function TableOfContents({
           <ol>
             {constructedTable.map(({ level, text, children }, i) => {
               return (
-                <Li key={i} hideListStyle>
+                <Li key={i}>
                   <ALink
                     href={`#${slugify(text)}`}
                     target="_self"
@@ -134,7 +134,7 @@ export default function TableOfContents({
                       <span className="line"></span>
                       <Ol depth={level - 1}>
                         {children.map(({ text }, i) => (
-                          <Li key={i} hideListStyle>
+                          <Li key={i}>
                             <ALink
                               href={`#${slugify(text)}`}
                               target="_self"

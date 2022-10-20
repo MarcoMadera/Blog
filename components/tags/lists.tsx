@@ -42,21 +42,15 @@ export function Ul({
 
 interface LiProps {
   checked?: boolean | null;
-  hideListStyle?: boolean;
 }
 
 export function Li({
   children,
   checked = null,
-  hideListStyle,
   ...attribs
 }: PropsWithChildren<LiProps>): ReactElement {
-  const checkStyle =
-    hideListStyle === undefined || checked === undefined
-      ? true
-      : hideListStyle
-      ? false
-      : checked !== null;
+  const isCheckType = checked !== null;
+
   return (
     <li {...attribs}>
       {checked === true && (
@@ -72,9 +66,9 @@ export function Li({
       {children}
       <style jsx>{`
         li {
-          margin-left: ${checkStyle ? "30px" : "0"};
-          margin-top: ${checkStyle ? "5px" : "0"};
-          list-style-type: ${checkStyle ? "revert" : "none"};
+          margin-left: ${!isCheckType ? "30px" : "0"};
+          margin-top: ${!isCheckType ? "5px" : "0"};
+          list-style-type: ${!isCheckType ? "revert" : "none"};
         }
         label {
           background-color: ${checked === true ? "#ce3a3a" : "unset"};
