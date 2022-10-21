@@ -105,7 +105,12 @@ export function Blockquote({ children }: Text): ReactElement {
   );
 }
 
-export function Dialog({ children, ...attr }: Text): ReactElement {
+export function Dialog({
+  children,
+  ...attr
+}: PropsWithChildren<
+  DetailedHTMLProps<HTMLAttributes<HTMLDialogElement>, HTMLDialogElement>
+>): ReactElement {
   const { darkMode } = useDarkMode();
   return (
     <dialog {...attr}>
@@ -127,7 +132,11 @@ export function Dialog({ children, ...attr }: Text): ReactElement {
   );
 }
 
-export function Hr(props: Record<string, string | number>): ReactElement {
+export function Hr(
+  props: PropsWithChildren<
+    DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement>
+  >
+): ReactElement {
   const { darkMode } = useDarkMode();
   return (
     <>
@@ -145,7 +154,12 @@ export function Hr(props: Record<string, string | number>): ReactElement {
   );
 }
 
-export function Kbd({ children, ...attribs }: Text): ReactElement {
+export function Kbd({
+  children,
+  ...attribs
+}: PropsWithChildren<
+  DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+>): ReactElement {
   return (
     <kbd {...attribs}>
       {children}
@@ -194,26 +208,11 @@ export function P({
   );
 }
 
-interface CaptionProps {
-  children: ReactNode;
-}
-export function Caption({ children }: CaptionProps): ReactElement {
-  const { darkMode } = useDarkMode();
+export function Caption({ children }: PropsWithChildren): ReactElement {
   return (
-    <p role="note">
+    <P role="note" style={{ fontSize: "1rem", textAlign: "center" }}>
       <em>{children}</em>
-      <style jsx>
-        {`
-          p {
-            font-size: 0.8em;
-            margin: 0;
-            margin-top: 0.5em;
-            color: ${darkMode ? colors.dark_textColor : colors.textColor};
-            text-align: center;
-          }
-        `}
-      </style>
-    </p>
+    </P>
   );
 }
 
@@ -269,9 +268,9 @@ export function Note({
     <>
       <div role="note" className={type}>
         <div>
-          <p>
+          <P>
             <strong>{noteTitles[type]}:</strong> {isInline ? children : null}
-          </p>
+          </P>
           {!isInline ? <>{children}</> : null}
         </div>
         <style jsx>{`
@@ -295,7 +294,7 @@ export function Note({
           div[role="note"] :global(li::marker) {
             font-weight: bold;
           }
-          p {
+          div[role="note"] :global(p) {
             margin: 0;
           }
         `}</style>

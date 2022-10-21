@@ -80,8 +80,7 @@ export default function RecommendedPosts({
         }
         div div {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
-          margin-bottom: 0;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 0.33fr));
           grid-gap: 2em;
           margin: 30px 0;
         }

@@ -193,7 +193,7 @@ export function Img({
           overflow: hidden;
           padding: 0;
           max-width: fit-content;
-          margin: 15px 0;
+          margin: 15px auto;
         }
         details[open] {
           padding: 0;
