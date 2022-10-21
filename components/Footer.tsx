@@ -82,29 +82,6 @@ export default function Footer(): ReactElement {
           >
             RSS
           </A>
-          <div className="ring">
-            <A
-              href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/previous"
-              target="_blank"
-              rel="external noopener noreferrer"
-            >
-              ←
-            </A>
-            <A
-              href="https://xn--sr8hvo.ws"
-              target="_blank"
-              rel="external noopener noreferrer"
-            >
-              IndieWeb Webring
-            </A>{" "}
-            <A
-              href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/next"
-              target="_blank"
-              rel="external noopener noreferrer"
-            >
-              →
-            </A>
-          </div>
         </div>
         <div className="footer_section ">
           <strong>Social</strong>
@@ -145,6 +122,25 @@ export default function Footer(): ReactElement {
           </div>
         </div>
       </section>
+      <span className="ring">
+        <A
+          href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/previous"
+          target="_blank"
+          rel="external noopener noreferrer"
+          title="Anterior sitio web"
+        >
+          ←
+        </A>
+        Descubre más sitios indie
+        <A
+          href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/next"
+          target="_blank"
+          rel="external noopener noreferrer"
+          title="Siguiente sitio web"
+        >
+          →
+        </A>
+      </span>
       <style jsx>{`
         .footer_social :global(a:hover svg),
         .footer_social :global(a:focus svg) {
@@ -163,6 +159,11 @@ export default function Footer(): ReactElement {
         .footer_section .ring > :global(a:after) {
           background: ${darkMode ? colors.dark_secondary : colors.primary};
         }
+        .ring {
+          background-color: ${darkMode
+            ? colors.dark_accents1
+            : colors.accents2};
+        }
       `}</style>
       <style jsx>{`
         strong {
@@ -170,8 +171,31 @@ export default function Footer(): ReactElement {
           margin: 15px 0 22px;
         }
         .ring {
+          box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
+          color: inherit;
           display: flex;
           gap: 5px;
+          align-items: baseline;
+          font-size: 18px;
+          left: 0px;
+          margin: 0 auto;
+          padding: 1rem 5rem;
+          position: fixed;
+          right: 0;
+          transition: 0.3s ease 0s;
+          text-decoration: none;
+          bottom: -280px;
+          width: fit-content;
+          z-index: 9999;
+          font-size: 15px;
+        }
+        @media print {
+          .ring {
+            display: none;
+          }
+        }
+        .ring:focus-within {
+          transform: translateY(-300px);
         }
         section {
           display: flex;

@@ -62,11 +62,11 @@ export default function Privacy(): ReactElement {
           Al inscribirte en un formulario de suscripción o un boletín que el
           Titular gestiona con{" "}
           <A
-            href="https://buttondown.email/"
+            href="https://mailchimp.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            ButtonDown
+            Mailchimp
           </A>
           .
         </Li>
@@ -273,18 +273,18 @@ export default function Privacy(): ReactElement {
       <H2>Destinatarios de datos personales</H2>
       <Ul>
         <Li>
-          Buttondown, LLC , con domicilio en EEUU.
+          Mailchimp, LLC , con domicilio en EEUU.
           <br />
           Encontrarás más información en:{" "}
           <A
-            href="https://buttondown.email/"
+            href="https://mailchimp.com/"
             target="_blank"
             rel="noopener noreferer"
           >
-            ButtonDown
+            Mailchimp
           </A>
           <br />
-          Buttondown, LLC trata los datos con la finalidad de prestar sus
+          Mailchimp, LLC trata los datos con la finalidad de prestar sus
           servicios de email el Titulareting al Titular.
         </Li>
         <Li>
