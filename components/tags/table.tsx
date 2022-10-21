@@ -45,8 +45,9 @@ export function Th({
           border: 1px solid #aaa;
           empty-cells: hide;
           font-weight: 700;
-          padding: 5px 11px;
+          padding: 7px 13px;
           text-align: center;
+          font-size: 18px;
         }
       `}</style>
     </th>
@@ -78,7 +79,8 @@ export function Td({
           border: 1px solid #aaa;
           empty-cells: hide;
           font-weight: normal;
-          padding: 5px 11px;
+          padding: 7px 13px;
+          font-size: 18px;
         }
       `}</style>
     </td>

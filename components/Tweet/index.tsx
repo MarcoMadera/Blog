@@ -14,6 +14,7 @@ import useToolTip from "hooks/useToolTip";
 import SpaceTweet from "./SpaceTweet";
 import { ElementType } from "types/posts";
 import TweetUrlPreview from "./TweetUrlPreview";
+import { P } from "components/tags";
 
 interface TweetProps {
   id: string;
@@ -115,7 +116,7 @@ export default function Tweet({
           metrics={data.tweet.public_metrics}
         />
       </div>
-      {caption != null ? <p className="caption">{caption}</p> : null}
+      {caption != null ? <P className="caption">{caption}</P> : null}
       <style jsx>{`
         .brand {
           position: absolute;
@@ -140,13 +141,9 @@ export default function Tweet({
         section {
           padding: 0 3px;
         }
-        div p.caption {
-          font-size: 14px;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+        article :global(p.caption) {
+          font-size: 1rem;
           text-align: center;
-          margin: 0;
-          margin-top: 10px;
-          padding: 0;
         }
         div.tweet {
           border: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};

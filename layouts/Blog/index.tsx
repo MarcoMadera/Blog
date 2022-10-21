@@ -179,7 +179,8 @@ export default function Post({
           grid-area: hr;
         }
         .article-content {
-          margin-top: 2rem;
+          max-width: 40rem;
+          margin: 2rem auto 0;
         }
         div :global(h3) {
           font-size: 1.6rem;
@@ -222,7 +223,7 @@ export default function Post({
           align-items: center;
           justify-content: center;
           padding: 7px 10px;
-          font-size: 14px;
+          font-size: 16px;
           text-align: center;
           align-self: stretch;
           width: 220px;
