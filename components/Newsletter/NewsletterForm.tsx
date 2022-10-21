@@ -111,7 +111,7 @@ export default function NewsletterForm({
         }
         form {
           max-width: 700px;
-          margin: auto;
+          margin: 2rem auto;
         }
       `}</style>
     </form>

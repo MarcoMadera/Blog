@@ -86,9 +86,9 @@ export function Li({
       <style jsx>{`
         li {
           position: relative;
-          font-size: 1rem;
+          font-size: 18px;
           font-weight: 400;
-          line-height: 1.6;
+          line-height: 2rem;
           align-items: center;
           list-style-position: outside;
         }
@@ -123,7 +123,7 @@ export function Li({
           justify-content: center;
           margin-left: 5px;
           margin-right: 5px;
-          margin-top: 6px;
+          margin-top: 9px;
           align-self: baseline;
         }
         label:focus-within,

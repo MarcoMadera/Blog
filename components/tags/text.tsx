@@ -1,7 +1,13 @@
 import { colors } from "styles/theme";
 import { colors as codeColors } from "styles/code/colors";
 import useDarkMode from "hooks/useDarkMode";
-import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+} from "react";
 import { noteStyles } from "../../styles/components/noteStyles";
 import { Bulb, Info, Alert, Star, Check } from "components/icons";
 import useToolTip from "hooks/useToolTip";
@@ -164,14 +170,12 @@ export function Kbd({ children, ...attribs }: Text): ReactElement {
   );
 }
 
-interface PTypes {
-  children: ReactNode;
-  [x: string]: string | number | ReactNode;
-}
 export function P({
   children,
   ...attribs
-}: PropsWithChildren<PTypes>): ReactElement {
+}: PropsWithChildren<
+  DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>
+>): ReactElement {
   return (
     <p {...attribs}>
       {children}
@@ -179,9 +183,11 @@ export function P({
         p {
           -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
           break-inside: avoid; /* IE 10+ */
-          line-height: 25.6px;
+          line-height: 2rem;
           margin: 1em 0;
           page-break-inside: avoid; /* Firefox */
+          font-size: 18px;
+          font-weight: 400;
         }
       `}</style>
     </p>

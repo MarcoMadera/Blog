@@ -211,6 +211,7 @@ export default function TableOfContents({
         nav :global(a) {
           display: block;
           width: revert;
+          font-size: 1rem;
         }
         nav :global(a:hover),
         nav :global(a:focus) {

@@ -48,7 +48,7 @@ export default function MicroMemory({
           font-weight: 400;
         }
         .microMemory {
-          margin: 1rem auto;
+          margin: 0 auto;
           max-width: 40rem;
           padding: 1rem;
         }
