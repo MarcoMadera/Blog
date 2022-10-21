@@ -26,7 +26,7 @@ export default function Aside(): ReactElement {
             Marco Madera
           </span>
         </h1>
-        <p className="p-summary site-description">
+        <p className="p-summary site-description p-note">
           Este es mi sitio personal, escribo sobre frontend y experiencias para
           crear más valor a la comunidad web.
         </p>

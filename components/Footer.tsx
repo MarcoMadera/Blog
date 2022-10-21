@@ -48,6 +48,13 @@ export default function Footer(): ReactElement {
         <div className="footer_section">
           <strong>Enlaces externos</strong>
           <A
+            href={"https://status.marcomadera.com"}
+            target="_blank"
+            rel="external noopener noreferrer"
+          >
+            Status
+          </A>
+          <A
             href="https://blog.marcomadera.com/"
             target="_blank"
             rel="external noopener noreferrer"
@@ -75,13 +82,29 @@ export default function Footer(): ReactElement {
           >
             RSS
           </A>
-          <A
-            href={"https://status.marcomadera.com"}
-            target="_blank"
-            rel="external noopener noreferrer"
-          >
-            Status
-          </A>
+          <div className="ring">
+            <A
+              href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/previous"
+              target="_blank"
+              rel="external noopener noreferrer"
+            >
+              ←
+            </A>
+            <A
+              href="https://xn--sr8hvo.ws"
+              target="_blank"
+              rel="external noopener noreferrer"
+            >
+              IndieWeb Webring
+            </A>{" "}
+            <A
+              href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/next"
+              target="_blank"
+              rel="external noopener noreferrer"
+            >
+              →
+            </A>
+          </div>
         </div>
         <div className="footer_section ">
           <strong>Social</strong>
@@ -136,7 +159,8 @@ export default function Footer(): ReactElement {
         .footer_section {
           color: ${darkMode ? colors.dark_textColor : colors.titleColor};
         }
-        .footer_section > :global(a:after) {
+        .footer_section > :global(a:after),
+        .footer_section .ring > :global(a:after) {
           background: ${darkMode ? colors.dark_secondary : colors.primary};
         }
       `}</style>
@@ -144,6 +168,10 @@ export default function Footer(): ReactElement {
         strong {
           display: block;
           margin: 15px 0 22px;
+        }
+        .ring {
+          display: flex;
+          gap: 5px;
         }
         section {
           display: flex;
@@ -162,7 +190,8 @@ export default function Footer(): ReactElement {
           text-decoration: none;
           position: relative;
         }
-        .footer_section > :global(a:after) {
+        .footer_section :global(a:after),
+        .footer_section :global(a:after) {
           bottom: -1px;
           content: "";
           display: block;
@@ -173,8 +202,8 @@ export default function Footer(): ReactElement {
           width: 0;
           margin-top: 15px;
         }
-        .footer_section > :global(a:hover:after),
-        .footer_section > :global(a:focus:after) {
+        .footer_section :global(a:hover:after),
+        .footer_section :global(a:focus:after) {
           width: 100%;
           left: 0;
         }
