@@ -205,6 +205,8 @@ export default function TableOfContents({
           border-width: 1px;
           border-radius: 0.5rem;
           border-style: solid;
+          max-height: 95vh;
+          overflow-y: auto;
         }
         nav :global(a) {
           display: block;
