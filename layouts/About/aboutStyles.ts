@@ -11,7 +11,7 @@ export const aboutStyles = css`
     padding: 0 20px;
   }
   aside:nth-of-type(1) {
-    padding-top: 75px;
+    padding-top: 120px;
   }
   aside:nth-of-type(2) {
     box-sizing: border-box;
@@ -21,7 +21,10 @@ export const aboutStyles = css`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
+  }
+  aside:nth-of-type(1) > :global(svg:nth-of-type(2)) {
+    margin-bottom: 180px;
   }
   aside:nth-of-type(1) > :global(svg:hover) {
     animation: rotate-center 250ms ease-in-out 2 alternate both;
@@ -64,55 +67,67 @@ export const aboutStyles = css`
   }
   @media screen and (min-width: 1025px) and (max-width: 1050px) {
     aside:nth-of-type(1) > :global(svg) {
-      margin-bottom: 90px;
+      margin-top: 30px;
+      margin-bottom: 120px;
+    }
+    aside:nth-of-type(1) > :global(svg:nth-of-type(2)) {
+      margin-bottom: 320px;
     }
     aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
-      margin-bottom: 230px;
+      margin-bottom: 300px;
     }
   }
-  @media screen and (min-width: 1051px) and (max-width: 1070px) {
+  @media screen and (min-width: 1051px) and (max-width: 1120px) {
     aside:nth-of-type(1) > :global(svg) {
-      margin-bottom: 95px;
+      margin-top: 40px;
+      margin-bottom: 140px;
+    }
+    aside:nth-of-type(1) > :global(svg:nth-of-type(2)) {
+      margin-bottom: 190px;
     }
     aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
-      margin-bottom: 170px;
-    }
-  }
-  @media screen and (min-width: 1071px) and (max-width: 1120px) {
-    aside:nth-of-type(1) > :global(svg) {
-      margin-bottom: 70px;
-    }
-    aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
-      margin-bottom: 240px;
+      margin-bottom: 200px;
     }
   }
   @media screen and (min-width: 1121px) and (max-width: 1165px) {
     aside:nth-of-type(1) > :global(svg) {
-      margin-bottom: 60px;
+      margin-top: 40px;
+      margin-bottom: 100px;
+    }
+    aside:nth-of-type(1) > :global(svg:nth-of-type(2)) {
+      margin-bottom: 190px;
     }
     aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
-      margin-bottom: 220px;
+      margin-bottom: 200px;
     }
   }
   @media screen and (min-width: 1166px) and (max-width: 1220px) {
     aside:nth-of-type(1) > :global(svg) {
-      margin-bottom: 60px;
+      margin-top: 10px;
+      margin-bottom: 110px;
+    }
+    aside:nth-of-type(1) > :global(svg:nth-of-type(2)) {
+      margin-bottom: 190px;
     }
     aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
-      margin-bottom: 190px;
+      margin-bottom: 200px;
     }
   }
   @media screen and (min-width: 1221px) and (max-width: 1280px) {
     aside:nth-of-type(1) > :global(svg) {
-      margin-bottom: 60px;
+      margin-top: 10px;
+      margin-bottom: 90px;
+    }
+    aside:nth-of-type(1) > :global(svg:nth-of-type(2)) {
+      margin-bottom: 190px;
     }
     aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
-      margin-bottom: 150px;
+      margin-bottom: 200px;
     }
   }
   @media screen and (min-width: 1281px) {
     aside:nth-of-type(1) > :global(svg:nth-of-type(5)) {
-      margin-bottom: 120px;
+      margin-bottom: 190px;
     }
   }
   @media print, screen and (min-width: 0px) and (max-width: 1024px) {

@@ -75,6 +75,13 @@ export default function Footer(): ReactElement {
           >
             RSS
           </A>
+          <A
+            href={"https://status.marcomadera.com"}
+            target="_blank"
+            rel="external noopener noreferrer"
+          >
+            Status
+          </A>
         </div>
         <div className="footer_section ">
           <strong>Social</strong>
@@ -136,7 +143,7 @@ export default function Footer(): ReactElement {
       <style jsx>{`
         strong {
           display: block;
-          margin: 1em 0;
+          margin: 15px 0 22px;
         }
         section {
           display: flex;
@@ -149,7 +156,8 @@ export default function Footer(): ReactElement {
         .footer_section :global(a) {
           display: block;
           width: max-content;
-          margin: 5px 0;
+          padding: 0.1875rem 0;
+          margin-bottom: 0.75em;
           color: inherit;
           text-decoration: none;
           position: relative;
@@ -182,7 +190,7 @@ export default function Footer(): ReactElement {
           flex-wrap: wrap;
           justify-content: center;
           min-height: 80px;
-          padding: 10px 20px;
+          padding: 60px 20px 40px;
         }
         span {
           display: inline-flex;

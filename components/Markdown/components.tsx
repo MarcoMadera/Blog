@@ -112,13 +112,13 @@ export const components:
     const dataObject = convertParamsToObject(data);
 
     return shouldBeInParagraph ? (
-      <p
+      <P
         {...properties}
         {...dataObject}
         style={style ? convertInlineStylesToObject(style) : undefined}
       >
         {children}
-      </p>
+      </P>
     ) : (
       <>{children}</>
     );

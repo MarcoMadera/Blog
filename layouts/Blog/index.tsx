@@ -112,7 +112,7 @@ export default function Post({
           <div
             itemProp="articlebody"
             aria-labelledby="articleTitle"
-            className="e-content"
+            className="e-content article-content"
           >
             <ElementsContextProvider elements={elements}>
               <MarkDown source={content} html={true} type="post" />
@@ -178,19 +178,8 @@ export default function Post({
         article > :global(hr) {
           grid-area: hr;
         }
-        div :global(li),
-        div :global(p) {
-          line-height: 28px;
-          font-size: 17.2px;
-          word-spacing: 3px;
-          letter-spacing: -0.3px;
-        }
-        div :global(h2) {
-          font-size: 2.2rem;
-          margin-top: 1em;
-        }
-        div :global(sup) {
-          font-weight: 600;
+        .article-content {
+          margin-top: 2rem;
         }
         div :global(h3) {
           font-size: 1.6rem;

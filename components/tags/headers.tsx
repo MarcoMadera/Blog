@@ -11,8 +11,9 @@ export function H1({
       <style jsx>{`
         h1 {
           margin: 0;
-          font-size: 2em;
-          font-weight: 600;
+          font-weight: 400;
+          margin: 20px 0 0.5em 0;
+          font-size: 48px;
         }
       `}</style>
     </h1>
@@ -30,7 +31,11 @@ export function H2({
         h2 {
           margin: 0.8rem 0 0.3rem 0;
           font-size: 1.5em;
-          font-weight: 600;
+          font-weight: 400;
+          font-size: 2.2rem;
+          margin-top: 1em;
+          letter-spacing: -0.5px;
+          color: #de2323;
         }
       `}</style>
     </h2>

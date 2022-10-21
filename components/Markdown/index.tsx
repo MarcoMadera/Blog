@@ -5,7 +5,11 @@ import { components } from "./components";
 import { ReactElement } from "react";
 
 type Username = string;
-export type MarkdownType = "post" | `comment-${Username}` | "microMemory";
+export type MarkdownType =
+  | "post"
+  | `comment-${Username}`
+  | "microMemory"
+  | "portfolio-post";
 
 interface MarkdownProps {
   source: string;
