@@ -5,6 +5,7 @@ import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import useRouterEvents from "hooks/useRouterEvents";
 import useLocalStorageState from "hooks/useLocalStorageState";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Layout({
   children,
@@ -19,6 +20,7 @@ export default function Layout({
   return (
     <>
       <a href="#main">Saltar al contenido</a>
+      <ScrollToTop />
       <Navbar />
       {children}
       <Footer />
