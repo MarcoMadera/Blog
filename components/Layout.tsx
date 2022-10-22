@@ -6,6 +6,7 @@ import useDarkMode from "hooks/useDarkMode";
 import useRouterEvents from "hooks/useRouterEvents";
 import useLocalStorageState from "hooks/useLocalStorageState";
 import ScrollToTop from "./ScrollToTop";
+import { A } from "./tags";
 
 export default function Layout({
   children,
@@ -20,10 +21,31 @@ export default function Layout({
   return (
     <>
       <a href="#main">Saltar al contenido</a>
-      <ScrollToTop />
       <Navbar />
       {children}
       <Footer />
+      <ScrollToTop />
+      <span className="ring">
+        <A
+          href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/previous"
+          target="_blank"
+          rel="external noopener noreferrer"
+          title="Anterior sitio web"
+          aria-label="Anterior sitio web"
+        >
+          ←
+        </A>
+        Descubre más sitios indie
+        <A
+          href="https://xn--sr8hvo.ws/%E2%86%98%EF%B8%8F%F0%9F%92%80*%E2%83%A3/next"
+          target="_blank"
+          rel="external noopener noreferrer"
+          title="Siguiente sitio web"
+          aria-label="Siguiente sitio web"
+        >
+          →
+        </A>
+      </span>
       <style jsx>{`
         :global(html) {
           color-scheme: ${darkMode ? "dark" : "light"};
@@ -35,17 +57,19 @@ export default function Layout({
         :global(h1, h2, h3, h4, h5, h6) {
           color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
         }
-        a {
+        a,
+        .ring {
           background-color: ${darkMode
             ? colors.dark_accents2
             : colors.accents2};
         }
       `}</style>
       <style jsx>{`
-        a {
+        a,
+        .ring {
           box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px;
           color: inherit;
-          display: block;
+          display: flex;
           font-size: 18px;
           left: 0px;
           margin: 0 auto;
@@ -54,15 +78,26 @@ export default function Layout({
           right: 0;
           transition: 0.3s ease 0s;
           text-decoration: none;
-          top: -280px;
           width: fit-content;
           z-index: 9999;
+          gap: 1rem;
+        }
+        a {
+          top: -280px;
+        }
+        .ring {
+          bottom: -280px;
         }
         a:focus {
           transform: translateY(300px);
         }
+        .ring:focus-within {
+          transform: translateY(-300px);
+        }
+
         @media print {
-          a {
+          a,
+          .ring {
             display: none;
           }
           :global(body) {

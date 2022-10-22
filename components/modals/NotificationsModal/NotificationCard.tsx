@@ -13,11 +13,11 @@ export default function NotificationCard({
 }: Omit<Notification, "timeOut">): ReactElement {
   const { removeNotification } = useNotification();
   const { darkMode } = useDarkMode();
-  const [dissapearCard, setDissapearCard] = useState(false);
+  const [disappearCard, setDisappearCard] = useState(false);
 
   useEffect(() => {
     const timeOutTime = setTimeout(() => {
-      setDissapearCard(true);
+      setDisappearCard(true);
     }, displayTime - 1000);
     return () => clearTimeout(timeOutTime);
   }, [displayTime]);
@@ -27,7 +27,7 @@ export default function NotificationCard({
       key={id}
       role="alertdialog"
       aria-labelledby="alertText"
-      className={dissapearCard ? "notificationDissapear" : ""}
+      className={disappearCard ? "notificationDisappear" : ""}
     >
       <div>
         {variant === "info" && <Info width={20} height={20} />}
@@ -35,7 +35,9 @@ export default function NotificationCard({
         {variant === "success" && (
           <Check fill="#4caf50" width={20} height={20} />
         )}
-        <p id="alertText">{message}</p>
+        <p id="alertText" aria-live="polite">
+          {message}
+        </p>
         <button
           aria-label="Eliminar notificación"
           onClick={() => {
