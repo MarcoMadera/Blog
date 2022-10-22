@@ -34,8 +34,8 @@ export function PillAction({
         }}
       >
         <Share
-          width={30}
-          height={30}
+          width={26}
+          height={26}
           fill={darkMode ? colors.dark_textColor : colors.textColor}
         />
       </button>
@@ -72,22 +72,32 @@ export function PillAction({
         }
         .pillContainer :global(button),
         button {
-          background: transparent;
           border: none;
           box-sizing: content-box;
           cursor: pointer;
         }
-
-        @media screen and (min-width: 768px) {
-          div {
-            flex-direction: row;
-          }
+        a,
+        button {
+          height: 64px;
+          width: 64px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+            rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+          background-color: ${darkMode ? "#1f2937" : "#fefefe"};
+          border-radius: 50%;
+          transition: all 0.2s ease 0s;
         }
-
-        @media screen and (min-width: 1024px) {
-          div {
-            flex-direction: column;
-          }
+        a:hover,
+        button:hover,
+        a:focus,
+        button:focus {
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+            rgba(0, 0, 0, 0.1) 0px 10px 10px -5px;
+          background-color: ${darkMode ? "#3f4a59" : "#fafcff"};
+          opacity: 0.8;
         }
       `}</style>
     </div>

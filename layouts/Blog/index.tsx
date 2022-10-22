@@ -238,10 +238,16 @@ export default function Post({
             width: 100%;
             margin-bottom: 30px;
           }
+          aside {
+            display: none;
+          }
         }
         @media screen and (min-width: 400px) and (max-width: 525px) {
           nav :global(a) {
             width: 170px;
+          }
+          aside {
+            display: none;
           }
         }
         @media screen and (min-width: 525px) and (max-width: 875px) {
