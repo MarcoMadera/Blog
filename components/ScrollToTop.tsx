@@ -1,5 +1,6 @@
 import useDarkMode from "hooks/useDarkMode";
 import { ReactElement, useEffect, useState } from "react";
+import { a11ySmartFocus } from "utils";
 
 export default function ScrollToTop(): ReactElement {
   const [percent, setPercent] = useState(0);
@@ -63,10 +64,26 @@ export default function ScrollToTop(): ReactElement {
         className="scrollToTop__button"
         onClick={() => {
           window.scrollTo(0, 0);
+          const firstElement = document.querySelector("body > *");
+          a11ySmartFocus(firstElement as HTMLElement);
         }}
-        aria-label="scroll to top"
+        aria-label="Volver al inicio"
+        onFocus={() => {
+          setHideButton(false);
+        }}
+        onBlur={() => {
+          setHideButton(true);
+        }}
       >
-        <div className="radial-progress"></div>
+        <div
+          className="radial-progress"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={percent}
+          role="progressbar"
+          aria-label="Scroll progress"
+          aria-live="polite"
+        ></div>
         <div className="round">
           <svg
             xmlns="http://www.w3.org/2000/svg"

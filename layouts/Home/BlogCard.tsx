@@ -78,7 +78,11 @@ export default function BlogCard({
         <div className="tags">
           {tags.map((tag) => (
             <Link href={`/blog/etiqueta/${slugify(tag)}`} key={tag}>
-              <a className="p-category" rel="category tag">
+              <a
+                aria-label={`etiqueta ${tag}`}
+                className="p-category"
+                rel="category tag"
+              >
                 {tag}
               </a>
             </Link>

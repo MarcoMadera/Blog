@@ -16,10 +16,14 @@ export default function TagsHeader({ tags }: TagsHeaderTypes): ReactElement {
             prefetch={false}
             href={`/blog/etiqueta/${slugify(tag)}/`}
             key={tag}
-            rel="category tag"
-            className="p-category"
           >
-            <a aria-label={`etiqueta ${tag}`}>{tag}</a>
+            <a
+              rel="category tag"
+              className="p-category"
+              aria-label={`etiqueta ${tag}`}
+            >
+              {tag}
+            </a>
           </Link>
         ))}
       <style jsx>

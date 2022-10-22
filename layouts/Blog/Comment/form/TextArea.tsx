@@ -96,10 +96,10 @@ export default function TextArea({
           resize: vertical;
           min-width: 100%;
           max-width: 100%;
-          height: 94px;
-          font-size: 14px;
-          min-height: 94px;
-          max-height: 200px;
+          height: 160px;
+          font-size: 16px;
+          min-height: 160px;
+          max-height: 300px;
           background-position: center center;
           background-repeat: no-repeat;
           background-size: 60px 60px;

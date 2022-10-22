@@ -91,12 +91,12 @@ export default function SendCommentConfirmationModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="globalModalTitle"
-        aria-describedby="globalModaldesc"
+        aria-describedby="globalModalDescription"
       >
         <h3 id="globalModalTitle">
           ¿Estás seguro de publicar un comentario de forma anónima?
         </h3>
-        <p id="globalModaldesc">
+        <p id="globalModalDescription">
           Al realizar esta acción las personas no te podrán identificar, no
           podrás eliminar el comentario en un futuro y el comentario puede ser
           eliminado sin previo aviso. Para evitar lo anterior identifícate con
