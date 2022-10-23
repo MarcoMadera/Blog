@@ -1,8 +1,8 @@
 import { useDate } from "hooks/useDate";
 import { ReactElement } from "react";
 import { IMicroMemory } from "types/microMemories";
-import EmojisWrapper from "./EmojisWrapper";
-import Markdown from "./Markdown";
+import EmojisWrapper from "../EmojisWrapper";
+import Markdown from "../Markdown";
 
 export default function MicroMemory({
   microMemoryId,

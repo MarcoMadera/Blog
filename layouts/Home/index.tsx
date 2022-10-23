@@ -11,7 +11,7 @@ import slugify from "react-slugify";
 import type { HomeData } from "types/posts";
 import { ReactElement } from "react";
 import { ALink } from "components/tags";
-import MicroMemories from "components/MicroMemories.tsx";
+import MicroMemories from "components/MicroMemories";
 
 interface HomeLayoutProps extends HomeData {
   title: string;
