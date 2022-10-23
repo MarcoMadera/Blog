@@ -8,7 +8,7 @@ import readingTime from "reading-time";
 import { getPlaiceholder } from "plaiceholder";
 import type { AllTags, Pages, Post, PostData } from "types/posts";
 import { database } from "lib/firebase/admin";
-import { IMicroMemory } from "types/microMemories";
+import { IMicroMemories } from "types/microMemories";
 
 export function getPostsFiles(): {
   filename: string;
@@ -180,7 +180,7 @@ interface HomeDataFromPage {
   posts: Posts;
   pages: Pages;
   allTags: AllTags;
-  microMemories: IMicroMemory[];
+  microMemories: IMicroMemories;
 }
 
 export async function getHomeDataFromPage(
@@ -191,10 +191,14 @@ export async function getHomeDataFromPage(
   const indexOfFirstPost = indexOfLastPost - siteMetadata.postsPerPage;
   const { microMemoriesPerPage } = siteMetadata;
   const ref = database.ref("micromemories/memory");
-  const snapshot = await ref.limitToLast(microMemoriesPerPage * 3).get();
-  const microMemories: IMicroMemory[] = [];
+  const snapshot = await ref.limitToLast(microMemoriesPerPage).get();
+  const totalItems = (await ref.get()).numChildren();
+  const microMemories: IMicroMemories = {
+    totalItems,
+    items: [],
+  };
   snapshot.forEach((snap) => {
-    microMemories.unshift(snap.val());
+    microMemories.items.unshift(snap.val());
   });
 
   return {

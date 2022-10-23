@@ -1,5 +1,11 @@
 import useDarkMode from "hooks/useDarkMode";
-import { PropsWithChildren, ReactElement } from "react";
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  PropsWithChildren,
+  ReactElement,
+} from "react";
 import Link from "next/link";
 import {
   actionButtonDynamicStyle,
@@ -7,14 +13,22 @@ import {
   darkActionButtonDynamicStyle,
 } from "styles/components/actionButton";
 
+type AnchorAttributes = DetailedHTMLProps<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>;
+type ButtonAttributes = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
+
 type ActionButtonProps =
-  | { href?: never; type?: "button" | never }
-  | { href: string; type: "anchor" | "link" };
+  | ({ type?: "button" | never } & ButtonAttributes)
+  | ({ type: "anchor" | "link" } & AnchorAttributes);
 
 export default function ActionButton({
   children,
   type,
-  href,
   ...attribs
 }: PropsWithChildren<ActionButtonProps>): ReactElement {
   const { darkMode } = useDarkMode();
@@ -27,10 +41,9 @@ export default function ActionButton({
     return (
       <>
         <a
-          href={href}
           rel="noopener noreferrer"
           target="_blank"
-          {...attribs}
+          {...(attribs as AnchorAttributes)}
           className="actionButton"
         >
           {children}
@@ -41,11 +54,13 @@ export default function ActionButton({
     );
   }
 
-  if (type === "link" && href) {
+  if (type === "link" && (attribs as AnchorAttributes).href) {
     return (
       <>
-        <Link href={href}>
-          <a className="actionButton">{children}</a>
+        <Link href={(attribs as AnchorAttributes).href || ""}>
+          <a className="actionButton" {...(attribs as AnchorAttributes)}>
+            {children}
+          </a>
         </Link>
         <style jsx>{actionButtonStyle}</style>
         <style jsx>{dynamicStyle}</style>
@@ -55,7 +70,7 @@ export default function ActionButton({
 
   return (
     <>
-      <button {...attribs} className="actionButton">
+      <button {...(attribs as ButtonAttributes)} className="actionButton">
         {children}
       </button>
       <style jsx>{actionButtonStyle}</style>
