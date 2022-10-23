@@ -4,7 +4,7 @@ import { HomeData } from "types/posts";
 import { database } from "lib/firebase/client";
 import { limitToLast, onValue, query, ref } from "firebase/database";
 import { IMicroMemory } from "types/microMemories";
-import MicroMemory from "components/MicroMemory";
+import MicroMemory from "components/MicroMemories/MicroMemory";
 import { ReactElement } from "rehype-react/lib";
 import ActionButton from "components/ActionButton";
 
