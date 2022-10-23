@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { TweetData, SpaceData } from "./tweet";
 import { IGetPlaiceholderReturn } from "plaiceholder";
-import { IMicroMemory } from "./microMemories";
+import { IMicroMemories } from "./microMemories";
 export type PostData = {
   readingTimeInMinutes: number;
   date: string;
@@ -74,7 +74,7 @@ export interface HomeData {
   pages: Pages;
   currentPage?: CurrentPage;
   tag?: string;
-  microMemories?: IMicroMemory[];
+  microMemories?: IMicroMemories;
 }
 
 interface DefaultElementParams {

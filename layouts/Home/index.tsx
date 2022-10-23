@@ -11,7 +11,7 @@ import slugify from "react-slugify";
 import type { HomeData } from "types/posts";
 import { ReactElement } from "react";
 import { ALink } from "components/tags";
-import MicroMemory from "components/MicroMemory";
+import MicroMemories from "components/MicroMemories.tsx";
 
 interface HomeLayoutProps extends HomeData {
   title: string;
@@ -24,7 +24,7 @@ export default function HomeLayout({
   currentPage,
   title,
   tag,
-  microMemories = [],
+  microMemories,
 }: HomeLayoutProps): ReactElement {
   const { darkMode } = useDarkMode();
 
@@ -78,13 +78,7 @@ export default function HomeLayout({
       </section>
       <aside>
         <AllTags allTags={allTags} />
-        {microMemories.length > 0 && (
-          <h2 className="microMemory-header">Micro blogging</h2>
-        )}
-        {microMemories.length > 0 &&
-          microMemories.map((micro) => {
-            return <MicroMemory key={micro.microMemoryId} {...micro} />;
-          })}
+        <MicroMemories microMemories={microMemories} />
         <NewsletterCard />
       </aside>
       <style jsx>{`
@@ -108,9 +102,6 @@ export default function HomeLayout({
           height: 24px;
           margin: 0 2px;
           vertical-align: top;
-        }
-        .microMemory-header {
-          margin: 3rem auto 0;
         }
         .posts {
           display: grid;

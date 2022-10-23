@@ -2,8 +2,8 @@
 title: La accesibilidad en la web
 description: Las pautas de accesibilidad para el contenido para la web son recomendaciones para crear contenido web más accesible.
 date: 2020-07-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1595294653/Blog/3/eb23bvc1b3748b34b-434b-4b343_t00lbk.jpg
-coverAlt: Manos en una laptop.
+cover: https://res.cloudinary.com/marcomadera/image/upload/v1666513100/Blog/3/SGY0LIfTKZ4-laptop_lidleh.jpg
+coverAlt: Una laptop sobre una mesa.
 author: Marco Madera
 tags:
   - A11Y
