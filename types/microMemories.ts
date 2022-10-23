@@ -8,6 +8,11 @@ export interface IMicroMemory {
   img?: string;
 }
 
+export interface IMicroMemories {
+  totalItems: number;
+  items: IMicroMemory[];
+}
+
 export interface MicroMemoriesContext {
   allMicroMemories: IMicroMemory[];
   setAllMicroMemories: Dispatch<SetStateAction<IMicroMemory[]>>;
