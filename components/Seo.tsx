@@ -54,6 +54,14 @@ export default function Seo({
         href={`${siteMetadata.siteUrl}/rss.xml`}
         title="Marco Madera"
       ></link>
+      <link
+        rel="webmention"
+        href="https://webmention.io/marcomadera.com/webmention"
+      />
+      <link
+        rel="pingback"
+        href="https://webmention.io/marcomadera.com/xmlrpc"
+      />
       <meta property="og:description" content={metaDescription} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={metaTitle} />

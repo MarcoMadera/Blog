@@ -162,7 +162,7 @@ Podemos utilizar las herramientas de Google Chrome DevTools para ver el contrast
 
 El enfoque da una guía visual al usuario sobre los elementos interactivos. Si un usuario solo navega con el teclado, <kbd>tab</kbd> para avanzar y <kbd>shift</kbd>+<kbd>tab</kbd> para retroceder, es importante que todos los elementos interactivos tengan un enfoque para guiar al usuario.
 
-<style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;}</style><label>Selecciona -><input type="text" id="inputToFocus" size="25" placeholder="Selecciona aquí para enfocarme"/></label>
+<style>#inputToFocus:focus{box-shadow:0 0 5px #da0000;}</style><label><input type="text" id="inputToFocus" size="25" placeholder="Selecciona aquí para enfocarme"/></label>
 
 En este caso tal como sucede en todos los elementos interactivos de este sitio web se rodea el elemento con un delineado para dar a entender que se está seleccionando este elemento.
 

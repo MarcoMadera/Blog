@@ -23,7 +23,7 @@ type ButtonAttributes = DetailedHTMLProps<
 >;
 
 type ActionButtonProps =
-  | ({ type?: "button" | never } & ButtonAttributes)
+  | ({ type?: "button" | "submit" | never } & ButtonAttributes)
   | ({ type: "anchor" | "link" } & AnchorAttributes);
 
 export default function ActionButton({
@@ -70,7 +70,11 @@ export default function ActionButton({
 
   return (
     <>
-      <button {...(attribs as ButtonAttributes)} className="actionButton">
+      <button
+        type={type === "submit" ? type : undefined}
+        {...(attribs as ButtonAttributes)}
+        className="actionButton"
+      >
         {children}
       </button>
       <style jsx>{actionButtonStyle}</style>

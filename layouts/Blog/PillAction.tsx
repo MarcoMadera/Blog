@@ -4,6 +4,8 @@ import { ReactElement, useCallback, useState } from "react";
 import { Comment } from "components/icons/Comment";
 import { Share } from "components/icons/Share";
 import { ModalShare } from "./ModalShare";
+import { ModalWebMention } from "./ModalWebMention";
+import { WebMention } from "components/icons/WebMention";
 
 export function PillAction({
   title,
@@ -14,9 +16,13 @@ export function PillAction({
 }): ReactElement {
   const { darkMode } = useDarkMode();
   const [openModal, setOpenModal] = useState(false);
+  const [openWebMentionModal, setOpenWebMentionModal] = useState(false);
 
   const handleCloseModal = useCallback(() => {
     setOpenModal(false);
+  }, []);
+  const handleWebMentionCloseModal = useCallback(() => {
+    setOpenWebMentionModal(false);
   }, []);
 
   return (
@@ -44,6 +50,24 @@ export function PillAction({
           title={title}
           slug={slug}
           handleCloseModal={handleCloseModal}
+        />
+      )}
+      <button
+        onClick={() => {
+          setOpenWebMentionModal(true);
+        }}
+      >
+        <WebMention
+          width={26}
+          height={26}
+          fill={darkMode ? colors.dark_textColor : colors.textColor}
+        />
+      </button>
+      {openWebMentionModal && (
+        <ModalWebMention
+          title={title}
+          slug={slug}
+          handleCloseModal={handleWebMentionCloseModal}
         />
       )}
       <style jsx>{`

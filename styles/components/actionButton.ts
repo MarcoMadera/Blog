@@ -3,22 +3,31 @@ import { colors } from "styles/theme";
 
 export const actionButtonStyle = css`
   .actionButton {
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 28px;
-    color: ${colors.white};
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 0.375rem 2rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    text-align: center;
-    text-decoration: none;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
     user-select: none;
-    vertical-align: middle;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-duration: 0.2s;
+    text-transform: uppercase;
+    text-decoration-line: none;
+    line-height: 1em;
+    min-height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    font-weight: 600;
+    height: 3rem;
+    cursor: pointer;
+    display: inline-flex;
+    margin-top: auto;
+    flex: none;
+    border-radius: 0.5rem;
   }
   .actionButton:not(:disabled):not(.disabled):hover {
     background-color: ${colors.dark_tertiary};
@@ -39,14 +48,16 @@ export const actionButtonStyle = css`
 
 export const darkActionButtonDynamicStyle = css`
   .actionButton {
-    background-color: ${colors.dark_secondary};
-    border-color: ${colors.dark_secondary};
+    background-color: ${colors.dark_primary};
+    border: 1px solid #1a202c;
+    color: #fff;
   }
 `;
 
 export const actionButtonDynamicStyle = css`
   .actionButton {
     background-color: ${colors.primary};
-    border-color: ${colors.primary};
+    border: 1px solid #fff;
+    color: #fff;
   }
 `;
