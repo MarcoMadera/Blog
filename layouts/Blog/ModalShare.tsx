@@ -48,7 +48,6 @@ export function ModalShare({
 
   return createPortal(
     <div className="modalShareContainer">
-      {/* This component should have a way to share the hyperlink and social media*/}
       <div className="modalShare">
         <div className="modalShare__header">
           <h2>Comparte este post</h2>

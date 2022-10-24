@@ -67,9 +67,28 @@ export function Input({
       `}</style>
       <style jsx>{`
         input {
-          border-radius: 4px;
-          font-family: Arial;
-          padding: 0.5em;
+          background-color: ${darkMode ? "#1a202c" : "#fff"};
+          border-color: ${darkMode ? "#1a202c" : "#ccc"};
+          border-style: solid;
+          border-radius: 0.5rem;
+          border-width: 1px;
+          flex-shrink: 1;
+          font-size: 1rem;
+          height: 3rem;
+          line-height: 2;
+          line-height: 1.5rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          transition-duration: 0.2s;
+          transition-property: color, background-color, border-color,
+            text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+            filter, backdrop-filter;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          width: 100%;
+        }
+        input:focus {
+          border-color: ${darkMode ? colors.dark_primary : colors.primary};
+          outline: 2px solid ${darkMode ? colors.dark_primary : colors.primary};
         }
       `}</style>
     </>
