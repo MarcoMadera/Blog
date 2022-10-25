@@ -142,7 +142,7 @@ const portfolioPostData = [
     fullHeight: 2316,
     href: "/portafolio/rindu",
     content:
-      "Ya sea que tengas un bot para crear playlists y agregue canciones repetidas, o por algún error se guardaron como tracks nulos, [Rindu](https://rindu.marcomadera.com)remueve esos tracks duplicados y nulos de tus playlists dejando uno de cada tipo.",
+      "Ya sea que tengas un bot para crear playlists y agregue canciones repetidas, o por algún error se guardaron como tracks nulos, [Rindu](https://rindu.marcomadera.com) remueve esos tracks duplicados y nulos de tus playlists dejando uno de cada tipo.",
   },
   {
     title: "Tests para números aleatorios",

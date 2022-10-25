@@ -103,8 +103,8 @@ export default function ViewFullImageModal({
 
   const imageProps: ImageProps = {
     alt,
-    layout: "fill",
-    objectFit: "scale-down",
+    fill: true,
+    style: { objectFit: "scale-down" },
     src: fullImage?.img.src || src,
   };
 

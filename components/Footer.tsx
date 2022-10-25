@@ -17,25 +17,25 @@ export default function Footer(): ReactElement {
         <div className="footer_section">
           <strong>Navegación</strong>
           <Link prefetch={false} href="/">
-            <a>Inicio</a>
+            Inicio
           </Link>
           <Link prefetch={false} href="/portafolio">
-            <a>Portafolio</a>
+            Portafolio
           </Link>
           <Link prefetch={false} href="/sobre-mi">
-            <a>Sobre mí</a>
+            Sobre mí
           </Link>
           <Link prefetch={false} href="/newsletter">
-            <a>Newsletter</a>
+            Newsletter
           </Link>
         </div>
         <div className="footer_section">
           <strong>Legal</strong>
           <Link prefetch={false} href="/cookies">
-            <a>Política de cookies</a>
+            Política de cookies
           </Link>
           <Link prefetch={false} href="/privacidad">
-            <a>Privacidad</a>
+            Privacidad
           </Link>
           <A
             href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"

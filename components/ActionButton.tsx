@@ -13,10 +13,7 @@ import {
   darkActionButtonDynamicStyle,
 } from "styles/components/actionButton";
 
-type AnchorAttributes = DetailedHTMLProps<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
->;
+type AnchorAttributes = AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonAttributes = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -57,10 +54,12 @@ export default function ActionButton({
   if (type === "link" && (attribs as AnchorAttributes).href) {
     return (
       <>
-        <Link href={(attribs as AnchorAttributes).href || ""}>
-          <a className="actionButton" {...(attribs as AnchorAttributes)}>
-            {children}
-          </a>
+        <Link
+          href={(attribs as AnchorHTMLAttributes<HTMLAnchorElement>).href || ""}
+          className="actionButton"
+          {...(attribs as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
+          {children}
         </Link>
         <style jsx>{actionButtonStyle}</style>
         <style jsx>{dynamicStyle}</style>
