@@ -17,7 +17,7 @@ export function Meter({ children, ...attribs }: MeterProps): ReactElement {
             -webkit-appearance: none;
             appearance: meter;
             background: none;
-            border: 1px solid ${colors.accents1};
+            border: 1px solid ${colors.silverChalice};
             border-radius: 10px;
             display: block;
             margin: 0 auto;
@@ -30,8 +30,8 @@ export function Meter({ children, ...attribs }: MeterProps): ReactElement {
           meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
             background-image: linear-gradient(
               90deg,
-              ${colors.red} 20%,
-              ${colors.red} 100%
+              ${colors.lavaRed} 20%,
+              ${colors.lavaRed} 100%
             );
             background-size: 100% 100%;
             border-radius: 10px;
@@ -40,11 +40,11 @@ export function Meter({ children, ...attribs }: MeterProps): ReactElement {
           meter:-moz-meter-sub-optimum::-moz-meter-bar {
             background-image: linear-gradient(
               90deg,
-              ${colors.red} 20%,
-              ${colors.red} 30%,
-              ${colors.red} 40%,
-              ${colors.yellow} 60%,
-              ${colors.yellow} 100%
+              ${colors.lavaRed} 20%,
+              ${colors.lavaRed} 30%,
+              ${colors.lavaRed} 40%,
+              ${colors.dandelion} 60%,
+              ${colors.dandelion} 100%
             );
             background-size: 100% 100%;
             border-radius: 10px;
@@ -53,12 +53,12 @@ export function Meter({ children, ...attribs }: MeterProps): ReactElement {
           meter:-moz-meter-optimum::-moz-meter-bar {
             background-image: linear-gradient(
               90deg,
-              ${colors.red} 20%,
-              ${colors.red} 30%,
-              ${colors.red} 40%,
-              ${colors.yellow} 60%,
-              ${colors.yellow} 80%,
-              ${colors.green} 100%
+              ${colors.lavaRed} 20%,
+              ${colors.lavaRed} 30%,
+              ${colors.lavaRed} 40%,
+              ${colors.dandelion} 60%,
+              ${colors.dandelion} 80%,
+              ${colors.toxicGreen} 100%
             );
             background-size: 100% 100%;
             border-radius: 10px;
@@ -71,8 +71,8 @@ export function Meter({ children, ...attribs }: MeterProps): ReactElement {
           meter::-webkit-meter-even-less-good-value {
             background-image: linear-gradient(
               90deg,
-              ${colors.red} 20%,
-              ${colors.red} 100%
+              ${colors.lavaRed} 20%,
+              ${colors.lavaRed} 100%
             );
             background-size: 100% 100%;
             border-radius: 10px;
@@ -81,11 +81,11 @@ export function Meter({ children, ...attribs }: MeterProps): ReactElement {
           meter::-webkit-meter-suboptimum-value {
             background-image: linear-gradient(
               90deg,
-              ${colors.red} 20%,
-              ${colors.red} 30%,
-              ${colors.red} 40%,
-              ${colors.yellow} 60%,
-              ${colors.yellow} 100%
+              ${colors.lavaRed} 20%,
+              ${colors.lavaRed} 30%,
+              ${colors.lavaRed} 40%,
+              ${colors.dandelion} 60%,
+              ${colors.dandelion} 100%
             );
             background-size: 100% 100%;
             border-radius: 10px;
@@ -94,12 +94,12 @@ export function Meter({ children, ...attribs }: MeterProps): ReactElement {
           meter::-webkit-meter-optimum-value {
             background-image: linear-gradient(
               90deg,
-              ${colors.red} 20%,
-              ${colors.red} 30%,
-              ${colors.red} 40%,
-              ${colors.yellow} 60%,
-              ${colors.yellow} 80%,
-              ${colors.green} 100%
+              ${colors.lavaRed} 20%,
+              ${colors.lavaRed} 30%,
+              ${colors.lavaRed} 40%,
+              ${colors.dandelion} 60%,
+              ${colors.dandelion} 80%,
+              ${colors.toxicGreen} 100%
             );
             background-size: 100% 100%;
             border-radius: 10px;
@@ -121,17 +121,17 @@ export function Progress({ value, ...attribs }: ProgressProps): ReactElement {
       {value}
       <style jsx>{`
         progress {
-          border: 1px solid ${colors.accents1};
-          color: ${darkMode ? colors.dark_primary : colors.primary};
+          border: 1px solid ${colors.silverChalice};
+          color: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
         progress:before {
-          background: ${darkMode ? colors.dark_primary : colors.primary};
+          background: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
         progress::-moz-progress-bar {
-          background: ${darkMode ? colors.dark_primary : colors.primary};
+          background: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
         progress::-webkit-progress-value {
-          background: ${darkMode ? colors.dark_primary : colors.primary};
+          background: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
       `}</style>
       <style jsx>{`

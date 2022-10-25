@@ -11,6 +11,7 @@ import {
 import { noteStyles } from "../../styles/components/noteStyles";
 import { Bulb, Info, Alert, Star, Check } from "components/icons";
 import useToolTip from "hooks/useToolTip";
+import { addOpacityToHexColor } from "utils/addOpacityToHexColor";
 
 interface Text {
   children: ReactNode;
@@ -29,7 +30,9 @@ export function Abbr({ children, title, ...attribs }: AbbrProps): ReactElement {
       {children}
       <style jsx>{`
         abbr:after {
-          border-color: ${darkMode ? colors.dark_primary : colors.primary};
+          border-color: ${darkMode
+            ? colors.deepCarminPink
+            : colors.guardsmanRed};
         }
       `}</style>
       <style jsx>{`
@@ -49,7 +52,7 @@ export function Abbr({ children, title, ...attribs }: AbbrProps): ReactElement {
         @media print {
           abbr:after {
             border: none;
-            content: " (" attr(${title}) ") ";
+            content: " (" attr(title) ") ";
             position: unset;
           }
         }
@@ -66,7 +69,7 @@ export function Blockquote({ children }: Text): ReactElement {
       {children}
       <style jsx>{`
         blockquote {
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+          background: ${darkMode ? colors.cinder : colors.romance};
         }
       `}</style>
       <style jsx>{`
@@ -117,9 +120,9 @@ export function Dialog({
       {children}
       <style jsx>{`
         dialog {
-          border-color: ${colors.primary};
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
-          background: ${darkMode ? colors.dark_background : colors.background};
+          border-color: ${colors.guardsmanRed};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
+          background: ${darkMode ? colors.cinder : colors.white};
         }
       `}</style>
       <style jsx>{`
@@ -280,7 +283,9 @@ export function Note({
             width: 100%;
             margin: 16px 0;
             color: inherit;
-            background: ${darkMode ? colors.dark_accents4 : colors.accents4};
+            background: ${darkMode
+              ? addOpacityToHexColor(colors.catskillWhite, 0.15)
+              : colors.whiteSmoke};
           }
           div[role="note"] :global(svg.note-icon) {
             display: inline-block;

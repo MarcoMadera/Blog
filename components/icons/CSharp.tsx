@@ -18,11 +18,11 @@ export function CSharp(props: SVGProps<SVGSVGElement>): ReactElement {
         >
           <stop
             offset="0"
-            stopColor={darkMode ? colors.dark_primary : colors.primary}
+            stopColor={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
           ></stop>
           <stop
             offset="1"
-            stopColor={darkMode ? colors.dark_secondary : colors.secondary}
+            stopColor={darkMode ? colors.lavaRed : colors.redBerry}
           ></stop>
         </linearGradient>
         <linearGradient
@@ -35,11 +35,11 @@ export function CSharp(props: SVGProps<SVGSVGElement>): ReactElement {
         >
           <stop
             offset="0"
-            stopColor={darkMode ? colors.dark_primary : colors.primary}
+            stopColor={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
           ></stop>
           <stop
             offset="1"
-            stopColor={darkMode ? colors.dark_secondary : colors.secondary}
+            stopColor={darkMode ? colors.lavaRed : colors.redBerry}
           ></stop>
         </linearGradient>
         <linearGradient
@@ -52,11 +52,13 @@ export function CSharp(props: SVGProps<SVGSVGElement>): ReactElement {
         >
           <stop
             offset="0"
-            stopColor={darkMode ? colors.dark_primary : colors.primary}
+            stopColor={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
           ></stop>
           <stop
             offset="1"
-            stopColor={darkMode ? colors.dark_tertiary : colors.tertiary}
+            stopColor={
+              darkMode ? colors.vetenianRed : colors.guardsmanRedCrimson
+            }
           ></stop>
         </linearGradient>
         <clipPath id="a">
@@ -78,10 +80,10 @@ export function CSharp(props: SVGProps<SVGSVGElement>): ReactElement {
         ></path>
       </g>
       <path
-        fill={colors.background}
+        fill={colors.white}
         d="M75.83 256.001c-.891-148.089 197.459-213.479 282.996-75.878l-65.635 37.98C253.569 152.569 155.19 176.002 151.659 256c1.06 73.729 97.754 107.978 141.536 37.893l65.635 37.979c-75.382 130.863-279.198 83.781-283-75.871z"
       ></path>
-      <g fill={colors.background} aria-label="♯" data-name="♯">
+      <g fill={colors.white} aria-label="♯" data-name="♯">
         <path d="M326 213h12.5l-8.541 82.5h-12.735zm26.776 0h12.5l-8.541 82.5H344z"></path>
         <path d="M312 232.592h62.5v12.072H312zM308.5 262H371v12.072h-62.5z"></path>
       </g>

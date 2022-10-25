@@ -106,7 +106,7 @@ export default function TweetText({
           padding: 0px;
           font-size: ${original ? "18px" : "15px"};
           font-weight: 400;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
         }
       `}</style>
     </p>

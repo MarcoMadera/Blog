@@ -93,10 +93,8 @@ export default function ToolTipModal(): ReactPortal | null {
           span {
             display: ${shouldShowToolTip ? "block" : "none"};
             pointer-events: ${shouldShowToolTip ? "all" : "none"};
-            background-color: ${darkMode
-              ? colors.dark_accents3
-              : colors.accents3};
-            color: ${darkMode ? colors.dark_textColor : colors.textColor};
+            background-color: ${darkMode ? colors.cinder : colors.romance};
+            color: ${darkMode ? colors.greyGoose : colors.davyGrey};
             box-shadow: 0px 0px 4px 0px
               ${darkMode
                 ? "rgba(200, 200, 200, 0.30)"

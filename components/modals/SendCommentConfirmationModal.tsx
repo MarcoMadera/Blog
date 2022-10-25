@@ -128,20 +128,22 @@ export default function SendCommentConfirmationModal({
       </div>
       <style jsx>{`
         .popupContainer {
-          background-color: ${darkMode
-            ? colors.dark_accents3
-            : colors.accents2};
+          background-color: ${darkMode ? colors.cinder : colors.paleGrey};
         }
         button:nth-of-type(1) {
-          background: ${darkMode ? colors.dark_secondary : colors.primary};
-          border-color: ${darkMode ? colors.dark_secondary : colors.primary};
+          background: ${darkMode ? colors.lavaRed : colors.guardsmanRed};
+          border-color: ${darkMode ? colors.lavaRed : colors.guardsmanRed};
           color: ${colors.white};
         }
 
         button:nth-of-type(1):hover,
         button:nth-of-type(1):focus {
-          background: ${darkMode ? colors.dark_tertiary : colors.tertiary};
-          border-color: ${darkMode ? colors.dark_tertiary : colors.tertiary};
+          background: ${darkMode
+            ? colors.vetenianRed
+            : colors.guardsmanRedCrimson};
+          border-color: ${darkMode
+            ? colors.vetenianRed
+            : colors.guardsmanRedCrimson};
         }
       `}</style>
       <style jsx>{`

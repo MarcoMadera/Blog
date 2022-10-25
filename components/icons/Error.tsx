@@ -12,7 +12,7 @@ export function Error(props: SVGProps<SVGSVGElement>): ReactElement {
         cx={25}
         cy={25}
         r={25}
-        fill={darkMode ? colors.dark_secondary : colors.tertiary}
+        fill={darkMode ? colors.lavaRed : colors.guardsmanRedCrimson}
       />
       <path
         fill="transparent"

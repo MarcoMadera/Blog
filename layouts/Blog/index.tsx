@@ -159,7 +159,7 @@ export default function Post({
       </aside>
       <style jsx>{`
         nav :global(a) {
-          border: 3px solid ${darkMode ? colors.dark_secondary : colors.primary};
+          border: 3px solid ${darkMode ? colors.lavaRed : colors.guardsmanRed};
         }
       `}</style>
       <style jsx>{`
@@ -190,7 +190,7 @@ export default function Post({
         div :global(h3) {
           font-weight: 400;
           letter-spacing: -0.5px;
-          color: ${darkMode ? colors.dark_secondary : colors.primary};
+          color: ${darkMode ? colors.lavaRed : colors.guardsmanRed};
         }
         nav {
           grid-area: nav;

@@ -149,7 +149,7 @@ export default function Tweet({
           border: ${darkMode ? "1px solid #45535d" : tweets.tweetBorder};
           border-radius: 15px;
           margin: ${tweets.containerMargin};
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+          background: ${darkMode ? colors.cinder : colors.romance};
         }
         div.tweet > div {
           position: relative;

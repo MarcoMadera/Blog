@@ -26,8 +26,8 @@ export default function SendCommentButton({
       </button>
       <style jsx>{`
         button {
-          background: ${darkMode ? colors.dark_background : colors.background};
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          background: ${darkMode ? colors.cinder : colors.white};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
         }
       `}</style>
       <style jsx>{`

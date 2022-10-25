@@ -60,9 +60,9 @@ export function Input({
       <input type={type} {...attribs} />
       <style jsx>{`
         input {
-          background: ${darkMode ? colors.dark_background : colors.background};
-          border: 1px solid ${colors.accents1};
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          background: ${darkMode ? colors.cinder : colors.white};
+          border: 1px solid ${colors.silverChalice};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
         }
       `}</style>
       <style jsx>{`
@@ -87,8 +87,11 @@ export function Input({
           width: 100%;
         }
         input:focus {
-          border-color: ${darkMode ? colors.dark_primary : colors.primary};
-          outline: 2px solid ${darkMode ? colors.dark_primary : colors.primary};
+          border-color: ${darkMode
+            ? colors.deepCarminPink
+            : colors.guardsmanRed};
+          outline: 2px solid
+            ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
       `}</style>
     </>

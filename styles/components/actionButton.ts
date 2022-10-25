@@ -30,34 +30,34 @@ export const actionButtonStyle = css`
     border-radius: 0.5rem;
   }
   .actionButton:not(:disabled):not(.disabled):hover {
-    background-color: ${colors.dark_tertiary};
-    border-color: ${colors.dark_tertiary};
+    background-color: ${colors.vetenianRed};
+    border-color: ${colors.vetenianRed};
     color: ${colors.white};
     text-decoration: none;
   }
   .actionButton:not(:disabled):not(.disabled):active {
-    background-color: ${colors.dark_tertiary};
-    border-color: ${colors.dark_tertiary};
+    background-color: ${colors.vetenianRed};
+    border-color: ${colors.vetenianRed};
     color: ${colors.white};
   }
   .actionButton:not(:disabled):not(.disabled):focus {
-    box-shadow: 0 0 0 0.2rem rgba(181, 0, 0, 0.3);
+    box-shadow: 0 0 0 0.2rem #b500004d;
     outline: none;
   }
 `;
 
 export const darkActionButtonDynamicStyle = css`
   .actionButton {
-    background-color: ${colors.dark_primary};
-    border: 1px solid #1a202c;
-    color: #fff;
+    background-color: ${colors.deepCarminPink};
+    border: 1px solid ${colors.dark};
+    color: ${colors.white};
   }
 `;
 
 export const actionButtonDynamicStyle = css`
   .actionButton {
-    background-color: ${colors.primary};
-    border: 1px solid #fff;
-    color: #fff;
+    background-color: ${colors.guardsmanRed};
+    border: 1px solid ${colors.white};
+    color: ${colors.white};
   }
 `;
