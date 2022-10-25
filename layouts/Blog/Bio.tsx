@@ -43,7 +43,7 @@ export default function Bio({
           border: none;
           border-radius: 0px 0px 10px 10px;
           box-sizing: border-box;
-          color: ${colors.background} !important;
+          color: ${colors.white} !important;
           cursor: pointer;
           display: none;
           font: normal normal normal 11px/18px "Helvetica Neue", Arial,

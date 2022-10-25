@@ -121,12 +121,12 @@ export function Pre({
       </pre>
       <style jsx>{`
         pre {
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
-          color: ${darkMode ? colors.dark_textColor : colors.dark_accents5};
+          background: ${darkMode ? colors.cinder : colors.romance};
+          color: ${darkMode ? colors.greyGoose : colors.balticSea};
           border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
         }
         pre :global(code[data-lang]:before) {
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+          background: ${darkMode ? colors.cinder : colors.romance};
           color: ${darkMode
             ? "rgba(255, 255, 255, 0.7)"
             : "rgba(0, 0, 0, 0.7)"};
@@ -246,7 +246,7 @@ export function LeftLinesNumbers({
       ))}
       <style jsx>{`
         code {
-          color: ${darkMode ? colors.dark_codeTextColor : colors.codeTextColor};
+          color: ${darkMode ? colors.silverChalice : colors.boulder};
         }
       `}</style>
       <style jsx>{`

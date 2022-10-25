@@ -83,18 +83,16 @@ export default function HomeLayout({
       </aside>
       <style jsx>{`
         nav :global(a) {
-          color: ${darkMode ? colors.dark_primary : colors.primary};
+          color: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
         nav :global(.pagination:hover) {
-          color: ${darkMode
-            ? colors.dark_secondary
-            : colors.secondary} !important;
+          color: ${darkMode ? colors.lavaRed : colors.redBerry} !important;
         }
         nav :global(.currentPage) {
           background-color: ${darkMode
-            ? colors.dark_primary
-            : colors.primary} !important;
-          color: ${colors.background} !important;
+            ? colors.deepCarminPink
+            : colors.guardsmanRed} !important;
+          color: ${colors.white} !important;
         }
       `}</style>
       <style jsx>{`
@@ -143,7 +141,7 @@ export default function HomeLayout({
         }
         nav :global(.currentPage) {
           border-radius: 50% !important;
-          color: ${colors.background} !important;
+          color: ${colors.white} !important;
         }
         ol {
           list-style: none;

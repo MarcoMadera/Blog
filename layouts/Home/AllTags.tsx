@@ -35,7 +35,7 @@ export default function AllTags({
       </div>
       <style jsx>{`
         section h2 {
-          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+          color: ${darkMode ? colors.greyGoose : colors.balticSeaDark};
         }
       `}</style>
       <style jsx>{`
@@ -49,7 +49,7 @@ export default function AllTags({
           gap: 1rem 2rem;
         }
         section h2 {
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
           margin-bottom: 1.6rem;
         }
         .tags :global(a) {
@@ -57,8 +57,8 @@ export default function AllTags({
           border-radius: 0.3rem;
           background-color: ${darkMode
             ? "rgba(31, 41, 55, 1)"
-            : colors.accents4};
-          color: ${darkMode ? colors.dark_textColor : colors.black};
+            : colors.whiteSmoke};
+          color: ${darkMode ? colors.greyGoose : colors.black};
           font-size: 1rem;
           font-weight: 400;
           text-decoration: none;
@@ -68,7 +68,7 @@ export default function AllTags({
         .tags :global(a:hover),
         .tags :global(a:focus),
         .tags :global(a:focus-within) {
-          outline: 3px solid ${colors.primary};
+          outline: 3px solid ${colors.guardsmanRed};
         }
         @media screen and (max-width: 876px) {
           section :global(a) {

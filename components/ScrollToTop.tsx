@@ -1,12 +1,15 @@
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
+import { colors } from "styles/theme";
 import { a11ySmartFocus } from "utils";
+import { addOpacityToHexColor } from "utils/addOpacityToHexColor";
 
 export default function ScrollToTop(): ReactElement {
   const [percent, setPercent] = useState(0);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const [hideButton, setHideButton] = useState(true);
   const { darkMode } = useDarkMode();
+  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const threshold = 0;
@@ -39,14 +42,17 @@ export default function ScrollToTop(): ReactElement {
 
   useEffect(() => {
     const handleScroll = () => {
-      setPercent(
+      const scrollValue =
         Math.round(
           (scrollY /
             (document.documentElement.scrollHeight -
               document.documentElement.clientHeight)) *
             10000
-        ) / 100
-      );
+        ) / 100;
+      setPercent(scrollValue);
+      if (progressRef.current) {
+        progressRef.current.style.setProperty("--scroll", `${scrollValue}`);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -83,6 +89,7 @@ export default function ScrollToTop(): ReactElement {
           role="progressbar"
           aria-label="Scroll progress"
           aria-live="polite"
+          ref={progressRef}
         ></div>
         <div className="round">
           <svg
@@ -91,7 +98,7 @@ export default function ScrollToTop(): ReactElement {
             height="24"
             viewBox="0 0 20 20"
             clipRule="evenodd"
-            fill="#000"
+            fill={colors.black}
           >
             <path d="M14.707 12.707a1 1 0 0 1-1.414 0L10 9.414l-3.293 3.293a1 1 0 0 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414Z" />
           </svg>
@@ -101,16 +108,16 @@ export default function ScrollToTop(): ReactElement {
         .scrollToTop__button {
           background-color: ${percent > 95
             ? darkMode
-              ? "#3f4a59"
-              : "#e3e3e3"
+              ? colors.riverBed
+              : colors.platinum
             : darkMode
-            ? "#1f2937"
-            : "#fff"};
+            ? colors.ebonyClay
+            : colors.white};
           transform: translateY(${hideButton ? "100px" : "0"});
         }
         .scrollToTop__button:hover,
         .scrollToTop__button:focus {
-          background-color: ${darkMode ? "#3f4a59" : "#dddddd"};
+          background-color: ${darkMode ? colors.riverBed : colors.gainsboro};
           filter: ${percent < 95
             ? "brightness(1.1)"
             : darkMode
@@ -118,37 +125,42 @@ export default function ScrollToTop(): ReactElement {
             : "none"};
         }
         .radial-progress:before {
-          --line-color: ${percent < 95 ? "#ef2c2c" : "transparent"};
+          --line-color: ${percent < 95 ? colors.deepCarminPink : "transparent"};
           background: radial-gradient(
                 farthest-side,
                 var(--line-color) 98%,
-                #0000
+                ${colors.black}
               )
               top/0.25rem 0.25rem no-repeat,
-            conic-gradient(var(--line-color) calc(${percent} * 1%), #0000 0);
+            conic-gradient(
+              var(--line-color) calc(var(--scroll) * 1%),
+              transparent 0
+            );
           mask: radial-gradient(
             farthest-side,
-            #0000 calc(99% - 0.25rem),
+            transparent calc(99% - 0.25rem),
             var(--line-color) calc(100% - 0.25rem)
           );
         }
         .radial-progress:after {
-          background-color: ${percent < 95 ? "#ef2c2c" : "transparent"};
-          transform: rotate(calc(${percent} * 3.6deg - 90deg))
+          background-color: ${percent < 95
+            ? colors.deepCarminPink
+            : "transparent"};
+          transform: rotate(calc(var(--scroll) * 3.6deg - 90deg))
             translate(calc(4rem / 2 - 50%));
         }
         .round {
           border: 4px solid
             ${percent > 95
               ? darkMode
-                ? "#3f4a59"
-                : "#e3e3e3"
+                ? colors.riverBed
+                : colors.platinum
               : darkMode
-              ? "#d8dee91a"
-              : "#ccc"};
+              ? addOpacityToHexColor(colors.geyser, 0.1)
+              : colors.greyGoose};
         }
         .scrollToTop__button svg {
-          fill: ${darkMode ? "#fff" : "#000"};
+          fill: ${darkMode ? colors.white : colors.black};
         }
       `}</style>
       <style jsx>{`

@@ -31,7 +31,7 @@ export function PillAction({
         <Comment
           width={30}
           height={30}
-          fill={darkMode ? colors.dark_textColor : colors.textColor}
+          fill={darkMode ? colors.greyGoose : colors.davyGrey}
         />
       </a>
       <button
@@ -42,7 +42,7 @@ export function PillAction({
         <Share
           width={26}
           height={26}
-          fill={darkMode ? colors.dark_textColor : colors.textColor}
+          fill={darkMode ? colors.greyGoose : colors.davyGrey}
         />
       </button>
       {openModal && (
@@ -60,7 +60,7 @@ export function PillAction({
         <WebMention
           width={26}
           height={26}
-          fill={darkMode ? colors.dark_textColor : colors.textColor}
+          fill={darkMode ? colors.greyGoose : colors.davyGrey}
         />
       </button>
       {openWebMentionModal && (

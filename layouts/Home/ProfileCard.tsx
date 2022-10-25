@@ -36,7 +36,7 @@ export default function Aside(): ReactElement {
             socialNetwork="GitHub"
           >
             <GithubSquare
-              fill={darkMode ? colors.dark_primary : colors.primary}
+              fill={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
             />
           </SocialAnchor>
           <SocialAnchor
@@ -44,7 +44,7 @@ export default function Aside(): ReactElement {
             socialNetwork="LinkedIn"
           >
             <LinkedInSquare
-              fill={darkMode ? colors.dark_primary : colors.primary}
+              fill={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
             />
           </SocialAnchor>
           <SocialAnchor
@@ -52,7 +52,7 @@ export default function Aside(): ReactElement {
             socialNetwork="Twitter"
           >
             <TwitterSquare
-              fill={darkMode ? colors.dark_primary : colors.primary}
+              fill={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
             />
           </SocialAnchor>
         </div>
@@ -69,7 +69,7 @@ export default function Aside(): ReactElement {
       <style jsx>{`
         header :global(a:hover svg),
         header :global(a:focus svg) {
-          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
+          fill: ${darkMode ? colors.lavaRed : colors.redBerry};
         }
       `}</style>
       <style jsx>{`
@@ -88,10 +88,10 @@ export default function Aside(): ReactElement {
           font-weight: 400;
           line-height: 1.5;
           margin: 0;
-          color: ${darkMode ? "#ccccccaa" : colors.accents1};
+          color: ${darkMode ? "#ccccccaa" : colors.silverChalice};
         }
         h1 :global(span) {
-          color: ${darkMode ? colors.dark_primary : colors.primary};
+          color: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
           font-size: 2rem;
         }
         p {
@@ -110,9 +110,7 @@ export default function Aside(): ReactElement {
           justify-content: center;
           flex-direction: row;
           justify-content: space-between;
-          background-color: ${darkMode
-            ? colors.dark_background
-            : colors.background};
+          background-color: ${darkMode ? colors.cinder : colors.white};
           border-radius: 10px;
           margin-bottom: 20px;
           width: 100%;

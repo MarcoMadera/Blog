@@ -158,15 +158,15 @@ export default function TableOfContents({
       </section>
       <style jsx>{`
         h2 {
-          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+          color: ${darkMode ? colors.greyGoose : colors.balticSeaDark};
         }
         ol :global(li a.active) {
-          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          color: ${darkMode ? colors.geyser : colors.balticSeaDark};
           font-weight: 600;
         }
         nav :global(li:hover > a),
         nav :global(li:focus > a) {
-          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          color: ${darkMode ? colors.geyser : colors.balticSeaDark};
           font-weight: 600;
         }
         nav {

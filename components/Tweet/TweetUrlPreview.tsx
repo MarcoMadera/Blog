@@ -110,7 +110,7 @@ export default function TweetUrlPreview({
           -webkit-line-clamp: 1;
         }
         .url-preview__header-title-text {
-          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          color: ${darkMode ? colors.geyser : colors.balticSeaDark};
         }
         .url-preview__header-title-description {
           -webkit-line-clamp: 2;

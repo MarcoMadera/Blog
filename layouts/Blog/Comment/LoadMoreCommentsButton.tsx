@@ -17,7 +17,7 @@ export default function LoadMoreCommentsButton(): ReactElement {
       </button>
       <style jsx>{`
         button {
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
         }
       `}</style>
       <style jsx>

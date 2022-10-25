@@ -14,16 +14,16 @@ export function Details({ children }: DetailsProps): ReactElement {
       {children}
       <style jsx>{`
         details {
-          border: 1px solid ${colors.accents1};
+          border: 1px solid ${colors.silverChalice};
         }
         details > summary::marker {
-          color: ${darkMode ? colors.dark_primary : colors.primary};
+          color: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
         details > summary::-webkit-details-marker {
-          color: ${darkMode ? colors.dark_primary : colors.primary};
+          color: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
         }
         details[open] summary {
-          border-bottom: 1px solid ${colors.accents1};
+          border-bottom: 1px solid ${colors.silverChalice};
         }
       `}</style>
       <style jsx>{`
@@ -63,9 +63,9 @@ export function Select({
       {children}
       <style jsx>{`
         select {
-          background: ${darkMode ? colors.dark_background : colors.background};
-          border: 1px solid ${colors.accents1};
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          background: ${darkMode ? colors.cinder : colors.white};
+          border: 1px solid ${colors.silverChalice};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
         }
       `}</style>
       <style jsx>{`

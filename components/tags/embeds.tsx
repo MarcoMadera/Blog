@@ -32,7 +32,7 @@ export function Youtube({ id, title, caption }: YoutubeProps): ReactElement {
         }
         div p.caption {
           font-size: 15px;
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
           text-align: center;
           margin: 0;
           margin-top: 10px;
