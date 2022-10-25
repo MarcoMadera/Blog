@@ -2,7 +2,7 @@ import css from "styled-jsx/css";
 import { colors } from "styles/theme";
 
 export const actionButtonStyle = css`
-  .actionButton {
+  :global(.actionButton) {
     margin-top: 0;
     align-items: center;
     justify-content: center;
@@ -29,25 +29,25 @@ export const actionButtonStyle = css`
     flex: none;
     border-radius: 0.5rem;
   }
-  .actionButton:not(:disabled):not(.disabled):hover {
+  :global(.actionButton):not(:disabled):not(.disabled):hover {
     background-color: ${colors.dark_tertiary};
     border-color: ${colors.dark_tertiary};
     color: ${colors.white};
     text-decoration: none;
   }
-  .actionButton:not(:disabled):not(.disabled):active {
+  :global(.actionButton):not(:disabled):not(.disabled):active {
     background-color: ${colors.dark_tertiary};
     border-color: ${colors.dark_tertiary};
     color: ${colors.white};
   }
-  .actionButton:not(:disabled):not(.disabled):focus {
+  :global(.actionButton):not(:disabled):not(.disabled):focus {
     box-shadow: 0 0 0 0.2rem rgba(181, 0, 0, 0.3);
     outline: none;
   }
 `;
 
 export const darkActionButtonDynamicStyle = css`
-  .actionButton {
+  :global(.actionButton) {
     background-color: ${colors.dark_primary};
     border: 1px solid #1a202c;
     color: #fff;
@@ -55,7 +55,7 @@ export const darkActionButtonDynamicStyle = css`
 `;
 
 export const actionButtonDynamicStyle = css`
-  .actionButton {
+  :global(.actionButton) {
     background-color: ${colors.primary};
     border: 1px solid #fff;
     color: #fff;

@@ -16,14 +16,11 @@ export default function TagsHeader({ tags }: TagsHeaderTypes): ReactElement {
             prefetch={false}
             href={`/blog/etiqueta/${slugify(tag)}/`}
             key={tag}
+            rel="category tag"
+            className="p-category"
+            aria-label={`etiqueta ${tag}`}
           >
-            <a
-              rel="category tag"
-              className="p-category"
-              aria-label={`etiqueta ${tag}`}
-            >
-              {tag}
-            </a>
+            {tag}
           </Link>
         ))}
       <style jsx>
@@ -35,16 +32,16 @@ export default function TagsHeader({ tags }: TagsHeaderTypes): ReactElement {
             column-gap: 15px;
             margin-bottom: 12px;
           }
-          a {
+          div :global(a) {
             text-decoration: none;
             cursor: pointer;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 14px;
             padding: 2px 4px;
             color: inherit;
           }
-          a:focus,
-          a:hover {
+          div :global(a:focus),
+          div :global(a:hover) {
             text-decoration: underline;
           }
         `}

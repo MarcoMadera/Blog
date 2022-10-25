@@ -74,21 +74,19 @@ export function Img({
   if (blurDataURL) {
     imageProps.loader = imageLoader;
     imageProps.placeholder = "blur";
-    imageProps.layout = "intrinsic";
     imageProps.blurDataURL = blurDataURL;
     imageProps.width = width;
     imageProps.height = height;
   }
 
   if (width && height && !blurDataURL) {
-    imageProps.layout = "intrinsic";
     imageProps.width = width;
     imageProps.height = height;
   }
 
   if (!width && !height && !blurDataURL) {
-    imageProps.layout = "fill";
-    imageProps.objectFit = "cover";
+    imageProps.fill = true;
+    imageProps.style = { objectFit: "cover" };
     imageProps.unoptimized = true;
     imageProps.loader = ({ src }) => src;
   }

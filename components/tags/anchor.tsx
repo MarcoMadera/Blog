@@ -73,21 +73,21 @@ export function ALink({
 
   return (
     <>
-      <Link href={href} prefetch={prefetch}>
-        <a
-          {...getToolTipAttributes(title ?? href, { hideToolTip })}
-          {...attribs}
-          className={classname || className}
-        >
-          {children}
-          <style jsx>{`
-            a {
-              color: ${textColor ??
-              (darkMode ? colors.dark_primary : colors.primary)};
-            }
-          `}</style>
-        </a>
+      <Link
+        href={href}
+        prefetch={prefetch}
+        {...getToolTipAttributes(title ?? href, { hideToolTip })}
+        {...attribs}
+        className={`${classname || className} aLink`}
+      >
+        {children}
       </Link>
+      <style jsx>{`
+        :global(.aLink) {
+          color: ${textColor ??
+          (darkMode ? colors.dark_primary : colors.primary)};
+        }
+      `}</style>
     </>
   );
 }

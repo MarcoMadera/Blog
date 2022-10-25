@@ -33,58 +33,56 @@ export default function BlogCard({
 
   return (
     <article className="h-entry hentry">
-      <Link href={`/blog/${slug}`}>
-        <a className="u-url" rel="bookmark">
-          <div className="cover">
-            <Image
-              height={548}
-              width={410}
-              alt={coverAlt}
-              placeholder="blur"
-              loader={
-                isFromCloudProvider
-                  ? ({ src }) =>
-                      replaceUrlImgTransformations(
-                        src,
-                        "c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee"
-                      )
-                  : undefined
-              }
-              unoptimized={!isFromCloudProvider}
-              blurDataURL={blurDataURL}
-              src={cover}
-              className="u-photo"
-            />
+      <Link href={`/blog/${slug}`} className="u-url" rel="bookmark">
+        <div className="cover">
+          <Image
+            height={548}
+            width={410}
+            alt={coverAlt}
+            placeholder="blur"
+            loader={
+              isFromCloudProvider
+                ? ({ src }) =>
+                    replaceUrlImgTransformations(
+                      src,
+                      "c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee"
+                    )
+                : undefined
+            }
+            unoptimized={!isFromCloudProvider}
+            blurDataURL={blurDataURL}
+            src={cover}
+            className="u-photo"
+          />
 
-            <span className="p-author author h-card vcard" translate="no">
-              {author}
+          <span className="p-author author h-card vcard" translate="no">
+            {author}
+          </span>
+        </div>
+        <div className="content">
+          <div className="info">
+            <span>
+              <time className="dt-published published" dateTime={isoString}>
+                {publishedDate ? getFormattedDate(publishedDate) : ""}
+              </time>
             </span>
+            <span>{readingTimeInMinutes} min de lectura</span>
           </div>
-          <div className="content">
-            <div className="info">
-              <span>
-                <time className="dt-published published" dateTime={isoString}>
-                  {publishedDate ? getFormattedDate(publishedDate) : ""}
-                </time>
-              </span>
-              <span>{readingTimeInMinutes} min de lectura</span>
-            </div>
-            <h2 className="p-name entry-title">{title}</h2>
-            <p className="p-summary entry-summary">{description}</p>
-          </div>
-        </a>
+          <h2 className="p-name entry-title">{title}</h2>
+          <p className="p-summary entry-summary">{description}</p>
+        </div>
       </Link>
       {tags.length > 0 && (
         <div className="tags">
           {tags.map((tag) => (
-            <Link href={`/blog/etiqueta/${slugify(tag)}`} key={tag}>
-              <a
-                aria-label={`etiqueta ${tag}`}
-                className="p-category"
-                rel="category tag"
-              >
-                {tag}
-              </a>
+            <Link
+              href={`/blog/etiqueta/${slugify(tag)}`}
+              key={tag}
+              aria-label={`etiqueta ${tag}`}
+              className="p-category"
+              rel="category tag"
+            >
+              {tag}
             </Link>
           ))}
         </div>
@@ -104,7 +102,7 @@ export default function BlogCard({
         article:focus-within .tags {
           display: flex;
         }
-        .tags a {
+        .tags :global(a) {
           padding: 0.45rem 0.7rem;
           border-radius: 0.3rem;
           background-color: ${colors.white};
@@ -115,9 +113,9 @@ export default function BlogCard({
           transition: 0.3s ease-in-out;
           outline: 3px solid transparent;
         }
-        .tags a:hover,
-        .tags a:focus,
-        .tags a:focus-within {
+        .tags :global(a:hover),
+        .tags :global(a:focus),
+        .tags :global(a:focus-within) {
           outline: 3px solid ${colors.primary};
         }
         .cover {
@@ -150,7 +148,7 @@ export default function BlogCard({
           max-width: 410px;
           position: relative;
         }
-        a {
+        article :global(a) {
           margin: 6px;
         }
         .cover {
@@ -172,8 +170,8 @@ export default function BlogCard({
         article:focus-within :global(img) {
           transform: scale(1.1);
         }
-        article *:focus,
-        article *:focus-within {
+        article :global(*:focus),
+        article :global(*:focus-within) {
           outline: none;
         }
         article:focus-within .cover,
@@ -238,7 +236,7 @@ export default function BlogCard({
         .info span :global(svg) {
           margin-right: 0.5rem;
         }
-        a {
+        article :global(a) {
           display: block;
           color: inherit;
           text-decoration: none;

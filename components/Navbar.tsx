@@ -3,39 +3,8 @@ import { useRouter } from "next/router";
 import { colors } from "styles/theme";
 import { Moon, Sun } from "./icons";
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement, ReactNode } from "react";
+import { ReactElement } from "react";
 import useToolTip from "hooks/useToolTip";
-
-interface AnchorProps {
-  label: string;
-  href: string;
-  children?: ReactNode;
-  [x: string]: string | number | ReactNode;
-}
-
-function Anchor({
-  label,
-  href,
-  children,
-  ...attribs
-}: AnchorProps): ReactElement {
-  const router = useRouter();
-
-  return (
-    <Link href={href}>
-      <a aria-label={label} {...attribs}>
-        {children}
-        <style jsx>{`
-          a {
-            text-decoration: ${router.route === href && router.route !== "/"
-              ? "underline"
-              : "none"};
-          }
-        `}</style>
-      </a>
-    </Link>
-  );
-}
 
 function Logo() {
   return (
@@ -65,17 +34,18 @@ export default function Navbar(): ReactElement {
   const { darkMode, toggleDarkMode } = useDarkMode();
   const { getToolTipAttributes } = useToolTip();
   const title = `Cambiar al tema ${darkMode ? "claro" : "oscuro"}`;
+  const router = useRouter();
 
   return (
     <header>
-      <Anchor
+      <Link
         rel="me"
         href="/"
-        label="Logo Marco Madera, ir a la página principal"
+        aria-label="Logo Marco Madera, ir a la página principal"
         className="logo"
       >
         <Logo />
-      </Anchor>
+      </Link>
       <nav>
         <button
           onClick={() => toggleDarkMode()}
@@ -94,12 +64,20 @@ export default function Navbar(): ReactElement {
             <Sun aria-hidden="true" width={16} height={16} />
           )}
         </button>
-        <Anchor href="/portafolio" label="Ir al portafolio">
+        <Link
+          href="/portafolio"
+          aria-label="Ir al portafolio"
+          className={`${router.route === "/portafolio" ? "active" : ""}`}
+        >
           Portafolio
-        </Anchor>
-        <Anchor href="/sobre-mi" label="Ir a sobre mí">
+        </Link>
+        <Link
+          href="/sobre-mi"
+          aria-label="Ir a sobre mí"
+          className={`${router.route === "//sobre-mi" ? "active" : ""}`}
+        >
           Sobre mí
-        </Anchor>
+        </Link>
       </nav>
       <style global jsx>{`
         .logo {
@@ -161,6 +139,10 @@ export default function Navbar(): ReactElement {
         header :global(a),
         header nav :global(a) {
           color: inherit;
+          text-decoration: none;
+        }
+        header nav :global(a.active) {
+          text-decoration: underline;
         }
         header :global(img) {
           height: 40px;
