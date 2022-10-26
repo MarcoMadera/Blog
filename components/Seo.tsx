@@ -46,7 +46,7 @@ export default function Seo({
       <meta name="monetization" content="$ilp.uphold.com/wjQdnNyGYBgW" />
       <meta
         name="theme-color"
-        content={darkMode ? colors.dark_background : colors.background}
+        content={darkMode ? colors.cinder : colors.white}
       />
       <link
         rel="alternate"

@@ -51,17 +51,15 @@ export default function Layout({
           color-scheme: ${darkMode ? "dark" : "light"};
         }
         :global(body) {
-          background: ${darkMode ? colors.dark_background : colors.background};
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          background: ${darkMode ? colors.cinder : colors.white};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
         }
         :global(h1, h2, h3, h4, h5, h6) {
-          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          color: ${darkMode ? colors.geyser : colors.balticSeaDark};
         }
         a,
         .ring {
-          background-color: ${darkMode
-            ? colors.dark_accents2
-            : colors.accents2};
+          background-color: ${darkMode ? colors.charcoalGrey : colors.paleGrey};
         }
       `}</style>
       <style jsx>{`

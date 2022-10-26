@@ -53,15 +53,13 @@ export default function NotificationCard({
       <span></span>
       <style jsx>{`
         span {
-          background: ${darkMode ? colors.dark_tertiary : colors.primary};
+          background: ${darkMode ? colors.vetenianRed : colors.guardsmanRed};
         }
         article {
-          background-color: ${darkMode
-            ? colors.dark_accents3
-            : colors.accents2};
+          background-color: ${darkMode ? colors.cinder : colors.paleGrey};
         }
         button {
-          color: ${darkMode ? colors.dark_textColor : colors.textColor};
+          color: ${darkMode ? colors.greyGoose : colors.davyGrey};
         }
       `}</style>
       <style jsx>{`

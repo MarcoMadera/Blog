@@ -40,8 +40,8 @@ function MusicCard({ artist, cover, songUrl, title }: SongData): ReactElement {
       </A>
       <style jsx>{`
         article :global(a) {
-          border: 1px solid ${darkMode ? "#cccccc75" : colors.accents1};
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+          border: 1px solid ${darkMode ? "#cccccc75" : colors.silverChalice};
+          background: ${darkMode ? colors.cinder : colors.romance};
         }
         article :global(a:hover),
         article :global(a:focus-within) {

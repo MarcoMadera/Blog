@@ -138,7 +138,7 @@ export default function Comments({ slug }: { slug: string }): ReactElement {
       <style jsx>{`
         .controls div button:hover,
         .controls div button:focus {
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
+          color: ${darkMode ? colors.lavaRed : colors.redBerry};
         }
       `}</style>
       <style jsx>{`

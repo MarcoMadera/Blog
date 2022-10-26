@@ -30,14 +30,14 @@ export const actionButtonStyle = css`
     border-radius: 0.5rem;
   }
   :global(.actionButton):not(:disabled):not(.disabled):hover {
-    background-color: ${colors.dark_tertiary};
-    border-color: ${colors.dark_tertiary};
+    background-color: ${colors.vetenianRed};
+    border-color: ${colors.vetenianRed};
     color: ${colors.white};
     text-decoration: none;
   }
   :global(.actionButton):not(:disabled):not(.disabled):active {
-    background-color: ${colors.dark_tertiary};
-    border-color: ${colors.dark_tertiary};
+    background-color: ${colors.vetenianRed};
+    border-color: ${colors.vetenianRed};
     color: ${colors.white};
   }
   :global(.actionButton):not(:disabled):not(.disabled):focus {
@@ -48,16 +48,16 @@ export const actionButtonStyle = css`
 
 export const darkActionButtonDynamicStyle = css`
   :global(.actionButton) {
-    background-color: ${colors.dark_primary};
-    border: 1px solid #1a202c;
-    color: #fff;
+    background-color: ${colors.deepCarminPink};
+    border: 1px solid ${colors.dark};
+    color: ${colors.white};
   }
 `;
 
 export const actionButtonDynamicStyle = css`
   :global(.actionButton) {
-    background-color: ${colors.primary};
-    border: 1px solid #fff;
-    color: #fff;
+    background-color: ${colors.guardsmanRed};
+    border: 1px solid ${colors.white};
+    color: ${colors.white};
   }
 `;

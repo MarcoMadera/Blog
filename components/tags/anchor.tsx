@@ -50,7 +50,7 @@ export function A({
       <style jsx>{`
         a {
           color: ${textColor ??
-          (darkMode ? colors.dark_primary : colors.primary)};
+          (darkMode ? colors.deepCarminPink : colors.guardsmanRed)};
         }
       `}</style>
     </a>
@@ -85,7 +85,7 @@ export function ALink({
       <style jsx>{`
         :global(.aLink) {
           color: ${textColor ??
-          (darkMode ? colors.dark_primary : colors.primary)};
+          (darkMode ? colors.deepCarminPink : colors.guardsmanRed)};
         }
       `}</style>
     </>

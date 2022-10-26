@@ -93,7 +93,7 @@ export default function Footer(): ReactElement {
               <TwitterSquare
                 width={28}
                 height={28}
-                fill={darkMode ? colors.dark_primary : colors.primary}
+                fill={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
               />
             </SocialAnchor>
             <SocialAnchor
@@ -103,7 +103,7 @@ export default function Footer(): ReactElement {
               <LinkedInSquare
                 width={28}
                 height={28}
-                fill={darkMode ? colors.dark_primary : colors.primary}
+                fill={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
               />
             </SocialAnchor>
             <SocialAnchor
@@ -113,7 +113,7 @@ export default function Footer(): ReactElement {
               <GithubSquare
                 width={28}
                 height={28}
-                fill={darkMode ? colors.dark_primary : colors.primary}
+                fill={darkMode ? colors.deepCarminPink : colors.guardsmanRed}
               />
             </SocialAnchor>
           </div>
@@ -125,19 +125,19 @@ export default function Footer(): ReactElement {
       <style jsx>{`
         .footer_social :global(a:hover svg),
         .footer_social :global(a:focus svg) {
-          fill: ${darkMode ? colors.dark_secondary : colors.secondary};
+          fill: ${darkMode ? colors.lavaRed : colors.redBerry};
         }
         footer {
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+          background: ${darkMode ? colors.cinder : colors.romance};
         }
         strong {
-          color: ${darkMode ? colors.dark_titleColor : colors.titleColor};
+          color: ${darkMode ? colors.geyser : colors.balticSeaDark};
         }
         .footer_section {
-          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+          color: ${darkMode ? colors.greyGoose : colors.balticSeaDark};
         }
         .footer_section > :global(a:after) {
-          background: ${darkMode ? colors.dark_secondary : colors.primary};
+          background: ${darkMode ? colors.lavaRed : colors.guardsmanRed};
         }
       `}</style>
       <style jsx>{`

@@ -99,8 +99,7 @@ export default function NewsletterForm({
           border: 1px solid ${error ? "red" : darkMode ? "#cccccc4d" : "#ccc"};
         }
         form :global(input:focus) {
-          border: 1px solid
-            ${darkMode ? colors.dark_secondary : colors.secondary};
+          border: 1px solid ${darkMode ? colors.lavaRed : colors.redBerry};
         }
         form :global(input:hover) {
           border: 1px solid ${darkMode ? "#ffffff4d" : "#7b7b7b"};

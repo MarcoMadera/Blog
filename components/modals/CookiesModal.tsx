@@ -55,23 +55,21 @@ export default function CookiesModal(): ReactPortal | null {
       </div>
       <style jsx>{`
         p :global(a) {
-          color: ${darkMode ? "#ff2020" : colors.primary};
+          color: ${darkMode ? "#ff2020" : colors.guardsmanRed};
         }
         section {
-          background-color: ${darkMode
-            ? colors.dark_accents3
-            : colors.accents2};
+          background-color: ${darkMode ? colors.cinder : colors.paleGrey};
         }
         button:nth-of-type(2) {
           margin: 0;
-          background: ${darkMode ? colors.dark_secondary : colors.primary};
-          border-color: ${darkMode ? colors.dark_secondary : colors.primary};
+          background: ${darkMode ? colors.lavaRed : colors.guardsmanRed};
+          border-color: ${darkMode ? colors.lavaRed : colors.guardsmanRed};
           color: ${colors.white};
         }
         button:nth-of-type(2):hover,
         button:nth-of-type(2):focus {
           text-decoration: none;
-          background-color: ${colors.dark_tertiary};
+          background-color: ${colors.vetenianRed};
         }
       `}</style>
       <style jsx>{`

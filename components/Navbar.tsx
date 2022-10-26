@@ -116,7 +116,7 @@ export default function Navbar(): ReactElement {
       <style jsx>{`
         header nav :global(a:hover),
         header nav :global(a:focus) {
-          color: ${darkMode ? colors.dark_secondary : colors.secondary};
+          color: ${darkMode ? colors.lavaRed : colors.redBerry};
         }
       `}</style>
       <style jsx>{`

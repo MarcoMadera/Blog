@@ -116,7 +116,7 @@ export default function BlogCard({
         .tags :global(a:hover),
         .tags :global(a:focus),
         .tags :global(a:focus-within) {
-          outline: 3px solid ${colors.primary};
+          outline: 3px solid ${colors.guardsmanRed};
         }
         .cover {
           position: relative;
@@ -177,9 +177,8 @@ export default function BlogCard({
         article:focus-within .cover,
         article:hover .cover,
         article:focus .cover {
-          box-shadow: 0 0 0 4px
-              ${darkMode ? colors.dark_background : colors.background},
-            0 0 0 6px ${darkMode ? colors.dark_textColor : colors.black};
+          box-shadow: 0 0 0 4px ${darkMode ? colors.cinder : colors.white},
+            0 0 0 6px ${darkMode ? colors.greyGoose : colors.black};
         }
         .content {
           display: grid;
@@ -197,7 +196,7 @@ export default function BlogCard({
           font-size: 1.5rem;
           font-weight: 600;
           line-height: 1.2;
-          color: ${darkMode ? colors.dark_primary : colors.primary};
+          color: ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           display: -webkit-box;
@@ -227,7 +226,7 @@ export default function BlogCard({
           justify-content: space-between;
           margin-bottom: 0.5rem;
           font-size: 0.875rem;
-          color: ${darkMode ? "#ccccccaa" : colors.accents1};
+          color: ${darkMode ? "#ccccccaa" : colors.silverChalice};
         }
         .info span {
           display: flex;

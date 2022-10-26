@@ -12,11 +12,12 @@ export default function NewsletterCard(): ReactElement {
       <p>Recibirás actualizaciones del blog con temas de programación</p>
       <style jsx>{`
         :global(form.bd-email) {
-          border: 3px solid ${darkMode ? colors.dark_primary : colors.primary};
-          background: ${darkMode ? colors.dark_accents3 : colors.accents3};
+          border: 3px solid
+            ${darkMode ? colors.deepCarminPink : colors.guardsmanRed};
+          background: ${darkMode ? colors.cinder : colors.romance};
         }
         :global(form.bd-email label) {
-          color: ${darkMode ? colors.dark_textColor : colors.titleColor};
+          color: ${darkMode ? colors.greyGoose : colors.balticSeaDark};
         }
       `}</style>
       <style jsx>{`
