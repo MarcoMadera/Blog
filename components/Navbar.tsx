@@ -140,6 +140,7 @@ export default function Navbar(): ReactElement {
           max-width: 1300px;
           padding: 20px;
           gap: 10px;
+          position: relative;
         }
         header :global(a),
         header nav :global(a) {
@@ -195,8 +196,19 @@ export default function Navbar(): ReactElement {
             display: none;
           }
         }
+        .search {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 9999999999999;
+        }
         @media (max-width: 648px) {
           header .search {
+            position: relative;
+            left: 0;
+            top: 0;
+            transform: none;
             order: 3;
             margin: 20px auto 0;
           }
