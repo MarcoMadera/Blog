@@ -15,8 +15,13 @@ export default async function handler(
   const data = await fetch(`${siteUrl}/search.json`);
   const json = await data.json();
   const results = json.filter(
-    (item: { title: string; description: string; url: string }) =>
-      item.title.toLowerCase().includes((query as string).toLowerCase())
+    (item: { title: string; description: string; url: string }) => {
+      return (
+        item.title.toLowerCase() +
+        " " +
+        item.description.toLowerCase()
+      ).includes((query as string).toLowerCase());
+    }
   );
   res.status(200).json({ results });
 }

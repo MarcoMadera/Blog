@@ -80,9 +80,7 @@ export function Input({
           padding-left: 1rem;
           padding-right: 1rem;
           transition-duration: 0.2s;
-          transition-property: color, background-color, border-color,
-            text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-            filter, backdrop-filter;
+          transition-property: box-shadow, transform, filter, backdrop-filter;
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           width: 100%;
         }

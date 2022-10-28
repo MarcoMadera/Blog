@@ -19,8 +19,10 @@ export default function MicroMemories({
   const [allMicroMemories, setAllMicroMemories] = useState(items);
   const [timesLoadedMicroMemories, setTimesLoadedMicroMemories] = useState(1);
   const { microMemoriesPerPage } = siteMetadata;
+  const [loading, setLoading] = useState(false);
 
   const handleLoadMoreMicroMemories = () => {
+    setLoading(true);
     setTimesLoadedMicroMemories(timesLoadedMicroMemories + 1);
     const microMemoryRef = ref(database, "micromemories/memory");
     const currentMicroMemoriesNumber = allMicroMemories.length;
@@ -36,6 +38,7 @@ export default function MicroMemories({
       });
 
       setAllMicroMemories(microMemories);
+      setLoading(false);
     });
   };
 
@@ -49,7 +52,11 @@ export default function MicroMemories({
           return <MicroMemory key={micro.microMemoryId} {...micro} />;
         })}
       {allMicroMemories.length < totalItems && (
-        <ActionButton onClick={handleLoadMoreMicroMemories} type="button">
+        <ActionButton
+          onClick={handleLoadMoreMicroMemories}
+          type="button"
+          disabled={loading}
+        >
           Cargar más
         </ActionButton>
       )}
@@ -73,6 +80,7 @@ export default function MicroMemories({
           transition: all 0.2s ease-in-out;
           background: transparent;
           border-width: 3px;
+          color: inherit;
         }
         section :global(.actionButton:hover) {
           transform: scale(1.05);

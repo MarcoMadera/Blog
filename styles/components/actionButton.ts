@@ -57,7 +57,7 @@ export const darkActionButtonDynamicStyle = css`
 export const actionButtonDynamicStyle = css`
   :global(.actionButton) {
     background-color: ${colors.guardsmanRed};
-    border: 1px solid ${colors.white};
+    border: 1px solid ${colors.greenWhite};
     color: ${colors.white};
   }
 `;

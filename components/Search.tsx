@@ -1,4 +1,5 @@
 import useDarkMode from "hooks/useDarkMode";
+import useNotification from "hooks/useNotification";
 import Link from "next/link";
 import { ReactElement, useEffect, useRef, useState } from "react";
 import { colors } from "styles/theme";
@@ -18,6 +19,7 @@ export default function Search(): ReactElement {
       url: string;
     }[]
   >([]);
+  const { addNotification } = useNotification();
 
   const searchEndpoint = (query: string) => {
     return `/api/search?q=${query}`;
@@ -37,7 +39,7 @@ export default function Search(): ReactElement {
         if (!isTyping && query) {
           setShouldSearch(true);
         }
-      }, 1500);
+      }, 1000);
     }
 
     if (!query) {
@@ -58,6 +60,12 @@ export default function Search(): ReactElement {
           .then((res) => res.json())
           .then((data) => {
             setResults(data.results);
+            if (data.results.length === 0) {
+              addNotification({
+                message: "Sin resultados, intenta buscar algo diferente",
+                variant: "info",
+              });
+            }
           });
       } else {
         setResults([]);
@@ -67,7 +75,7 @@ export default function Search(): ReactElement {
     if (shouldSearch && query) {
       searchQuery();
     }
-  }, [query, shouldSearch, setResults]);
+  }, [query, shouldSearch, setResults, addNotification]);
 
   return (
     <div ref={searchRef}>
@@ -111,7 +119,6 @@ export default function Search(): ReactElement {
           ))}
         </ul>
       )}
-
       <style jsx>{`
         div {
           position: relative;
@@ -133,11 +140,19 @@ export default function Search(): ReactElement {
           max-height: 500px;
           overflow-y: auto;
         }
-        li {
-          padding: 0.5rem;
+        li :global(a) {
+          margin: 0;
+          display: grid;
+          gap: 0.6rem;
+          padding: 1rem 0.6rem;
+        }
+        li h3,
+        li :global(p) {
+          margin: 0;
         }
         li:hover h3,
         li:hover :global(p) {
+          margin: 0;
           color: ${darkMode ? colors.lavaRed : colors.redBerry};
         }
         @media (max-width: 648px) {
