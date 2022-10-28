@@ -103,6 +103,7 @@ function Article({
         @media print, screen and (min-width: 0px) and (max-width: 876px) {
           article {
             display: block;
+            padding: 0;
           }
         }
       `}</style>

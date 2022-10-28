@@ -222,6 +222,7 @@ export function Img({
           border-radius: 10px;
           max-height: 100vh;
           max-width: 100%;
+          height: auto;
         }
         details:focus-within,
         details:active {
