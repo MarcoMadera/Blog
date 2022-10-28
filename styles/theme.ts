@@ -27,6 +27,7 @@ export const colors = {
   riverBed: "#3f4a59",
   rangoonGreen: "#1d1d1b",
   cinder: "#0d1117",
+  mirage: "#13171f",
   black: "#000",
   lavaRed: "#de2323",
   vetenianRed: "#d01111",
