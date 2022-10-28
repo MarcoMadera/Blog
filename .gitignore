@@ -2,6 +2,7 @@
 
 public/rss.xml
 public/sitemap.xml
+public/search.json
 
 # dependencies
 /node_modules
