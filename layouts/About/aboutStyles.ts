@@ -144,6 +144,9 @@ export const aboutStyles = css`
     section {
       order: 1;
     }
+    aside:nth-of-type(1) > :global(svg:nth-of-type(2)) {
+      margin-bottom: 0px;
+    }
     aside:nth-of-type(2) {
       order: 2;
     }
