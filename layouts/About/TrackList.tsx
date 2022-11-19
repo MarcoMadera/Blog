@@ -17,7 +17,8 @@ export default function TrackList({
 
   useEffect(() => {
     setAllTracks([newNowPlaying, ...topTracks]);
-  }, [newNowPlaying, setAllTracks, topTracks]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
