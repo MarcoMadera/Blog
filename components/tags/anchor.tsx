@@ -2,6 +2,7 @@ import Link, { LinkProps } from "next/link";
 import React, {
   AnchorHTMLAttributes,
   DetailedHTMLProps,
+  forwardRef,
   PropsWithChildren,
   ReactElement,
 } from "react";
@@ -20,42 +21,50 @@ interface AProps {
   rel?: string;
 }
 
-export function A({
-  classname,
-  className,
-  children,
-  href,
-  title,
-  hideToolTip,
-  textColor,
-  ...attribs
-}: PropsWithChildren<
-  DetailedHTMLProps<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  > &
-    AProps
->): ReactElement {
-  const { getToolTipAttributes } = useToolTip();
-  const { darkMode } = useDarkMode();
+export const A = forwardRef(
+  (
+    {
+      classname,
+      className,
+      children,
+      href,
+      title,
+      hideToolTip,
+      textColor,
+      ...attribs
+    }: PropsWithChildren<
+      DetailedHTMLProps<
+        AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+      > &
+        AProps
+    >,
+    ref: React.Ref<HTMLAnchorElement>
+  ): ReactElement => {
+    const { getToolTipAttributes } = useToolTip();
+    const { darkMode } = useDarkMode();
 
-  return (
-    <a
-      className={classname ?? className}
-      href={href}
-      {...getToolTipAttributes(title ?? href, { hideToolTip })}
-      {...attribs}
-    >
-      {children}
-      <style jsx>{`
-        a {
-          color: ${textColor ??
-          (darkMode ? colors.deepCarminPink : colors.guardsmanRed)};
-        }
-      `}</style>
-    </a>
-  );
-}
+    return (
+      <a
+        className={classname ?? className}
+        href={href}
+        {...getToolTipAttributes(title ?? href, { hideToolTip })}
+        {...attribs}
+        ref={ref}
+      >
+        {children}
+        <style jsx>{`
+          a {
+            color: ${textColor ??
+            (darkMode ? colors.deepCarminPink : colors.guardsmanRed)};
+          }
+        `}</style>
+      </a>
+    );
+  }
+);
+
+A.displayName = "A";
 
 export function ALink({
   classname,

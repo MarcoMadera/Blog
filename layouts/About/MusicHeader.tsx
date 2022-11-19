@@ -17,6 +17,9 @@ function MusicHeader({
   header,
   songUrl,
   title,
+  uri,
+  preview,
+  explicit,
 }: MusicHeaderProps): ReactElement {
   const { trackWithGoogleAnalytics } = useAnalytics();
   return (
@@ -40,10 +43,13 @@ function MusicHeader({
         </a>
       </header>
       <MusicCard
+        uri={uri}
         title={title}
         cover={cover}
         artist={artist}
         songUrl={songUrl}
+        preview={preview}
+        explicit={explicit}
       />
       <Hr />
       <style jsx>{`

@@ -17,6 +17,9 @@ export default async function recentlyPlayed(
     songUrl: firstTrack.track.external_urls.spotify,
     title: firstTrack.track.name,
     cover: firstTrack.track.album.images[2].url,
+    uri: firstTrack.track.uri,
+    preview: firstTrack.track?.preview_url,
+    explicit: firstTrack.track?.explicit,
   };
   res.statusCode = 200;
   res.json(track);
