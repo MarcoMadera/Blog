@@ -12,6 +12,7 @@ import type { HomeData } from "types/posts";
 import { ReactElement } from "react";
 import { ALink } from "components/tags";
 import MicroMemories from "components/MicroMemories";
+import Search from "components/Search";
 
 interface HomeLayoutProps extends HomeData {
   title: string;
@@ -37,13 +38,16 @@ export default function HomeLayout({
       <section>
         <ProfileCard />
         <div className="h-feed">
-          <h2 className="p-name">
-            {tag
-              ? `Etiqueta ${posts[0].tags.find((item) =>
-                  slugify(item).includes(tag)
-                )}`
-              : "Últimos artículos"}
-          </h2>
+          <div className="posts-header">
+            <h2 className="p-name">
+              {tag
+                ? `Etiqueta ${posts[0].tags.find((item) =>
+                    slugify(item).includes(tag)
+                  )}`
+                : "Últimos artículos"}
+            </h2>
+            <Search />
+          </div>
           <div className="posts">
             {posts.map((data) => (
               <BlogCard {...data} key={data.slug} />
@@ -100,6 +104,14 @@ export default function HomeLayout({
           height: 24px;
           margin: 0 2px;
           vertical-align: top;
+        }
+        .posts-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+          gap: 1rem;
+          flex-wrap: wrap;
         }
         .posts {
           display: grid;

@@ -2,7 +2,7 @@
 title: Como usar intersection observer
 description: Intersection observer es una API que permite detectar cuando un elemento entra en una zona visible.
 date: 2022-02-14
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1644780836/Blog/intersection-observer/camera_k4t8ps.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/intersection-observer/camera_k4t8ps.jpg
 coverAlt: Una cámara de seguridad pintada sobre una superficie blanca.
 author: Marco Madera
 tags:
@@ -11,7 +11,7 @@ tags:
 
 Algunas veces necesitamos saber en qué parte se encuentra un elemento en la pantalla para poder hacer algo. Por ejemplo, hace tiempo, creando un clon de Spotify para experimentar me tope con el siguiente caso de uso peculiar:
 
-<videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1641168708/Blog/intersection-observer/Pinned_header_k_rfvlbg.mp4" title="Spotify sticky table header"></videogif>
+<videogif src="https://res.cloudinary.com/marcomadera/video/upload/Blog/intersection-observer/Pinned_header_k_rfvlbg.mp4" title="Spotify sticky table header"></videogif>
 
 En este caso, el elemento que modificaría es la barra de titulo, album y fecha añadida. Si bien es una barra que se vuelve sticky al topar con el header de la página, pero ¿Cómo podría detectar cuando se vuelve sticky para cambiar el aspecto?
 
@@ -115,7 +115,7 @@ Algunos casos de uso son:
 - Hacer lazy loading de imágenes.
 - Hacer una animación de entrada de un elemento cuando entra en la pantalla.
 - Un posible caso que estoy probando es detectar en qué parte del post se está leyendo y hacerlo visible en la tabla de contenido.\
-  <videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1644780526/Blog/intersection-observer/Intersection-observer-TOC_yhhqig.mp4" title="Cambiar el avance de la tabla de contenido"></videogif>
+  <videogif src="https://res.cloudinary.com/marcomadera/video/upload/Blog/intersection-observer/Intersection-observer-TOC_yhhqig.mp4" title="Cambiar el avance de la tabla de contenido"></videogif>
 - Otro caso relacionado podría ser detectar cuando el lector pasa por todos los títulos y marcar el post como leído.
 
 ## Ejemplo de lazy loading con intersection observer

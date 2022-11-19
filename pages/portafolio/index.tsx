@@ -114,7 +114,7 @@ function Article({
 const portfolioPostData = [
   {
     title: "Bot chat de Facebook",
-    img: "https://res.cloudinary.com/marcomadera/image/upload/v1626903927/Potfolio/FacebookChatBot/FacebookChatBot_iomibw.png",
+    img: "https://res.cloudinary.com/marcomadera/image/upload/Potfolio/FacebookChatBot/FacebookChatBot_iomibw.png",
     blurDataURL:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAvUlEQVQImWP4///ft88/v358c/PmtWPHjx09euTdx7dv7r7/8OzT////Gf7////zx7enTx7fuHnj6vXrV65e/fDp/e/ff37++AWS/vv339+/fz5///b40eMff19saDgRzjAzm2H+k8uvIdJ/////v2L+7IKEoJk5us3uGi1RwZWh7gc2LwJJ//n9+////5n6CoYMDPH6jKkmIoUhrlGuRnu3zEbontvZUBDqPaGhIsLf1Y6BwZGJYebUDqA0AO3HgIoUl/yoAAAAAElFTkSuQmCC",
     fullWidth: 400,
@@ -125,7 +125,7 @@ const portfolioPostData = [
   },
   {
     title: "Maquetación frontend",
-    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1610994328/Potfolio/challenges/1_h7zddv.jpg",
+    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/Potfolio/challenges/1_h7zddv.jpg",
     blurDataURL:
       "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAJBAAAQMDAgcBAAAAAAAAAAAAAQIDBQAGEQQhBxMUIjFBUWH/xAAVAQEBAAAAAAAAAAAAAAAAAAABA//EABgRAAMBAQAAAAAAAAAAAAAAAAABESEC/9oADAMBAAIRAxEAPwCzwYVbN0QslLQ1rMxTka+oob611ZcHKBIUv5v4wR+Vpib50wSA7ptYHMdwS8CAfeDjcUpVO8wEqqf/2Q==",
     fullWidth: 1650,
@@ -136,7 +136,7 @@ const portfolioPostData = [
   },
   {
     title: "Rindu, limpiador de spotify playlists",
-    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1651537111/Potfolio/Rindu/home_lv3792.png",
+    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/Potfolio/Rindu/home_lv3792.png",
     blurDataURL:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAECAIAAAA4WjmaAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAh0lEQVQImQF8AIP/ALuZF9irAHBOIDMbRycOLEAeQzQROE0tT31qejMZNABlPgCmgQB7SwAlAz8eAB5AHUhKJE8+HkNJOEUmDyoAybRjjX5BcVQ0QS9VWUBdeF1zKR0ir3Gi5Yjf6pnhAP/7///3//Pn+f3y+v/7/2VHXxoDGJFbidKNxcmFvpXsMm7qoL5JAAAAAElFTkSuQmCC",
     fullWidth: 4992,
@@ -147,7 +147,7 @@ const portfolioPostData = [
   },
   {
     title: "Tests para números aleatorios",
-    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595276090/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png",
+    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/Potfolio/chiSqrt/chiSqrtCover_mngxy7.png",
     blurDataURL:
       "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAYH/8QAIBAAAgIBAwUAAAAAAAAAAAAAAgMABAUBBhESIjFBUf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDZcngUZ3f6bRUKrreIFRqtOcYmrq5LsEdOPvnX3LSIgf/Z",
     fullWidth: 1365,
@@ -158,7 +158,7 @@ const portfolioPostData = [
   },
   {
     title: "Registro de trámites en Excel",
-    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/v1595275323/Potfolio/sreExcel/Data_splifz.png",
+    img: "https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_222,w_400/Potfolio/sreExcel/Data_splifz.png",
     blurDataURL:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVQImQG6AEX/AMjHwqSQkvn49+rn4eHd19vW0Ovq5eTe27KglfX19gBnV1ZSQT9WRURdTktbTUvCvrvt7evs6+vPx8Tl5OQA29ratainvrKyx8DAiXZ06+jpzMXFsqOjxLa2+Pj4AK2bmCUAAFM1L4FqZSoDAO7u7s3Hx5qDg62Vlf///wDu7Ozi3Nzj3tzu6+rYzc21o6O7qanIu7nFt7Xn4uIA8fPy8/b19vf39fT09ff38fHx8fHx7Ovr9vX16urqLm2FcP5vKbgAAAAASUVORK5CYII=",
     fullWidth: 1664,

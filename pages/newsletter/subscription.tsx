@@ -29,7 +29,7 @@ export default function Subscription(): ReactElement {
             autoPlay
             playsInline
             muted
-            src="https://res.cloudinary.com/marcomadera/video/upload/v1665838671/Newsletter/happy1_cyvare.mp4"
+            src="https://res.cloudinary.com/marcomadera/video/upload/Newsletter/happy1_cyvare.mp4"
             title="Emoción"
           />
         </section>

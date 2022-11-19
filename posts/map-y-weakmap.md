@@ -2,7 +2,7 @@
 title: Map y WeakMap en JavaScript
 description: Existen varias estructuras de datos que nos permiten almacenar información en JavasScript, una de ellas es el Map y el WeakMap.
 date: 2022-02-28
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1646008638/Blog/Map-y-WeakMap/map_ibcrlr.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/Map-y-WeakMap/map_ibcrlr.jpg
 coverAlt: Mapa viejo.
 author: Marco Madera
 tags:
@@ -143,7 +143,7 @@ obj2 = null;
 console.log(weakMap);
 ```
 
-![Garbage collector en weakMap](https://res.cloudinary.com/marcomadera/image/upload/f_auto,dpr_auto,c_scale,w_450/v1646004262/Blog/Map-y-WeakMap/wmgbc_bajlng.png)
+![Garbage collector en weakMap](https://res.cloudinary.com/marcomadera/image/upload/f_auto,dpr_auto,c_scale,w_450/Blog/Map-y-WeakMap/wmgbc_bajlng.png)
 
 <captione>Al convertir el objeto a `null`, weakMap perdio la única propiedad que tenía con referencia a ese objeto</captione>
 

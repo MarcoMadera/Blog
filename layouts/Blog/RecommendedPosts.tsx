@@ -5,6 +5,7 @@ import {
   isImgFromCloudProvider,
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
+import Search from "components/Search";
 
 export default function RecommendedPosts({
   slug,
@@ -12,9 +13,12 @@ export default function RecommendedPosts({
 }: Pick<PostWithMedia, "recommendedPosts" | "slug">): ReactElement {
   return (
     <div className="h-feed hfeed recommendedPosts-container">
+      <section>
+        <h2 className="p-name">Artículos recomendados</h2>
+        <Search />
+      </section>
       {recommendedPosts.length > 1 && (
         <>
-          <h2 className="p-name">Artículos recomendados</h2>
           <div>
             {recommendedPosts.map(
               ({ slug: recommendedPostSlug, title, cover, coverAlt }, i) => {
@@ -34,7 +38,7 @@ export default function RecommendedPosts({
                           isImgFromCloudProvider(cover)
                             ? replaceUrlImgTransformations(
                                 cover,
-                                "c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee"
+                                "t_presentation-card"
                               )
                             : cover
                         }
@@ -53,9 +57,18 @@ export default function RecommendedPosts({
           </div>
         </>
       )}
+
       <style jsx>{`
         div {
           margin-bottom: 10px;
+        }
+        section {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 40px;
         }
         div :global(a) {
           align-items: center;

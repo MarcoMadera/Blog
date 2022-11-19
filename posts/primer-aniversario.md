@@ -2,7 +2,7 @@
 title: "Primer aniversario del blog"
 description: El día 20 de mayo del año 2020, en plena pandemia, se publicó por primera vez en el blog, ha sufrido muchos cambios.
 date: 2021-05-26
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1622007476/Blog/1-Aniversario/cake_uss8y3.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/1-Aniversario/cake_uss8y3.jpg
 coverAlt: Un pastel blanco con una vela.
 author: Marco Madera
 tags:
@@ -11,7 +11,7 @@ tags:
 
 El día 20 de mayo del año 2020, en plena pandemia, se publicó por primera vez en el blog, todavía no en este dominio sino en el que tengo como sitio alternativo <https://marcomadera.github.io>, creado primeramente con `react`, `webpack`, `react-router` y `react-markdown`. La meta era crear 12 posts 1 cada mes, a lo que este es el post 12/12.
 
-![Happy Birthday](https://res.cloudinary.com/marcomadera/image/upload/w_694,h_463/v1621994852/Blog/1-Aniversario/happybirthday_fuffz0.jpg "Happy Birthday")
+![Happy Birthday](https://res.cloudinary.com/marcomadera/image/upload/w_694,h_463/Blog/1-Aniversario/happybirthday_fuffz0.jpg "Happy Birthday")
 
 ## El inicio de la aventura
 
@@ -21,7 +21,7 @@ En mi tiempo libre después de salir a trabajar me ponía al tanto sobre el mund
 
 ## La desesperación
 
-![Work from home a la derecha](https://res.cloudinary.com/marcomadera/image/upload/w_314,h_471/v1621994714/Blog/1-Aniversario/homeoffice_ihnt10.jpg "Trabajo remoto")
+![Work from home a la derecha](https://res.cloudinary.com/marcomadera/image/upload/w_314,h_471/Blog/1-Aniversario/homeoffice_ihnt10.jpg "Trabajo remoto")
 
 Llegó la pandemia y cuando me dijeron que había la posibilidad de trabajar desde casa, estaba feliz en ese momento. El día 13 de marzo nos pararon de ir a trabajar y aún sin noticias sobre el trabajo remoto, la desesperación sobre lo que iba a pasar era alta.
 
@@ -49,7 +49,7 @@ Por supuesto en Twitter hay grandes comunidades de desarrollo de software, me em
 
 Ya conté un poco de sobre cómo surgió de que necesitaba un blog en el [post: crea tu propio blog](https://blog.marcomadera.com/tu-blog) publicado en mi blog de [hashnode](https://blog.marcomadera.com). Lo que me motivó a crear algo desde cero era que yo pudiera agregar todo lo que yo quisiera **sin limitaciones** de las plataformas tradicionales.
 
-![Developer's side project](https://res.cloudinary.com/marcomadera/image/upload/w_690,h_424/v1615529175/hashnode/EhkL29QXsAMFVf1_v58ohk.jpg "Developer's side project")
+![Developer's side project](https://res.cloudinary.com/marcomadera/image/upload/w_690,h_424/hashnode/EhkL29QXsAMFVf1_v58ohk.jpg "Developer's side project")
 
 La idea de esto era tener algo que yo pudiera controlar para así publicar **posts interactivos**. El ejemplo claro fue el [post de números pseudo aleatorios](https://marcomadera.com/blog/numeros-pseudo-aleatorios "Post de numeros pseudos aleatorios"), mi primer post, donde incluía toda la lógica en código y la posibilidad de que se graficaran los datos en el mismo post. Otro ejemplo es el botón de navegar a una página aleatoria que se encuentra en la primera versión del blog.
 
@@ -73,7 +73,7 @@ En general el blog ha tenido pequeños y grandes cambios, los cuales me siento q
 
 La primera meta está hecha, era lograr 12 publicaciones en un año ni más ni menos. Esta meta perjudicó en cierta medida, porque hay publicaciones muy largas que pudieron ser divididas en varias.
 
-![Blog o no](https://res.cloudinary.com/marcomadera/image/upload/w_402,h_250/v1622004646/Blog/1-Aniversario/toblogornottoblog_bqenbb.jpg "Mecanógrafo de bloguear o no bloguear")
+![Blog o no](https://res.cloudinary.com/marcomadera/image/upload/w_402,h_250/Blog/1-Aniversario/toblogornottoblog_bqenbb.jpg "Mecanógrafo de bloguear o no bloguear")
 
 Gracias a este blog, tengo las ganas de seguir aprendiendo e investigando nuevas cosas por lo que no tengo intención de soltarlo. Reclutadores y otras personas se han interesado en mí por mantenerlo y eso para mí es una buena señal. En febrero de este año dejé mi actual trabajo, los cuales fueron muy buenos conmigo antes y durante la pandemia, pero posiblemente tome otro rumbo.
 

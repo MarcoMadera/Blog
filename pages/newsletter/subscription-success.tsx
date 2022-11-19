@@ -26,7 +26,7 @@ export default function Subscription(): ReactElement {
             autoPlay
             playsInline
             muted
-            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532672/Newsletter/312o32-3123192-434923432_pv6toa.mp4"
+            src="https://res.cloudinary.com/marcomadera/video/upload/Newsletter/312o32-3123192-434923432_pv6toa.mp4"
             title="Aplausos"
           />
         </section>

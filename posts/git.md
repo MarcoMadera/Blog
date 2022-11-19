@@ -2,7 +2,7 @@
 title: Control de versiones de Git
 description: El control de versiones es un sistema que guarda los cambios en el tiempo de uno o varios archivos.
 date: 2020-12-31
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1664627167/Blog/Git/jose-gil-2pNdTBn4C7U-unsplash_bdz3xi.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/Git/jose-gil-2pNdTBn4C7U-unsplash_bdz3xi.jpg
 coverAlt: Un control de videojuegos.
 author: Marco Madera
 tags:
