@@ -26,7 +26,7 @@ export default function Unsubscription(): ReactElement {
             autoPlay
             playsInline
             muted
-            src="https://res.cloudinary.com/marcomadera/video/upload/v1602532720/Newsletter/12912-323943-434566767_ashg4k.mp4"
+            src="https://res.cloudinary.com/marcomadera/video/upload/Newsletter/12912-323943-434566767_ashg4k.mp4"
             title="Adios vaquero"
           />
         </section>

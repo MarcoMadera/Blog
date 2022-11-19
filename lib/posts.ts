@@ -33,12 +33,17 @@ export async function getSortedPostsData(): Promise<PostData[]> {
 
       const slug = filename.replace(".md", "");
 
-      const { base64: blurDataURL, img: coverData } = await getPlaiceholder(
-        data.cover,
-        {
-          size: 10,
-        }
-      );
+      const isDev = process.env.NODE_ENV === "development";
+
+      const { base64: blurDataURL, img: coverData } = isDev
+        ? {
+            base64:
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAIAAADzBuo/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVQImSXNOw7CMAwA0GyckFOwcwtGbsKE2Ir4DVwAhJBKoE0tO6kTO3yDENLbn3FASIFj6tBTYI4imkWzakZi40MkQmttKc9SPqUU0QdgAkwUxCBxtd5tV8vF5jiazBqHgP2lxfqGDoLhKEg+M4ynczMY1tfu/bqrSlbhmEzjfrUP8XBuq/3JQQDs/1rwX1uuhqf+VOa4AAAAAElFTkSuQmCC",
+            img: data.cover,
+          }
+        : await getPlaiceholder(data.cover, {
+            size: 10,
+          });
 
       const date = data.date.toString();
       const title = data.title;

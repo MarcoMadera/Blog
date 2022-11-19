@@ -18,6 +18,5 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { posts, allTags, pages, currentPage: 1, microMemories },
-    revalidate: 1 * 60 * 60 * 5,
   };
 };

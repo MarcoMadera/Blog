@@ -2,7 +2,7 @@
 title: Etiquetas de HTML Semántico
 description: HTML Semántico es el uso etiquetas, atributos y valores coherentes al contenido y estructura para que tengan un mayor significado.
 date: 2020-09-08
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1664627404/Blog/5/florian-olivo-4hbJ-eymZ1o-unsplash_kzqo3d.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/5/florian-olivo-4hbJ-eymZ1o-unsplash_kzqo3d.jpg
 coverAlt: Código HTML.
 author: Marco Madera
 tags:
@@ -205,8 +205,8 @@ Hay diferentes etiquetas para representar elementos visuales en nuestras página
 La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `src`, que es la fuente de la imagen y el atributo `alt`, que es la descripción de la imagen.
 
 <image
-  light="https://res.cloudinary.com/marcomadera/image/upload/v1607128033/Blog/5/122-100x100_t7cyli.jpg"
-  dark="https://res.cloudinary.com/marcomadera/image/upload/v1607128033/Blog/5/122-100x100_t7cyli.jpg"
+  light="https://res.cloudinary.com/marcomadera/image/upload/Blog/5/122-100x100_t7cyli.jpg"
+  dark="https://res.cloudinary.com/marcomadera/image/upload/Blog/5/122-100x100_t7cyli.jpg"
   alt="Imagen"
   width="100"
   height="100"
@@ -218,7 +218,7 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 
 `<Figure>` es una etiqueta de flujo de contenido. Puede ser imagen, video, diagrama, código, una cita, etc. Puede estar acompañado por la etiqueta `<figcaption>` que es la leyenda del contenido.
 
-<img src="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/v1607127987/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura" caption="Imagen Aleatoria">
+<img src="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/Blog/5/386-200x200_no3ptr.jpg" alt="Figura" title="Figura" caption="Imagen Aleatoria">
 
 ```html
 <figure>
@@ -229,7 +229,7 @@ La etiqueta más utilizada para mostrar imágenes es `<img>` toma el atributo `s
 
 La etiqueta `<picture>` es para **elementos visuales**, puede contener varias etiquetas `<sources>` con condiciones, la primera que cumpla será la que va a ser mostrada. La etiqueta `<source>` puede tener el atributo de cualquier _media query_. Se pueden mostrar imágenes especiales para modo oscuro o mostrar diferentes imágenes dependiendo del ancho del _viewport_.
 
-<picture style="text-align:center;display:block;"><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/v1607127814/Blog/5/510-100x100_nbahln.jpg" media="(max-width: 500px)" /><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/v1607127728/Blog/5/1051-200x200_rok2jh.jpg" media="(max-width: 876px)" /><img style="border-radius:10px;" src="https://res.cloudinary.com/marcomadera/image/upload/w_300,h_300/v1607127804/Blog/5/71-300x300_ojopy4.jpg" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
+<picture style="text-align:center;display:block;"><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/Blog/5/510-100x100_nbahln.jpg" media="(max-width: 500px)" /><source srcSet="https://res.cloudinary.com/marcomadera/image/upload/w_200,h_200/Blog/5/1051-200x200_rok2jh.jpg" media="(max-width: 876px)" /><img style="border-radius:10px;" src="https://res.cloudinary.com/marcomadera/image/upload/w_300,h_300/Blog/5/71-300x300_ojopy4.jpg" alt="Imagen Adaptable" title="Imagen Adaptable" /></picture>
 
 ```html
 <picture>

@@ -87,10 +87,7 @@ export default function Post({
           </p>
           <div className="coverContainer">
             <Img
-              src={replaceUrlImgTransformations(
-                cover,
-                "q_auto,f_auto,c_scale,w_1000,h_580"
-              )}
+              src={replaceUrlImgTransformations(cover, "t_blog-header")}
               width={1050}
               height={700}
               blurDataURL={blurDataURL}

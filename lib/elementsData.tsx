@@ -65,9 +65,21 @@ export default async function getElementsData(
   );
 
   async function getImagePlaceHolder(src: string) {
-    const { base64, img } = await getPlaiceholder(src, {
-      size: 10,
-    });
+    const isDev = process.env.NODE_ENV === "development";
+
+    const { base64, img } = isDev
+      ? {
+          base64:
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAIAAADzBuo/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVQImSXNOw7CMAwA0GyckFOwcwtGbsKE2Ir4DVwAhJBKoE0tO6kTO3yDENLbn3FASIFj6tBTYI4imkWzakZi40MkQmttKc9SPqUU0QdgAkwUxCBxtd5tV8vF5jiazBqHgP2lxfqGDoLhKEg+M4ynczMY1tfu/bqrSlbhmEzjfrUP8XBuq/3JQQDs/1rwX1uuhqf+VOa4AAAAAElFTkSuQmCC",
+          img: {
+            height: 510,
+            width: 510,
+            src,
+          },
+        }
+      : await getPlaiceholder(src, {
+          size: 10,
+        });
     return { base64, img };
   }
 

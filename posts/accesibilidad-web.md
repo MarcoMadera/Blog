@@ -2,7 +2,7 @@
 title: La accesibilidad en la web
 description: Las pautas de accesibilidad para el contenido para la web son recomendaciones para crear contenido web más accesible.
 date: 2020-07-20
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1666513100/Blog/3/SGY0LIfTKZ4-laptop_lidleh.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/3/SGY0LIfTKZ4-laptop_lidleh.jpg
 coverAlt: Una laptop sobre una mesa.
 author: Marco Madera
 tags:
@@ -62,7 +62,7 @@ Las tecnologías asistivas sirven de **ayuda para las personas con dificultades*
 
 Un buen HTML resuelve muchos aspectos de la accesibilidad con el uso correcto de etiquetas y atributos. Usar [HTML semántico](https://marcomadera.com/blog/html-semantico "Blog HTML Semántico") ayudará al navegador a **incluir significado** en el árbol de accesibilidad. Así los lectores de pantalla pueden entender el rol, propiedades y estado que tiene esa parte de nuestro código.
 
-![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_296,dpr_auto/v1608356303/Blog/3/Accesibilidad1_pqz4vx.png "Chrome Accesibility")
+![Chrome Accesibility](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_296,dpr_auto/Blog/3/Accesibilidad1_pqz4vx.png "Chrome Accesibility")
 
 ### No recomendado:
 
@@ -150,13 +150,13 @@ Para tener más empatía con las personas con discapacidades visuales podemos em
 
 <code lang="en">Customize and control DevTools > More tools > Rendering > Emulate deficiencies</code>
 
-![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_310,dpr_auto/v1608356303/Blog/3/Accesibilidad2_duoax2.png "Emular visión")
+![Emular visión](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_310,dpr_auto/Blog/3/Accesibilidad2_duoax2.png "Emular visión")
 
 ### Color y contraste
 
 Podemos utilizar las herramientas de Google Chrome DevTools para ver el contraste con el background y ver si cumplen con las especificaciones AA y AAA.
 
-![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_360,h_383,dpr_auto/v1608356304/Blog/3/Accesibilidad3_uybwkk.png "Herramienta de contraste")
+![Herramienta de contraste](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_360,h_383,dpr_auto/Blog/3/Accesibilidad3_uybwkk.png "Herramienta de contraste")
 
 ### Focus
 

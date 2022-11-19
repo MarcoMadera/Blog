@@ -2,7 +2,7 @@
 title: "Tipos y objetos en JavaScript"
 description: En JavaScript tenemos varios tipos de datos; booleanos, numéricos, los de texto o string, el null que indica que una variable.
 date: 2021-01-27
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626667/Blog/tipos-y-objetos-en-javascript/brandable-box-yW9jdBmE1BY-unsplash_krdahy.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/tipos-y-objetos-en-javascript/brandable-box-yW9jdBmE1BY-unsplash_krdahy.jpg
 coverAlt: Una caja sobre una mesa y libros en el fondo.
 author: Marco Madera
 tags:
@@ -146,7 +146,7 @@ La **igualdad abstracta** es confusa porque al igual que lo vimos en la [coerci�
 
 Para tener una idea más clara de todos los resultados dependiendo de la operación puedes ver la siguiente tabla:
 
-![Tabla de igualdad de JavaScript](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_500,h_481,dpr_auto/v1611100839/Blog/tipos-y-objetos-en-javascript/Coercion_dzxmpj.png "Tabla de igualdad de JavaScript")
+![Tabla de igualdad de JavaScript](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_500,h_481,dpr_auto/Blog/tipos-y-objetos-en-javascript/Coercion_dzxmpj.png "Tabla de igualdad de JavaScript")
 <captione>Tabla de igualdad de JavaScript[^equality-table]</captione>
 
 [^equality-table]: Dorey [Equality in JavaScript](https://dorey.github.io/JavaScript-Equality-Table/)
@@ -174,7 +174,7 @@ Object.is(0, -0); // false
 
 En JavaScript todos los objetos tienen un prototipo. Lo podemos ver en la consola como `__proto__`, aquí podemos ver todas las funciones y argumentos que se pueden usar y al final de la lista puede que veamos de nuevo a `__proto__` hasta llegar al `__proto__: Object` porque todos los objetos de JavaScript heredan de este objeto creando la cadena de prototipos.
 
-![Prototipo](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_260,h_176,dpr_auto/v1611104815/Blog/tipos-y-objetos-en-javascript/proto_uvgdvt.png)
+![Prototipo](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_260,h_176,dpr_auto/Blog/tipos-y-objetos-en-javascript/proto_uvgdvt.png)
 
 Ventajas de los prototipos:
 
@@ -248,7 +248,7 @@ estudiante.permisos();
 
 Se puede observar las similitudes a los prototipos, se declara la clase, dentro tiene el método constructor donde recibe las propiedades y se declaran los métodos. Ahora al ver la estructura del objeto vemos lo siguiente donde la izquierda es creada en forma de prototipo y la derecha en forma de clase.
 
-![Prototipos vs Classes](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_630,h_267,dpr_auto/v1611633447/Blog/tipos-y-objetos-en-javascript/Proto-vs-Classes_xdvwjy.png)
+![Prototipos vs Classes](https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_630,h_267,dpr_auto/Blog/tipos-y-objetos-en-javascript/Proto-vs-Classes_xdvwjy.png)
 
 Se puede observar que la diferencia es que en el constructor una es de tipo función y la otra dice `class`, pero al ver el tipo se puede ver que por detrás la clase es una función.
 

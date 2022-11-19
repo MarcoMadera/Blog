@@ -5,7 +5,6 @@ import { Moon, Sun } from "./icons";
 import useDarkMode from "hooks/useDarkMode";
 import { ReactElement } from "react";
 import useToolTip from "hooks/useToolTip";
-import Search from "./Search";
 
 function Logo() {
   return (
@@ -47,9 +46,6 @@ export default function Navbar(): ReactElement {
       >
         <Logo />
       </Link>
-      <div className="search">
-        <Search />
-      </div>
       <nav>
         <button
           onClick={() => toggleDarkMode()}
@@ -196,23 +192,7 @@ export default function Navbar(): ReactElement {
             display: none;
           }
         }
-        .search {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 9999999999999;
-        }
         @media (max-width: 648px) {
-          header .search {
-            position: relative;
-            left: 0;
-            top: 0;
-            transform: none;
-            order: 3;
-            margin: 20px auto 0;
-          }
-
           header nav {
             order: 2;
           }

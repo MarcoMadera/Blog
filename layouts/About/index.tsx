@@ -216,7 +216,7 @@ const AboutLayout = ({
             {...getToolTipAttributes("Perfecto")}
           >
             <source
-              src="https://res.cloudinary.com/marcomadera/video/upload/v1602516508/about/18283-212312-32345_cptpwx.mp4"
+              src="https://res.cloudinary.com/marcomadera/video/upload/about/18283-212312-32345_cptpwx.mp4"
               type="video/mp4"
             />
           </video>

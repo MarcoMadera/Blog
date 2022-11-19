@@ -2,7 +2,7 @@
 title: "Como usar expresiones regulares con JavaScript"
 description: Las expresiones regulares son patrones que definimos para filtrar en una cadena de caracteres.
 date: 2021-09-04
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626090/Blog/expresiones-regulares/craig-chitima-vEbpWVRwPZE-unsplash_fnzthz.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/expresiones-regulares/craig-chitima-vEbpWVRwPZE-unsplash_fnzthz.jpg
 coverAlt: Una persona bailando haciendo una parada de manos en el aire en un campo.
 author: Marco Madera
 tags:
@@ -31,7 +31,7 @@ Las expresiones regulares[^2] son patrones que definimos para filtrar en una cad
 
 [^2]: MDN Web Docs & MDN contributors <cite>[Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)</cite>
 
-<videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1630649114/Blog/expresiones-regulares/E-TKDVoXEAA4Rfp_adpqde.mp4"></videogif>
+<videogif src="https://res.cloudinary.com/marcomadera/video/upload/Blog/expresiones-regulares/E-TKDVoXEAA4Rfp_adpqde.mp4"></videogif>
 
 Se diferencia del <kbd>CTRL</kbd>+<kbd>F</kbd> en que busca textos precisos y te arroja el match. Con expresiones regulares es más complejo porque busca por patrones, como por ejemplo, buscar todas las palabras que estén entre dos espacios, palabras que comienzan con mayúscula, encontrar la primera palabra de cada línea, etc.
 
@@ -84,7 +84,7 @@ La siguientes expresiones son equivalentes: <code>/<span class="purple">[0-9]</s
 <span class="purple">967</span><span class="blue">toma</span><span class="purple">769</span><span class="blue">c</span>uanto <span class="purple">234</span> texto"
 </span>
 
-<videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1630730090/Blog/expresiones-regulares/E-ahf3fVkAIw5_P_mhm6gx.mp4"></videogif>
+<videogif src="https://res.cloudinary.com/marcomadera/video/upload/Blog/expresiones-regulares/E-ahf3fVkAIw5_P_mhm6gx.mp4"></videogif>
 
 ---
 
@@ -240,7 +240,7 @@ const hitsData = hits.map((hit) => {
 ]
 ```
 
-<videogif src="https://res.cloudinary.com/marcomadera/video/upload/v1630730097/Blog/expresiones-regulares/E-aiHBMUYAAapTN_i9fdh8.mp4" width="30" height="30"></videogif>
+<videogif src="https://res.cloudinary.com/marcomadera/video/upload/Blog/expresiones-regulares/E-aiHBMUYAAapTN_i9fdh8.mp4" width="30" height="30"></videogif>
 
 Ahora ya tenemos nuestra información bien separada y lista para usar de otra forma. Como era esperado el hit número 8 no tiene nombre de usuario.
 

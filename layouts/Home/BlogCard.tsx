@@ -43,10 +43,7 @@ export default function BlogCard({
             loader={
               isFromCloudProvider
                 ? ({ src }) =>
-                    replaceUrlImgTransformations(
-                      src,
-                      "c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee"
-                    )
+                    replaceUrlImgTransformations(src, "t_presentation-card")
                 : undefined
             }
             unoptimized={!isFromCloudProvider}

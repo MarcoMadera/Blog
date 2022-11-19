@@ -2,7 +2,7 @@
 title: "Seguridad en la web"
 description: La seguridad web es la práctica de implementar medidas para proteger un sitio web haciendolo más díficil de vulnerar.
 date: 2021-04-15
-cover: https://res.cloudinary.com/marcomadera/image/upload/v1664626240/Blog/seguridad-web/jeremy-bishop-uLXBeh6oHn8-unsplash_rys8ff.jpg
+cover: https://res.cloudinary.com/marcomadera/image/upload/Blog/seguridad-web/jeremy-bishop-uLXBeh6oHn8-unsplash_rys8ff.jpg
 coverAlt: Una puerta circular verde azul con una campana.
 author: Marco Madera
 tags:
@@ -10,7 +10,7 @@ tags:
   - Web
 ---
 
-![Alerta mimic site a la derecha](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_271,w_319/v1618256076/Blog/seguridad-web/Ingenier%C3%ADa_social_yav5tv.png)
+![Alerta mimic site a la derecha](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_271,w_319/Blog/seguridad-web/Ingenier%C3%ADa_social_yav5tv.png)
 
 Te llega un correo electrónico que parece proceder de tu banco u otro servicio popular de internet como Google y te solicita que confirmes información sensible sobre tu cuenta.
 
@@ -85,7 +85,7 @@ El siguiente ejemplo de crear un tweet que se hace retweet cada vez que aparece 
 
 El ataque no persistente es aquel en el que el código malicisioso se ejecuta desde el navegador de la victima. Una de la formas de inyectar código es a través de la consola del navegador. Tal vez te suene si has visto una alerta en algunos sitios web en la consola.
 
-![Alerta XSS en la consola](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_227,w_705/v1618249299/Blog/seguridad-web/self-xss_axzj76.png "Alerta XSS en la consola")
+![Alerta XSS en la consola](https://res.cloudinary.com/marcomadera/image/upload/q_auto,f_auto,c_scale,h_227,w_705/Blog/seguridad-web/self-xss_axzj76.png "Alerta XSS en la consola")
 
 Un ejemplo sería si al tener un buscador no validar la query, permitir que la siguiente URL `https://marcomadera.com/search?q=<script type= 'application/javascript'>alert('xss');</script>` ejecute el código.
 
@@ -107,7 +107,7 @@ En este tipo de ataque el atacador abusa de la funcionalidad del servidor para u
 
 En una situación normal el _frontend_ de una tienda puede hacer llamadas al servidor para saber si un producto está disponible `http://storeapi.api/product/check`, el atacante hace peticiones al servidor modificando ese _endpoint_, por ejemplo al mismo `http://localhost/admin` abusando de la confianza.
 
-<videogif title="Server Request" src="https://res.cloudinary.com/marcomadera/video/upload/v1618513408/Blog/seguridad-web/server_clic_twfhas.mp4"></videogif>
+<videogif title="Server Request" src="https://res.cloudinary.com/marcomadera/video/upload/Blog/seguridad-web/server_clic_twfhas.mp4"></videogif>
 
 ## Inyección de comandos
 

@@ -1,9 +1,108 @@
 import useDarkMode from "hooks/useDarkMode";
 import useNotification from "hooks/useNotification";
 import Link from "next/link";
-import { ReactElement, useEffect, useRef, useState } from "react";
+import {
+  ReactElement,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { colors } from "styles/theme";
 import { Input, P } from "./tags";
+
+interface ISearchResults {
+  results: {
+    title: string;
+    description: string;
+    url: string;
+  }[];
+  handleClose: () => void;
+}
+
+function SearchResults({ results, handleClose }: ISearchResults): ReactElement {
+  const { darkMode } = useDarkMode();
+  const ulRef = useRef<HTMLUListElement>(null);
+  const [ulPos, setUlPos] = useState({
+    x: 0,
+  });
+  useLayoutEffect(() => {
+    if (!ulRef.current) {
+      return;
+    }
+    const ulRectWitdh = ulRef.current?.getClientRects()[0]?.width || 0;
+    const ulRectLeft = ulRef.current?.getClientRects()[0]?.left || 0;
+    const isUlWitdhOffScreen = innerWidth - 30 - ulRectLeft < ulRectWitdh;
+    if (isUlWitdhOffScreen) {
+      setUlPos((prevState) => ({
+        ...prevState,
+        x: innerWidth - ulRectWitdh - ulRectLeft - 35,
+      }));
+    }
+  }, [results]);
+
+  return (
+    <ul ref={ulRef}>
+      {results.map((result, index) => (
+        <>
+          {index > 0 && <hr />}
+          <li key={result.url}>
+            <Link href={result.url} onClick={handleClose}>
+              <h3>{result.title}</h3>
+              <P>{result.description}</P>
+            </Link>
+          </li>
+        </>
+      ))}
+      <style jsx>{`
+        ul {
+          position: absolute;
+          font-size: 14px;
+          user-select: none;
+          width: max-content;
+          min-width: 100%;
+          max-width: 500px;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          background: ${darkMode ? colors.cinder : colors.white};
+          border: 1px solid ${darkMode ? colors.carbonGrey : colors.geyser};
+          border-radius: 0.25rem;
+          z-index: 999;
+          max-height: 500px;
+          overflow-y: auto;
+          height: max-content;
+          top: 60px;
+          left: ${`${ulPos.x}px`};
+        }
+        li :global(a) {
+          margin: 0;
+          display: grid;
+          gap: 0.6rem;
+          padding: 1rem 0.6rem;
+          text-decoration: none;
+          color: inherit;
+          grid-template-rows: none;
+        }
+        li h3,
+        li :global(p) {
+          margin: 0;
+        }
+        li:hover h3,
+        li:hover :global(p) {
+          margin: 0;
+          color: ${darkMode ? colors.lavaRed : colors.redBerry};
+        }
+        @media (max-width: 500px) {
+          ul {
+            max-width: calc(100vw - 60px);
+            left: 0;
+          }
+        }
+      `}</style>
+    </ul>
+  );
+}
 
 export default function Search(): ReactElement {
   const searchRef = useRef<HTMLInputElement>(null);
@@ -11,7 +110,6 @@ export default function Search(): ReactElement {
   const [active, setActive] = useState(false);
   const [shouldSearch, setShouldSearch] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const { darkMode } = useDarkMode();
   const [results, setResults] = useState<
     {
       title: string;
@@ -100,66 +198,16 @@ export default function Search(): ReactElement {
         placeholder="Buscar en el blog"
       />
       {active && results.length > 0 && (
-        <ul>
-          {results.map((result, index) => (
-            <>
-              {index > 0 && <hr />}
-              <li key={result.url}>
-                <Link
-                  href={result.url}
-                  onClick={() => {
-                    setActive(false);
-                  }}
-                >
-                  <h3>{result.title}</h3>
-                  <P>{result.description}</P>
-                </Link>
-              </li>
-            </>
-          ))}
-        </ul>
+        <SearchResults
+          results={results}
+          handleClose={() => {
+            setActive(false);
+          }}
+        />
       )}
       <style jsx>{`
         div {
           position: relative;
-        }
-        ul {
-          position: absolute;
-          top: 150%;
-          left: 0;
-          width: max-content;
-          min-width: 100%;
-          max-width: 500px;
-          padding: 0;
-          margin: 0;
-          list-style: none;
-          background: ${darkMode ? colors.cinder : colors.white};
-          border: 1px solid ${darkMode ? colors.carbonGrey : colors.geyser};
-          border-radius: 0.25rem;
-          z-index: 9999999999999;
-          max-height: 500px;
-          overflow-y: auto;
-        }
-        li :global(a) {
-          margin: 0;
-          display: grid;
-          gap: 0.6rem;
-          padding: 1rem 0.6rem;
-        }
-        li h3,
-        li :global(p) {
-          margin: 0;
-        }
-        li:hover h3,
-        li:hover :global(p) {
-          margin: 0;
-          color: ${darkMode ? colors.lavaRed : colors.redBerry};
-        }
-        @media (max-width: 648px) {
-          ul {
-            max-width: 100%;
-            left: 0;
-          }
         }
       `}</style>
     </div>
