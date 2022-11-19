@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import usePlayer from "hooks/usePlayer";
+import { ReactElement, useEffect } from "react";
 import type { NowPlaying, SongData } from "types/spotify";
 import MusicHeader from "./MusicHeader";
 import TopTracksList from "./TopTracksList";
@@ -12,6 +13,12 @@ export default function TrackList({
   newNowPlaying,
   topTracks,
 }: TrackListProps): ReactElement {
+  const { setAllTracks } = usePlayer();
+
+  useEffect(() => {
+    setAllTracks([newNowPlaying, ...topTracks]);
+  }, [newNowPlaying, setAllTracks, topTracks]);
+
   return (
     <>
       {Object.keys(newNowPlaying).length > 0 && (
@@ -23,6 +30,9 @@ export default function TrackList({
           }
           songUrl={newNowPlaying.songUrl}
           title={newNowPlaying.title}
+          uri={newNowPlaying.uri}
+          preview={newNowPlaying.preview}
+          explicit={newNowPlaying.explicit}
         />
       )}
       <TopTracksList topTracks={topTracks} />

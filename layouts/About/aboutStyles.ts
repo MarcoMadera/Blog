@@ -3,7 +3,7 @@ import css from "styled-jsx/css";
 export const aboutStyles = css`
   main {
     display: grid;
-    grid-gap: 2em;
+    grid-gap: 1em;
     grid-template-columns: 240px minmax(0px, 710px) 240px;
     justify-content: center;
     margin-bottom: 50px;

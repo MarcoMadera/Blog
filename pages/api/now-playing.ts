@@ -15,6 +15,9 @@ export default async function nowPlaying(
       title: response.item?.name,
       cover: response.item?.album.images[2].url,
       listening: response.is_playing,
+      uri: response.item?.uri,
+      preview: response.item?.preview_url,
+      explicit: response.item?.explicit,
     };
   }
 

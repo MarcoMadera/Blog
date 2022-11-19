@@ -7,6 +7,7 @@ import { AppProps } from "next/app";
 import { ReactElement } from "react";
 import GlobalHead from "components/GlobalHead";
 import { ToolTipContextProvider } from "context/ToolTipContext";
+import { PlayerContextProvider } from "context/PlayerContext";
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   return (
@@ -14,10 +15,12 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       <ToolTipContextProvider>
         <CookiesContextProvider>
           <NotificationContextProvider>
-            <GlobalHead />
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <PlayerContextProvider>
+              <GlobalHead />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </PlayerContextProvider>
           </NotificationContextProvider>
         </CookiesContextProvider>
       </ToolTipContextProvider>

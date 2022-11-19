@@ -3,6 +3,9 @@ export type SongData = {
   songUrl: string;
   title: string;
   cover: string;
+  uri: string;
+  explicit: boolean;
+  preview?: string;
 };
 
 export interface NowPlaying extends SongData {

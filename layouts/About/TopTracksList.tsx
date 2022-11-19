@@ -12,15 +12,20 @@ export default function TopTracksList({
   return topTracks.length > 0 ? (
     <>
       <h2>Mi top 10 de canciones</h2>
-      {topTracks.map(({ title, artist, songUrl, cover }) => (
-        <MusicCard
-          artist={artist}
-          cover={cover}
-          key={songUrl}
-          songUrl={songUrl}
-          title={title}
-        />
-      ))}
+      {topTracks.map(
+        ({ title, artist, songUrl, cover, uri, preview, explicit }) => (
+          <MusicCard
+            artist={artist}
+            cover={cover}
+            key={songUrl}
+            songUrl={songUrl}
+            title={title}
+            uri={uri}
+            preview={preview}
+            explicit={explicit}
+          />
+        )
+      )}
       <style jsx>{`
         h2 {
           font-size: 1em;
