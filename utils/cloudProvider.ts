@@ -30,12 +30,12 @@ export function getImageSizeFromCloudUrl(src: string): {
   width: string | undefined;
   height: string | undefined;
 } {
-  const regExp =
-    /(?:https:\/\/res\.cloudinary\.com\/\w+\/image\/upload)\/?((?=.*(w_(?<width>\d+))+)(?=.*h_(?<height>\d+))[\w,]+)(?:\/v\d+\/.*)/g;
-  const size = regExp.exec(src)?.groups;
+  const transformations = getTrasnformationsFromUrl(src);
+  const width = transformations.match(/w_(\d+)/)?.[1];
+  const height = transformations.match(/h_(\d+)/)?.[1];
 
   return {
-    width: size?.width,
-    height: size?.height,
+    width,
+    height,
   };
 }
