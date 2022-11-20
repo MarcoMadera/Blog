@@ -44,23 +44,21 @@ function ExplicitSign(): ReactElement {
   );
 }
 
-function PausedIcon(props: SVGProps<SVGSVGElement>): ReactElement {
+function Pause(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
-    <svg role="img" height="32" width="32" viewBox="0 0 24 24">
-      <path
-        fill={props.fill}
-        d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.75-4.567a.5.5 0 00-.75.433v8.268a.5.5 0 00.75.433l7.161-4.134a.5.5 0 000-.866L9.75 7.433z"
-      ></path>
+    <svg height="16" width="16" viewBox="0 0 16 16" {...props}>
+      <path fill="transparent" d="M0 0h16v16H0z"></path>
+      <path fill={props.fill ?? "#000"} d="M3 2h3v12H3zm7 0h3v12h-3z"></path>
     </svg>
   );
 }
 
-function PlayingIcon(props: SVGProps<SVGSVGElement>): ReactElement {
+function Play(props: SVGProps<SVGSVGElement>): ReactElement {
   return (
-    <svg role="img" height="24" width="24" viewBox="0 0 24 24" {...props}>
+    <svg height="16" width="16" viewBox="0 0 16 16" {...props}>
       <path
-        fill={props.fill}
-        d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"
+        fill={(props.fill as string) ?? "#000"}
+        d="M4.018 14L14.41 8 4.018 2z"
       ></path>
     </svg>
   );
@@ -68,65 +66,53 @@ function PlayingIcon(props: SVGProps<SVGSVGElement>): ReactElement {
 
 function PlayButton({
   handleClick,
+  size,
   isPlaying,
+  centerSize,
 }: {
   handleClick: () => void;
+  size: string;
+  centerSize: string;
   isPlaying: boolean;
 }): ReactElement {
-  const { darkMode } = useDarkMode();
   return (
-    <button
-      className="play-button"
-      onClick={handleClick}
-      aria-label={isPlaying ? "Pausar" : "Reproducir"}
-    >
-      <span className="play-button-text">
+    <>
+      <button
+        type="button"
+        aria-label="Play/Pause"
+        className="play-Button"
+        onClick={handleClick}
+      >
         {isPlaying ? (
-          <div className="playing-icon-container">
-            <PlayingIcon
-              width={18}
-              height={18}
-              fill={darkMode ? colors.black : colors.white}
-            />
-          </div>
+          <Pause fill="#fff" width={centerSize} height={centerSize} />
         ) : (
-          <PausedIcon fill={darkMode ? colors.white : colors.black} />
+          <Play fill="#fff" width={centerSize} height={centerSize} />
         )}
-      </span>
+      </button>
       <style jsx>{`
-        .playing-icon-container {
+        .play-Button {
+          background-color: #5f6762;
           display: flex;
-          align-items: center;
           justify-content: center;
-          width: 100%;
-          width: 29.34px;
-          height: 29.34px;
-          border-radius: 50%;
-          margin: 0 1px;
-          background-color: ${darkMode ? colors.white : colors.black};
-        }
-        .play-button {
-          position: relative;
-          display: inline-block;
-          font-size: 0.8em;
-          line-height: 1em;
-          vertical-align: middle;
-          background: none;
+          align-items: center;
+          width: ${size}px;
+          height: ${size}px;
           border: none;
-          z-index: 999999999999;
+          border-radius: 50%;
+          min-width: ${size}px;
+          z-index: 1;
+          box-shadow: 0 8px 8px rgb(0 0 0 / 30%);
         }
-        .play-button:focus {
-          outline: none;
+        .play-Button:focus,
+        .play-Button:hover {
+          transform: scale(1.06);
+          background-color: #7b847e;
         }
-        .play-button-text {
-          height: 32px;
-          width: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .play-Button:active {
+          transform: scale(1);
         }
       `}</style>
-    </button>
+    </>
   );
 }
 
@@ -212,6 +198,8 @@ function MusicCard({
       <div className="playButton">
         {!!preview && (
           <PlayButton
+            centerSize="16"
+            size="34"
             handleClick={() => {
               if (!audioPlayer?.current) return;
               const isPlayingThisTrack = audioPlayer.current?.src === preview;
@@ -288,8 +276,8 @@ function MusicCard({
         }
         .playButton {
           position: absolute;
-          bottom: 5px;
-          right: 5px;
+          bottom: 20px;
+          right: 10px;
           z-index: 1;
           display: inline-grid;
           justify-content: end;

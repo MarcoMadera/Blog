@@ -87,7 +87,7 @@ export function ALink({
         prefetch={prefetch}
         {...getToolTipAttributes(title ?? href, { hideToolTip })}
         {...attribs}
-        className={`${classname || className} aLink`}
+        className={`${classname || className || ""} aLink`}
       >
         {children}
       </Link>

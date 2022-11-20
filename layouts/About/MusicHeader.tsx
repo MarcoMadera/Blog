@@ -65,7 +65,7 @@ function MusicHeader({
           align-items: center;
           display: flex;
           justify-content: space-between;
-          margin-top: 60px;
+          margin-top: 10px;
           margin-bottom: 16px;
         }
         header ~ :global(hr) {
