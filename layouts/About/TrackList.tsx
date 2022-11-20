@@ -17,11 +17,15 @@ export default function TrackList({
 
   useEffect(() => {
     setAllTracks([newNowPlaying, ...topTracks]);
+
+    return () => {
+      setAllTracks([]);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <>
+    <div>
       {Object.keys(newNowPlaying).length > 0 && (
         <MusicHeader
           artist={newNowPlaying.artist}
@@ -37,6 +41,12 @@ export default function TrackList({
         />
       )}
       <TopTracksList topTracks={topTracks} />
-    </>
+      <style jsx>{`
+        div {
+          margin: 0 auto 50px;
+          max-width: 600px;
+        }
+      `}</style>
+    </div>
   );
 }

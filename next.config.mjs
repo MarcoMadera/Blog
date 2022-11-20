@@ -6,7 +6,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: ["res.cloudinary.com", "assets.fanart.tv"],
     deviceSizes: [360, 400, 500, 550, 630, 705, 818, 1060, 1140, 1920, 2048],
     imageSizes: [20, 35, 50, 70, 100, 130, 260],
   },

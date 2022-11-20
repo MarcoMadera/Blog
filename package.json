@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@mapbox/rehype-prism": "0.8.0",
+    "@vercel/og": "^0.0.20",
     "firebase": "9.12.1",
     "firebase-admin": "11.2.0",
     "gray-matter": "4.0.3",

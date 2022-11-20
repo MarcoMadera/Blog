@@ -56,7 +56,7 @@ function Article({
           padding: 64px;
           grid-template-columns: repeat(12, 1fr);
           position: relative;
-          margin: 0px auto;
+          margin: 0px auto 30px;
         }
         article:nth-child(2n + 1) > div:nth-child(1) {
           grid-area: 1 / 1 / 1 / 6;

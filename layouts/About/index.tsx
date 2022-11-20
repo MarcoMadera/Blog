@@ -1,232 +1,300 @@
-import {
-  AugmentedReallity,
-  Book,
-  Chess,
-  Code,
-  CSharp,
-  Email,
-  Film,
-  Java,
-  JavaScript,
-  Music,
-} from "components/icons";
+import { Email } from "components/icons";
 import TrackList from "./TrackList";
 import { aboutStyles } from "./aboutStyles";
 import Seo from "components/Seo";
-import { A, ALink, H1, H2, H3, P } from "components/tags";
-import type { NowPlaying, SongData } from "types/spotify";
-import { PropsWithChildren, ReactElement, memo } from "react";
+import { A, ALink, H1, H2, P } from "components/tags";
+import type {
+  IChessData,
+  ITVShowData,
+  NowPlaying,
+  ReadingLog,
+  SongData,
+} from "types/spotify";
+import { ReactElement, memo } from "react";
 import useToolTip from "hooks/useToolTip";
 import useAnalytics from "hooks/useAnalytics";
 import { HitType } from "types/analytics";
+import FlexUlList from "components/FlexUlList";
+import { TvShow } from "./TvShow";
+import Bullet from "components/icons/Bullet";
+import ChessPerfCard from "components/ChessPerfCard";
+import Flame from "components/icons/Flame";
+import RapidChess from "components/icons/RapidChess";
+import HyperBullet from "components/icons/HyperBullet";
+import ClassicChess from "components/icons/ClassicChess";
+import { ThingILike } from "./ThingILike";
+import useDarkMode from "hooks/useDarkMode";
+import { colors } from "styles/theme";
+import { CurrentlyReading } from "./CurrentlyReading";
 
 interface AboutLayoutProps {
   newNowPlaying: NowPlaying | null;
   topTracks: SongData[] | null;
-}
-
-interface ThingILikeProps {
-  title: string;
-  href: string;
-  label: string;
-}
-
-function ThingILike({
-  children,
-  href,
-  title,
-  label,
-}: PropsWithChildren<ThingILikeProps>) {
-  return (
-    <>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={label}
-      >
-        <H3>{title}</H3>
-      </a>
-      <P>{children}</P>
-      <style jsx>{`
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-        a:focus,
-        a:hover {
-          color: inherit;
-          text-decoration: underline;
-        }
-        a :global(h3) {
-          display: inline;
-        }
-        a ~ :global(p) {
-          margin-top: 0.8em;
-        }
-      `}</style>
-    </>
-  );
+  tvShows: ITVShowData[] | null;
+  chess: IChessData | null;
+  currentlyReading: ReadingLog | null;
 }
 
 const AboutLayout = ({
   newNowPlaying,
   topTracks,
+  tvShows,
+  chess,
+  currentlyReading,
 }: AboutLayoutProps): ReactElement => {
   const { getToolTipAttributes } = useToolTip();
   const { trackWithGoogleAnalytics } = useAnalytics();
+  const { darkMode } = useDarkMode();
 
   return (
-    <main>
+    <main id="main">
       <Seo title="Sobre mí | Marco Madera" />
-      <aside>
-        <Code width="50" height="50" {...getToolTipAttributes("Código")} />
-        <Java width="50" height="50" {...getToolTipAttributes("Java")} />
-        <AugmentedReallity
-          width="50"
-          height="50"
-          {...getToolTipAttributes("Realidad Aumentada")}
-        />
-        <CSharp width="50" height="50" {...getToolTipAttributes("C Sharp")} />
-        <JavaScript
-          width="50"
-          height="50"
-          {...getToolTipAttributes("JavaScript")}
-        />
-        <Music width="50" height="50" {...getToolTipAttributes("Música")} />
-        <Chess width="50" height="50" {...getToolTipAttributes("Ajedrez")} />
-        <Book width="50" height="50" {...getToolTipAttributes("Libro")} />
-        <Film width="50" height="50" {...getToolTipAttributes("Película")} />
-      </aside>
-      <section id="main">
-        <div>
-          <H1>Sobre mí</H1>
-          <P>
-            ¡Hola! Mi nombre es <span translate="no">Marco Madera</span> tengo
-            24 años, soy programador web frontend por afición y entusiasta de
-            las tecnologías web que cada día me gustan más: JavaScript, Node.js,
-            React, etc.
-          </P>
-          <P>
-            Estoy en constante proceso de aprendizaje sobre las nuevas
-            tecnologías y me gusta estar informado de lo que pasa en la web, ver
-            cursos, leer artículos y tutoriales. Trataré de compartir mis
-            conocimientos en la sección de blog, misma que trataré como libreta
-            personal para futuro con temas relacionados con la programación.
-          </P>
-          <H2>¿Cómo empecé a programar?</H2>
-          <P>
-            Es algo que vengo haciendo desde preparatoria, cuando descubrí que
-            se podían hacer aplicaciones para Android, me eché un clavado en el
-            mundo de Java sin saber ni siquiera de control de versiones ni de
-            git. Logré hacer algunas aplicaciones básicas y aún sin estar
-            satisfecho con los resultados decidí dar el siguiente paso.
-          </P>
-          <P>
-            Por el 2013 empezaba a resonar sobre la realidad aumentada, lo que
-            veía lo quería intentar así que me pasé a C#, con el cual quería
-            hacer una cantidad de videojuegos, pero nunca tuve el conocimiento
-            para hacer algo estable por todo el trabajo que conlleva y porque no
-            sé nada de videojuegos; no los juego.
-          </P>
-          <P>
-            Después me empecé a interesar en Python con el propósito de hacer
-            proyectos sobre ciencia de datos y web scraping, pero también me
-            interesaba JavaScript, Python fue algo que pasó muy rápido, no me
-            gustó del todo la sintaxis quedando como ganador JavaScript.
-          </P>
-          <H2>Cosas que me gustan</H2>
-          <br></br>
-          <ThingILike
-            href="https://www.last.fm/user/MarcoMadera"
-            label="Página de last.fm"
-            title="La música"
+      <div>
+        <H1>Sobre mí</H1>
+        <P>
+          ¡Hola! Mi nombre es <span translate="no">Marco Madera</span> tengo 25
+          años, y soy desarrollador trabajando en{" "}
+          <A
+            href="https://www.tcs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
+            TCS
+          </A>{" "}
+          y{" "}
+          <A href="http://tr.com/" target="_blank" rel="noopener noreferrer">
+            Thomson Reuters
+          </A>
+          . Cuando no estoy trabajando, me gusta moverle a algunos proyectos
+          personales, como este blog.{" "}
+        </P>
+        <P>
+          Estoy en constante proceso de aprendizaje sobre las nuevas tecnologías
+          y me gusta estar informado de lo que pasa en la web, ver cursos, leer
+          artículos y tutoriales. Trataré de compartir mis conocimientos en la
+          sección de blog, misma que trataré como libreta personal para futuro
+          con temas relacionados con la programación.
+        </P>
+        <H2>¿Cómo empecé a programar?</H2>
+        <P>
+          Es algo que vengo haciendo desde preparatoria, cuando descubrí que se
+          podían hacer aplicaciones para Android, me eché un clavado en el mundo
+          de Java sin saber ni siquiera de control de versiones ni de git. Logré
+          hacer algunas aplicaciones básicas y aún sin estar satisfecho con los
+          resultados decidí dar el siguiente paso.
+        </P>
+        <P>
+          Por el 2013 empezaba a resonar sobre la realidad aumentada, lo que
+          veía lo quería intentar así que me pasé a C#, con el cual quería hacer
+          una cantidad de videojuegos, pero nunca tuve el conocimiento para
+          hacer algo estable por todo el trabajo que conlleva y porque no sé
+          nada de videojuegos; no los juego.
+        </P>
+        <P>
+          Después me empecé a interesar en Python con el propósito de hacer
+          proyectos sobre ciencia de datos y web scraping, pero también me
+          interesaba JavaScript, Python fue algo que pasó muy rápido, no me
+          gustó del todo la sintaxis quedando como ganador JavaScript.
+        </P>
+        <H2>Cosas que me gustan</H2>
+        <br></br>
+        <ThingILike
+          href="https://www.last.fm/user/MarcoMadera"
+          label="Página de last.fm"
+          title="La música"
+        >
+          <P>
             La música es mi mejor acompañante para cualquier situación,
             especialmente a la hora de escribir, simplemente hace la vida más
             agradable. Me gusta de todo tipo y aunque no me considero de buen
             gusto me gusta compartirla.
-          </ThingILike>
-          <ThingILike
-            href="https://lichess.org/@/MarcoMadera"
-            label="Página de Lichess.org"
-            title="Ajedrez bala"
-          >
+          </P>
+          {newNowPlaying && topTracks ? (
+            <TrackList newNowPlaying={newNowPlaying} topTracks={topTracks} />
+          ) : null}
+        </ThingILike>
+        <ThingILike
+          href="https://lichess.org/@/MarcoMadera"
+          label="Página de Lichess.org"
+          title="Ajedrez"
+        >
+          <P>
             Siempre que estoy estancado en algo, juego un poco de ajedrez bala,
             como mi método para tomar un descanso y despejarme un poco.
-          </ThingILike>
-          <ThingILike
-            href="https://ciberninjas.com/biblioteca-de-programacion-y-tecnologia/#-desarrollo-web"
-            label="Lecturas de programación"
-            title="Leer"
-          >
+          </P>
+          {!!chess && (
+            <FlexUlList>
+              <ChessPerfCard
+                icon={
+                  <Bullet fill={darkMode ? colors.carbonGrey : colors.steel} />
+                }
+                title="BULLET"
+                perf={chess.perfs.bullet}
+                url={`${chess.url}/perf/bullet`}
+              />
+              <ChessPerfCard
+                icon={
+                  <HyperBullet
+                    fill={darkMode ? colors.carbonGrey : colors.steel}
+                  />
+                }
+                title="ULTRABULLET"
+                perf={chess.perfs.ultraBullet}
+                url={`${chess.url}/perf/ultraBullet`}
+              />
+              <ChessPerfCard
+                icon={
+                  <Flame fill={darkMode ? colors.carbonGrey : colors.steel} />
+                }
+                title="BLITZ"
+                perf={chess.perfs.blitz}
+                url={`${chess.url}/perf/blitz`}
+              />
+              <ChessPerfCard
+                icon={
+                  <RapidChess
+                    fill={darkMode ? colors.carbonGrey : colors.steel}
+                  />
+                }
+                title="RAPID"
+                perf={chess.perfs.rapid}
+                url={`${chess.url}/perf/rapid`}
+              />
+              <ChessPerfCard
+                icon={
+                  <ClassicChess
+                    fill={darkMode ? colors.carbonGrey : colors.steel}
+                  />
+                }
+                title="CLASSICAL"
+                perf={chess.perfs.classical}
+                url={`${chess.url}/perf/classical`}
+              />
+            </FlexUlList>
+          )}
+        </ThingILike>
+        <ThingILike
+          href="https://ciberninjas.com/biblioteca-de-programacion-y-tecnologia/#-desarrollo-web"
+          label="Lecturas de programación"
+          title="Leer"
+        >
+          <P>
             Procuro dejar tiempo para leer artículos, blogs, hilos de Twitter y
             novelas, contenido de la web interesante, que pueda compartir en el{" "}
             <ALink href="/newsletter" title="Newsletter">
               Newsletter
             </ALink>
-          </ThingILike>
-          <ThingILike
-            href="https://trakt.tv/users/marcomadera/progress"
-            label="Página de TrackTV"
-            title="Ver series"
-          >
+          </P>
+          {currentlyReading ? (
+            <CurrentlyReading
+              title={currentlyReading.reading_log_entries[0].work.title}
+              author={currentlyReading.reading_log_entries[0].work.author_names.join(
+                ", "
+              )}
+              id={
+                currentlyReading.reading_log_entries[0].work.cover_edition_key
+              }
+            />
+          ) : null}
+        </ThingILike>
+        <ThingILike
+          href="https://trakt.tv/users/marcomadera/progress"
+          label="Página de TrackTV"
+          title="Ver series"
+        >
+          <P>
             Es de esas cosas que dejo un tiempo y continúo por temporadas, me
             gustan las series de drama y no puedo con las de ficción ni
             superhéroes.
-          </ThingILike>
-        </div>
-        <div>
-          <H2>¿Quieres contactar conmigo?</H2>
-          <P>
-            Puedes mandarme un mensaje por{" "}
-            <A
-              aria-label="Página de Twitter"
-              href="https://twitter.com/madera_marco"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="Visita mi Twitter"
-            >
-              Twitter
-            </A>
-            , o mándame un correo dando clic al icono{" "}
-            <button
-              onClick={() => {
-                trackWithGoogleAnalytics(HitType.SOCIAL, {
-                  socialNetwork: "email",
-                  socialAction: "click",
-                  socialTarget: "mailto:me@marcomadera.com",
-                });
-                window.open(
-                  "mailto:me@marcomadera.com",
-                  "width=600,height=500,scrollbars=no,resizable=no"
-                );
-                return false;
-              }}
-              {...getToolTipAttributes("Enviar correo electrónico")}
-            >
-              <Email width="20" height="20" />
-            </button>
           </P>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            {...getToolTipAttributes("Perfecto")}
+          {!!tvShows && tvShows.length > 0 && (
+            <>
+              <h4>Series que estoy viendo</h4>
+              <FlexUlList>
+                {tvShows.map((tvShowData) => (
+                  <TvShow
+                    key={tvShowData.show.ids.trakt}
+                    tvShowData={tvShowData}
+                  />
+                ))}
+              </FlexUlList>
+            </>
+          )}
+        </ThingILike>
+      </div>
+      <div>
+        <H2>¿Quieres contactar conmigo?</H2>
+        <P>
+          Puedes mandarme un mensaje por{" "}
+          <A
+            aria-label="Página de Twitter"
+            href="https://twitter.com/madera_marco"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Visita mi Twitter"
           >
-            <source
-              src="https://res.cloudinary.com/marcomadera/video/upload/about/18283-212312-32345_cptpwx.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-      </section>
-      <aside>
-        {newNowPlaying && topTracks ? (
-          <TrackList newNowPlaying={newNowPlaying} topTracks={topTracks} />
-        ) : null}
-      </aside>
+            Twitter
+          </A>
+          , o mándame un correo dando clic al icono{" "}
+          <button
+            className="email-button"
+            onClick={() => {
+              trackWithGoogleAnalytics(HitType.SOCIAL, {
+                socialNetwork: "email",
+                socialAction: "click",
+                socialTarget: "mailto:me@marcomadera.com",
+              });
+              window.open(
+                "mailto:me@marcomadera.com",
+                "width=600,height=500,scrollbars=no,resizable=no"
+              );
+              return false;
+            }}
+            {...getToolTipAttributes("Enviar correo electrónico")}
+          >
+            <Email width="20" height="20" />
+          </button>
+        </P>
+        <P>
+          <A
+            href="https://keybase.io/marcomadera"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            keybase
+          </A>
+        </P>
+        <P>
+          <A
+            href="https://keyoxide.org/1a61f15d4be29ae7d6d3195e66b0e22e61565130"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            keyoxide
+          </A>
+        </P>
+        <P>
+          <A
+            href="https://keys.openpgp.org/vks/v1/by-fingerprint/1A61F15D4BE29AE7D6D3195E66B0E22E61565130"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GPG 0x66B0E22E61565130
+          </A>
+        </P>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          {...getToolTipAttributes("Perfecto")}
+        >
+          <source
+            src="https://res.cloudinary.com/marcomadera/video/upload/about/18283-212312-32345_cptpwx.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
       <style jsx>{aboutStyles}</style>
     </main>
   );
