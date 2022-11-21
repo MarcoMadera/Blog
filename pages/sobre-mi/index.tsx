@@ -3,15 +3,14 @@ import { siteMetadata } from "site.config";
 import { ReactElement, useCallback, useEffect, useState } from "react";
 import AboutLayout from "../../layouts/About";
 import { GetServerSideProps } from "next";
-import type {
-  SongData,
-  NowPlaying,
+import type { SongData, NowPlaying } from "types/spotify";
+import {
   ITVShowData,
   ItraktTVShowData,
   ITVFanArt,
   IChessData,
   ReadingLog,
-} from "types/spotify";
+} from "types/about";
 import useAnalytics from "hooks/useAnalytics";
 import { ApiError } from "next/dist/server/api-utils";
 import { HitType } from "types/analytics";

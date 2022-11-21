@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { colors } from "styles/theme";
-import { IChessPerf } from "types/spotify";
+import { IChessPerf } from "types/about";
 import { formatNumber } from "utils";
 import ArrowDownRight from "./icons/ArrowDownRight";
 import ArrowUpRight from "./icons/ArrowUpRight";

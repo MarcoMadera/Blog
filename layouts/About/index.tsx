@@ -3,13 +3,8 @@ import TrackList from "./TrackList";
 import { aboutStyles } from "./aboutStyles";
 import Seo from "components/Seo";
 import { A, ALink, H1, H2, P } from "components/tags";
-import type {
-  IChessData,
-  ITVShowData,
-  NowPlaying,
-  ReadingLog,
-  SongData,
-} from "types/spotify";
+import type { NowPlaying, SongData } from "types/spotify";
+import { IChessData, ITVShowData, ReadingLog } from "types/about";
 import { ReactElement, memo } from "react";
 import useToolTip from "hooks/useToolTip";
 import useAnalytics from "hooks/useAnalytics";
@@ -45,6 +40,17 @@ const AboutLayout = ({
   const { getToolTipAttributes } = useToolTip();
   const { trackWithGoogleAnalytics } = useAnalytics();
   const { darkMode } = useDarkMode();
+
+  function getLichessGameData(
+    url?: string
+  ): { id: string; playingAs: string } | null {
+    if (!url) return null;
+    return {
+      id: url.split("/")[3],
+      playingAs: url.split("/")[4],
+    };
+  }
+  const chessBoardData = getLichessGameData(chess?.playing);
 
   return (
     <main id="main">
@@ -122,7 +128,7 @@ const AboutLayout = ({
             Siempre que estoy estancado en algo, juego un poco de ajedrez bala,
             como mi método para tomar un descanso y despejarme un poco.
           </P>
-          {!!chess && (
+          {!!chess?.perfs && (
             <FlexUlList>
               <ChessPerfCard
                 icon={
@@ -172,10 +178,40 @@ const AboutLayout = ({
               />
             </FlexUlList>
           )}
+          {chess?.playing ? (
+            <div>
+              <P>
+                Ahora mismo estoy jugando{" "}
+                <A
+                  href={chess?.playing}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  esta partida
+                </A>
+                :
+              </P>
+              <div className="chessBoard">
+                <A
+                  href={chess?.playing}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://lichess1.org/game/export/gif/${chessBoardData?.playingAs}/${chessBoardData?.id}.gif?theme=brown&piece=merida`}
+                    alt="Chess board"
+                    width={300}
+                    height={350}
+                  />
+                </A>
+              </div>
+            </div>
+          ) : null}
         </ThingILike>
         <ThingILike
-          href="https://ciberninjas.com/biblioteca-de-programacion-y-tecnologia/#-desarrollo-web"
-          label="Lecturas de programación"
+          href="https://openlibrary.org/people/marcomadera"
+          label="Página de OpenLibrary"
           title="Leer"
         >
           <P>
@@ -186,15 +222,7 @@ const AboutLayout = ({
             </ALink>
           </P>
           {currentlyReading ? (
-            <CurrentlyReading
-              title={currentlyReading.reading_log_entries[0].work.title}
-              author={currentlyReading.reading_log_entries[0].work.author_names.join(
-                ", "
-              )}
-              id={
-                currentlyReading.reading_log_entries[0].work.cover_edition_key
-              }
-            />
+            <CurrentlyReading entries={currentlyReading.reading_log_entries} />
           ) : null}
         </ThingILike>
         <ThingILike
