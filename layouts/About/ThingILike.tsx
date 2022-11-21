@@ -31,6 +31,9 @@ export function ThingILike({
         a {
           color: inherit;
           text-decoration: none;
+          line-height: 1.5;
+          font-size: 2rem;
+          margin: 20px 0;
         }
         a:focus,
         a:hover {
@@ -39,7 +42,9 @@ export function ThingILike({
         }
         a :global(h3) {
           display: inline;
-          font-size: 1.3rem;
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 1.5;
         }
         a ~ :global(p) {
           margin-top: 0.8em;

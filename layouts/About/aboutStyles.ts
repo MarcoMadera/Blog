@@ -11,6 +11,12 @@ export const aboutStyles = css`
     max-width: 48rem;
     margin: 0 auto;
   }
+  .chessBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
   button {
     background: unset;
     border: none;

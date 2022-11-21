@@ -1,4 +1,4 @@
-import { ITVFanArt, ITVShowData } from "types/spotify";
+import { ITVFanArt, ITVShowData } from "types/about";
 import { ReactElement } from "react";
 import { siteMetadata } from "site.config";
 import { Poster } from "./Poster";

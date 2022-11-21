@@ -141,7 +141,7 @@ const nextConfig = {
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.google.com *.vimeo.com *.youtube.com *.firebaseio.com *.twitter.com *.jsdelivr.net;
-  child-src *.youtube-nocookie.com *.google.com *.vimeo.com *.twitter.com *.bitsofco.de *.spotify.com *.firebaseio.com *.firebaseapp.com *.marcomadera.com;
+  child-src https://lichess.org/ *.youtube-nocookie.com *.google.com *.vimeo.com *.twitter.com *.bitsofco.de *.spotify.com *.firebaseio.com *.firebaseapp.com *.marcomadera.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com *.vimeo.com;
   img-src * blob: data:;
   media-src 'self' *.cloudinary.com *.scdn.co;
