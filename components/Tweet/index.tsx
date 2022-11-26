@@ -15,21 +15,24 @@ import SpaceTweet from "./SpaceTweet";
 import { ElementType } from "types/posts";
 import TweetUrlPreview from "./TweetUrlPreview";
 import { P } from "components/tags";
+import { TweetData } from "types/tweet";
 
 interface TweetProps {
   id: string;
-  caption: string | ReactNode;
+  caption?: string | ReactNode;
   hideConversation: boolean;
+  mockData?: TweetData;
 }
 
 export default function Tweet({
   id,
   caption,
   hideConversation,
+  mockData,
 }: TweetProps): ReactElement | null {
   const { darkMode } = useDarkMode();
   const { getToolTipAttributes } = useToolTip();
-  const { data, ignore } = useElementData({
+  const { data = mockData, ignore } = useElementData({
     type: ElementType.TWEET,
     id: id,
     hideConversation,

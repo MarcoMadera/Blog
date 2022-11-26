@@ -1,7 +1,5 @@
 import ActionButton from "components/ActionButton";
 import { A, Input } from "components/tags";
-import { CommentsContextProvider } from "context/CommentsContext";
-import { UserContextProvider } from "context/UserContext";
 import useAnalytics from "hooks/useAnalytics";
 import useDarkMode from "hooks/useDarkMode";
 import useLockBodyScroll from "hooks/useLockBodyScroll";
@@ -9,39 +7,8 @@ import useNotification from "hooks/useNotification";
 import { FormEvent, ReactPortal, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { HitType } from "types/analytics";
-import CommentFeed from "./Comment/CommentFeed";
-
-interface IMentions {
-  children: {
-    type: string;
-    author: {
-      name: string;
-      photo: string;
-      url: string;
-      type: string;
-    };
-    published?: string;
-    "repost-of"?: string;
-    "like-of"?: string;
-    "mention-of"?: string;
-    "in-reply-to"?: string;
-    url: string;
-    "wm-id": string;
-    "wm-property": string;
-    "wm-source": string;
-    "wm-target": string;
-    "wm-received": string;
-    "wm-private": string;
-    rels: { canonical: string }[];
-    name?: string;
-    content?: {
-      html: string;
-      text: string;
-    };
-  }[];
-  type: string;
-  name: string;
-}
+import { IMentions } from "types/mentions";
+import { WebMention } from "./WebMention";
 
 export function ModalWebMention({
   slug,
@@ -177,31 +144,7 @@ export function ModalWebMention({
             </div>
           </form>
           <div className="mentions">
-            {mentions?.children.map((mention) => {
-              const message =
-                mention["wm-property"] === "mention-of"
-                  ? `Ha mencionado tu post desde [${mention["wm-source"]}](${mention["wm-source"]})`
-                  : mention["wm-property"] === "like-of"
-                  ? `Ha dado like a tu post desde [${mention["wm-source"]}](${mention["wm-source"]})`
-                  : mention["wm-property"] === "repost-of"
-                  ? `Ha compartido tu post desde [${mention["wm-source"]}](${mention["wm-source"]})`
-                  : mention["wm-property"] === "in-reply-to"
-                  ? `Ha respondido a tu post desde [${mention["wm-source"]}](${mention["wm-source"]})`
-                  : "";
-              return (
-                <UserContextProvider key={mention["wm-id"]}>
-                  <CommentsContextProvider>
-                    <CommentFeed
-                      avatar={mention.author.photo}
-                      comment={message}
-                      commentId={mention["wm-id"]}
-                      date={mention.published}
-                      username={mention.author.name}
-                    />
-                  </CommentsContextProvider>
-                </UserContextProvider>
-              );
-            })}
+            {mentions ? <WebMention mentions={mentions} /> : null}
           </div>
         </div>
       </div>
