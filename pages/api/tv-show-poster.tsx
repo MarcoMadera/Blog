@@ -41,7 +41,8 @@ export default function concertCover(req: NextRequest): ImageResponse | void {
               color: "white",
               letterSpacing: -2,
               fontWeight: 700,
-              background: "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))",
+              background:
+                "linear-gradient(180deg,rgba(0,0,0,0), rgba(0,0,0,0.8))",
             }}
           >
             <div
