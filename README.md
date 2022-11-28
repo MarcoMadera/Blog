@@ -27,7 +27,9 @@ title: The title
 description: A brief description of the content (25 - 160 characters)
 date: 2020-07-20
 cover: image at least 760px width
+coverAlt: Alt text for the cover image
 author: Your name
+authorUrl: Your domain, e.g. https://marcomadera.com/
 summary: Your summary e.g. Frontend Developer
 profilePhoto: url image
 twitter: Your twitter userName e.g. madera_marco

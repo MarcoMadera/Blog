@@ -161,6 +161,7 @@ export function ModalShare({
           align-items: center;
           justify-content: center;
           margin: 10px 0;
+          width: 100%;
         }
         .modalShare__body__link :global(input) {
           width: 100%;

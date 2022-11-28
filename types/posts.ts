@@ -17,6 +17,7 @@ export type PostData = {
   twitter?: string;
   description: string;
   summary?: string;
+  authorUrl?: string;
   coverData: IGetPlaiceholderReturn["img"];
 };
 
