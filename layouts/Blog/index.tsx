@@ -44,6 +44,7 @@ export default function Post({
   readingTimeInMinutes,
   blurDataURL,
   coverData,
+  authorUrl,
 }: PostWithMedia): ReactElement {
   const { darkMode } = useDarkMode();
   const headingData = Object.keys(elements)
@@ -72,7 +73,7 @@ export default function Post({
       >
         <header>
           <TagsHeader tags={tags} />
-          <H1 itemProp="headline name" id="articleTitle">
+          <H1 itemProp="headline name" id="articleTitle" className="p-name">
             {title}
           </H1>
           <p>
@@ -81,7 +82,7 @@ export default function Post({
               dateTime={isoString}
               className="dt-published"
             >
-              {publishedDate ? getFormattedDate(publishedDate) : ""}
+              {publishedDate ? getFormattedDate(publishedDate) : "-- ---- ----"}
             </time>{" "}
             &middot;{` ${readingTimeInMinutes} minutos de lectura `}
           </p>
@@ -124,6 +125,8 @@ export default function Post({
           twitter={twitter}
           author={author}
           summary={summary}
+          date={date}
+          authorUrl={authorUrl}
         />
         <nav>
           {previousPost ? (

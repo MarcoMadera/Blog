@@ -51,6 +51,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
       const coverAlt = data.coverAlt;
       const tags = data.tags;
       const author = data.author || null;
+      const authorUrl = data.authorUrl || null;
       const profilePhoto = data.profilePhoto || null;
       const twitter = data.twitter || null;
       const summary = data.summary || null;
@@ -72,6 +73,7 @@ export async function getSortedPostsData(): Promise<PostData[]> {
         description,
         summary,
         coverData,
+        authorUrl,
       };
     })
   ).then((postsData) =>
@@ -145,6 +147,7 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
     recommendedPosts,
     slug,
     coverData: currentPost.coverData,
+    authorUrl: currentPost.authorUrl,
   };
 }
 
@@ -240,6 +243,7 @@ export async function getTagData(slug: PostData["slug"]): Promise<{
       .map((post) => ({
         tags: post.tags,
         author: post.author,
+        authorUrl: post.authorUrl,
         cover: post.cover,
         coverAlt: post.coverAlt,
         date: post.date,

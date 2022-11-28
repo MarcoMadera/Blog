@@ -2,7 +2,7 @@ import Bio from "./Bio";
 import { FacebookShare, LinkedInShare, TwitterShare } from "components/icons";
 import { siteMetadata } from "site.config";
 import { A } from "components/tags";
-import type { PostWithMedia } from "types/posts";
+import type { PostData } from "types/posts";
 import { PropsWithChildren, ReactElement } from "react";
 import useToolTip from "hooks/useToolTip";
 import useAnalytics from "hooks/useAnalytics";
@@ -49,9 +49,18 @@ export default function BlogFooter({
   summary,
   title,
   twitter,
+  date,
+  authorUrl,
 }: Pick<
-  PostWithMedia,
-  "author" | "profilePhoto" | "slug" | "summary" | "title" | "twitter"
+  PostData,
+  | "author"
+  | "profilePhoto"
+  | "slug"
+  | "summary"
+  | "title"
+  | "twitter"
+  | "date"
+  | "authorUrl"
 >): ReactElement {
   return (
     <footer>
@@ -100,10 +109,26 @@ export default function BlogFooter({
           </A>
         </p>
       </section>
+      <div className="hidden" aria-hidden>
+        <a href={`${siteMetadata.siteUrl}/blog/${slug}`} className="u-url">
+          <span className="p-name">{title}</span>
+          <span className="dt-published">{date}</span>
+        </a>
+        <a
+          href={authorUrl || siteMetadata.siteUrl}
+          rel="noopener noreferrer author"
+          className="p-author author h-card vcard u-author"
+        >
+          {author}
+        </a>
+      </div>
       <style jsx>{`
         div {
           display: flex;
           align-items: center;
+        }
+        .hidden {
+          display: none;
         }
         p {
           margin: 0;

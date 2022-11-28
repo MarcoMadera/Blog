@@ -19,7 +19,8 @@ export default function Bio({
         <a
           href={`https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=${twitter}&tw_p=followbutton`}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer author"
+          className="p-author author h-card vcard"
         >
           Seguir
         </a>

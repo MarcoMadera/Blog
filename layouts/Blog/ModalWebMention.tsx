@@ -185,7 +185,7 @@ export function ModalWebMention({
           justify-content: center;
           position: fixed;
           width: calc(100% - 20px);
-          max-width: 900px;
+          max-width: 650px;
           border: 1px solid #cccccc4d;
           border-radius: 4px;
           box-shadow: 0 2px 10px 4px #0000001a;
