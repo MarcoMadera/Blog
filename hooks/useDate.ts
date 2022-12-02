@@ -13,7 +13,7 @@ export function useDate(dateValue?: string | number | Date): {
     if (dateValue && window) {
       setDate(new Date(dateValue));
       setNow(new Date());
-      setIsoString(new Date(dateValue)?.toISOString());
+      setIsoString(new Date(dateValue).toISOString());
     }
   }, [dateValue]);
 

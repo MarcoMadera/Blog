@@ -23,7 +23,7 @@ export function Button({
   return (
     <button
       {...getToolTipAttributes(`Compartir en ${network}`)}
-      onClick={() => {
+      onClick={(e) => {
         trackWithGoogleAnalytics(HitType.SOCIAL, {
           socialAction: "share",
           socialNetwork: network,
@@ -34,7 +34,7 @@ export function Button({
           "popup",
           "width=600,height=500,scrollbars=no,resizable=no"
         );
-        return false;
+        e.stopPropagation();
       }}
     >
       {children}

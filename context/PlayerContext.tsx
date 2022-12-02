@@ -110,7 +110,7 @@ export function PlayerContextProvider({
 
       if (nextTrack?.audio && player) {
         player.src = nextTrack.audio;
-        player?.play();
+        player.play();
         setIsPlaying(true);
         setCurrentlyPlaying(nextTrack.track);
       }
