@@ -17,8 +17,7 @@ function getRandomColor() {
 export default function concertCover(req: NextRequest): ImageResponse | void {
   try {
     const { searchParams } = new URL(req.url);
-    const { title, year, width, height } =
-      Object.fromEntries(searchParams) || {};
+    const { title, year, width, height } = Object.fromEntries(searchParams);
 
     return new ImageResponse(
       (

@@ -114,7 +114,7 @@ export default function TableOfContents({
     <nav aria-labelledby="headerMenu">
       <section>
         <h2 id="headerMenu">Tabla de contenido</h2>
-        {constructedTable?.length > 0 && (
+        {constructedTable.length > 0 && (
           <ol>
             {constructedTable.map(({ level, text, children }, i) => {
               return (

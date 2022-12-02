@@ -59,8 +59,8 @@ export function Select({
   const { darkMode } = useDarkMode();
 
   return (
-    <select name={name}>
-      {children}
+    <>
+      <select name={name}>{children}</select>
       <style jsx>{`
         select {
           background: ${darkMode ? colors.cinder : colors.white};
@@ -74,6 +74,6 @@ export function Select({
           padding: 0.5em;
         }
       `}</style>
-    </select>
+    </>
   );
 }

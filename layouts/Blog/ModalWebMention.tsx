@@ -31,17 +31,13 @@ export function ModalWebMention({
   }, []);
 
   useEffect(() => {
-    document.querySelector("#__next")?.addEventListener(
-      "click",
-      () => {
-        handleCloseModal();
-      },
-      { once: true }
-    );
+    document
+      .querySelector("#__next")
+      ?.addEventListener("click", handleCloseModal, { once: true });
     return () => {
-      document.querySelector("#__next")?.removeEventListener("click", () => {
-        handleCloseModal();
-      });
+      document
+        .querySelector("#__next")
+        ?.removeEventListener("click", handleCloseModal);
     };
   }, [handleCloseModal]);
 
