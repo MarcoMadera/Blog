@@ -46,10 +46,10 @@ export default function Markdown({
                   if (
                     child.tagName === "pre" &&
                     child.children[0]?.tagName === "code" &&
-                    child.children[0].data?.meta
+                    child.children[0]?.data?.meta
                   ) {
                     child.children[0].properties = {
-                      ...child.children[0]?.properties,
+                      ...child.children[0].properties,
                       meta: child.children[0].data.meta,
                     };
                   }

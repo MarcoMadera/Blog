@@ -266,7 +266,7 @@ const AboutLayout = ({
           , o mándame un correo dando clic al icono{" "}
           <button
             className="email-button"
-            onClick={() => {
+            onClick={(e) => {
               trackWithGoogleAnalytics(HitType.SOCIAL, {
                 socialNetwork: "email",
                 socialAction: "click",
@@ -276,7 +276,7 @@ const AboutLayout = ({
                 "mailto:me@marcomadera.com",
                 "width=600,height=500,scrollbars=no,resizable=no"
               );
-              return false;
+              e.stopPropagation();
             }}
             {...getToolTipAttributes("Enviar correo electrónico")}
           >

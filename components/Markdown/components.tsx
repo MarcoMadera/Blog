@@ -105,11 +105,14 @@ export const components:
     const shouldBeInParagraph =
       allowedChildren.tags.includes(tagName) ||
       node.children[0].type === "text";
-    const { data, ...properties } = node.properties as Element["properties"] & {
-      data: string;
-    };
+    const { data, ...properties } =
+      (node.properties as
+        | (Element["properties"] & {
+            data: string;
+          })
+        | undefined) || {};
 
-    const dataObject = convertParamsToObject(data);
+    const dataObject = convertParamsToObject(data || "");
 
     return shouldBeInParagraph ? (
       <P
@@ -136,14 +139,14 @@ export const components:
     const classNames = nodes.properties?.className as string[] | undefined;
     if (classNames?.includes("footnotes")) {
       if (Array.isArray(nodes.children)) {
-        const olElements = nodes.children?.filter(
+        const olElements: ElementNodes["children"] = nodes.children?.filter(
           (child) => child.tagName === "ol"
         )[0];
         if (Array.isArray(olElements?.children)) {
           const olChildren = olElements?.children?.filter(
             (child: { type: string } | undefined) => child?.type === "element"
           );
-          footNotes = olChildren.length;
+          footNotes = olChildren?.length || 0;
         }
       }
     }
@@ -295,12 +298,11 @@ export const components:
   blockquote: function BlockQuoteMd({ children, node }: ReactMarkdownProps) {
     const nodes: ElementNodes = node as unknown as ElementNodes;
     const nodeChildren = nodes.children;
-    const blockData = Array.isArray(nodeChildren)
-      ? nodeChildren[1].children
+    const blockData: ElementNodes["children"] = Array.isArray(nodeChildren)
+      ? nodeChildren[1]?.children
       : undefined;
-    const hasSource = Array.isArray(blockData)
-      ? blockData[blockData.length - 1].tagName === "a"
-      : false;
+    if (!Array.isArray(blockData)) return <Blockquote>{children}</Blockquote>;
+    const hasSource = blockData[blockData.length - 1].tagName === "a";
     const sourceHref = blockData[blockData.length - 1].properties?.href;
     const sourceChild = blockData[blockData.length - 1]?.children;
     const sourceName = Array.isArray(sourceChild)
@@ -344,12 +346,11 @@ export const components:
     return <Ul depth={depth}>{children}</Ul>;
   },
   li: function ListsItemMd({ children, checked, node }) {
-    if (!children) {
-      return null;
-    }
+    if (!children || !Array.isArray(children)) return null;
+
     return (
       <Li checked={checked} {...node.properties}>
-        {children?.map((el) => {
+        {children.map((el) => {
           const element = el as ReactPortal;
           if (element?.props?.type === "checkbox") {
             return null;

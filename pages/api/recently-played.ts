@@ -13,13 +13,13 @@ export default async function recentlyPlayed(
     return;
   }
   const track: Partial<SongData> = {
-    artist: firstTrack.track.artists.map((_artist) => _artist.name).join(", "),
-    songUrl: firstTrack.track.external_urls.spotify,
+    artist: firstTrack.track.artists?.map((_artist) => _artist.name).join(", "),
+    songUrl: firstTrack.track.external_urls?.spotify,
     title: firstTrack.track.name,
-    cover: firstTrack.track.album.images[2].url,
+    cover: firstTrack.track.album?.images[2].url,
     uri: firstTrack.track.uri,
-    preview: firstTrack.track?.preview_url,
-    explicit: firstTrack.track?.explicit,
+    preview: firstTrack.track.preview_url,
+    explicit: firstTrack.track.explicit,
   };
   res.statusCode = 200;
   res.json(track);

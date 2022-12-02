@@ -202,7 +202,7 @@ function MusicCard({
             size="34"
             handleClick={() => {
               if (!audioPlayer?.current) return;
-              const isPlayingThisTrack = audioPlayer.current?.src === preview;
+              const isPlayingThisTrack = audioPlayer?.current?.src === preview;
               if (!isPlayingThisTrack && audioPlayer?.current && preview) {
                 audioPlayer.current.src = preview;
                 audioPlayer.current.play();

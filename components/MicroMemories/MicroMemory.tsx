@@ -24,7 +24,7 @@ export default function MicroMemory({
         <div>
           <time dateTime={isoString}>
             {dateConstructor
-              ? dateConstructor?.toLocaleDateString("es-US", {
+              ? dateConstructor.toLocaleDateString("es-US", {
                   month: "short",
                   day: "numeric",
                   year: "numeric",

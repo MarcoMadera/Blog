@@ -145,7 +145,7 @@ export function PlayerContextProvider({
 
       if (previousTrack?.audio && player) {
         player.src = previousTrack.audio;
-        player?.play();
+        player.play();
         setCurrentlyPlaying(previousTrack.track);
       }
     };

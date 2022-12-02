@@ -34,8 +34,7 @@ export default function ToolTipModal(): ReactPortal | null {
     ) {
       return;
     }
-    const toolTipRectWitdh =
-      toolTipRef.current?.getClientRects()[0]?.width || 0;
+    const toolTipRectWitdh = toolTipRef.current.getClientRects()[0]?.width || 0;
     const isToolTipWitdhOffScreen =
       toolTip.coords.x && innerWidth - toolTip.coords.x < toolTipRectWitdh;
     const isToolTipHeightOffScreen =

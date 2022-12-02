@@ -15,7 +15,7 @@ export default function TweetCreatedAt({
 
   const title = `Publicado: ${
     date
-      ? date?.toLocaleDateString("es", {
+      ? date.toLocaleDateString("es", {
           year: "numeric",
           month: "short",
           day: "numeric",
