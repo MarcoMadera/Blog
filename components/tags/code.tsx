@@ -87,7 +87,7 @@ export function Pre({
     });
     if (data) {
       try {
-        navigator.clipboard.writeText(data?.join(""));
+        navigator.clipboard.writeText(data.join(""));
         addNotification({
           variant: "success",
           message: "Copiado al portapapeles",

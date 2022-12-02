@@ -15,13 +15,13 @@ export default async function topTracks(
   }
 
   const tracks: Partial<SongData>[] = items.map((track) => ({
-    artist: track.artists.map(({ name }) => name).join(", "),
-    songUrl: track.external_urls.spotify,
+    artist: track.artists?.map(({ name }) => name).join(", "),
+    songUrl: track.external_urls?.spotify,
     title: track.name,
-    cover: track.album.images[2].url,
+    cover: track.album?.images[2].url,
     uri: track.uri,
-    preview: track?.preview_url,
-    explicit: track?.explicit,
+    preview: track.preview_url,
+    explicit: track.explicit,
   }));
 
   res.statusCode = 200;

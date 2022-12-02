@@ -53,7 +53,7 @@ export default function TweetText({
           {urlToDisplay?.display_url.startsWith("pic.twitter.com") ||
           (urlsToIgnore &&
             urlToDisplay &&
-            urlsToIgnore.includes(urlToDisplay?.expanded_url))
+            urlsToIgnore.includes(urlToDisplay.expanded_url))
             ? null
             : urlToDisplay?.display_url}
         </TwitterLink>
@@ -73,7 +73,7 @@ export default function TweetText({
   ));
 
   // Match cashtags
-  replacedText = reactStringReplace(replacedText, /$(\w+)/g, (match, i) => (
+  replacedText = reactStringReplace(replacedText, /\$(\w+)/g, (match, i) => (
     <TwitterLink
       key={match + i}
       href={`https://twitter.com/search?q=%24${match}`}

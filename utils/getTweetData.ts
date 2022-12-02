@@ -35,8 +35,9 @@ export default async function getTweetData(
 
   const tweetResponse: TweetResponse = await res.json();
   if (tweetResponse.data) {
+    const tweet = tweetResponse.data;
     const media = tweetResponse.includes?.media || null;
-    const urls = tweetResponse.data?.entities?.urls || null;
+    const urls = tweet.entities?.urls || null;
     const urlsIsArray = Array.isArray(urls) && urls.length > 0;
     const urlPreview = urlsIsArray
       ? urls.filter((url) => url?.status === 200)[urls.length - 1] ?? null
@@ -45,7 +46,6 @@ export default async function getTweetData(
       ? tweetResponse.includes?.polls[0]
       : null;
     const user = tweetResponse.includes?.users || null;
-    const tweet = tweetResponse.data || null;
     const spaceId =
       tweet.entities?.urls?.map((url) => {
         if (url.expanded_url.startsWith("https://twitter.com/i/spaces/")) {

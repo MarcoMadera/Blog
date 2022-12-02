@@ -10,7 +10,7 @@ export function getNodeText(
     return "";
   }
   if (["string", "number", "boolean"].includes(typeof node)) {
-    return node?.toString();
+    return node.toString();
   }
   if (typeof node === "object") {
     return getNodeText((node as ReactPortal).props.children);

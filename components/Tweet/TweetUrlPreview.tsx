@@ -13,20 +13,20 @@ export default function TweetUrlPreview({
   const domain = urlPreview.unwound_url?.split("/")[2]?.replace(/^www\./, "");
   const { darkMode } = useDarkMode();
   if (
-    !urlPreview.images ||
+    !Array.isArray(urlPreview.images) ||
     urlPreview.unwound_url?.startsWith("https://twitter.com/i/spaces/")
   ) {
     return null;
   }
   const isLargeCard =
-    urlPreview.images?.[0].width >= 500 &&
-    urlPreview.images?.[0].width > urlPreview.images?.[0].height;
+    urlPreview.images[0].width >= 500 &&
+    urlPreview.images[0].width > urlPreview.images[0].height;
 
   return (
     <article className={`url-preview-${isLargeCard ? "large" : "small"}`}>
       <a href={urlPreview.url} target="_blank" rel="noopener noreferrer">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={urlPreview.images?.[0].url} alt="" />
+        <img src={urlPreview.images[0].url} alt="" />
         <div className="url-preview__content">
           <div className="url-preview__header">
             <div>

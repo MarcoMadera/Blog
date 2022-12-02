@@ -10,7 +10,7 @@ interface TagsHeaderTypes {
 export default function TagsHeader({ tags }: TagsHeaderTypes): ReactElement {
   return (
     <div>
-      {tags.length &&
+      {tags.length > 0 &&
         tags.map((tag) => (
           <Link
             prefetch={false}

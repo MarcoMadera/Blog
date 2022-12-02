@@ -7,6 +7,7 @@ import {
   useLayoutEffect,
   useRef,
   useState,
+  Fragment,
 } from "react";
 import { colors } from "styles/theme";
 import { Input, P } from "./tags";
@@ -30,8 +31,8 @@ function SearchResults({ results, handleClose }: ISearchResults): ReactElement {
     if (!ulRef.current) {
       return;
     }
-    const ulRectWitdh = ulRef.current?.getClientRects()[0]?.width || 0;
-    const ulRectLeft = ulRef.current?.getClientRects()[0]?.left || 0;
+    const ulRectWitdh = ulRef.current.getClientRects()[0]?.width || 0;
+    const ulRectLeft = ulRef.current.getClientRects()[0]?.left || 0;
     const isUlWitdhOffScreen = innerWidth - 30 - ulRectLeft < ulRectWitdh;
     if (isUlWitdhOffScreen) {
       setUlPos((prevState) => ({
@@ -44,15 +45,15 @@ function SearchResults({ results, handleClose }: ISearchResults): ReactElement {
   return (
     <ul ref={ulRef}>
       {results.map((result, index) => (
-        <>
+        <Fragment key={result.url}>
           {index > 0 && <hr />}
-          <li key={result.url}>
+          <li>
             <Link href={result.url} onClick={handleClose}>
               <h3>{result.title}</h3>
               <P>{result.description}</P>
             </Link>
           </li>
-        </>
+        </Fragment>
       ))}
       <style jsx>{`
         ul {
