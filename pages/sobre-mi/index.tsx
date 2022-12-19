@@ -4,16 +4,11 @@ import { ReactElement, useCallback, useEffect, useState } from "react";
 import AboutLayout from "../../layouts/About";
 import { GetServerSideProps } from "next";
 import type { SongData, NowPlaying } from "types/spotify";
-import {
-  ITVShowData,
-  ItraktTVShowData,
-  ITVFanArt,
-  IChessData,
-  ReadingLog,
-} from "types/about";
+import { ITVShowData, IChessData, ReadingLog } from "types/about";
 import useAnalytics from "hooks/useAnalytics";
 import { ApiError } from "next/dist/server/api-utils";
 import { HitType } from "types/analytics";
+import { getTVShows } from "utils/getTvShows";
 
 interface AboutProps {
   nowPlaying: NowPlaying | null;
@@ -128,40 +123,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const currentlyReadingProm: Promise<Response> = fetch(
     CURRENTLY_READING_ENDPOINT
   );
-  const showsRes = await fetch(
-    "https://api.trakt.tv/users/marcomadera/watched/shows?extended=noseasons&limit=2&page=1",
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "trakt-api-version": "2",
-        "trakt-api-key": process.env.NEXT_PUBLIC_TRAKT_CLIENT_ID as string,
-      },
-    }
-  );
-  const fanArtPromises: Promise<Response>[] = [];
-  let tvShows: ITVShowData[] = [];
-  if (showsRes.ok) {
-    const showData: ItraktTVShowData[] = await showsRes.json();
-    showData.slice(0, 10).forEach(async (show) => {
-      const fanArtPromise = fetch(
-        `http://webservice.fanart.tv/v3/tv/${show.show.ids.tvdb}?api_key=${process.env.FAN_ART_TV_API_KEY}`
-      );
-      fanArtPromises.push(fanArtPromise);
-    });
-    const allPromises = await Promise.allSettled(fanArtPromises);
-    tvShows = await Promise.all(
-      allPromises.map((res, index) => {
-        const currentShow = showData[index];
-        if (res.status === "fulfilled") {
-          return res.value.json().then((data: ITVFanArt) => ({
-            ...currentShow,
-            fanArt: data,
-          }));
-        }
-        return currentShow;
-      })
-    );
-  }
+  const tvShowsPromise = getTVShows();
 
   try {
     const [
@@ -170,12 +132,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
       recentlyPlayedRes,
       chessRes,
       currentlyReadingRes,
+      tvShowsRes,
     ] = await Promise.allSettled([
       nowPlayingProm,
       topTracksProm,
       recentlyPlayedProm,
       chessProm,
       currentlyReadingProm,
+      tvShowsPromise,
     ]);
 
     return {
@@ -198,7 +162,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
           currentlyReadingRes.status === "fulfilled"
             ? await currentlyReadingRes.value.json()
             : null,
-        tvShows: tvShows,
+        tvShows: tvShowsRes.status === "fulfilled" ? tvShowsRes.value : null,
       },
     };
   } catch (error) {
