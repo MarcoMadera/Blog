@@ -41,12 +41,12 @@ Se diferencia del <kbd>CTRL</kbd>+<kbd>F</kbd> en que busca textos precisos y te
 
 Lucen algo así `/#\d+\s+.*/g`, `/contenido/flags`, esto JavaScript lo entenderá como una expresión regular, pero por detrás, lo que en realidad hace es que lo envuelve en un objeto RegExp, como se explicó en el blog [Tipos y objetos en JavaScript](https://marcomadera.com/blog/tipos-y-objetos-en-javascript); gracias a esto podemos acceder a las propiedades y métodos como _flags_, _ignoreCase_, `exec()`, `test()`, etc.
 
-```javascript
+```javascript twoslash
 const reg1 = /#\d+\s+.*/g;
+//    ^?
 const reg2 = new RegExp(/#\d+\s+.*/, "g");
-
-reg1; // => /#\d+\s+.*/g
-reg2; // => /#\d+\s+.*/g
+//    ^?
+// @annotate: right { "arrowRot": "190deg 8px 46px", "flipped": false, "textDegree": "-3deg", "top": "1rem" } - Lo mismo, pero con el constructor
 ```
 
 <captione text="Forma de la expresión regular"></captione>
@@ -120,7 +120,8 @@ Las expresiones regulares se utilizan con los métodos `test()`, `exec()`, `matc
 - **`Test:`** es una propiedad de las expresiones regulares que busca una ocurrencia, si la hay devuelve `true` de lo contrario `false`.
 - **`Search:`** es una propiedad de los _strings_ que busca la primera ocurrencia y devuelve el índice, si no la hay devuelve -1.
 
-```javascript
+```javascript twoslash
+// @errors: 1109
 "aaaaa".search(/aa/) // => 0
 "sddaaaaa".search(/aa/) // => 3
 "sddaaaaa".search(/aad/) // => -1
@@ -135,7 +136,8 @@ Las expresiones regulares se utilizan con los métodos `test()`, `exec()`, `matc
 - **`ReplaceAll:`** Es igual a `replace` solo que está es de todas las ocurrencias, es una propiedad de los strings que permite ejecutarlas. Este método devuelve un _array_ con las coincidencias en el índice 0 y los demás índices son las partes que se encuentran entre paréntesis.
 - **`Split:`** Utiliza una expresión regular para dividir el _string_ en cada ocurrencia.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [4]}
+```ts twoslash {4}
+// @target: esnext
 let tweetText =
   "@NovallSwift “If you have a problem and decide to fix it using regex, now you have two problems” — @dlpasco, circa 2013";
 
@@ -154,10 +156,24 @@ Me encontré el siguiente tweet con información valiosa. Quiero usarla con otra
 
 <tweet id="1433186979630526469"></tweet>
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [12]}
+```ts twoslash {12}
+// @target: esnext
+const string = `Hot 100’s top 10 this week in 2008:
+#1 Disturbia @rihanna
+#2 Crush @DavidArchie
+#3 Forever @chrisbrown
+#4 I Kissed A Girl @katyperry
+#5 Viva La Vida @coldplay
+#6 Paper Planes @MIAuniverse
+#7 Dangerous @KardinalO
+#8 Take A Bow
+#9 Closer @NeYoCompound
+#10 Change @taylorswift13`;
+
+// ---cut---
 const hits = string.match(/#\d+\s+.*/g);
 
-const hitsData = hits.map((hit) => {
+const hitsData = hits?.map((hit) => {
   const regularExp =
     /#(?<number>\d+)\s+(?<songTitle>[\s\w]*\b)\s?(?<username>@\w+)?/gi;
 
@@ -166,7 +182,7 @@ const hitsData = hits.map((hit) => {
   // const [match, number, songTitle, username] = [...hit.matchAll(regularExp)][0];
   // const {number, songTitle, username} = [...hit.matchAll(regularExp)][0].groups;
 
-  return regularExp.exec(hit).groups;
+  return regularExp?.exec(hit)?.groups;
 });
 ```
 
@@ -185,7 +201,7 @@ const hitsData = hits.map((hit) => {
 
 </note>
 
-```json {"addedLines": [], "removedLines": [], "highlight": [38,39,40,41]}
+```json twoslash {38-41}
 // Resultado
 [
   {

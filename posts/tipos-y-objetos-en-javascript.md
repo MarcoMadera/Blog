@@ -19,13 +19,16 @@ En JavaScript tenemos varios tipos de datos; _booleanos_, numéricos, los de tex
 
 Para entender esto veamos el siguiente ejemplo:
 
-```javascript
+```ts twoslash
+// @errors: 2542
 let str = "yay";
-console.log(str[0]); // "y"
+
+console.log(str[0]); // y
 console.log(str.length); // 3
 
 str[0] = "p";
-console.log(str);
+console.log(str); // yay
+// @annotate: right { "arrowRot": "190deg 8px 46px", "flipped": false, "textDegree": "-3deg", "top": "5rem" } - No se puede modificar un valor primitivo
 ```
 
 Analizando el código anterior ¿Cuál será el segundo resultado de la consola? De una el resultado sigue siendo `"yay"`, pero ¿Por qué pasa esto?
@@ -34,16 +37,20 @@ Primero tenemos que entender que los _strings_ son valores primitivos y como se 
 
 Lo anterior puede resultar un poco confuso, pero veamos cómo sería el código enfocándonos cuando JavaScript envuelve los valores primitivos en un nuevo objeto para que tenga sentido la acción que le damos a realizar.
 
-```javascript {"addedLines": [4,5,8], "removedLines": [2,3,7], "highlight": []}
-let str = "yay";
-console.log(str[0]); // "y"
-console.log(str.length); // 3
-console.log(new String(str)[0]); // "y"
+```ts twoslash
+// @errors: 2542
+let str:string = "yay";
+
+// ---cut---
+
+console.log(new String(str)[0]); // y
+
 console.log(new String(str).length); // 3
 
-str[0] = "p";
 new String(str)[0] = "p";
-console.log(str);
+
+console.log(str); // 3
+// @annotate: right { "arrowRot": "190deg 8px 46px", "flipped": false, "textDegree": "-3deg", "top": "4rem" } - Mismo error que en el ejemplo anterior
 ```
 
 <note type="success" title="Pasos">
@@ -60,17 +67,19 @@ Cuando comparamos objetos, estos se comparan por referencia. ¿Esto qué signifi
 
 Una forma simple de ver que los objetos tienen identificador propio está en palabra _new_, lo veo como algo que cada vez que se invoca es algo nuevo distinto a lo demás y algo simple de comprobar de una manera más visual es comparando los datos.
 
-```javascript
+```ts twoslash
+// @errors: 1109 2839
 10 === 10; // true
 "ave" === "ave"; // true
-// new Object() es equivalente a {}
+
 {} === {}; // false
 [] === []; // false
+// @annotate: right { "arrowRot": "190deg 8px 46px", "flipped": false, "textDegree": "-3deg", "top": "4rem" } - new Object() es equivalente a {}
 ```
 
 ¿Qué significa que los objetos se comparan por referencia? Tomemos el siguiente ejemplo:
 
-```javascript
+```ts twoslash
 let obj = {};
 let dos = obj;
 let obj2 = {};
@@ -84,7 +93,8 @@ El resultado al comparar `obj` y dos es _true_ porque en este caso sí es el mis
 
 En caso de que queramos comparar el contenido de _arrays_ u objetos es posible que lo que queramos usar sean los valores primitivos de _tuples_ o _records_, valores que son primitivos que se añaden recientemente al lenguaje.
 
-```javascript
+```javascript twoslash
+// @noErrors
 #[] === #[]; // true
 #{} === #{}; // true
 ```
@@ -93,36 +103,41 @@ En caso de que queramos comparar el contenido de _arrays_ u objetos es posible q
 
 La coerción sucede cuando tenemos que **convertir un valor de un tipo de dato a otro tipo de dato**. La coerción puede suceder en ciertos escenarios automáticamente debido a que JavaScript es un lenguaje débilmente tipado, por ejemplo:
 
-```javascript
-true + 5; // 6
+```ts twoslash
+// @errors: 2365
+const resultado = true + 5; // 6
+//    ^?
 ```
 
 Aquí estamos sumando el valor booleano true con el número 5 y estamos recibiendo un resultado de 6. ¿Por qué sucede esto? Bueno, sucede porque JavaScript está convirtiendo el valor `true` a 1 para darle sentido a esta operación. En este caso, `true` nos retorna un 1. Al sumarse recibimos un 6.
 
-```javascript
-["abc"] + "abc"; // abcabc
+```ts twoslash
+const resultado = ["abc"] + "abc"; // abcabc
+//    ^?
 ```
 
 Aquí estamos sumando un arreglo el cual tiene un elemento de una cadena de texto que es `abc` con una cadena de texto sin el arreglo, de esta suma recibimos un `abcabc`. JavaScript convierte el arreglo a un _string_ automáticamente y al sumar ambas cadenas de texto se concatenan.
 
 La **coerción numérica**, generalmente sucede cuando tú intentas hacer alguna operación matemática, por ejemplo, en este caso:
 
-```javascript
-50 / "5"; // 10
+```javascript twoslash
+// @errors: 2363
+const resultado = 50 / "5"; // 10
+//    ^?
 ```
 
 Aquí estamos dividiendo un número 50 entre un _string_ que tiene un valor de 5. JavaScript convierte el _string_ 5 a un número. Por lo tanto, recibimos un 10.
 
 La **coerción de _strings_** generalmente sucede cuando se utiliza el operador de suma y alguno de los dos valores es un _string_. JavaScript asume se está intentando concatenar _strings_, entonces trata de convertir el otro elemento en _string_ y los une, como puedes ver aquí.
 
-```javascript
+```ts twoslash
 54 + "abc"; // "54abc"
 54 + ""; // "54"
 ```
 
 La **coerción de booleanos** sucede cuando se intenta, comparar o hacer alguna operación lógica.
 
-```javascript
+```ts twoslash
 0 || 5; // 5
 ```
 
@@ -140,7 +155,8 @@ En JavaScript existen los siguientes tipos de igualdad:
 
 La **igualdad abstracta** es confusa porque al igual que lo vimos en la [coerción de datos](#coercion-de-datos "Coerción de datos") JavaScript convierte los valores a un tipo que tenga sentido.
 
-```javascript
+```ts twoslash
+// @errors: 2367 2839
 ["abc"] == "abc"; // true
 ```
 
@@ -153,7 +169,8 @@ Para tener una idea más clara de todos los resultados dependiendo de la operaci
 
 Es difícil aprenderse la tabla anterior por lo que hacer este tipo de igualdades puede causar algunos errores en nuestro programa o algunos comportamientos inesperados si olvidamos un dato. ¿Cómo la evitamos?. Lo recomendable es que se use el operador de **igualdad estricta**. Este operador evita que los valores se conviertan al compararlo uno con el otro.
 
-```javascript
+```ts twoslash
+// @errors: 2367 2839
 ["abc"] === "abc"; // false
 ```
 
@@ -161,7 +178,8 @@ Puedes ver que ya obtenemos un valor `false`, ya que este _array_ no está siend
 
 La **igualdad del mismo valor con** `Object.is()` es muy similar a la igualdad estricta, con dos casos especiales, _Not a Number_ y la igualdad de cero y cero con signo negativo.
 
-```javascript
+```ts twoslash
+// @errors: 2845
 NaN === NaN; // false
 Object.is(NaN, NaN); // true
 -0 === 0; // true
@@ -183,7 +201,7 @@ Ventajas de los prototipos:
 
 Para crear una clase se utiliza un objeto función donde se pueden agregan las propiedades y se declaran los métodos utilizando `prototype` en lugar de como se vio en la consola `__proto__`. Con esto ya se pueden llamar instancias de la clase.
 
-```javascript  {"addedLines": [], "removedLines": [], "highlight": [28]}
+```javascript twoslash {28}
 function Persona(edad) {}
 //Declarar métodos
 Persona.prototype = {
@@ -218,7 +236,7 @@ estudiante.permisos();
 
 Desde la especificación de ECMAScript 6 se introdujo la sintaxis de las clases. Es una transformación de la sintaxis de prototipos para hacer más cómoda la declaración de clases, _syntactic sugar_ para prototipos.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [23]}
+```javascript twoslash {23}
 class Persona {
   //Declarar métodos
   permisos() {

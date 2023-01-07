@@ -17,12 +17,15 @@ Los objetos `Map`[^1] son como un tipo de diccionarios en donde nosotros asociam
 
 [^1]: MDN Web Docs & MDN contributors <cite>[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)</cite>
 
-```javascript
+```javascript twoslash
 const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
 
-console.log(map.get("key")); // value
-console.log(map.get(1)); // uno
-console.log(map.get(true)); // verdadero
+console.log(map.get("key"));
+// @log: value
+console.log(map.get(1));
+// @log: uno
+console.log(map.get(true));
+// @log: verdadero
 ```
 
 ## Métodos
@@ -33,7 +36,7 @@ Los objetos `Map` tienen una serie de métodos que nos permiten interactuar con 
 
 Para asignar un _key_ a un valor utilizamos el método `set`.
 
-```javascript {"addedLines": [3,4,5,7], "removedLines": [], "highlight": []}
+```javascript twoslash {3,4,5,7}
 const map = new Map();
 
 map.set("key", "value");
@@ -51,33 +54,39 @@ for ([key, value] of map) {
 
 Elimina todos los valores asociados al objeto `Map`.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [4,5]}
+```javascript twoslash {4,5}
 const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
-console.log(map.get("key")); // value
+console.log(map.get("key"));
+// @log: value
 
 map.clear();
-console.log(map.get("key")); // undefined
+console.log(map.get("key"));
+// @log: undefined
 ```
 
 ### Delete
 
 Elimina un valor asociado al objeto `Map`.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [5]}
+```javascript twoslash {5}
 const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
-console.log(map.get("key")); // value
-console.log(map.get(1)); // uno
+console.log(map.get("key"));
+// @log: value
+console.log(map.get(1));
+// @log: uno
 
 map.delete("key");
-console.log(map.get("key")); // undefined
-console.log(map.get(1)); // uno
+console.log(map.get("key"));
+// @log: undefined
+console.log(map.get(1));
+// @log: uno
 ```
 
 ### Has
 
 Devuelve `true` si el objeto map tiene un valor asociado al _key_ que se le pasa como parámetro. En caso contrario devuelve `false`.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [4,5]}
+```javascript twoslash {4,5}
 const map = new Map();
 map.set(window, "hey");
 
@@ -89,7 +98,7 @@ map.has("no");  // false
 
 Permite iterar sobre los valores asociados al objeto map. El método `forEach` recibe una función que recibe dos parámetros: el _key_ y el _value_. El método `forEach` no devuelve ningún valor.
 
-```javascript {"addedLines": [2,3,4], "removedLines": [], "highlight": [2]}
+```javascript twoslash {2}
 const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
 map.forEach((value, key) => {
   console.log(key, value);
@@ -112,9 +121,10 @@ Son similares a los objetos `Map` pero con algunas diferencias esenciales:
 
 - Solo se pueden asociar objetos como _key_.
 
-  ```javascript
-  const weakMap = new WeakMap([["key", "value"], [1, "uno"], [true, "verdadero"]]);
-  ```
+```ts twoslash
+// @errors: 2769
+const weakMap = new WeakMap([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+```
 
   <colors green lightblue red textcolor blue orange></colors>
 
@@ -129,7 +139,8 @@ Son similares a los objetos `Map` pero con algunas diferencias esenciales:
 
 Ya que la consola de chrome es _lazy_, es probable que podamos ver actuar al garbage collector con el siguiente ejemplo al ver lo que pasa al convertir el objecto a `null`.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [4,10]}
+```ts twoslash {4,10}
+// @noErrors
 let obj = {};
 let map = new Map([[obj, "value"]]);
 console.log(map.get(obj));
@@ -153,7 +164,8 @@ console.log(weakMap);
 - Podemos acceder al tamaño de un Map con el método `size`, algo que con los objetos no podemos hacer.
 - La forma en la que podemos iterarlos es diferente.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [3,4,5]}
+```ts twoslash {3-5}
+// @noErrors
 // Map
 const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
 for (let [key, value] of map) {
@@ -161,29 +173,30 @@ for (let [key, value] of map) {
 }
 
 // Objetos
-const obj = {"key": "value", "key2": "value2"};
+const obj: Record<string, string> = { key: "value", key2: "value2" };
 const keys = Object.keys(obj);
-keys.forEach(key => {
+keys.forEach((key) => {
   console.log(key, obj[key]);
 });
 
 // o bien
-for (key in obj) {
-  console.log(key, obj[key])
+for (const key in obj) {
+  console.log(key, obj[key]);
 }
+// @annotate: right { "arrowRot": "270deg 0px 36px", "flipped": true, "textDegree": "-12deg", "top": "-2.5rem" } - Typescript se quejaría que le pasé 1 y true como key en lugar de string
 ```
 
 - La forma de eliminar un valor de un Map es mediante el método `delete` y con los objetos mediante el operador delete.
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [4,10]}
+```ts twoslash {4,10}
 // Map
-const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+const map = new Map([["key", "value"], ["1", "uno"], ["true", "verdadero"]]);
 console.log(map.size); // 3
 map.delete("key");
 console.log(map.size); // 2
 
 // Object
-const obj = {key: "value", 1: "uno", true: "verdadero"};
+const obj: Record<string, string> = {key: "value", 1: "uno", true: "verdadero"};
 console.log(Object.keys(obj).length); // 3
 delete obj.key;
 console.log(Object.keys(obj).length); // 2

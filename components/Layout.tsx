@@ -7,6 +7,7 @@ import useRouterEvents from "hooks/useRouterEvents";
 import useLocalStorageState from "hooks/useLocalStorageState";
 import ScrollToTop from "./ScrollToTop";
 import { A } from "./tags";
+import useUpdateCodeBlockTheme from "hooks/useUpdateCodeBlockTheme";
 
 export default function Layout({
   children,
@@ -17,6 +18,7 @@ export default function Layout({
 
   useLocalStorageState();
   useRouterEvents();
+  useUpdateCodeBlockTheme();
 
   return (
     <>

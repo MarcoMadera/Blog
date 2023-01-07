@@ -40,7 +40,7 @@ Si no se hace correctamente este paso se pueden tener datos corruptos. Por ejemp
 
 Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son necesarios al _frontend_ puede ser un error por ejemplo si tienes un examen con la siguiente estructura.
 
-```json
+```json twoslash
 {
   "test": [
     {
@@ -115,7 +115,16 @@ Un ataque de inyección de comandos puede ocurrir porque el servidor no valida e
 
 El siguiente ejemplo es un lector de archivos vulnerable que devuelve el contenido del archivo, el usuario puede insertar algo como `"filename.pdf rm -rf /"` y borrar el contenido del servidor entero o dirigirse a una ruta `"../passwords"` provocando un [ataque transversal de directorio](https://en.wikipedia.org/wiki/Directory_traversal_attack "Directory traversal attack- Wikipedia").
 
-```javascript {"addedLines": [], "removedLines": [], "highlight": [4]}
+```javascript twoslash {9}
+/// <reference types="express" />
+/// <reference types="node" />
+
+// ---cut---
+import express from "express";
+import childProcess from "child_process";
+
+const app = express();
+
 app.get("/viewer", (req, res) => {
   const { filename } = req.query;
   try {

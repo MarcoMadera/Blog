@@ -1,14 +1,6 @@
 import codeStyles from "styles/codeStyles";
 import { colors } from "styles/theme";
-import {
-  PropsWithChildren,
-  ReactElement,
-  ReactNode,
-  Children,
-  isValidElement,
-  ReactFragment,
-  ReactPortal,
-} from "react";
+import { PropsWithChildren, ReactElement, ReactNode, Children } from "react";
 import useDarkMode from "hooks/useDarkMode";
 import HtmlToReact from "html-to-react";
 import useElementData from "hooks/useElementData";
@@ -16,6 +8,8 @@ import { ElementType } from "types/posts";
 import useNotification from "hooks/useNotification";
 import { CopyToClipboard } from "components/icons/CopyToClipboard";
 import useToolTip from "hooks/useToolTip";
+import { getTextChild } from "utils/getTextChild";
+import { DEFAULT } from "styles/code/languages/default";
 
 interface InlineCodeProps {
   classname?: string;
@@ -61,26 +55,11 @@ function Span({ number }: SpanProps) {
 
 export function Pre({
   children,
-  ...attribs
 }: PropsWithChildren<Record<string, string | ReactNode>>): ReactElement {
   const { darkMode } = useDarkMode();
   const { addNotification } = useNotification();
   const { getToolTipAttributes } = useToolTip();
 
-  function getTextChild(
-    children: string | number | boolean | ReactFragment | ReactPortal
-  ): string | string[] {
-    if (typeof children === "string") {
-      return children;
-    }
-    if (isValidElement(children)) {
-      return getTextChild(children?.props?.children);
-    }
-    if (Array.isArray(children)) {
-      return children.map((child) => getTextChild(child)).join("");
-    }
-    return "";
-  }
   const copyToClipboard = () => {
     const data = Children.map(children, (child) => {
       return getTextChild((child as ReactElement)?.props?.children);
@@ -109,17 +88,15 @@ export function Pre({
 
   return (
     <div>
-      <pre tabIndex={-1} {...attribs}>
-        {children}
-        <button
-          aria-label="Copiar al portapapeles"
-          onClick={copyToClipboard}
-          {...getToolTipAttributes("Copiar al portapapeles")}
-        >
-          <CopyToClipboard color="#ccc" width={30} height={30} />
-        </button>
-      </pre>
-      <style jsx>{`
+      {children}
+      <button
+        aria-label="Copiar al portapapeles"
+        onClick={copyToClipboard}
+        {...getToolTipAttributes("Copiar al portapapeles")}
+      >
+        <CopyToClipboard color="#ccc" width={30} height={30} />
+      </button>
+      <style global jsx>{`
         pre {
           background: ${darkMode ? colors.cinder : colors.romance};
           color: ${darkMode ? colors.greyGoose : colors.balticSea};
@@ -132,6 +109,8 @@ export function Pre({
             : "rgba(0, 0, 0, 0.7)"};
           border: 1px solid ${darkMode ? "#45535d" : "#e1e8ed"};
         }
+      `}</style>
+      <style jsx>{`
         button {
           background: ${darkMode ? "rgba(31, 41, 55, 1)" : "#fefefe"};
           border: ${darkMode
@@ -146,26 +125,7 @@ export function Pre({
             : "1px solid rgba(31, 41, 55, 0.8)"};
         }
       `}</style>
-      <style jsx>{`
-        div {
-          margin: 20px 0;
-          position: relative;
-        }
-        button {
-          position: absolute;
-          bottom: 20px;
-          right: 20px;
-
-          outline: none;
-          cursor: pointer;
-          border-radius: 6px;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
+      <style global jsx>{`
         pre,
         pre :global(code),
         pre :global(code[data-lang]:before) {
@@ -179,8 +139,6 @@ export function Pre({
           hyphens: none;
           line-height: 1.8;
           margin: 0.5em 0px;
-          overflow: auto;
-          padding: 0.8em 0;
           tab-size: 4;
           text-align: left;
           white-space: pre;
@@ -226,6 +184,26 @@ export function Pre({
           top: -11px;
         }
       `}</style>
+      <style jsx>{`
+        div {
+          margin: 20px 0;
+          position: relative;
+        }
+        button {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+
+          outline: none;
+          cursor: pointer;
+          border-radius: 6px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      `}</style>
     </div>
   );
 }
@@ -269,12 +247,6 @@ interface CodeBlockProps {
   id: number;
 }
 
-interface MetaData {
-  addedLines: number[];
-  removedLines: number[];
-  highlight: number[];
-}
-
 export function CodeBlock({
   language,
   value,
@@ -288,16 +260,8 @@ export function CodeBlock({
     content: value,
     id: id.toString(),
     language,
+    meta: meta || "",
   });
-
-  let metadata = {} as MetaData;
-
-  try {
-    metadata = JSON.parse(meta?.toString() || "{}");
-  } catch {
-    metadata = {} as MetaData;
-  }
-  const { addedLines, removedLines, highlight }: MetaData = metadata;
 
   if (ignore) {
     return null;
@@ -305,21 +269,13 @@ export function CodeBlock({
 
   const nodeValue = value[0];
   const code = data?.result as string;
+  const classLines = code?.match(/class="line"/g);
   const lines = code?.split("\n");
   if (lines?.[0]) {
     lines[0] = lines[0].replace("<div>", "");
     lines.pop();
   }
-
-  const valueArray = Children.toArray(value).filter(
-    (child) => child !== "\n" && child
-  );
-  const numberOfNewLines = valueArray.filter((child) => {
-    if (isValidElement(child)) {
-      return true;
-    }
-    return false;
-  }).length;
+  const numberOfNewLines = classLines?.length || 0;
 
   const lineNumbers =
     typeof nodeValue === "string"
@@ -334,96 +290,54 @@ export function CodeBlock({
     dark: Record<string, ReactElement>;
   } = codeStyles;
 
-  const style = darkMode
-    ? styles.dark[`${language}`] ?? styles.dark["default"]
-    : styles.light[`${language}`] ?? styles.light["default"];
+  const style = darkMode ? styles.dark["default"] : styles.light["default"];
 
   const htmlToReactParser = HtmlToReact.Parser();
 
   return (
     <>
       {mdCode && data ? (
-        <code data-lang={language}>
-          {lines.map((line, index) => {
-            const isAddedLine = addedLines?.includes(index + 1);
-            const isRemovedLine = removedLines?.includes(index + 1);
-            const isHighlightedLine = highlight?.includes(index + 1);
-
-            const dataLine = isAddedLine
-              ? "+"
-              : isRemovedLine
-              ? "-"
-              : index + 1;
-            return (
-              <span data-line={dataLine} key={index}>
-                {htmlToReactParser.parse(line) || " "}
-                <style jsx>{`
-                  span {
-                    display: block;
-                    position: relative;
-                    width: 100%;
-                  }
-                  span:before {
-                    content: attr(data-line);
-                    display: inline-block;
-                    width: 1.5em;
-                    margin-right: 0.5em;
-                    text-align: left;
-                    color: ${
-                      isAddedLine
-                        ? "rgb(48, 200, 94)"
-                        : isRemovedLine
-                        ? "rgb(255, 69, 69)"
-                        : isHighlightedLine
-                        ? "#d6bcf7"
-                        : "rgb(170, 170, 170)"
-                    };
-                    border-left: 6px solid ${
-                      isHighlightedLine ? "#d6bcf7" : "transparent"
-                    });
-                    padding-left: 10px;
-                  }
-                  span:after {
-                    content: "";
-                    left: 0;
-                    opacity: 0.15;
-                    pointer-events: none;
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                    background-color: ${
-                      isHighlightedLine
-                        ? "#d6bcf7"
-                        : isAddedLine
-                        ? "rgb(48, 200, 94)"
-                        : isRemovedLine
-                        ? "rgb(255, 69, 69)"
-                        : "transparent"
-                    };
-                    height: 100%;
-                  }
-                `}</style>
-              </span>
-            );
-          })}
-        </code>
+        <code>{htmlToReactParser.parse(code) || " "}</code>
       ) : (
-        <code data-lang={language}>
-          <LeftLinesNumbers lineNumbers={lineNumbers} />
-          {value}
+        <pre>
+          <code data-lang={language}>
+            <LeftLinesNumbers lineNumbers={lineNumbers} />
+            {value}
+          </code>
           <style jsx>{`
             code[data-lang=${language}] {
               display: block;
               padding: 10px 20px;
+              overflow: auto;
+            }
+            code::-webkit-scrollbar {
+              height: 8px;
+              width: 8px;
+              overflow: visible;
+            }
+            code::-webkit-scrollbar-thumb {
+              background: #d32f2fe1;
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 30px;
+              border-bottom-left-radius: 30px;
+            }
+            code::-webkit-scrollbar-track {
+              background: transparent;
             }
           `}</style>
-        </code>
+        </pre>
       )}
       {style && (
         <style global jsx>
           {style}
         </style>
       )}
+      {
+        <style global jsx>
+          {DEFAULT}
+        </style>
+      }
     </>
   );
 }

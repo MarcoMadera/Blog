@@ -58,6 +58,8 @@ Al usar CSS en una hoja externa o en la etiqueta `<style>` los selectores son ne
 
 El **selector universal** es un asterisco `*` selecciona cualquier tipo de etiqueta del documento HTML. Al igual que los demás selectores se puede combinar.
 
+Para **seleccionar etiquetas** simplemente se escribe el nombre de la etiqueta seguida de las declaraciones de CSS entre paréntesis.
+
 ```css
 * {
   ...;
@@ -66,11 +68,7 @@ El **selector universal** es un asterisco `*` selecciona cualquier tipo de etiqu
 div * span {
   ...;
 }
-```
 
-Para **seleccionar etiquetas** simplemente se escribe el nombre de la etiqueta seguida de las declaraciones de CSS entre paréntesis.
-
-```css
 nav {
   ...;
 }
@@ -102,15 +100,13 @@ Pueden ser tan específicos como se muestran en la siguiente tabla:
 
 Las `ID` en HTML son únicas, por consecuencia hace que en CSS también solo se pueda aplicar a un solo elemento único. Para **seleccionar atributos `ID`** se usa el símbolo `#` antes del nombre de la `ID`.
 
+Para **seleccionar atributos class** se usa el nombre de un atributo clase precediendo un punto `.` se seleccionarán todos los elementos que tienen el mismo atributo `class`. El siguiente ejemplo le aplica los estilos a todos los elementos con el mismo atributo `class`.
+
 ```css
 #SomeId {
   ...;
 }
-```
 
-Para **seleccionar atributos class** se usa el nombre de un atributo clase precediendo un punto `.` se seleccionarán todos los elementos que tienen el mismo atributo `class`. El siguiente ejemplo le aplica los estilos a todos los elementos con el mismo atributo `class`.
-
-```css
 .clase {
   ...;
 }
@@ -152,23 +148,19 @@ nav .topNavbar {
 
 Ahora si se quiere hacer una **selección de elementos con ancestro directo** tenemos el signo `>`. En el siguiente ejemplo seleccionamos todos los elementos con el atributo `class` topNavbar que el padre sea una etiqueta `<nav>`.
 
-```css
-nav > .topNavbar {
-  ...;
-}
-```
-
 Otro tipo de selector es **seleccionar elementos del mismo nivel**. Con el signo `~` podemos seleccionar elementos del mismo nivel siguientes al elemento. El siguiente ejemplo selecciona a todos los elementos del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
-
-```css
-nav ~ .topNavbar {
-  ...;
-}
-```
 
 Para **seleccionar el primer elemento del mismo nivel** tenemos el signo `+`. El siguiente ejemplo selecciona al primer elemento del mismo nivel que sigue inmediatamente con el atributo `class` topNavbar.
 
 ```css
+nav > .topNavbar {
+  ...;
+}
+
+nav ~ .topNavbar {
+  ...;
+}
+
 nav + .topNavbar {
   ...;
 }
@@ -219,6 +211,8 @@ Las propiedades personalizadas son como las **variables** en otros lenguajes. Al
 
 Para crear una propiedad personalizada se utiliza como prefijo el doble guion `--`. Tienen nombre de la propiedad y el valor que se le da. Para usar la propiedad se hace a través de la función `var`.
 
+Para usar las propiedades en un scope global del documento se pueden definir las propiedades en la pseudo-clase `:root`.
+
 ```css
 .topNavbar {
   --color-verde: #1db954;
@@ -226,11 +220,7 @@ Para crear una propiedad personalizada se utiliza como prefijo el doble guion `-
   background: var(--color-gris);
   color: var(--color-verde);
 }
-```
 
-Para usar las propiedades en un scope global del documento se pueden definir las propiedades en la pseudo-clase `:root`.
-
-```css
 :root {
   --color-verde: #1db954;
   --color-gris: #ccc;
@@ -281,7 +271,7 @@ En una propiedad abreviada debe de ir antes de una propiedad única. Si se hace 
 
 Mal: La regla no aplica el estilo de fuente itálica.
 
-```css -2
+```css
 p {
   font-style: italic;
   font: 20px Arial;
@@ -290,7 +280,7 @@ p {
 
 Bien: De está forma de aplica correctamente ambos estilos.
 
-```css 3
+```css
 p {
   font: 20px Arial;
   font-style: italic;
