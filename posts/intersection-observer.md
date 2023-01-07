@@ -35,8 +35,9 @@ Un ejemplo de uso es cuando un elemento se encuentra en la pantalla, pero no se 
 
 Para usar el intersection observer, primero debemos crear una instacia del mismo y pasarle como primer parametro un callback que se ejecutará cuando el elemento objetivo entre en la pantalla y se le puede pasar un segundo parametro opcional que es la configuración.
 
-```js {"addedLines": [], "removedLines": [], "highlight": [16]}
-function callback(entries, observer) {
+
+```ts twoslash {16} include main
+function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver): void {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       console.log('Elemento visible');
@@ -53,32 +54,46 @@ const options = {
 
 const observer = new IntersectionObserver(callback, options);
 
-observer.observe(document.querySelector('.observable'));
+observer.observe(document.querySelector('.observable') as Element);
 ```
 
 ### Métodos
 
 Para poder observar el elemento, debemos usar el método `observe` y le pasamos la referencia del elemento que queremos observar.
 
-```typescript
-observer.observe(targetElement as Element);
+```typescript twoslash
+// @noErrors
+const observer: IntersectionObserver;
+const targetElement: Element;
+// ---cut---
+observer.observe(targetElement);
 ```
 
 Para detener la observación del elemento, debemos usar el método `unobserve` y le pasamos la referencia del elemento que queremos detener la observación.
 
-```typescript
-observer.unobserve(targetElement as Element);
+```typescript twoslash
+// @noErrors
+const observer: IntersectionObserver;
+const targetElement: Element;
+// ---cut---
+observer.unobserve(targetElement);
 ```
 
 Para obtener la información de la observación, debemos usar el método `takeRecords`, esto nos devolverá un array con todos los elementos que han entrado en la zona visible.
 
-```typescript
+```typescript twoslash
+// @noErrors
+const observer: IntersectionObserver;
+// ---cut---
 const records = observer.takeRecords();
 ```
 
 Para dejar de observar todos los elementos, debemos usar el método `disconnect`. Esta acción es necesaria para evitar fugas de memoria, asi que asegúrate que no queden observadores sin desconectar.
 
-```typescript
+```typescript twoslash
+// @noErrors
+const observer: IntersectionObserver;
+// ---cut---
 observer.disconnect();
 ```
 
@@ -122,23 +137,21 @@ Algunos casos de uso son:
 
 Para detectar que un elemento se acerca al viewport con una distancia de 500px, debemos especificar una zona de intersección de 500px de arriba y abajo.
 
-```typescript {"addedLines": [], "removedLines": [], "highlight": [8]}
-const cachedRef = ref.current;
+```typescript twoslash {7}
+// @noErrors
+const element: Element;
+// ---cut---
 const observer = new IntersectionObserver(
   ([e]) => {
     console.log("realiza una llamada porque el elemento está 500px cerca del viewport");
-    this.disconnect();
+    observer.disconnect();
   },
   {
     rootMargin: "0px 0px 500px 0px",
   }
 );
 
-observer.observe(cachedRef as Element);
-
-return function () {
-  observer.disconect(cachedRef as Element);
-};
+observer.observe(element);
 ```
 
 Esto se puede usar para hacer `fetch` de una datos cuando el usuario está cerca del elemento que los muestra y asi evitar que se carguen datos innecesarios. Por ejemplo, si tenemos una lista de productos que se muestra en la pantalla, y cada producto tiene una imagen que se carga en el _viewport_, podemos hacer un fetch de los datos cuando el usuario está cerca del elemento que muestra la imagen.

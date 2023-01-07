@@ -88,6 +88,7 @@ interface ElementTweetParams extends DefaultElementParams {
 
 interface ElementCodeBlockParams extends DefaultElementParams {
   content: ReactNode[];
+  meta: string;
   language: string;
 }
 

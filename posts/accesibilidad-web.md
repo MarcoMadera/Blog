@@ -215,8 +215,11 @@ Podemos añadir acciones con el teclado escuchando las teclas. [Guía de código
 
 Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla <kbd>esc</kbd>. Esto añade una característica más a nuestro sitio.
 
-```javascript
-const listenKeys = (e) => {
+```typescript twoslash
+function togglePlay() {};
+function mute() {};
+// ---cut---
+const listenKeys = (e: KeyboardEvent) => {
   switch (e.keyCode) {
     case 32:
       togglePlay();

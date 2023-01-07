@@ -106,16 +106,16 @@ export default async function getElementsData(
     })
   );
 
-  const codeBlocksData = elements.codeBlock.map(
-    ({ id, content, language, type }) => {
-      const highlightedCode = codeHighlighter(content, language);
+  const codeBlocksData = await Promise.all(
+    elements.codeBlock.map(async ({ id, content, language, type, meta }) => {
+      const highlightedCode = await codeHighlighter(content, language, meta);
       const result = ReactDOMServer.renderToStaticMarkup(
         <>{highlightedCode}</>
       );
       const data = { result };
 
       return { id: `${type}:${id}` as ElementId, data };
-    }
+    })
   );
 
   const headingsData = elements.heading.map(({ id, type, level, text }) => {

@@ -43,7 +43,7 @@ Gracias al _scope_ de los _snippets_ es que <abbr title="Visual Studio Code">VSC
 
 Una vez elegido el _scope_ y ya dentro de nuestro archivo podemos crear nuestro primer _snippet_.
 
-```json
+```json twoslash
 {
   "Comment": {
     "prefix": "c",
@@ -82,7 +82,7 @@ En el siguiente ejemplo tenemos dos variables predefinidas y una opcional.
 - **Variables predefinidas**: `${1:document}` y `${0:element}`.
 - **Variable opcional**: `${2|querySelector, getElementById, getElementsByClassName, getElementsByTagName|}`.
 
-```json
+```json twoslash
 {
   "Get Dom Node": {
     "prefix": "getDom",
@@ -97,7 +97,7 @@ En el siguiente ejemplo tenemos dos variables predefinidas y una opcional.
 
 Por ahora hemos visto _snippets_ de una sola línea, pero el **body también puede ser un `array` de multiples cadenas de texto**, donde cada cadena de texto sería un salto de línea y lo podemos indentar con `\t`, si es el caso que queramos usar todo en una sola línea podemos usar el salto de línea de `\n`.
 
-```json
+```json twoslash
 {
   "Default Component": {
     "prefix": "dc",
@@ -122,7 +122,7 @@ Por ahora hemos visto _snippets_ de una sola línea, pero el **body también pue
 
 El siguiente ejemplo contiene un caso común si estás familiarizado con React, crea un fragmento que envuelve al texto con variable predefinida del texto seleccionado.
 
-```json
+```json twoslash
 {
   "Fragment (Wrapper)": {
     "prefix": "frag",
@@ -140,7 +140,7 @@ Podemos **transformar las variables**, ya que aceptan expresiones regulares. En 
 
 En la parte final es donde se remplaza lo que hace _match_ de regex en `//gm` `/<texto a remplazar>/gm` y `g` es el contexto global de regex y la `m` que tomará en cuenta que contenga múltiples líneas para poder seleccionar ambas.
 
-```json
+```json twoslash
 {
   "Export default function (Wrapper)": {
     "prefix": "df",
@@ -166,7 +166,7 @@ Otra opción que podemos usar con los _snippets_ que más usamos a diario es con
 
 Estos atajos los podemos definir en el archivo `keybindings.json`, lo podemos encontrar usando el atajo <kbd>ctrl</kbd>+<kbd>p</kbd> y escribiendo en la barra de búsqueda _keybindings_. En este archivo podemos definir igual un _snippet_ de la siguiente forma:
 
-```json
+```json twoslash
 {
   "key": "ctrl+;",
   "command": "editor.action.insertSnippet",
@@ -179,7 +179,7 @@ Estos atajos los podemos definir en el archivo `keybindings.json`, lo podemos en
 
 También podemos referenciar nuestros _snippets_ ya creados de la siguiente forma:
 
-```json
+```json twoslash
 {
   "key": "ctrl+'",
   "command": "editor.action.insertSnippet",

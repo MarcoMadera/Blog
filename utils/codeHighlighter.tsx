@@ -1,6 +1,5 @@
 import { unified } from "unified";
 import markdown from "remark-parse";
-import rehypePrism from "@mapbox/rehype-prism";
 import rehype2react from "rehype-react";
 import remark2rehype from "remark-rehype";
 import {
@@ -10,96 +9,39 @@ import {
   JSXElementConstructor,
 } from "react";
 import { ReactMarkdownProps } from "react-markdown/lib/ast-to-react";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { CreateElementLike } from "rehype-react/lib";
+import shikiTwoslash from "remark-shiki-twoslash";
+import markdownToHtmlAgain from "rehype-raw";
 
-const customClasses: Record<string, string> = {
-  atrule: "a",
-  "attr-equals": "A",
-  "attr-name": "b",
-  "attr-value": "B",
-  attribute: "c",
-  boolean: "C",
-  class: "d",
-  "class-name": "D",
-  color: "e",
-  comment: "E",
-  "control-flow": "f",
-  function: "F",
-  id: "g",
-  important: "G",
-  interpolation: "h",
-  keyword: "H",
-  "maybe-class-name": "i",
-  module: "I",
-  "n-th": "j",
-  nil: "J",
-  number: "k",
-  operator: "K",
-  parameter: "l",
-  "plain-text": "L",
-  "property-access": "m",
-  property: "M",
-  "pseudo-class": "n",
-  "pseudo-element": "N",
-  punctuation: "o",
-  "regex-delimiter": "O",
-  rule: "p",
-  selector: "P",
-  string: "q",
-  style: "Q",
-  tag: "r",
-  "template-string": "R",
-  unit: "s",
-  url: "S",
-  variable: "t",
-  regex: "T",
-  "regex-flags": "u",
-};
-
-export default function codeHighlighter(
+export default async function codeHighlighter(
   content: ReactNode[],
-  language?: string
-): ReactElement<unknown, string | JSXElementConstructor<unknown>> {
-  const processor = unified()
+  language?: string,
+  meta?: string
+): Promise<ReactElement<unknown, string | JSXElementConstructor<unknown>>> {
+  const processor = await unified()
     .use(markdown)
-    .use(remark2rehype)
-    .use(rehypePrism, { ignoreMissing: true })
+    .use([
+      [shikiTwoslash, { themes: ["../../../lib/theme", "../../../lib/light"] }],
+    ])
+    .use(remark2rehype, { allowDangerousHtml: true })
+    .use(markdownToHtmlAgain)
     .use(rehype2react, {
       createElement: createElement as CreateElementLike,
       components: {
-        pre: function PreformattedNode(props: unknown) {
+        code: function CodeNode(props: PropsWithChildren<unknown>) {
           const { children } = props as ReactMarkdownProps;
-          return <>{children}</>;
-        },
-        code: function CodeNode(props: unknown) {
-          const { children } = props as ReactMarkdownProps;
-          return <>{children}</>;
-        },
-        span: function SpanNode(props: unknown) {
-          const { children, className } = props as {
-            children: ReactNode[];
-            className: string;
-          };
-          const classNames = className.split(" ");
           return (
-            <span
-              className={
-                !classNames[classNames.length - 1].includes("language-")
-                  ? customClasses[classNames[classNames.length - 1]] ??
-                    classNames[classNames.length - 1]
-                  : classNames[classNames.length - 1].replace("language-", "")
-              }
-            >
-              {children as ReactNode}
-            </span>
+            <code {...props} data-lang={language}>
+              {children}
+            </code>
           );
         },
       },
-    });
+    })
+    .process(`~~~${language} ${meta} \n${content}~~~`);
 
-  const processData = processor.processSync(`~~~${language}\n${content}~~~`);
-  return processData.result as ReactElement<
+  return processor.result as ReactElement<
     unknown,
     string | JSXElementConstructor<unknown>
   >;
