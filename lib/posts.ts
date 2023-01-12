@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import { readdirSync, readFileSync } from "fs";
 import slugify from "react-slugify";
 import { siteMetadata } from "../site.config";
-import twetmoji from "twemoji";
+import twemoji from "twemoji";
 import readingTime from "reading-time";
 import { getPlaiceholder } from "plaiceholder";
 import type { AllTags, Pages, Post, PostData } from "types/posts";
@@ -123,8 +123,9 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
     tags: currentPost.tags,
     description: currentPost.description,
     blurDataURL: currentPost.blurDataURL,
-    content: twetmoji.parse(currentPost.content, {
+    content: twemoji.parse(currentPost.content, {
       className: "twemoji",
+      base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
       attributes: () => ({ width: "24", height: "24" }),
     }),
     author: currentPost.author ?? siteMetadata.author.name,
