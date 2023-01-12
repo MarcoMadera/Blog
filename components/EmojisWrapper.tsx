@@ -22,6 +22,7 @@ export default function EmojisWrapper({
   useEffect(() => {
     const defaultOptions = {
       className: "twemoji",
+      base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
     };
 
     if (rootRef.current) {

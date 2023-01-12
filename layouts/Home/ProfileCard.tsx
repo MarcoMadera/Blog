@@ -19,7 +19,7 @@ export default function Aside(): ReactElement {
               draggable="false"
               className="twemoji-1"
               alt="👋"
-              src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f44b.png"
+              src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"
               width="36"
               height="36"
             />{" "}
