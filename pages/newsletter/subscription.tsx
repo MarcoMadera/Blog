@@ -15,7 +15,7 @@ export default function Subscription(): ReactElement {
               draggable="false"
               className="twemoji"
               alt="🎉"
-              src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f389.png"
+              src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f389.png"
               width="35"
               height="35"
             />

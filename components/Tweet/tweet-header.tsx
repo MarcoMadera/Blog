@@ -58,7 +58,10 @@ export default function TweetHeader({
         <span className="name p-name">
           <span {...getToolTipAttributes(name)}>
             {htmlToReactParser.parse(
-              twemoji.parse(name, { className: "twemoji" })
+              twemoji.parse(name, {
+                className: "twemoji",
+                base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
+              })
             )}{" "}
           </span>
           {verified ? (

@@ -15,7 +15,7 @@ export default function Unsubscription(): ReactElement {
               draggable="false"
               className="twemoji"
               alt="😢"
-              src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f622.png"
+              src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f622.png"
               width="35"
               height="35"
             />

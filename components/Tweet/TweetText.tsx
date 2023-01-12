@@ -31,7 +31,10 @@ export default function TweetText({
   }));
 
   replacedText = htmlToReactParser.parse(
-    twemoji.parse(text, { className: "twemoji" })
+    twemoji.parse(text, {
+      className: "twemoji",
+      base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
+    })
   );
 
   // Match URLs

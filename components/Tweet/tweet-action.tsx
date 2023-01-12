@@ -74,7 +74,10 @@ export default function TweetAction({
           <span className="text">
             Ver otros tweets de{" "}
             {htmlToReactParser.parse(
-              twemoji.parse(name, { className: "twemoji" })
+              twemoji.parse(name, {
+                className: "twemoji",
+                base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
+              })
             )}
           </span>
           <div className="icon icon-chevron" />
