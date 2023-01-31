@@ -118,7 +118,7 @@ export default function Footer(): ReactElement {
             </SocialAnchor>
           </div>
           <div>
-            <span translate="no">Marco Madera &copy; 2020 - 2022</span>
+            <span translate="no">Marco Madera &copy; 2020 - 2023</span>
           </div>
         </div>
       </section>

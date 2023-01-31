@@ -96,8 +96,8 @@ export default function TableOfContents({
         });
       },
       {
-        rootMargin: `0px 0px -${innerHeight - 160}px 0px`,
-        threshold: 1,
+        rootMargin: `0px 0px -${innerHeight - 360}px 0px`,
+        threshold: [0.5, 0.75, 1],
       }
     );
 
