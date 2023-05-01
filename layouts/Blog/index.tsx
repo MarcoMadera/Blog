@@ -23,6 +23,7 @@ import {
 import EmojisWrapper from "components/EmojisWrapper";
 import { PillAction } from "./PillAction";
 import { useDate } from "hooks/useDate";
+import Notes from "components/Notes";
 
 export default function Post({
   title,
@@ -107,7 +108,7 @@ export default function Post({
         </header>
         <TableOfContents headings={headingData} slug={slug} />
         <EmojisWrapper>
-          <div
+          <Notes
             itemProp="articlebody"
             aria-labelledby="articleTitle"
             className="e-content article-content"
@@ -115,7 +116,7 @@ export default function Post({
             <ElementsContextProvider elements={elements}>
               <MarkDown source={content} html={true} type="post" />
             </ElementsContextProvider>
-          </div>
+          </Notes>
         </EmojisWrapper>
         <Hr />
         <BlogFooter
@@ -172,22 +173,20 @@ export default function Post({
           padding: 0 20px;
           margin: 10px auto 50px auto;
         }
-        div {
-          grid-area: body;
-        }
         article > :global(hr) {
           grid-area: hr;
         }
-        .article-content {
+        main :global(.article-content) {
+          grid-area: body;
           max-width: 40rem;
           margin: 2rem auto 0;
         }
-        div :global(h3) {
+        main :global(.article-content h3) {
           font-size: 1.6rem;
           margin-top: 1em;
         }
-        div :global(h2),
-        div :global(h3) {
+        main :global(.article-content h2),
+        main :global(.article-content h3) {
           font-weight: 400;
           letter-spacing: -0.5px;
           color: ${darkMode ? colors.lavaRed : colors.guardsmanRed};

@@ -1,40 +1,37 @@
 import type { SpaceData, TweetData, TweetResponse } from "types/tweet";
 import getSpaceData from "./getSpaceData";
+import {
+  TWITTER_API_BASE_URL,
+  TWITTER_API_GET_PARAMS,
+  TWITTER_API_TOKEN,
+} from "./constants";
 
 export default async function getTweetData(
   id: string,
   options: { ignoreTweet: boolean; hideConversation: boolean }
 ): Promise<TweetData | null> {
-  const API_URL = "https://api.twitter.com";
   const { ignoreTweet = false, hideConversation = false } = options;
 
-  const paramsData = {
-    "tweet.fields":
-      "attachments,entities,created_at,public_metrics,referenced_tweets,author_id,source,text",
-    "user.fields": "username,profile_image_url,verified",
-    "media.fields":
-      "type,url,preview_image_url,media_key,duration_ms,height,width",
-    "poll.fields": "id,voting_status,duration_minutes,end_datetime,options",
-    expansions: "author_id,attachments.media_keys,attachments.poll_ids",
-  };
+  const params = new URLSearchParams(TWITTER_API_GET_PARAMS);
 
-  const params = new URLSearchParams(paramsData);
+  try {
+    const res = await fetch(
+      `${TWITTER_API_BASE_URL}/2/tweets/${id}?${params}`,
+      {
+        method: "GET",
+        headers: {
+          "User-Agent": "v2TweetLookupJS",
+          authorization: `Bearer ${TWITTER_API_TOKEN}`,
+        },
+      }
+    );
 
-  const res = await fetch(`${API_URL}/2/tweets/${id}?${params}`, {
-    method: "GET",
-    headers: {
-      "User-Agent": "v2TweetLookupJS",
-      authorization: `Bearer ${process.env.TWITTER_API_TOKEN}`,
-    },
-  });
+    if (!res.ok) {
+      throw new Error(`Fetch tweet with id: "${id}" failed`);
+    }
 
-  if (!res.ok) {
-    console.error(`Fetch tweet with id: "${id}" failed`);
-    return null;
-  }
-
-  const tweetResponse: TweetResponse = await res.json();
-  if (tweetResponse.data) {
+    const tweetResponse: TweetResponse = await res.json();
+    if (!tweetResponse.data) return null;
     const tweet = tweetResponse.data;
     const media = tweetResponse.includes?.media || null;
     const urls = tweet.entities?.urls || null;
@@ -100,6 +97,8 @@ export default async function getTweetData(
       spaceTweet,
       urlPreview,
     };
+  } catch (err) {
+    console.error(err);
+    return null;
   }
-  return null;
 }

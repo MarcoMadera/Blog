@@ -148,3 +148,6 @@ section[data-footnotes] ol li p {
     transform: rotate(360deg);
   }
 }
+.hidden {
+  display: none;
+}
