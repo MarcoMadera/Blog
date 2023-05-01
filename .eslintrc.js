@@ -13,6 +13,9 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
   ],
+  globals: {
+    jest: true,
+  },
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
