@@ -61,6 +61,7 @@ export default function Document(): ReactElement {
         <div id="notification" />
         <div id="cookiesDialog" />
         <div id="toolTip" />
+        <div id="notes" />
         <div>
           <NextScript />
         </div>

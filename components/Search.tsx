@@ -138,7 +138,7 @@ export default function Search(): ReactElement {
         if (!isTyping && query) {
           setShouldSearch(true);
         }
-      }, 1000);
+      }, 400);
     }
 
     if (!query) {
