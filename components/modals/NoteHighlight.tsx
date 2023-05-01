@@ -25,13 +25,16 @@ export default function NoteHighlight(): ReactPortal | null {
     return null;
   }
   const path = router.asPath.split("#")[0];
-  if (!notes || notes[path].length === 0) return null;
+  if (!notes || !notes?.[path]?.length) return null;
 
   return ReactDOM.createPortal(
     <section>
       {notes[path].map((note) => {
         const startNode = getNode(note.start);
         const endNode = getNode(note.end);
+        if (!startNode || !endNode) {
+          return null;
+        }
         const range = new Range();
         range.setStart(startNode, note.startOffset);
         range.setEnd(endNode, note.endOffset);

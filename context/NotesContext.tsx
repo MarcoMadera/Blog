@@ -29,7 +29,7 @@ export function NotesContextProvider({
   const [notes, setNotes] = useState<Record<path, Note[]> | null>(null);
   const addNote = useCallback(
     (path: string, note: Note) => {
-      const postNotes = notes && notes[path];
+      const postNotes = notes && notes?.[path];
       const isExist = postNotes && postNotes.find((n) => n.id === note.id);
       if (isExist) {
         const noteIndex = postNotes?.findIndex((n) => n.id === note.id);

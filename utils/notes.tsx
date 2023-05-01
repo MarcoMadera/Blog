@@ -15,11 +15,11 @@ export interface Note {
   color: string;
 }
 
-export function getNode(nodeData: NodeData): ChildNode {
-  const parentElement = document.getElementsByTagName(nodeData.parentTagName)[
-    nodeData.tagIndex
-  ];
-  return parentElement.childNodes[nodeData.nodeIndex];
+export function getNode(nodeData: NodeData): ChildNode | null {
+  const parentElement = document.getElementsByTagName(nodeData.parentTagName);
+  if (!parentElement) return null;
+  const node = parentElement?.[nodeData.tagIndex || 0];
+  return node.childNodes[nodeData.nodeIndex || 0];
 }
 
 export function getContainerInfo(container: Node): NodeData | null {
