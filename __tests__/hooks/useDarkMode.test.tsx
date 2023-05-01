@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import useDarkMode from "hooks/useDarkMode";
 import { DarkModeContextProvider } from "context/DarkModeContext";
 import { ReactNode } from "react";
@@ -6,10 +6,14 @@ import { ReactNode } from "react";
 describe("useDarkMode", () => {
   it("throws error if called outside of NotificationsProvider", () => {
     expect.hasAssertions();
-    const { result } = renderHook(() => useDarkMode());
-    expect(result.error).toStrictEqual(
-      Error("useDarkMode must be used within a DarkModeProvider")
-    );
+    console.error = jest.fn();
+    try {
+      renderHook(() => useDarkMode());
+    } catch (error: unknown) {
+      expect((error as Error).message).toBe(
+        "useDarkMode must be used within a DarkModeProvider"
+      );
+    }
   });
 
   it("toggleDarkMode function", () => {

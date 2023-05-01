@@ -80,7 +80,7 @@ export function WebMention({
                     <p>
                       <span>
                         {mention.content?.text.slice(0, 300)}
-                        {(mention.content?.html?.length ?? "") > 300
+                        {(mention.content?.html?.length || 0) > 300
                           ? "..."
                           : null}
                       </span>

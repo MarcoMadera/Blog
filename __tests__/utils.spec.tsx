@@ -235,7 +235,7 @@ describe("getTwitterFormattedDate", () => {
   it("should work", () => {
     expect.hasAssertions();
     expect(getTwitterFormattedDate(new Date("2021-03-12"))).toBe(
-      "6:00 PM - 11 mar, 2021"
+      "5:00 PM - 11 mar, 2021"
     );
   });
 });

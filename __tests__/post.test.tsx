@@ -1,5 +1,9 @@
 import { getPostsFiles, getPostsPages } from "lib/posts";
 
+jest.mock("lib/firebase/admin", () => ({
+  database: jest.fn(),
+}));
+
 describe("getPostsFiles", () => {
   it("should show the file names", async () => {
     expect.hasAssertions();

@@ -1,5 +1,5 @@
 import React, { ReactNode, ReactPortal } from "react";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import useNotification from "hooks/useNotification";
 import { NotificationContextProvider } from "context/NotificationContext";
 import { DarkModeContextProvider } from "context/DarkModeContext";
@@ -21,10 +21,15 @@ describe("hooks/useNotification", () => {
 
   it("throws error if called outside of NotificationsProvider", () => {
     expect.hasAssertions();
-    const { result } = renderHook(() => useNotification());
-    expect(result.error).toStrictEqual(
-      Error("useNotification must be used within a NotificationProvider")
-    );
+    console.error = jest.fn();
+    try {
+      renderHook(() => useNotification());
+    } catch (error: unknown) {
+      expect(error).toBeInstanceOf(Error);
+      expect((error as Error).message).toBe(
+        "useNotification must be used within a NotificationProvider"
+      );
+    }
   });
 
   it("returns context value of NotificationProvider", () => {
@@ -53,7 +58,7 @@ describe("hooks/useNotification", () => {
 
     const { result } = renderHook(() => useNotification(), { wrapper });
 
-    act(() => {
+    await act(async () => {
       result.current.addNotification({
         message: "test",
         variant: "success",
