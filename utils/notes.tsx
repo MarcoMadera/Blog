@@ -83,3 +83,25 @@ export function getSelectionRange(): Range | null {
 
   return range;
 }
+
+export function getNoteRects(note: Note): {
+  rectsArray?: DOMRect[];
+  range?: Range;
+} {
+  try {
+    const startNode = getNode(note.start);
+    const endNode = getNode(note.end);
+    if (!startNode || !endNode) {
+      return {};
+    }
+    const range = new Range();
+    range.setStart(startNode, note.startOffset);
+    range.setEnd(endNode, note.endOffset);
+    const rects = range.getClientRects();
+    const rectsArray = Array.from(rects);
+    return { rectsArray, range };
+  } catch (error) {
+    console.warn(error);
+    return {};
+  }
+}

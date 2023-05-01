@@ -10,6 +10,7 @@ import { ToolTipContextProvider } from "context/ToolTipContext";
 import { PlayerContextProvider } from "context/PlayerContext";
 import { ModalContextProvider } from "context/ModalContext";
 import { NotesContextProvider } from "context/NotesContext";
+import NoteHighlight from "components/modals/NoteHighlight";
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   return (
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
                   <GlobalHead />
                   <Layout>
                     <Component {...pageProps} />
+                    <NoteHighlight />
                   </Layout>
                 </PlayerContextProvider>
               </NotificationContextProvider>

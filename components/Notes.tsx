@@ -9,7 +9,6 @@ import {
   useRef,
 } from "react";
 import NoteButton from "./NoteButton";
-import NoteHighlight from "./modals/NoteHighlight";
 
 const Notes = forwardRef(
   (
@@ -38,7 +37,6 @@ const Notes = forwardRef(
           ref={highlighterRef}
         >
           <NoteButton />
-          <NoteHighlight />
         </div>
       </>
     );

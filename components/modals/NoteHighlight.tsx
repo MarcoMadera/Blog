@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import { ReactPortal, useEffect, useState } from "react";
 import useNotePopups from "hooks/useNotePopups";
 import { useRouter } from "next/router";
-import { getNode } from "utils/notes";
+import { getNoteRects } from "utils/notes";
 import { useModal } from "hooks/useModal";
 import EditNote from "components/EditNote";
 import { H3 } from "components/tags";
@@ -17,31 +17,17 @@ export default function NoteHighlight(): ReactPortal | null {
     setTargetNode(document.querySelector("#notes"));
   }, []);
 
-  if (targetNode === null) {
-    throw new Error("NoteHighlight needs a target element with id: notes");
-  }
-
-  if (targetNode === undefined) {
-    return null;
-  }
   const path = router.asPath.split("#")[0];
-  if (!notes || !notes?.[path]?.length) return null;
+  if (!targetNode || !notes || !notes?.[path]?.length) return null;
 
   return ReactDOM.createPortal(
     <section>
       {notes[path].map((note) => {
-        const startNode = getNode(note.start);
-        const endNode = getNode(note.end);
-        if (!startNode || !endNode) {
-          return null;
-        }
-        const range = new Range();
-        range.setStart(startNode, note.startOffset);
-        range.setEnd(endNode, note.endOffset);
-        const rects = range.getClientRects();
-        const rectsArray = Array.from(rects);
+        const { range, rectsArray } = getNoteRects(note);
+        if (!range || !rectsArray) return null;
 
         function handleClick() {
+          if (!range) return;
           setModalData({
             title: "Editar Nota",
             modalElement: (
@@ -58,10 +44,11 @@ export default function NoteHighlight(): ReactPortal | null {
         }
 
         return rectsArray.map((rect) => {
+          const displayNote = !!(note.title || note.note);
           return (
             <div
               className="container"
-              key={rect.y + rect.x}
+              key={`${note.id}-${rect.x}-${rect.y}`}
               style={{
                 top: rect.y + window.scrollY + "px",
                 left: rect.x + "px",
@@ -78,14 +65,14 @@ export default function NoteHighlight(): ReactPortal | null {
               role="button"
               tabIndex={0}
             >
-              {note.title || note.note ? (
+              {displayNote && (
                 <div className={"helpText"}>
                   <div>
                     <H3>{note.title}</H3>
                     <p>{note.note}</p>
                   </div>
                 </div>
-              ) : null}
+              )}
             </div>
           );
         });
