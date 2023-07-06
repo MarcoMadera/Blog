@@ -64,6 +64,7 @@ export default function NoteHighlight(): ReactPortal | null {
               }}
               role="button"
               tabIndex={0}
+              data-prop-id={note.id}
             >
               {displayNote && (
                 <div className={"helpText"}>

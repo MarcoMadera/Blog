@@ -11,6 +11,31 @@ import { PlayerContextProvider } from "context/PlayerContext";
 import { ModalContextProvider } from "context/ModalContext";
 import { NotesContextProvider } from "context/NotesContext";
 import NoteHighlight from "components/modals/NoteHighlight";
+import { useModal } from "hooks/useModal";
+import ModalContainer from "components/ModalContainer";
+
+function GlobalComponents() {
+  const { modalData, setModalData } = useModal();
+  return (
+    <>
+      <NoteHighlight />
+      {modalData && (
+        <ModalContainer
+          title={modalData.title}
+          setModalData={setModalData}
+          maxHeight={modalData.maxHeight}
+          maxWidth={modalData.maxWidth}
+          minHeight={modalData.minHeight}
+          minWidth={modalData.minWidth}
+          modalRootId={modalData.modalRootId}
+          handleClose={modalData.handleClose}
+        >
+          {modalData.modalElement}
+        </ModalContainer>
+      )}
+    </>
+  );
+}
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   return (
@@ -24,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
                   <GlobalHead />
                   <Layout>
                     <Component {...pageProps} />
-                    <NoteHighlight />
+                    <GlobalComponents />
                   </Layout>
                 </PlayerContextProvider>
               </NotificationContextProvider>

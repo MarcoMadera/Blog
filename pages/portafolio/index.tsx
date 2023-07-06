@@ -34,7 +34,11 @@ function Article({
           height={280}
           blurDataURL={blurDataURL}
           fullImage={{
-            img: { height: fullHeight, width: fullWidth, src: img },
+            img: {
+              height: fullHeight,
+              width: fullWidth,
+              src: img,
+            },
             base64: blurDataURL,
           }}
         />

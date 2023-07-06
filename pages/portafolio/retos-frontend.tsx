@@ -54,7 +54,11 @@ function Challenge({
           alt={title}
           blurDataURL={blurDataURL}
           fullImage={{
-            img: { height: fullHeight, width: fullWidth, src: challengeImg },
+            img: {
+              height: fullHeight,
+              width: fullWidth,
+              src: challengeImg,
+            },
             base64: blurDataURL,
           }}
         />

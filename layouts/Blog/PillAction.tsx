@@ -1,11 +1,14 @@
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { ReactElement, useCallback, useState } from "react";
+import { ReactElement } from "react";
 import { Comment } from "components/icons/Comment";
 import { Share } from "components/icons/Share";
 import { ModalShare } from "./ModalShare";
 import { ModalWebMention } from "./ModalWebMention";
 import { WebMention } from "components/icons/WebMention";
+import { useModal } from "hooks/useModal";
+import NotesModal from "./NotesModal";
+import { Note } from "components/icons/Note";
 
 export function PillAction({
   title,
@@ -15,15 +18,7 @@ export function PillAction({
   slug: string;
 }): ReactElement {
   const { darkMode } = useDarkMode();
-  const [openModal, setOpenModal] = useState(false);
-  const [openWebMentionModal, setOpenWebMentionModal] = useState(false);
-
-  const handleCloseModal = useCallback(() => {
-    setOpenModal(false);
-  }, []);
-  const handleWebMentionCloseModal = useCallback(() => {
-    setOpenWebMentionModal(false);
-  }, []);
+  const { setModalData } = useModal();
 
   return (
     <div className="pillContainer">
@@ -36,7 +31,12 @@ export function PillAction({
       </a>
       <button
         onClick={() => {
-          setOpenModal(true);
+          setModalData({
+            title: "Comparte este post",
+            maxWidth: "800px",
+            minWidth: "500px",
+            modalElement: <ModalShare title={title} slug={slug} />,
+          });
         }}
       >
         <Share
@@ -45,16 +45,14 @@ export function PillAction({
           fill={darkMode ? colors.greyGoose : colors.davyGrey}
         />
       </button>
-      {openModal && (
-        <ModalShare
-          title={title}
-          slug={slug}
-          handleCloseModal={handleCloseModal}
-        />
-      )}
       <button
         onClick={() => {
-          setOpenWebMentionModal(true);
+          setModalData({
+            title: "Menciones",
+            maxWidth: "800px",
+            minWidth: "500px",
+            modalElement: <ModalWebMention title={title} slug={slug} />,
+          });
         }}
       >
         <WebMention
@@ -63,13 +61,22 @@ export function PillAction({
           fill={darkMode ? colors.greyGoose : colors.davyGrey}
         />
       </button>
-      {openWebMentionModal && (
-        <ModalWebMention
-          title={title}
-          slug={slug}
-          handleCloseModal={handleWebMentionCloseModal}
+      <button
+        onClick={() => {
+          setModalData({
+            title: "Tus notas",
+            maxWidth: "800px",
+            minWidth: "500px",
+            modalElement: <NotesModal />,
+          });
+        }}
+      >
+        <Note
+          width={26}
+          height={26}
+          fill={darkMode ? colors.greyGoose : colors.davyGrey}
         />
-      )}
+      </button>
       <style jsx>{`
         .pillContainer {
           display: flex;
