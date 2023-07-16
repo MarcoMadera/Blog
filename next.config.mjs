@@ -144,7 +144,7 @@ const ContentSecurityPolicy = `
   child-src https://lichess.org/ *.youtube-nocookie.com *.google.com *.vimeo.com *.twitter.com *.bitsofco.de *.spotify.com *.firebaseio.com *.firebaseapp.com *.marcomadera.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com *.vimeo.com;
   img-src * blob: data:;
-  media-src 'self' *.cloudinary.com *.scdn.co;
+  media-src 'self' *.cloudinary.com *.scdn.co *.twimg.com;
   connect-src *;
   font-src 'self' fonts.googleapis.com fonts.gstatic.com;
 `;
