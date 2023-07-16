@@ -28,6 +28,7 @@ module.exports = {
   rules: {
     "react/prop-types": 0,
     "prettier/prettier": ["error", { endOfLine: "auto" }],
+    "jsx-a11y/media-has-caption": "off",
     "jsx-a11y/anchor-is-valid": [
       0,
       {
