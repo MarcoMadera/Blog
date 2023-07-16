@@ -8,6 +8,7 @@ import type {
   Elements,
   FullImg,
   ElementId,
+  ImgData,
 } from "types/posts";
 import getTweetData from "utils/getTweetData";
 import codeHighlighter from "utils/codeHighlighter";
@@ -16,6 +17,39 @@ import { ToolTipContextProvider } from "context/ToolTipContext";
 import getSpaceData from "utils/getSpaceData";
 import { getNodeText } from "utils/getNodeText";
 import { NotificationContextProvider } from "context/NotificationContext";
+
+export async function getImagePlaceHolder(
+  src: string
+): Promise<Omit<ImgData, "fullImg">> {
+  const isDev = process.env.NODE_ENV === "development";
+
+  let buffer = null;
+  if (!isDev) {
+    buffer = await fetch(src).then(async (res) =>
+      Buffer.from(await res.arrayBuffer())
+    );
+  }
+
+  function deserialize<T>(value: T): T {
+    return JSON.parse(JSON.stringify(value)) as T;
+  }
+
+  const { base64, metadata } = buffer
+    ? await getPlaiceholder(buffer, {
+        size: 10,
+      })
+    : {
+        base64:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAIAAADzBuo/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVQImSXNOw7CMAwA0GyckFOwcwtGbsKE2Ir4DVwAhJBKoE0tO6kTO3yDENLbn3FASIFj6tBTYI4imkWzakZi40MkQmttKc9SPqUU0QdgAkwUxCBxtd5tV8vF5jiazBqHgP2lxfqGDoLhKEg+M4ynczMY1tfu/bqrSlbhmEzjfrUP8XBuq/3JQQDs/1rwX1uuhqf+VOa4AAAAAElFTkSuQmCC",
+        metadata: {
+          height: 510,
+          width: 510,
+          src,
+        },
+      };
+
+  return { base64, img: { ...deserialize(metadata), src } };
+}
 
 export default async function getElementsData(
   content: string,
@@ -63,25 +97,6 @@ export default async function getElementsData(
       return { id: `${type}:${id}` as ElementId, data };
     })
   );
-
-  async function getImagePlaceHolder(src: string) {
-    const isDev = process.env.NODE_ENV === "development";
-
-    const { base64, img } = isDev
-      ? {
-          base64:
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAIAAADzBuo/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVQImSXNOw7CMAwA0GyckFOwcwtGbsKE2Ir4DVwAhJBKoE0tO6kTO3yDENLbn3FASIFj6tBTYI4imkWzakZi40MkQmttKc9SPqUU0QdgAkwUxCBxtd5tV8vF5jiazBqHgP2lxfqGDoLhKEg+M4ynczMY1tfu/bqrSlbhmEzjfrUP8XBuq/3JQQDs/1rwX1uuhqf+VOa4AAAAAElFTkSuQmCC",
-          img: {
-            height: 510,
-            width: 510,
-            src,
-          },
-        }
-      : await getPlaiceholder(src, {
-          size: 10,
-        });
-    return { base64, img };
-  }
 
   const imagesData = await Promise.all(
     elements.image.map(async ({ normal, full, type, id }) => {

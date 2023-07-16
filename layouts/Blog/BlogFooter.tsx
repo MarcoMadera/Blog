@@ -81,15 +81,13 @@ export default function BlogFooter({
           </Button>
           <Button
             network="Facebook"
-            url={`https://facebook.com/sharer/sharer.php?u=${`${siteMetadata.siteUrl}/blog/${slug}&quote=${title}`}`}
+            url={`https://facebook.com/sharer/sharer.php?u=${siteMetadata.siteUrl}/blog/${slug}&quote=${title}`}
           >
             <FacebookShare width={30} height={30} />
           </Button>
           <Button
             network="LinkedIn"
-            url={`http://www.linkedin.com/shareArticle?mini=true&url=${`${siteMetadata.siteUrl}/blog/${slug}`}&title=${title}&source=${
-              siteMetadata.siteUrl
-            }`}
+            url={`http://www.linkedin.com/shareArticle?mini=true&url=${siteMetadata.siteUrl}/blog/${slug}&title=${title}&source=${siteMetadata.siteUrl}`}
           >
             <LinkedInShare width={30} height={30} />
           </Button>

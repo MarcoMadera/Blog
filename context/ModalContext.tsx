@@ -8,8 +8,6 @@ import {
   useState,
 } from "react";
 
-import ModalContainer from "components/ModalContainer";
-
 const ModalContext = createContext<IModalContext | undefined>(undefined);
 
 export interface IModalContext {
@@ -48,23 +46,7 @@ export function ModalContextProvider({
   );
 
   return (
-    <ModalContext.Provider value={value}>
-      {modalData && (
-        <ModalContainer
-          title={modalData.title}
-          setModalData={setModalData}
-          maxHeight={modalData.maxHeight}
-          maxWidth={modalData.maxWidth}
-          minHeight={modalData.minHeight}
-          minWidth={modalData.minWidth}
-          modalRootId={modalData.modalRootId}
-          handleClose={modalData.handleClose}
-        >
-          {modalData.modalElement}
-        </ModalContainer>
-      )}
-      {children}
-    </ModalContext.Provider>
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );
 }
 

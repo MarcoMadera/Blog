@@ -5,10 +5,10 @@ import slugify from "react-slugify";
 import { siteMetadata } from "../site.config";
 import twemoji from "twemoji";
 import readingTime from "reading-time";
-import { getPlaiceholder } from "plaiceholder";
 import type { AllTags, Pages, Post, PostData } from "types/posts";
 import { database } from "lib/firebase/admin";
 import { IMicroMemories } from "types/microMemories";
+import { getImagePlaceHolder } from "./elementsData";
 
 export function getPostsFiles(): {
   filename: string;
@@ -33,17 +33,9 @@ export async function getSortedPostsData(): Promise<PostData[]> {
 
       const slug = filename.replace(".md", "");
 
-      const isDev = process.env.NODE_ENV === "development";
-
-      const { base64: blurDataURL, img: coverData } = isDev
-        ? {
-            base64:
-              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAIAAADzBuo/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVQImSXNOw7CMAwA0GyckFOwcwtGbsKE2Ir4DVwAhJBKoE0tO6kTO3yDENLbn3FASIFj6tBTYI4imkWzakZi40MkQmttKc9SPqUU0QdgAkwUxCBxtd5tV8vF5jiazBqHgP2lxfqGDoLhKEg+M4ynczMY1tfu/bqrSlbhmEzjfrUP8XBuq/3JQQDs/1rwX1uuhqf+VOa4AAAAAElFTkSuQmCC",
-            img: data.cover,
-          }
-        : await getPlaiceholder(data.cover, {
-            size: 10,
-          });
+      const { base64: blurDataURL, img: coverData } = await getImagePlaceHolder(
+        data.cover
+      );
 
       const date = data.date.toString();
       const title = data.title;

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { TweetData, SpaceData } from "./tweet";
-import { IGetPlaiceholderReturn } from "plaiceholder";
+import { GetPlaiceholderReturn } from "plaiceholder";
 import { IMicroMemories } from "./microMemories";
 export type PostData = {
   readingTimeInMinutes: number;
@@ -18,7 +18,7 @@ export type PostData = {
   description: string;
   summary?: string;
   authorUrl?: string;
-  coverData: IGetPlaiceholderReturn["img"];
+  coverData: Omit<GetPlaiceholderReturn["metadata"], "chromaSubsampling">;
 };
 
 export interface Post extends PostData {
@@ -32,10 +32,7 @@ export interface FullImg {
 }
 export interface ImgData {
   base64: string;
-  img: {
-    height: number;
-    width: number;
-    type?: string;
+  img: Omit<GetPlaiceholderReturn["metadata"], "chromaSubsampling"> & {
     src: string;
   };
   fullImg: FullImg;
