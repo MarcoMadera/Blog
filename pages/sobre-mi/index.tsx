@@ -95,12 +95,15 @@ export default function About({
   }, [trackWithGoogleAnalytics]);
 
   useEffect(() => {
-    const updateNowPlaying = setInterval(() => {
-      if (!topTracks) {
-        reqTopTracks();
-      }
-      reqNowPlaying();
-    }, numberBetweenRange(60000, 90000));
+    const updateNowPlaying = setInterval(
+      () => {
+        if (!topTracks) {
+          reqTopTracks();
+        }
+        reqNowPlaying();
+      },
+      numberBetweenRange(60000, 90000)
+    );
     return () => clearInterval(updateNowPlaying);
   }, [reqNowPlaying, reqTopTracks, topTracks]);
 

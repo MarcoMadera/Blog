@@ -27,7 +27,13 @@ module.exports = {
   plugins: ["react", "jsx-a11y", "prettier", "@typescript-eslint"],
   rules: {
     "react/prop-types": 0,
-    "prettier/prettier": ["error", { endOfLine: "auto" }],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+        trailingComma: "es5",
+      },
+    ],
     "jsx-a11y/media-has-caption": "off",
     "jsx-a11y/anchor-is-valid": [
       0,

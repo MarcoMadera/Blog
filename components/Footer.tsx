@@ -170,7 +170,9 @@ export default function Footer(): ReactElement {
           height: 2px;
           left: 50%;
           position: absolute;
-          transition: width 0.15s ease 0s, left 0.1s ease 0s;
+          transition:
+            width 0.15s ease 0s,
+            left 0.1s ease 0s;
           width: 0;
           margin-top: 15px;
         }

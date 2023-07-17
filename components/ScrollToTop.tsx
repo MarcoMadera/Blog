@@ -126,7 +126,8 @@ export default function ScrollToTop(): ReactElement {
         }
         .radial-progress:before {
           --line-color: ${percent < 95 ? colors.deepCarminPink : "transparent"};
-          background: radial-gradient(
+          background:
+            radial-gradient(
                 farthest-side,
                 var(--line-color) 98%,
                 ${colors.black}

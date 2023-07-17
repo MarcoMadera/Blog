@@ -111,7 +111,13 @@ export function Img({
       <summary
         ref={detailsRef}
         tabIndex={0}
+        role="menuitem"
         onClick={() => setOpenModal(true)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            setOpenModal(true);
+          }
+        }}
         aria-label="Expandir imagen"
         style={
           objectFit === "cover"
