@@ -1,11 +1,59 @@
 import { ReactElement } from "react";
 import { tweets } from "styles/theme";
-import type { TweetData } from "types/tweet";
+import type { TweetData, TweetVideo } from "types/tweet";
 import { Img } from "../tags";
 
 interface MediaProps {
   data: Required<TweetData["media"]>;
   quoted?: boolean;
+}
+
+export const getMp4Video = (
+  media: TweetVideo
+): { type: string; src: string } => {
+  const { variants } = media;
+  const sortedMp4Videos = variants.filter((vid) => vid.type === "video/mp4");
+
+  return sortedMp4Videos[0];
+};
+
+export function TweetVideoComponent({
+  media,
+}: {
+  media: TweetVideo;
+}): ReactElement {
+  const video = getMp4Video(media);
+
+  return (
+    <div
+      key={media.variants[0].src}
+      className="video-wrapper"
+      style={{
+        paddingBottom: `calc(100% / ${
+          media.aspectRatio[0] / media.aspectRatio[1]
+        })`,
+      }}
+    >
+      <video controls poster={media.poster}>
+        <source src={video.src} type={video.type} />
+        Your browser does not support the video tag.
+      </video>
+      <style jsx>{`
+        .video-wrapper {
+          position: relative;
+          width: 100%;
+        }
+        .video-wrapper video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+        }
+      `}</style>
+    </div>
+  );
 }
 
 export function TweetMedia({ data, quoted }: MediaProps): ReactElement {
@@ -28,42 +76,12 @@ export function TweetMedia({ data, quoted }: MediaProps): ReactElement {
             return <Img key={media.url} src={media.url} />;
           }
           if ("videoId" in media && media.variants.length > 0) {
-            return (
-              <div
-                key={media.variants[0].src}
-                className="video-wrapper"
-                style={{
-                  paddingBottom: `calc(100% / ${
-                    media.aspectRatio[0] / media.aspectRatio[1]
-                  })`,
-                }}
-              >
-                <video controls>
-                  <source
-                    src={media.variants[0].src}
-                    type={media.variants[0].type}
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            );
+            return <TweetVideoComponent key={media.videoId.id} media={media} />;
           }
           return null;
         })}
       </div>
       <style jsx>{`
-        .video-wrapper {
-          position: relative;
-          width: 100%;
-        }
-        .video-wrapper video {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: fill;
-        }
         section {
           border-radius: ${quoted ? "0 0 10px 10px" : "10px"};
           overflow: hidden;
@@ -87,7 +105,7 @@ export function TweetMedia({ data, quoted }: MediaProps): ReactElement {
         .mediacontainer :global(details summary) {
           height: 100%;
         }
-        .video-wrapper video,
+        .mediacontainer :global(.video-wrapper video),
         .mediacontainer :global(details summary img) {
           border-radius: 0;
           width: 100%;
@@ -96,7 +114,7 @@ export function TweetMedia({ data, quoted }: MediaProps): ReactElement {
         :global(.repliedTweet .mediacontainer details summary img) {
           border-radius: 10px;
         }
-        .video-wrapper video,
+        .mediacontainer :global(.video-wrapper video),
         .mediacontainer :global(details:nth-of-type(3)) {
           grid-column-end: ${data && data.length === 3 ? "span 2" : "unset"};
         }
