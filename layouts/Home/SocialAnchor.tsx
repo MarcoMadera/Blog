@@ -20,7 +20,7 @@ export function SocialAnchor({
       aria-label={`Página de ${socialNetwork}`}
       title={socialNetwork}
       target="_blank"
-      rel="noopener noreferrer me external"
+      rel="me noopener noreferrer external"
       onClick={() => {
         trackWithGoogleAnalytics(HitType.SOCIAL, {
           socialAction: "click",
