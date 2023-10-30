@@ -59,6 +59,16 @@ export default function HomeLayout({
           <ol>
             {pages.map((pageNumber, i) => {
               const isCurrentPage = pageNumber === currentPage;
+              const relations = [];
+              if (currentPage) {
+                const isPreviousPage = pageNumber === currentPage - 1;
+                const isNextPage = pageNumber === currentPage + 1;
+                if (isPreviousPage) relations.push("prev");
+                if (isNextPage) relations.push("next");
+              }
+
+              const rel = relations.join(" ");
+
               const title = isCurrentPage
                 ? "Página actual"
                 : `Ir a página ${pageNumber}`;
@@ -70,6 +80,7 @@ export default function HomeLayout({
                     href={i === 0 ? "/" : `/pagina/${pageNumber}`}
                     aria-label={title}
                     title={title}
+                    rel={rel}
                     aria-current={isCurrentPage ? "true" : undefined}
                   >
                     {pageNumber}
