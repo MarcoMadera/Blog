@@ -21,67 +21,65 @@ function Article({
   fullWidth,
 }: PropsWithChildren<ArticleProps>): ReactElement {
   return (
-    <>
-      <article>
-        <div>
-          <H2>{title}</H2>
-          {children}
-        </div>
-        <div>
-          <Img
-            src={img}
-            alt={title}
-            blurDataURL={blurDataURL}
-            fullImage={{
-              img: { height: fullHeight, width: fullWidth, src: img },
-              base64: blurDataURL,
-            }}
-          />
-        </div>
-        <style global jsx>{`
+    <article>
+      <div>
+        <H2>{title}</H2>
+        {children}
+      </div>
+      <div>
+        <Img
+          src={img}
+          alt={title}
+          blurDataURL={blurDataURL}
+          fullImage={{
+            img: { height: fullHeight, width: fullWidth, src: img },
+            base64: blurDataURL,
+          }}
+        />
+      </div>
+      <style global jsx>{`
+        main article:nth-child(2n + 3) div:nth-of-type(1) {
+          order: 2;
+        }
+        @media print, screen and (max-width: 876px) {
           main article:nth-child(2n + 3) div:nth-of-type(1) {
-            order: 2;
+            order: unset;
           }
-          @media print, screen and (max-width: 876px) {
-            main article:nth-child(2n + 3) div:nth-of-type(1) {
-              order: unset;
-            }
-          }
-        `}</style>
-        <style jsx>{`
-          div:nth-of-type(1) a {
-            margin-right: 20px;
+        }
+      `}</style>
+      <style jsx>{`
+        div:nth-of-type(1) a {
+          margin-right: 20px;
+        }
+        article {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          margin-top: 40px;
+          margin-bottom: 40px;
+          justify-content: center;
+          align-items: center;
+        }
+        article > div:nth-of-type(2) {
+          padding: 40px;
+        }
+        div:nth-of-type(1) {
+          padding: 40px;
+        }
+        @media print, screen and (max-width: 876px) {
+          article {
+            grid-template-columns: auto;
           }
           article {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            justify-content: center;
-            align-items: center;
+            margin-top: 0px;
+            margin-bottom: 20px;
           }
-          article > div:nth-of-type(2) {
-            padding: 40px;
+          article > div:nth-of-type(2),
+          article > div:nth-of-type(1) {
+            padding: 0px;
           }
-          div:nth-of-type(1) {
-            padding: 40px;
-          }
-          @media print, screen and (max-width: 876px) {
-            article {
-              grid-template-columns: auto;
-            }
-            article {
-              margin-top: 0px;
-              margin-bottom: 20px;
-            }
-            article > div:nth-of-type(2),
-            article > div:nth-of-type(1) {
-              padding: 0px;
-            }
-          }
-        `}</style>
-      </article>
-    </>
+        }
+      `}</style>
+    </article>
   );
 }
 

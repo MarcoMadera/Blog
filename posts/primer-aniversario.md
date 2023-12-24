@@ -63,7 +63,7 @@ En la primera versión usaba como servicio de comentarios a [Disqus](https://dis
 
 Otro elemento del blog de la que me siento conforme son los tweets cargados estáticamente. Esto surgió a partir de que ocupaba tweets en mis posts, pero la opción que ofrece twitter de incrustar tweets es lenta y fea, así que me propuse crear mi propio elemento que solo tome el id y lo muestre, fue un reto divertido crear mi propio componente para incrustar tweets.
 
-<note type="tip">Puedes revisar cómo está hecho el blog visitando el código en el [repositorio](https://github.com/MarcoMadera/Blog "Visitar repositorio del blog")</note>
+<note type="tip" inline>Puedes revisar cómo está hecho el blog visitando el código en el [repositorio](https://github.com/MarcoMadera/Blog "Visitar repositorio del blog")</note>
 
 Algo que agregué y que debo ponerle más atención porque quiero que la gente se involucre es el Newsletter, una parte importante si quiero que me sigan leyendo.
 
@@ -77,6 +77,6 @@ La primera meta está hecha, era lograr 12 publicaciones en un año ni más ni m
 
 Gracias a este blog, tengo las ganas de seguir aprendiendo e investigando nuevas cosas por lo que no tengo intención de soltarlo. Reclutadores y otras personas se han interesado en mí por mantenerlo y eso para mí es una buena señal. En febrero de este año dejé mi actual trabajo, los cuales fueron muy buenos conmigo antes y durante la pandemia, pero posiblemente tome otro rumbo.
 
-<note type="important">Puede que a futuro haya más posts puede que más cortos o no, lo que sí es un hecho es que seguiré mejorando la página, y el primer objetivo es darle otro aspecto a los emails del [Newsletter](https://marcomadera.com/newsletter), por lo que te recomiendo suscribirte.</note>
+<note type="important" inline>Puede que a futuro haya más posts puede que más cortos o no, lo que sí es un hecho es que seguiré mejorando la página, y el primer objetivo es darle otro aspecto a los emails del [Newsletter](https://marcomadera.com/newsletter), por lo que te recomiendo suscribirte.</note>
 
 Déjame un comentario de lo que piensas, no es necesario identificarte, pero mucha gente no lo sabe, o si te gustaría adentrarte más y quieres aportar tu grano de arena eres bienvenido a [contribuir en GitHub](https://github.com/MarcoMadera/Blog).

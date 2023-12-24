@@ -2,12 +2,12 @@ import { formatNumber } from "utils";
 import { tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import twemoji from "twemoji";
-import HtmlToReact from "html-to-react";
 import type { Tweet, User } from "types/tweet";
 import { ReactElement } from "react";
 import { A } from "components/tags";
 import useAnalytics from "hooks/useAnalytics";
 import { HitType } from "types/analytics";
+import { useProcessHTML } from "hooks/useProcessHTML";
 
 interface TweetActionProps {
   name: User["name"];
@@ -28,7 +28,12 @@ export default function TweetAction({
   const isConversation = count > 4;
   const { trackWithGoogleAnalytics } = useAnalytics();
   const { darkMode } = useDarkMode();
-  const htmlToReactParser = HtmlToReact.Parser();
+  const parsedName = useProcessHTML(
+    twemoji.parse(name, {
+      className: "twemoji",
+      base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
+    })
+  );
 
   return (
     <>
@@ -71,15 +76,7 @@ export default function TweetAction({
           }}
         >
           <div className="icon icon-profile" />
-          <span className="text">
-            Ver otros tweets de{" "}
-            {htmlToReactParser.parse(
-              twemoji.parse(name, {
-                className: "twemoji",
-                base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
-              })
-            )}
-          </span>
+          <span className="text">Ver otros tweets de {parsedName}</span>
           <div className="icon icon-chevron" />
         </A>
       )}

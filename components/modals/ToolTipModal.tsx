@@ -70,8 +70,8 @@ export default function ToolTipModal(): ReactPortal | null {
   const left = isDifferentPos
     ? toolTipPos.x
     : !toolTip.coords.x || toolTip.coords.x < 45
-    ? 50
-    : toolTip.coords.x - 30;
+      ? 50
+      : toolTip.coords.x - 30;
 
   const shouldShowToolTip = toolTip.title !== "" && showToolTip;
 

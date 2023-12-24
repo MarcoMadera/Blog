@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactElement } from "react";
+import { PropsWithChildren, ReactElement, useId } from "react";
 
 interface OlUlProps {
   depth?: number;
@@ -6,16 +6,18 @@ interface OlUlProps {
 
 export function Ol({
   children,
-  depth,
   ...attribs
 }: PropsWithChildren<OlUlProps>): ReactElement {
-  const deep = depth ?? 0;
   return (
     <ol {...attribs}>
       {children}
       <style jsx>{`
         ol {
-          margin: ${deep > 0 ? `0 0 0 ${20 * deep}px` : "1em 0"};
+          margin: 1em 0;
+        }
+        ol :global(ol),
+        ol :global(ul) {
+          margin: 0 0 0 0.5em;
         }
       `}</style>
     </ol>
@@ -24,16 +26,18 @@ export function Ol({
 
 export function Ul({
   children,
-  depth,
   ...attribs
 }: PropsWithChildren<OlUlProps>): ReactElement {
-  const deep = depth ?? 0;
   return (
     <ul {...attribs}>
       {children}
       <style jsx>{`
         ul {
-          margin: ${deep > 0 ? "0 0 0 20px" : "1em 0"};
+          margin: 1em 0;
+        }
+        ul :global(ul),
+        ul :global(ol) {
+          margin: 0 0 0 0.5em;
         }
       `}</style>
     </ul>
@@ -50,17 +54,20 @@ export function Li({
   ...attribs
 }: PropsWithChildren<LiProps>): ReactElement {
   const isCheckType = checked !== null;
+  const id = useId();
 
   return (
     <li {...attribs}>
       {checked === true && (
-        <label>
-          <input checked readOnly type="checkbox" />
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+        <label htmlFor={id}>
+          <input checked readOnly type="checkbox" id={id} />
         </label>
       )}
       {checked === false && (
-        <label>
-          <input checked={false} readOnly type="checkbox" />
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+        <label htmlFor={id}>
+          <input checked={false} readOnly type="checkbox" id={id} />
         </label>
       )}
       {children}

@@ -5,8 +5,8 @@ export default function FlexUlList({
 }: PropsWithChildren): ReactElement {
   return (
     <ul>
-      {Children.map(children, (child) => (
-        <li>{child}</li>
+      {Children.map(children, (child, idx) => (
+        <li key={idx}>{child}</li>
       ))}
       <style jsx>{`
         ul {

@@ -6,6 +6,7 @@ import {
   Children,
   isValidElement,
   cloneElement,
+  ReactNode,
 } from "react";
 import twemoji from "twemoji";
 
@@ -16,7 +17,7 @@ interface EmojisWrapperProps {
 export default function EmojisWrapper({
   options,
   children,
-}: PropsWithChildren<EmojisWrapperProps>): ReactElement {
+}: PropsWithChildren<EmojisWrapperProps>): ReactNode {
   const rootRef = createRef<HTMLElement>();
 
   useEffect(() => {
@@ -37,5 +38,5 @@ export default function EmojisWrapper({
     return child;
   });
 
-  return <>{childrenWithRootRef}</>;
+  return childrenWithRootRef;
 }

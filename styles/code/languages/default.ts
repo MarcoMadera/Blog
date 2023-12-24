@@ -1,4 +1,5 @@
 import css from "styled-jsx/css";
+import { colors } from "styles/theme";
 
 export const DARK_THEME = css.global`
   pre {
@@ -90,6 +91,14 @@ export const DARK_THEME = css.global`
     background-color: rgba(127, 127, 127, 0.183);
     border-left: 2px solid #ababab;
     color: #c6c6c6;
+  }
+  pre .code-title {
+    border-bottom: 1px solid #45535d;
+  }
+  pre.shiki .language-id {
+    border: 1px solid #45535d;
+    background: ${colors.cinder};
+    color: rgba(255, 255, 255, 0.7);
   }
 `;
 
@@ -184,6 +193,14 @@ export const LIGHT_THEME = css.global`
     background-color: #f3f3f3;
     border-left: 2px solid #f7f7f7ba;
   }
+  pre .code-title {
+    border-bottom: 1px solid #e1e8ed;
+  }
+  pre.shiki .language-id {
+    border: 1px solid #e1e8ed;
+    background: ${colors.romance};
+    color: rgba(0, 0, 0, 0.7);
+  }
 `;
 
 export const DEFAULT = css.global`
@@ -209,7 +226,32 @@ export const DEFAULT = css.global`
     min-height: 1rem;
   }
   pre.shiki .language-id {
+    position: absolute;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 2px 8px;
+    right: 8px;
+    text-transform: uppercase;
+    top: -11px;
+  }
+  body[data-theme="dark"] pre.shiki.light,
+  body[data-theme="light"] pre.shiki.theme,
+  body[data-theme="dark"] pre.shiki.light ~ *,
+  body[data-theme="light"] pre.shiki.theme ~ * {
     display: none;
+  }
+  body[data-theme="light"] pre.shiki.light,
+  body[data-theme="dark"] pre.shiki.theme {
+    display: block;
+  }
+  pre.shiki.with-title .language-id {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    user-select: none;
   }
   pre.twoslash data-lsp:hover::before {
     content: attr(lsp);
@@ -230,6 +272,13 @@ export const DEFAULT = css.global`
     padding: 0.8rem 0;
     min-height: 78px;
     display: grid;
+    align-items: center;
+  }
+  pre .code-title {
+    padding: 0 12px 0 16px;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    height: 48px;
     align-items: center;
   }
   pre .code-container::-webkit-scrollbar {

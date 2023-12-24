@@ -13,6 +13,6 @@ export interface UseCookies {
     value: string;
     age: number;
   }) => void;
-  deleteCookie: (cookieName: string) => string;
+  deleteCookie: (cookieName: string) => void;
   toggleAcceptedCookies: () => string;
 }

@@ -15,7 +15,7 @@ En una ocasión tuve que usar expresiones regulares para resolver algo muy senci
 
 Una semana después un amigo me avisó que la aplicación no le funcionaba en Safari. Y pues claro yo no sabía cuál podría ser la raíz del problema porque en una semana ya había hecho muchos cambios. Para ponerla en corto era que yo había caído en el error de la compatibilidad, porque Safari no soportaba el _look behind_[^1] `<=` y _look ahead_ `=>` de las expresiones regulares, algo que sí soportaban Google Chrome y Firefox.
 
-[^1]: A la fecha de publicar este post, Safari no soporta la expresión regular `<=` y `=>` (`look behind` y `look ahead`).  Can I use <cite>[Lookbehind in JS regular expressions](https://caniuse.com/js-regexp-lookbehind)</cite>
+[^1]: A la fecha de publicar este post, Safari no soporta la expresión regular `<=` y `=>` (`look behind` y `look ahead`). Can I use <cite>[Lookbehind in JS regular expressions](https://caniuse.com/js-regexp-lookbehind)</cite>
 
 Después de esta experiencia ya no quería usar más expresiones regulares, porque es difícil de entender el significado de algo asi (`/^(.){5}\w?[a-Z|A-Z|0-9]$/ig`), sin experiencia puede parecer abrumador y luego le agregamos una carga más al tener que estar atento qué navegador soporta que cosa.
 
@@ -23,7 +23,7 @@ Lo tenía claro las expresiones regulares no son para mí, ni para muchos, ya qu
 
 <tweet id="1405731639569764359"></tweet>
 
-Pero de vez en cuando te encuentras con un problema que crees que se puede resolver con expresiones regulares y no  que se puede hacer e incluso te preguntas si se puede resolver sin expresiones regulares o no. Al final, las expresiones pueden parecer caracteres absurdos, pero lo tienen, pueden ser muy complejas, pero no son difíciles de entender.
+Pero de vez en cuando te encuentras con un problema que crees que se puede resolver con expresiones regulares y no que se puede hacer e incluso te preguntas si se puede resolver sin expresiones regulares o no. Al final, las expresiones pueden parecer caracteres absurdos, pero lo tienen, pueden ser muy complejas, pero no son difíciles de entender.
 
 ## ¿Qué son las expresiones regulares?
 
@@ -109,7 +109,7 @@ Terminamos con los limitadores que indican el comienzo y el final de líneas y p
 - `^`: Indica el inicio de una cadena de texto, puedes limitar que una cadena empieza con una palabra <code>/<span class="purple">^caso:.\*</span>/ig</code>aplicado selecciona <span class="green">"<span class="purple">caso: 43</span>"</span>, pero no <span class="green">"casa: 43"</span>
 - `$`: Final de una cadena de texto, puedes limitar a cadenas que terminen con <code>/.\*<span class="purple">\\.$</span>/ig</code>, aplicado selecciona <span class="green">"<span class="purple">Fin.</span>"</span>, pero no <span class="green">"Fin"</span>
 
-<note type="tip">Utiliza una herramienta para hacer test de tus expresiones regulares como [regextester](https://www.regextester.com/)</note>
+<note type="tip" inline>Utiliza una herramienta para hacer test de tus expresiones regulares como [regextester](https://www.regextester.com/)</note>
 
 ## Métodos para expresiones regulares
 
@@ -186,9 +186,9 @@ const hitsData = hits?.map((hit) => {
 });
 ```
 
-<note type="danger">El uso del método `exec()` con el _flag_ global recordará el `lastIndex` en la expresión regular, por lo que al usarla de nuevo se pueden obtener resultados inesperados. La razón de por qué funciona con este ejemplo es porque la constante `regularExp` se crea cada vez que un hit es manejado por `map`, lo que crea un problema de performance. Si se define `regularExp` fuera para que no se cree de nuevo es conveniente usar `matchAll` dentro de la función al mapear hits.</note>
+<note type="danger" inline>El uso del método `exec()` con el _flag_ global recordará el `lastIndex` en la expresión regular, por lo que al usarla de nuevo se pueden obtener resultados inesperados. La razón de por qué funciona con este ejemplo es porque la constante `regularExp` se crea cada vez que un hit es manejado por `map`, lo que crea un problema de performance. Si se define `regularExp` fuera para que no se cree de nuevo es conveniente usar `matchAll` dentro de la función al mapear hits.</note>
 
-<note type="tip" title="Ejercicio">Modifica el código para que se pueda usar `exec()` y `matchAll()` para obtener los hits del string.</note>
+<note type="tip" inline title="Ejercicio">Modifica el código para que se pueda usar `exec()` y `matchAll()` para obtener los hits del string.</note>
 
 <note type="success" title="Explicación de la expresión regular">
 

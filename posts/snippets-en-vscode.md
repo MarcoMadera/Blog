@@ -65,7 +65,7 @@ El primer _key_ es el nombre del _snippet_ y dentro de este va un objeto con 3 e
 
 El anterior _snippet_ es el ya visto en la primera sección, expliquemos que pasa en el body: Primero tenemos a `$LINE_COMMENT`, esto es una **variable predefinida por visual studio code**. La sintaxis de estas variables empieza por el símbolo `$`, .
 
-<note type="tip">Gracias a que la variable `$LINE_COMMENT` nos ayuda a poner comentarios sin tener que preocuparnos por el lenguaje, hace que este _snippet_ sea perfecto para el _scope_ global.</note>
+<note type="tip" inline>Gracias a que la variable `$LINE_COMMENT` nos ayuda a poner comentarios sin tener que preocuparnos por el lenguaje, hace que este _snippet_ sea perfecto para el _scope_ global.</note>
 
 El símbolo `$0` es muy importante. **`$0` indica la posición en donde va a acabar nuestro cursor** al seguir pulsando <kbd>tab</kbd>. Si este valor es mayor a 0 irá de manera ascendente hasta llegar al final 0.
 

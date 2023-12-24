@@ -28,6 +28,7 @@ import {
   Caption,
   ALink,
   H3,
+  Iframe,
 } from "../tags";
 import slugify from "react-slugify";
 import useDarkMode from "hooks/useDarkMode";
@@ -36,15 +37,11 @@ import Colors from "../Colors";
 import Font from "../Font";
 import ActionButton from "../ActionButton";
 import {
-  ReactMarkdownProps,
-  SpecialComponents,
-} from "react-markdown/lib/ast-to-react";
-import {
   ReactNode,
   ReactPortal,
-  ClassAttributes,
-  HTMLAttributes,
   ReactElement,
+  Children,
+  isValidElement,
 } from "react";
 import useElementData from "hooks/useElementData";
 import { Element } from "hast";
@@ -52,16 +49,20 @@ import {
   isImgFromCloudProvider,
   replaceUrlImgTransformations,
 } from "utils/cloudProvider";
-import { NormalComponents } from "react-markdown/lib/complex-types";
-import { convertInlineStylesToObject, convertParamsToObject } from "utils";
+import { Components } from "react-markdown";
+import { convertParamsToObject } from "utils";
 import SpaceTweet from "components/Tweet/SpaceTweet";
 import { ElementType } from "types/posts";
 import css from "styled-jsx/css";
 
+type ExtraProps = { node?: Element };
+
 type BasicComponent = (
-  props: ClassAttributes<HTMLElement> &
-    HTMLAttributes<HTMLElement> &
-    ReactMarkdownProps
+  props: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  > &
+    ExtraProps
 ) => ReactNode;
 
 export type CustomComponents = {
@@ -75,7 +76,6 @@ export type CustomComponents = {
   actionanchor: BasicComponent;
   actionbutton: BasicComponent;
   note: BasicComponent;
-  section: BasicComponent;
 };
 
 interface ElementNodes {
@@ -88,70 +88,45 @@ interface ElementNodes {
   meta?: string | number;
 }
 
-export const components:
-  | Partial<
-      Omit<NormalComponents, keyof SpecialComponents> &
-        SpecialComponents &
-        CustomComponents
-    >
-  | undefined = {
-  p: function ParagraphMd({ node, children }) {
+export const components: Partial<Components & CustomComponents> | undefined = {
+  p: function ParagraphMd({ node, children, style }) {
     const allowedChildren = {
       tags: ["dfn", "abbr", "i", "em", "code", "a", "strong", "delete"],
     };
-    const style = node.properties?.style as string;
-    const child = node.children[0] as Element;
-    const tagName = child?.tagName as string;
+    const child =
+      node?.children[0].type === "element" ? node.children[0] : null;
     const shouldBeInParagraph =
-      allowedChildren.tags.includes(tagName) ||
-      node.children[0].type === "text";
-    const { data, ...properties } =
-      (node.properties as
-        | (Element["properties"] & {
-            data: string;
-          })
-        | undefined) || {};
+      allowedChildren.tags.includes(child?.tagName ?? "") ||
+      node?.children[0].type === "text";
+    const { data, ...properties } = node?.properties ?? {};
 
-    const dataObject = convertParamsToObject(data || "");
-
+    const dataObject = convertParamsToObject(data ?? "");
     return shouldBeInParagraph ? (
-      <P
-        {...properties}
-        {...dataObject}
-        style={style ? convertInlineStylesToObject(style) : undefined}
-      >
+      <P {...properties} {...dataObject} style={style}>
         {children}
       </P>
     ) : (
-      <>{children}</>
+      <div>{children}</div>
     );
   },
-  section: function SectionNode({
-    children,
-    node,
-    ...attribs
-  }: {
-    children: ReactNode & ReactNode[];
-    node: Element;
-  }) {
+  section: function SectionNode({ children, className, ...attribs }) {
     let footNotes = 0;
-    const nodes: ElementNodes = node as unknown as ElementNodes;
-    const classNames = nodes.properties?.className as string[] | undefined;
-    if (classNames?.includes("footnotes")) {
-      if (Array.isArray(nodes.children)) {
-        const olElements: ElementNodes["children"] = nodes.children?.filter(
-          (child) => child.tagName === "ol"
-        )[0];
-        if (Array.isArray(olElements?.children)) {
-          const olChildren = olElements?.children?.filter(
-            (child: { type: string } | undefined) => child?.type === "element"
-          );
-          footNotes = olChildren?.length || 0;
-        }
+    if (className?.includes("footnotes")) {
+      const olElement = Children.toArray(children).find(
+        (child) => isValidElement(child) && child.props.node.tagName === "ol"
+      );
+
+      if (isValidElement(olElement)) {
+        const liElements = Children.toArray(olElement.props.children).filter(
+          (child) => isValidElement(child) && child.props.node.tagName === "li"
+        );
+
+        footNotes = liElements.length;
       }
     }
+
     return (
-      <section {...attribs}>
+      <section className={className} {...attribs}>
         {children}
         <style jsx>{`
           section > :global(ol) {
@@ -162,48 +137,55 @@ export const components:
     );
   },
   a: function LinkMd({ children, node, href, ...attribs }) {
+    if (!node) return null;
     const link = href as string;
-    let title =
-      (node.properties?.title as string) ??
-      (node.properties?.ariaLabel as string);
+    let title = node.properties.title ?? node.properties.ariaLabel;
     if (node.properties && "dataFootnoteRef" in node.properties) {
       title = `Ir a la referencia ${children}`;
     }
     const isSelf = link.startsWith("#");
 
+    if (isSelf) {
+      return (
+        <ALink
+          href={link}
+          target="_self"
+          title={title?.toString()}
+          {...attribs}
+        >
+          {children}
+        </ALink>
+      );
+    }
+
     return (
-      <>
-        {isSelf ? (
-          <ALink href={link} target="_self" title={title} {...attribs}>
-            {children}
-          </ALink>
-        ) : (
-          <A
-            target={"_blank"}
-            title={title}
-            rel={"noopener noreferrer"}
-            href={link}
-            {...attribs}
-          >
-            {children}
-          </A>
-        )}
-      </>
+      <A
+        target={"_blank"}
+        title={title?.toString()}
+        rel={"noopener noreferrer"}
+        href={link}
+        {...attribs}
+        ref={undefined}
+      >
+        {children}
+      </A>
     );
   },
   hr: function HorizontalRuleMd() {
     return <Hr />;
   },
   abbr: function AbbreviationMd({ children, node }) {
-    return <Abbr {...node.properties}>{children}</Abbr>;
+    return <Abbr {...node?.properties}>{children}</Abbr>;
   },
   usefont: function UseFont({ node }) {
+    if (!node) return null;
     const src = node.properties?.src as string;
     const name = node.properties?.name as string;
 
     return <Font src={src} name={name} />;
   },
   videogif: function VideoGifNode({ node }) {
+    if (!node) return null;
     return (
       <Video
         src={node.properties?.src as string}
@@ -218,6 +200,7 @@ export const components:
     );
   },
   youtube: function YoutubeVideoNode({ node }) {
+    if (!node) return null;
     const id = node.properties?.id as string;
     const caption = (node.properties?.caption as string) || node.children[0];
     const title = node.properties?.title as string;
@@ -225,13 +208,15 @@ export const components:
     return <Youtube id={id} caption={caption as string} title={title} />;
   },
   input: function InputNode(props) {
-    return <Input type={props.node.type} {...props} />;
+    return <Input type={props.node?.type} {...props} />;
   },
   captione: function CaptionNode({ node, children }) {
+    if (!node) return null;
     const text = node.properties?.text as string;
     return <Caption>{text ?? children}</Caption>;
   },
   tweet: function TweetNode({ node }) {
+    if (!node) return null;
     const hprop = node.properties?.hideconversation;
     const hideConversation = hprop === undefined ? false : hprop !== "false";
     const caption = (node.properties?.caption as string) || node.children[0];
@@ -245,7 +230,7 @@ export const components:
     );
   },
   space: function SpaceNode({ node }) {
-    const id = node.properties?.id as string;
+    const id = node?.properties?.id as string;
     const { data, ignore } = useElementData({
       type: ElementType.SPACE,
       id: id,
@@ -254,15 +239,9 @@ export const components:
     return <SpaceTweet spaceTweet={data} />;
   },
   note: function NoteNode({ node, children }) {
-    const nodes: ElementNodes = node as unknown as ElementNodes;
-    const nodeChildren = nodes.children;
-    const isInline = Array.isArray(nodeChildren)
-      ? nodeChildren[0].value !== "\n"
-      : false;
-    const type = node.properties?.type as unknown as string;
-    const title = node.properties?.title as unknown as string;
+    const inline = typeof node?.properties?.inline === "string";
     return (
-      <Note type={type} isInline={isInline} title={title}>
+      <Note {...node?.properties} inline={inline}>
         {children}
       </Note>
     );
@@ -270,22 +249,25 @@ export const components:
   pre: function PreNode({ children }) {
     return <Pre>{children}</Pre>;
   },
-  colors: function PreNode({ node }) {
-    return <Colors {...node.properties} />;
+  colors: function ColorsNode({ node }) {
+    return <Colors {...node?.properties} />;
   },
   dialog: function DialogNode({ node, children }) {
-    return <Dialog {...node.properties}>{children}</Dialog>;
+    return <Dialog {...node?.properties}>{children}</Dialog>;
   },
   select: function SelectNode({ node, children }) {
-    return <Select {...node.properties}>{children}</Select>;
+    return <Select {...node?.properties}>{children}</Select>;
   },
-  code: function CodeMd({ children, inline, className, node }) {
-    return inline ? (
+  code: function CodeMd({ children, className, node }) {
+    const match = /language-(\w+)/.exec(className ?? "");
+    const dataLang = node?.properties.dataLang;
+    if (!node) return null;
+    return !match && !dataLang ? (
       <InlineCode>{children}</InlineCode>
     ) : (
       <CodeBlock
         language={
-          className?.replace("language-", "") ||
+          className?.replace("language-", "") ??
           (node.properties?.dataLang as string)
         }
         meta={node.properties?.meta as string}
@@ -295,7 +277,7 @@ export const components:
       />
     );
   },
-  blockquote: function BlockQuoteMd({ children, node }: ReactMarkdownProps) {
+  blockquote: function BlockQuoteMd({ children, node }) {
     const nodes: ElementNodes = node as unknown as ElementNodes;
     const nodeChildren = nodes.children;
     const blockData: ElementNodes["children"] = Array.isArray(nodeChildren)
@@ -311,7 +293,7 @@ export const components:
 
     const childrenWithOutSource = blockData.map(
       (data: ElementNodes[], i: number) => {
-        const d = children[1] as unknown as ReactElement;
+        const d = (children as unknown as ReactElement[])[1];
         if (blockData.length - 1 !== i) {
           return data || Array.isArray(d) ? d.props.children[i] : null;
         }
@@ -339,50 +321,59 @@ export const components:
       </Blockquote>
     );
   },
-  ol: function OlNode({ children, depth }) {
-    return <Ol depth={depth}>{children}</Ol>;
+  ol: function OlNode({ children }) {
+    return <Ol>{children}</Ol>;
   },
-  ul: function UlNode({ children, depth }) {
-    return <Ul depth={depth}>{children}</Ul>;
+  ul: function UlNode({ children }) {
+    return <Ul>{children}</Ul>;
   },
-  li: function ListsItemMd({ children, checked, node }) {
-    if (!children || !Array.isArray(children)) return null;
+  li: function ListsItemMd({ children, node }) {
+    if (!children || !node) return null;
+    let checked;
+    Children.forEach(children, (child) => {
+      if (!isValidElement(child)) return;
+      if (child.props.type === "checkbox") {
+        checked = !!child.props.checked;
+      }
+    });
 
     return (
       <Li checked={checked} {...node.properties}>
-        {children.map((el) => {
-          const element = el as ReactPortal;
-          if (element?.props?.type === "checkbox") {
-            return null;
-          }
-          return el;
-        })}
+        {Array.isArray(children)
+          ? children.map((el) => {
+              const element = el as ReactPortal;
+              if (element?.props?.type === "checkbox") {
+                return null;
+              }
+              return el;
+            })
+          : children}
       </Li>
     );
   },
   img: function ImageMD({ node }) {
     const { darkMode } = useDarkMode();
-    const regularImage = node.properties?.src as string | undefined;
-    const darkImage = node.properties?.dark as string | undefined;
-    const lightImage = node.properties?.light as string | undefined;
-    const src = (darkMode ? darkImage : lightImage) || regularImage;
+    const regularImage = node?.properties?.src as string | undefined;
+    const darkImage = node?.properties?.dark as string | undefined;
+    const lightImage = node?.properties?.light as string | undefined;
+    const src = (darkMode ? darkImage : lightImage) ?? regularImage;
 
-    const isFromCloudProvider = isImgFromCloudProvider(src || "");
+    const isFromCloudProvider = isImgFromCloudProvider(src ?? "");
 
     function getFullImage(src: string) {
       return replaceUrlImgTransformations(src, "c_limit");
     }
 
     const { data, ignore } = useElementData({
-      id: node.position?.start.offset?.toString() as string,
+      id: node?.position?.start.offset?.toString() as string,
       type: ElementType.IMAGE,
-      normal: src || "",
+      normal: src ?? "",
       full: {
         darkImage: isFromCloudProvider
-          ? getFullImage(regularImage || darkImage || "")
+          ? getFullImage(regularImage ?? darkImage ?? "")
           : undefined,
         lightImage: isFromCloudProvider
-          ? getFullImage(lightImage || "")
+          ? getFullImage(lightImage ?? "")
           : undefined,
       },
     });
@@ -396,16 +387,16 @@ export const components:
         ? data?.fullImg.lightImage
         : data?.fullImg.darkImage;
 
-    const classNames = node.properties?.className as string[];
-    const properties = node.properties as Element["properties"];
+    const classNames = node?.properties?.className as string[];
+    const properties = node?.properties as Element["properties"];
 
     const shouldIgnore = classNames?.includes("twemoji");
 
     if (shouldIgnore) {
       // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-      return <img {...properties} />;
+      return <img alt="" {...properties} />;
     }
-    if (node.properties?.caption) {
+    if (node?.properties?.caption) {
       return (
         <figure>
           <Img
@@ -435,20 +426,20 @@ export const components:
         width={data?.img.width}
         height={data?.img.height}
         fullImage={fullImage}
-        {...node.properties}
+        {...node?.properties}
       />
     );
   },
   actionanchor: function ActionAnchorNode({ node, children }) {
-    const href = node.properties?.href as string;
+    const href = node?.properties?.href as string;
     return (
-      <ActionButton type="anchor" href={href} {...node.properties}>
+      <ActionButton type="anchor" href={href} {...node?.properties}>
         {children}
       </ActionButton>
     );
   },
   actionbutton: function ActionButtonNode({ node, children }) {
-    return <ActionButton {...node.properties}>{children}</ActionButton>;
+    return <ActionButton {...node?.properties}>{children}</ActionButton>;
   },
   details: function DetailsMd({ children }) {
     return <Details>{children}</Details>;
@@ -458,23 +449,23 @@ export const components:
   },
   td: function TdMd({ style, children, node }) {
     return (
-      <Td style={style} {...node.properties}>
+      <Td style={style} {...node?.properties}>
         {children}
       </Td>
     );
   },
   meter: function MeterMd({ children, node }) {
-    return <Meter {...node.properties}>{children}</Meter>;
+    return <Meter {...node?.properties}>{children}</Meter>;
   },
   kbd: function KbdMd({ children, node }) {
-    return <Kbd {...node.properties}>{children}</Kbd>;
+    return <Kbd {...node?.properties}>{children}</Kbd>;
   },
   progress: function ProgressNode({ node }) {
-    return <Progress {...node.properties} />;
+    return <Progress {...node?.properties} />;
   },
   th: function ThMd({ style, children, node }) {
     return (
-      <Th style={style} {...node.properties}>
+      <Th style={style} {...node?.properties}>
         {children}
       </Th>
     );
@@ -483,7 +474,7 @@ export const components:
     useElementData({
       type: ElementType.HEADING,
       level: 1,
-      id: node.position?.start.offset?.toString() as string,
+      id: node?.position?.start.offset?.toString() as string,
       text: children,
     });
     return <H2>{children}</H2>;
@@ -492,7 +483,7 @@ export const components:
     useElementData({
       type: ElementType.HEADING,
       level: 2,
-      id: node.position?.start.offset?.toString() ?? "ref-2",
+      id: node?.position?.start.offset?.toString() ?? "ref-2",
       text: children,
     });
     return <H2 id={slugify(children)}>{children}</H2>;
@@ -501,7 +492,7 @@ export const components:
     useElementData({
       type: ElementType.HEADING,
       level: 3,
-      id: node.position?.start.offset?.toString() ?? "ref-3",
+      id: node?.position?.start.offset?.toString() ?? "ref-3",
       text: children,
     });
     return <H3 id={slugify(children)}>{children}</H3>;
@@ -510,6 +501,14 @@ export const components:
     const { styles } = css.resolve`
       ${children}
     `;
-    return <>{styles}</>;
+    return styles;
+  },
+  iframe: function IframeNode({ node }) {
+    return (
+      <Iframe
+        {...node?.properties}
+        title={node?.properties?.title as string}
+      ></Iframe>
+    );
   },
 };

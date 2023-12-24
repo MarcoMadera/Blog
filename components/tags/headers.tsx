@@ -1,4 +1,9 @@
-import { PropsWithChildren, ReactElement } from "react";
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactElement,
+} from "react";
 import { ReactNode } from "react";
 
 export function H1({
@@ -23,7 +28,9 @@ export function H1({
 export function H2({
   children,
   ...attribs
-}: PropsWithChildren<Record<string, string | ReactNode[]>>): ReactElement {
+}: PropsWithChildren<
+  DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>
+>): ReactElement {
   return (
     <h2 {...attribs}>
       {children}
@@ -45,7 +52,9 @@ export function H2({
 export function H3({
   children,
   ...attribs
-}: PropsWithChildren<Record<string, string | ReactNode[]>>): ReactElement {
+}: PropsWithChildren<
+  DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>
+>): ReactElement {
   return (
     <h3 {...attribs}>
       {children}

@@ -50,7 +50,7 @@ Primero lo que se necesita es que la página deseada tenga implementada la funci
 - No hay un feedback del usuario.
 - Algunos elementos pueden que no se muestren correctamente a lo esperado.
 
-<note type="info">¡El sitio ya tiene [RSS](https://marcomadera.com/rss.xml)! Te recuerdo que también existe la opción de recibir emails a través del [Newsletter](https://marcomadera.com/newsletter) si no te agrada esta forma de recibir actualizaciones.</note>
+<note type="info" inline>¡El sitio ya tiene [RSS](https://marcomadera.com/rss.xml)! Te recuerdo que también existe la opción de recibir emails a través del [Newsletter](https://marcomadera.com/newsletter) si no te agrada esta forma de recibir actualizaciones.</note>
 
 ## Conclusión
 

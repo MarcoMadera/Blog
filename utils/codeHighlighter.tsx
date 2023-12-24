@@ -8,17 +8,25 @@ import {
   ReactElement,
   JSXElementConstructor,
 } from "react";
-import { ReactMarkdownProps } from "react-markdown/lib/ast-to-react";
-import React, { PropsWithChildren } from "react";
-import { CreateElementLike } from "rehype-react/lib";
+import * as prod from "react/jsx-runtime";
 import shikiTwoslash from "remark-shiki-twoslash";
 import markdownToHtmlAgain from "rehype-raw";
 
 export default async function codeHighlighter(
-  content: ReactNode[],
+  content: ReactNode,
   language?: string,
   meta?: string
 ): Promise<ReactElement<unknown, string | JSXElementConstructor<unknown>>> {
+  const production = {
+    createElement: createElement,
+    // @ts-expect-error: the react types are missing.
+    Fragment: prod.Fragment,
+    // @ts-expect-error: the react types are missing.
+    jsx: prod.jsx,
+    // @ts-expect-error: the react types are missing.
+    jsxs: prod.jsxs,
+  };
+
   const processor = await unified()
     .use(markdown)
     .use([
@@ -26,19 +34,7 @@ export default async function codeHighlighter(
     ])
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(markdownToHtmlAgain)
-    .use(rehype2react, {
-      createElement: createElement as CreateElementLike,
-      components: {
-        code: function CodeNode(props: PropsWithChildren<unknown>) {
-          const { children } = props as ReactMarkdownProps;
-          return (
-            <code {...props} data-lang={language}>
-              {children}
-            </code>
-          );
-        },
-      },
-    })
+    .use(rehype2react, production)
     .process(`~~~${language} ${meta} \n${content}~~~`);
 
   return processor.result as ReactElement<

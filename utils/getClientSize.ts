@@ -10,12 +10,16 @@
  */
 
 export default function getClientSize(
-  width: number,
-  height: number
+  width?: number,
+  height?: number
 ): {
   widthPercent: number;
   heightPercent: number;
 } {
+  if (!width || !height) {
+    return { widthPercent: 100, heightPercent: 100 };
+  }
+
   const screenHeight = window.innerHeight;
   const screenWidth = window.innerWidth;
 

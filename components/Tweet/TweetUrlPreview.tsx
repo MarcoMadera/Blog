@@ -19,6 +19,8 @@ export default function TweetUrlPreview({
     return null;
   }
   const isLargeCard =
+    urlPreview.images[0].width &&
+    urlPreview.images[0].height &&
     urlPreview.images[0].width >= 500 &&
     urlPreview.images[0].width > urlPreview.images[0].height;
 

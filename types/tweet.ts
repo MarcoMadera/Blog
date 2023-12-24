@@ -37,15 +37,15 @@ interface Annotation {
   normalized_text: string;
 }
 export interface Url {
-  start: number;
-  end: number;
+  start?: number;
+  end?: number;
   url: string;
   expanded_url: string;
   display_url: string;
   images?: {
-    url: string;
-    width: number;
-    height: number;
+    url?: string;
+    width?: number;
+    height?: number;
   }[];
   status?: number;
   title?: string;
@@ -338,6 +338,25 @@ export interface TweetPhoto {
   height: number;
 }
 
+interface BindingValuesTypes {
+  boolean_value?: boolean;
+  string_value?: string;
+  scribe_key?: string;
+  image_value?: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  type: string;
+}
+
+export interface TweetCard {
+  card_platform: { platform: BindingValuesTypes };
+  name: string;
+  url: string;
+  binding_values?: Record<string, BindingValuesTypes>;
+}
+
 export interface ITweetSyndicationData extends TweetBase {
   __typename: "Tweet";
   favorite_count: number;
@@ -352,4 +371,5 @@ export interface ITweetSyndicationData extends TweetBase {
   in_reply_to_user_id_str?: string;
   parent?: TweetParent;
   possibly_sensitive?: boolean;
+  card?: TweetCard;
 }

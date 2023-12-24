@@ -1,12 +1,8 @@
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
-import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import { PropsWithChildren, ReactElement } from "react";
 
-interface DetailsProps {
-  children: ReactNode[];
-}
-
-export function Details({ children }: DetailsProps): ReactElement {
+export function Details({ children }: PropsWithChildren): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (

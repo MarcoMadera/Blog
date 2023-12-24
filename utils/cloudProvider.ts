@@ -27,12 +27,21 @@ export function replaceUrlImgTransformations(
 }
 
 export function getImageSizeFromCloudUrl(src: string): {
-  width: string | undefined;
-  height: string | undefined;
+  width: number | undefined;
+  height: number | undefined;
 } {
   const transformations = getTrasnformationsFromUrl(src);
-  const width = transformations.match(/w_(\d+)/)?.[1];
-  const height = transformations.match(/h_(\d+)/)?.[1];
+  const widthMatch = /w_(\d+)/.exec(transformations);
+  const heightMatch = /h_(\d+)/.exec(transformations);
+  const width = widthMatch ? parseInt(widthMatch[1], 10) : undefined;
+  const height = heightMatch ? parseInt(heightMatch[1], 10) : undefined;
+
+  if ((width && isNaN(width)) || (height && isNaN(height))) {
+    return {
+      width: undefined,
+      height: undefined,
+    };
+  }
 
   return {
     width,

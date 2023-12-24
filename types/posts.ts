@@ -84,14 +84,14 @@ interface ElementTweetParams extends DefaultElementParams {
 }
 
 interface ElementCodeBlockParams extends DefaultElementParams {
-  content: ReactNode[];
+  content: ReactNode;
   meta: string;
   language: string;
 }
 
 interface ElementHeadingParams extends DefaultElementParams {
   level: number;
-  text: ReactNode & ReactNode[];
+  text: ReactNode;
 }
 
 interface ElementImageParams extends DefaultElementParams {

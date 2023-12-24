@@ -50,7 +50,7 @@ export default function HomeLayout({
           </div>
           <div className="posts">
             {posts.map((data) => (
-              <BlogCard {...data} key={data.slug} />
+              <BlogCard key={data.slug} {...data} />
             ))}
           </div>
         </div>
