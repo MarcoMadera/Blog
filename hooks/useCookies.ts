@@ -27,8 +27,8 @@ export default function useCookies(): UseCookies {
     []
   );
 
-  const deleteCookie = useCallback((cookieName: string): string => {
-    return (document.cookie = `${cookieName}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax;`);
+  const deleteCookie = useCallback((cookieName: string): void => {
+    document.cookie = `${cookieName}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax;`;
   }, []);
 
   const toggleAcceptedCookies = useCallback(() => {

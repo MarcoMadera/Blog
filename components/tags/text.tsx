@@ -221,14 +221,14 @@ export function Caption({ children }: PropsWithChildren): ReactElement {
 }
 
 interface NoteTypes {
-  type: "success" | "info" | "danger" | "tip" | "important" | string;
+  type?: "success" | "info" | "danger" | "tip" | "important";
   title?: string;
-  isInline: boolean;
+  inline?: boolean;
 }
 export function Note({
   children,
   type = "info",
-  isInline,
+  inline,
   title,
 }: PropsWithChildren<NoteTypes>): ReactElement {
   const { darkMode } = useDarkMode();
@@ -273,11 +273,14 @@ export function Note({
       <div role="note" className={type}>
         <div>
           <P>
-            <strong>{noteTitles[type]}:</strong> {isInline ? children : null}
+            <strong>{noteTitles[type]}:</strong> {inline ? children : null}
           </P>
-          {!isInline ? <>{children}</> : null}
+          {!inline ? children : null}
         </div>
         <style jsx>{`
+          strong :global(svg) {
+            transform: ${inline ? "translate(0px, 2px)" : "none"};
+          }
           div[role="note"] {
             padding: 12px;
             border-radius: 3px 7px 7px 3px;

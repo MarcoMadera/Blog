@@ -124,9 +124,7 @@ export default async function getElementsData(
   const codeBlocksData = await Promise.all(
     elements.codeBlock.map(async ({ id, content, language, type, meta }) => {
       const highlightedCode = await codeHighlighter(content, language, meta);
-      const result = ReactDOMServer.renderToStaticMarkup(
-        <>{highlightedCode}</>
-      );
+      const result = ReactDOMServer.renderToStaticMarkup(highlightedCode);
       const data = { result };
 
       return { id: `${type}:${id}` as ElementId, data };

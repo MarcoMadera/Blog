@@ -161,19 +161,17 @@ export default function RepliedTweet({
               )}
             </A>
             {data.tweet.source ? (
-              <>
-                <A
-                  href={
-                    "https://help.twitter.com/es/using-twitter/how-to-tweet#source-labels"
-                  }
-                  className="source"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  hideToolTip
-                >
-                  {data.tweet.source}
-                </A>
-              </>
+              <A
+                href={
+                  "https://help.twitter.com/es/using-twitter/how-to-tweet#source-labels"
+                }
+                className="source"
+                target="_blank"
+                rel="noopener noreferrer"
+                hideToolTip
+              >
+                {data.tweet.source}
+              </A>
             ) : null}
           </div>
         </div>

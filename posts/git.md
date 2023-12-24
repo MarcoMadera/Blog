@@ -82,7 +82,7 @@ Si nos equivocamos, para **eliminar archivos del _stage_** sin borrarlo de nuest
 
 Para **Ignorar archivos** se crea un archivo `.gitignore` en la raíz del proyecto. Esto hace que todos los archivos que coincidan dentro de `.gitignore` no sean tomados en cuenta para ninguna acción con Git.
 
-<note type="tip">Puedes revisar la [colección de archivos de .gitignore](https://github.com/github/gitignore) para ver ejemplos o usarlos en tus proyectos.</note>
+<note type="tip" inline>Puedes revisar la [colección de archivos de .gitignore](https://github.com/github/gitignore) para ver ejemplos o usarlos en tus proyectos.</note>
 
 Ya teniendo todo lo que queramos para **guardar los archivos** usamos `git commit`. Esto abrirá el editor que definimos en la configuración para poner un mensaje descriptivo o igual lo podemos añadir en la consola con el _flag_ `-m`. Para añadir archivos que ya habían estado en el _stage_ usamos el _flag_ `-am` que es la combinación de `-a --add` y `-m --message`.
 

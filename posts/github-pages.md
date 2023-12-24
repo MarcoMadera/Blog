@@ -12,7 +12,6 @@ tags:
 GitHub Pages[^github-pages] es una herramienta muy útil para publicar sitios web estáticos[^static-site]. Si tienes un repositorio de GitHub con un sitio web estático, puedes utilizar GitHub Pages para alojar tu sitio y hacerlo público en internet.
 
 [^static-site]: Wikipedia contributors. (2023, February 18). The Free Encyclopedia. Retrieved 15:36, January 24, 2022, from <cite>[Página web estática](https://es.wikipedia.org/wiki/P%C3%A1gina_web_est%C3%A1tica)</cite>
-
 [^github-pages]: GitHub Pages | Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live... <cite>[GitHub Pages](https://pages.github.com)</cite>
 
 ## Ventajas y desventajas de GitHub Pages
@@ -34,6 +33,7 @@ GitHub Pages[^github-pages] es una herramienta muy útil para publicar sitios we
 ## Formas de publicar a GitHub Pages
 
 He usado tres formas diferentes de publicar un sitio web con GitHub Pages:
+
 - Creando un branch de gh-pages en el repositorio con los archivos estáticos.
 - Instalando el paquete gh-pages en Node.js que se encarga de publicar los archivos estáticos en el branch de gh-pages.
 - Utilizando GitHub Actions sin necesidad de crear un branch de gh-pages.
@@ -43,15 +43,15 @@ He usado tres formas diferentes de publicar un sitio web con GitHub Pages:
 La forma más sencilla de publicar tu sitio web con GitHub Pages es crear un branch de gh-pages. Para ello, sigue los siguientes pasos:
 
 1. Crea un branch de gh-pages en tu repositorio:
-    ```bash
-    git checkout -b gh-pages
-    ```
+   ```bash
+   git checkout -b gh-pages
+   ```
 2. Asegúrate de que este branch contenga todos los archivos que quieres publicar. Si no es así, súbelos al branch:
-    ```bash
-    git add .
-    git commit -m "Initial commit"
-    git push origin gh-pages
-    ```
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin gh-pages
+   ```
 3. Ve a la página de configuración de GitHub Pages de tu repositorio (_Settings_ > _Pages_).
 4. En la sección _Source_, selecciona el branch de gh-pages y haz clic en _Save_.
 
@@ -62,21 +62,21 @@ La forma más sencilla de publicar tu sitio web con GitHub Pages es crear un bra
 Si prefieres no utilizar un branch de gh-pages, otra forma de publicar tu sitio web con GitHub Pages es utilizando el paquete gh-pages en Node.js. Para ello, sigue los siguientes pasos:
 
 1. Instala el paquete gh-pages en tu proyecto:
-    ```bash
-    npm install gh-pages --save-dev
-    ```
+   ```bash
+   npm install gh-pages --save-dev
+   ```
 2. En el archivo package.json, añade las siguientes líneas:
-    ```json
-    "scripts": {
-      "predeploy": "npm run build",
-      "deploy": "gh-pages -d dist"
-    }
-    ```
-    <note type="important">`dist` es la carpeta que contiene tus archivos estáticos generados por tu proyecto.</note>
+   ```json
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+   <note type="important" inline>`dist` es la carpeta que contiene tus archivos estáticos generados por tu proyecto.</note>
 3. En tu terminal, ejecuta el siguiente comando:
-    ```bash
-    npm run deploy
-    ```
+   ```bash
+   npm run deploy
+   ```
 4. Ve a la página de configuración de GitHub Pages de tu repositorio (_Settings_ > _Pages_)`.
 5. En la sección _Source_, selecciona la opción `gh-pages branch` y haz clic en _Save_.
 
@@ -90,68 +90,68 @@ Finalmente, otra forma de publicar tu sitio web con GitHub Pages es utilizando G
 
 1. Crea un archivo .yml en la carpeta `.github/workflows/` de tu repositorio.
 2. En este archivo, escribe el siguiente código:
-    ```yaml
-    name: Publish Site
 
-    on:
-      push:
-        branches: [ main ]
+   ```yaml
+   name: Publish Site
 
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+   on:
+     push:
+       branches: [ main ]
 
-    concurrency:
-      group: "pages"
-      cancel-in-progress: true
+   permissions:
+     contents: read
+     pages: write
+     id-token: write
 
-    jobs:
-      build:
-        runs-on: ubuntu-latest
+   concurrency:
+     group: "pages"
+     cancel-in-progress: true
 
-        steps:
-          - name: Checkout code
-            uses: actions/checkout@v2
+   jobs:
+     build:
+       runs-on: ubuntu-latest
 
-        - name: Install dependencies
-            run: npm install
-        
-        - name: Build
-            run: npm run build
+       steps:
+         - name: Checkout code
+           uses: actions/checkout@v2
 
-        - name: Upload Pages artifact
-          uses: actions/upload-pages-artifact@v1
-          with:
-            artifact-name: github-pages
-            path: dist
+       - name: Install dependencies
+           run: npm install
 
-      deploy:
-        environment:
-          name: github-pages
-          url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        needs: build
-        steps:
-          - name: Deploy to GitHub Pages
-            id: deployment
-            uses: actions/deploy-pages@v1
-    ```
+       - name: Build
+           run: npm run build
+
+       - name: Upload Pages artifact
+         uses: actions/upload-pages-artifact@v1
+         with:
+           artifact-name: github-pages
+           path: dist
+
+     deploy:
+       environment:
+         name: github-pages
+         url: ${{ steps.deployment.outputs.page_url }}
+       runs-on: ubuntu-latest
+       needs: build
+       steps:
+         - name: Deploy to GitHub Pages
+           id: deployment
+           uses: actions/deploy-pages@v1
+   ```
+
 3. Haz los cambios necesarios para que el archivo se ajuste a tu proyecto y guarda el archivo y haz commit y push a tu repositorio.
 4. Ve a la página de acciones de GitHub (Actions) y espera a que se complete la acción "Publish Site".
 5. ¡Listo! Tu sitio web ya está publicado en la dirección `[usuario].github.io/[repositorio]`.
 
-<note type="info">Podrás ver que de esta forma no hay un branch de gh-pages en tu repositorio. En su lugar, le indicamos que despues de construir el sitio, directamente suba el artefacto y haga deploy en el ambiente de github-pages.</note>
-
+<note type="info" inline>Podrás ver que de esta forma no hay un branch de gh-pages en tu repositorio. En su lugar, le indicamos que despues de construir el sitio, directamente suba el artefacto y haga deploy en el ambiente de github-pages.</note>
 
 ## Publicar al directorio raíz
 
 Si quieres publicar tu sitio web en el directorio raíz de tu usuario de GitHub, puedes hacerlo con un repositorio que se llame `[usuario].github.io`. Para ello, sigue los siguientes pasos:
 
 1. Crea un repositorio con el nombre `[usuario].github.io`.
-2. Añade los archivos estáticos de tu sitio web a este repositorio y haz commit y push. 
+2. Añade los archivos estáticos de tu sitio web a este repositorio y haz commit y push.
 3. Y listo tu sitio web ya está publicado en la dirección `[usuario].github.io`.
-
 
 ## Añadir un dominio personalizado
 
@@ -163,8 +163,8 @@ Si tienes un dominio y quieres añadir un dominio personalizado a tu sitio web, 
 
 ## Conclusión
 
-En este artículo, hemos visto tres formas diferentes de publicar tu sitio web con GitHub Pages. 
+En este artículo, hemos visto tres formas diferentes de publicar tu sitio web con GitHub Pages.
 
-Utilizando un branch de gh-pages, instalando el paquete gh-pages en Node.js o utilizando GitHub Actions. 
+Utilizando un branch de gh-pages, instalando el paquete gh-pages en Node.js o utilizando GitHub Actions.
 
 Cualquiera de estas opciones te permitirá alojar tu sitio web estático de manera gratuita y hacerlo público en internet.

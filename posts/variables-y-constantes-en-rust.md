@@ -92,7 +92,7 @@ fn main() {
 }
 ```
 
-<note>Muy además de permitir que el valor cambie, expresa a los futuros lectores del código al simbolizar que otras partes del código modifican el valor de esta variable.</note>
+<note inline>Muy además de permitir que el valor cambie, expresa a los futuros lectores del código al simbolizar que otras partes del código modifican el valor de esta variable.</note>
 
 ## Variables inmutables vs constantes
 

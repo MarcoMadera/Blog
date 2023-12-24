@@ -22,8 +22,8 @@ interface ViewImageProps {
   src: string;
   title?: string;
   blurDataURL?: string;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   detailsRef: RefObject<HTMLDetailsElement>;
   fullImage?: Omit<ImgData, "fullImg"> | null;
 }
@@ -61,7 +61,6 @@ export default function ViewFullImageModal({
         firstElement?.focus();
         event.preventDefault();
       }
-      return;
     },
     [exitModal, detailsRef]
   );
@@ -85,18 +84,13 @@ export default function ViewFullImageModal({
     return null;
   }
 
-  const imageHeight = fullImage?.img.height ?? 0;
-  const imageWidth = fullImage?.img.width ?? 0;
-
   const { widthPercent, heightPercent } = getClientSize(
-    imageWidth,
-    imageHeight
+    fullImage?.img.height,
+    fullImage?.img.height
   );
 
   function myLoader({ src, width }: { src: string; width: number }) {
-    if (!width) {
-      return src;
-    }
+    if (!width) return src;
 
     return replaceUrlImgTransformations(src, `c_limit,w_${width}`);
   }
@@ -105,7 +99,7 @@ export default function ViewFullImageModal({
     alt,
     fill: true,
     style: { objectFit: "scale-down" },
-    src: fullImage?.img.src || src,
+    src: fullImage?.img.src ?? src,
   };
 
   if (fullImage?.base64 || blurDataURL) {
@@ -135,15 +129,15 @@ export default function ViewFullImageModal({
         <div className="imageContainer">
           {isFromCloudProvider ? (
             // eslint-disable-next-line jsx-a11y/alt-text
-            <Image {...imageProps} {...getToolTipAttributes(title || alt)} />
+            <Image {...imageProps} {...getToolTipAttributes(title ?? alt)} />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               alt={alt}
-              src={fullImage?.img.src || src}
-              width={width ? width : undefined}
-              height={height ? height : undefined}
-              {...getToolTipAttributes(title || alt)}
+              src={fullImage?.img.src ?? src}
+              width={width}
+              height={height}
+              {...getToolTipAttributes(title ?? alt)}
             />
           )}
         </div>

@@ -24,7 +24,7 @@ Dato importante que sacamos de esta definición es que ECMAScript no provee el a
 
 Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos. No se puede decir que son realmente aleatorios, por eso el pseudo. Algunos algoritmos hacen muy bien el trabajo de simular las propiedades de los números aleatorios. Otros caen en el bucle de repetirse infinitamente.
 
-<note type="info">Para que una secuencia de números sea aleatoria, es necesario que tengan una distribución uniforme y que no tengan correlación. Deben de tener la misma probabilidad de ser elegidos y que la elección de uno no dependa del otro.</note>
+<note type="info" inline>Para que una secuencia de números sea aleatoria, es necesario que tengan una distribución uniforme y que no tengan correlación. Deben de tener la misma probabilidad de ser elegidos y que la elección de uno no dependa del otro.</note>
 
 ## Distribución uniforme
 
@@ -92,7 +92,7 @@ Por ahora si tomamos como muestra [esta lista](https://marcomadera.github.io/ass
 
 <image light="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_349,dpr_auto/Blog/1/Graph2_lmzua3.png" dark="https://res.cloudinary.com/marcomadera/image/upload/f_auto,c_scale,w_705,h_347,dpr_auto/Blog/1/Graph2-dark_pyj8ok.png" alt="Gráfica" caption="Muestra generada a partir de Math.Random() en la consola de Google Chrome.">
 
-<note type="tip">Visualmente entre más recta es la línea, más uniforme es. Por lo que a simple vista ya podemos intuir un resultado.</note>
+<note type="tip" inline>Visualmente entre más recta es la línea, más uniforme es. Por lo que a simple vista ya podemos intuir un resultado.</note>
 
 Para corroborar lo que vemos, necesitamos, el valor de chi-cuadrada(x2), los grados de libertad (K) y un nivel de confianza (α).
 

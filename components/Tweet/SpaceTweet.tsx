@@ -11,7 +11,7 @@ export default function SpaceTweet({
   spaceTweet,
 }: {
   spaceTweet: SpaceData | undefined;
-}): ReactElement {
+}): ReactElement | null {
   const { getToolTipAttributes } = useToolTip();
   const { trackWithGoogleAnalytics } = useAnalytics();
   const { date: scheduled_start_date } = useDate(
@@ -19,7 +19,7 @@ export default function SpaceTweet({
   );
   const { date: ended_at_date } = useDate(spaceTweet?.data.ended_at);
   if (!spaceTweet) {
-    return <></>;
+    return null;
   }
   const headerLeftDate = scheduled_start_date || ended_at_date;
   return (
@@ -97,8 +97,8 @@ export default function SpaceTweet({
         {spaceTweet.data.state === "ended"
           ? "Escucha la grabación en twitter"
           : spaceTweet.data.state === "started"
-          ? "Unete a este espacio en twitter"
-          : "Establece un recordatorio en twitter"}
+            ? "Unete a este espacio en twitter"
+            : "Establece un recordatorio en twitter"}
       </a>
       <style jsx>{`
         span,

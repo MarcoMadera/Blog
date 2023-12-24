@@ -23,7 +23,7 @@ export function ThingILike({
       >
         <H3>{title}</H3>
       </a>
-      <>{children}</>
+      {children}
       <style jsx>{`
         div {
           margin-bottom: 60px;

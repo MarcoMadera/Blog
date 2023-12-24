@@ -1,11 +1,11 @@
 import { tweets } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import twemoji from "twemoji";
-import HtmlToReact from "html-to-react";
 import type { User } from "types/tweet";
 import { ReactElement } from "react";
 import { A } from "components/tags";
 import useToolTip from "hooks/useToolTip";
+import { useProcessHTML } from "hooks/useProcessHTML";
 
 interface TweetHeaderProps {
   name: User["name"];
@@ -21,11 +21,16 @@ export default function TweetHeader({
   profile_image_url,
   verified,
   userId,
-}: TweetHeaderProps): ReactElement {
+}: Readonly<TweetHeaderProps>): ReactElement {
   const { darkMode } = useDarkMode();
   const { getToolTipAttributes } = useToolTip();
   const url = `https://twitter.com/${username}`;
-  const htmlToReactParser = HtmlToReact.Parser();
+  const parsedName = useProcessHTML(
+    twemoji.parse(name, {
+      className: "twemoji",
+      base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
+    })
+  );
 
   return (
     <div className="header">
@@ -56,14 +61,7 @@ export default function TweetHeader({
         hideToolTip
       >
         <span className="name p-name">
-          <span {...getToolTipAttributes(name)}>
-            {htmlToReactParser.parse(
-              twemoji.parse(name, {
-                className: "twemoji",
-                base: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/",
-              })
-            )}{" "}
-          </span>
+          <span {...getToolTipAttributes(name)}>{parsedName} </span>
           {verified ? (
             <span
               className="verified"

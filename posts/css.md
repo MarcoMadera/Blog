@@ -388,7 +388,7 @@ Son declaraciones que comienzan con el símbolo arroba `@`.
 `@import` nos permite incluir una hoja de estilos externa, con esto podemos volver a usar nuestros estilos y poder agregar más estilos. El siguiente código importará la fuente Montserrat si se encuentra en un dispositivo de impresión.
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 ```
 
 `@keyframes` — Describe la configuración de pasos intermedios en una secuencia de animación CSS.
@@ -563,7 +563,7 @@ Los siguientes prefijos son los más comunes:
 |   -o-    |            Opera            |
 |   -ms-   | Microsoft Internet Explorer |
 
-<note type="tip">[Can I Use](https://caniuse.com "Can I Use") es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar. Podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.</note>
+<note type="tip" inline>[Can I Use](https://caniuse.com "Can I Use") es una web que nos permite saber si un navegador soporta ciertas características la cual vale la pena explorar. Podemos ver rápidamente el soporte completo, nulo, parcial o con prefijos para una propiedad.</note>
 
 Soporte para la propiedad `hyphens` en distintos navegadores:
 

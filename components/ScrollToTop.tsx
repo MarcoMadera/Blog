@@ -111,8 +111,8 @@ export default function ScrollToTop(): ReactElement {
               ? colors.riverBed
               : colors.platinum
             : darkMode
-            ? colors.ebonyClay
-            : colors.white};
+              ? colors.ebonyClay
+              : colors.white};
           transform: translateY(${hideButton ? "100px" : "0"});
         }
         .scrollToTop__button:hover,
@@ -121,8 +121,8 @@ export default function ScrollToTop(): ReactElement {
           filter: ${percent < 95
             ? "brightness(1.1)"
             : darkMode
-            ? "brightness(1.2)"
-            : "none"};
+              ? "brightness(1.2)"
+              : "none"};
         }
         .radial-progress:before {
           --line-color: ${percent < 95 ? colors.deepCarminPink : "transparent"};
@@ -157,8 +157,8 @@ export default function ScrollToTop(): ReactElement {
                 ? colors.riverBed
                 : colors.platinum
               : darkMode
-              ? addOpacityToHexColor(colors.geyser, 0.1)
-              : colors.greyGoose};
+                ? addOpacityToHexColor(colors.geyser, 0.1)
+                : colors.greyGoose};
         }
         .scrollToTop__button svg {
           fill: ${darkMode ? colors.white : colors.black};

@@ -1,24 +1,20 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { ReactElement, ReactNode } from "react";
+import { PropsWithChildren, ReactElement } from "react";
 import { colors } from "styles/theme";
 import useDarkMode from "hooks/useDarkMode";
 import useRouterEvents from "hooks/useRouterEvents";
 import useLocalStorageState from "hooks/useLocalStorageState";
 import ScrollToTop from "./ScrollToTop";
 import { A } from "./tags";
-import useUpdateCodeBlockTheme from "hooks/useUpdateCodeBlockTheme";
 
 export default function Layout({
   children,
-}: {
-  children: ReactNode;
-}): ReactElement {
+}: Readonly<PropsWithChildren>): ReactElement {
   const { darkMode } = useDarkMode();
 
   useLocalStorageState();
   useRouterEvents();
-  useUpdateCodeBlockTheme();
 
   return (
     <>

@@ -2,7 +2,6 @@ import codeStyles from "styles/codeStyles";
 import { colors } from "styles/theme";
 import { PropsWithChildren, ReactElement, ReactNode, Children } from "react";
 import useDarkMode from "hooks/useDarkMode";
-import HtmlToReact from "html-to-react";
 import useElementData from "hooks/useElementData";
 import { ElementType } from "types/posts";
 import useNotification from "hooks/useNotification";
@@ -10,6 +9,7 @@ import { CopyToClipboard } from "components/icons/CopyToClipboard";
 import useToolTip from "hooks/useToolTip";
 import { getTextChild } from "utils/getTextChild";
 import { DEFAULT } from "styles/code/languages/default";
+import { useProcessHTML } from "hooks/useProcessHTML";
 
 interface InlineCodeProps {
   classname?: string;
@@ -49,7 +49,7 @@ interface SpanProps {
   number: number;
 }
 
-function Span({ number }: SpanProps) {
+function Span({ number }: Readonly<SpanProps>) {
   return <span>{`${number}\n`}</span>;
 }
 
@@ -214,7 +214,7 @@ interface LeftLinesNumbersProps {
 
 export function LeftLinesNumbers({
   lineNumbers,
-}: LeftLinesNumbersProps): ReactElement {
+}: Readonly<LeftLinesNumbersProps>): ReactElement {
   const { darkMode } = useDarkMode();
 
   return (
@@ -239,10 +239,9 @@ export function LeftLinesNumbers({
 }
 
 interface CodeBlockProps {
-  className?: string;
   language: string;
   meta?: string;
-  value: ReactNode[];
+  value: ReactNode;
   mdCode: boolean;
   id: number;
 }
@@ -260,14 +259,13 @@ export function CodeBlock({
     content: value,
     id: id.toString(),
     language,
-    meta: meta || "",
+    meta: meta ?? "",
   });
-
-  if (ignore) {
+  const reactCode = useProcessHTML(data?.result);
+  if (ignore || !value) {
     return null;
   }
-
-  const nodeValue = value[0];
+  const nodeValue = value;
   const code = data?.result as string;
   const classLines = code?.match(/class="line"/g);
   const lines = code?.split("\n");
@@ -275,12 +273,12 @@ export function CodeBlock({
     lines[0] = lines[0].replace("<div>", "");
     lines.pop();
   }
-  const numberOfNewLines = classLines?.length || 0;
+  const numberOfNewLines = classLines?.length ?? 0;
 
   const lineNumbers =
     typeof nodeValue === "string"
       ? Array.from(
-          { length: (nodeValue.match(/\n/g) || "").length },
+          { length: (nodeValue.match(/\n/g) ?? "").length },
           (_, i) => i + 1
         )
       : Array.from({ length: numberOfNewLines }, (_, i) => i + 1);
@@ -292,12 +290,10 @@ export function CodeBlock({
 
   const style = darkMode ? styles.dark["default"] : styles.light["default"];
 
-  const htmlToReactParser = HtmlToReact.Parser();
-
   return (
     <>
       {mdCode && data ? (
-        <code>{htmlToReactParser.parse(code) || " "}</code>
+        <code>{reactCode ?? " "}</code>
       ) : (
         <pre>
           <code data-lang={language}>

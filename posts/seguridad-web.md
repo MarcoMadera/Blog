@@ -60,7 +60,7 @@ Un mal manejo de datos es una vulnerabilidad potencial. Enviar datos que no son 
 }
 ```
 
-<note type="danger">Estos datos en el lado del cliente (_frontend_) pueden ser expuestos para revelar las respuestas correctas.</note>
+<note type="danger" inline>Estos datos en el lado del cliente (_frontend_) pueden ser expuestos para revelar las respuestas correctas.</note>
 
 <note type="tip">
 

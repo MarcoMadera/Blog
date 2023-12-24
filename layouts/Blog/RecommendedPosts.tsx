@@ -18,44 +18,42 @@ export default function RecommendedPosts({
         <Search />
       </section>
       {recommendedPosts.length > 1 && (
-        <>
-          <div>
-            {recommendedPosts.map(
-              ({ slug: recommendedPostSlug, title, cover, coverAlt }, i) => {
-                return (
-                  recommendedPostSlug !== slug &&
-                  i <= 5 && (
-                    <ALink
-                      key={recommendedPostSlug}
-                      title={title}
-                      href={`/blog/${recommendedPostSlug}/`}
-                      rel="bookmark"
-                      className="u-url"
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={
-                          isImgFromCloudProvider(cover)
-                            ? replaceUrlImgTransformations(
-                                cover,
-                                "t_presentation-card"
-                              )
-                            : cover
-                        }
-                        loading="lazy"
-                        alt={coverAlt}
-                        width="560"
-                        height="260"
-                        className="u-photo"
-                      />
-                      <h3 className="p-name entry-title">{title}</h3>
-                    </ALink>
-                  )
-                );
-              }
-            )}
-          </div>
-        </>
+        <div>
+          {recommendedPosts.map(
+            ({ slug: recommendedPostSlug, title, cover, coverAlt }, i) => {
+              return (
+                recommendedPostSlug !== slug &&
+                i <= 5 && (
+                  <ALink
+                    key={recommendedPostSlug}
+                    title={title}
+                    href={`/blog/${recommendedPostSlug}/`}
+                    rel="bookmark"
+                    className="u-url"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={
+                        isImgFromCloudProvider(cover)
+                          ? replaceUrlImgTransformations(
+                              cover,
+                              "t_presentation-card"
+                            )
+                          : cover
+                      }
+                      loading="lazy"
+                      alt={coverAlt}
+                      width="560"
+                      height="260"
+                      className="u-photo"
+                    />
+                    <h3 className="p-name entry-title">{title}</h3>
+                  </ALink>
+                )
+              );
+            }
+          )}
+        </div>
       )}
 
       <style jsx>{`
@@ -71,7 +69,7 @@ export default function RecommendedPosts({
           margin-bottom: 40px;
         }
         div :global(a) {
-          align-items: center;
+          align-items: start;
           display: grid;
           grid-template-rows: 1fr 0.2fr;
           margin: 0;

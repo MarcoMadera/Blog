@@ -1,12 +1,15 @@
 import type {
   ITweetSyndicationData,
   Media,
+  Poll,
   QuotedTweet,
   SpaceData,
   Tweet,
+  TweetCard,
   TweetData,
   TweetResponse,
   TweetVideo,
+  Url,
 } from "types/tweet";
 import getSpaceData from "./getSpaceData";
 import {
@@ -122,6 +125,7 @@ function mapSingleTweet(data: ITweetSyndicationData | QuotedTweet) {
       poll_ids: [],
     },
     entities: {
+      urls: data.entities.urls,
       annotations: [],
       mentions: data.entities.user_mentions,
     },
@@ -129,11 +133,54 @@ function mapSingleTweet(data: ITweetSyndicationData | QuotedTweet) {
   return tweet;
 }
 
+function mapPollData(
+  data: TweetCard["binding_values"],
+  id: string
+): Poll | null {
+  if (!data) return null;
+  const durationMinutes = parseInt(data.duration_minutes?.string_value ?? "0");
+  const endDatetime = data.end_datetime_utc?.string_value ?? "";
+  const votingStatus = data.counts_are_final?.boolean_value ? "closed" : "open";
+
+  const choices = [];
+  let maxChoice = 0;
+
+  for (const key in data) {
+    if (key.startsWith("choice") && key.endsWith("_label")) {
+      const position = parseInt(key.match(/\d+/)?.[0] ?? "0");
+      maxChoice = Math.max(maxChoice, position);
+
+      const labelKey = key;
+      const countKey = key.replace("_label", "_count");
+
+      if (data[labelKey] && data[countKey]) {
+        choices.push({
+          position,
+          label: data[labelKey]?.string_value ?? "",
+          votes: parseInt(data[countKey]?.string_value ?? "0"),
+        });
+      }
+    }
+  }
+
+  choices.sort((a, b) => a.position - b.position);
+
+  return {
+    id,
+    duration_minutes: durationMinutes,
+    end_datetime: endDatetime,
+    voting_status: votingStatus,
+    options: choices,
+  };
+}
+
 async function mapTweetData(data: ITweetSyndicationData, options: IOptions) {
   const { hideConversation } = options;
   const tweet = mapSingleTweet(data);
   let repliedTweet = null;
   let quotedTweet = null;
+  let poll = null;
+  let urlPreview = null;
 
   if (data.quoted_tweet) {
     quotedTweet = await getTweetFromSyndication(data.quoted_tweet.id_str, {
@@ -167,14 +214,34 @@ async function mapTweetData(data: ITweetSyndicationData, options: IOptions) {
     media?.push(data.video);
   }
 
+  if (data.card?.name.startsWith("poll")) {
+    poll = mapPollData(data.card?.binding_values, tweet.id);
+  }
+  if (data.card?.name.startsWith("summary_large_image")) {
+    const url: Url = {
+      display_url:
+        data.card?.binding_values?.vanity_url.string_value ??
+        data.card?.binding_values?.domain.string_value ??
+        "",
+      expanded_url: data.card?.binding_values?.card_url.string_value ?? "",
+      description: data.card?.binding_values?.description.string_value ?? "",
+      url: data.card?.binding_values?.card_url.string_value ?? "",
+      title: data.card?.binding_values?.title.string_value ?? "",
+      images: [
+        data.card?.binding_values?.thumbnail_image_original.image_value ?? {},
+      ],
+    };
+    urlPreview = url;
+  }
+
   const tweetData: TweetData = {
     tweet,
     media: media ?? null,
-    poll: null,
+    poll: poll,
     quotedTweet: quotedTweet,
     repliedTweet: repliedTweet,
     spaceTweet: null,
-    urlPreview: null,
+    urlPreview: urlPreview,
     user: [
       {
         id: tweet.author_id,

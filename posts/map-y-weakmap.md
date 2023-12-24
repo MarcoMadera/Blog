@@ -18,7 +18,11 @@ Los objetos `Map`[^1] son como un tipo de diccionarios en donde nosotros asociam
 [^1]: MDN Web Docs & MDN contributors <cite>[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)</cite>
 
 ```javascript twoslash
-const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+const map = new Map([
+  ["key", "value"],
+  [1, "uno"],
+  [true, "verdadero"],
+]);
 
 console.log(map.get("key"));
 // @log: value
@@ -55,7 +59,11 @@ for ([key, value] of map) {
 Elimina todos los valores asociados al objeto `Map`.
 
 ```javascript twoslash {4,5}
-const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+const map = new Map([
+  ["key", "value"],
+  [1, "uno"],
+  [true, "verdadero"],
+]);
 console.log(map.get("key"));
 // @log: value
 
@@ -69,7 +77,11 @@ console.log(map.get("key"));
 Elimina un valor asociado al objeto `Map`.
 
 ```javascript twoslash {5}
-const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+const map = new Map([
+  ["key", "value"],
+  [1, "uno"],
+  [true, "verdadero"],
+]);
 console.log(map.get("key"));
 // @log: value
 console.log(map.get(1));
@@ -91,7 +103,7 @@ const map = new Map();
 map.set(window, "hey");
 
 map.has(window); // true
-map.has("no");  // false
+map.has("no"); // false
 ```
 
 ### forEach
@@ -99,7 +111,11 @@ map.has("no");  // false
 Permite iterar sobre los valores asociados al objeto map. El método `forEach` recibe una función que recibe dos parámetros: el _key_ y el _value_. El método `forEach` no devuelve ningún valor.
 
 ```javascript twoslash {2}
-const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+const map = new Map([
+  ["key", "value"],
+  [1, "uno"],
+  [true, "verdadero"],
+]);
 map.forEach((value, key) => {
   console.log(key, value);
 });
@@ -123,10 +139,14 @@ Son similares a los objetos `Map` pero con algunas diferencias esenciales:
 
 ```ts twoslash
 // @errors: 2769
-const weakMap = new WeakMap([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+const weakMap = new WeakMap([
+  ["key", "value"],
+  [1, "uno"],
+  [true, "verdadero"],
+]);
 ```
 
-  <colors green lightblue red textcolor blue orange></colors>
+<colors green lightblue red textcolor blue orange></colors>
 
   <pre><code data-lang="Console"><span class="red">Uncaught TypeError: Invalid value used as weak map key</span>
   <span class="red">    at WeakMap.set (&#60;anonymous&#62;)</span>
@@ -164,10 +184,14 @@ console.log(weakMap);
 - Podemos acceder al tamaño de un Map con el método `size`, algo que con los objetos no podemos hacer.
 - La forma en la que podemos iterarlos es diferente.
 
-```ts twoslash {3-5}
+```ts twoslash {3-5} title="example.ts"
 // @noErrors
 // Map
-const map = new Map([["key", "value"], [1, "uno"], [true, "verdadero"]]);
+const map = new Map([
+  ["key", "value"],
+  [1, "uno"],
+  [true, "verdadero"],
+]);
 for (let [key, value] of map) {
   console.log(key, value);
 }
@@ -183,26 +207,34 @@ keys.forEach((key) => {
 for (const key in obj) {
   console.log(key, obj[key]);
 }
-// @annotate: right { "arrowRot": "270deg 0px 36px", "flipped": true, "textDegree": "-12deg", "top": "-2.5rem" } - Typescript se quejaría que le pasé 1 y true como key en lugar de string
+// @annotate: left { "arrowRot": "90deg 0px 36px", "flipped": false, "textDegree": "-13deg", "top": "5rem" } - Typescript se quejaría que le pasé 1 y true como key en lugar de string
 ```
 
 - La forma de eliminar un valor de un Map es mediante el método `delete` y con los objetos mediante el operador delete.
 
 ```ts twoslash {4,10}
 // Map
-const map = new Map([["key", "value"], ["1", "uno"], ["true", "verdadero"]]);
+const map = new Map([
+  ["key", "value"],
+  ["1", "uno"],
+  ["true", "verdadero"],
+]);
 console.log(map.size); // 3
 map.delete("key");
 console.log(map.size); // 2
 
 // Object
-const obj: Record<string, string> = {key: "value", 1: "uno", true: "verdadero"};
+const obj: Record<string, string> = {
+  key: "value",
+  1: "uno",
+  true: "verdadero",
+};
 console.log(Object.keys(obj).length); // 3
 delete obj.key;
 console.log(Object.keys(obj).length); // 2
 ```
 
-<note type="danger">El operador `delete` en varios escenarios puede cambiar la velocidad arbitrariamente, por lo que no es muy recomendable de usar cuando se requiere un buen rendimiento de la aplicación.</note>
+<note type="danger" inline>El operador `delete` en varios escenarios puede cambiar la velocidad arbitrariamente, por lo que no es muy recomendable de usar cuando se requiere un buen rendimiento de la aplicación.</note>
 
 <tweet id="1468129309030244360"></tweet>
 

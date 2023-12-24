@@ -1,7 +1,14 @@
 import Image, { ImageProps } from "next/image";
 import useDarkMode from "hooks/useDarkMode";
 import ViewFullImageModal from "../modals/ViewFullImageModal";
-import { ReactElement, useRef, useState } from "react";
+import {
+  DetailedHTMLProps,
+  IframeHTMLAttributes,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import type { ImgData } from "types/posts";
 import {
   getImageSizeFromCloudUrl,
@@ -30,27 +37,27 @@ export function Img({
   height: heightFromProps,
   fullImage,
   className,
-}: ImgProps): ReactElement | null {
+}: Readonly<ImgProps>): ReactElement | null {
   const [openModal, setOpenModal] = useState(false);
   const { getToolTipAttributes, addToolTip, setShowToolTip } = useToolTip();
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
-  if (!src) {
-    return null;
-  }
+  if (!src) return null;
 
   const isFromCloudProvider = isImgFromCloudProvider(src);
-  const imageSizeFromUrl = getImageSizeFromCloudUrl(src);
+  function getImageSize({ src }: { src: string }) {
+    const imageSizeFromUrl = getImageSizeFromCloudUrl(src) || {};
 
-  const height =
-    heightFromProps ??
-    (imageSizeFromUrl.height ? +imageSizeFromUrl.height : undefined);
-
-  const width =
-    widthFromProps ??
-    (imageSizeFromUrl.width ? +imageSizeFromUrl.width : undefined);
+    const height = heightFromProps ?? imageSizeFromUrl.height;
+    const width = widthFromProps ?? imageSizeFromUrl.height;
+    return {
+      width,
+      height,
+    };
+  }
+  const { width, height } = getImageSize({ src });
   const shouldZoomIn =
-    fullImage && width ? fullImage.img.width - width > 100 : false;
+    fullImage && width ? fullImage.img.width - Number(width) > 100 : false;
 
   const objectFit = width && height ? "none" : "cover";
 
@@ -58,47 +65,63 @@ export function Img({
     setOpenModal(false);
   }
 
-  function imageLoader({ src, width }: { src: string; width: number }) {
-    if (!width) {
-      return src;
-    }
+  function imageLoader({
+    src,
+    width,
+  }: {
+    src: string;
+    width: number | string;
+  }) {
+    if (!width) return src;
 
     return replaceUrlImgTransformations(src, `c_limit,w_${width}`);
   }
 
-  const imageProps: ImageProps = {
-    alt,
-    src: src,
-  };
+  function getImageProps({ src }: { src: string }) {
+    const imageProps: ImageProps = {
+      alt,
+      src,
+    };
 
-  if (blurDataURL) {
-    imageProps.loader = imageLoader;
-    imageProps.placeholder = "blur";
-    imageProps.blurDataURL = blurDataURL;
-    imageProps.width = width;
-    imageProps.height = height;
-  }
+    if (blurDataURL) {
+      imageProps.loader = imageLoader;
+      imageProps.placeholder = "blur";
+      imageProps.blurDataURL = blurDataURL;
+      imageProps.width = Number(width);
+      imageProps.height = Number(height);
+    }
 
-  if (width && height && !blurDataURL) {
-    imageProps.width = width;
-    imageProps.height = height;
-  }
+    if (width && height && !blurDataURL) {
+      imageProps.width = Number(width);
+      imageProps.height = Number(height);
+    }
 
-  if (!width && !height && !blurDataURL) {
-    imageProps.fill = true;
-    imageProps.style = { objectFit: "cover" };
-    imageProps.unoptimized = true;
-    imageProps.loader = ({ src }) => src;
+    if (!width && !height && !blurDataURL) {
+      imageProps.fill = true;
+      imageProps.style = { objectFit: "cover" };
+      imageProps.unoptimized = true;
+      imageProps.loader = ({ src }) => src;
+    }
+
+    return imageProps;
   }
 
   const isImgToTheRight = alt.includes("a la derecha");
   const isImgToTheLeft = alt.includes("a la izquierda");
+  const float = {
+    right: isImgToTheRight,
+    left: isImgToTheLeft,
+    none: true,
+  };
+  const floatStyle = Object.entries(float).find(
+    (entry) => entry[1]
+  )?.[0] as keyof typeof float;
 
   return (
     <details
       onFocus={(e) => {
         addToolTip({
-          title: title || alt,
+          title: title ?? alt,
           coords: {
             x: e.target.getClientRects()[0].left,
             y: e.target.getClientRects()[0].top,
@@ -132,8 +155,8 @@ export function Img({
         {isFromCloudProvider && width && height ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <Image
-            {...imageProps}
-            {...getToolTipAttributes(title || alt)}
+            {...getImageProps({ src })}
+            {...getToolTipAttributes(title ?? alt)}
             className={className}
           />
         ) : (
@@ -143,7 +166,7 @@ export function Img({
             src={src}
             height={height}
             width={width}
-            {...getToolTipAttributes(title || alt)}
+            {...getToolTipAttributes(title ?? alt)}
             className={className}
           />
         )}
@@ -173,11 +196,7 @@ export function Img({
           max-height: 400px;
         }
         details {
-          float: ${isImgToTheRight
-            ? "right"
-            : isImgToTheLeft
-            ? "left"
-            : "none"};
+          float: ${floatStyle};
           margin: ${isImgToTheRight || isImgToTheLeft ? "10px" : "0 auto"};
           max-width: ${isImgToTheRight || isImgToTheLeft ? "45%" : "100%"};
         }
@@ -258,7 +277,7 @@ export function Video({
   light,
   title,
   ...attribs
-}: VideoProps): ReactElement {
+}: Readonly<VideoProps>): ReactElement {
   const { darkMode } = useDarkMode();
   const { getToolTipAttributes } = useToolTip();
 
@@ -284,5 +303,58 @@ export function Video({
         }
       `}</style>
     </video>
+  );
+}
+
+export function Iframe(
+  props: DetailedHTMLProps<
+    IframeHTMLAttributes<HTMLIFrameElement>,
+    HTMLIFrameElement
+  >
+): ReactElement {
+  const [height, setHeight] = useState(props.height);
+  const [element, setElement] = useState<HTMLIFrameElement | null>(null);
+
+  function resize(event: MessageEvent) {
+    if (event.origin !== "https://caniuse.bitsofco.de") return;
+    const data = event.data;
+    const parts = data.split(":");
+
+    if (parts[2]) {
+      setHeight(parts[2]);
+    }
+  }
+
+  useEffect(() => {
+    if (props.src?.startsWith("https://caniuse.bitsofco.de")) {
+      if (element) {
+        element.contentWindow?.postMessage(
+          "resize",
+          "https://caniuse.bitsofco.de"
+        );
+      }
+
+      window.addEventListener("message", resize);
+    }
+
+    return () => {
+      window.removeEventListener("message", resize);
+    };
+  }, [props.src, element]);
+
+  return (
+    <iframe
+      {...props}
+      ref={setElement}
+      title={props.title}
+      height={height}
+      scrolling="no"
+    >
+      <style jsx>{`
+        iframe {
+          overflow: hidden;
+        }
+      `}</style>
+    </iframe>
   );
 }

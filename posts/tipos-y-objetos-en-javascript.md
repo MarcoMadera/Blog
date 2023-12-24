@@ -39,7 +39,7 @@ Lo anterior puede resultar un poco confuso, pero veamos cómo sería el código 
 
 ```ts twoslash
 // @errors: 2542
-let str:string = "yay";
+let str: string = "yay";
 
 // ---cut---
 

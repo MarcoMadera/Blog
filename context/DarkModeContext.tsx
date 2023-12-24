@@ -5,6 +5,7 @@ import {
   ReactNode,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from "react";
 
 interface DarkModeContext {
@@ -20,6 +21,12 @@ export function DarkModeContextProvider({
   children: ReactNode;
 }): ReactElement {
   const [darkMode, setDarkMode] = useState(true);
+
+  useEffect(() => {
+    const theme = darkMode ? "dark" : "light";
+
+    document.body.dataset.theme = theme;
+  }, [darkMode]);
 
   return (
     <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>

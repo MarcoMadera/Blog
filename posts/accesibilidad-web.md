@@ -95,7 +95,7 @@ Usar el atributo `alt` en las imágenes le ayuda a los lectores de pantalla al m
 />
 ```
 
-<note type="info">Otro aprovechamiento de accesibilidad con las imágenes puede ser tal y como se usa en este sitio web, al darle clic a una imagen se muestra una de mayor tamaño.</note>
+<note type="info" inline>Otro aprovechamiento de accesibilidad con las imágenes puede ser tal y como se usa en este sitio web, al darle clic a una imagen se muestra una de mayor tamaño.</note>
 
 ### Uso de scope en tablas
 
@@ -216,8 +216,8 @@ Podemos añadir acciones con el teclado escuchando las teclas. [Guía de código
 Existen teclas intuitivas como por ejemplo al entrar en modales y salir con la tecla <kbd>esc</kbd>. Esto añade una característica más a nuestro sitio.
 
 ```typescript twoslash
-function togglePlay() {};
-function mute() {};
+function togglePlay() {}
+function mute() {}
 // ---cut---
 const listenKeys = (e: KeyboardEvent) => {
   switch (e.keyCode) {
@@ -235,8 +235,8 @@ const listenKeys = (e: KeyboardEvent) => {
 document.body.addEventListener("keyup", (e) => listenKeys(e));
 ```
 
-<note type="danger">El uso de KeyboardEvent.keyCode está deprecado[^keyboard] y puede dejar de funcionar en un futuro, usar KeyboardEvent.key en su lugar</note>
-  
+<note type="danger" inline>El uso de KeyboardEvent.keyCode está deprecado[^keyboard] y puede dejar de funcionar en un futuro, usar KeyboardEvent.key en su lugar</note>
+
 [^keyboard]: MDN Web Docs & MDN contributors <cite>[KeyboardEvent.keyCode](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)</cite>
 
 ## Test de accesibilidad
