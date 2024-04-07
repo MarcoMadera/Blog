@@ -220,15 +220,15 @@ async function mapTweetData(data: ITweetSyndicationData, options: IOptions) {
   if (data.card?.name.startsWith("summary_large_image")) {
     const url: Url = {
       display_url:
-        data.card?.binding_values?.vanity_url.string_value ??
-        data.card?.binding_values?.domain.string_value ??
+        data.card?.binding_values?.vanity_url?.string_value ??
+        data.card?.binding_values?.domain?.string_value ??
         "",
       expanded_url: data.card?.binding_values?.card_url.string_value ?? "",
       description: data.card?.binding_values?.description.string_value ?? "",
-      url: data.card?.binding_values?.card_url.string_value ?? "",
-      title: data.card?.binding_values?.title.string_value ?? "",
+      url: data.card?.binding_values?.card_url?.string_value ?? "",
+      title: data.card?.binding_values?.title?.string_value ?? "",
       images: [
-        data.card?.binding_values?.thumbnail_image_original.image_value ?? {},
+        data.card?.binding_values?.thumbnail_image_original?.image_value ?? {},
       ],
     };
     urlPreview = url;
