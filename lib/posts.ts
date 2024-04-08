@@ -105,7 +105,9 @@ export async function getSortedPostsData({
       if (filterByTags) {
         const filteredPosts = postsData.filter(({ tags }) => {
           if (Array.isArray(tags)) {
-            return tags.some((tag) => filterByTags.includes(slugify(tag)));
+            return tags.some((tag) =>
+              filterByTags.map((tag) => slugify(tag)).includes(slugify(tag))
+            );
           }
           return false;
         });
