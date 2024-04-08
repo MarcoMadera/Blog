@@ -10,9 +10,20 @@ import { database } from "lib/firebase/admin";
 import { IMicroMemories } from "types/microMemories";
 import { getImagePlaceHolder } from "./elementsData";
 
-export function getPostsFiles(): {
+export function getPostsFiles({ singlePost }: { singlePost?: string } = {}): {
   filename: string;
 }[] {
+  if (singlePost) {
+    const post = readdirSync(`${process.cwd()}/posts`).find(
+      (file) => file === `${singlePost}.md`
+    );
+
+    if (post) {
+      return [{ filename: post }];
+    }
+    return [];
+  }
+
   // Get all posts Files located in `posts`
   const postsFiles = readdirSync(`${process.cwd()}/posts`).map((file) => ({
     filename: `${file}`,
@@ -20,8 +31,22 @@ export function getPostsFiles(): {
   return postsFiles;
 }
 
-export async function getSortedPostsData(): Promise<PostData[]> {
-  const postsFiles = getPostsFiles();
+export async function getSortedPostsData({
+  start,
+  end,
+  includeImage,
+  sort,
+  filterByTags,
+  singlePost,
+}: {
+  start?: number;
+  end?: number;
+  includeImage?: boolean;
+  sort?: boolean;
+  filterByTags?: string[];
+  singlePost?: string;
+} = {}): Promise<PostData[]> {
+  const postsFiles = getPostsFiles({ singlePost });
 
   const sortedPosts = Promise.all(
     postsFiles.map(async ({ filename }) => {
@@ -32,10 +57,6 @@ export async function getSortedPostsData(): Promise<PostData[]> {
       const { data, content } = matter(markdownWithMetadata);
 
       const slug = filename.replace(".md", "");
-
-      const { base64: blurDataURL, img: coverData } = await getImagePlaceHolder(
-        data.cover
-      );
 
       const date = data.date.toString();
       const title = data.title;
@@ -57,22 +78,53 @@ export async function getSortedPostsData(): Promise<PostData[]> {
         slug,
         cover,
         coverAlt,
-        blurDataURL,
-        content,
+        blurDataURL: "",
+        content: singlePost ? content : "",
         author,
         profilePhoto,
         twitter,
         description,
         summary,
-        coverData,
+        coverData: {
+          width: 0,
+          height: 0,
+        },
         authorUrl,
       };
     })
-  ).then((postsData) =>
-    postsData.sort(
-      (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
-    )
-  );
+  )
+    .then((postsData) => {
+      if (sort) {
+        return postsData.toSorted(
+          (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+        );
+      }
+      return postsData;
+    })
+    .then((postsData) => {
+      if (filterByTags) {
+        const filteredPosts = postsData.filter(({ tags }) => {
+          if (Array.isArray(tags)) {
+            return tags.some((tag) => filterByTags.includes(slugify(tag)));
+          }
+          return false;
+        });
+        return filteredPosts;
+      }
+      return postsData;
+    })
+    .then((sortedPosts) => {
+      return sortedPosts.slice(start, end).map(async (post) => {
+        if (!includeImage) {
+          return post;
+        }
+
+        const { base64: blurDataURL, img: coverData } =
+          await getImagePlaceHolder(post.cover);
+        return { ...post, blurDataURL, coverData };
+      });
+    })
+    .then((sortedPosts) => Promise.all(sortedPosts));
   return sortedPosts;
 }
 
@@ -95,17 +147,25 @@ export async function getTagsSlugs(): Promise<
 }
 
 export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
-  const posts = await getSortedPostsData();
+  const posts = await getSortedPostsData({
+    includeImage: true,
+    singlePost: slug,
+  });
 
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
 
   const currentPost = posts[postIndex];
 
-  const recommendedPosts = posts
-    .filter(({ tags }) => tags.some((tag) => currentPost.tags.includes(tag)))
-    .map(({ title, cover, slug, coverAlt }) => {
+  const recommendedPostsRaw = await getSortedPostsData({
+    includeImage: false,
+    filterByTags: currentPost.tags,
+  });
+
+  const recommendedPosts = recommendedPostsRaw.map(
+    ({ title, cover, slug, coverAlt }) => {
       return { title, cover, slug, coverAlt };
-    });
+    }
+  );
 
   return {
     date: currentPost.date,
@@ -181,15 +241,11 @@ interface HomeDataFromPage {
   posts: Posts;
   pages: Pages;
   allTags: AllTags;
-  microMemories: IMicroMemories;
+  microMemories: IMicroMemories | null;
 }
 
-export async function getHomeDataFromPage(
-  number: number
-): Promise<HomeDataFromPage> {
-  const allPosts = await getSortedPostsData();
-  const indexOfLastPost = number * siteMetadata.postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - siteMetadata.postsPerPage;
+async function getMicroMemories(number: number) {
+  if (number !== 1) return null;
   const { microMemoriesPerPage } = siteMetadata;
   const ref = database.ref("micromemories/memory");
   const snapshot = await ref.limitToLast(microMemoriesPerPage).get();
@@ -202,8 +258,30 @@ export async function getHomeDataFromPage(
     microMemories.items.unshift(snap.val());
   });
 
+  return microMemories;
+}
+
+export async function getHomeDataFromPage(
+  number: number
+): Promise<HomeDataFromPage> {
+  const indexOfLastPost = number * siteMetadata.postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - siteMetadata.postsPerPage;
+  const homePagePostsWithData = await getSortedPostsData({
+    start: indexOfFirstPost,
+    end: indexOfLastPost,
+    includeImage: true,
+    sort: true,
+  });
+
+  const allPosts = await getSortedPostsData({
+    includeImage: false,
+    sort: true,
+  });
+
+  const microMemories = await getMicroMemories(number);
+
   return {
-    posts: allPosts.slice(indexOfFirstPost, indexOfLastPost).map((post) => ({
+    posts: homePagePostsWithData.map((post) => ({
       tags: post.tags,
       author: post.author,
       cover: post.cover,
@@ -229,24 +307,19 @@ export async function getTagData(slug: PostData["slug"]): Promise<{
   posts: Posts;
   allTags: AllTags;
 }> {
-  const allPosts = await getSortedPostsData();
+  const posts = await getSortedPostsData({
+    filterByTags: [slug],
+    sort: true,
+    includeImage: true,
+  });
+
+  const allPosts = await getSortedPostsData({
+    includeImage: false,
+    sort: true,
+  });
+
   return {
-    posts: allPosts
-      .filter(({ tags }) => slugify(tags).includes(slug))
-      .map((post) => ({
-        tags: post.tags,
-        author: post.author,
-        authorUrl: post.authorUrl,
-        cover: post.cover,
-        coverAlt: post.coverAlt,
-        date: post.date,
-        description: post.description,
-        slug: post.slug,
-        title: post.title,
-        readingTimeInMinutes: post.readingTimeInMinutes,
-        blurDataURL: post.blurDataURL,
-        coverData: post.coverData,
-      })),
+    posts,
     allTags: [...new Set(allPosts.flatMap(({ tags }) => tags))],
   };
 }
