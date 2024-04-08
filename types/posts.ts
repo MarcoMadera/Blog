@@ -72,7 +72,7 @@ export interface HomeData {
   pages: Pages;
   currentPage?: CurrentPage;
   tag?: string;
-  microMemories?: IMicroMemories;
+  microMemories?: IMicroMemories | null;
 }
 
 interface DefaultElementParams {
