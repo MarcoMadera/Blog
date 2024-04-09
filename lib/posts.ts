@@ -10,20 +10,9 @@ import { database } from "lib/firebase/admin";
 import { IMicroMemories } from "types/microMemories";
 import { getImagePlaceHolder } from "./elementsData";
 
-export function getPostsFiles({ singlePost }: { singlePost?: string } = {}): {
+export function getPostsFiles(): {
   filename: string;
 }[] {
-  if (singlePost) {
-    const post = readdirSync(`${process.cwd()}/posts`).find(
-      (file) => file === `${singlePost}.md`
-    );
-
-    if (post) {
-      return [{ filename: post }];
-    }
-    return [];
-  }
-
   // Get all posts Files located in `posts`
   const postsFiles = readdirSync(`${process.cwd()}/posts`).map((file) => ({
     filename: `${file}`,
@@ -46,7 +35,7 @@ export async function getSortedPostsData({
   filterByTags?: string[];
   singlePost?: string;
 } = {}): Promise<PostData[]> {
-  const postsFiles = getPostsFiles({ singlePost });
+  const postsFiles = getPostsFiles();
 
   const sortedPosts = Promise.all(
     postsFiles.map(async ({ filename }) => {
@@ -70,6 +59,8 @@ export async function getSortedPostsData({
       const summary = data.summary || null;
       const description = data.description;
 
+      const isSinglePost = singlePost === slug;
+
       return {
         readingTimeInMinutes: Math.ceil(readingTime(content).minutes),
         date,
@@ -79,7 +70,7 @@ export async function getSortedPostsData({
         cover,
         coverAlt,
         blurDataURL: "",
-        content: singlePost ? content : "",
+        content: isSinglePost ? content : "",
         author,
         profilePhoto,
         twitter,
@@ -117,7 +108,8 @@ export async function getSortedPostsData({
     })
     .then((sortedPosts) => {
       return sortedPosts.slice(start, end).map(async (post) => {
-        if (!includeImage) {
+        const isThisSinglePost = singlePost && singlePost !== post.slug;
+        if (!includeImage || isThisSinglePost) {
           return post;
         }
 
