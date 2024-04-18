@@ -144,6 +144,7 @@ export async function getPostBySlug(slug: PostData["slug"]): Promise<Post> {
   const posts = await getSortedPostsData({
     includeImage: true,
     singlePost: slug,
+    sort: true,
   });
 
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === slug);
