@@ -85,7 +85,7 @@ export default function ViewFullImageModal({
   }
 
   const { widthPercent, heightPercent } = getClientSize(
-    fullImage?.img.height,
+    fullImage?.img.width,
     fullImage?.img.height
   );
 
