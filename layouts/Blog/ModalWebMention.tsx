@@ -125,7 +125,7 @@ export function ModalWebMention({
           display: flex;
           flex-direction: column;
           gap: 1rem;
-          max-height: calc(100vh - 300px);
+          max-height: calc(80vh - 246px);
           overflow-y: auto;
           padding: 20px;
         }
