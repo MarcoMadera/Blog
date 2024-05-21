@@ -155,6 +155,12 @@ function Modal({
         button:active {
           background-color: hsla(0, 0%, 100%, 0.2);
         }
+
+        @media (max-width: 768px) {
+          .modal {
+            width: calc(100vw - 32px);
+          }
+        }
       `}</style>
     </div>
   );
