@@ -137,7 +137,7 @@ export function Dialog({
 export function Hr(
   props: PropsWithChildren<
     DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement>
-  >,
+  >
 ): ReactElement {
   const { darkMode } = useDarkMode();
   return (
