@@ -11,7 +11,6 @@ import {
 import { noteStyles } from "../../styles/components/noteStyles";
 import { Bulb, Info, Alert, Star, Check } from "components/icons";
 import useToolTip from "hooks/useToolTip";
-import { addOpacityToHexColor } from "utils/addOpacityToHexColor";
 
 interface Text {
   children: ReactNode;
@@ -138,7 +137,7 @@ export function Dialog({
 export function Hr(
   props: PropsWithChildren<
     DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement>
-  >
+  >,
 ): ReactElement {
   const { darkMode } = useDarkMode();
   return (
@@ -287,9 +286,7 @@ export function Note({
             width: 100%;
             margin: 16px 0;
             color: inherit;
-            background: ${darkMode
-              ? addOpacityToHexColor(colors.catskillWhite, 0.15)
-              : colors.whiteSmoke};
+            background: ${darkMode ? "#8282922f" : colors.whiteSmoke};
           }
           div[role="note"] :global(svg.note-icon) {
             display: inline-block;
