@@ -29,7 +29,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "0.9.0",
     "firebase": "10.13.1",
-    "firebase-admin": "12.4.0",
+    "firebase-admin": "12.5.0",
     "gray-matter": "4.0.3",
     "nanoid": "5.0.7",
     "next": "14.2.10",
