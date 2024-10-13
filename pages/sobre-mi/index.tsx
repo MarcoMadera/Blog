@@ -9,6 +9,7 @@ import useAnalytics from "hooks/useAnalytics";
 import { ApiError } from "next/dist/server/api-utils";
 import { HitType } from "types/analytics";
 import { getTVShows } from "utils/getTvShows";
+import { fetchWithTimeout } from "utils/fetchWithTimeout";
 
 interface AboutProps {
   nowPlaying: NowPlaying | null;
@@ -33,7 +34,7 @@ export default function About({
   tvShows,
   chess,
   currentlyReading,
-}: AboutProps): ReactElement {
+}: Readonly<AboutProps>): ReactElement {
   useAnalytics("sobre-mi");
   const [newNowPlaying, setNewNowPlaying] = useState(
     nowPlaying?.listening ? nowPlaying : recentlyPlayed
@@ -119,11 +120,15 @@ export default function About({
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const nowPlayingProm: Promise<Response> = fetch(NOW_PLAYING_ENDPOINT);
-  const topTracksProm: Promise<Response> = fetch(TOP_TRACKS_ENDPOINT);
-  const recentlyPlayedProm: Promise<Response> = fetch(RECENTLY_PLAYED_ENDPOINT);
-  const chessProm: Promise<Response> = fetch(CHESS_ENDPOINT);
-  const currentlyReadingProm: Promise<Response> = fetch(
+  const nowPlayingProm: Promise<Response> =
+    fetchWithTimeout(NOW_PLAYING_ENDPOINT);
+  const topTracksProm: Promise<Response> =
+    fetchWithTimeout(TOP_TRACKS_ENDPOINT);
+  const recentlyPlayedProm: Promise<Response> = fetchWithTimeout(
+    RECENTLY_PLAYED_ENDPOINT
+  );
+  const chessProm: Promise<Response> = fetchWithTimeout(CHESS_ENDPOINT);
+  const currentlyReadingProm: Promise<Response> = fetchWithTimeout(
     CURRENTLY_READING_ENDPOINT
   );
   const tvShowsPromise = getTVShows();
