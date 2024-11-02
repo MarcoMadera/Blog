@@ -12,8 +12,7 @@ jobs:
       - name: Checkout target repository with submodules
         uses: actions/checkout@v4
         with:
-          submodules: true
-          fetch-depth: 0
+          submodules: false
 
       - name: Update Shared Actions
         id: update_shared_actions
@@ -22,7 +21,6 @@ jobs:
           git config --global user.name "${{ secrets.GIT_USER_NAME }}"
           BRANCH_NAME="temp-update-$(date +%Y%m%d%H%M%S)"
           git checkout -b $BRANCH_NAME
-          git submodule update --init --recursive
           git submodule update --remote
           if [ -n "$(git status --porcelain)" ]; then
             git add .github/actions/shared-actions
