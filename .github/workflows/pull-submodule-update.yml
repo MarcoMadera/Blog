@@ -43,7 +43,6 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          base: master
           committer: ${{secrets.GIT_USER_NAME}} <${{secrets.GIT_USER_EMAIL}}>
           branch: ${{ env.BRANCH_NAME }}
           title: "Update shared actions submodule"
