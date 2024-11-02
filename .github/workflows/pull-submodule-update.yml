@@ -23,7 +23,7 @@ jobs:
           BRANCH_NAME="temp-update-$(date +%Y%m%d%H%M%S)"
           git checkout -b $BRANCH_NAME
           git submodule update --init --recursive
-          git submodule update --remote --checkout
+          git submodule update --remote
           if [ -n "$(git status --porcelain)" ]; then
             git add .github/actions/shared-actions
             git commit -m "Update to latest shared actions submodule"
