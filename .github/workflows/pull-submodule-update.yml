@@ -25,7 +25,6 @@ jobs:
 
       - name: Create Pull Request
         id: create_pr
-        if: steps.update_shared_actions.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.BOT_TOKEN }}
