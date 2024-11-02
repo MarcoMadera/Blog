@@ -24,13 +24,16 @@ jobs:
           git checkout -b $BRANCH_NAME
           git submodule update --init --recursive
           git submodule update --remote --checkout
-          git add .github/actions/shared-actions
-          git commit -m "Update to latest shared actions submodule" || echo "No changes to commit"
           if [ -n "$(git status --porcelain)" ]; then
+            git add .github/actions/shared-actions
+            git commit -m "Update to latest shared actions submodule"
             echo "changed=true" >> $GITHUB_ENV
+            echo "::set-output name=changed::true"
+            echo "changed=true" >> $GITHUB_OUTPUT
             echo "::set-output name=changed::true"
           else
             echo "changed=false" >> $GITHUB_ENV
+            echo "changed=false" >> $GITHUB_OUTPUT
             echo "::set-output name=changed::false"
           fi
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
