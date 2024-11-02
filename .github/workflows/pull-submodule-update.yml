@@ -14,15 +14,10 @@ jobs:
         with:
           submodules: true
 
-      - name: Clean Git Environment
-        run: |
-          git config --global --unset core.sparseCheckout || true
-          git submodule deinit -f .
-          git submodule update --init --recursive
-
       - name: Update Shared Actions
         run: |
-          GIT_TRACE=1 git submodule update --remote --merge --allow-unrelated-histories
+          git submodule update --init --recursive
+          git submodule update --remote --checkout
           git add .github/actions/shared-actions
           git commit -m "Update to latest shared actions submodule" || echo "No changes to commit"
 
