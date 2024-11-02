@@ -7,6 +7,8 @@ on:
 jobs:
   pull_update:
     runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: "temp-update-$(date +%Y%m%d%H%M%S)"
 
     steps:
       - name: Checkout target repository with submodules
@@ -20,17 +22,17 @@ jobs:
         run: |
           git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config --global user.name "${{ secrets.GIT_USER_NAME }}"
-          BRANCH_NAME="temp-update-$(date +%Y%m%d%H%M%S)"
           git checkout -b $BRANCH_NAME
           git submodule update --init --recursive
           git submodule update --remote --checkout
           git add .github/actions/shared-actions
           git commit -m "Update to latest shared actions submodule" || echo "No changes to commit"
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           if [ -n "$(git status --porcelain)" ]; then
             echo "changed=true" >> $GITHUB_ENV
+            echo "::set-output name=changed::true"
           else
             echo "changed=false" >> $GITHUB_ENV
+            echo "::set-output name=changed::false"
           fi
 
       - name: Create Pull Request
