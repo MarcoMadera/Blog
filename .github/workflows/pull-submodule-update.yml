@@ -12,7 +12,7 @@ jobs:
       - name: Checkout target repository with submodules
         uses: actions/checkout@v4
         with:
-          submodules: false
+          submodules: true
 
       - name: Update Shared Actions
         id: update_shared_actions
@@ -20,21 +20,7 @@ jobs:
           git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config --global user.name "${{ secrets.GIT_USER_NAME }}"
           BRANCH_NAME="temp-update-$(date +%Y%m%d%H%M%S)"
-          git checkout -b $BRANCH_NAME
           git submodule update --remote
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .github/actions/shared-actions
-            git commit -m "Update to latest shared actions submodule"
-            echo "changed=true" >> $GITHUB_ENV
-            echo "::set-output name=changed::true"
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "::set-output name=changed::true"
-            git push origin $BRANCH_NAME
-          else
-            echo "changed=false" >> $GITHUB_ENV
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "::set-output name=changed::false"
-          fi
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Create Pull Request
@@ -46,4 +32,10 @@ jobs:
           committer: ${{secrets.GIT_USER_NAME}} <${{secrets.GIT_USER_EMAIL}}>
           branch: ${{ env.BRANCH_NAME }}
           title: "Update shared actions submodule"
+          commit-message: Update to latest shared actions submodule
+          author: ${{secrets.GIT_USER_NAME}} <${{secrets.GIT_USER_EMAIL}}>
+          labels: |
+            update-modules
           body: "This PR updates the shared actions submodule to the latest commit."
+          delete-branch: true
+          draft: false
