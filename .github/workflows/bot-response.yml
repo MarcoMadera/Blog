@@ -1,0 +1,11 @@
+name: Trigger Bot Response
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  respond_to_bot:
+    uses: MarcoMadera/shared-actions/.github/workflows/bot-response.yml@main
+    secrets:
+      token: ${{secrets.BOT_TOKEN}}
