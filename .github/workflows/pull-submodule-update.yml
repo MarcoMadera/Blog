@@ -9,3 +9,5 @@ jobs:
     uses: MarcoMadera/shared-actions/.github/workflows/update-submodule.yml@main
     secrets:
       token: "${{secrets.BOT_TOKEN}}"
+      GIT_USER_EMAIL: "${{secrets.GIT_USER_EMAIL}}"
+      GIT_USER_NAME: "${{secrets.GIT_USER_NAME}}"
