@@ -31,7 +31,7 @@
     "firebase": "10.14.1",
     "firebase-admin": "12.7.0",
     "gray-matter": "4.0.3",
-    "nanoid": "5.0.7",
+    "nanoid": "5.0.9",
     "next": "14.2.18",
     "nprogress": "0.2.0",
     "plaiceholder": "3.0.0",
