@@ -38,7 +38,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-lite-youtube-embed": "2.4.0",
-    "react-markdown": "9.0.1",
+    "react-markdown": "9.0.3",
     "react-slugify": "4.0.1",
     "react-string-replace": "1.1.1",
     "reading-time": "1.5.0",
