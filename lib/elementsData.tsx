@@ -6,7 +6,6 @@ import type {
   Element,
   ElementsData,
   Elements,
-  FullImg,
   ElementId,
   ImgData,
 } from "types/posts";
