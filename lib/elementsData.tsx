@@ -6,7 +6,6 @@ import type {
   Element,
   ElementsData,
   Elements,
-  FullImg,
   ElementId,
   ImgData,
 } from "types/posts";
@@ -100,23 +99,29 @@ export default async function getElementsData(
 
   const imagesData = await Promise.all(
     elements.image.map(async ({ normal, full, type, id }) => {
-      const fullImg: FullImg = {
-        darkImage: null,
-        lightImage: null,
+      const getImgOrNull = (
+        src?: string
+      ): Promise<Omit<ImgData, "fullImg"> | null> => {
+        return src ? getImagePlaceHolder(src) : Promise.resolve(null);
       };
-      const { base64, img } = await getImagePlaceHolder(normal);
 
-      if (full?.darkImage) {
-        fullImg.darkImage = await getImagePlaceHolder(full.darkImage);
-      }
-
-      if (full?.lightImage) {
-        fullImg.lightImage = await getImagePlaceHolder(full.lightImage);
-      }
+      const [normalPlaceholder, darkPlaceholder, lightPlaceholder] =
+        await Promise.all([
+          getImagePlaceHolder(normal),
+          getImgOrNull(full?.darkImage),
+          getImgOrNull(full?.lightImage),
+        ]);
 
       return {
         id: `${type}:${id}` as ElementId,
-        data: { base64, img, fullImg },
+        data: {
+          base64: normalPlaceholder.base64,
+          img: normalPlaceholder.img,
+          fullImg: {
+            darkImage: darkPlaceholder,
+            lightImage: lightPlaceholder,
+          },
+        },
       };
     })
   );
