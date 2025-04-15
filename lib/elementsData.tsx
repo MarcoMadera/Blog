@@ -19,14 +19,14 @@ import { getNodeText } from "utils/getNodeText";
 import { NotificationContextProvider } from "context/NotificationContext";
 
 export async function getImagePlaceHolder(
-  src: string
+  src: string,
 ): Promise<Omit<ImgData, "fullImg">> {
   const isDev = process.env.NODE_ENV === "development";
 
   let buffer = null;
   if (!isDev) {
     buffer = await fetch(src).then(async (res) =>
-      Buffer.from(await res.arrayBuffer())
+      Buffer.from(await res.arrayBuffer()),
     );
   }
 
@@ -53,7 +53,7 @@ export async function getImagePlaceHolder(
 
 export default async function getElementsData(
   content: string,
-  type: MarkdownType
+  type: MarkdownType,
 ): Promise<ElementsData> {
   const elements: Elements = {
     tweet: [],
@@ -78,7 +78,7 @@ export default async function getElementsData(
           </DataMapContextProvider>
         </NotificationContextProvider>
       </ToolTipContextProvider>
-    </DarkModeContextProvider>
+    </DarkModeContextProvider>,
   );
 
   const tweetsData = await Promise.all(
@@ -88,37 +88,43 @@ export default async function getElementsData(
         hideConversation,
       });
       return { id: `${type}:${id}` as ElementId, data };
-    })
+    }),
   );
 
   const spacesData = await Promise.all(
     elements.space.map(async ({ id, type }) => {
       const data = await getSpaceData(id);
       return { id: `${type}:${id}` as ElementId, data };
-    })
+    }),
   );
 
   const imagesData = await Promise.all(
     elements.image.map(async ({ normal, full, type, id }) => {
-      const fullImg: FullImg = {
-        darkImage: null,
-        lightImage: null,
+      const getImgOrNull = (
+        src?: string,
+      ): Promise<Omit<ImgData, "fullImg"> | null> => {
+        return src ? getImagePlaceHolder(src) : Promise.resolve(null);
       };
-      const { base64, img } = await getImagePlaceHolder(normal);
 
-      if (full?.darkImage) {
-        fullImg.darkImage = await getImagePlaceHolder(full.darkImage);
-      }
-
-      if (full?.lightImage) {
-        fullImg.lightImage = await getImagePlaceHolder(full.lightImage);
-      }
+      const [normalPlaceholder, darkPlaceholder, lightPlaceholder] =
+        await Promise.all([
+          getImagePlaceHolder(normal),
+          getImgOrNull(full?.darkImage),
+          getImgOrNull(full?.lightImage),
+        ]);
 
       return {
         id: `${type}:${id}` as ElementId,
-        data: { base64, img, fullImg },
+        data: {
+          base64: normalPlaceholder.base64,
+          img: normalPlaceholder.img,
+          fullImg: {
+            darkImage: darkPlaceholder,
+            lightImage: lightPlaceholder,
+          },
+        },
       };
-    })
+    }),
   );
 
   const codeBlocksData = await Promise.all(
@@ -128,7 +134,7 @@ export default async function getElementsData(
       const data = { result };
 
       return { id: `${type}:${id}` as ElementId, data };
-    })
+    }),
   );
 
   const headingsData = elements.heading.map(({ id, type, level, text }) => {
