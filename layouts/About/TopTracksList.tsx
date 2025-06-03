@@ -11,7 +11,7 @@ export default function TopTracksList({
 }: TopTracksListProps): ReactElement | null {
   return topTracks.length > 0 ? (
     <>
-      <h2>Mi top 10 de canciones</h2>
+      <h2>Mi top {topTracks.length} de canciones</h2>
       {topTracks.map(
         ({ title, artist, songUrl, cover, uri, preview, explicit }) => (
           <MusicCard
