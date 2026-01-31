@@ -29,10 +29,10 @@
   "dependencies": {
     "@mapbox/rehype-prism": "0.9.0",
     "firebase": "11.10.0",
-    "firebase-admin": "12.7.0",
+    "firebase-admin": "13.0.0",
     "gray-matter": "4.0.3",
     "nanoid": "5.1.5",
-    "next": "14.2.35",
+    "next": "15.5.10",
     "nprogress": "0.2.0",
     "plaiceholder": "3.0.0",
     "react": "18.3.1",
